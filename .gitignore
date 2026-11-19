@@ -42,8 +42,10 @@ oauth_token*.json
 build/
 .vercel/
 
-# Customer & Student Privacy (Leads Ledger)
-data/
+# Customer & Student Privacy (Leads Ledger at root only)
+/data/
+/data/*
+
 
 # Cache, Build & Internal Frameworks
 .react-router/
