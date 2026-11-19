@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 
 // ── 8 OFFICIAL RTECHLAB SUBJECTS (2027 INDUSTRIAL EDITION) ─────────────────
@@ -231,6 +231,74 @@ const COMBOS = [
   },
 ];
 
+// ── REAL PREVIEW ASSETS & LABELS (AUTHENTIC DIGITAL BOOK) ────────────────────
+const PREVIEW_ASSETS = {
+  fundamentals: {
+    en: [
+      '/previews/fundamentals/en-page-1.png',
+      '/previews/fundamentals/en-page-2.png',
+      '/previews/fundamentals/en-page-3.png',
+      '/previews/fundamentals/en-page-4.png',
+      '/previews/fundamentals/en-page-5.png',
+    ],
+    hi: [
+      '/previews/fundamentals/hi-page-1.png',
+      '/previews/fundamentals/hi-page-2.png',
+      '/previews/fundamentals/hi-page-3.png',
+      '/previews/fundamentals/hi-page-4.png',
+      '/previews/fundamentals/hi-page-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official Master Book Cover',
+      'Page 2: Ch 01 — Computer Systems & The IPO Cycle',
+      'Page 3: Computer Generations (1st to 5th Matrix)',
+      'Page 4: Modern Input Peripherals & Sensor Tech',
+      'Page 5: Display Technology (OLED vs IPS) & Ports',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक मास्टर बुक कवर',
+      'पेज 2: अध्याय 1 — कम्प्यूटर सिस्टम और IPO साइकिल',
+      'पेज 3: 5 कम्प्यूटर पीढ़ियाँ और हार्डवेयर कंपैरिजन',
+      'पेज 4: इनपुट डिवाइसेस, सेंसर्स और पोर्ट्स',
+      'पेज 5: डिस्प्ले टेक्नोलॉजी और डायग्नोस्टिक पोर्ट्स',
+    ],
+  },
+  hardware: {
+    en: [
+      '/previews/hardware/en-page-1.png',
+      '/previews/hardware/en-page-2.png',
+      '/previews/hardware/en-page-3.png',
+      '/previews/hardware/en-page-4.png',
+      '/previews/hardware/en-page-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official Hardware Cover',
+      'Page 2: CPU Sockets (LGA vs PGA) & Gold Pins',
+      'Page 3: Motherboard VRM Phases & Power Throttling',
+      'Page 4: High-Speed RAM Bus (DDR4 vs DDR5)',
+      'Page 5: Storage Architecture: NVMe PCIe 5.0 vs SATA',
+    ],
+  },
+};
+
+const getPreviewImage = (subjectId, lang, page) => {
+  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.fundamentals;
+  if (lang === 'hi' && asset.hi) {
+    return asset.hi[page - 1] || asset.hi[0];
+  }
+  const enPages = asset.en || PREVIEW_ASSETS.fundamentals.en;
+  return enPages[page - 1] || enPages[0];
+};
+
+const getPageLabel = (subjectId, lang, page) => {
+  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.fundamentals;
+  if (lang === 'hi' && asset.labelsHi) {
+    return asset.labelsHi[page - 1] || `पेज ${page} of 5`;
+  }
+  const labels = asset.labelsEn || PREVIEW_ASSETS.fundamentals.labelsEn;
+  return labels[page - 1] || `Page ${page} of 5`;
+};
+
 export default function NotesPage() {
   // View mode: 'catalog' (clean list of topic boxes) or 'preview' (subject detail + 5p preview + payment comparison)
   const [viewMode, setViewMode] = useState('catalog');
@@ -240,6 +308,10 @@ export default function NotesPage() {
   const [selectedSubject, setSelectedSubject] = useState(SUBJECTS[0]);
   // State for preview reader page (1 to 5)
   const [previewPage, setPreviewPage] = useState(1);
+  // State for real digital book preview modal pop-up
+  const [isReaderModalOpen, setIsReaderModalOpen] = useState(false);
+  // Language for preview reader: 'hi' | 'en'
+  const [previewLang, setPreviewLang] = useState('hi');
   // State for modals
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -314,17 +386,24 @@ export default function NotesPage() {
   // Tab inside package explorer modal
   const [upsellTab, setUpsellTab] = useState('interview');
 
-  // ESC key listener for modals
+  // ESC & Arrow key listener for modals & reader
   React.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setIsUpsellOpen(false);
         setIsCheckoutOpen(false);
+        setIsReaderModalOpen(false);
+      } else if (isReaderModalOpen) {
+        if (e.key === 'ArrowLeft') {
+          setPreviewPage((p) => Math.max(1, p - 1));
+        } else if (e.key === 'ArrowRight') {
+          setPreviewPage((p) => Math.min(5, p + 1));
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isReaderModalOpen]);
 
   // Filtered subject list
   const filteredSubjects = activeCategory === 'all'
@@ -338,8 +417,17 @@ export default function NotesPage() {
   const handleOpenSubjectPreview = (sub) => {
     setSelectedSubject(sub);
     setPreviewPage(1);
+    setPreviewLang(sub.previewPdfHi ? 'hi' : 'en');
     setViewMode('preview');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Open real digital book pop-up modal
+  const handleOpenPreviewModal = (sub) => {
+    setSelectedSubject(sub);
+    setPreviewPage(1);
+    setPreviewLang(sub.previewPdfHi ? 'hi' : 'en');
+    setIsReaderModalOpen(true);
   };
 
   // Back to catalog view
@@ -596,7 +684,13 @@ export default function NotesPage() {
                       </div>
                       <div className="text-[10px] font-mono text-emerald-400/90 pt-1 font-semibold flex items-center justify-between">
                         <span>+ {sub.topics.length - 3} more modules inside</span>
-                        <span>Click preview →</span>
+                        <button
+                          type="button"
+                          onClick={() => handleOpenPreviewModal(sub)}
+                          className="hover:underline text-emerald-400 font-bold"
+                        >
+                          Click preview →
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -617,13 +711,15 @@ export default function NotesPage() {
                     {/* Two Action Buttons: Preview 5 Pages vs Buy for ₹49 */}
                     <div className="grid grid-cols-2 gap-2">
                       <button
-                        onClick={() => handleOpenSubjectPreview(sub)}
-                        className="py-2.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-xs font-bold text-white transition-all text-center border border-white/10 active:scale-95 flex items-center justify-center gap-1"
+                        type="button"
+                        onClick={() => handleOpenPreviewModal(sub)}
+                        className="py-2.5 rounded-xl bg-white/[0.08] hover:bg-emerald-500 hover:text-black text-xs font-bold text-white transition-all text-center border border-white/10 active:scale-95 flex items-center justify-center gap-1 shadow-sm"
                       >
                         <span>Preview 5p</span>
                         <span>→</span>
                       </button>
                       <button
+                        type="button"
                         onClick={() => handleSingleClick(sub)}
                         className="py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-black transition-all text-center shadow-lg shadow-emerald-500/20 active:scale-95"
                       >
@@ -632,7 +728,8 @@ export default function NotesPage() {
                     </div>
 
                     <button
-                      onClick={() => handleOpenSubjectPreview(sub)}
+                      type="button"
+                      onClick={() => handleOpenPreviewModal(sub)}
                       className="w-full text-center text-[11px] text-[#86868B] hover:text-emerald-400 transition-colors pt-0.5 block truncate"
                     >
                       Compare ₹49 vs ₹149 &amp; Read 5-Page Preview →
@@ -790,375 +887,165 @@ export default function NotesPage() {
               </div>
             </div>
 
-            {/* ── 5-PAGE LIVE PREVIEW FLIPBOOK ────────────────────────────── */}
+            {/* ── REAL 5-PAGE DIGITAL BOOK SLIDER (AUTHENTIC HIGH-RES PAGES) ── */}
             <div className="rounded-2xl sm:rounded-3xl bg-[#0D0D0F] border border-white/[0.1] shadow-2xl overflow-hidden">
-              {/* Top Bar of the Reader */}
+              {/* Top Bar of the Reader with Bilingual Language Switcher */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-4 sm:px-6 py-3.5 sm:py-4 bg-[#141417] border-b border-white/[0.08]">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    5-PAGE LIVE SAMPLE
+                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+                    📖 REAL 5-PAGE DIGITAL BOOK PREVIEW
                   </span>
                   <span className="text-xs text-[#86868B] font-mono">
-                    Sample Reader (Page {previewPage} of 5)
+                    Page {previewPage} of 5
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end overflow-x-auto pb-1 sm:pb-0">
-                  <a
-                    href={selectedSubject.previewPdfEn || "/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf"}
-                    download
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black text-[11px] sm:text-xs font-bold transition-all shadow-md shadow-emerald-500/20 shrink-0"
+                {/* Bilingual Edition Switcher: Hindi & English Tabs */}
+                <div className="flex items-center gap-1.5 bg-black/70 p-1 rounded-xl border border-white/10 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setPreviewLang('hi')}
+                    disabled={!selectedSubject.previewPdfHi}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                      previewLang === 'hi'
+                        ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-black shadow-md shadow-emerald-500/20'
+                        : selectedSubject.previewPdfHi
+                        ? 'text-[#86868B] hover:text-white'
+                        : 'text-white/20 cursor-not-allowed'
+                    }`}
                   >
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span>Download 5-Page Sample (EN)</span>
-                  </a>
+                    <span>🇮🇳 हिंदी संस्करण (5 पेज)</span>
+                    {!selectedSubject.previewPdfHi && (
+                      <span className="text-[9px] font-normal text-white/30">(जल्द)</span>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPreviewLang('en')}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
+                      previewLang === 'en'
+                        ? 'bg-white text-black shadow'
+                        : 'text-[#86868B] hover:text-white'
+                    }`}
+                  >
+                    <span>🇬🇧 English Edition (5 Pages)</span>
+                  </button>
+                </div>
+              </div>
 
-                  {selectedSubject.previewPdfHi && (
+              {/* Main Book Slider Stage with Left/Right Arrows */}
+              <div className="relative bg-[#09090B] p-4 sm:p-8 flex flex-col items-center justify-center min-h-[500px] sm:min-h-[620px] select-none">
+                {/* Previous Page Arrow Button */}
+                <button
+                  type="button"
+                  onClick={() => setPreviewPage((p) => Math.max(1, p - 1))}
+                  disabled={previewPage === 1}
+                  aria-label="Previous Page"
+                  className={`absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                    previewPage === 1
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                  }`}
+                >
+                  ‹
+                </button>
+
+                {/* Authentic High-Resolution Rendered Book Page */}
+                <div className="relative group max-w-full flex flex-col items-center">
+                  <div className="relative rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.9)] border border-white/10 bg-black">
+                    <img
+                      src={getPreviewImage(selectedSubject.id, previewLang, previewPage)}
+                      alt={getPageLabel(selectedSubject.id, previewLang, previewPage)}
+                      className="max-h-[60vh] sm:max-h-[68vh] w-auto max-w-full object-contain block transition-transform duration-200"
+                      loading="eager"
+                    />
+                    {/* Book spine shadow */}
+                    <div className="absolute left-0 top-0 bottom-0 w-2.5 bg-gradient-to-r from-black/50 via-white/5 to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Chapter / Topic Label */}
+                  <div className="mt-3 text-center">
+                    <span className="text-xs sm:text-sm font-mono font-semibold text-emerald-400">
+                      {getPageLabel(selectedSubject.id, previewLang, previewPage)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Next Page Arrow Button */}
+                <button
+                  type="button"
+                  onClick={() => setPreviewPage((p) => Math.min(5, p + 1))}
+                  disabled={previewPage === 5}
+                  aria-label="Next Page"
+                  className={`absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                    previewPage === 5
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                  }`}
+                >
+                  ›
+                </button>
+              </div>
+
+              {/* Bottom Controls: Page Numbers, Download Sample & Buy Plan */}
+              <div className="p-3 sm:p-4 bg-[#141417] border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3">
+                {/* 1 to 5 Page Selector Pills */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">Pages:</span>
+                  {[1, 2, 3, 4, 5].map((p) => (
+                    <button
+                      key={p}
+                      type="button"
+                      onClick={() => setPreviewPage(p)}
+                      className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all ${
+                        previewPage === p
+                          ? 'bg-emerald-500 text-black shadow-md shadow-emerald-500/30 scale-105'
+                          : 'bg-white/10 text-[#86868B] hover:text-white hover:bg-white/20'
+                      }`}
+                    >
+                      Page {p}
+                    </button>
+                  ))}
+                  <span className="text-[11px] font-mono text-white/50 ml-1">/ 5</span>
+                </div>
+
+                {/* Direct Sample Download & Link to Comparison */}
+                <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+                  {previewLang === 'hi' && selectedSubject.previewPdfHi ? (
                     <a
                       href={selectedSubject.previewPdfHi}
                       download
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500 hover:bg-cyan-400 text-black text-[11px] sm:text-xs font-bold transition-all shadow-md shadow-cyan-500/20 shrink-0"
+                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-mono font-bold transition-all"
                     >
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                       </svg>
-                      <span>डाउनलोड 5-पेज सैंपल (हिंदी)</span>
+                      <span>डाउनलोड सैंपल (5p)</span>
+                    </a>
+                  ) : (
+                    <a
+                      href={selectedSubject.previewPdfEn || "/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf"}
+                      download
+                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold transition-all"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      <span>Download Sample (5p)</span>
                     </a>
                   )}
 
-                  {/* Tabs */}
-                  <div className="flex items-center gap-1 bg-black/60 p-1 rounded-full border border-white/[0.08] shrink-0">
-                    {[
-                      { p: 1, label: 'Cover' },
-                      { p: 2, label: 'Body Analogy' },
-                      { p: 3, label: 'Chef Latency' },
-                      { p: 4, label: 'Highway RAM' },
-                      { p: 5, label: 'GPU Trap' },
-                    ].map(({ p, label }) => (
-                      <button
-                        key={p}
-                        onClick={() => setPreviewPage(p)}
-                        className={`px-2 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-semibold transition-all whitespace-nowrap ${
-                          previewPage === p
-                            ? 'bg-white text-black shadow'
-                            : 'text-[#86868B] hover:text-white'
-                        }`}
-                      >
-                        {label}
-                      </button>
-                    ))}
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const el = document.getElementById('payment-comparison');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="text-xs font-mono text-emerald-400 hover:text-emerald-300 font-bold px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20"
+                  >
+                    Compare Plans Below ↓
+                  </button>
                 </div>
-              </div>
-
-              {/* Reader Body */}
-              <div className="p-4 sm:p-10 min-h-[420px] flex flex-col justify-between">
-                {/* PAGE 1: COVER */}
-                {previewPage === 1 && (
-                  <div className="space-y-4 sm:space-y-6 animate-fadeIn text-center sm:text-left">
-                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-[11px] font-mono text-[#86868B]">
-                      <span>RTechLab • Industrial Master Notes • 2027 Edition</span>
-                      <span className="text-white/60">Page 1 of 5 Preview</span>
-                    </div>
-
-                    <div className="py-4 sm:py-6">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white text-black font-black flex items-center justify-center text-lg sm:text-xl mb-3 sm:mb-4 mx-auto sm:mx-0 shadow-lg shadow-white/10">
-                        R
-                      </div>
-                      <h2 className="text-2xl sm:text-5xl font-black text-white tracking-tight mb-2">
-                        {selectedSubject.title}
-                      </h2>
-                      <h3 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-3 sm:mb-4">
-                        The Visual Master Handbook (2027 Edition)
-                      </h3>
-                      <p className="text-xs sm:text-base text-[#A1A1A6] max-w-2xl leading-relaxed mb-4 sm:mb-6">
-                        {selectedSubject.desc} High-resolution vector diagrams, live production terminal commands, and 100+ company interview questions. Volume: {selectedSubject.pages}.
-                      </p>
-                      <div className="inline-flex flex-wrap gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-mono">
-                        <span className="px-2.5 py-1 rounded-md bg-white/[0.06] text-white border border-white/[0.1]">
-                          Author: Rahul Sir &amp; RTechLab Engineering
-                        </span>
-                        <span className="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                          From Silicon to Cloud · {selectedSubject.pages}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-[#86868B] font-mono">
-                      <span>Learn. Practice. Innovate.</span>
-                      <button
-                        onClick={() => setPreviewPage(2)}
-                        className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
-                      >
-                        <span>Next: Body Analogy</span>
-                        <span>→</span>
-                      </button>
-                    </div>
-                  </div>
-                )}
-
-                {/* PAGE 2: HUMAN BODY ANALOGY */}
-                {previewPage === 2 && (
-                  <div className="space-y-4 sm:space-y-6 animate-fadeIn">
-                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-[11px] font-mono text-[#86868B]">
-                      <span>PART 1: THE ANATOMY OF A COMPUTER</span>
-                      <span className="text-white/60">Page 2 of 5 Preview</span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-1.5 sm:mb-2">
-                        The Human Body Analogy (मानव शरीर उपमा)
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mb-4 sm:mb-6">
-                        How complex computer subsystems map directly to everyday biological functions.
-                      </p>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 mb-4 sm:mb-6">
-                        <div className="p-3.5 rounded-xl bg-black border border-white/[0.08]">
-                          <div className="text-xs font-mono text-emerald-400 font-bold mb-1">CPU (THE BRAIN)</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Processes millions of instructions per second. Governs all operations via ALU and Control Unit.
-                          </p>
-                        </div>
-                        <div className="p-3.5 rounded-xl bg-black border border-white/[0.08]">
-                          <div className="text-xs font-mono text-blue-400 font-bold mb-1">MOTHERBOARD (NERVES)</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Copper PCB traces route high-speed gigahertz signals between CPU socket, PCIe, and RAM.
-                          </p>
-                        </div>
-                        <div className="p-3.5 rounded-xl bg-black border border-white/[0.08]">
-                          <div className="text-xs font-mono text-amber-400 font-bold mb-1">RAM (SHORT-TERM MEMORY)</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Your working desk. Holds apps and data in use. Volatile; cleared instantly when power is off.
-                          </p>
-                        </div>
-                        <div className="p-3.5 rounded-xl bg-black border border-white/[0.08]">
-                          <div className="text-xs font-mono text-purple-400 font-bold mb-1">SSD (LONG-TERM MEMORY)</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Permanent diary. Non-volatile 3D NAND flash keeps OS binaries and files safe permanently.
-                          </p>
-                        </div>
-                        <div className="p-3.5 rounded-xl bg-black border border-white/[0.08]">
-                          <div className="text-xs font-mono text-red-400 font-bold mb-1">PSU (THE HEART)</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Pumps clean DC voltage (+12V, +5V, +3.3V). Ripple voltage destroys VRM capacitor filter stages.
-                          </p>
-                        </div>
-                        <div className="p-3.5 rounded-xl bg-black border border-white/[0.08]">
-                          <div className="text-xs font-mono text-cyan-400 font-bold mb-1">COOLING (SWEAT &amp; LUNGS)</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Thermal paste fills microscopic voids. Without cooling, the CPU throttles to prevent melting.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-[#86868B] font-mono">
-                        <button onClick={() => setPreviewPage(1)} className="hover:text-white flex items-center gap-1">
-                          <span>← Cover</span>
-                        </button>
-                        <button
-                          onClick={() => setPreviewPage(3)}
-                          className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
-                        >
-                          <span>Next: Chef Latency</span>
-                          <span>→</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* PAGE 3: CHEF ANALOGY */}
-                {previewPage === 3 && (
-                  <div className="space-y-4 sm:space-y-6 animate-fadeIn">
-                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-[11px] font-mono text-[#86868B]">
-                      <span>PART 2: MEMORY LATENCY HIERARCHY</span>
-                      <span className="text-white/60">Page 3 of 5 Preview</span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-1.5 sm:mb-2">
-                        The Kitchen Chef Story: Why Cache Matters
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mb-4 sm:mb-6">
-                        A CPU is like a 5-star Master Chef who can cook at lighting speed. But the chef is limited by how fast ingredients reach his hands!
-                      </p>
-
-                      <div className="space-y-2.5 sm:space-y-3 font-mono text-xs">
-                        <div className="p-3 sm:p-3.5 rounded-xl bg-black border border-emerald-500/30 flex items-center justify-between gap-3">
-                          <div>
-                            <span className="font-bold text-emerald-400">1. CPU REGISTERS &amp; L1 CACHE:</span> Chef's Hands &amp; Knife
-                            <div className="text-[#86868B] text-[11px] mt-0.5">Ingredients are already in hand. Zero waiting time.</div>
-                          </div>
-                          <div className="text-emerald-400 font-bold text-xs sm:text-sm shrink-0">~1 Nanosecond</div>
-                        </div>
-
-                        <div className="p-3 sm:p-3.5 rounded-xl bg-black border border-blue-500/30 flex items-center justify-between gap-3">
-                          <div>
-                            <span className="font-bold text-blue-400">2. L2 &amp; L3 CACHE:</span> The Kitchen Cutting Board
-                            <div className="text-[#86868B] text-[11px] mt-0.5">Chef reaches out across the table. 1-second delay.</div>
-                          </div>
-                          <div className="text-blue-400 font-bold text-xs sm:text-sm shrink-0">~3 to 12 ns</div>
-                        </div>
-
-                        <div className="p-3 sm:p-3.5 rounded-xl bg-black border border-amber-500/30 flex items-center justify-between gap-3">
-                          <div>
-                            <span className="font-bold text-amber-400">3. SYSTEM RAM (DRAM):</span> The Kitchen Refrigerator
-                            <div className="text-[#86868B] text-[11px] mt-0.5">Chef has to walk across the room to grab milk/eggs.</div>
-                          </div>
-                          <div className="text-amber-400 font-bold text-xs sm:text-sm shrink-0">~60 Nanoseconds</div>
-                        </div>
-
-                        <div className="p-3 sm:p-3.5 rounded-xl bg-black border border-red-500/30 flex items-center justify-between gap-3">
-                          <div>
-                            <span className="font-bold text-red-400">4. NVMe SSD / STORAGE:</span> The Supermarket Down the Road
-                            <div className="text-[#86868B] text-[11px] mt-0.5">Chef has to take the car to buy from store (Massive delay!).</div>
-                          </div>
-                          <div className="text-red-400 font-bold text-xs sm:text-sm shrink-0">~20,000+ ns</div>
-                        </div>
-                      </div>
-
-                      <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs text-[#D2D2D7] mt-3 sm:mt-4 mb-4 sm:mb-6">
-                        💡 <strong className="text-white">Technician Takeaway:</strong> Modern CPUs don't lag because the processor is slow — they lag when the CPU cache misses and has to wait for slow storage I/O!
-                      </div>
-
-                      <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-[#86868B] font-mono">
-                        <button onClick={() => setPreviewPage(2)} className="hover:text-white flex items-center gap-1">
-                          <span>← Body Analogy</span>
-                        </button>
-                        <button
-                          onClick={() => setPreviewPage(4)}
-                          className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
-                        >
-                          <span>Next: Dual-Channel RAM</span>
-                          <span>→</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* PAGE 4: DUAL CHANNEL HIGHWAY */}
-                {previewPage === 4 && (
-                  <div className="space-y-4 sm:space-y-6 animate-fadeIn">
-                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-[11px] font-mono text-[#86868B]">
-                      <span>PART 3: HIGH-SPEED MEMORY BUS</span>
-                      <span className="text-white/60">Page 4 of 5 Preview</span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-1.5 sm:mb-2">
-                        Dual-Channel RAM: The 2-Lane Highway Rule
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mb-4 sm:mb-6">
-                        Why installing two 8GB sticks performs up to 40% faster than a single 16GB stick!
-                      </p>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-4">
-                        <div className="p-3.5 sm:p-4 rounded-xl bg-black border border-red-500/30">
-                          <div className="font-bold text-red-400 text-sm mb-1">❌ 1 Stick (Single Channel)</div>
-                          <div className="text-xs text-[#86868B] mb-2 font-mono">64-Bit Bus Width</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Like a 1-lane narrow mountain road. All CPU read and write requests must wait in a single line, causing traffic bottlenecks.
-                          </p>
-                        </div>
-                        <div className="p-3.5 sm:p-4 rounded-xl bg-black border border-emerald-500/30">
-                          <div className="font-bold text-emerald-400 text-sm mb-1">✅ 2 Sticks (Dual Channel)</div>
-                          <div className="text-xs text-[#86868B] mb-2 font-mono">128-Bit Bus Width</div>
-                          <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                            Like a 2-lane express highway. Data is interleaved across both memory controllers simultaneously, doubling transfer throughput.
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="p-3 sm:p-4 rounded-xl bg-black border border-white/[0.08] text-xs mb-4 sm:mb-6">
-                        <div className="font-bold text-white mb-1 font-mono">
-                          ⚡ THE DAISY-CHAIN RULE: Populate Slots A2 and B2 First (Slots 2 &amp; 4)
-                        </div>
-                        <p className="text-[#86868B] leading-relaxed">
-                          Motherboards use daisy-chain copper trace lines. Populating the physical ends (Slots 2 and 4 from the CPU) eliminates electrical signal stub reflection, ensuring maximum stability at high MT/s speeds.
-                        </p>
-                      </div>
-
-                      <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-[#86868B] font-mono">
-                        <button onClick={() => setPreviewPage(3)} className="hover:text-white flex items-center gap-1">
-                          <span>← Chef Latency</span>
-                        </button>
-                        <button
-                          onClick={() => setPreviewPage(5)}
-                          className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
-                        >
-                          <span>Next: GPU Trap &amp; Flowchart</span>
-                          <span>→</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* PAGE 5: GPU TRAP & FLOWCHART */}
-                {previewPage === 5 && (
-                  <div className="space-y-4 sm:space-y-6 animate-fadeIn">
-                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-[11px] font-mono text-[#86868B]">
-                      <span>PART 4: TROUBLESHOOTING &amp; COMMON TRAPS</span>
-                      <span className="text-white/60">Page 5 of 5 Preview</span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-1.5 sm:mb-2">
-                        The #1 Desktop Support Mistake &amp; Decision Tree
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mb-3 sm:mb-4">
-                        The classic blunder that wastes 2 hours of beginner troubleshooting time:
-                      </p>
-
-                      <div className="p-3.5 sm:p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 mb-4 sm:mb-6">
-                        <div className="flex items-center gap-2 text-amber-400 font-bold text-xs sm:text-sm mb-1">
-                          ⚠️ THE GPU HDMI CABLE TRAP
-                        </div>
-                        <p className="text-xs text-[#D2D2D7] leading-relaxed">
-                          User complains: <em>"My brand new PC turns on but the screen is pitch black!"</em><br />
-                          <strong>Root Cause:</strong> The HDMI cable was plugged into the vertical Motherboard port (where the iGPU is disabled by the discrete graphics card) instead of the horizontal Dedicated GPU ports below!
-                        </p>
-                      </div>
-
-                      {/* Flowchart Boxes */}
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs text-center">
-                        <div className="p-2.5 sm:p-3 rounded-lg bg-black border border-white/[0.1]">
-                          <div className="text-red-400 font-bold mb-0.5">1. NO POWER</div>
-                          <div className="text-[10px] text-[#86868B]">Check wall socket &amp; PSU paperclip</div>
-                        </div>
-                        <div className="p-2.5 sm:p-3 rounded-lg bg-black border border-white/[0.1]">
-                          <div className="text-amber-400 font-bold mb-0.5">2. NO POST</div>
-                          <div className="text-[10px] text-[#86868B]">Debug LED: Red=CPU, Amber=RAM</div>
-                        </div>
-                        <div className="p-2.5 sm:p-3 rounded-lg bg-black border border-white/[0.1]">
-                          <div className="text-blue-400 font-bold mb-0.5">3. NO DISPLAY</div>
-                          <div className="text-[10px] text-[#86868B]">Caps Lock toggles? Check GPU HDMI</div>
-                        </div>
-                        <div className="p-2.5 sm:p-3 rounded-lg bg-black border border-white/[0.1]">
-                          <div className="text-emerald-400 font-bold mb-0.5">4. NO BOOT</div>
-                          <div className="text-[10px] text-[#86868B]">Check UEFI vs CSM &amp; rebuild BCD</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-[#86868B] font-mono">
-                      <span>End of Free Preview (5/5)</span>
-                      <button
-                        onClick={() => {
-                          const el = document.getElementById('payment-comparison');
-                          if (el) el.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                        className="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1"
-                      >
-                        <span>See Pricing &amp; Comparison Below ↓</span>
-                      </button>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
 
@@ -1339,6 +1226,209 @@ export default function NotesPage() {
               </button>
             </div>
 
+          </div>
+        )}
+
+        {/* ── 5-PAGE LIVE PREVIEW REAL DIGITAL BOOK POP-UP MODAL ─────────────── */}
+        {isReaderModalOpen && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Real Digital Book 5-Page Preview Modal"
+            className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-md animate-fadeIn"
+            onClick={() => setIsReaderModalOpen(false)}
+          >
+            <div
+              className="relative w-full max-w-4xl max-h-[96vh] rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/20 shadow-2xl flex flex-col overflow-hidden my-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Top Header of the Modal */}
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#141418] border-b border-white/10 shrink-0">
+                <div className="flex items-center gap-2.5 truncate">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">
+                    📖
+                  </div>
+                  <div className="truncate">
+                    <h3 className="text-sm sm:text-base font-bold text-white truncate flex items-center gap-2">
+                      <span>{selectedSubject.title}</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30">
+                        Edition 1
+                      </span>
+                    </h3>
+                    <p className="text-[10px] sm:text-xs font-mono text-[#86868B] truncate">
+                      {selectedSubject.pages} · 5-Page Live Authentic Book Sample
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setIsReaderModalOpen(false)}
+                  aria-label="Close Sample Preview"
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-[#D2D2D7] hover:text-white flex items-center justify-center text-base font-bold transition-all shrink-0 ml-2 border border-white/10"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* 1. LANGUAGE SELECTION (First Option as requested by user) */}
+              <div className="px-4 sm:px-6 py-3 bg-[#18181E] border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 shrink-0">
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono text-[#86868B]">1. भाषा चुनें / Choose Edition:</span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">
+                    {previewLang === 'hi' ? 'हिंदी संस्करण सक्रिय' : 'English Edition Active'}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setPreviewLang('hi')}
+                    disabled={!selectedSubject.previewPdfHi}
+                    className={`flex-1 sm:flex-none px-4 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
+                      previewLang === 'hi'
+                        ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-black shadow-lg shadow-emerald-500/25 ring-2 ring-emerald-400/50'
+                        : selectedSubject.previewPdfHi
+                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10'
+                        : 'bg-white/[0.02] text-white/30 border border-white/5 cursor-not-allowed'
+                    }`}
+                  >
+                    <span>🇮🇳 हिंदी संस्करण (5 पेज)</span>
+                    {!selectedSubject.previewPdfHi && (
+                      <span className="text-[9px] font-normal text-white/30">(जल्द)</span>
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setPreviewLang('en')}
+                    className={`flex-1 sm:flex-none px-4 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
+                      previewLang === 'en'
+                        ? 'bg-white text-black shadow-lg shadow-white/25 ring-2 ring-white/50'
+                        : 'bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10'
+                    }`}
+                  >
+                    <span>🇬🇧 English Edition (5 Pages)</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 2. REAL DIGITAL BOOK SLIDER STAGE (Sliding page view like a real book) */}
+              <div className="relative bg-[#070709] p-3 sm:p-6 flex flex-col items-center justify-center flex-1 overflow-hidden select-none min-h-[380px] sm:min-h-[500px]">
+                {/* Previous Page Arrow */}
+                <button
+                  type="button"
+                  onClick={() => setPreviewPage((p) => Math.max(1, p - 1))}
+                  disabled={previewPage === 1}
+                  aria-label="Previous Page"
+                  className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                    previewPage === 1
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                  }`}
+                >
+                  ‹
+                </button>
+
+                {/* High-Resolution Rendered Book Page Image */}
+                <div className="relative group max-w-full flex flex-col items-center justify-center">
+                  <div className="relative rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.95)] border border-white/15 bg-black">
+                    <img
+                      src={getPreviewImage(selectedSubject.id, previewLang, previewPage)}
+                      alt={getPageLabel(selectedSubject.id, previewLang, previewPage)}
+                      className="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain block transition-transform duration-200"
+                      loading="eager"
+                    />
+                    {/* Left book spine visual line */}
+                    <div className="absolute left-0 top-0 bottom-0 w-2.5 bg-gradient-to-r from-black/60 via-white/5 to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Dynamic Page Chapter Label */}
+                  <div className="mt-2 text-center">
+                    <span className="text-xs sm:text-sm font-mono font-semibold text-emerald-400">
+                      {getPageLabel(selectedSubject.id, previewLang, previewPage)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Next Page Arrow */}
+                <button
+                  type="button"
+                  onClick={() => setPreviewPage((p) => Math.min(5, p + 1))}
+                  disabled={previewPage === 5}
+                  aria-label="Next Page"
+                  className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                    previewPage === 5
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                  }`}
+                >
+                  ›
+                </button>
+              </div>
+
+              {/* 3. MODAL FOOTER: Page Indicators, Download Sample PDF, and Direct Purchase */}
+              <div className="p-3 sm:p-4 bg-[#141418] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+                {/* Page 1 to 5 Slide Pills */}
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">Slide:</span>
+                  {[1, 2, 3, 4, 5].map((p) => (
+                    <button
+                      key={p}
+                      type="button"
+                      onClick={() => setPreviewPage(p)}
+                      className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all ${
+                        previewPage === p
+                          ? 'bg-emerald-500 text-black shadow-md shadow-emerald-500/30 scale-105'
+                          : 'bg-white/10 text-[#86868B] hover:text-white hover:bg-white/20'
+                      }`}
+                    >
+                      Page {p}
+                    </button>
+                  ))}
+                  <span className="text-[11px] font-mono text-white/50 ml-1">/ 5</span>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+                  {previewLang === 'hi' && selectedSubject.previewPdfHi ? (
+                    <a
+                      href={selectedSubject.previewPdfHi}
+                      download
+                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-mono font-bold transition-all shrink-0"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      <span>सैंपल PDF (5p)</span>
+                    </a>
+                  ) : (
+                    <a
+                      href={selectedSubject.previewPdfEn || "/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf"}
+                      download
+                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold transition-all shrink-0"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      </svg>
+                      <span>Sample PDF (5p)</span>
+                    </a>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsReaderModalOpen(false);
+                      handleSingleClick(selectedSubject);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-90 text-black text-xs sm:text-sm font-black transition-all shadow-lg shadow-emerald-500/30 active:scale-95 shrink-0"
+                  >
+                    <span>{previewLang === 'hi' ? 'पूरी डिजिटल बुक खरीदें — ₹49' : 'Buy Complete Notes — ₹49'}</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
