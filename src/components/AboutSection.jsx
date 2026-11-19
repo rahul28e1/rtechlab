@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Globe2, ShieldCheck, Award, CheckCircle2 } from 'lucide-react';
+import { Terminal, Globe2, ShieldCheck, Award, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const AboutSection = () => {
@@ -109,6 +109,19 @@ export const AboutSection = () => {
                 <strong className="text-white">Practical Over Theoretical:</strong> If it cannot be executed in a CLI or packet trace, it does not belong in our labs.
               </p>
             </div>
+          </div>
+
+          <div className="mt-6 pt-5 border-t border-white/[0.08] flex items-center justify-between text-[12px]">
+            <span className="text-[#86868b]">Led by <strong className="text-white">Rahul Patel</strong> (IANT)</span>
+            <a
+              href="https://rahulprofile28.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-1 transition-colors"
+            >
+              <span>Rahul's Portfolio</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </div>

@@ -22,8 +22,6 @@ export default [
   route("hi/q/:code", "pages/QrHiRedirect.jsx"),
   route("tools", "pages/ToolsHubPage.jsx"),
   route("tools/:slug", "pages/ToolDetailPage.jsx"),
-  route("api/site-status", "api.site-status.js"),
-  route("api/register-student", "api.register-student.js"),
   route("system-design", "pages/SystemDesignSimulatorPage.jsx"),
   route("hi/system-design", "pages/SystemDesignHiPage.jsx"),
   route("tutorials", "pages/TutorialsHubPage.jsx"),
