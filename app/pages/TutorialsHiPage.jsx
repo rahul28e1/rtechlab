@@ -386,37 +386,79 @@ export function TutorialsHiPage() {
                     </div>
 
                     <div className="mt-5 pt-4 border-t border-white/[0.06]">
-                      {isPublished ? (
-                        <div className="flex items-center gap-2">
-                          {igUrl && (
-                            <a
-                              href={igUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:opacity-90"
-                            >
-                              <InstagramIcon className="w-3.5 h-3.5" />
-                              <span>रील देखें</span>
-                            </a>
-                          )}
-                          {ytUrl && (
-                            <a
-                              href={ytUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600/20 border border-red-500/30 px-3 py-1.5 text-[11px] font-semibold text-red-300 hover:bg-red-600/30"
-                            >
-                              <YoutubeIcon className="w-3 h-3" />
-                              <span>शॉर्ट देखें</span>
-                            </a>
-                          )}
-                        </div>
-                      ) : (
-                        <div className="flex items-center justify-between text-[11px] text-amber-400">
-                          <span>रिलिज़ डेट:</span>
-                          <span className="font-mono font-bold">{reel.scheduledDate}</span>
-                        </div>
-                      )}
+                      <div className="flex flex-col gap-2">
+                        {/* Instagram Link / Schedule Status */}
+                        {reel.platforms?.isIgPublished ? (
+                          <div className="flex items-center gap-2">
+                            {reel.platforms.instagramHi && (
+                              <a
+                                href={reel.platforms.instagramHi}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:opacity-90 transition-opacity shadow-sm"
+                              >
+                                <InstagramIcon className="w-3.5 h-3.5" />
+                                <span>रील (हिंदी)</span>
+                              </a>
+                            )}
+                            {reel.platforms.instagramEn && (
+                              <a
+                                href={reel.platforms.instagramEn}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-white/[0.1] border border-white/[0.15] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-white/[0.2] transition-colors"
+                              >
+                                <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
+                                <span>रील (EN)</span>
+                              </a>
+                            )}
+                          </div>
+                        ) : (
+                          <a
+                            href="https://www.instagram.com/rtechlabofficial/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full inline-flex items-center justify-between rounded-lg bg-pink-950/20 border border-pink-500/20 px-3 py-1.5 text-[11px] font-medium text-pink-300 hover:bg-pink-900/30 hover:border-pink-500/40 transition-colors"
+                            title="मेटा बिज़नेस सुइट में शेड्यूल्ड @rtechlabofficial"
+                          >
+                            <span className="flex items-center gap-1.5">
+                              <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
+                              <span>इंस्टाग्राम पर शेड्यूल्ड</span>
+                            </span>
+                            <span className="text-[10px] font-mono text-pink-400/90 font-semibold">
+                              {reel.scheduledDate || reel.date} · {reel.platforms?.scheduledTime || '18:30 IST'} ↗
+                            </span>
+                          </a>
+                        )}
+
+                        {/* YouTube Short Links */}
+                        {(reel.platforms?.youtubeShortHi || reel.platforms?.youtubeShortEn) && (
+                          <div className="flex items-center gap-2">
+                            {reel.platforms.youtubeShortHi && (
+                              <a
+                                href={reel.platforms.youtubeShortHi}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600/20 border border-red-500/30 px-3 py-1.5 text-[11px] font-semibold text-red-300 hover:bg-red-600/30 transition-colors"
+                              >
+                                <YoutubeIcon className="w-3 h-3" />
+                                <span>{reel.platforms.isYtPublished ? 'शॉर्ट (हिंदी)' : 'प्रीमियर (हिंदी)'}</span>
+                              </a>
+                            )}
+                            {reel.platforms.youtubeShortEn && (
+                              <a
+                                href={reel.platforms.youtubeShortEn}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-white/[0.06] border border-white/[0.1] px-3 py-1.5 text-[11px] font-semibold text-slate-300 hover:bg-white/[0.1] transition-colors"
+                              >
+                                <YoutubeIcon className="w-3 h-3 text-red-400" />
+                                <span>{reel.platforms.isYtPublished ? 'Short (EN)' : 'Premiere (EN)'}</span>
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 );

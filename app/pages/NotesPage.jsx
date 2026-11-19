@@ -10,14 +10,14 @@ const SUBJECTS = [
     title: 'Computer Fundamentals',
     subtitle: 'From Silicon & IPO Cycle to Top 50 MNC Placement Bank & 30 Viva One-Liners',
     desc: 'Complete 10-Chapter Master Guide: 1. Introduction & IPO Cycle; 2. I/O Hardware & Ports; 3. Memory & Storage Hierarchy; 4. CPU & Machine Cycle; 5. Number Systems & Logic Gates; 6. Software & OS; 7. Networks & Internet; 8. Cyber Security & Backups; 9. PC Assembly & Triage; 10. Top 50 MNC Interview Questions (TCS, Infosys, Amazon, Wipro) & 30 Viva One-Liners.',
-    pages: '45 Pages (Official V5.1.4 Final Master Edition)',
-    tag: 'Core Foundation · V5.1.4 FINAL',
+    pages: '45 Pages (Official Edition 1 Master Guide)',
+    tag: 'Core Foundation · Edition 1',
     accent: 'emerald',
-    badge: 'V5.1.4 FINAL',
-    previewPdfEn: '/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf',
-    previewPdfHi: '/downloads/Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf',
-    fullPdfEn: '/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf',
-    fullPdfHi: '/downloads/Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf',
+    badge: 'Edition 1',
+    previewPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1.pdf',
+    fullPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf',
     relatedComboId: 'combo-it-support',
     pairingReason: 'Pair with Computer Hardware for complete physical computer architecture mastery.',
     topics: [
@@ -811,14 +811,14 @@ export default function NotesPage() {
 
                 <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end overflow-x-auto pb-1 sm:pb-0">
                   <a
-                    href={selectedSubject.previewPdfEn || "/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf"}
+                    href={selectedSubject.previewPdfEn || "/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf"}
                     download
                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black text-[11px] sm:text-xs font-bold transition-all shadow-md shadow-emerald-500/20 shrink-0"
                   >
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
-                    <span>Download English (V5.1.4 FINAL)</span>
+                    <span>Download 5-Page Sample (EN)</span>
                   </a>
 
                   {selectedSubject.previewPdfHi && (
@@ -830,7 +830,7 @@ export default function NotesPage() {
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                       </svg>
-                      <span>डाउनलोड हिंदी (V5.1.4 FINAL)</span>
+                      <span>डाउनलोड 5-पेज सैंपल (हिंदी)</span>
                     </a>
                   )}
 
@@ -1403,7 +1403,7 @@ export default function NotesPage() {
                       </div>
                       <p className="text-xs text-[#86868B] leading-relaxed">
                         {selectedSubject.id === 'fundamentals'
-                          ? 'Official V5.1.4 Core Master Edition in both English & Hindi (45 pages each) with authentic macro photos, IPO cycle, and verified MCQs.'
+                          ? 'Official Edition 1 Core Master Edition in both English & Hindi (45 pages each) with authentic macro photos, IPO cycle, and verified MCQs.'
                           : `Complete ${selectedSubject.pages} Master Handbook PDF with all theory, real macro photos, analogies, and practice MCQs.`}
                       </p>
                     </div>
@@ -1528,7 +1528,7 @@ export default function NotesPage() {
                         + Includes 99 more real scenario questions asked by TCS, Wipro, Cisco TAC, and Infosys with Senior Engineer model answers.
                       </div>
                       <a
-                        href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-V5.1.4-FINAL.pdf"
+                        href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/30 transition-all"
@@ -1551,7 +1551,7 @@ export default function NotesPage() {
                         8 battle-tested production worksheets covering ATX multimeter probing, DDR5 dual-channel verification, BIOS TPM 2.0, and Linux CLI diagnostics.
                       </div>
                       <a
-                        href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-V5.1.4-FINAL.pdf"
+                        href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-Edition-1.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold border border-cyan-500/30 transition-all"
@@ -1587,7 +1587,7 @@ export default function NotesPage() {
                         </div>
                       </div>
                       <a
-                        href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-V5.1.4-FINAL.pdf"
+                        href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 mt-1 px-3 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 font-mono text-[10px] font-bold border border-amber-500/30 transition-all"
@@ -1607,7 +1607,7 @@ export default function NotesPage() {
                         Advanced Out-of-Order CPU execution, L1-L3 Cache Coherence (MESI), NUMA node topology, 5-level paging, and PCIe 6.0 PAM4 signaling.
                       </p>
                       <a
-                        href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-V5.1.4-FINAL.pdf"
+                        href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 font-mono text-[10px] font-bold border border-purple-500/30 transition-all"
@@ -1824,7 +1824,7 @@ export default function NotesPage() {
 
                         {/* 1-Click ZIP Master Download */}
                         <a
-                          href="/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-V5.1.4.zip"
+                          href="/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip"
                           download
                           className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-black font-black text-xs text-center shadow-lg shadow-emerald-500/20 block"
                         >
@@ -1838,7 +1838,7 @@ export default function NotesPage() {
                           </div>
                           {selectedLanguage === 'hi' ? (
                             <a
-                              href="/downloads/Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
                               download
                               className="w-full py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-mono text-[11px] font-bold text-center border border-cyan-400/50 block mb-1"
                             >
@@ -1846,7 +1846,7 @@ export default function NotesPage() {
                             </a>
                           ) : (
                             <a
-                              href="/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
                               download
                               className="w-full py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-[11px] font-bold text-center border border-emerald-400/50 block mb-1"
                             >
@@ -1860,7 +1860,7 @@ export default function NotesPage() {
                         </div>
                         <div className="grid grid-cols-2 gap-1.5 text-[10px] font-mono">
                           <a
-                            href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-V5.1.4-FINAL.pdf"
+                            href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf"
                             download
                             className="py-1.5 px-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center truncate block"
                             title="Enterprise & FAANG Deep Dive (7 Pages)"
@@ -1868,7 +1868,7 @@ export default function NotesPage() {
                             ⚡ FAANG DeepDive (7p)
                           </a>
                           <a
-                            href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-V5.1.4-FINAL.pdf"
+                            href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf"
                             download
                             className="py-1.5 px-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-center truncate block"
                             title="Interview Practice Vault (7 Pages)"
@@ -1876,7 +1876,7 @@ export default function NotesPage() {
                             🎯 Interview Vault (7p)
                           </a>
                           <a
-                            href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-V5.1.4-FINAL.pdf"
+                            href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf"
                             download
                             className="py-1.5 px-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-center truncate block"
                             title="Career & Salary Blueprint (5 Pages)"
@@ -1884,7 +1884,7 @@ export default function NotesPage() {
                             💼 Career Blueprint (5p)
                           </a>
                           <a
-                            href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-V5.1.4-FINAL.pdf"
+                            href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-Edition-1.pdf"
                             download
                             className="py-1.5 px-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-center truncate block"
                             title="Practical Lab Workbook (10 Pages)"
@@ -1897,7 +1897,7 @@ export default function NotesPage() {
                         <div className="text-center pt-1 border-t border-white/[0.06]">
                           {selectedLanguage === 'hi' ? (
                             <a
-                              href="/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
                               download
                               className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
                             >
@@ -1905,7 +1905,7 @@ export default function NotesPage() {
                             </a>
                           ) : (
                             <a
-                              href="/downloads/Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
                               download
                               className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
                             >
@@ -1923,35 +1923,35 @@ export default function NotesPage() {
                         {selectedLanguage === 'hi' ? (
                           <div className="space-y-1.5">
                             <a
-                              href="/downloads/Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
                               download
                               className="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-cyan-500/20"
                             >
-                              ⚡ डायरेक्ट डाउनलोड: मुख्य हिंदी V5.1.4 FINAL (45 Pages PDF)
+                              ⚡ डायरेक्ट डाउनलोड: मुख्य हिंदी Edition 1 (45 Pages PDF)
                             </a>
                             <a
-                              href="/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
                               download
                               className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
                             >
-                              Alternate: Download English V5.1.4 FINAL (45 Pages)
+                              Alternate: Download English Edition 1 (45 Pages)
                             </a>
                           </div>
                         ) : (
                           <div className="space-y-1.5">
                             <a
-                              href="/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
                               download
                               className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-emerald-500/20"
                             >
-                              ⚡ Direct Download: English V5.1.4 FINAL (45 Pages PDF)
+                              ⚡ Direct Download: English Edition 1 (45 Pages PDF)
                             </a>
                             <a
-                              href="/downloads/Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf"
+                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
                               download
                               className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
                             >
-                              वैकल्पिक: डाउनलोड करें हिंदी V5.1.4 FINAL (45 Pages)
+                              वैकल्पिक: डाउनलोड करें हिंदी Edition 1 (45 Pages)
                             </a>
                           </div>
                         )}

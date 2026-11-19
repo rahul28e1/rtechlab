@@ -40,13 +40,15 @@ export function Navbar({ onOpenSearch }) {
           {/* Brand Logo */}
           <Link
             to={isHindi ? '/hi/notes' : '/'}
-            className="flex items-center gap-2 group tracking-tight"
+            className="flex items-center gap-2.5 group tracking-tight"
           >
-            <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center font-black text-black text-sm tracking-tighter group-hover:scale-105 transition-transform">
-              R
-            </div>
+            <img
+              src="/brand/rtechlab-icon.png"
+              alt="RTechLab"
+              className="w-8 h-8 rounded-lg object-contain group-hover:scale-105 transition-transform"
+            />
             <span className="font-bold text-lg sm:text-xl text-white tracking-tight">
-              TechLab<span className="text-[#86868B] text-xs font-mono ml-1 font-normal">.io</span>
+              RTechLab
             </span>
           </Link>
 

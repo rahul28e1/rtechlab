@@ -104,7 +104,7 @@ export default async function handler(req, res) {
       method: 'GET',
       redirect: 'follow',
       signal: controller.signal,
-      headers: { 'User-Agent': 'RTechLab-Uptime-Check/1.0 (+https://rtechlab.io)' },
+      headers: { 'User-Agent': 'RTechLab-Uptime-Check/1.0 (+https://rtechlab.vercel.app)' },
     });
     status = response.status;
     ok = status > 0 && status < 500;

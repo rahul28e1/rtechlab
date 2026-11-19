@@ -532,70 +532,79 @@ export function TutorialsHubPage() {
 
                     {/* Bottom Links */}
                     <div className="mt-5 pt-4 border-t border-white/[0.06]">
-                      {isPublished ? (
-                        <div className="flex flex-col gap-2">
-                          {hasIg && (
-                            <div className="flex items-center gap-2">
-                              {reel.platforms.instagramEn && (
-                                <a
-                                  href={reel.platforms.instagramEn}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:opacity-90 transition-opacity"
-                                >
-                                  <InstagramIcon className="w-3.5 h-3.5" />
-                                  <span>Reel (EN)</span>
-                                </a>
-                              )}
-                              {reel.platforms.instagramHi && (
-                                <a
-                                  href={reel.platforms.instagramHi}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-white/[0.1] border border-white/[0.15] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-white/[0.2] transition-colors"
-                                >
-                                  <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
-                                  <span>Reel (HI)</span>
-                                </a>
-                              )}
-                            </div>
-                          )}
-                          {hasYtShort && (
-                            <div className="flex items-center gap-2">
-                              {reel.platforms.youtubeShortEn && (
-                                <a
-                                  href={reel.platforms.youtubeShortEn}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600/20 border border-red-500/30 px-3 py-1.5 text-[11px] font-semibold text-red-300 hover:bg-red-600/30 transition-colors"
-                                >
-                                  <YoutubeIcon className="w-3 h-3" />
-                                  <span>Short (EN)</span>
-                                </a>
-                              )}
-                              {reel.platforms.youtubeShortHi && (
-                                <a
-                                  href={reel.platforms.youtubeShortHi}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600/20 border border-red-500/30 px-3 py-1.5 text-[11px] font-semibold text-red-300 hover:bg-red-600/30 transition-colors"
-                                >
-                                  <YoutubeIcon className="w-3 h-3" />
-                                  <span>Short (HI)</span>
-                                </a>
-                              )}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <div className="flex items-center justify-between text-[11px] text-amber-400">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-3.5 h-3.5" />
-                            <span>Scheduled Release:</span>
-                          </span>
-                          <span className="font-mono font-bold">{reel.scheduledDate}</span>
-                        </div>
-                      )}
+                      <div className="flex flex-col gap-2">
+                        {/* Instagram Link / Schedule Status */}
+                        {reel.platforms?.isIgPublished ? (
+                          <div className="flex items-center gap-2">
+                            {reel.platforms.instagramEn && (
+                              <a
+                                href={reel.platforms.instagramEn}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:opacity-90 transition-opacity shadow-sm"
+                              >
+                                <InstagramIcon className="w-3.5 h-3.5" />
+                                <span>Reel (EN)</span>
+                              </a>
+                            )}
+                            {reel.platforms.instagramHi && (
+                              <a
+                                href={reel.platforms.instagramHi}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-white/[0.1] border border-white/[0.15] px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-white/[0.2] transition-colors"
+                              >
+                                <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
+                                <span>Reel (HI)</span>
+                              </a>
+                            )}
+                          </div>
+                        ) : (
+                          <a
+                            href="https://www.instagram.com/rtechlabofficial/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full inline-flex items-center justify-between rounded-lg bg-pink-950/20 border border-pink-500/20 px-3 py-1.5 text-[11px] font-medium text-pink-300 hover:bg-pink-900/30 hover:border-pink-500/40 transition-colors"
+                            title="Scheduled in Meta Business Suite for @rtechlabofficial"
+                          >
+                            <span className="flex items-center gap-1.5">
+                              <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
+                              <span>Instagram: Scheduled</span>
+                            </span>
+                            <span className="text-[10px] font-mono text-pink-400/90 font-semibold">
+                              {reel.scheduledDate || reel.date} · {reel.platforms?.scheduledTime || '18:30 IST'} ↗
+                            </span>
+                          </a>
+                        )}
+
+                        {/* YouTube Short Links */}
+                        {hasYtShort && (
+                          <div className="flex items-center gap-2">
+                            {reel.platforms.youtubeShortEn && (
+                              <a
+                                href={reel.platforms.youtubeShortEn}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600/20 border border-red-500/30 px-3 py-1.5 text-[11px] font-semibold text-red-300 hover:bg-red-600/30 transition-colors"
+                              >
+                                <YoutubeIcon className="w-3 h-3" />
+                                <span>{reel.platforms.isYtPublished ? 'Short (EN)' : 'Premiere (EN)'}</span>
+                              </a>
+                            )}
+                            {reel.platforms.youtubeShortHi && (
+                              <a
+                                href={reel.platforms.youtubeShortHi}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600/20 border border-red-500/30 px-3 py-1.5 text-[11px] font-semibold text-red-300 hover:bg-red-600/30 transition-colors"
+                              >
+                                <YoutubeIcon className="w-3 h-3" />
+                                <span>{reel.platforms.isYtPublished ? 'Short (HI)' : 'Premiere (HI)'}</span>
+                              </a>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 );

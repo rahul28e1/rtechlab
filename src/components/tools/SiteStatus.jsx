@@ -8,7 +8,7 @@ const cleanHost = (value) =>
     .replace(/^https?:\/\//, '')
     .split('/')[0];
 
-const EXAMPLES = ['google.com', 'github.com', 'rtechlab.io', 'cloudflare.com'];
+const EXAMPLES = ['google.com', 'github.com', 'rtechlab.vercel.app', 'cloudflare.com'];
 
 export const SiteStatus = () => {
   const [host, setHost] = useState('google.com');
