@@ -1,0 +1,31 @@
+1
+00:00:00,100 --> 00:00:03,129
+The Internet is NOT a cloud floating in the sky.
+
+2
+00:00:03,079 --> 00:00:10,318
+In fact, over ninety-nine percent of all global internet traffic travels through physical glass cables resting on the ocean floor!
+
+3
+00:00:10,318 --> 00:00:15,511
+When you tap a video on your phone, your signal doesn't bounce off satellites in space.
+
+4
+00:00:15,511 --> 00:00:22,625
+It turns into pulses of infrared laser light, racing through pure silica glass at over two hundred thousand kilometers per second.
+
+5
+00:00:22,625 --> 00:00:32,727
+These subsea cables stretch across 1.4 million kilometers to reach massive data centers in Virginia, where seventy percent of global traffic flows through rows of physical servers.
+
+6
+00:00:32,727 --> 00:00:39,636
+The cloud is simply someone else's physical computer, connected to yours through thousands of kilometers of real glass and steel.
+
+7
+00:00:39,636 --> 00:00:41,965
+Technology made practical.
+
+8
+00:00:41,965 --> 00:00:46,636
+Follow RTechLab, and watch our full Episode 01 on YouTube!

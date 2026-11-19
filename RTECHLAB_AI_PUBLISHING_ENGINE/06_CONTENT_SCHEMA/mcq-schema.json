@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTechLabMCQSchema",
+  "type": "object",
+  "required": [
+    "question_id",
+    "chapter_id",
+    "topic_id",
+    "difficulty",
+    "language",
+    "question",
+    "options",
+    "correct_answer",
+    "explanation",
+    "source_reference"
+  ],
+  "properties": {
+    "question_id": {
+      "type": "string"
+    },
+    "chapter_id": {
+      "type": "string"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "Basic",
+        "Intermediate",
+        "Advanced"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "EN",
+        "HI"
+      ]
+    },
+    "question": {
+      "type": "string"
+    },
+    "options": {
+      "type": "object",
+      "properties": {
+        "A": {
+          "type": "string"
+        },
+        "B": {
+          "type": "string"
+        },
+        "C": {
+          "type": "string"
+        },
+        "D": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "correct_answer": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    "explanation": {
+      "type": "object",
+      "properties": {
+        "why_correct": {
+          "type": "string"
+        },
+        "why_distractors_fail": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "why_correct"
+      ]
+    },
+    "source_reference": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "Verified",
+        "Pending"
+      ]
+    }
+  }
+}

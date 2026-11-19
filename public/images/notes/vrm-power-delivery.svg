@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <defs>
+    <linearGradient id="vrmMatte" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1117"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </linearGradient>
+    <linearGradient id="copperChoke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b3b44"/>
+      <stop offset="100%" stop-color="#1e1e24"/>
+    </linearGradient>
+    <linearGradient id="goldTrace" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="300" fill="#090a0f"/>
+
+  <!-- Main Board Container -->
+  <rect x="20" y="15" width="760" height="270" rx="12" fill="url(#vrmMatte)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Title Badge -->
+  <g transform="translate(40, 35)">
+    <rect width="280" height="24" rx="6" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1"/>
+    <text x="140" y="16" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="11" font-weight="bold">MODULE 02: 16+1+1 VRM POWER STAGES</text>
+  </g>
+  <text x="740" y="50" text-anchor="end" fill="#888" font-family="monospace" font-size="10">2027 Industrial Engineering Standard</text>
+
+  <!-- Flow Block 1: 12V EPS Input -->
+  <g transform="translate(40, 80)">
+    <rect width="110" height="150" rx="8" fill="#141721" stroke="#ef4444" stroke-width="1.5"/>
+    <rect x="15" y="15" width="80" height="35" rx="4" fill="#ef4444" fill-opacity="0.15"/>
+    <text x="55" y="32" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="10" font-weight="bold">8+8 PIN EPS</text>
+    <text x="55" y="44" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">+12V DC Input</text>
+
+    <!-- 8 Socket pins -->
+    <g fill="#ef4444" opacity="0.8">
+      <rect x="25" y="65" width="10" height="10" rx="2"/>
+      <rect x="42" y="65" width="10" height="10" rx="2"/>
+      <rect x="59" y="65" width="10" height="10" rx="2"/>
+      <rect x="76" y="65" width="10" height="10" rx="2"/>
+      <rect x="25" y="80" width="10" height="10" rx="2"/>
+      <rect x="42" y="80" width="10" height="10" rx="2"/>
+      <rect x="59" y="80" width="10" height="10" rx="2"/>
+      <rect x="76" y="80" width="10" height="10" rx="2"/>
+    </g>
+    <text x="55" y="115" text-anchor="middle" fill="#aaa" font-family="monospace" font-size="9">From ATX PSU</text>
+    <text x="55" y="130" text-anchor="middle" fill="#666" font-family="monospace" font-size="8">Up to 384 Watts</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 160 155 L 190 155" stroke="url(#goldTrace)" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="195,155 188,151 188,159" fill="#10b981"/>
+
+  <!-- Flow Block 2: PWM Controller -->
+  <g transform="translate(200, 80)">
+    <rect width="125" height="150" rx="8" fill="#141721" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="25" y="25" width="75" height="75" rx="4" fill="#0b0f19" stroke="#3b82f6" stroke-width="1"/>
+    <!-- IC Chip Details -->
+    <text x="62" y="55" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="9" font-weight="bold">DIGI+ PWM</text>
+    <text x="62" y="70" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">CONTROLLER</text>
+    <circle cx="35" cy="35" r="3" fill="#3b82f6"/>
+
+    <text x="62" y="120" text-anchor="middle" fill="#aaa" font-family="sans-serif" font-size="9" font-weight="bold">Pulse Width Modulator</text>
+    <text x="62" y="134" text-anchor="middle" fill="#666" font-family="monospace" font-size="8">Switches at 800 kHz</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 335 155 L 365 155" stroke="url(#goldTrace)" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="370,155 363,151 363,159" fill="#10b981"/>
+
+  <!-- Flow Block 3: DrMOS 90A SPS Power Stages -->
+  <g transform="translate(375, 80)">
+    <rect width="135" height="150" rx="8" fill="#141721" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="15" y="15" width="105" height="40" rx="4" fill="#f59e0b" fill-opacity="0.15"/>
+    <text x="67" y="32" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="10" font-weight="bold">DrMOS 90A SPS</text>
+    <text x="67" y="44" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Driver + High/Low MOSFET</text>
+
+    <!-- Mini MOSFETs -->
+    <g transform="translate(25, 65)">
+      <rect x="0" y="0" width="22" height="22" rx="3" fill="#26262e" stroke="#f59e0b" stroke-width="1"/>
+      <rect x="30" y="0" width="22" height="22" rx="3" fill="#26262e" stroke="#f59e0b" stroke-width="1"/>
+      <rect x="60" y="0" width="22" height="22" rx="3" fill="#26262e" stroke="#f59e0b" stroke-width="1"/>
+      <text x="42" y="38" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="8" font-weight="bold">Max 115°C Tj</text>
+    </g>
+    <text x="67" y="125" text-anchor="middle" fill="#aaa" font-family="sans-serif" font-size="8">Step-Down 12V → 1.2V</text>
+    <text x="67" y="138" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="8">Overheating = Throttling</text>
+  </g>
+
+  <!-- Arrow 3 -->
+  <path d="M 520 155 L 545 155" stroke="url(#goldTrace)" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="550,155 543,151 543,159" fill="#10b981"/>
+
+  <!-- Flow Block 4: Ferrite Chokes & 10K Solid Caps -->
+  <g transform="translate(555, 80)">
+    <rect width="115" height="150" rx="8" fill="#141721" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="15" y="15" width="85" height="40" rx="4" fill="url(#copperChoke)" stroke="#555" stroke-width="1"/>
+    <text x="57" y="32" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="10" font-weight="bold">CHOKES</text>
+    <text x="57" y="44" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="8">Ferrite Core Smoothing</text>
+
+    <!-- Solid Capacitors -->
+    <g transform="translate(25, 68)">
+      <circle cx="15" cy="15" r="12" fill="#222" stroke="#10b981" stroke-width="1.5"/>
+      <line x1="8" y1="15" x2="22" y2="15" stroke="#10b981" stroke-width="1"/>
+      <circle cx="48" cy="15" r="12" fill="#222" stroke="#10b981" stroke-width="1.5"/>
+      <line x1="41" y1="15" x2="55" y2="15" stroke="#10b981" stroke-width="1"/>
+    </g>
+    <text x="57" y="118" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="9" font-weight="bold">Ripple Filter</text>
+    <text x="57" y="132" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">&lt; 15mV Voltage Ripple</text>
+  </g>
+
+  <!-- Arrow 4 to CPU -->
+  <path d="M 675 155 L 695 155" stroke="url(#goldTrace)" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="700,155 693,151 693,159" fill="#10b981"/>
+
+  <!-- CPU Vcore Target -->
+  <g transform="translate(705, 95)">
+    <rect width="65" height="120" rx="8" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="2"/>
+    <text x="32" y="35" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="11" font-weight="black">CPU</text>
+    <text x="32" y="55" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10" font-weight="bold">Vcore</text>
+    <text x="32" y="75" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="12" font-weight="black">1.18 V</text>
+    <text x="32" y="95" text-anchor="middle" fill="#888" font-family="monospace" font-size="8">Clean DC</text>
+  </g>
+
+  <!-- Warning Footer Note -->
+  <rect x="40" y="245" width="720" height="26" rx="6" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4"/>
+  <text x="50" y="262" fill="#f59e0b" font-family="monospace" font-size="9" font-weight="bold">⚠️ FIELD TRIAGE:</text>
+  <text x="160" y="262" fill="#d1d5db" font-family="sans-serif" font-size="9">If VRM heatsink thermal pads dry out, MOSFETs hit 115°C and force CPU clock drops to 800 MHz (External Power Throttling).</text>
+</svg>

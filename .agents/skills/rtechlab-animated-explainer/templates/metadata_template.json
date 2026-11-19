@@ -1,0 +1,23 @@
+{
+  "title_en": "How DNS ACTUALLY Works in 60 Seconds! 🌐⚡",
+  "title_hi": "DNS कैसे काम करता है सिर्फ 60 सेकंड में! 🌐⚡",
+  "description_en": "Ever wondered what happens in the 30 milliseconds after you press Enter on a website? Here is the exact journey of a DNS query from your browser to Root, TLD, and Authoritative servers. Try live DNS lookups on RTechLab: https://rtechlab.com/tools/dns-lookup",
+  "description_hi": "क्या आपने कभी सोचा है कि वेबसाइट खोलते ही 30 मिलीसेकंड में क्या होता है? जानिए DNS क्वेरी का पूरा सफर ब्राउज़र से लेकर Root, TLD और Authoritative सर्वर्स तक। लाइव DNS टूल आज़माएं RTechLab पर: https://rtechlab.com/tools/dns-lookup",
+  "hashtags": [
+    "#Networking",
+    "#DNS",
+    "#CyberSecurity",
+    "#ComputerScience",
+    "#RTechLab",
+    "#TechExplainer",
+    "#WebDevelopment",
+    "#Shorts",
+    "#Reels"
+  ],
+  "attribution": {
+    "engine": "RTechLab Animated Explainer Engine v1.0",
+    "branding": "Original RTechLab Design & Assets",
+    "audio_license": "Neural TTS Synthesized, CC-0 Royalty Free Sound Effects",
+    "frameworks": ["Remotion (React Video Framework)", "FFmpeg (H.264 / AAC Encoding)"]
+  }
+}

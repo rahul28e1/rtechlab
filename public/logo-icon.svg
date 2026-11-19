@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="rGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#1E40AF" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="circuitGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Hex/Shield Rounded Base -->
+  <rect x="6" y="6" width="88" height="88" rx="22" fill="#0A1128" stroke="#1E3A8A" stroke-width="2.5" />
+  
+  <!-- Subtle Circuit Traces in Background -->
+  <path d="M16 28 L30 28 L38 36" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" />
+  <circle cx="16" cy="28" r="2" fill="#0EA5E9" />
+  
+  <path d="M84 72 L70 72 L62 64" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" />
+  <circle cx="84" cy="72" r="2" fill="#00E5FF" />
+  
+  <path d="M78 26 L68 26 L60 34" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" />
+  <circle cx="78" cy="26" r="2" fill="#2563EB" />
+
+  <!-- The Distinctive 'R' + Circuit + Lab Network Core -->
+  <!-- Vertical Stem with Circuit Nodes -->
+  <path d="M28 22 L28 78" stroke="url(#rGrad)" stroke-width="8" stroke-linecap="round" />
+  <circle cx="28" cy="22" r="3" fill="#FFFFFF" />
+  <circle cx="28" cy="50" r="3" fill="#00E5FF" />
+  <circle cx="28" cy="78" r="3.5" fill="#38BDF8" />
+
+  <!-- Upper Loop of R with Network Arc & Circuit Dot -->
+  <path d="M28 26 H54 C66 26 72 34 72 44 C72 54 64 60 52 60 H28" 
+        stroke="url(#rGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Network Interconnect Bridge across loop -->
+  <circle cx="52" cy="43" r="3.5" fill="#00E5FF" filter="url(#circuitGlow)" />
+  <line x1="28" y1="43" x2="48" y2="43" stroke="#00E5FF" stroke-width="2" stroke-dasharray="2 2" />
+
+  <!-- Diagonal Leg of R (styled with Lab/Circuit Angular Arrow) -->
+  <path d="M48 57 L72 78" stroke="url(#rGrad)" stroke-width="8" stroke-linecap="round" />
+  <circle cx="72" cy="78" r="3" fill="#FFFFFF" />
+
+  <!-- Lab Flask / Signal Particle at Junction -->
+  <circle cx="48" cy="58" r="2.5" fill="#FFFFFF" />
+</svg>

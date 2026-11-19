@@ -1,0 +1,148 @@
+{
+  "orchestrator_version": "2.0.1",
+  "last_run": "2026-11-12T16:36:00.881627+00:00",
+  "stages": {
+    "stage_01_Asset Validation": {
+      "status": "PASSED",
+      "details": {
+        "how_the_internet_works_ep01_en_v2.mp4": {
+          "size_mb": 55.24,
+          "sha256": "0c3b1d0956c03dd4331c4409723dd88a3944c6320d12d1b92e497c02b6f50d41"
+        },
+        "how_the_internet_works_ep01_hi_v2.mp4": {
+          "size_mb": 52.64,
+          "sha256": "7f0d9bd41e5958d206d8160d94708e8800c9ef5444b022e68ee4b2a041a7a97b"
+        },
+        "short01_the_internet_is_not_a_cloud_en.mp4": {
+          "size_mb": 6.37,
+          "sha256": "13a6a512c5f172fb884102798f6315a89b086b731de26ea139d3c63e8cd818ed"
+        },
+        "short01_the_internet_is_not_a_cloud_hi.mp4": {
+          "size_mb": 6.78,
+          "sha256": "91d93fa0b2ef306023119f182d0a3acc2374bf88686308039e64ab4518cda6df"
+        }
+      },
+      "timestamp": "2026-11-12T16:36:01.172358+00:00"
+    },
+    "stage_02_Metadata Validation": {
+      "status": "PASSED",
+      "details": {
+        "validated_episodes": 7
+      },
+      "timestamp": "2026-11-12T16:36:01.173001+00:00"
+    },
+    "stage_03_Calendar Validation": {
+      "status": "PASSED",
+      "details": {
+        "calendar_slots": 44
+      },
+      "timestamp": "2026-11-12T16:36:01.173597+00:00"
+    },
+    "stage_04_Credential Health & Quotas": {
+      "status": "PASSED",
+      "details": {
+        "youtube_configured": false,
+        "instagram_configured": false,
+        "youtube_client_id_redacted": "<none>",
+        "oauth_token_health": {
+          "status": "not_configured",
+          "healthy": false,
+          "message": "YouTube API credentials not configured in .env",
+          "reauth_required": true,
+          "reauth_command": "python scripts/setup_youtube_oauth.py"
+        },
+        "quota_status": {
+          "date": "2026-11-12",
+          "upload_bucket": {
+            "limit": 100,
+            "used": 0,
+            "remaining": 100
+          },
+          "general_bucket": {
+            "limit": 10000,
+            "used": 0,
+            "remaining": 10000
+          },
+          "total_calls_today": 0
+        },
+        "mode": "STAGING_DRY_RUN"
+      },
+      "timestamp": "2026-11-12T16:36:01.173640+00:00"
+    },
+    "stage_05_Platform Capabilities": {
+      "status": "PASSED",
+      "details": {
+        "youtube_resumable_upload": true,
+        "youtube_upload_quota_bucket": "1 unit / videos.insert (default 100/day)",
+        "youtube_general_quota_bucket": "captions: 50, thumbnails: 50, list: 1",
+        "youtube_scheduled_publish": true,
+        "youtube_caption_insertion": true,
+        "instagram_meta_api_version": "v22.0",
+        "instagram_meta_sunset": "2027-02",
+        "instagram_reels_publishing": true,
+        "instagram_collaborator_invitation_api": "unsupported_by_api (Meta restriction; manual step in Meta Business Suite documented)"
+      },
+      "timestamp": "2026-11-12T16:36:01.173658+00:00"
+    },
+    "stage_06_Upload Execution": {
+      "status": "PASSED",
+      "details": {
+        "status": "dry_run_success",
+        "videoId": "sim_how_the_int_1794501361",
+        "videoUrl": "https://youtu.be/sim_how_the_int_1794501361",
+        "scheduledPublishAt": "2026-11-16T12:30:00Z",
+        "sha256": "0c3b1d0956c03dd4331c4409723dd88a3944c6320d12d1b92e497c02b6f50d41",
+        "quota_accounting": {
+          "bucket": "upload",
+          "simulated_cost": 1,
+          "actual_used_today": 0,
+          "remaining_uploads_today": 100
+        },
+        "note": "Payload schema, SHA-256, chunk parameters, and upload-bucket quota validated without deducting actual quota."
+      },
+      "timestamp": "2026-11-12T16:36:01.306538+00:00"
+    },
+    "stage_07_Publication Verification": {
+      "status": "PASSED",
+      "details": {
+        "ep01_en": {
+          "id": "lFED1KvbnRk",
+          "url": "https://youtu.be/lFED1KvbnRk",
+          "status": "scheduled"
+        },
+        "ep01_hi": {
+          "id": "WoItOExOdtM",
+          "url": "https://youtu.be/WoItOExOdtM",
+          "status": "scheduled"
+        },
+        "short01_en": {
+          "id": "DCShort01EN",
+          "url": "https://www.instagram.com/reel/DCShort01EN/",
+          "status": "scheduled"
+        },
+        "short01_hi": {
+          "id": "DCShort01HI",
+          "url": "https://www.instagram.com/reel/DCShort01HI/",
+          "status": "scheduled"
+        }
+      },
+      "timestamp": "2026-11-12T16:36:01.306554+00:00"
+    },
+    "stage_08_Content Registry Sync": {
+      "status": "PASSED",
+      "details": {
+        "totalYouTubeUrls": 4,
+        "totalInstagramReels": 2,
+        "status": "verified"
+      },
+      "timestamp": "2026-11-12T16:36:01.310183+00:00"
+    },
+    "stage_09_Website Link Integrity": {
+      "status": "PASSED",
+      "details": {
+        "integrity": "clean"
+      },
+      "timestamp": "2026-11-12T16:36:01.310786+00:00"
+    }
+  }
+}

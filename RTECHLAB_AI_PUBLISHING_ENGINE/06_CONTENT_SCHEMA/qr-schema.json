@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTechLabQRSchema",
+  "type": "object",
+  "required": [
+    "qr_id",
+    "chapter_id",
+    "topic_slug",
+    "destination_url",
+    "environment",
+    "error_correction",
+    "status"
+  ],
+  "properties": {
+    "qr_id": {
+      "type": "string"
+    },
+    "chapter_id": {
+      "type": "string"
+    },
+    "topic_slug": {
+      "type": "string"
+    },
+    "destination_url": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "staging",
+        "production"
+      ]
+    },
+    "error_correction": {
+      "type": "string",
+      "enum": [
+        "L",
+        "M",
+        "Q",
+        "H"
+      ],
+      "default": "H"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "development_test",
+        "verified_production"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+FILE: RTechLab-Computer-Fundamentals-2027-English-V5.1.2.pdf
+  SIZE: 9920053 bytes
+  PAGES: 45
+  SHA256: 5f39dcb478831eb77f83e69e7667c0aa0e24c63975e5fd3cd67392537d03a781
+  BACKUP_PATH: c:\Users\Rahul\Videos\My projects\RtechLab\RTECHLAB_COMPUTER_FUNDAMENTALS_2027_V5_1_3_FINAL\01_SOURCE_BACKUPS\RTechLab-Computer-Fundamentals-2027-English-V5.1.2.pdf
+
+FILE: RTechLab-Computer-Fundamentals-2027-Hindi-V5.1.2.pdf
+  SIZE: 13689312 bytes
+  PAGES: 45
+  SHA256: bc139ba8a972d53bea4efc3e9059f00841380dc6675221a969c75625d85f7f8f
+  BACKUP_PATH: c:\Users\Rahul\Videos\My projects\RtechLab\RTECHLAB_COMPUTER_FUNDAMENTALS_2027_V5_1_3_FINAL\01_SOURCE_BACKUPS\RTechLab-Computer-Fundamentals-2027-Hindi-V5.1.2.pdf

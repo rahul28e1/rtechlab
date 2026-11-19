@@ -1,0 +1,29 @@
+{
+  "brand_name": "RTechLab",
+  "tagline": "Practical Engineering & Interactive Learning",
+  "colors": {
+    "background_dark": "#080d1a",
+    "background_card": "#0f172a",
+    "border_glow": "#1e293b",
+    "neon_cyan": "#00f2fe",
+    "cyan_core": "#06b6d4",
+    "electric_violet": "#6366f1",
+    "purple_glow": "#8b5cf6",
+    "success_emerald": "#10b981",
+    "warning_amber": "#f59e0b",
+    "danger_crimson": "#ef4444",
+    "text_primary": "#ffffff",
+    "text_secondary": "#94a3b8"
+  },
+  "typography": {
+    "title_font": "Plus Jakarta Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace"
+  },
+  "dimensions": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "safe_top": 240,
+    "safe_bottom": 1580
+  }
+}

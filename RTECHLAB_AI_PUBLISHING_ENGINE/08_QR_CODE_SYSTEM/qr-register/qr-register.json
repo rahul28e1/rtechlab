@@ -1,0 +1,93 @@
+[
+  {
+    "qr_id": "QR-MOD-01-hardware-silicon-cpu-sockets",
+    "chapter_id": "mod-01",
+    "topic_slug": "hardware/silicon-cpu-sockets",
+    "destination_url": "http://localhost:5173/practice/hardware/silicon-cpu-sockets",
+    "environment": "development",
+    "error_correction": "H (30% Reed-Solomon)",
+    "svg_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-01-hardware-silicon-cpu-sockets.svg",
+    "png_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-01-hardware-silicon-cpu-sockets.png",
+    "sha256": "83907793f74b3bbed248a34235829de53b25537a37b32e6d0d56d79aea5caa92",
+    "status": "development_test",
+    "notice": "NON-PRODUCTION TEST LINK. Replace base_url with production domain once deployed."
+  },
+  {
+    "qr_id": "QR-MOD-02-hardware-vrm-power-delivery",
+    "chapter_id": "mod-02",
+    "topic_slug": "hardware/vrm-power-delivery",
+    "destination_url": "http://localhost:5173/practice/hardware/vrm-power-delivery",
+    "environment": "development",
+    "error_correction": "H (30% Reed-Solomon)",
+    "svg_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-02-hardware-vrm-power-delivery.svg",
+    "png_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-02-hardware-vrm-power-delivery.png",
+    "sha256": "d52aa365816f9cb84bf7edf2cffc8404a95298fe1f83616fce53c0fd014506bc",
+    "status": "development_test",
+    "notice": "NON-PRODUCTION TEST LINK. Replace base_url with production domain once deployed."
+  },
+  {
+    "qr_id": "QR-MOD-03-hardware-ram-ddr4-vs-ddr5",
+    "chapter_id": "mod-03",
+    "topic_slug": "hardware/ram-ddr4-vs-ddr5",
+    "destination_url": "http://localhost:5173/practice/hardware/ram-ddr4-vs-ddr5",
+    "environment": "development",
+    "error_correction": "H (30% Reed-Solomon)",
+    "svg_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-03-hardware-ram-ddr4-vs-ddr5.svg",
+    "png_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-03-hardware-ram-ddr4-vs-ddr5.png",
+    "sha256": "da9a4d9cf7f2e687521c3b8f13608f2ee59973291708950fae2e21b0b2e9753e",
+    "status": "development_test",
+    "notice": "NON-PRODUCTION TEST LINK. Replace base_url with production domain once deployed."
+  },
+  {
+    "qr_id": "QR-MOD-05-hardware-psu-diagnostics-atx31",
+    "chapter_id": "mod-05",
+    "topic_slug": "hardware/psu-diagnostics-atx31",
+    "destination_url": "http://localhost:5173/practice/hardware/psu-diagnostics-atx31",
+    "environment": "development",
+    "error_correction": "H (30% Reed-Solomon)",
+    "svg_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-05-hardware-psu-diagnostics-atx31.svg",
+    "png_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-05-hardware-psu-diagnostics-atx31.png",
+    "sha256": "2247bce5f6afe53fd6817803ce5d835b3f20cc2f83922be08e7157071de58e6f",
+    "status": "development_test",
+    "notice": "NON-PRODUCTION TEST LINK. Replace base_url with production domain once deployed."
+  },
+  {
+    "qr_id": "QR-MOD-07-hardware-fault-triage-playbook",
+    "chapter_id": "mod-07",
+    "topic_slug": "hardware/fault-triage-playbook",
+    "destination_url": "http://localhost:5173/practice/hardware/fault-triage-playbook",
+    "environment": "development",
+    "error_correction": "H (30% Reed-Solomon)",
+    "svg_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-07-hardware-fault-triage-playbook.svg",
+    "png_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-MOD-07-hardware-fault-triage-playbook.png",
+    "sha256": "a0b0c64aad55215b41242bc78c6b4dfd590918e78cc806d10dd144959f64803a",
+    "status": "development_test",
+    "notice": "NON-PRODUCTION TEST LINK. Replace base_url with production domain once deployed."
+  },
+  {
+    "qr_id": "QR-NET-01-networking-tcp-handshake",
+    "chapter_id": "net-01",
+    "topic_slug": "networking/tcp-handshake",
+    "destination_url": "http://localhost:5173/practice/networking/tcp-handshake",
+    "environment": "development",
+    "error_correction": "H (30% Reed-Solomon)",
+    "svg_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-NET-01-networking-tcp-handshake.svg",
+    "png_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-NET-01-networking-tcp-handshake.png",
+    "sha256": "a394f459553fe5e07bdbe67922b53ef64a773b99f66333e32a36b1122d27867e",
+    "status": "development_test",
+    "notice": "NON-PRODUCTION TEST LINK. Replace base_url with production domain once deployed."
+  },
+  {
+    "qr_id": "QR-TOOL-01-tools-binary-converter",
+    "chapter_id": "tool-01",
+    "topic_slug": "tools/binary-converter",
+    "destination_url": "http://localhost:5173/practice/tools/binary-converter",
+    "environment": "development",
+    "error_correction": "H (30% Reed-Solomon)",
+    "svg_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-TOOL-01-tools-binary-converter.svg",
+    "png_file": "RTECHLAB_AI_PUBLISHING_ENGINE\\08_QR_CODE_SYSTEM\\qr-register\\QR-TOOL-01-tools-binary-converter.png",
+    "sha256": "97ac9652b00fbe68143bad747cf07b9de77f941a1c5724599cec63d20dcbff30",
+    "status": "development_test",
+    "notice": "NON-PRODUCTION TEST LINK. Replace base_url with production domain once deployed."
+  }
+]

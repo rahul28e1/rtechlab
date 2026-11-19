@@ -1,0 +1,1226 @@
+{
+  "date": "2026-11-15",
+  "upload_bucket": {
+    "limit": 100,
+    "used": 58,
+    "remaining": 42
+  },
+  "general_bucket": {
+    "limit": 10000,
+    "used": 2908,
+    "remaining": 7092
+  },
+  "operations_log": [
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:45:53.523605+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:45:58.408234+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:46:10.422814+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:46:18.832158+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:46:18.835235+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:46:25.479085+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:46:36.008750+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:46:36.012560+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:46:41.533295+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:46:52.648820+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:46:52.657586+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:46:58.663985+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:04.944875+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:47:04.946759+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:10.989989+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:18.280796+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:47:18.283809+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:23.698873+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:28.768287+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:47:28.770682+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:34.571185+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:39.840706+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:47:39.845480+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:45.332386+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:47:54.889533+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:47:54.893028+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:48:00.234244+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:48:13.674608+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:48:13.682302+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:48:20.376125+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:48:45.127472+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:48:45.131215+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:48:51.548626+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:49:21.915372+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:49:21.918754+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:49:28.009735+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:49:42.408204+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:49:42.411499+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:49:47.682641+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:00.044621+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:50:00.046916+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:05.452973+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:12.005957+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:50:12.009576+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:17.799827+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:24.800253+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:50:24.805469+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:30.600132+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:35.845774+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:50:35.849456+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:41.131395+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:46.352238+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:50:46.362420+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:50:51.898296+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:51:10.564540+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:51:10.573739+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:51:16.520301+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:51:35.264801+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:51:35.274118+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:51:41.300204+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:51:48.556270+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:51:48.585448+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:51:53.982740+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:02.377709+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:52:02.380956+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:08.008322+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:15.486232+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:52:15.488842+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:21.131074+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:29.282680+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:52:29.285366+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:34.806885+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:43.655824+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:52:43.658612+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:49.952834+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T02:52:57.282139+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T02:52:57.287047+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:07:38.994630+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:08:11.708704+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T17:08:11.712709+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:08:50.234590+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:09:25.112746+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T17:09:25.120687+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:11:16.726814+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:11:53.926431+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T17:11:53.933720+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:12:19.774024+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:14:10.853435+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T17:14:10.867609+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:21:22.755723+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:21:51.942596+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T17:21:51.951155+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:33:32.009876+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T17:34:06.654018+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T17:34:06.663718+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:02:15.501935+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:02:30.185854+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:02:30.192533+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:07:32.873055+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:07:46.628542+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:07:46.636927+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:07:53.416327+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:08:03.523502+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:08:03.541202+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:08:10.712738+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:08:28.399958+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:08:28.414720+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:08:36.723747+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:08:51.046823+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:08:51.057114+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:08:58.143275+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:09:11.482319+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:09:11.491015+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:09:18.518348+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:09:31.572745+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:09:31.585154+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:16:38.534197+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:16:50.953753+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:16:50.960074+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:22:58.834691+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:23:08.810247+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:23:08.821484+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:29:45.927965+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:29:56.327388+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:29:56.343613+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:37:33.611832+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:37:38.464106+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:37:38.470629+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:44:15.152437+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:44:20.703735+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:44:20.710765+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:50:27.001750+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:50:34.867055+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:50:34.874695+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:56:13.582828+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T18:56:19.429977+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T18:56:19.436659+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:02:26.190547+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:02:33.991993+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:02:33.999075+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:08:41.042860+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:08:46.646459+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:08:46.652764+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:14:53.598553+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:14:59.194524+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:14:59.200899+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:21:06.452905+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:21:16.983350+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:21:16.987593+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:27:24.132607+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:27:31.843310+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:27:31.853012+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:33:38.592750+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:33:49.136782+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:33:49.140359+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:39:26.543497+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:39:33.640868+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:39:33.645790+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:45:40.528271+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:45:49.697128+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:45:49.703816+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:51:56.957033+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:52:02.500744+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:52:02.507432+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:58:09.065198+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T19:58:14.556469+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T19:58:14.566618+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T20:04:21.376036+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T20:04:29.398055+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T20:04:29.409787+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.insert",
+      "bucket": "upload",
+      "cost": 1,
+      "timestamp": "2026-11-15T20:11:06.519457+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "videos.list",
+      "bucket": "general",
+      "cost": 1,
+      "timestamp": "2026-11-15T20:11:11.988016+00:00",
+      "actual_api_call": true
+    },
+    {
+      "operation": "thumbnails.set",
+      "bucket": "general",
+      "cost": 50,
+      "timestamp": "2026-11-15T20:11:11.996776+00:00",
+      "actual_api_call": true
+    }
+  ]
+}

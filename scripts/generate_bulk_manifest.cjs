@@ -1,0 +1,764 @@
+const fs = require('fs');
+const path = require('path');
+
+const entries = [
+  // DAY 1 - Nov 13, 2026 (Friday)
+  {
+    date: '2026-11-13',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP02 - Subsea Cables Connect Our World',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep02_vertical/EP02_English_Vertical.mp4',
+    title: 'How Subsea Cables Connect Our World 🌊 #shorts',
+    caption_description: 'The Internet is not in the sky. Over 99% of international data flows through 17mm glass fibers lying 5,000m deep in the ocean! Academic Partner: IANT Computer Education, Palanpur.',
+    hashtags: '#RTechLab #SubseaCables #Networking #Engineering #TechFacts #IANTPalanpur',
+    thumbnail_cover_path: 'video-engine/out/episodes/ep02_vertical/contact_sheet_vertical_en.png',
+    publishing_status: 'ALREADY PUBLISHED',
+    platform_id_or_url: 'YT: fy_dUabD4M8 | IG: https://www.instagram.com/reel/Dfq4C9zo_WV/'
+  },
+  {
+    date: '2026-11-13',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP02 - Subsea Cables Connect Our World',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep02_vertical/EP02_Hindi_Vertical.mp4',
+    title: 'समुद्र के नीचे इंटरनेट कैसे चलता है? 🌊 #shorts',
+    caption_description: 'इंटरनेट कोई बादल नहीं! दुनिया का 99% अंतरराष्ट्रीय डेटा समुद्र के 5,000m नीचे बिछी सिर्फ 17mm पतली केबल से दौड़ता है। शैक्षणिक पार्टनर: IANT Computer Education, Palanpur.',
+    hashtags: '#RTechLab #SubmarineCables #NetworkingHindi #TechFactsHindi #IANTPalanpur',
+    thumbnail_cover_path: 'video-engine/out/episodes/ep02_vertical/contact_sheet_vertical_hi.png',
+    publishing_status: 'ALREADY PUBLISHED',
+    platform_id_or_url: 'YT: 81NXj_KhaM4 | IG: https://www.instagram.com/reel/Dfq43lrotyg/'
+  },
+  {
+    date: '2026-11-13',
+    time_ist: '20:00 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP02 - Underwater Internet Cables (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/how_underwater_internet_cables_ep02_en.mp4',
+    title: 'How Underwater Cables Actually Connect Our World',
+    caption_description: 'Comprehensive engineering breakdown of the 1.4 million km subsea fiber network, 7 concentric protective layers, and 10,000V repeaters.',
+    hashtags: '#RTechLab #SubmarineCables #Networking #UnderwaterCables #CCNA',
+    thumbnail_cover_path: 'video-engine/out/episodes/frames_ep02_en/frame_middle.png',
+    publishing_status: 'READY (UPLOADED UNLISTED)',
+    platform_id_or_url: 'YT: https://youtu.be/lhAv-MEQecw'
+  },
+  {
+    date: '2026-11-13',
+    time_ist: '20:30 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP02 - Underwater Internet Cables (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/how_underwater_internet_cables_ep02_hi.mp4',
+    title: 'समुद्र के नीचे इंटरनेट कैसे चलता है? सबसी केबल का सच',
+    caption_description: 'जानिए 14 लाख किलोमीटर लंबे सबसी नेटवर्क का सच: 7 सुरक्षात्मक परतें, तटवर्ती स्टील आर्मरिंग और 10,000 वोल्ट बिजली!',
+    hashtags: '#RTechLab #SubmarineCables #HindiTech #NetworkingHindi #UnderwaterCables',
+    thumbnail_cover_path: 'video-engine/out/episodes/frames_ep02_hi/frame_middle.png',
+    publishing_status: 'READY (UPLOADED UNLISTED)',
+    platform_id_or_url: 'YT: https://youtu.be/O2nxc7yzuS4'
+  },
+
+  // DAY 2 - Nov 14, 2026 (Saturday)
+  {
+    date: '2026-11-14',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL01 - 5 Important Networking Ports',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'out/quicklearn/quicklearn_ports_en.mp4',
+    title: '5 Networking Ports Every Engineer MUST Know! ⚡ #shorts',
+    caption_description: 'Port 80 (HTTP), 443 (HTTPS), 53 (DNS), 22 (SSH), and 25 (SMTP). Quick visual guide to essential transport layer ports! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #Networking #Ports #CCNA #ComputerNetworks #CyberSecurity #QuickLearn',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act1.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: out/quicklearn/quicklearn_ports_en.mp4'
+  },
+  {
+    date: '2026-11-14',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL01 - 5 Important Networking Ports',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'out/quicklearn/quicklearn_ports_hi.mp4',
+    title: '5 नेटवर्किंग पोर्ट्स जो हर इंजीनियर को पता होने चाहिए! ⚡ #shorts',
+    caption_description: 'पोर्ट 80, 443, 53, 22 और 25: जानिए इंटरनेट के सबसे जरूरी पोर्ट्स 60 सेकंड में! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #NetworkingHindi #CCNAHindi #PortsHindi #TechFactsHindi #QuickLearn',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act1.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: out/quicklearn/quicklearn_ports_hi.mp4'
+  },
+
+  // DAY 3 - Nov 15, 2026 (Sunday)
+  {
+    date: '2026-11-15',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP03 - DNS: 13 Root Server Addresses',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/how_dns_works_ep03_en.mp4',
+    title: 'Why Are There Only 13 Root DNS Server IP Addresses? 🌐 #shorts',
+    caption_description: 'Ever wondered why the entire global Internet depends on just 13 Root Server IP addresses (A through M)? Here is the 512-byte UDP packet limit secret! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #DNS #Networking #InternetArchitecture #TechFacts #RootServers',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act3_dns_en.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: video-engine/out/episodes/how_dns_works_ep03_en.mp4'
+  },
+  {
+    date: '2026-11-15',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP03 - DNS: 13 Root Server Addresses',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/how_dns_works_ep03_hi.mp4',
+    title: 'पूरी दुनिया में केवल 13 रूट DNS एड्रेस क्यों हैं? 🌐 #shorts',
+    caption_description: 'पूरी दुनिया का इंटरनेट केवल 13 रूट सर्वर IP पतों पर कैसे टिका है? जानिए 512-बाइट UDP पैकेट की सीमा का रहस्य! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #DNSHindi #NetworkingHindi #TechFactsHindi #RootServersHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act3_dns_en.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: video-engine/out/episodes/how_dns_works_ep03_hi.mp4'
+  },
+
+  // DAY 4 - Nov 16, 2026 (Monday)
+  {
+    date: '2026-11-16',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP01 - Why 99% of Internet is Subsea, Not Satellites',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep01_vertical/short02_why_undersea_en.mp4',
+    title: 'Why 99% of Data Travels Under the Ocean, NOT Satellites! 🌊 #shorts',
+    caption_description: 'Why can satellites like Starlink never replace undersea fiber optic cables? The physics of optical glass bandwidth vs radio spectrum explained! @rtechlabofficial',
+    hashtags: '#RTechLab #FiberOptics #Satellites #SubmarineCables #Networking #TechFacts',
+    thumbnail_cover_path: 'video-engine/out/thumbnails/rtechlab_ep01_thumbnail_en_concept_b.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: Short01InternetNotCloudEN / Cinematic'
+  },
+  {
+    date: '2026-11-16',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP01 - Why 99% of Internet is Subsea, Not Satellites',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep01_vertical/short02_why_undersea_hi.mp4',
+    title: '99% इंटरनेट सैटेलाइट से क्यों नहीं, समुद्र के नीचे से चलता है? 🌊 #shorts',
+    caption_description: 'सैटेलाइट कभी भी अंडरवाटर केबल की जगह क्यों नहीं ले सकते? जानिए ग्लास फाइबर और रेडियो तरंगों के बीच का बड़ा अंतर! @rtechlabofficial',
+    hashtags: '#RTechLab #FiberOpticsHindi #NetworkingHindi #TechFactsHindi #SubseaCablesHindi',
+    thumbnail_cover_path: 'video-engine/out/thumbnails/rtechlab_ep01_thumbnail_hi_concept_b.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: Short01InternetNotCloudHI / Cinematic'
+  },
+
+  // DAY 5 - Nov 17, 2026 (Tuesday)
+  {
+    date: '2026-11-17',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP02 - How Cable Ships Fix Broken Internet',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep02_vertical/short02_cable_ship_repair_en.mp4',
+    title: 'How Cable Ships Fix Broken Internet Cables at 5,000m Depth 🚢⚓ #shorts',
+    caption_description: 'When an earthquake or anchor snaps an optical fiber in deep ocean, how do specialized cable ships find and splice a 17mm wire 5 miles down? @rtechlabofficial',
+    hashtags: '#RTechLab #CableShips #SubmarineCables #Engineering #Networking',
+    thumbnail_cover_path: 'video-engine/out/episodes/ep02_vertical/frames_en/frame_middle.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: Episode02UnderwaterCablesVertical'
+  },
+  {
+    date: '2026-11-17',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP02 - How Cable Ships Fix Broken Internet',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep02_vertical/short02_cable_ship_repair_hi.mp4',
+    title: '5,000 मीटर गहरे समुद्र में टूटी केबल कैसे जुड़ती है? 🚢⚓ #shorts',
+    caption_description: 'गहरे समुद्र में भूकंप या लंगर से जब इंटरनेट केबल टूट जाती है, तो स्पेशल केबल जहाज उसे कैसे ढूंढकर जोड़ते हैं? @rtechlabofficial',
+    hashtags: '#RTechLab #CableShipsHindi #SubmarineCablesHindi #EngineeringHindi',
+    thumbnail_cover_path: 'video-engine/out/episodes/ep02_vertical/frames_hi/frame_middle.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: Episode02UnderwaterCablesVertical'
+  },
+  {
+    date: '2026-11-17',
+    time_ist: '20:00 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP01 - How the Internet Works (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/how_the_internet_works_ep01_en_v2.mp4',
+    title: 'How Does the Internet Actually Work? (In 175 Milliseconds)',
+    caption_description: 'Full 6-minute documentary tracing a data packet from smartphone Wi-Fi in Mumbai across 13,000 km of subsea fiber to Ashburn, Virginia and back.',
+    hashtags: '#RTechLab #ComputerNetworking #HowTheInternetWorks #CCNA #SubmarineCables',
+    thumbnail_cover_path: 'video-engine/out/thumbnails/rtechlab_ep01_thumbnail_en_concept_a.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: video-engine/out/episodes/how_the_internet_works_ep01_en_v2.mp4'
+  },
+  {
+    date: '2026-11-17',
+    time_ist: '20:30 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP01 - How the Internet Works (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/how_the_internet_works_ep01_hi_v2.mp4',
+    title: 'इंटरनेट असल में कैसे काम करता है? (175 मिलीसेकंड में 13,000 km)',
+    caption_description: 'स्मार्टफोन टैप से क्लाउड प्लेबैक तक: जानिए 13,000 किमी के सफर में Wi-Fi, DNS, TCP/IP, BGP और अंडरवाटर केबल्स की पूरी कहानी!',
+    hashtags: '#RTechLab #NetworkingHindi #HowInternetWorksHindi #CCNAHindi #TechExplained',
+    thumbnail_cover_path: 'video-engine/out/thumbnails/rtechlab_ep01_thumbnail_hi_concept_a.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: video-engine/out/episodes/how_the_internet_works_ep01_hi_v2.mp4'
+  },
+
+  // DAY 6 - Nov 18, 2026 (Wednesday)
+  {
+    date: '2026-11-18',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'DHCP - The DORA Handshake',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/dhcp_explainer_dora_en.mp4',
+    title: 'DHCP Explained in 60s: Discover, Offer, Request, Acknowledge (DORA) 📱⚡ #shorts',
+    caption_description: 'How does your phone get an IP address the instant you connect to Wi-Fi? The 4-step DHCP DORA handshake explained! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #DHCP #DORA #Networking #CCNA #ComputerNetworks',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act3_dns.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: DhcpExplainerEN'
+  },
+  {
+    date: '2026-11-18',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'DHCP - The DORA Handshake',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/dhcp_explainer_dora_hi.mp4',
+    title: 'DHCP कैसे काम करता है? DORA प्रोसेस 60 सेकंड में 📱⚡ #shorts',
+    caption_description: 'वाई-फाई से जुड़ते ही फोन को IP एड्रेस कैसे मिल जाता है? डिस्कवर, ऑफर, रिक्वेस्ट, और एक्नॉलेज का पूरा चक्र! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #DHCPHindi #DORAHindi #NetworkingHindi #CCNAHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act1.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: DhcpExplainerHI'
+  },
+
+  // DAY 7 - Nov 19, 2026 (Thursday)
+  {
+    date: '2026-11-19',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP03 - Cold Cache vs Warm Cache',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep03_vertical/short02_cold_warm_cache_en.mp4',
+    title: 'Cold Cache vs Warm Cache: Why Second Clicks Load Instantly ⚡ #shorts',
+    caption_description: 'Why does the first website load take 150ms while the second load takes 5ms? Browser DNS caching and TTL records explained! @rtechlabofficial',
+    hashtags: '#RTechLab #DNS #WebPerformance #Caching #Networking #TechTips',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act3_dns_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: DnsExplainerV3EN'
+  },
+  {
+    date: '2026-11-19',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP03 - Cold Cache vs Warm Cache',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep03_vertical/short02_cold_warm_cache_hi.mp4',
+    title: 'कोल्ड कैश vs वार्म कैश: दूसरा क्लिक तुरंत क्यों खुलता है? ⚡ #shorts',
+    caption_description: 'पहली बार वेबसाइट खुलने में समय क्यों लगता है और दूसरी बार तुरंत क्यों खुल जाती है? DNS कैशिंग और TTL का कमाल! @rtechlabofficial',
+    hashtags: '#RTechLab #DNSHindi #CachingHindi #NetworkingHindi #TechTipsHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act3_dns_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: DnsExplainerV3HI'
+  },
+
+  // DAY 8 - Nov 20, 2026 (Friday)
+  {
+    date: '2026-11-20',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL02 - TCP vs UDP',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_tcp_vs_udp_en.mp4',
+    title: 'TCP vs UDP: Why YouTube Uses TCP But Gaming Uses UDP 🎮📺 #shorts',
+    caption_description: 'Reliability vs Speed: The fundamental trade-off between TCP 3-way handshakes and UDP fire-and-forget datagrams! @rtechlabofficial',
+    hashtags: '#RTechLab #TCP #UDP #Gaming #Networking #ComputerScience',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act8_return.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+  {
+    date: '2026-11-20',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL02 - TCP vs UDP',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_tcp_vs_udp_hi.mp4',
+    title: 'TCP vs UDP: यूट्यूब TCP और गेमिंग UDP क्यों इस्तेमाल करता है? 🎮📺 #shorts',
+    caption_description: 'भरोसा या रफ्तार? जानिए क्यों लाइव गेमिंग में UDP और वीडियो स्ट्रीमिंग में TCP काम आता है! @rtechlabofficial',
+    hashtags: '#RTechLab #TCPHindi #UDPHindi #NetworkingHindi #GamingTech',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act8_return.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+  {
+    date: '2026-11-20',
+    time_ist: '20:00 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP03 - DNS Resolution (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/how_dns_works_ep03_en.mp4',
+    title: 'DNS Resolution Explained: What Really Happens When You Type Google.com?',
+    caption_description: 'Step-by-step breakdown of recursive DNS resolution, Root servers, TLD registries, and authoritative nameservers in under 15ms.',
+    hashtags: '#RTechLab #DNS #Networking #InternetArchitecture #CCNA',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act3_dns_en.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: video-engine/out/episodes/how_dns_works_ep03_en.mp4'
+  },
+  {
+    date: '2026-11-20',
+    time_ist: '20:30 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP03 - DNS Resolution (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/how_dns_works_ep03_hi.mp4',
+    title: 'DNS: जब आप Google.com टाइप करते हैं तो वास्तव में क्या होता है?',
+    caption_description: 'इंटरनेट की असली फोनबुक: जानिए रूट सर्वर्स, TLD और अथॉरिटेटिव सर्वर्स कैसे काम करते हैं 15 मिलीसेकंड में!',
+    hashtags: '#RTechLab #DNSHindi #NetworkingHindi #CCNAHindi #TechExplained',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act3_dns_en.png',
+    publishing_status: 'READY',
+    platform_id_or_url: 'Local: video-engine/out/episodes/how_dns_works_ep03_hi.mp4'
+  },
+
+  // DAY 9 - Nov 21, 2026 (Saturday)
+  {
+    date: '2026-11-21',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP02 - Inside a Cable Landing Station',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep02_vertical/short03_landing_station_en.mp4',
+    title: 'What Happens at an Undersea Cable Landing Station? 🏖️🔌 #shorts',
+    caption_description: 'Where does an ocean cable meet the land? Inside the beach manhole, Power Feed Equipment (PFE), and DWDM optical line terminals! @rtechlabofficial',
+    hashtags: '#RTechLab #LandingStation #SubseaCables #Telecom #Networking',
+    thumbnail_cover_path: 'video-engine/out/episodes/ep02_vertical/frames_en/frame_final.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: Episode02UnderwaterCablesVertical'
+  },
+  {
+    date: '2026-11-21',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP02 - Inside a Cable Landing Station',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep02_vertical/short03_landing_station_hi.mp4',
+    title: 'समुद्री केबल लैंडिंग स्टेशन पर क्या होता है? 🏖️🔌 #shorts',
+    caption_description: 'समुद्र से निकलकर इंटरनेट जमीन पर कैसे आता है? जानिए बीच मैनहोल और 10,000 वोल्ट पावर फीड इक्विपमेंट का सच! @rtechlabofficial',
+    hashtags: '#RTechLab #LandingStationHindi #SubseaCablesHindi #NetworkingHindi',
+    thumbnail_cover_path: 'video-engine/out/episodes/ep02_vertical/frames_hi/frame_final.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: Episode02UnderwaterCablesVertical'
+  },
+
+  // DAY 10 - Nov 22, 2026 (Sunday)
+  {
+    date: '2026-11-22',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP04 - What Happens When a Packet Drops',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep04_vertical/short01_packet_drop_en.mp4',
+    title: 'What REALLY Happens When a Packet Drops During Video Playback? 📉 #shorts',
+    caption_description: 'Does your video stop? Not with TCP! How Selective Acknowledgement (SACK) and retransmission buffers save your 4K stream without buffering! @rtechlabofficial',
+    hashtags: '#RTechLab #TCP #PacketLoss #Streaming #Networking #TechFacts',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act5_bgp.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep04_en.mp3'
+  },
+  {
+    date: '2026-11-22',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP04 - What Happens When a Packet Drops',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep04_vertical/short01_packet_drop_hi.mp4',
+    title: 'वीडियो देखते समय अगर एक पैकेट ड्रॉप हो जाए तो क्या होता है? 📉 #shorts',
+    caption_description: 'क्या वीडियो रुक जाता है? TCP के रहते नहीं! जानिए रिट्रांसमिशन बफर और SACK कैसे वीडियो को अटकने से बचाते हैं! @rtechlabofficial',
+    hashtags: '#RTechLab #PacketLossHindi #TCPHindi #NetworkingHindi #TechFactsHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act8_return.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep04_hi.mp3'
+  },
+
+  // DAY 11 - Nov 23, 2026 (Monday)
+  {
+    date: '2026-11-23',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL03 - Private vs Public IP Addresses',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_private_ip_en.mp4',
+    title: 'Private vs Public IP: Why Everyone Has 192.168.1.1 🏠🌐 #shorts',
+    caption_description: 'RFC 1918 explained in 60s: Why billions of home routers share the exact same 192.168.x.x addresses and how NAT makes it possible! @rtechlabofficial',
+    hashtags: '#RTechLab #IPAddress #Networking #NAT #RFC1918 #CCNA',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act1.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+  {
+    date: '2026-11-23',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL03 - Private vs Public IP Addresses',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_private_ip_hi.mp4',
+    title: 'Private vs Public IP: सबके पास 192.168.1.1 क्यों होता है? 🏠🌐 #shorts',
+    caption_description: 'पूरी दुनिया के राउटर्स पर एक ही IP क्यों होता है? RFC 1918 और NAT का जादुई गणित 60 सेकंड में! @rtechlabofficial',
+    hashtags: '#RTechLab #IPAddressHindi #NATHindi #NetworkingHindi #CCNAHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act1.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+
+  // DAY 12 - Nov 24, 2026 (Tuesday)
+  {
+    date: '2026-11-24',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP04 - Inside a 1500-Byte TCP Packet',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep04_vertical/short02_tcp_header_en.mp4',
+    title: 'Inside a 1500-Byte TCP Packet: What Does The Header Do? 📦 #shorts',
+    caption_description: 'Maximum Transmission Unit (MTU) 1500 bytes: 20 bytes IPv4 header, 20 bytes TCP header, and 1460 bytes of pure video payload! @rtechlabofficial',
+    hashtags: '#RTechLab #TCP #IPv4 #Packets #Networking #ComputerNetworks',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act5_bgp.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep04_en.mp3'
+  },
+  {
+    date: '2026-11-24',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP04 - Inside a 1500-Byte TCP Packet',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep04_vertical/short02_tcp_header_hi.mp4',
+    title: '1500 बाइट के डेटा पैकेट में हेडर क्या काम करता है? 📦 #shorts',
+    caption_description: '1500 बाइट का पैकेट अंदर से कैसा होता है? 20 बाइट IP हेडर, 20 बाइट TCP हेडर और 1460 बाइट वीडियो डेटा! @rtechlabofficial',
+    hashtags: '#RTechLab #TCPHindi #IPv4Hindi #NetworkingHindi #CCNAHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act8_return.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep04_hi.mp3'
+  },
+  {
+    date: '2026-11-24',
+    time_ist: '20:00 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP04 - Data Packets & TCP/IP Slicing (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/data_packets_ep04_en.mp4',
+    title: 'Data Packets: How 4K Video Gets Sliced into 1,500-Byte Chunks',
+    caption_description: 'How operating systems fragment high-definition video files into thousands of 1500-byte TCP packets and reassemble them at the destination.',
+    hashtags: '#RTechLab #TCP #DataPackets #Networking #ComputerNetworks',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act5_bgp.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep04_en.mp3'
+  },
+  {
+    date: '2026-11-24',
+    time_ist: '20:30 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP04 - Data Packets & TCP/IP Slicing (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/data_packets_ep04_hi.mp4',
+    title: 'डेटा पैकेट्स: 4K वीडियो 1,500 बाइट के टुकड़ों में कैसे बंटता है?',
+    caption_description: 'जानिए कैसे ऑपरेटिंग सिस्टम 4K वीडियो फाइल्स को 1,500 बाइट के पैकेट्स में काटता है और रिसीवर पर सही क्रम में जोड़ता है!',
+    hashtags: '#RTechLab #DataPacketsHindi #TCPHindi #NetworkingHindi #CCNAHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act8_return.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep04_hi.mp3'
+  },
+
+  // DAY 13 - Nov 25, 2026 (Wednesday)
+  {
+    date: '2026-11-25',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP05 - The Day Facebook Disappeared (BGP)',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep05_vertical/short01_bgp_facebook_en.mp4',
+    title: 'The Day Facebook Disappeared: The Single BGP Error That Broke Meta ⚠️ #shorts',
+    caption_description: 'On October 4, 2021, Facebook, Instagram, and WhatsApp vanished from the Internet in 5 minutes. How a BGP routing withdraw caused total blackout! @rtechlabofficial',
+    hashtags: '#RTechLab #BGP #FacebookDown #Networking #InternetOutage #TechHistory',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act5_bgp_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep05_en.mp3'
+  },
+  {
+    date: '2026-11-25',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP05 - The Day Facebook Disappeared (BGP)',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep05_vertical/short01_bgp_facebook_hi.mp4',
+    title: 'वो दिन जब फेसबुक इंटरनेट से गायब हो गया: BGP की एक गलती! ⚠️ #shorts',
+    caption_description: '4 अक्टूबर 2021 को फेसबुक, व्हाट्सएप और इंस्टाग्राम 5 मिनट में इंटरनेट से कैसे मिट गए थे? BGP राउटिंग की ऐतिहासिक चूक! @rtechlabofficial',
+    hashtags: '#RTechLab #BGPHindi #FacebookOutage #NetworkingHindi #TechHistoryHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act5_bgp_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep05_hi.mp3'
+  },
+
+  // DAY 14 - Nov 26, 2026 (Thursday)
+  {
+    date: '2026-11-26',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL04 - Subnet Masks & CIDR (/24)',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_subnet_mask_en.mp4',
+    title: 'What Does /24 Actually Mean? Subnet Masks Made Crystal Clear 🔢 #shorts',
+    caption_description: 'Binary bitmasking in 60s: Why 255.255.255.0 equals 24 network bits and 254 usable host IP addresses! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #Subnetting #CIDR #Networking #CCNA #IPAddress',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act1.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+  {
+    date: '2026-11-26',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL04 - Subnet Masks & CIDR (/24)',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_subnet_mask_hi.mp4',
+    title: 'सबनेट मास्क क्या है? /24 और 255.255.255.0 का असली गणित 🔢 #shorts',
+    caption_description: 'बाइनरी मास्क का सरल फॉर्मूला: 24 नेटवर्क बिट्स और 254 होस्ट IP एड्रेस कैसे बनते हैं! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #SubnettingHindi #CIDRHindi #NetworkingHindi #CCNAHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act1.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+
+  // DAY 15 - Nov 27, 2026 (Friday)
+  {
+    date: '2026-11-27',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP05 - Traceroute: Watch Packets Hop',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep05_vertical/short02_traceroute_en.mp4',
+    title: 'Traceroute: How to Watch Your Packets Hop Across Continents 💻🌍 #shorts',
+    caption_description: 'How the TTL field in IP headers forces routers to reply with ICMP Time Exceeded messages, drawing the exact physical map of your packet! @rtechlabofficial',
+    hashtags: '#RTechLab #Traceroute #Networking #Terminal #ICMP #TechTricks',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act5_bgp_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep05_en.mp3'
+  },
+  {
+    date: '2026-11-27',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP05 - Traceroute: Watch Packets Hop',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep05_vertical/short02_traceroute_hi.mp4',
+    title: 'Traceroute: अपने कंप्यूटर से पैकेट को देशों के पार जाते कैसे देखें? 💻🌍 #shorts',
+    caption_description: 'TTL और ICMP का जादुई इस्तेमाल: देखिए कैसे आपका टर्मिनल हर राउटर का नाम और लेटेंसी नापता है! @rtechlabofficial',
+    hashtags: '#RTechLab #TracerouteHindi #NetworkingHindi #TerminalHindi #TechTricksHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act5_bgp_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep05_hi.mp3'
+  },
+  {
+    date: '2026-11-27',
+    time_ist: '20:00 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP05 - BGP Routing (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/bgp_routing_ep05_en.mp4',
+    title: 'BGP: How 100,000 Autonomous Systems Find The Fastest Route Across Earth',
+    caption_description: 'The global GPS of the Internet: Autonomous Systems (ASNs), Border Gateway Protocol peering, and carrier interconnects.',
+    hashtags: '#RTechLab #BGP #AutonomousSystems #Networking #InternetRouting',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act5_bgp_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep05_en.mp3'
+  },
+  {
+    date: '2026-11-27',
+    time_ist: '20:30 IST',
+    platform: 'YouTube',
+    episode_topic: 'EP05 - BGP Routing (Long-form)',
+    format: 'Long-form (16:9)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/bgp_routing_ep05_hi.mp4',
+    title: 'BGP: 1 लाख नेटवर्क्स पूरी पृथ्वी पर सबसे तेज़ रास्ता कैसे खोजते हैं?',
+    caption_description: 'इंटरनेट का ग्लोबल जीपीएस: जानिए ऑटोनॉमस सिस्टम्स और BGP राउटिंग टेबल्स कैसे पूरे विश्व के ट्रैफिक को संभालते हैं!',
+    hashtags: '#RTechLab #BGPHindi #NetworkingHindi #CCNAHindi #InternetRoutingHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/preview_corrections/preview_act5_bgp_en.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep05_hi.mp3'
+  },
+
+  // DAY 16 - Nov 28, 2026 (Saturday)
+  {
+    date: '2026-11-28',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP06 - Speed of Light in Glass',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep06_vertical/short01_light_speed_en.mp4',
+    title: 'Why The Speed of Light in Optical Fiber is 31% Slower Than Space! 💡 #shorts',
+    caption_description: 'Light in a vacuum travels at 300,000 km/s. But inside silica glass fiber (refractive index 1.468), light slows to 204,200 km/s! The physics of fiber latency explained! @rtechlabofficial',
+    hashtags: '#RTechLab #Physics #FiberOptics #SpeedOfLight #Networking #TechFacts',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act8_return.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep06_en.mp3'
+  },
+  {
+    date: '2026-11-28',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP06 - Speed of Light in Glass',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep06_vertical/short01_light_speed_hi.mp4',
+    title: 'ऑप्टिकल फाइबर में प्रकाश की गति अंतरिक्ष से 31% धीमी क्यों हो जाती है? 💡 #shorts',
+    caption_description: 'वैक्यूम में 3 लाख किमी/सेकंड! लेकिन कांच के अंदर 204,200 किमी/सेकंड! जानिए अपवर्तनांक (Refractive Index) का भौतिकी रहस्य! @rtechlabofficial',
+    hashtags: '#RTechLab #PhysicsHindi #FiberOpticsHindi #SpeedOfLightHindi #TechFactsHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act8_return.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep06_hi.mp3'
+  },
+
+  // DAY 17 - Nov 29, 2026 (Sunday)
+  {
+    date: '2026-11-29',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL05 - OSI 7-Layer Model Simplified',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_osi_model_en.mp4',
+    title: 'The 7 Layers of OSI Model Explained in 60s (No Jargon!) 🍕 #shorts',
+    caption_description: 'Physical, Data Link, Network, Transport, Session, Presentation, Application. "Please Do Not Throw Sausage Pizza Away"! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #OSIModel #Networking #CCNA #ComputerNetworks #ITFundamentals',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_en_act1.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+  {
+    date: '2026-11-29',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'QL05 - OSI 7-Layer Model Simplified',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/quicklearn/quicklearn_osi_model_hi.mp4',
+    title: 'OSI मॉडल की सातों परतें 60 सेकंड में समझें 🍕 #shorts',
+    caption_description: 'फिजिकल से लेकर एप्लीकेशन लेयर तक: OSI मॉडल की 7 लेयर्स का सबसे आसान और मजेदार तरीका! @rtechlabofficial × @iant_palanpur',
+    hashtags: '#RTechLab #OSIModelHindi #NetworkingHindi #CCNAHindi #ITFundamentalsHindi',
+    thumbnail_cover_path: 'video-engine/out/samples/v2_verification/v2_hi_act1.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Composition: QuickLearnTemplate'
+  },
+
+  // DAY 18 - Nov 30, 2026 (Monday)
+  {
+    date: '2026-11-30',
+    time_ist: '18:00 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP07 - Inside a 42U Server Rack',
+    format: 'Short (9:16)',
+    language: 'English',
+    asset_path: 'video-engine/out/episodes/ep07_vertical/short01_42u_rack_en.mp4',
+    title: 'What Does a 42U Server Rack Look Like From The Inside? 🏢🖥️ #shorts',
+    caption_description: 'Inside a hyperscale data center: Dual redundant PDUs, Top-of-Rack 100GbE fiber switches, and blinding optic cables! @rtechlabofficial',
+    hashtags: '#RTechLab #DataCenter #ServerRack #42U #Networking #CloudInfrastructure',
+    thumbnail_cover_path: 'video-engine/out/test_3d_rack_frame_750.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep07_en.mp3'
+  },
+  {
+    date: '2026-11-30',
+    time_ist: '18:30 IST',
+    platform: 'YouTube Shorts / Instagram Reels',
+    episode_topic: 'EP07 - Inside a 42U Server Rack',
+    format: 'Short (9:16)',
+    language: 'Hindi',
+    asset_path: 'video-engine/out/episodes/ep07_vertical/short01_42u_rack_hi.mp4',
+    title: '42U डेटा सेंटर सर्वर रैक अंदर से कैसा दिखता है? 🏢🖥️ #shorts',
+    caption_description: 'डेटा सेंटर के अंदर 42U रैक की इंजीनियरिंग: टॉप-ऑफ-रैक स्विचेस, डुअल पावर सप्लाई और चमचमाते फाइबर तार! @rtechlabofficial',
+    hashtags: '#RTechLab #DataCenterHindi #ServerRackHindi #NetworkingHindi #CloudHindi',
+    thumbnail_cover_path: 'video-engine/out/test_3d_rack_frame_750.png',
+    publishing_status: 'NEEDS RENDERING',
+    platform_id_or_url: 'Audio: video-engine/public/audio/ep07_hi.mp3'
+  }
+];
+
+// Save JSON
+const jsonPath = path.resolve('publishing/calendar/NOVEMBER_13_30_BULK_MANIFEST.json');
+fs.writeFileSync(jsonPath, JSON.stringify(entries, null, 2), 'utf8');
+
+// Save CSV
+const csvHeaders = ['date', 'time_ist', 'platform', 'episode_topic', 'format', 'language', 'asset_path', 'title', 'caption_description', 'hashtags', 'thumbnail_cover_path', 'publishing_status', 'platform_id_or_url'];
+const csvRows = [csvHeaders.join(',')];
+
+for (const e of entries) {
+  const row = [
+    `"${e.date}"`,
+    `"${e.time_ist}"`,
+    `"${e.platform}"`,
+    `"${e.episode_topic}"`,
+    `"${e.format}"`,
+    `"${e.language}"`,
+    `"${e.asset_path}"`,
+    `"${e.title.replace(/"/g, '""')}"`,
+    `"${e.caption_description.replace(/"/g, '""')}"`,
+    `"${e.hashtags.replace(/"/g, '""')}"`,
+    `"${e.thumbnail_cover_path}"`,
+    `"${e.publishing_status}"`,
+    `"${e.platform_id_or_url.replace(/"/g, '""')}"`
+  ];
+  csvRows.push(row.join(','));
+}
+
+const csvPath = path.resolve('publishing/calendar/NOVEMBER_13_30_BULK_MANIFEST.csv');
+fs.writeFileSync(csvPath, csvRows.join('\n'), 'utf8');
+
+console.log(`Generated Manifests:`);
+console.log(`- JSON: ${jsonPath} (${entries.length} items)`);
+console.log(`- CSV:  ${csvPath}`);

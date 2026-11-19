@@ -1,0 +1,80 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment & Credentials (CRITICAL SECURITY)
+.env
+.env*.local
+*.env
+*.pem
+*.key
+*token*.json
+*credentials*.json
+client_secret*.json
+oauth_token*.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# MCP Configurations & Secrets
+*mcp_config*.json
+.agents/mcp_config.json
+
+# Build outputs
+build/
+.vercel/
+
+# Customer & Student Privacy (Leads Ledger)
+data/
+
+# Cache, Build & Internal Frameworks
+.react-router/
+__pycache__/
+*.pyc
+out/
+scratch/
+screenshots/
+
+# Heavy Video Production Assets & Render Caches (Excluded from Web Repo)
+video-engine/
+PUBLISHING_HUB/
+QUARANTINE_LEGACY_ARCHIVE/
+DECEMBER_2026_FACE_REELS/
+INFORMATIVE_RELATED_REELS/
+RTECHLAB_EDITING_WORKFLOW/
+
+# Root temporary test & debug artifacts
+test_*
+debug_*
+slice_*
+strip_*
+*.wav
+*.mp3
+*.vtt
+execute_cleanup.py
+generate_manifest.py
+inspect_references.py
+DELETION_MANIFEST.json
+full_prompt_933.txt
+master_with_y_grid.png
+logic-gates-view.png
+
+

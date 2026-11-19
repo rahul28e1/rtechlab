@@ -1,0 +1,80 @@
+[
+  {
+    "id": "EP01_EN_LONG",
+    "title": "How Does the Internet Actually Work? (In 175 Milliseconds)",
+    "language": "en",
+    "format": "16:9 Landscape (1920x1080 @ 30fps)",
+    "exists": true,
+    "path": "C:\\Users\\Rahul\\Videos\\My projects\\RtechLab\\video-engine\\out\\episodes\\how_the_internet_works_ep01_en_v2.mp4",
+    "size_mb": 55.24,
+    "sha256": "0c3b1d0956c03dd4331c4409723dd88a3944c6320d12d1b92e497c02b6f50d41",
+    "thumbnail_exists": true,
+    "subtitles_exist": true,
+    "status": "APPROVED_READY"
+  },
+  {
+    "id": "EP01_HI_LONG",
+    "title": "\u0907\u0902\u091f\u0930\u0928\u0947\u091f \u0905\u0938\u0932 \u092e\u0947\u0902 \u0915\u0948\u0938\u0947 \u0915\u093e\u092e \u0915\u0930\u0924\u093e \u0939\u0948? (175 \u092e\u093f\u0932\u0940\u0938\u0947\u0915\u0902\u0921 \u092e\u0947\u0902 13,000 km)",
+    "language": "hi",
+    "format": "16:9 Landscape (1920x1080 @ 30fps)",
+    "exists": true,
+    "path": "C:\\Users\\Rahul\\Videos\\My projects\\RtechLab\\video-engine\\out\\episodes\\how_the_internet_works_ep01_hi_v2.mp4",
+    "size_mb": 52.64,
+    "sha256": "7f0d9bd41e5958d206d8160d94708e8800c9ef5444b022e68ee4b2a041a7a97b",
+    "thumbnail_exists": true,
+    "subtitles_exist": true,
+    "status": "APPROVED_READY"
+  },
+  {
+    "id": "EP01_S01_EN_SHORT",
+    "title": "The Internet is NOT a Cloud (Submarine Fiber)",
+    "language": "en",
+    "format": "9:16 Vertical (1080x1920 @ 30fps)",
+    "exists": true,
+    "path": "C:\\Users\\Rahul\\Videos\\My projects\\RtechLab\\publishing\\episodes\\EP01_HOW_THE_INTERNET_WORKS\\shorts\\short_01\\video\\short01_the_internet_is_not_a_cloud_en.mp4",
+    "size_mb": 6.37,
+    "sha256": "13a6a512c5f172fb884102798f6315a89b086b731de26ea139d3c63e8cd818ed",
+    "thumbnail_exists": true,
+    "subtitles_exist": true,
+    "status": "APPROVED_READY"
+  },
+  {
+    "id": "EP01_S01_HI_SHORT",
+    "title": "\u0907\u0902\u091f\u0930\u0928\u0947\u091f \u0938\u092e\u0941\u0926\u094d\u0930 \u0915\u0947 \u0928\u0940\u091a\u0947 \u0939\u0948 (\u092c\u093e\u0926\u0932 \u0928\u0939\u0940\u0902)",
+    "language": "hi",
+    "format": "9:16 Vertical (1080x1920 @ 30fps)",
+    "exists": true,
+    "path": "C:\\Users\\Rahul\\Videos\\My projects\\RtechLab\\publishing\\episodes\\EP01_HOW_THE_INTERNET_WORKS\\shorts\\short_01\\video\\short01_the_internet_is_not_a_cloud_hi.mp4",
+    "size_mb": 6.78,
+    "sha256": "91d93fa0b2ef306023119f182d0a3acc2374bf88686308039e64ab4518cda6df",
+    "thumbnail_exists": true,
+    "subtitles_exist": true,
+    "status": "APPROVED_READY"
+  },
+  {
+    "id": "EP03_EN_MASTER",
+    "title": "How DNS Resolves Domain Names (V3 Explainer)",
+    "language": "en",
+    "format": "9:16 Vertical (1080x1920 @ 30fps)",
+    "exists": true,
+    "path": "C:\\Users\\Rahul\\Videos\\My projects\\RtechLab\\video-engine\\out\\episodes\\how_dns_works_ep03_en.mp4",
+    "size_mb": 6.84,
+    "sha256": "16ffdf9a6d4a0d60088be70a78e0ffe3bf122fe5eb6e3a43e80add521f97b292",
+    "thumbnail_exists": true,
+    "subtitles_exist": true,
+    "status": "APPROVED_READY"
+  },
+  {
+    "id": "EP03_HI_MASTER",
+    "title": "DNS \u0905\u0938\u0932 \u092e\u0947\u0902 \u0915\u0948\u0938\u0947 \u0915\u093e\u092e \u0915\u0930\u0924\u093e \u0939\u0948? (V3 Explainer)",
+    "language": "hi",
+    "format": "9:16 Vertical (1080x1920 @ 30fps)",
+    "exists": true,
+    "path": "C:\\Users\\Rahul\\Videos\\My projects\\RtechLab\\video-engine\\out\\episodes\\how_dns_works_ep03_hi.mp4",
+    "size_mb": 7.31,
+    "sha256": "8ff01cfb07f378468933cb5ad744def837d2bb0816a40fded31f832571672e7b",
+    "thumbnail_exists": true,
+    "subtitles_exist": true,
+    "status": "APPROVED_READY"
+  }
+]

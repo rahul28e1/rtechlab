@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTechLab — Short 01 Executive Review & Publishing Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030712;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --border: rgba(0, 245, 255, 0.25);
+      --cyan: #00F5FF;
+      --blue: #38BDF8;
+      --gold: #FFD700;
+      --green: #10B981;
+      --red: #EF4444;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 40px 24px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+    }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .brand-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: radial-gradient(circle, #00F5FF, #0284C7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 26px;
+      color: #030712;
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+    }
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(0, 245, 255, 0.12);
+      border: 1px solid var(--border);
+      color: var(--cyan);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    video {
+      width: 100%;
+      max-height: 640px;
+      border-radius: 14px;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+    .cover-img {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .meta-box {
+      background: rgba(3, 7, 18, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 245, 255, 0.2);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      padding: 4px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+    .copy-btn:hover {
+      background: var(--cyan);
+      color: #030712;
+    }
+    .check-list { list-style: none; margin-top: 12px; }
+    .check-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+    .icon-pass { color: var(--green); font-weight: 800; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">R</div>
+        <div>
+          <h1 style="font-size: 26px; font-weight: 900; letter-spacing: 0.02em;">
+            RTech<span style="color: var(--cyan);">Lab</span> Content Production Engine
+          </h1>
+          <p style="color: var(--muted); font-size: 13px; font-weight: 600;">
+            Episode 01 Short 01: "The Internet Is NOT a Cloud" • Executive Publishing Dashboard
+          </p>
+        </div>
+      </div>
+      <div class="badge">STATUS: READY FOR RAHUL SIR'S APPROVAL</div>
+    </header>
+
+    <!-- SECTION 1: DUAL VIDEO PLAYERS (ENGLISH & HINDI) -->
+    <h2 style="font-size: 22px; margin-bottom: 20px; color: var(--cyan);">
+      🎬 1. Final Rendered Vertical Videos (1080x1920 • 9:16)
+    </h2>
+    <div class="grid-2">
+      <!-- English Video Card -->
+      <div class="card">
+        <div class="card-title">
+          <span>🇺🇸 English Version (49.0s • 1470 Frames)</span>
+          <span class="badge" style="color: var(--green); border-color: var(--green);">RENDER COMPLETE</span>
+        </div>
+        <video controls poster="covers/short01_cover_en.png">
+          <source src="video/short01_the_internet_is_not_a_cloud_en.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div style="margin-top: 16px; font-size: 13px; color: var(--muted);">
+          <strong>Audio:</strong> ChristopherNeural Voiceover + Ambient Tech Music (-16dB Ducked) + Calibrated SFX.<br>
+          <strong>File:</strong> <code>video/short01_the_internet_is_not_a_cloud_en.mp4</code> (6.7 MB)
+        </div>
+      </div>
+
+      <!-- Hindi Video Card -->
+      <div class="card">
+        <div class="card-title">
+          <span>🇮🇳 Hindi Version (57.0s • 1710 Frames)</span>
+          <span class="badge" style="color: var(--green); border-color: var(--green);">RENDER COMPLETE</span>
+        </div>
+        <video controls poster="covers/short01_cover_hi.png">
+          <source src="video/short01_the_internet_is_not_a_cloud_hi.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div style="margin-top: 16px; font-size: 13px; color: var(--muted);">
+          <strong>Audio:</strong> MadhurNeural Voiceover + Ambient Tech Music (-16dB Ducked) + Calibrated SFX.<br>
+          <strong>File:</strong> <code>video/short01_the_internet_is_not_a_cloud_hi.mp4</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: COVERS & 1:1 PROFILE CROP SAFE ZONE -->
+    <h2 style="font-size: 22px; margin-bottom: 20px; color: var(--blue);">
+      🖼️ 2. Platform Covers & Thumbnails (1:1 Safe Crop Tested)
+    </h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">English Cover (1080x1920)</div>
+        <img src="covers/short01_cover_en.png" class="cover-img" alt="English Cover">
+        <div style="margin-top: 12px; font-size: 12px; color: var(--muted);">
+          Headline, subsea cable graphic, and RTechLab mark positioned strictly within Y=420 to Y=1500 for 1:1 profile grid framing.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Hindi Cover (1080x1920)</div>
+        <img src="covers/short01_cover_hi.png" class="cover-img" alt="Hindi Cover">
+        <div style="margin-top: 12px; font-size: 12px; color: var(--muted);">
+          Hindi headline & branding aligned with mobile safe zones; zero text collision with Reels/Shorts UI controls.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: METADATA & READY-TO-PASTE PACKAGES -->
+    <h2 style="font-size: 22px; margin-bottom: 20px; color: var(--gold);">
+      📋 3. Ready-to-Paste Publishing Packages
+    </h2>
+    <div class="grid-2">
+      <!-- YouTube Metadata -->
+      <div class="card">
+        <div class="card-title">YouTube Shorts Package (English & Hindi)</div>
+        <div class="meta-box">
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.innerText.replace('COPY', ''))">COPY</button>
+          <strong>Title (EN):</strong> The Internet Is NOT a Cloud 🌊 (99% Is Underwater) #Shorts<br><br>
+          <strong>Title (HI):</strong> इंटरनेट कोई बादल नहीं है! 🌊 (99% समुद्र के नीचे है) #Shorts<br><br>
+          <strong>Description Snippet:</strong><br>
+          Think the Internet floats in the sky? Over 99% of all global traffic travels through 1.4 million km of subsea fiber cables on the ocean floor!<br><br>
+          📺 Watch full Episode 01 on @RTechLabOfficial!<br>
+          Educational Partner: IANT Computer Education, Palanpur.<br>
+          #Shorts #Internet #Networking #RTechLab
+        </div>
+      </div>
+
+      <!-- Instagram Caption -->
+      <div class="card">
+        <div class="card-title">Instagram Reels Caption (High Engagement)</div>
+        <div class="meta-box">
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(this.parentElement.innerText.replace('COPY', ''))">COPY</button>
+          The biggest lie in tech? "The Cloud is floating in the sky." ☁️❌<br><br>
+          Here is what actually happens when you tap a video:<br>
+          1️⃣ 99% of global internet traffic travels through 1.4 MILLION km of glass cables 8,000m under the ocean.<br>
+          2️⃣ Your data doesn't bounce off satellites. It becomes laser light at 200,000 km/s in pure silica glass.<br>
+          3️⃣ The "Cloud" is someone else's physical computer in Virginia.<br><br>
+          📺 Watch full Episode 01 on YouTube! Link in bio 🔗<br><br>
+          Collab: @rtechlabofficial × IANT Computer Education<br>
+          #RTechLab #TechReels #ComputerScience #OpticalFiber #SubseaCables #CloudComputing
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: CONSOLIDATED QUALITY ASSURANCE -->
+    <h2 style="font-size: 22px; margin-bottom: 20px; color: var(--green);">
+      ✅ 4. Phase 6 Technical Quality Audit Report
+    </h2>
+    <div class="card">
+      <ul class="check-list">
+        <li><span class="icon-pass">✓</span> <strong>Exact Aspect Ratio & Resolution:</strong> 1080x1920 (9:16 vertical), 30.00 FPS, progressive h264.</li>
+        <li><span class="icon-pass">✓</span> <strong>Strict Safe Zones:</strong> Header at Y=75px, Subtitles at bottom=380px, Profile grid focal visuals within Y=420px to 1500px.</li>
+        <li><span class="icon-pass">✓</span> <strong>Pristine Audio Mixing:</strong> Studio voiceover with Edge-TTS, ambient tech music ducked to -16dB, zero audio cutoff.</li>
+        <li><span class="icon-pass">✓</span> <strong>Subtitle Synchronization:</strong> Millisecond word boundaries converted to Remotion cues and exported to synchronized SRT/VTT.</li>
+        <li><span class="icon-pass">✓</span> <strong>Duration Safety:</strong> English is 49.0s (1470 frames); Hindi is 57.0s (1710 frames) — strictly under the 60s YouTube Shorts limit.</li>
+        <li><span class="icon-pass">✓</span> <strong>Official Branding:</strong> Official intact RTechLab emblem, taglines ("Learn. Practice. Innovate." & "Technology Made Practical."), zero unverified links.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <defs>
+    <linearGradient id="psuBox" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181f"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="300" fill="#090a0f"/>
+
+  <!-- Left: 24-Pin ATX Connector with Paperclip Jump -->
+  <g transform="translate(40, 25)">
+    <rect width="360" height="250" rx="10" fill="url(#psuBox)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="180" y="30" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="11" font-weight="bold">THE 24-PIN ATX PAPERCLIP TEST</text>
+    <text x="180" y="46" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9">Field Isolation: Is PSU Dead or Motherboard Shorted?</text>
+
+    <!-- 24 Pin Matrix (2 rows of 12) -->
+    <g transform="translate(30, 65)">
+      <!-- Row 1: Pins 1-12 -->
+      <g fill="#2a2a35" stroke="#444" stroke-width="1">
+        <rect x="0" y="0" width="22" height="22" rx="2"/>
+        <rect x="25" y="0" width="22" height="22" rx="2"/>
+        <rect x="50" y="0" width="22" height="22" rx="2"/>
+        <rect x="75" y="0" width="22" height="22" rx="2"/>
+        <rect x="100" y="0" width="22" height="22" rx="2"/>
+        <rect x="125" y="0" width="22" height="22" rx="2"/>
+        <rect x="150" y="0" width="22" height="22" rx="2"/>
+        <rect x="175" y="0" width="22" height="22" rx="2"/>
+        <rect x="200" y="0" width="22" height="22" rx="2"/>
+        <rect x="225" y="0" width="22" height="22" rx="2"/>
+        <rect x="250" y="0" width="22" height="22" rx="2"/>
+        <rect x="275" y="0" width="22" height="22" rx="2"/>
+      </g>
+
+      <!-- Row 2: Pins 13-24 -->
+      <g fill="#2a2a35" stroke="#444" stroke-width="1">
+        <rect x="0" y="30" width="22" height="22" rx="2"/>
+        <rect x="25" y="30" width="22" height="22" rx="2"/>
+        <rect x="50" y="30" width="22" height="22" rx="2"/>
+        <!-- Pin 16 (Green - PS_ON#) -->
+        <rect x="75" y="30" width="22" height="22" rx="2" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="2"/>
+        <!-- Pin 17 (Black - Ground/COM) -->
+        <rect x="100" y="30" width="22" height="22" rx="2" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
+        <rect x="125" y="30" width="22" height="22" rx="2"/>
+        <rect x="150" y="30" width="22" height="22" rx="2"/>
+        <rect x="175" y="30" width="22" height="22" rx="2"/>
+        <rect x="200" y="30" width="22" height="22" rx="2"/>
+        <rect x="250" y="30" width="22" height="22" rx="2"/>
+        <rect x="275" y="30" width="22" height="22" rx="2"/>
+      </g>
+
+      <!-- Paperclip Vector Wire connecting Pin 16 (X=86, Y=52) to Pin 17 (X=111, Y=52) -->
+      <path d="M 86 52 C 86 90, 111 90, 111 52" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+      
+      <!-- Label on Paperclip -->
+      <rect x="50" y="88" width="100" height="20" rx="4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+      <text x="100" y="102" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="8" font-weight="bold">METAL PAPERCLIP</text>
+
+      <text x="86" y="24" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="8" font-weight="bold">PIN 16</text>
+      <text x="86" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">PS_ON# (Green)</text>
+
+      <text x="111" y="24" text-anchor="middle" fill="#3b82f6" font-family="monospace" font-size="8" font-weight="bold">PIN 17</text>
+      <text x="111" y="15" text-anchor="middle" fill="#888" font-family="monospace" font-size="7">COM (Black)</text>
+    </g>
+
+    <!-- Diagnostic Rule Box -->
+    <rect x="20" y="185" width="320" height="50" rx="6" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-width="1"/>
+    <text x="30" y="203" fill="#10b981" font-family="monospace" font-size="9" font-weight="bold">RESULT ANALYSIS:</text>
+    <text x="30" y="217" fill="#d1d5db" font-family="sans-serif" font-size="8.5">• Fan Spins = PSU Internal Rails (+12V, +5V, +3.3V) are functioning.</text>
+    <text x="30" y="229" fill="#ef4444" font-family="sans-serif" font-size="8.5">• Fan Stays Dead = Internal fuse blown or short circuit protection active.</text>
+  </g>
+
+  <!-- Right: Modern ATX 3.1 12V-2x6 GPU Power Connector -->
+  <g transform="translate(430, 25)">
+    <rect width="330" height="250" rx="10" fill="url(#psuBox)" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.4"/>
+    <text x="165" y="30" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">2027 STANDARD: ATX 3.1 / 12V-2x6</text>
+    <text x="165" y="46" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="9">Replaces Meltdown-Prone 12VHPWR Connector</text>
+
+    <!-- Connector Diagram (12 Power Pins + 4 Sideband Sense Pins) -->
+    <g transform="translate(50, 70)">
+      <!-- 12 Power Pins -->
+      <g fill="#f59e0b" opacity="0.9">
+        <rect x="0" y="0" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="36" y="0" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="72" y="0" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="108" y="0" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="144" y="0" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="180" y="0" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+
+        <rect x="0" y="26" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="36" y="26" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="72" y="26" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="108" y="26" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="144" y="26" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+        <rect x="180" y="26" width="30" height="20" rx="3" stroke="#fff" stroke-width="1"/>
+      </g>
+      <!-- 4 Recessed Sideband Sense Pins (Card 4-Pin) -->
+      <g fill="#10b981" stroke="#fff" stroke-width="0.8">
+        <circle cx="50" cy="62" r="5"/>
+        <circle cx="86" cy="62" r="5"/>
+        <circle cx="122" cy="62" r="5"/>
+        <circle cx="158" cy="62" r="5"/>
+      </g>
+      <text x="105" y="82" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="8" font-weight="bold">4-PIN SENSE PINS (RECESSED 1.7mm)</text>
+    </g>
+
+    <rect x="15" y="175" width="300" height="60" rx="6" fill="#38bdf8" fill-opacity="0.08" stroke="#38bdf8" stroke-width="1"/>
+    <text x="25" y="193" fill="#38bdf8" font-family="monospace" font-size="9" font-weight="bold">⚡ THE MELTDOWN PREVENTION FIX:</text>
+    <text x="25" y="207" fill="#d1d5db" font-family="sans-serif" font-size="8">• Power delivery pins are lengthened (+0.25mm) for deeper contact.</text>
+    <text x="25" y="219" fill="#d1d5db" font-family="sans-serif" font-size="8">• Sense pins are shortened (-1.7mm). If plug is not 100% clicked in,</text>
+    <text x="25" y="231" fill="#ef4444" font-family="sans-serif" font-size="8">  the PSU refuses to draw 600W, preventing cable fires completely!</text>
+  </g>
+</svg>

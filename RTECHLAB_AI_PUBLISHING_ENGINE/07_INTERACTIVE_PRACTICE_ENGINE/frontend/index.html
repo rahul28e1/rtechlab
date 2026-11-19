@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTechLab Practice Lab · Interactive Quiz Prototype</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #F8F9FC; }
+    code, .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="p-4 sm:p-8 flex items-center justify-center min-h-screen">
+  <div id="quiz-root" class="w-full max-w-3xl"></div>
+
+  <script>
+    const questions = [
+      {
+        question_id: "MCQ-MOD01-01",
+        chapter: "Module 01: Silicon & CPU Sockets",
+        difficulty: "Basic",
+        question: "What is the primary physical difference between an LGA (Land Grid Array) and a PGA (Pin Grid Array) CPU socket?",
+        options: {
+          A: "PGA sockets have spring-loaded pins on the motherboard; LGA processors have pins on the CPU substrate.",
+          B: "LGA sockets place the delicate pins on the motherboard, while the CPU package has flat gold contact pads.",
+          C: "LGA sockets use soldering balls directly, whereas PGA sockets use lever retention only.",
+          D: "PGA sockets operate exclusively on 3.3V, whereas LGA sockets operate on 12V direct input."
+        },
+        correct: "B",
+        explanation: "In Land Grid Array (LGA) design (Intel LGA 1700/1851, AMD AM5), the fragile spring pins are housed in the motherboard socket, and the processor underside has flat gold contact pads (lands).",
+        distractor_note: "Option A reverses the definitions. Option C describes BGA. Option D confuses socket physical form factors with voltage rail specifications."
+      },
+      {
+        question_id: "MCQ-MOD02-02",
+        chapter: "Module 02: Motherboard VRM Power Stages",
+        difficulty: "Intermediate",
+        question: "A production workstation running an Intel Core i9-14900K suddenly drops its clock frequency to exactly 800 MHz (0.8 GHz) during sustained 3D rendering, despite CPU core temperatures remaining below 65°C. What is the root cause?",
+        options: {
+          A: "L3 Cache corruption forcing CPU safe-mode fallback.",
+          B: "Motherboard VRM MOSFETs exceeded thermal safety limits (e.g. 110°C), triggering the bidirectional PROCHOT# signal to throttle the CPU.",
+          C: "The Windows Balanced power plan throttled the processor due to screen saver timeout.",
+          D: "PCIe Gen 5 NVMe SSD thermal throttling cascaded down to the processor clock generator."
+        },
+        correct: "B",
+        explanation: "Motherboards monitor VRM temperature via dedicated thermistors. When MOSFETs exceed 105°C–115°C, the VRM controller pulls the PROCHOT# line low, forcing the CPU to 800 MHz to prevent motherboard burn-out.",
+        distractor_note: "L3 cache triggers hard BSODs. Windows power plans do not lock clocks under load. NVMe throttling only limits disk transfer speeds."
+      },
+      {
+        question_id: "MCQ-MOD03-02",
+        chapter: "Module 03: High-Speed Memory Architecture",
+        difficulty: "Intermediate",
+        question: "On a 4-slot motherboard with two memory sticks, why must an engineer install the sticks in slots A2 and B2 (slots 2 & 4) rather than slots A1 and B1 (slots 1 & 3)?",
+        options: {
+          A: "Slots A1 and B1 only support single-sided memory sticks.",
+          B: "Modern motherboards use Daisy-Chain trace topology; installing in A1/B1 leaves empty trace stubs at A2/B2, causing signal reflections and memory training errors.",
+          C: "Slots A2 and B2 receive 0.2V higher voltage from the motherboard VRM.",
+          D: "The CPU memory controller cannot address bank addresses starting with an odd number."
+        },
+        correct: "B",
+        explanation: "Daisy-Chain PCB memory routing terminates at slots 2 and 4. Empty slots beyond populated slots create un-terminated transmission line stubs that bounce RF signal reflections back into active data lanes, causing CRC errors.",
+        distractor_note: "Slots share identical power rails and rank capabilities. Bank addressing is purely logical and independent of physical slot numbering."
+      },
+      {
+        question_id: "MCQ-MOD05-01",
+        chapter: "Module 05: Power Supply Architecture",
+        difficulty: "Basic",
+        question: "Which pins on a 24-pin ATX power supply connector are shorted with a paperclip to perform a manual standalone power-on test?",
+        options: {
+          A: "Pin 1 (Orange +3.3V) to Pin 4 (Red +5V)",
+          B: "Pin 16 (Green PS_ON#) to any Black Ground pin (such as Pin 15 or 17)",
+          C: "Pin 8 (Gray PWR_OK) to Pin 9 (Purple +5VSB)",
+          D: "Pin 10 (Yellow +12V) to Pin 11 (Yellow +12V)"
+        },
+        correct: "B",
+        explanation: "The green wire on Pin 16 is the PS_ON# active-low logic line. Grounding Pin 16 commands the supervisor IC to activate switching circuits and spin the fan.",
+        distractor_note: "Shorting voltage rails causes over-current sparks. Pin 8 is an output timing signal, not an input trigger."
+      },
+      {
+        question_id: "MCQ-MOD07-01",
+        chapter: "Module 07: Field Repair Playbook",
+        difficulty: "Intermediate",
+        question: "A newly assembled workstation powers on, all chassis and GPU fans spin at full speed, but the monitor displays 'No Signal'. The keyboard Caps Lock indicator toggles on and off when pressed. What is the most probable physical root cause?",
+        options: {
+          A: "The CPU memory controller has suffered internal silicon degradation.",
+          B: "The HDMI or DisplayPort monitor cable is plugged into the vertical motherboard I/O port instead of the dedicated discrete GPU outputs below.",
+          C: "The BIOS CMOS battery has discharged completely.",
+          D: "The system motherboard has suffered a catastrophic northbridge failure."
+        },
+        correct: "B",
+        explanation: "Caps Lock toggling proves that CPU, RAM, and OS have completed POST and booted! The black display is caused by connecting the monitor cable to the motherboard port (where integrated graphics are disabled by BIOS when a discrete GPU is installed).",
+        distractor_note: "Pre-POST failures leave Caps Lock inert. CMOS batteries only cause clock resets, not missing video output."
+      }
+    ];
+
+    let currentIdx = 0;
+    let userAnswers = {};
+    let score = 0;
+
+    function renderQuiz() {
+      const root = document.getElementById('quiz-root');
+      if (currentIdx >= questions.length) {
+        // Results Card
+        const percentage = Math.round((score / questions.length) * 100);
+        root.innerHTML = `
+          <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-xl text-center space-y-6">
+            <div class="w-16 h-16 mx-auto rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold text-2xl">🏆</div>
+            <h2 class="text-2xl font-black text-[#192446]">Practice Session Complete!</h2>
+            <div class="max-w-xs mx-auto p-6 rounded-2xl bg-[#192446]/5 border border-[#192446]/10 space-y-2">
+              <div class="text-5xl font-black text-[#192446]">${percentage}%</div>
+              <p class="text-xs font-mono text-gray-600">Score: <strong>${score}</strong> / ${questions.length} Correct</p>
+            </div>
+            <div class="pt-4 flex justify-center gap-3">
+              <button onclick="restartQuiz()" class="px-6 py-2.5 rounded-xl bg-[#192446] text-white font-mono text-xs font-bold hover:bg-[#192446]/90 shadow-md">Restart Quiz 🔄</button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const q = questions[currentIdx];
+      const answered = userAnswers[q.question_id] !== undefined;
+      const selected = userAnswers[q.question_id];
+
+      let optionsHtml = '';
+      for (const [k, v] of Object.entries(q.options)) {
+        let btnClass = "border-gray-200 hover:border-cyan-500 hover:bg-cyan-50/30 text-gray-800";
+        let badgeClass = "bg-gray-100 text-[#192446]";
+
+        if (answered) {
+          if (k === q.correct) {
+            btnClass = "border-emerald-500 bg-emerald-50 text-emerald-950 font-semibold";
+            badgeClass = "bg-emerald-600 text-white";
+          } else if (k === selected && k !== q.correct) {
+            btnClass = "border-rose-500 bg-rose-50 text-rose-950 opacity-80 line-through";
+            badgeClass = "bg-rose-600 text-white";
+          } else {
+            btnClass = "border-gray-100 opacity-50";
+          }
+        }
+
+        optionsHtml += `
+          <button onclick="selectOption('${q.question_id}', '${k}')" ${answered ? 'disabled' : ''} class="w-full p-4 rounded-xl border text-left flex items-start gap-3 transition-all ${btnClass}">
+            <span class="w-7 h-7 rounded-lg shrink-0 flex items-center justify-center font-mono font-bold text-xs ${badgeClass}">${k}</span>
+            <span class="text-sm leading-relaxed pt-0.5">${v}</span>
+          </button>
+        `;
+      }
+
+      let explanationHtml = '';
+      if (answered) {
+        const isRight = selected === q.correct;
+        explanationHtml = `
+          <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200 space-y-2 mt-4 text-xs animate-fadeIn">
+            <div class="font-mono font-bold ${isRight ? 'text-emerald-700' : 'text-rose-700'}">
+              ${isRight ? '✓ Correct Answer!' : '✗ Incorrect. Correct: Option ' + q.correct}
+            </div>
+            <div class="text-gray-800 leading-relaxed"><strong>Engineering Breakdown:</strong> ${q.explanation}</div>
+            <div class="text-gray-600 leading-relaxed pt-1 border-t border-gray-200"><strong>Distractor Note:</strong> ${q.distractor_note}</div>
+          </div>
+        `;
+      }
+
+      root.innerHTML = `
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-xl">
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-gray-100">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-[#192446] text-[#25B6F9] flex items-center justify-center font-black text-base shadow">R</div>
+              <div>
+                <div class="text-[10px] font-mono tracking-widest text-[#25B6F9] font-bold uppercase">RTechLab Practice Lab</div>
+                <h1 class="text-base sm:text-lg font-black text-[#192446]">${q.chapter}</h1>
+              </div>
+            </div>
+            <div class="text-xs font-mono font-bold text-gray-500">
+              Score: <strong class="text-[#192446]">${score}</strong> / ${questions.length}
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs font-mono mb-3 text-gray-500">
+            <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-[#192446] font-bold">Question ${currentIdx + 1} of ${questions.length}</span>
+            <span class="px-2 py-0.5 rounded-full font-bold ${q.difficulty === 'Basic' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${q.difficulty}</span>
+          </div>
+
+          <h2 class="text-base sm:text-lg font-bold text-[#192446] mb-5 leading-relaxed">${q.question}</h2>
+
+          <div class="space-y-3 mb-6">${optionsHtml}</div>
+
+          ${explanationHtml}
+
+          <div class="flex items-center justify-between pt-6 border-t border-gray-100 mt-6">
+            <button onclick="prevQ()" ${currentIdx === 0 ? 'disabled' : ''} class="px-4 py-2 rounded-xl border border-gray-200 text-xs font-mono font-bold disabled:opacity-30 hover:bg-gray-50">← Previous</button>
+            <button onclick="nextQ()" ${!answered ? 'disabled' : ''} class="px-6 py-2 rounded-xl bg-[#192446] hover:bg-[#192446]/90 disabled:opacity-40 text-white text-xs font-mono font-bold shadow-md">Next Question →</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectOption(qId, key) {
+      userAnswers[qId] = key;
+      if (key === questions[currentIdx].correct) {
+        score++;
+      }
+      renderQuiz();
+    }
+
+    function nextQ() {
+      currentIdx++;
+      renderQuiz();
+    }
+
+    function prevQ() {
+      if (currentIdx > 0) currentIdx--;
+      renderQuiz();
+    }
+
+    function restartQuiz() {
+      currentIdx = 0;
+      userAnswers = {};
+      score = 0;
+      renderQuiz();
+    }
+
+    renderQuiz();
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTechLabDiagramSchema",
+  "type": "object",
+  "required": [
+    "diagram_id",
+    "figure_number",
+    "title",
+    "type",
+    "file_path",
+    "dpi",
+    "caption"
+  ],
+  "properties": {
+    "diagram_id": {
+      "type": "string"
+    },
+    "figure_number": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "vector_svg",
+        "typst_cetz",
+        "mermaid",
+        "authentic_screenshot"
+      ]
+    },
+    "file_path": {
+      "type": "string"
+    },
+    "dpi": {
+      "type": "integer",
+      "default": 300
+    },
+    "caption": {
+      "type": "string"
+    },
+    "source_spec": {
+      "type": "string"
+    }
+  }
+}

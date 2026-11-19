@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #000000;
+    color: #f5f5f7;
+    overflow-x: hidden;
+    letter-spacing: -0.012em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.035em;
+  }
+
+  ::selection {
+    background: rgba(0, 113, 227, 0.45);
+    color: #ffffff;
+  }
+
+  /* Thin neutral scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3a3a3c;
+    border: 2px solid #000000;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #545456;
+  }
+
+  :focus-visible {
+    outline: 2px solid #0071e3;
+    outline-offset: 3px;
+  }
+}
+
+/* ---- Motion ------------------------------------------------------------- */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.rise {
+  animation: riseIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.rise-delay-1 { animation-delay: 0.1s; }
+.rise-delay-2 { animation-delay: 0.2s; }
+.rise-delay-3 { animation-delay: 0.3s; }
+
+.animate-fadeIn,
+.fade-in {
+  animation: fadeIn 0.45s ease-out both;
+}
+
+/* ---- System-design simulators: the page assembles itself ----------------- */
+/* Blocks marked with data-setup drop in from above, one after another, so
+   opening a simulator reads like the setup being built into place. */
+@keyframes setupIn {
+  from {
+    opacity: 0;
+    transform: translateY(-26px);
+  }
+  55% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.setup-in [data-setup] {
+  animation: setupIn 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.setup-in [data-setup="1"] { animation-delay: 0.07s; }
+.setup-in [data-setup="2"] { animation-delay: 0.14s; }
+.setup-in [data-setup="3"] { animation-delay: 0.21s; }
+.setup-in [data-setup="4"] { animation-delay: 0.28s; }
+.setup-in [data-setup="5"] { animation-delay: 0.35s; }
+.setup-in [data-setup="6"] { animation-delay: 0.42s; }
+.setup-in [data-setup="7"] { animation-delay: 0.49s; }
+
+/* Protocol Explorer: packet travels between two actor positions */
+@keyframes travel {
+  from { left: var(--from); }
+  to { left: var(--to); }
+}
+
+.pkt-travel {
+  animation: travel var(--dur, 700ms) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Protocol Explorer: fibre strands flowing along the backbone */
+@keyframes dashFlow {
+  to { stroke-dashoffset: -60; }
+}
+
+.fiber-flow {
+  animation: dashFlow 2.4s linear infinite;
+}
+
+/* ---- Legacy class names kept, restyled flat ----------------------------- */
+.glass-panel {
+  background: #1d1d1f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 22px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.glass-panel-hover {
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: #242426;
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: none;
+  box-shadow: none;
+}
+
+.terminal-window {
+  background: #0a0a0b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.text-gradient-electric {
+  background: linear-gradient(180deg, #ffffff 25%, #a1a1a6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(180deg, #ffffff 20%, #86868b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .setup-in [data-setup] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "quicklearn_ports_en",
+    "filename": "quicklearn_ports_en.mp4",
+    "size_bytes": 4593458,
+    "size_mb": 4.38,
+    "sha256": "5776b0c171f42bb24a05671d90f0dcf12d84440a1e82e3153c3843cf90664d0c",
+    "resolution": "1080x1920",
+    "duration_sec": 46.27,
+    "bitrate_kbps": 794.2,
+    "has_audio": true,
+    "audio_codec": "aac"
+  },
+  {
+    "id": "quicklearn_ports_hi",
+    "filename": "quicklearn_ports_hi.mp4",
+    "size_bytes": 5169478,
+    "size_mb": 4.93,
+    "sha256": "70bc83b3c12f1ef8f36bcb50abc6c1002c987e7be496eeb621452b9af76ab818",
+    "resolution": "1080x1920",
+    "duration_sec": 52.05,
+    "bitrate_kbps": 794.5,
+    "has_audio": true,
+    "audio_codec": "aac"
+  }
+]

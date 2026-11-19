@@ -1,0 +1,6 @@
+# robots.txt for RTechLab
+User-agent: *
+Allow: /
+Disallow: /dashboard
+
+Sitemap: https://rtechlab.com/sitemap.xml

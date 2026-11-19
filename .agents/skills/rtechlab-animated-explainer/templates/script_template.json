@@ -1,0 +1,61 @@
+{
+  "topic": "Topic Title (e.g. How DNS Works)",
+  "duration_seconds": 60,
+  "style": "Technical Motion Graphics",
+  "scenes": [
+    {
+      "id": 1,
+      "name": "The Hook",
+      "time_range": "00:00 - 00:04",
+      "frame_range": [0, 120],
+      "visual_cue": "Bold provocative text question with glowing network background",
+      "narration_en": "What ACTUALLY happens in the 30 milliseconds after you type a website name and hit Enter?",
+      "narration_hi": "क्या आपने कभी सोचा है कि वेबसाइट का नाम टाइप करके Enter दबाने के अगले 30 मिलीसेकंड में असल में क्या होता है?"
+    },
+    {
+      "id": 2,
+      "name": "The Problem",
+      "time_range": "00:04 - 00:12",
+      "frame_range": [120, 360],
+      "visual_cue": "Human typing domain vs machine looking for IP address numbers",
+      "narration_en": "Humans remember names like rtechlab.com. But computers only understand numerical IP addresses like 104.21.58.192. So how do they connect?",
+      "narration_hi": "हम इंसान rtechlab.com जैसे नाम याद रखते हैं, लेकिन कंप्यूटर सिर्फ 104.21.58.192 जैसे IP एड्रेस समझते हैं। तो ये आपस में कैसे जुड़ते हैं?"
+    },
+    {
+      "id": 3,
+      "name": "Working Mechanism",
+      "time_range": "00:12 - 00:35",
+      "frame_range": [360, 1050],
+      "visual_cue": "Animated packet travels from Client to Resolver, Root, TLD, and Authoritative Nameserver",
+      "narration_en": "Enter DNS — the Domain Name System. First, your browser checks its local cache. Cache miss? Your query shoots to a Recursive DNS Resolver. The Resolver asks the Root Server: Where is dot com? The Root points to the TLD Server. The TLD server points to the Authoritative Nameserver. Finally, the Authoritative server delivers the exact IP address!",
+      "narration_hi": "यहाँ काम आता है DNS यानी Domain Name System. सबसे पहले आपका ब्राउज़र अपनी लोकल कैश चेक करता है। अगर वहाँ नहीं मिला, तो रिक्वेस्ट जाती है Recursive Resolver के पास। Resolver पूछता है Root Server से, Root भेजता है TLD Server के पास, और TLD भेजता है Authoritative Server के पास, जो ला कर देता है बिल्कुल सही IP एड्रेस!"
+    },
+    {
+      "id": 4,
+      "name": "Real-World Application",
+      "time_range": "00:35 - 00:48",
+      "frame_range": [1050, 1440],
+      "visual_cue": "IP returned to browser, instant TLS handshake, fast connection graph",
+      "narration_en": "The IP is saved in cache for next time, and your browser instantly establishes a secure connection to the web server in under 50 milliseconds.",
+      "narration_hi": "यह IP एड्रेस अगली बार के लिए कैश में सेव हो जाता है, और आपका ब्राउज़र 50 मिलीसेकंड के अंदर वेब सर्वर से सिक्योर कनेक्शन बना लेता है।"
+    },
+    {
+      "id": 5,
+      "name": "Summary Takeaway",
+      "time_range": "00:48 - 00:55",
+      "frame_range": [1440, 1650],
+      "visual_cue": "Summary mnemonic HUD card highlighting Key Concept",
+      "narration_en": "Think of DNS as the ultimate global phonebook of the Internet, translating human names into machine coordinates seamlessly.",
+      "narration_hi": "याद रखें, DNS इंटरनेट की वो ग्लोबल फोनबुक है जो इंसानी नामों को कंप्यूटर के डिजिटल एड्रेस में बदलती है।"
+    },
+    {
+      "id": 6,
+      "name": "Brand Outro & CTA",
+      "time_range": "00:55 - 01:00",
+      "frame_range": [1650, 1800],
+      "visual_cue": "RTechLab glowing emblem, Interactive DNS Lookup Tool CTA",
+      "narration_en": "Test live DNS lookups for free right now on RTechLab.com. Follow for more deep-tech breakdowns!",
+      "narration_hi": "लाइव DNS रिकॉर्ड्स खुद टेस्ट करने के लिए अभी विजिट करें RTechLab.com. ऐसी ही डीप-टेक वीडियोज़ के लिए फॉलो करें!"
+    }
+  ]
+}

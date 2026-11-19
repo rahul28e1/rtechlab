@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTechLabChapterSchema",
+  "type": "object",
+  "required": [
+    "chapter_id",
+    "chapter_number",
+    "title",
+    "learning_objectives",
+    "sections",
+    "mcq_bank_ref",
+    "qr_code_ref"
+  ],
+  "properties": {
+    "chapter_id": {
+      "type": "string"
+    },
+    "chapter_number": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "learning_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "mcq_bank_ref": {
+      "type": "string"
+    },
+    "qr_code_ref": {
+      "type": "string"
+    }
+  }
+}

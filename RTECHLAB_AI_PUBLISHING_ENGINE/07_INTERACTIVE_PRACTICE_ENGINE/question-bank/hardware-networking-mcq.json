@@ -1,0 +1,212 @@
+[
+  {
+    "question_id": "MCQ-MOD01-01",
+    "chapter_id": "mod-01",
+    "topic_id": "silicon-cpu-sockets",
+    "difficulty": "Basic",
+    "language": "EN",
+    "question": "What is the primary physical difference between an LGA (Land Grid Array) and a PGA (Pin Grid Array) CPU socket?",
+    "options": {
+      "A": "PGA sockets have spring-loaded pins on the motherboard; LGA processors have pins on the CPU substrate.",
+      "B": "LGA sockets place the delicate pins on the motherboard, while the CPU package has flat gold contact pads.",
+      "C": "LGA sockets use soldering balls directly, whereas PGA sockets use lever retention only.",
+      "D": "PGA sockets operate exclusively on 3.3V, whereas LGA sockets operate on 12V direct input."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "In Land Grid Array (LGA) design (Intel LGA 1700/1851, AMD AM5), the fragile spring pins are housed in the motherboard socket, and the processor underside has flat gold contact pads (lands).",
+      "why_distractors_fail": "Option A reverses the definitions. Option C describes BGA (Ball Grid Array). Option D confuses socket physical form factors with voltage rail specifications."
+    },
+    "source_reference": "Intel Core Desktop Processor Socket LGA1700 Mechanical Design Guide, Section 3.2",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD01-02",
+    "chapter_id": "mod-01",
+    "topic_id": "silicon-cpu-sockets",
+    "difficulty": "Intermediate",
+    "language": "EN",
+    "question": "During cooler removal on a socket AM4 processor, the CPU is accidentally pulled straight out of the locked retention socket with the heatsink. What caused this failure and how is it prevented?",
+    "options": {
+      "A": "The socket lever was improperly locked; prevented by applying adhesive to the socket lever.",
+      "B": "Thermal paste hardened into an adhesive bond; prevented by pre-heating the CPU via stress load and twisting the cooler horizontally before lifting.",
+      "C": "The CPU substrate expanded under cold temperatures; prevented by cooling the heatsink with compressed air.",
+      "D": "Static electricity bonded the IHS to the copper baseplate; prevented by grounding with an ESD strap."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "Cured silicone/ceramic thermal paste creates a powerful vacuum adhesion with the integrated heat spreader (IHS). Running a 5-minute stress load (e.g. Cinebench) warms and liquefies the compound, and twisting shears the bond without pulling pins.",
+      "why_distractors_fail": "Option A does not reflect normal PGA socket mechanics where straight pulling bends pins regardless of lever state. Options C and D introduce fabricated physics."
+    },
+    "source_reference": "AMD AM4 Processor Handling and Thermal Solution Installation Guide, Doc ID 56128",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD01-03",
+    "chapter_id": "mod-01",
+    "topic_id": "silicon-cpu-sockets",
+    "difficulty": "Advanced",
+    "language": "EN",
+    "question": "An enterprise field technician attempts to fix three bent pins on an Intel LGA 1700 motherboard. Which tool and physical technique provides the highest restoration success rate without pin snapping?",
+    "options": {
+      "A": "Needle-nose pliers using rapid 90-degree twisting force.",
+      "B": "0.5mm mechanical pencil sleeve guided over the bent pin under a 10x jeweler's loupe, applying gentle leverage aligned with the array grid.",
+      "C": "Soldering iron heated to 350\u00b0C to soften the gold-plated beryllium copper alloy.",
+      "D": "Plastic razor blade wedged underneath the adjacent pins to pry them upward simultaneously."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "The hollow metal nozzle of a 0.5mm mechanical pencil slips perfectly over individual LGA pins. It isolates the bending force to the pin shaft and prevents lateral shearing, while a 10x loupe ensures accurate alignment.",
+      "why_distractors_fail": "Needle-nose pliers (Option A) exert uneven crushing pressure that snaps beryllium copper pins. Soldering heat (Option C) melts the plastic socket base and destroys pin spring tension. Prying multiple pins (Option D) bends neighboring functional pins."
+    },
+    "source_reference": "IPC-7711/7721 Rework, Modification and Repair of Electronic Assemblies Standard",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD02-01",
+    "chapter_id": "mod-02",
+    "topic_id": "vrm-power-delivery",
+    "difficulty": "Basic",
+    "language": "EN",
+    "question": "What is the primary function of a Motherboard Voltage Regulator Module (VRM)?",
+    "options": {
+      "A": "Convert 230V AC alternating current from the wall socket into 12V DC.",
+      "B": "Step down 12V DC power from the PSU into 1.1V\u20131.4V high-amperage Vcore required by CPU silicon.",
+      "C": "Boost 5V standby power up to 24V for PCIe expansion slot devices.",
+      "D": "Filter electromagnetic audio noise between the CPU and the onboard Realtek sound card."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "The VRM is a synchronous buck converter that converts the incoming +12V EPS rail from the power supply down to the precise 0.7V\u20131.4V operating voltages (Vcore) demanded by the processor cores.",
+      "why_distractors_fail": "Converting 230V AC to 12V DC (Option A) is done inside the external PSU. Options C and D describe incorrect voltage transformations."
+    },
+    "source_reference": "Intel Voltage Regulator-Down (VRD) 14.0 Processor Power Delivery Design Guide",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD02-02",
+    "chapter_id": "mod-02",
+    "topic_id": "vrm-power-delivery",
+    "difficulty": "Intermediate",
+    "language": "EN",
+    "question": "A production workstation running an Intel Core i9-14900K suddenly drops its clock frequency to exactly 800 MHz (0.8 GHz) during sustained 3D rendering, despite CPU core temperatures remaining below 65\u00b0C. What is the root cause?",
+    "options": {
+      "A": "L3 Cache corruption forcing CPU safe-mode fallback.",
+      "B": "Motherboard VRM MOSFETs exceeded thermal safety limits (e.g. 110\u00b0C), triggering the bidirectional PROCHOT# signal to throttle the CPU.",
+      "C": "The Windows Balanced power plan throttled the processor due to screen saver timeout.",
+      "D": "PCIe Gen 5 NVMe SSD thermal throttling cascaded down to the processor clock generator."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "Motherboards monitor VRM temperature via dedicated thermistors. When MOSFETs exceed 105\u00b0C\u2013115\u00b0C, the VRM controller pulls the PROCHOT# (Processor Hot) line low, forcing the CPU to its lowest P-state (800 MHz) to prevent motherboard burn-out.",
+      "why_distractors_fail": "L3 cache (Option A) causes hard machine check exceptions (BSODs), not lockup at 800 MHz. Windows power plans (Option C) do not pin frequency at 0.79 GHz under heavy compute load. NVMe SSDs (Option D) throttle their own read/write speeds, not CPU multipliers."
+    },
+    "source_reference": "Richtek Application Note AN048: Multi-Phase Synchronous Buck Converter Design for CPU Vcore",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD03-01",
+    "chapter_id": "mod-03",
+    "topic_id": "ram-ddr4-vs-ddr5",
+    "difficulty": "Basic",
+    "language": "EN",
+    "question": "Why can a DDR5 memory module NOT be installed into a DDR4 motherboard slot?",
+    "options": {
+      "A": "DDR5 DIMMs have 288 pins while DDR4 DIMMs have only 240 pins.",
+      "B": "The mechanical key notch is located at a different offset position (77.25mm vs 72.25mm), physically blocking insertion.",
+      "C": "DDR5 memory requires an external 12V 8-pin PCIe power cable directly on the stick.",
+      "D": "DDR5 DIMMs are 15mm longer in physical length than DDR4 DIMMs."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "Both DDR4 and DDR5 desktop DIMMs feature 288 pins, but the alignment notch in DDR5 is offset toward the center (77.25mm from pin 1 vs 72.25mm in DDR4), preventing accidental installation and electrical damage from differing voltages (1.1V vs 1.2V).",
+      "why_distractors_fail": "Option A is wrong because both have exactly 288 pins. Option C is false (DIMMs receive power through slot edge fingers). Option D is wrong because both adhere to the standard 133.35mm JEDEC DIMM length."
+    },
+    "source_reference": "JEDEC Standard JESD79-5C: DDR5 SDRAM Specification, Section 1.2 Mechanical Outlines",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD03-02",
+    "chapter_id": "mod-03",
+    "topic_id": "ram-ddr4-vs-ddr5",
+    "difficulty": "Intermediate",
+    "language": "EN",
+    "question": "On a 4-slot motherboard with two memory sticks, why must an engineer install the sticks in slots A2 and B2 (slots 2 & 4) rather than slots A1 and B1 (slots 1 & 3)?",
+    "options": {
+      "A": "Slots A1 and B1 only support single-sided memory sticks.",
+      "B": "Modern motherboards use Daisy-Chain trace topology; installing in A1/B1 leaves empty trace stubs at A2/B2, causing signal reflections and memory training errors.",
+      "C": "Slots A2 and B2 receive 0.2V higher voltage from the motherboard VRM.",
+      "D": "The CPU memory controller cannot address bank addresses starting with an odd number."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "In modern Daisy-Chain PCB routing, memory traces run from CPU -> Slot 1 -> Slot 2. If Slot 1 is populated while Slot 2 is empty, the signal reaches Slot 1 but continues down the remaining copper trace to the empty slot, reflecting back as RF interference (trace stub reflections) that destabilizes high-speed XMP/EXPO signals.",
+      "why_distractors_fail": "All DIMM slots share identical voltage regulation and single/dual-rank compatibility. Memory bank addressing is independent of physical slot numbering."
+    },
+    "source_reference": "ASUS Motherboard Signal Integrity Whitepaper: Memory Trace Topologies & High-Frequency Layout",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD05-01",
+    "chapter_id": "mod-05",
+    "topic_id": "psu-diagnostics-atx31",
+    "difficulty": "Basic",
+    "language": "EN",
+    "question": "Which pins on a 24-pin ATX power supply connector are shorted with a paperclip to perform a manual standalone power-on test?",
+    "options": {
+      "A": "Pin 1 (Orange +3.3V) to Pin 4 (Red +5V)",
+      "B": "Pin 16 (Green PS_ON#) to any Black Ground pin (such as Pin 15 or 17)",
+      "C": "Pin 8 (Gray PWR_OK) to Pin 9 (Purple +5VSB)",
+      "D": "Pin 10 (Yellow +12V) to Pin 11 (Yellow +12V)"
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "The green wire on Pin 16 is the PS_ON# (Power Supply On) active-low control signal. Pulling Pin 16 to ground (0V) tells the PSU's internal supervisor IC to turn on main DC switching transformers and spin the fan.",
+      "why_distractors_fail": "Shorting voltage rails (Orange to Red, Yellow to Yellow) triggers short-circuit over-current protection (OCP) or melts the wire. Pin 8 is PWR_OK (an output, not an input)."
+    },
+    "source_reference": "Intel ATX Version 3.1 Multi-Rail Power Supply Design Guide, Section 3.3.2",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD05-02",
+    "chapter_id": "mod-05",
+    "topic_id": "psu-diagnostics-atx31",
+    "difficulty": "Advanced",
+    "language": "EN",
+    "question": "How does the revised 12V-2x6 PCIe power connector in ATX 3.1 prevent thermal melting that plagued original 12VHPWR connectors?",
+    "options": {
+      "A": "It doubles the cable wire gauge from 16 AWG to 8 AWG industrial copper.",
+      "B": "The 4 sideband sense pins are recessed by 1.7mm, ensuring the GPU refuses to pull power unless the plug is fully seated mechanically.",
+      "C": "It adds an onboard micro-fan inside the plastic housing to cool high-current pins.",
+      "D": "It steps up the voltage from 12V to 48V to cut current draw by 75%."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "PCI-SIG revised the connector by shortening the sense pins by 1.7mm and lengthening the 12V power pins by 0.25mm. If the connector is unseated by even 1.5mm, the sense pins disconnect first, signaling the GPU power management controller to stay in 0W shutoff state.",
+      "why_distractors_fail": "Wire gauge (Option A) was already 16 AWG. Connectors do not have internal fans (Option C). Desktop PCs remain on standard 12V rail architecture (Option D)."
+    },
+    "source_reference": "PCI-SIG PCIe Card Electromechanical (CEM) Specification 5.1, Section 6.2.3",
+    "review_status": "Verified"
+  },
+  {
+    "question_id": "MCQ-MOD07-01",
+    "chapter_id": "mod-07",
+    "topic_id": "fault-triage-playbook",
+    "difficulty": "Intermediate",
+    "language": "EN",
+    "question": "A newly assembled workstation powers on, all chassis and GPU fans spin at full speed, but the monitor displays 'No Signal'. The keyboard Caps Lock indicator toggles on and off when pressed. What is the most probable physical root cause?",
+    "options": {
+      "A": "The CPU memory controller has suffered internal silicon degradation.",
+      "B": "The HDMI or DisplayPort monitor cable is plugged into the vertical motherboard I/O port instead of the dedicated discrete GPU outputs below.",
+      "C": "The BIOS CMOS battery has discharged completely.",
+      "D": "The system motherboard has suffered a catastrophic northbridge failure."
+    },
+    "correct_answer": "B",
+    "explanation": {
+      "why_correct": "Because the keyboard Caps Lock LED responds dynamically, the motherboard, CPU, RAM, and OS have successfully completed POST and booted! The black screen is a classic cable placement error: the video cable was plugged into the disabled motherboard video output instead of the active PCIe graphics card.",
+      "why_distractors_fail": "If CPU or RAM were failed (Option A), the machine would hang in pre-POST and Caps Lock would be unresponsive. CMOS battery depletion (Option C) produces a BIOS reset warning, not black video. Modern CPUs integrate the northbridge on-die (Option D)."
+    },
+    "source_reference": "CompTIA A+ Core 1 (220-1101) Troubleshooting Methodology & Display Diagnostics",
+    "review_status": "Verified"
+  }
+]

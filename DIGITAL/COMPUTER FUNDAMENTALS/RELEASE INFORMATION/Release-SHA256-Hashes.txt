@@ -1,0 +1,24 @@
+# RTechLab Computer Fundamentals 2027 — V5.1.3 Official Release SHA-256 Checksums
+# Release Date: November 19, 2026
+# Publisher: RTechLab Core Systems Publishing
+# Author: Rahul Patel (Founder & Chief Technology Architect)
+
+# Protected V5.1.3 FINAL Releases (Primary Standard Names per Digital Notes Architecture):
+29e23885b4ab01f4d529a434e391ca311ef22925ed68e7cd90bc2c5c56cc293b *Computer-Fundamentals-English-V5.1.3-FINAL.pdf
+93f46a124d3550b8716392ccaf6e4e518509515974315f70df0b1f2b21f337db *Computer-Fundamentals-Hindi-V5.1.3-FINAL.pdf
+
+# Identical Canonical Distribution Names:
+29e23885b4ab01f4d529a434e391ca311ef22925ed68e7cd90bc2c5c56cc293b *RTechLab-Computer-Fundamentals-2027-English-V5.1.3-FINAL.pdf
+93f46a124d3550b8716392ccaf6e4e518509515974315f70df0b1f2b21f337db *RTechLab-Computer-Fundamentals-2027-Hindi-V5.1.3-FINAL.pdf
+
+# Protected V5.1.2 Baseline Reference Hashes (Untouched Reference Archives in 01_SOURCE_BACKUPS):
+# English V5.1.2: 5f39dcb478831eb77f83e69e7667c0aa0e24c63975e5fd3cd67392537d03a781
+# Hindi V5.1.2:   bc139ba8a972d53bea4efc3e9059f00841380dc6675221a969c75625d85f7f8f
+
+# -----------------------------------------------------------------------------
+# 2027 CAREER ACCELERATOR / PREMIUM SUITE DELIVERABLES (V5.1.3 EDITION)
+# -----------------------------------------------------------------------------
+86a9e29565db0dc8f21a8c3a47fc3a6b1d9aa6887ea2a2d0ea5e5751112c3a60 *Computer-Fundamentals-Enterprise-FAANG-DeepDive.pdf
+7c00292eb35d809816a0a4ee643fab80d9a5a3d5f37daecbfaa22bbe5ad71481 *Computer-Fundamentals-100-Company-Interview-Vault.pdf
+dc8f6fe921d442b419de4122923410f0aa4c4558be6058f2eea228c030d102da *Computer-Fundamentals-Global-Career-Salary-Blueprint.pdf
+001f566c59f39a5ab5153dbce0f1b892be702a51563dbd5f3e726040c6270986 *Computer-Fundamentals-Practical-Lab-Workbook.pdf

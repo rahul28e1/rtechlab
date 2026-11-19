@@ -1,0 +1,15 @@
+# RTechLab Computer Fundamentals 2027 — V5.1.4 FINAL Official SHA-256 Checksums
+# Release Date: November 19, 2026
+# Publisher: RTechLab Core Systems Publishing
+# Author: Rahul Patel (Founder & Chief Technology Architect)
+# Subject Code: RTL-2027-FUND-V5.1.4
+
+# -----------------------------------------------------------------------------
+# OFFICIAL V5.1.4 FINAL RELEASES (PRIMARY STANDARDS PER DIGITAL SUITE)
+# -----------------------------------------------------------------------------
+9c435b165a9a7698b203f36e235ba33e8c6aafe9ec252abec0fefe6f6084b1c2 *Computer-Fundamentals-English-V5.1.4-FINAL.pdf
+bb13b5e85f4e6005bf080422478d67a7af86f8520db01fef48b86d94e06bec78 *Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf
+a2d170ff2c34bc83a1f57b607af5d0a56afad9dfe688bccd4c997d746200eb21 *Computer-Fundamentals-Enterprise-DeepDive-V5.1.4-FINAL.pdf
+cf3bdc23007adb95d7ea8796c3e40c07b1e483e02171962f087ba79b85ef9837 *Computer-Fundamentals-Interview-Practice-Vault-V5.1.4-FINAL.pdf
+2c04d74ac8240282a9d14c9ce359db1478674c290eaa802ea17234fb9acb92cf *Computer-Fundamentals-Career-Salary-Blueprint-V5.1.4-FINAL.pdf
+77d505cdcab019678e8f96ab106e33348e9374b6a2a4fccecf87b50c01956879 *Computer-Fundamentals-Practical-Lab-Workbook-V5.1.4-FINAL.pdf

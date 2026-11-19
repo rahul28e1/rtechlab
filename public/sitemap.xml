@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 1. Homepage -->
+  <url>
+    <loc>https://rtechlab.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/" />
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 2. Interactive Engineering Tools -->
+  <url>
+    <loc>https://rtechlab.com/tools/subnet-calculator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/tools/dns-lookup</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/tools/ip-address-info</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/tools/binary-converter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/tools/port-reference</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/tools/protocol-explorer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/system-design</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/system-design" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/system-design" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/system-design" />
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/system-design</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/system-design" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/system-design" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/system-design" />
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 3. Learning Catalog Hubs -->
+  <url>
+    <loc>https://rtechlab.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/contact</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/disclaimer</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/editorial-policy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/tutorials</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/tutorials" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/tutorials" />
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 4. Core Educational Cluster Articles (English & Hindi) -->
+  <url>
+    <loc>https://rtechlab.com/tutorials/what-is-an-ip-address</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/what-is-an-ip-address" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/what-is-an-ip-address" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/what-is-an-ip-address</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/what-is-an-ip-address" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/what-is-an-ip-address" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/ipv4-vs-ipv6-comparison</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/ipv4-vs-ipv6-comparison" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/ipv4-vs-ipv6-comparison" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/ipv4-vs-ipv6-comparison</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/ipv4-vs-ipv6-comparison" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/ipv4-vs-ipv6-comparison" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/subnetting-for-beginners</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/subnetting-for-beginners" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/subnetting-for-beginners" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/subnetting-for-beginners</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/subnetting-for-beginners" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/subnetting-for-beginners" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/how-dns-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/how-dns-works" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/how-dns-works" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/how-dns-works</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/how-dns-works" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/how-dns-works" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/tcp-vs-udp-explained</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/tcp-vs-udp-explained" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/tcp-vs-udp-explained" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/tcp-vs-udp-explained</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/tcp-vs-udp-explained" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/tcp-vs-udp-explained" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/common-network-ports</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/common-network-ports" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/common-network-ports" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/common-network-ports</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/common-network-ports" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/common-network-ports" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/what-is-a-mac-address</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/what-is-a-mac-address" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/what-is-a-mac-address" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/what-is-a-mac-address</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/what-is-a-mac-address" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/what-is-a-mac-address" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/binary-decimal-hex-conversion</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/binary-decimal-hex-conversion" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/binary-decimal-hex-conversion" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/binary-decimal-hex-conversion</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/binary-decimal-hex-conversion" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/binary-decimal-hex-conversion" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/how-dhcp-works-dora</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/how-dhcp-works-dora" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/how-dhcp-works-dora" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/how-dhcp-works-dora</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/how-dhcp-works-dora" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/how-dhcp-works-dora" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/network-troubleshooting-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/network-troubleshooting-guide" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/network-troubleshooting-guide" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/network-troubleshooting-guide</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/network-troubleshooting-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/network-troubleshooting-guide" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. Cisco & Linux Hands-on Labs -->
+  <url>
+    <loc>https://rtechlab.com/tutorials/ospf-single-area-packet-tracer</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/ospf-single-area-packet-tracer" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/ospf-single-area-packet-tracer" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/ospf-single-area-packet-tracer</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/ospf-single-area-packet-tracer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/ospf-single-area-packet-tracer" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/linux-file-permissions-acl</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/linux-file-permissions-acl" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/linux-file-permissions-acl" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/linux-file-permissions-acl</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/linux-file-permissions-acl" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/linux-file-permissions-acl" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/tutorials/homelab-virtualbox-cybersecurity</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/homelab-virtualbox-cybersecurity" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/homelab-virtualbox-cybersecurity" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/homelab-virtualbox-cybersecurity</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/homelab-virtualbox-cybersecurity" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/homelab-virtualbox-cybersecurity" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/subnetting-vlsm-cheatsheet-guide</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/subnetting-vlsm-cheatsheet-guide" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/subnetting-vlsm-cheatsheet-guide" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/subnetting-vlsm-cheatsheet-guide</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/subnetting-vlsm-cheatsheet-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/subnetting-vlsm-cheatsheet-guide" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/python-network-automation-netmiko</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/python-network-automation-netmiko" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/python-network-automation-netmiko" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/python-network-automation-netmiko</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/python-network-automation-netmiko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/python-network-automation-netmiko" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/tutorials/aws-vpc-architecture-essentials</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/aws-vpc-architecture-essentials" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/aws-vpc-architecture-essentials" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/tutorials/aws-vpc-architecture-essentials</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/tutorials/aws-vpc-architecture-essentials" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/tutorials/aws-vpc-architecture-essentials" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 4. RTechLab Internet Infrastructure Series (Episodes 01 - 07) -->
+  <url>
+    <loc>https://rtechlab.com/episodes/how-the-internet-works</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/how-the-internet-works" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/how-the-internet-works" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/how-the-internet-works" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/episodes/how-the-internet-works</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/how-the-internet-works" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/how-the-internet-works" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/how-the-internet-works" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/episodes/underwater-internet-cables</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/underwater-internet-cables" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/underwater-internet-cables" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/underwater-internet-cables" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/episodes/underwater-internet-cables</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/underwater-internet-cables" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/underwater-internet-cables" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/underwater-internet-cables" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/episodes/dns-how-domain-names-resolve</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/dns-how-domain-names-resolve" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/dns-how-domain-names-resolve" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/dns-how-domain-names-resolve" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/episodes/dns-how-domain-names-resolve</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/dns-how-domain-names-resolve" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/dns-how-domain-names-resolve" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/dns-how-domain-names-resolve" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/episodes/data-packets-how-video-travels</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/data-packets-how-video-travels" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/data-packets-how-video-travels" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/data-packets-how-video-travels" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/episodes/data-packets-how-video-travels</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/data-packets-how-video-travels" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/data-packets-how-video-travels" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/data-packets-how-video-travels" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/episodes/bgp-how-the-internet-finds-its-route</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/bgp-how-the-internet-finds-its-route" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/bgp-how-the-internet-finds-its-route" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/bgp-how-the-internet-finds-its-route" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/episodes/bgp-how-the-internet-finds-its-route</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/bgp-how-the-internet-finds-its-route" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/bgp-how-the-internet-finds-its-route" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/bgp-how-the-internet-finds-its-route" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/episodes/optical-fiber-how-light-carries-data</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/optical-fiber-how-light-carries-data" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/optical-fiber-how-light-carries-data" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/optical-fiber-how-light-carries-data" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/episodes/optical-fiber-how-light-carries-data</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/optical-fiber-how-light-carries-data" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/optical-fiber-how-light-carries-data" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/optical-fiber-how-light-carries-data" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://rtechlab.com/episodes/data-centers-where-your-favourite-video-lives</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/data-centers-where-your-favourite-video-lives" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/data-centers-where-your-favourite-video-lives" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/data-centers-where-your-favourite-video-lives" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://rtechlab.com/hi/episodes/data-centers-where-your-favourite-video-lives</loc>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/episodes/data-centers-where-your-favourite-video-lives" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/episodes/data-centers-where-your-favourite-video-lives" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/episodes/data-centers-where-your-favourite-video-lives" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 6. Digital notes storefront (EN + HI) -->
+  <url><loc>https://rtechlab.com/notes</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/notes" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/notes" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/notes" /><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rtechlab.com/hi/notes</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/notes" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/notes" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/notes" /><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rtechlab.com/notes/sample</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/notes/sample" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/notes/sample" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/notes/sample" /><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rtechlab.com/hi/notes/sample</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/notes/sample" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/notes/sample" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/notes/sample" /><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- 7. Module tests -->
+  <url><loc>https://rtechlab.com/quiz/ccna-m1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1" /><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1" /><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2" /><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2" /><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3" /><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3" /><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- 8. Chapter tests (one per chapter, EN + HI) -->
+  <url><loc>https://rtechlab.com/quiz/ccna-m1/ch1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1/ch1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1/ch1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1/ch1" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m1/ch1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1/ch1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1/ch1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1/ch1" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m1/ch2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1/ch2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1/ch2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1/ch2" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m1/ch2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1/ch2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1/ch2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1/ch2" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m1/ch3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1/ch3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1/ch3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1/ch3" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m1/ch3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m1/ch3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m1/ch3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m1/ch3" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m2/ch1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2/ch1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2/ch1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2/ch1" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m2/ch1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2/ch1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2/ch1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2/ch1" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m2/ch2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2/ch2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2/ch2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2/ch2" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m2/ch2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2/ch2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2/ch2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2/ch2" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m2/ch3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2/ch3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2/ch3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2/ch3" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m2/ch3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m2/ch3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m2/ch3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m2/ch3" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m3/ch1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3/ch1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3/ch1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3/ch1" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m3/ch1</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3/ch1" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3/ch1" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3/ch1" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m3/ch2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3/ch2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3/ch2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3/ch2" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m3/ch2</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3/ch2" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3/ch2" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3/ch2" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/quiz/ccna-m3/ch3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3/ch3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3/ch3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3/ch3" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rtechlab.com/hi/quiz/ccna-m3/ch3</loc><xhtml:link rel="alternate" hreflang="en" href="https://rtechlab.com/quiz/ccna-m3/ch3" /><xhtml:link rel="alternate" hreflang="hi" href="https://rtechlab.com/hi/quiz/ccna-m3/ch3" /><xhtml:link rel="alternate" hreflang="x-default" href="https://rtechlab.com/quiz/ccna-m3/ch3" /><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

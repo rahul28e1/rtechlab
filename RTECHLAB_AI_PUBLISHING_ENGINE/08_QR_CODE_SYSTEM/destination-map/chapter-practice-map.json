@@ -1,0 +1,56 @@
+{
+  "base_url_development": "http://localhost:5173",
+  "base_url_production": "https://rtechlab.in",
+  "environment": "development",
+  "mapping_rules": {
+    "topic_pattern": "/practice/{discipline}/{topic_slug}",
+    "language_param": "?lang={lang}"
+  },
+  "chapters": [
+    {
+      "chapter_id": "mod-01",
+      "discipline": "hardware",
+      "topic_slug": "hardware/silicon-cpu-sockets",
+      "title_en": "Silicon Physics & CPU Sockets (LGA 1700/AM5)",
+      "title_hi": "सिलिकॉन फिजिक्स और सीपीयू सॉकेट्स (LGA 1700/AM5)",
+      "total_questions": 25,
+      "qr_file": "QR-MOD-01-hardware-silicon-cpu-sockets.svg"
+    },
+    {
+      "chapter_id": "mod-02",
+      "discipline": "hardware",
+      "topic_slug": "hardware/vrm-power-delivery",
+      "title_en": "Motherboard VRM Power Stages & PWM Switching",
+      "title_hi": "मदरबोर्ड VRM पावर स्टेजेस और PWM स्विचिंग",
+      "total_questions": 25,
+      "qr_file": "QR-MOD-02-hardware-vrm-power-delivery.svg"
+    },
+    {
+      "chapter_id": "mod-03",
+      "discipline": "hardware",
+      "topic_slug": "hardware/ram-ddr4-vs-ddr5",
+      "title_en": "High-Speed Memory Bus (DDR4 vs DDR5 SDRAM)",
+      "title_hi": "हाई-स्पीड मेमोरी बस (DDR4 बनाम DDR5 SDRAM)",
+      "total_questions": 25,
+      "qr_file": "QR-MOD-03-hardware-ram-ddr4-vs-ddr5.svg"
+    },
+    {
+      "chapter_id": "mod-05",
+      "discipline": "hardware",
+      "topic_slug": "hardware/psu-diagnostics-atx31",
+      "title_en": "Power Supply Architecture (ATX 3.1 & 12V-2x6)",
+      "title_hi": "पावर सप्लाई आर्किटेक्चर (ATX 3.1 और 12V-2x6)",
+      "total_questions": 25,
+      "qr_file": "QR-MOD-05-hardware-psu-diagnostics-atx31.svg"
+    },
+    {
+      "chapter_id": "mod-07",
+      "discipline": "hardware",
+      "topic_slug": "hardware/fault-triage-playbook",
+      "title_en": "Enterprise Hardware Fault Triage Decision Tree",
+      "title_hi": "एंटरप्राइज हार्डवेयर फॉल्ट ट्रायज डिसीजन ट्री",
+      "total_questions": 25,
+      "qr_file": "QR-MOD-07-hardware-fault-triage-playbook.svg"
+    }
+  ]
+}
