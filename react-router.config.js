@@ -3,5 +3,6 @@ export default {
   ssr: true,
   prerender: [
     '/',
+    '/notes',
   ],
 };
