@@ -60,6 +60,29 @@ export function Footer() {
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Support</Link></li>
+              <li className="pt-2 text-white/40 border-t border-white/[0.06]">Official Channels:</li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@RTechLabOfficial"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-400 transition-colors inline-flex items-center gap-1"
+                >
+                  <span>YouTube @RTechLabOfficial</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/rtechlabofficial/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-pink-400 transition-colors inline-flex items-center gap-1"
+                >
+                  <span>Instagram @rtechlabofficial</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

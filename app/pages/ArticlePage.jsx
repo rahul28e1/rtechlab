@@ -1,13 +1,136 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router';
+import { tutorialsData } from '../../src/data/tutorials';
+import { Clock, ArrowLeft, ArrowUpRight, CheckCircle2, Terminal, HelpCircle, BookOpen } from 'lucide-react';
+import NotFoundPage from './NotFoundPage';
 
 export function ArticlePage() {
   const { slug } = useParams();
+  const article = tutorialsData.find(t => t.id === slug);
+
+  if (!article) {
+    return <NotFoundPage />;
+  }
+
   return (
-    <div className="article-page">
-      <h1>Article</h1>
-      <p>Tutorial: {slug}</p>
-      <p><Link to="/tutorials">Back to tutorials</Link></p>
+    <div className="min-h-screen bg-black text-[#EDEDED] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl">
+        {/* Navigation Breadcrumb */}
+        <div className="flex items-center justify-between mb-8 text-xs text-slate-400">
+          <Link
+            to="/tutorials"
+            className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Back to Tutorials Hub</span>
+          </Link>
+          <Link
+            to={`/hi/tutorials/${article.id}`}
+            className="rounded-lg bg-orange-500/10 border border-orange-500/20 px-3 py-1 font-semibold text-orange-300 hover:bg-orange-500/20 transition-colors"
+          >
+            हिंदी में पढ़ें 🇮🇳
+          </Link>
+        </div>
+
+        {/* Article Header */}
+        <div className="mb-10 pb-8 border-b border-white/[0.08]">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-0.5 text-xs font-bold text-emerald-400 uppercase tracking-wide font-mono">
+              {article.category}
+            </span>
+            <span className="flex items-center gap-1 text-xs text-slate-400">
+              <Clock className="w-3.5 h-3.5" />
+              {article.readTime}
+            </span>
+            <span className="text-xs text-slate-500 font-mono">· {article.difficulty}</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+            {article.title}
+          </h1>
+
+          <p className="mt-4 text-base sm:text-lg text-[#a1a1a6] leading-relaxed">
+            {article.summary}
+          </p>
+
+          {/* Connected Tool Banner */}
+          {article.connectedTool && (
+            <div className="mt-6 p-4 rounded-xl bg-electric-950/40 border border-electric-500/30 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Terminal className="w-5 h-5 text-electric-400 flex-shrink-0" />
+                <div>
+                  <span className="text-xs font-bold text-white block">Interactive Lab Tool Available</span>
+                  <span className="text-[11px] text-slate-400">Practice this concept live in your browser</span>
+                </div>
+              </div>
+              <Link
+                to={article.connectedTool}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-electric-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-electric-500 transition-colors"
+              >
+                <span>Open Tool</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          )}
+        </div>
+
+        {/* Prerequisites & Objectives */}
+        {(article.prerequisites?.length > 0 || article.objectives?.length > 0) && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 p-6 rounded-2xl bg-[#1d1d1f] border border-white/[0.08]">
+            {article.prerequisites?.length > 0 && (
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Prerequisites</h4>
+                <ul className="space-y-2 text-xs text-slate-300">
+                  {article.prerequisites.map((p, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-500 mt-1.5 flex-shrink-0" />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {article.objectives?.length > 0 && (
+              <div>
+                <h4 className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-3">Learning Objectives</h4>
+                <ul className="space-y-2 text-xs text-slate-300">
+                  {article.objectives.map((o, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span>{o}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Content Body */}
+        <div className="prose prose-invert max-w-none space-y-6 text-sm sm:text-base leading-relaxed text-[#c7c7c9]">
+          <div className="p-6 rounded-2xl bg-[#141518] border border-white/[0.06] whitespace-pre-wrap font-sans">
+            {article.contentMarkdown}
+          </div>
+        </div>
+
+        {/* FAQs */}
+        {article.faqs?.length > 0 && (
+          <div className="mt-16 pt-10 border-t border-white/[0.08]">
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+              <HelpCircle className="w-6 h-6 text-emerald-400" />
+              <span>Frequently Asked Questions</span>
+            </h3>
+            <div className="space-y-4">
+              {article.faqs.map((faq, idx) => (
+                <div key={idx} className="p-5 rounded-xl bg-[#1d1d1f] border border-white/[0.06]">
+                  <h4 className="text-sm font-bold text-white mb-2">{faq.question}</h4>
+                  <p className="text-xs sm:text-sm text-[#a1a1a6] leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

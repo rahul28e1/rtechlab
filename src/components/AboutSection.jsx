@@ -111,17 +111,48 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-5 border-t border-white/[0.08] flex items-center justify-between text-[12px]">
-            <span className="text-[#86868b]">Led by <strong className="text-white">Rahul Patel</strong> (IANT)</span>
-            <a
-              href="https://rahulprofile28.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-1 transition-colors"
-            >
-              <span>Rahul's Portfolio</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+          <div className="mt-6 pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[12px]">
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/brand/rahul-patel.jpg"
+                alt="Rahul Patel"
+                className="w-7 h-7 rounded-full object-cover object-top ring-1 ring-emerald-500/40"
+              />
+              <span className="text-[#86868b]">
+                Led by <strong className="text-white">Rahul Patel</strong> · Director &amp; Sr. Technical Expert, IANT Palanpur
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://rahulprofile28.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>Portfolio</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <span className="text-white/20">·</span>
+              <a
+                href="https://www.youtube.com/@RTechLabOfficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-400 hover:text-red-300 font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>YouTube</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <span className="text-white/20">·</span>
+              <a
+                href="https://www.instagram.com/rtechlabofficial/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>Instagram</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

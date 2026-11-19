@@ -37,7 +37,12 @@ export default async function handler(req, res) {
 
     if (resendKey) {
       try {
-        const baseUrl = process.env.VITE_SITE_URL || 'https://rtechlab.com';
+        const baseUrl =
+          process.env.SITE_URL ||
+          process.env.VITE_SITE_URL ||
+          (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
+          (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
+          'https://rtechlab.vercel.app';
         const downloadUrl = language === 'hi'
           ? `${baseUrl}/downloads/Computer-Fundamentals-Hindi-V5.1.4-FINAL.pdf`
           : `${baseUrl}/downloads/Computer-Fundamentals-English-V5.1.4-FINAL.pdf`;
