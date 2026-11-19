@@ -498,13 +498,13 @@ export default function NotesPage() {
             <div className="text-center sm:text-left mb-8 sm:mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] sm:text-xs font-mono text-emerald-400 mb-3 sm:mb-4 backdrop-blur-md max-w-full overflow-hidden text-ellipsis">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                <span className="truncate">⚡ 100% HONEST PRICING · ANY MASTER HANDBOOK @ ₹49 · ZERO CLICKBAIT GUARANTEE</span>
+                <span className="truncate">⚡ OFFICIAL CURRICULUM · RESEARCH-VERIFIED DIGITAL NOTES · TRANSPARENT PRICING</span>
               </div>
               <h1 className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-2 sm:mb-3">
                 Industrial Master Digital Notes
               </h1>
               <p className="text-[#86868B] text-xs sm:text-base max-w-3xl leading-relaxed mb-4 sm:mb-6">
-                Jo Instagram par bola (<strong className="text-white">complete digital notes starting at just ₹49</strong>), wahi yahan milega! Niche apne subject ke topic-wise boxes dekhiye, 5-page preview padhiye, aur freely choose karein:
+                Comprehensive, research-verified engineering handbooks designed for modern IT professionals, college students, and certification aspirants. Inspect topics, read live 5-page previews, and get complete digital editions starting at just <strong className="text-white">₹49</strong>.
               </p>
 
               {/* Value Badges */}
@@ -531,7 +531,7 @@ export default function NotesPage() {
                   Choose Your Subject Notes
                 </h2>
                 <p className="text-xs text-[#86868B]">
-                  Har subject ke topics aur modules niche clearly listed hain. Click 'Preview 5 Pages' to inspect sample:
+                  Explore syllabus modules, hardware pinouts, and system diagrams. Click 'Preview 5 Pages' to inspect sample:
                 </p>
               </div>
 
@@ -660,7 +660,7 @@ export default function NotesPage() {
                   </h2>
                 </div>
                 <p className="text-xs text-[#86868B] max-w-md">
-                  Aapko do subjects ek sath chahiye toh ye pairs sabse popular hain. Dono complete handbooks aur dono ke career interview assets sirf ₹249 me!
+                  Curated domain pairs designed for high-impact cross-skilling. Includes both complete handbooks and full career interview vaults for ₹249.
                 </p>
               </div>
 
@@ -1372,7 +1372,7 @@ export default function NotesPage() {
                   Select Your Package for {selectedSubject.title}
                 </h3>
                 <p className="text-xs text-[#86868B] max-w-lg mx-auto leading-relaxed">
-                  Aapko direct ₹49 ka notes lena hai, ₹100 extra me interview questions chahiye, ya related combo lena hai? Freely choose karein:
+                  Choose the standalone handbook at ₹49, the full Career Accelerator Bundle (+100 MNC Questions), or a paired dual-subject combo:
                 </p>
               </div>
 
