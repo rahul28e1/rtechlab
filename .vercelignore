@@ -19,8 +19,10 @@ RTECHLAB_AI_PUBLISHING_ENGINE
 publishing
 references
 scratch
-out
+# Local build outputs (built fresh by Vercel)
+build
 dist
+out
 screenshots
 INFORMATIVE_RELATED_REELS
 __pycache__
