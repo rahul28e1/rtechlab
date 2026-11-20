@@ -387,7 +387,14 @@ export default function NotesPage() {
         }),
       });
 
-      const orderData = await orderRes.json();
+      let orderData = {};
+      try {
+        orderData = await orderRes.json();
+      } catch (parseErr) {
+        setPaymentError(`Order creation failed (HTTP ${orderRes.status}). Please check network or try again.`);
+        setIsPaymentProcessing(false);
+        return;
+      }
 
       if (!orderRes.ok) {
         if (orderData.requiresSetup) {
@@ -438,7 +445,14 @@ export default function NotesPage() {
               }),
             });
 
-            const verifyData = await verifyRes.json();
+            let verifyData = {};
+            try {
+              verifyData = await verifyRes.json();
+            } catch (pErr) {
+              setPaymentError(`Payment verification failed (HTTP ${verifyRes.status}). Please contact support with payment ID: ${response.razorpay_payment_id}`);
+              setIsPaymentProcessing(false);
+              return;
+            }
 
             if (verifyRes.ok && verifyData.verified) {
               setPaymentVerified(true);
