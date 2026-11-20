@@ -1,0 +1,32 @@
+# Vercel Deployment Ignore Rules
+# Exclude heavy video engine, media assets, archives, and node_modules
+
+node_modules
+.git
+.github
+.agents
+.freebuff
+data
+
+# Heavy video & production folders
+video-engine
+PUBLISHING_HUB
+QUARANTINE_LEGACY_ARCHIVE
+DECEMBER_2026_FACE_REELS
+DIGITAL
+RTECHLAB_EDITING_WORKFLOW
+RTECHLAB_AI_PUBLISHING_ENGINE
+publishing
+references
+scratch
+out
+dist
+screenshots
+INFORMATIVE_RELATED_REELS
+__pycache__
+*.pyc
+
+# Local environment files
+.env
+.env*.local
+*.log
