@@ -4,22 +4,36 @@ import path from 'node:path';
 
 console.log('[RTechLab Build Engine] Starting production SPA build...');
 
+const startTime = Date.now();
+const rootIndex = path.resolve('build', 'client', 'index.html');
+
+// Clean previous build artifact if exists
+if (fs.existsSync(rootIndex)) {
+  try {
+    fs.unlinkSync(rootIndex);
+  } catch {}
+}
+
 const viteCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 const child = spawn(viteCmd, ['vite', 'build'], {
   stdio: ['inherit', 'pipe', 'pipe'],
   shell: true,
 });
 
-let exitTimer = null;
+let isDone = false;
 
-function checkAndExit() {
-  const rootIndex = path.resolve('build', 'client', 'index.html');
-
+function finishBuild() {
+  if (isDone) return;
   if (fs.existsSync(rootIndex)) {
-    console.log('\n[RTechLab Build Engine] ✓ Static index.html verified.');
+    isDone = true;
+    console.log('\n[RTechLab Build Engine] ✓ Static index.html verified successfully.');
     console.log('[RTechLab Build Engine] ✓ Production SPA build complete. Exiting cleanly with code 0.');
     try {
-      child.kill('SIGTERM');
+      if (process.platform === 'win32') {
+        spawn('taskkill', ['/pid', child.pid.toString(), '/f', '/t'], { stdio: 'ignore' });
+      } else {
+        child.kill('SIGKILL');
+      }
     } catch {}
     process.exit(0);
   }
@@ -29,12 +43,8 @@ child.stdout.on('data', (data) => {
   const str = data.toString();
   process.stdout.write(str);
 
-  if (str.includes('SPA Mode: Generated') || str.includes('Generated build') || str.includes('✓ built in')) {
-    if (!exitTimer) {
-      exitTimer = setTimeout(() => {
-        checkAndExit();
-      }, 1000);
-    }
+  if (str.includes('SPA Mode: Generated') || str.includes('index.html')) {
+    setTimeout(finishBuild, 1500);
   }
 });
 
@@ -43,30 +53,35 @@ child.stderr.on('data', (data) => {
 });
 
 child.on('close', (code) => {
-  process.exit(code || 0);
+  if (isDone) return;
+  if (code === 0 || fs.existsSync(rootIndex)) {
+    finishBuild();
+  } else {
+    process.exit(code || 1);
+  }
 });
 
-// Periodic check: poll every 1s after 3s to see if build/client/index.html was produced
+// Periodic check: check every 1s if index.html is written
 const intervalCheck = setInterval(() => {
-  const rootIndex = path.resolve('build', 'client', 'index.html');
   if (fs.existsSync(rootIndex)) {
-    // Give half a second for write finish
-    setTimeout(() => {
-      clearInterval(intervalCheck);
-      checkAndExit();
-    }, 500);
+    try {
+      const stats = fs.statSync(rootIndex);
+      if (stats.mtimeMs >= startTime && stats.size > 100) {
+        clearInterval(intervalCheck);
+        setTimeout(finishBuild, 1000);
+      }
+    } catch {}
   }
 }, 1000);
 
-// Absolute timeout fallback: if build takes longer than 25s, check if output exists and exit
+// Generous 180s (3-minute) timeout for cloud builders like Vercel
 setTimeout(() => {
   clearInterval(intervalCheck);
-  const rootIndex = path.resolve('build', 'client', 'index.html');
   if (fs.existsSync(rootIndex)) {
     console.log('\n[RTechLab Build Engine] Build output exists after timeout. Exiting cleanly with code 0.');
     process.exit(0);
   } else {
-    console.error('\n[RTechLab Build Engine] Build timed out.');
+    console.error('\n[RTechLab Build Engine] Build timed out after 180s.');
     process.exit(1);
   }
-}, 25000);
+}, 180000);
