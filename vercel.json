@@ -1,23 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
   "outputDirectory": "build/client",
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/api/create-order",
-      "destination": "/api/create-order.js"
-    },
-    {
-      "source": "/api/verify-payment",
-      "destination": "/api/verify-payment.js"
-    },
-    {
-      "source": "/api/register-student",
-      "destination": "/api/register-student.js"
-    },
-    {
-      "source": "/api/site-status",
-      "destination": "/api/site-status.js"
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
     },
     {
       "source": "/(.*)",
