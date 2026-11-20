@@ -55,42 +55,50 @@ const SUBJECTS = [
     id: 'networking',
     category: 'networking',
     title: 'Computer Networking Fundamentals',
-    subtitle: 'The OSI Model to Enterprise Routing',
-    desc: 'TCP/IP vs OSI, IPv4 subnetting, NAT, DNS/DHCP flow, Ethernet cabling T568A/B, and packet switching mechanics.',
-    pages: '160+ Pages',
-    tag: 'Networking Core',
+    subtitle: 'The OSI Model to Enterprise Routing & Cisco IOS',
+    desc: 'TCP/IP vs OSI, IPv4 subnetting VLSM, IPv6 architecture, Ethernet cabling T568A/B, Cisco IOS CLI, and Top 50 MNC placement interview questions.',
+    pages: '45 Pages',
+    tag: 'Networking Core · Edition 1',
     accent: 'cyan',
-    badge: 'Essential',
+    badge: 'Edition 1',
+    previewPdfEn: '/downloads/CCNA-200-301-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/CCNA-200-301-English-Edition-1.pdf',
+    fullPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1.pdf',
+    bundleZip: '/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip',
     relatedComboId: 'combo-network',
-    pairingReason: 'Pair with CCNA Top Tier Notes to master enterprise Cisco routers, switches, and real TAC troubleshooting.',
+    pairingReason: 'Pair with CCNA Master Guide to master enterprise Cisco routers, switches, and real TAC troubleshooting.',
     topics: [
-      'OSI 7-Layer Architecture vs TCP/IP 4-Layer Protocol Stack',
-      'IPv4 Subnetting Math: VLSM, CIDR Slash Notation & Broadcast Math',
-      'Full Packet Lifecycle: DNS Resolution, ARP Triage & DHCP 4-Way DORA',
-      'Network Address Translation (NAT): Static, Dynamic & PAT Overload',
-      'Ethernet Physical Layer: Cat6 T568A/B Color Pinouts & Crimp Testing',
-      'Enterprise Triage Tools: ICMP Ping, Traceroute & Wireshark Pcap Traces',
+      'Ch 01-02: 3-Tier/Spine-Leaf Architectures & Cat6/Fiber Cabling',
+      'Ch 03-04: IPv4 Subnetting Masterclass & IPv6 EUI-64/SLAAC',
+      'Ch 05-06: Cisco IOS Architecture, ROMMON & CLI Navigation',
+      'Ch 07-08: Switching (VLANs/STP/ROAS) & IP Routing (OSPFv2/AD)',
+      'Ch 09-10: Enterprise Services (DHCP/NAT/ACL) & Top 50 MNC Placement Bank',
     ],
   },
   {
     id: 'ccna',
     category: 'networking',
-    title: 'CCNA Enterprise — Top Tier Notes',
-    subtitle: 'Cisco Routing, Switching & Wireless',
-    desc: 'OSPF multi-area, VLAN trunking (802.1Q), Spanning Tree (STP), EtherChannel, ACLs, and Cisco IOS CLI commands.',
-    pages: '210+ Pages',
-    tag: 'Cisco TAC Standard',
+    title: 'Cisco CCNA 200-301 Master Guide',
+    subtitle: 'Switching, Routing, IPv6, Cisco IOS & Placement Bank',
+    desc: '3-Tier/Spine-Leaf networks, IPv4 VLSM & IPv6 architecture, Cisco IOS CLI & ROMMON recovery, VLANs/STP, OSPF, ACLs, and Top 50 MNC placement Q&A.',
+    pages: '45 Pages',
+    tag: 'Cisco TAC Standard · Edition 1',
     accent: 'blue',
-    badge: 'Top Tier',
+    badge: 'Edition 1',
+    previewPdfEn: '/downloads/CCNA-200-301-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/CCNA-200-301-English-Edition-1.pdf',
+    fullPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1.pdf',
+    bundleZip: '/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip',
     relatedComboId: 'combo-network',
     pairingReason: 'Pair with Networking Fundamentals for bulletproof subnetting, packet headers, and OSI base foundation.',
     topics: [
-      'Cisco IOS CLI Architecture, Exec Modes & Register 0x2102 Recovery',
-      'VLANs, 802.1Q Trunking & Inter-VLAN Router-on-a-Stick (ROAS)',
-      'Spanning Tree Protocol: STP 802.1D, RSTP 802.1w & Root Bridge Math',
-      'OSPFv2 Multi-Area Routing: Link-State LSAs, DR/BDR & Cost Formula',
-      'Access Control Lists (ACLs): Standard (1-99) vs Extended (100-199)',
-      'EtherChannel Link Aggregation (LACP / PAgP) & First Hop Redundancy (HSRP)',
+      'Ch 01-02: 3-Tier/Spine-Leaf Architectures & Cat6/Fiber Cabling',
+      'Ch 03-04: IPv4 Subnetting Masterclass & IPv6 EUI-64/SLAAC',
+      'Ch 05-06: Cisco IOS Architecture, ROMMON & CLI Navigation',
+      'Ch 07-08: Switching (VLANs/STP/ROAS) & IP Routing (OSPFv2/AD)',
+      'Ch 09-10: Enterprise Services (DHCP/NAT/ACL) & Top 50 MNC Placement Bank',
     ],
   },
   {
@@ -277,6 +285,66 @@ const PREVIEW_ASSETS = {
       'Page 3: Motherboard VRM Phases & Power Throttling',
       'Page 4: High-Speed RAM Bus (DDR4 vs DDR5)',
       'Page 5: Storage Architecture: NVMe PCIe 5.0 vs SATA',
+    ],
+  },
+  ccna: {
+    en: [
+      '/previews/ccna/en-page-1.png',
+      '/previews/ccna/en-page-2.png',
+      '/previews/ccna/en-page-3.png',
+      '/previews/ccna/en-page-4.png',
+      '/previews/ccna/en-page-5.png',
+    ],
+    hi: [
+      '/previews/ccna/hi-page-1.png',
+      '/previews/ccna/hi-page-2.png',
+      '/previews/ccna/hi-page-3.png',
+      '/previews/ccna/hi-page-4.png',
+      '/previews/ccna/hi-page-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official CCNA Master Book Cover',
+      'Page 2: Ch 01 — Modern Enterprise Network Architectures',
+      'Page 3: 2-Tier Collapsed Core vs 3-Tier vs Spine-Leaf',
+      'Page 4: Network Media & UTP vs Fiber Cabling Standards',
+      'Page 5: T568A/B Pinouts & Collision/Broadcast Domains',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक CCNA 200-301 मास्टर बुक कवर',
+      'पेज 2: अध्याय 1 — आधुनिक एंटरप्राइज नेटवर्क आर्किटेक्चर',
+      'पेज 3: 2-टियर कोलैप्सड कोर, 3-टियर और स्पाइन-लीफ डिजाइन',
+      'पेज 4: UTP Cat6 और सिंगल/मल्टी-मोड फाइबर केबलिंग',
+      'पेज 5: T568A/B पिनआउट्स और कोलिजन/ब्रॉडकास्ट डोमेन',
+    ],
+  },
+  networking: {
+    en: [
+      '/previews/ccna/en-page-1.png',
+      '/previews/ccna/en-page-2.png',
+      '/previews/ccna/en-page-3.png',
+      '/previews/ccna/en-page-4.png',
+      '/previews/ccna/en-page-5.png',
+    ],
+    hi: [
+      '/previews/ccna/hi-page-1.png',
+      '/previews/ccna/hi-page-2.png',
+      '/previews/ccna/hi-page-3.png',
+      '/previews/ccna/hi-page-4.png',
+      '/previews/ccna/hi-page-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official CCNA Master Book Cover',
+      'Page 2: Ch 01 — Modern Enterprise Network Architectures',
+      'Page 3: 2-Tier Collapsed Core vs 3-Tier vs Spine-Leaf',
+      'Page 4: Network Media & UTP vs Fiber Cabling Standards',
+      'Page 5: T568A/B Pinouts & Collision/Broadcast Domains',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक CCNA 200-301 मास्टर बुक कवर',
+      'पेज 2: अध्याय 1 — आधुनिक एंटरप्राइज नेटवर्क आर्किटेक्चर',
+      'पेज 3: 2-टियर कोलैप्सड कोर, 3-टियर और स्पाइन-लीफ डिजाइन',
+      'पेज 4: UTP Cat6 और सिंगल/मल्टी-मोड फाइबर केबलिंग',
+      'पेज 5: T568A/B पिनआउट्स और कोलिजन/ब्रॉडकास्ट डोमेन',
     ],
   },
 };
@@ -2152,7 +2220,144 @@ export default function NotesPage() {
               {/* ── STEP 3: INSTANT DOWNLOADS (STRICTLY LOCKED UNTIL PAYMENT SUCCESS) ── */}
               {paymentVerified ? (
                 <div className="space-y-3 animate-fadeIn">
-                  {checkoutItem.title?.toLowerCase().includes('fundamental') && (
+                  {(selectedSubject?.id === 'ccna' || selectedSubject?.id === 'networking' || checkoutItem.title?.toLowerCase().includes('ccna') || checkoutItem.title?.toLowerCase().includes('network')) ? (
+                    <div className="space-y-2.5 w-full pt-1">
+                      {checkoutItem.plan === 'bundle' ? (
+                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-blue-500/30">
+                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-blue-400">
+                            <span>📦 CCNA 200-301 COMPLETE CAREER BUNDLE</span>
+                            <span>5 Guides · 69 Pages</span>
+                          </div>
+
+                          {/* 1-Click ZIP Master Download */}
+                          <a
+                            href="/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip"
+                            download
+                            className="w-full py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-black font-black text-xs text-center shadow-lg shadow-blue-500/20 block"
+                          >
+                            📦 1-Click Download: Complete CCNA Suite (.ZIP - 20 MB)
+                          </a>
+
+                          {/* Individual Primary Download According to Selected Language */}
+                          <div className="pt-2">
+                            <div className="text-[10px] font-mono text-[#86868B] mb-1.5">
+                              Primary Master Handbook ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'} Selected):
+                            </div>
+                            {selectedLanguage === 'hi' ? (
+                              <a
+                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
+                                download
+                                className="w-full py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-mono text-[11px] font-bold text-center border border-cyan-400/50 block mb-1"
+                              >
+                                ⚡ डाउनलोड मुख्य हिंदी Core Master PDF (45 Pages)
+                              </a>
+                            ) : (
+                              <a
+                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
+                                download
+                                className="w-full py-2 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 font-mono text-[11px] font-bold text-center border border-blue-400/50 block mb-1"
+                              >
+                                ⚡ Download Main English Core Master PDF (45 Pages)
+                              </a>
+                            )}
+                          </div>
+
+                          <div className="text-[10px] font-mono text-[#86868B] text-center pt-1">
+                            Specialized Career Editions (Global English Standard):
+                          </div>
+                          <div className="grid grid-cols-2 gap-1.5 text-[10px] font-mono">
+                            <a
+                              href="/downloads/CCNA-200-301-Packet-Tracer-Lab-Workbook-Edition-1.pdf"
+                              download
+                              className="py-1.5 px-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center truncate block"
+                              title="Packet Tracer Lab Workbook (12 Pages)"
+                            >
+                              🧪 PT Labs (12p)
+                            </a>
+                            <a
+                              href="/downloads/CCNA-200-301-Interview-Question-Vault-Edition-1.pdf"
+                              download
+                              className="py-1.5 px-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-center truncate block"
+                              title="120 TAC Interview Questions (8 Pages)"
+                            >
+                              🎯 120 TAC Q&amp;A (8p)
+                            </a>
+                            <a
+                              href="/downloads/CCNA-200-301-Network-Engineer-Career-Salary-Blueprint-Edition-1.pdf"
+                              download
+                              className="py-1.5 px-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-center truncate block col-span-2"
+                              title="Career & Salary Blueprint (4 Pages)"
+                            >
+                              💼 Career &amp; Salary Blueprint (4p)
+                            </a>
+                          </div>
+
+                          {/* Alternate Language Option */}
+                          <div className="text-center pt-1 border-t border-white/[0.06]">
+                            {selectedLanguage === 'hi' ? (
+                              <a
+                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
+                                download
+                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
+                              >
+                                Also want English Core Master? Click here to download (45 Pages)
+                              </a>
+                            ) : (
+                              <a
+                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
+                                download
+                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
+                              >
+                                हिंदी एडिशन भी चाहिए? यहाँ क्लिक करें (45 Pages)
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
+                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-blue-400 px-1">
+                            <span>📘 CCNA CORE MASTER PASS</span>
+                            <span>45 Pages ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'})</span>
+                          </div>
+                          {selectedLanguage === 'hi' ? (
+                            <div className="space-y-1.5">
+                              <a
+                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
+                                download
+                                className="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-cyan-500/20"
+                              >
+                                ⚡ डायरेक्ट डाउनलोड: मुख्य हिंदी Edition 1 (45 Pages PDF)
+                              </a>
+                              <a
+                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
+                                download
+                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
+                              >
+                                Alternate: Download English Edition 1 (45 Pages)
+                              </a>
+                            </div>
+                          ) : (
+                            <div className="space-y-1.5">
+                              <a
+                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
+                                download
+                                className="w-full py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-blue-500/20"
+                              >
+                                ⚡ Direct Download: English Edition 1 (45 Pages PDF)
+                              </a>
+                              <a
+                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
+                                download
+                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
+                              >
+                                वैकल्पिक: डाउनलोड करें हिंदी Edition 1 (45 Pages)
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ) : checkoutItem.title?.toLowerCase().includes('fundamental') ? (
                     <div className="space-y-2.5 w-full pt-1">
                       {checkoutItem.plan === 'bundle' ? (
                         <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-emerald-500/30">
@@ -2296,6 +2501,22 @@ export default function NotesPage() {
                           )}
                         </div>
                       )}
+                    </div>
+                  ) : (
+                    <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
+                      <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400 px-1">
+                        <span>📘 DIGITAL MASTER EDITION</span>
+                        <span>{selectedSubject?.pages || '45 Pages'} ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'})</span>
+                      </div>
+                      <div className="space-y-1.5">
+                        <a
+                          href={selectedLanguage === 'hi' ? (selectedSubject?.fullPdfHi || selectedSubject?.fullPdfEn || '/downloads/CCNA-200-301-Hindi-Edition-1.pdf') : (selectedSubject?.fullPdfEn || '/downloads/CCNA-200-301-English-Edition-1.pdf')}
+                          download
+                          className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-extrabold font-mono text-xs text-center block shadow-md"
+                        >
+                          ⚡ Direct Download: Full Edition PDF
+                        </a>
+                      </div>
                     </div>
                   )}
 
