@@ -166,6 +166,97 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* ── REALISTIC DIGITAL NOTEBOOK & 3D PAGE TURN ANIMATIONS ── */
+.notebook-perspective {
+  perspective: 2400px;
+}
+
+/* Realistic stacked notebook paper edge */
+.notebook-stack {
+  box-shadow: 
+    -1px 0 0 rgba(255, 255, 255, 0.12),
+    2px 2px 0 #2c2c32,
+    4px 4px 0 #222227,
+    6px 6px 0 #19191d,
+    8px 8px 0 #101013,
+    16px 24px 50px rgba(0, 0, 0, 0.95);
+}
+
+/* Page flip to NEXT: lifts from right, curls over to the left */
+@keyframes notebookFlipNext {
+  0% {
+    transform: perspective(2200px) rotateY(0deg);
+    transform-origin: left center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+  }
+  40% {
+    transform: perspective(2200px) rotateY(-70deg) skewY(-2deg) scale(0.98);
+    transform-origin: left center;
+    box-shadow: -25px 15px 50px rgba(0, 0, 0, 0.7);
+    opacity: 0.95;
+  }
+  100% {
+    transform: perspective(2200px) rotateY(-180deg) scale(0.95);
+    transform-origin: left center;
+    box-shadow: -50px 20px 70px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+  }
+}
+
+/* Page flip from PREV: comes back from left, turns flat to the right */
+@keyframes notebookFlipPrev {
+  0% {
+    transform: perspective(2200px) rotateY(-180deg) scale(0.95);
+    transform-origin: left center;
+    box-shadow: -50px 20px 70px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: perspective(2200px) rotateY(-70deg) skewY(2deg) scale(0.98);
+    transform-origin: left center;
+    box-shadow: -25px 15px 50px rgba(0, 0, 0, 0.7);
+    opacity: 0.95;
+  }
+  100% {
+    transform: perspective(2200px) rotateY(0deg);
+    transform-origin: left center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+  }
+}
+
+.animate-page-flip-next {
+  animation: notebookFlipNext 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  pointer-events: none;
+}
+
+.animate-page-flip-prev {
+  animation: notebookFlipPrev 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  pointer-events: none;
+}
+
+/* Page curl / bend lighting overlay */
+@keyframes pageCurlShadowNext {
+  0% { opacity: 0; }
+  35% { opacity: 0.65; }
+  100% { opacity: 0; }
+}
+
+@keyframes pageCurlShadowPrev {
+  0% { opacity: 0; }
+  45% { opacity: 0.65; }
+  100% { opacity: 0; }
+}
+
+.animate-curl-shadow-next {
+  animation: pageCurlShadowNext 0.45s ease-in-out forwards;
+}
+
+.animate-curl-shadow-prev {
+  animation: pageCurlShadowPrev 0.45s ease-in-out forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

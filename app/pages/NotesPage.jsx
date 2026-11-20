@@ -312,6 +312,10 @@ export default function NotesPage() {
   const [isReaderModalOpen, setIsReaderModalOpen] = useState(false);
   // Language for preview reader: 'hi' | 'en'
   const [previewLang, setPreviewLang] = useState('hi');
+  // 3D Realistic notebook page turn states
+  const [isPageFlipping, setIsPageFlipping] = useState(false);
+  const [flipDirection, setFlipDirection] = useState('next'); // 'next' | 'prev'
+  const [targetFlipPage, setTargetFlipPage] = useState(1);
   // State for modals
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -319,61 +323,159 @@ export default function NotesPage() {
   const [modalSelectedPlan, setModalSelectedPlan] = useState('single');
   // Language preference for main digital notebook: 'en' | 'hi'
   const [selectedLanguage, setSelectedLanguage] = useState('en');
-  // Student lead registration states
+  // Student lead & Razorpay payment states
   const [studentName, setStudentName] = useState('');
   const [studentEmail, setStudentEmail] = useState('');
   const [studentPhone, setStudentPhone] = useState('');
-  const [isRegistering, setIsRegistering] = useState(false);
-  const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [registrationError, setRegistrationError] = useState('');
+  const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
+  const [paymentVerified, setPaymentVerified] = useState(false);
+  const [verifiedPaymentId, setVerifiedPaymentId] = useState('');
+  const [paymentError, setPaymentError] = useState('');
 
-  const handleRegisterStudent = async (e) => {
+  // Dynamically load Razorpay SDK
+  const loadRazorpaySDK = () => {
+    return new Promise((resolve) => {
+      if (typeof window !== 'undefined' && window.Razorpay) {
+        resolve(true);
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  // Automated 100% Secure Razorpay Checkout Handler
+  const handleInitiatePayment = async (e) => {
     if (e) e.preventDefault();
     if (!studentEmail || !studentEmail.includes('@')) {
-      setRegistrationError('Please enter a valid email address.');
+      setPaymentError('Please enter a valid email address.');
       return;
     }
-    setIsRegistering(true);
-    setRegistrationError('');
+    if (!studentName.trim()) {
+      setPaymentError('Please enter your full name.');
+      return;
+    }
+    setIsPaymentProcessing(true);
+    setPaymentError('');
 
     try {
-      const res = await fetch('/api/register-student', {
+      const isLoaded = await loadRazorpaySDK();
+      if (!isLoaded) {
+        setPaymentError('Unable to load payment gateway SDK. Please check your internet connection.');
+        setIsPaymentProcessing(false);
+        return;
+      }
+
+      // Step 1: Create verified order on server
+      const orderRes = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          amount: checkoutItem.price,
+          currency: 'INR',
+          subject: selectedSubject.id,
+          subjectTitle: selectedSubject.title,
+          plan: checkoutItem.plan,
           name: studentName,
           email: studentEmail,
           phone: studentPhone,
           language: selectedLanguage,
-          subject: selectedSubject.id,
-          subjectTitle: selectedSubject.title,
-          plan: checkoutItem.plan,
-          price: checkoutItem.price,
         }),
       });
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setRegistrationSuccess(true);
-        try {
-          const prev = JSON.parse(localStorage.getItem('rtechlab_registered_students') || '[]');
-          prev.push({
-            name: studentName,
-            email: studentEmail,
-            phone: studentPhone,
-            language: selectedLanguage,
-            plan: checkoutItem.plan,
-            date: new Date().toISOString(),
-          });
-          localStorage.setItem('rtechlab_registered_students', JSON.stringify(prev));
-        } catch {}
-      } else {
-        setRegistrationError(data.error || 'Saved locally. Downloads are ready below.');
-        setRegistrationSuccess(true);
+
+      const orderData = await orderRes.json();
+
+      if (!orderRes.ok) {
+        if (orderData.requiresSetup) {
+          setPaymentError('Razorpay Payment Gateway Setup In Progress: Please set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET in Vercel to accept live payments. Download access remains locked.');
+        } else {
+          setPaymentError(orderData.error || 'Failed to create payment order.');
+        }
+        setIsPaymentProcessing(false);
+        return;
       }
-    } catch {
-      setRegistrationSuccess(true);
-    } finally {
-      setIsRegistering(false);
+
+      // Step 2: Open Razorpay drop-in modal
+      const options = {
+        key: orderData.keyId,
+        amount: orderData.amount,
+        currency: orderData.currency || 'INR',
+        name: 'RTechLab Publishing',
+        description: `${selectedSubject.title} (${checkoutItem.title})`,
+        image: '/brand/rtechlab-icon.png',
+        order_id: orderData.orderId,
+        prefill: {
+          name: studentName,
+          email: studentEmail,
+          contact: studentPhone || '',
+        },
+        theme: {
+          color: '#10b981',
+        },
+        handler: async function (response) {
+          setIsPaymentProcessing(true);
+          try {
+            // Step 3: Cryptographic Server-Side Signature Verification
+            const verifyRes = await fetch('/api/verify-payment', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                name: studentName,
+                email: studentEmail,
+                phone: studentPhone,
+                language: selectedLanguage,
+                subject: selectedSubject.id,
+                subjectTitle: selectedSubject.title,
+                plan: checkoutItem.plan,
+                price: checkoutItem.price,
+              }),
+            });
+
+            const verifyData = await verifyRes.json();
+
+            if (verifyRes.ok && verifyData.verified) {
+              setPaymentVerified(true);
+              setVerifiedPaymentId(response.razorpay_payment_id);
+              try {
+                const prev = JSON.parse(localStorage.getItem('rtechlab_registered_students') || '[]');
+                prev.push({
+                  name: studentName,
+                  email: studentEmail,
+                  phone: studentPhone,
+                  paymentId: response.razorpay_payment_id,
+                  plan: checkoutItem.plan,
+                  date: new Date().toISOString(),
+                });
+                localStorage.setItem('rtechlab_registered_students', JSON.stringify(prev));
+              } catch {}
+            } else {
+              setPaymentError(verifyData.error || 'Payment signature verification failed. Download access locked.');
+            }
+          } catch (err) {
+            setPaymentError('Network connection error while verifying payment.');
+          } finally {
+            setIsPaymentProcessing(false);
+          }
+        },
+        modal: {
+          ondismiss: function () {
+            setIsPaymentProcessing(false);
+          },
+        },
+      };
+
+      const rzpInstance = new window.Razorpay(options);
+      rzpInstance.open();
+    } catch (err) {
+      setPaymentError(`Payment initialization error: ${err.message}`);
+      setIsPaymentProcessing(false);
     }
   };
 
@@ -386,6 +488,30 @@ export default function NotesPage() {
   // Tab inside package explorer modal
   const [upsellTab, setUpsellTab] = useState('interview');
 
+  // Turn page with authentic 3D page flip animation
+  const handleTurnPage = (direction) => {
+    if (isPageFlipping) return;
+    if (direction === 'next') {
+      if (previewPage >= 5) return;
+      setFlipDirection('next');
+      setTargetFlipPage(previewPage + 1);
+      setIsPageFlipping(true);
+      setTimeout(() => {
+        setPreviewPage((p) => Math.min(5, p + 1));
+        setIsPageFlipping(false);
+      }, 440);
+    } else if (direction === 'prev') {
+      if (previewPage <= 1) return;
+      setFlipDirection('prev');
+      setTargetFlipPage(previewPage - 1);
+      setIsPageFlipping(true);
+      setTimeout(() => {
+        setPreviewPage((p) => Math.max(1, p - 1));
+        setIsPageFlipping(false);
+      }, 440);
+    }
+  };
+
   // ESC & Arrow key listener for modals & reader
   React.useEffect(() => {
     const handleKeyDown = (e) => {
@@ -393,17 +519,17 @@ export default function NotesPage() {
         setIsUpsellOpen(false);
         setIsCheckoutOpen(false);
         setIsReaderModalOpen(false);
-      } else if (isReaderModalOpen) {
+      } else if (isReaderModalOpen || viewMode === 'preview') {
         if (e.key === 'ArrowLeft') {
-          setPreviewPage((p) => Math.max(1, p - 1));
-        } else if (e.key === 'ArrowRight') {
-          setPreviewPage((p) => Math.min(5, p + 1));
+          handleTurnPage('prev');
+        } else if (e.key === 'ArrowRight' || e.key === ' ') {
+          handleTurnPage('next');
         }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isReaderModalOpen]);
+  }, [isReaderModalOpen, viewMode, previewPage, isPageFlipping]);
 
   // Filtered subject list
   const filteredSubjects = activeCategory === 'all'
@@ -933,80 +1059,122 @@ export default function NotesPage() {
                 </div>
               </div>
 
-              {/* Main Book Slider Stage with Left/Right Arrows */}
+              {/* Main Physical Notebook Stage with 3D Page Flip */}
               <div className="relative bg-[#09090B] p-4 sm:p-8 flex flex-col items-center justify-center min-h-[500px] sm:min-h-[620px] select-none">
                 {/* Previous Page Arrow Button */}
                 <button
                   type="button"
-                  onClick={() => setPreviewPage((p) => Math.max(1, p - 1))}
-                  disabled={previewPage === 1}
+                  onClick={(e) => { e.stopPropagation(); handleTurnPage('prev'); }}
+                  disabled={previewPage === 1 || isPageFlipping}
                   aria-label="Previous Page"
-                  className={`absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                  className={`absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
                     previewPage === 1
-                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
-                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95 cursor-pointer'
                   }`}
                 >
                   ‹
                 </button>
 
-                {/* Authentic High-Resolution Rendered Book Page */}
-                <div className="relative group max-w-full flex flex-col items-center">
-                  <div className="relative rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.9)] border border-white/10 bg-black">
-                    <img
-                      src={getPreviewImage(selectedSubject.id, previewLang, previewPage)}
-                      alt={getPageLabel(selectedSubject.id, previewLang, previewPage)}
-                      className="max-h-[60vh] sm:max-h-[68vh] w-auto max-w-full object-contain block transition-transform duration-200"
-                      loading="eager"
-                    />
-                    {/* Book spine shadow */}
-                    <div className="absolute left-0 top-0 bottom-0 w-2.5 bg-gradient-to-r from-black/50 via-white/5 to-transparent pointer-events-none" />
+                {/* THE PHYSICAL NOTEBOOK */}
+                <div
+                  className="relative flex rounded-xl overflow-hidden notebook-stack border border-white/10 bg-[#121215] max-h-[62vh] sm:max-h-[70vh] cursor-pointer group select-none notebook-perspective"
+                  onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    if (clickX > rect.width / 2) {
+                      handleTurnPage('next');
+                    } else {
+                      handleTurnPage('prev');
+                    }
+                  }}
+                >
+                  {/* Spiral Binder Spine (Left Edge) */}
+                  <div className="w-6 sm:w-8 bg-gradient-to-r from-[#141417] via-[#24242a] to-[#141417] flex flex-col justify-between py-6 rounded-l-md border-r border-black/60 select-none shrink-0 z-30 shadow-inner">
+                    {[...Array(11)].map((_, i) => (
+                      <div key={i} className="flex items-center justify-center relative my-0.5 sm:my-1">
+                        <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-black shadow-inner border border-zinc-700/60" />
+                        <div className="absolute w-5 sm:w-6 h-2 sm:h-2.5 rounded-full bg-gradient-to-r from-zinc-500 via-zinc-100 to-zinc-600 shadow-md transform -rotate-12 border border-zinc-950 pointer-events-none" />
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Chapter / Topic Label */}
-                  <div className="mt-3 text-center">
-                    <span className="text-xs sm:text-sm font-mono font-semibold text-emerald-400">
-                      {getPageLabel(selectedSubject.id, previewLang, previewPage)}
-                    </span>
+                  {/* Notebook Page Stage */}
+                  <div className="relative flex-1 bg-black overflow-hidden flex items-center justify-center">
+                    {/* BASE LAYER (Underneath Page shown during flip, or current page when static) */}
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <img
+                        src={getPreviewImage(
+                          selectedSubject.id,
+                          previewLang,
+                          isPageFlipping ? targetFlipPage : previewPage
+                        )}
+                        alt={getPageLabel(
+                          selectedSubject.id,
+                          previewLang,
+                          isPageFlipping ? targetFlipPage : previewPage
+                        )}
+                        className="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full object-contain block select-none pointer-events-none"
+                        loading="eager"
+                      />
+
+                      {/* Paper spine crease shadow */}
+                      <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/60 via-black/20 to-transparent pointer-events-none" />
+
+                      {/* Subtle printed page number stamp at bottom right corner of notebook */}
+                      <div className="absolute bottom-2 sm:bottom-3 right-3 sm:right-4 z-20 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-white/10 text-[10px] sm:text-xs font-mono font-bold text-white/70 pointer-events-none">
+                        {previewLang === 'hi' ? 'पेज' : 'Page'} {isPageFlipping ? targetFlipPage : previewPage} / 5
+                      </div>
+                    </div>
+
+                    {/* FLIPPING TOP LAYER (Only rendered while turning page) */}
+                    {isPageFlipping && (
+                      <div
+                        className={`absolute inset-0 z-20 flex items-center justify-center origin-left ${
+                          flipDirection === 'next' ? 'animate-page-flip-next' : 'animate-page-flip-prev'
+                        }`}
+                      >
+                        <img
+                          src={getPreviewImage(
+                            selectedSubject.id,
+                            previewLang,
+                            flipDirection === 'next' ? previewPage : targetFlipPage
+                          )}
+                          alt="Turning Page"
+                          className="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full object-contain block select-none pointer-events-none shadow-2xl"
+                        />
+                        {/* Dynamic Paper Curl Shadow Overlay */}
+                        <div
+                          className={`absolute inset-0 pointer-events-none bg-gradient-to-r from-black/80 via-black/30 to-transparent ${
+                            flipDirection === 'next' ? 'animate-curl-shadow-next' : 'animate-curl-shadow-prev'
+                          }`}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Next Page Arrow Button */}
                 <button
                   type="button"
-                  onClick={() => setPreviewPage((p) => Math.min(5, p + 1))}
-                  disabled={previewPage === 5}
+                  onClick={(e) => { e.stopPropagation(); handleTurnPage('next'); }}
+                  disabled={previewPage === 5 || isPageFlipping}
                   aria-label="Next Page"
-                  className={`absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                  className={`absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
                     previewPage === 5
-                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
-                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95 cursor-pointer'
                   }`}
                 >
                   ›
                 </button>
               </div>
 
-              {/* Bottom Controls: Page Numbers, Download Sample & Buy Plan */}
+              {/* Bottom Controls: Direct Download & Link to Comparison (NO SLIDE PILLS) */}
               <div className="p-3 sm:p-4 bg-[#141417] border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3">
-                {/* 1 to 5 Page Selector Pills */}
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">Pages:</span>
-                  {[1, 2, 3, 4, 5].map((p) => (
-                    <button
-                      key={p}
-                      type="button"
-                      onClick={() => setPreviewPage(p)}
-                      className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all ${
-                        previewPage === p
-                          ? 'bg-emerald-500 text-black shadow-md shadow-emerald-500/30 scale-105'
-                          : 'bg-white/10 text-[#86868B] hover:text-white hover:bg-white/20'
-                      }`}
-                    >
-                      Page {p}
-                    </button>
-                  ))}
-                  <span className="text-[11px] font-mono text-white/50 ml-1">/ 5</span>
+                <div className="text-[11px] font-mono text-[#86868B] flex items-center gap-1.5">
+                  <span className="text-emerald-400">⚡</span>
+                  <span>{previewLang === 'hi' ? 'पेज पर क्लिक या स्वाइप करके पन्ने पलटें' : 'Click page or swipe to turn pages'}</span>
                 </div>
 
                 {/* Direct Sample Download & Link to Comparison */}
@@ -1313,80 +1481,122 @@ export default function NotesPage() {
                 </div>
               </div>
 
-              {/* 2. REAL DIGITAL BOOK SLIDER STAGE (Sliding page view like a real book) */}
-              <div className="relative bg-[#070709] p-3 sm:p-6 flex flex-col items-center justify-center flex-1 overflow-hidden select-none min-h-[380px] sm:min-h-[500px]">
+              {/* 2. REALISTIC PHYSICAL NOTEBOOK STAGE (ONLY NOTEBOOK + 3D PAGE SLIDE FLIP) */}
+              <div className="relative bg-[#070709] p-3 sm:p-6 flex flex-col items-center justify-center flex-1 overflow-hidden select-none min-h-[420px] sm:min-h-[540px]">
                 {/* Previous Page Arrow */}
                 <button
                   type="button"
-                  onClick={() => setPreviewPage((p) => Math.max(1, p - 1))}
-                  disabled={previewPage === 1}
+                  onClick={(e) => { e.stopPropagation(); handleTurnPage('prev'); }}
+                  disabled={previewPage === 1 || isPageFlipping}
                   aria-label="Previous Page"
-                  className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                  className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
                     previewPage === 1
-                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
-                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95 cursor-pointer'
                   }`}
                 >
                   ‹
                 </button>
 
-                {/* High-Resolution Rendered Book Page Image */}
-                <div className="relative group max-w-full flex flex-col items-center justify-center">
-                  <div className="relative rounded-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.95)] border border-white/15 bg-black">
-                    <img
-                      src={getPreviewImage(selectedSubject.id, previewLang, previewPage)}
-                      alt={getPageLabel(selectedSubject.id, previewLang, previewPage)}
-                      className="max-h-[50vh] sm:max-h-[58vh] w-auto max-w-full object-contain block transition-transform duration-200"
-                      loading="eager"
-                    />
-                    {/* Left book spine visual line */}
-                    <div className="absolute left-0 top-0 bottom-0 w-2.5 bg-gradient-to-r from-black/60 via-white/5 to-transparent pointer-events-none" />
+                {/* THE PHYSICAL NOTEBOOK */}
+                <div
+                  className="relative flex rounded-xl overflow-hidden notebook-stack border border-white/10 bg-[#121215] max-h-[58vh] sm:max-h-[66vh] cursor-pointer group select-none notebook-perspective"
+                  onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    if (clickX > rect.width / 2) {
+                      handleTurnPage('next');
+                    } else {
+                      handleTurnPage('prev');
+                    }
+                  }}
+                >
+                  {/* Spiral Binder Spine (Left Edge) */}
+                  <div className="w-5 sm:w-7 bg-gradient-to-r from-[#141417] via-[#24242a] to-[#141417] flex flex-col justify-between py-4 sm:py-6 rounded-l-md border-r border-black/60 select-none shrink-0 z-30 shadow-inner">
+                    {[...Array(11)].map((_, i) => (
+                      <div key={i} className="flex items-center justify-center relative my-0.5 sm:my-1">
+                        <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-black shadow-inner border border-zinc-700/60" />
+                        <div className="absolute w-5 sm:w-6 h-2 sm:h-2.5 rounded-full bg-gradient-to-r from-zinc-500 via-zinc-100 to-zinc-600 shadow-md transform -rotate-12 border border-zinc-950 pointer-events-none" />
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Dynamic Page Chapter Label */}
-                  <div className="mt-2 text-center">
-                    <span className="text-xs sm:text-sm font-mono font-semibold text-emerald-400">
-                      {getPageLabel(selectedSubject.id, previewLang, previewPage)}
-                    </span>
+                  {/* Notebook Page Stage */}
+                  <div className="relative flex-1 bg-black overflow-hidden flex items-center justify-center">
+                    {/* BASE LAYER (Underneath Page shown during flip, or current page when static) */}
+                    <div className="relative w-full h-full flex items-center justify-center">
+                      <img
+                        src={getPreviewImage(
+                          selectedSubject.id,
+                          previewLang,
+                          isPageFlipping ? targetFlipPage : previewPage
+                        )}
+                        alt={getPageLabel(
+                          selectedSubject.id,
+                          previewLang,
+                          isPageFlipping ? targetFlipPage : previewPage
+                        )}
+                        className="max-h-[54vh] sm:max-h-[62vh] w-auto max-w-full object-contain block select-none pointer-events-none"
+                        loading="eager"
+                      />
+
+                      {/* Paper spine crease shadow */}
+                      <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/60 via-black/20 to-transparent pointer-events-none" />
+
+                      {/* Subtle printed page number stamp at bottom right corner of notebook */}
+                      <div className="absolute bottom-2 sm:bottom-3 right-3 sm:right-4 z-20 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-white/10 text-[10px] sm:text-xs font-mono font-bold text-white/70 pointer-events-none">
+                        {previewLang === 'hi' ? 'पेज' : 'Page'} {isPageFlipping ? targetFlipPage : previewPage} / 5
+                      </div>
+                    </div>
+
+                    {/* FLIPPING TOP LAYER (Only rendered while turning page) */}
+                    {isPageFlipping && (
+                      <div
+                        className={`absolute inset-0 z-20 flex items-center justify-center origin-left ${
+                          flipDirection === 'next' ? 'animate-page-flip-next' : 'animate-page-flip-prev'
+                        }`}
+                      >
+                        <img
+                          src={getPreviewImage(
+                            selectedSubject.id,
+                            previewLang,
+                            flipDirection === 'next' ? previewPage : targetFlipPage
+                          )}
+                          alt="Turning Page"
+                          className="max-h-[54vh] sm:max-h-[62vh] w-auto max-w-full object-contain block select-none pointer-events-none shadow-2xl"
+                        />
+                        {/* Dynamic Paper Curl Shadow Overlay */}
+                        <div
+                          className={`absolute inset-0 pointer-events-none bg-gradient-to-r from-black/80 via-black/30 to-transparent ${
+                            flipDirection === 'next' ? 'animate-curl-shadow-next' : 'animate-curl-shadow-prev'
+                          }`}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Next Page Arrow */}
                 <button
                   type="button"
-                  onClick={() => setPreviewPage((p) => Math.min(5, p + 1))}
-                  disabled={previewPage === 5}
+                  onClick={(e) => { e.stopPropagation(); handleTurnPage('next'); }}
+                  disabled={previewPage === 5 || isPageFlipping}
                   aria-label="Next Page"
-                  className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
+                  className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
                     previewPage === 5
-                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/40 border border-white/5'
-                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95'
+                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
+                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95 cursor-pointer'
                   }`}
                 >
                   ›
                 </button>
               </div>
 
-              {/* 3. MODAL FOOTER: Page Indicators, Download Sample PDF, and Direct Purchase */}
+              {/* 3. MODAL FOOTER: Clean, Direct Actions (NO SLIDE PILLS) */}
               <div className="p-3 sm:p-4 bg-[#141418] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
-                {/* Page 1 to 5 Slide Pills */}
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">Slide:</span>
-                  {[1, 2, 3, 4, 5].map((p) => (
-                    <button
-                      key={p}
-                      type="button"
-                      onClick={() => setPreviewPage(p)}
-                      className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all ${
-                        previewPage === p
-                          ? 'bg-emerald-500 text-black shadow-md shadow-emerald-500/30 scale-105'
-                          : 'bg-white/10 text-[#86868B] hover:text-white hover:bg-white/20'
-                      }`}
-                    >
-                      Page {p}
-                    </button>
-                  ))}
-                  <span className="text-[11px] font-mono text-white/50 ml-1">/ 5</span>
+                <div className="text-[11px] font-mono text-[#86868B] flex items-center gap-1.5">
+                  <span className="text-emerald-400">⚡</span>
+                  <span>{previewLang === 'hi' ? 'पेज पर क्लिक या स्वाइप करके पन्ने पलटें' : 'Click page or swipe to turn pages'}</span>
                 </div>
 
                 {/* Action Buttons */}
@@ -1831,12 +2041,12 @@ export default function NotesPage() {
                 </p>
               </div>
 
-              {/* ── STEP 2: STUDENT DETAILS FOR ZERO-TOUCH DELIVERY & UPDATES ── */}
-              {!registrationSuccess ? (
-                <form onSubmit={handleRegisterStudent} className="space-y-2.5 mb-4 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
+              {/* ── STEP 2: STUDENT DETAILS & 100% AUTOMATED SECURE PAYMENT ── */}
+              {!paymentVerified ? (
+                <form onSubmit={handleInitiatePayment} className="space-y-3 mb-4 p-4 rounded-2xl bg-black border border-white/[0.12] shadow-xl">
                   <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase mb-1 flex items-center justify-between">
-                    <span>Step 2: Register Details for Automated Delivery</span>
-                    <span className="text-[#86868B] text-[10px]">Lifetime Updates</span>
+                    <span>Step 2: Enter Student Details</span>
+                    <span className="text-[#86868B] text-[10px]">Zero-Touch Delivery</span>
                   </div>
                   <div className="space-y-2">
                     <input
@@ -1844,233 +2054,245 @@ export default function NotesPage() {
                       placeholder="Your Full Name (e.g. Rahul Sharma)"
                       value={studentName}
                       onChange={(e) => setStudentName(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
                       required
                     />
                     <input
                       type="email"
-                      placeholder="Your Email Address (For updates & official receipt)"
+                      placeholder="Your Email Address (For official receipt & downloads)"
                       value={studentEmail}
                       onChange={(e) => setStudentEmail(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
                       required
                     />
                     <input
                       type="tel"
-                      placeholder="WhatsApp Mobile Number (Optional - for backup dispatch)"
+                      placeholder="WhatsApp Mobile Number (Optional - for payment backup)"
                       value={studentPhone}
                       onChange={(e) => setStudentPhone(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
                     />
                   </div>
 
-                  {registrationError && (
-                    <div className="text-[10px] text-red-400 font-mono">{registrationError}</div>
+                  {paymentError && (
+                    <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-[11px] text-red-400 font-mono leading-relaxed">
+                      ⚠️ {paymentError}
+                    </div>
                   )}
 
                   <button
                     type="submit"
-                    disabled={isRegistering}
-                    className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-1.5"
+                    disabled={isPaymentProcessing}
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black font-black text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
                   >
-                    {isRegistering ? (
-                      <span>Saving Data &amp; Generating Links...</span>
+                    {isPaymentProcessing ? (
+                      <>
+                        <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                        <span>Connecting Razorpay Gateway...</span>
+                      </>
                     ) : (
-                      <span>Save &amp; Unlock Instant {selectedLanguage === 'hi' ? 'हिंदी' : 'English'} Downloads →</span>
+                      <>
+                        <span>🔒 Pay ₹{checkoutItem.price} &amp; Unlock Instant Downloads</span>
+                        <span>→</span>
+                      </>
                     )}
                   </button>
+
+                  {/* Payment Badges */}
+                  <div className="pt-2 text-center">
+                    <div className="text-[10px] font-mono text-[#86868B] mb-1.5 flex items-center justify-center gap-1">
+                      <span>Supported 1-Click Payments:</span>
+                    </div>
+                    <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] font-mono text-white/70">
+                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Google Pay</span>
+                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">PhonePe</span>
+                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Paytm</span>
+                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">UPI QR</span>
+                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Debit/Credit Cards</span>
+                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">NetBanking</span>
+                    </div>
+                    <p className="text-[10px] text-white/40 mt-2 font-mono">
+                      🔒 256-Bit SSL Encrypted · Instant Automatic Verification · Zero Waiting Time
+                    </p>
+                  </div>
                 </form>
               ) : (
-                <div className="mb-4 p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center animate-fadeIn">
-                  <div className="text-emerald-400 font-bold text-xs flex items-center justify-center gap-1.5 mb-1">
+                <div className="mb-4 p-4 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-center animate-fadeIn shadow-lg shadow-emerald-500/10">
+                  <div className="text-emerald-400 font-extrabold text-sm flex items-center justify-center gap-2 mb-1">
                     <span>✅</span>
-                    <span>Access Confirmed for {studentName || 'Student'}!</span>
+                    <span>Payment Verified &amp; Access Unlocked!</span>
                   </div>
-                  <p className="text-[11px] text-[#D2D2D7]">
-                    Registered email: <strong className="text-white">{studentEmail}</strong> · Preferred Language: <strong className="text-emerald-400">{selectedLanguage === 'hi' ? 'हिंदी Edition' : 'English Edition'}</strong>.
+                  <p className="text-xs text-[#D2D2D7] font-mono">
+                    Payment ID: <strong className="text-white">{verifiedPaymentId}</strong> · Registered to: <strong className="text-emerald-300">{studentEmail}</strong>
                   </p>
-                  <div className="text-[10px] text-emerald-400/90 font-mono mt-0.5">
-                    Your details are recorded. All future version updates will be sent directly to your email free of cost.
-                  </div>
+                  <p className="text-[11px] text-[#86868B] mt-1 font-mono">
+                    Your official download links are unlocked below. An official confirmation receipt has also been dispatched to your email.
+                  </p>
                 </div>
               )}
 
-              {/* ── STEP 3: INSTANT DOWNLOADS TAILORED TO LANGUAGE & PLAN ── */}
-              <div className="space-y-3">
-                {checkoutItem.title?.toLowerCase().includes('fundamental') && (
-                  <div className="space-y-2.5 w-full pt-1">
-                    {checkoutItem.plan === 'bundle' ? (
-                      <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-emerald-500/30">
-                        <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400">
-                          <span>📦 COMPLETE 5-IN-1 CAREER ACCELERATOR</span>
-                          <span>6 PDFs · 119 Pages</span>
+              {/* ── STEP 3: INSTANT DOWNLOADS (STRICTLY LOCKED UNTIL PAYMENT SUCCESS) ── */}
+              {paymentVerified ? (
+                <div className="space-y-3 animate-fadeIn">
+                  {checkoutItem.title?.toLowerCase().includes('fundamental') && (
+                    <div className="space-y-2.5 w-full pt-1">
+                      {checkoutItem.plan === 'bundle' ? (
+                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-emerald-500/30">
+                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400">
+                            <span>📦 COMPLETE 5-IN-1 CAREER ACCELERATOR</span>
+                            <span>6 PDFs · 119 Pages</span>
+                          </div>
+
+                          {/* 1-Click ZIP Master Download */}
+                          <a
+                            href="/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip"
+                            download
+                            className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-black font-black text-xs text-center shadow-lg shadow-emerald-500/20 block"
+                          >
+                            📦 1-Click Download: Complete 5-in-1 Suite (.ZIP - 30 MB)
+                          </a>
+
+                          {/* Individual Primary Download According to Selected Language */}
+                          <div className="pt-2">
+                            <div className="text-[10px] font-mono text-[#86868B] mb-1.5">
+                              Primary Digital Notebook ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'} Selected):
+                            </div>
+                            {selectedLanguage === 'hi' ? (
+                              <a
+                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
+                                download
+                                className="w-full py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-mono text-[11px] font-bold text-center border border-cyan-400/50 block mb-1"
+                              >
+                                ⚡ डाउनलोड मुख्य हिंदी Core Master PDF (45 Pages)
+                              </a>
+                            ) : (
+                              <a
+                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
+                                download
+                                className="w-full py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-[11px] font-bold text-center border border-emerald-400/50 block mb-1"
+                              >
+                                ⚡ Download Main English Core Master PDF (45 Pages)
+                              </a>
+                            )}
+                          </div>
+
+                          <div className="text-[10px] font-mono text-[#86868B] text-center pt-1">
+                            Specialized Career Editions (Global English Standard):
+                          </div>
+                          <div className="grid grid-cols-2 gap-1.5 text-[10px] font-mono">
+                            <a
+                              href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf"
+                              download
+                              className="py-1.5 px-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center truncate block"
+                              title="Enterprise & FAANG Deep Dive (7 Pages)"
+                            >
+                              ⚡ FAANG DeepDive (7p)
+                            </a>
+                            <a
+                              href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf"
+                              download
+                              className="py-1.5 px-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-center truncate block"
+                              title="Interview Practice Vault (7 Pages)"
+                            >
+                              🎯 Interview Vault (7p)
+                            </a>
+                            <a
+                              href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf"
+                              download
+                              className="py-1.5 px-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-center truncate block"
+                              title="Career & Salary Blueprint (5 Pages)"
+                            >
+                              💼 Career Blueprint (5p)
+                            </a>
+                            <a
+                              href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-Edition-1.pdf"
+                              download
+                              className="py-1.5 px-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-center truncate block"
+                              title="Practical Lab Workbook (10 Pages)"
+                            >
+                              🧪 Practical Labs (10p)
+                            </a>
+                          </div>
+
+                          {/* Alternate Language Option */}
+                          <div className="text-center pt-1 border-t border-white/[0.06]">
+                            {selectedLanguage === 'hi' ? (
+                              <a
+                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
+                                download
+                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
+                              >
+                                Also want English Core Master? Click here to download (45 Pages)
+                              </a>
+                            ) : (
+                              <a
+                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
+                                download
+                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
+                              >
+                                हिंदी एडिशन भी चाहिए? यहाँ क्लिक करें (45 Pages)
+                              </a>
+                            )}
+                          </div>
                         </div>
-
-                        {/* 1-Click ZIP Master Download */}
-                        <a
-                          href="/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip"
-                          download
-                          className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-black font-black text-xs text-center shadow-lg shadow-emerald-500/20 block"
-                        >
-                          📦 1-Click Download: Complete 5-in-1 Suite (.ZIP - 30 MB)
-                        </a>
-
-                        {/* Individual Primary Download According to Selected Language */}
-                        <div className="pt-2">
-                          <div className="text-[10px] font-mono text-[#86868B] mb-1.5">
-                            Primary Digital Notebook ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'} Selected):
+                      ) : (
+                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
+                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400 px-1">
+                            <span>📘 CORE MASTER PASS</span>
+                            <span>45 Pages ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'})</span>
                           </div>
                           {selectedLanguage === 'hi' ? (
-                            <a
-                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                              download
-                              className="w-full py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-mono text-[11px] font-bold text-center border border-cyan-400/50 block mb-1"
-                            >
-                              ⚡ डाउनलोड मुख्य हिंदी Core Master PDF (45 Pages)
-                            </a>
+                            <div className="space-y-1.5">
+                              <a
+                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
+                                download
+                                className="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-cyan-500/20"
+                              >
+                                ⚡ डायरेक्ट डाउनलोड: मुख्य हिंदी Edition 1 (45 Pages PDF)
+                              </a>
+                              <a
+                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
+                                download
+                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
+                              >
+                                Alternate: Download English Edition 1 (45 Pages)
+                              </a>
+                            </div>
                           ) : (
-                            <a
-                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                              download
-                              className="w-full py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-[11px] font-bold text-center border border-emerald-400/50 block mb-1"
-                            >
-                              ⚡ Download Main English Core Master PDF (45 Pages)
-                            </a>
+                            <div className="space-y-1.5">
+                              <a
+                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
+                                download
+                                className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-emerald-500/20"
+                              >
+                                ⚡ Direct Download: English Edition 1 (45 Pages PDF)
+                              </a>
+                              <a
+                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
+                                download
+                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
+                              >
+                                वैकल्पिक: डाउनलोड करें हिंदी Edition 1 (45 Pages)
+                              </a>
+                            </div>
                           )}
                         </div>
+                      )}
+                    </div>
+                  )}
 
-                        <div className="text-[10px] font-mono text-[#86868B] text-center pt-1">
-                          Specialized Career Editions (Global English Standard):
-                        </div>
-                        <div className="grid grid-cols-2 gap-1.5 text-[10px] font-mono">
-                          <a
-                            href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf"
-                            download
-                            className="py-1.5 px-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center truncate block"
-                            title="Enterprise & FAANG Deep Dive (7 Pages)"
-                          >
-                            ⚡ FAANG DeepDive (7p)
-                          </a>
-                          <a
-                            href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf"
-                            download
-                            className="py-1.5 px-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-center truncate block"
-                            title="Interview Practice Vault (7 Pages)"
-                          >
-                            🎯 Interview Vault (7p)
-                          </a>
-                          <a
-                            href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf"
-                            download
-                            className="py-1.5 px-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-center truncate block"
-                            title="Career & Salary Blueprint (5 Pages)"
-                          >
-                            💼 Career Blueprint (5p)
-                          </a>
-                          <a
-                            href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-Edition-1.pdf"
-                            download
-                            className="py-1.5 px-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-center truncate block"
-                            title="Practical Lab Workbook (10 Pages)"
-                          >
-                            🧪 Practical Labs (10p)
-                          </a>
-                        </div>
-
-                        {/* Alternate Language Option */}
-                        <div className="text-center pt-1 border-t border-white/[0.06]">
-                          {selectedLanguage === 'hi' ? (
-                            <a
-                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                              download
-                              className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
-                            >
-                              Also want English Core Master? Click here to download (45 Pages)
-                            </a>
-                          ) : (
-                            <a
-                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                              download
-                              className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
-                            >
-                              हिंदी एडिशन भी चाहिए? यहाँ क्लिक करें (45 Pages)
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
-                        <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400 px-1">
-                          <span>📘 CORE MASTER PASS</span>
-                          <span>45 Pages ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'})</span>
-                        </div>
-                        {selectedLanguage === 'hi' ? (
-                          <div className="space-y-1.5">
-                            <a
-                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                              download
-                              className="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-cyan-500/20"
-                            >
-                              ⚡ डायरेक्ट डाउनलोड: मुख्य हिंदी Edition 1 (45 Pages PDF)
-                            </a>
-                            <a
-                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                              download
-                              className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
-                            >
-                              Alternate: Download English Edition 1 (45 Pages)
-                            </a>
-                          </div>
-                        ) : (
-                          <div className="space-y-1.5">
-                            <a
-                              href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                              download
-                              className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-emerald-500/20"
-                            >
-                              ⚡ Direct Download: English Edition 1 (45 Pages PDF)
-                            </a>
-                            <a
-                              href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                              download
-                              className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
-                            >
-                              वैकल्पिक: डाउनलोड करें हिंदी Edition 1 (45 Pages)
-                            </a>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Optional Direct UPI QR Support Section */}
-                <div className="p-3 rounded-2xl bg-black/60 border border-white/[0.06] text-center">
-                  <div className="text-[10px] font-mono text-[#86868B] mb-1">
-                    Optional UPI Direct Payment (Scan or Pay via UPI App):
-                  </div>
-                  <div className="flex items-center justify-center gap-3">
-                    <a
-                      href={`upi://pay?pa=rtechlab@upi&pn=RTechLab&am=${checkoutItem.price}&cu=INR&tn=RTechLab-${encodeURIComponent(checkoutItem.title || 'Notes')}`}
-                      className="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 font-mono text-[11px] font-bold border border-emerald-500/30 transition-all"
-                    >
-                      Pay ₹{checkoutItem.price} via UPI App
-                    </a>
-                    <a
-                      href={`https://wa.me/919000000000?text=${encodeURIComponent(`Hello Rahul Sir, I have registered as ${studentName || 'Student'} (${studentEmail}) for ${checkoutItem.title} in ${selectedLanguage === 'hi' ? 'Hindi' : 'English'}.`)}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="px-3 py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[11px] border border-white/10 transition-all"
-                    >
-                      WhatsApp Support
-                    </a>
+                  <p className="text-[10px] sm:text-[11px] text-center text-[#86868B]">
+                    🔒 100% Genuine Notes · Authorized Author: Rahul Sir · Lifetime Updates
+                  </p>
+                </div>
+              ) : (
+                <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center">
+                  <div className="text-xs font-mono text-[#86868B] flex items-center justify-center gap-1.5">
+                    <span>🔒</span>
+                    <span>Full Master PDF ({selectedLanguage === 'hi' ? 'हिंदी 45 Pages' : 'English 45 Pages'}) &amp; Bundles are securely locked. Complete Step 2 above to unlock instant access.</span>
                   </div>
                 </div>
-
-                <p className="text-[10px] sm:text-[11px] text-center text-[#86868B]">
-                  🔒 100% Genuine Notes · Authorized Author: Rahul Sir · Lifetime Updates
-                </p>
-              </div>
+              )}
             </div>
           </div>
         )}
