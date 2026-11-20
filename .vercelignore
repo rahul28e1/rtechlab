@@ -6,7 +6,6 @@ node_modules
 .github
 .agents
 .freebuff
-data
 
 # Heavy video & production folders
 video-engine
