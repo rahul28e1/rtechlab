@@ -35,7 +35,7 @@ const devApiPlugin = () => ({
         });
         return;
       }
-      if (url.pathname === '/api/create-order') {
+      if (url.pathname === '/api/create-order' || url.pathname === '/api/create-order.js') {
         let body = '';
         req.on('data', (chunk) => { body += chunk; });
         req.on('end', async () => {
@@ -54,7 +54,7 @@ const devApiPlugin = () => ({
         });
         return;
       }
-      if (url.pathname === '/api/verify-payment') {
+      if (url.pathname === '/api/verify-payment' || url.pathname === '/api/verify-payment.js') {
         let body = '';
         req.on('data', (chunk) => { body += chunk; });
         req.on('end', async () => {
