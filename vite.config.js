@@ -1,5 +1,5 @@
 import { reactRouter } from '@react-router/dev/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 
 const devApiPlugin = () => ({
   name: 'dev-api-plugin',
@@ -35,16 +35,59 @@ const devApiPlugin = () => ({
         });
         return;
       }
+      if (url.pathname === '/api/create-order') {
+        let body = '';
+        req.on('data', (chunk) => { body += chunk; });
+        req.on('end', async () => {
+          try {
+            req.body = body ? JSON.parse(body) : {};
+          } catch {
+            req.body = {};
+          }
+          const { default: handler } = await import('./api/create-order.js');
+          res.status = (code) => { res.statusCode = code; return res; };
+          res.json = (data) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(data));
+          };
+          return handler(req, res);
+        });
+        return;
+      }
+      if (url.pathname === '/api/verify-payment') {
+        let body = '';
+        req.on('data', (chunk) => { body += chunk; });
+        req.on('end', async () => {
+          try {
+            req.body = body ? JSON.parse(body) : {};
+          } catch {
+            req.body = {};
+          }
+          const { default: handler } = await import('./api/verify-payment.js');
+          res.status = (code) => { res.statusCode = code; return res; };
+          res.json = (data) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(data));
+          };
+          return handler(req, res);
+        });
+        return;
+      }
       next();
     });
   },
 });
 
-export default defineConfig({
-  plugins: [devApiPlugin(), reactRouter()],
-  resolve: {
-    alias: {
-      '~': '/src',
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  Object.assign(process.env, env);
+
+  return {
+    plugins: [devApiPlugin(), reactRouter()],
+    resolve: {
+      alias: {
+        '~': '/src',
+      },
     },
-  },
+  };
 });

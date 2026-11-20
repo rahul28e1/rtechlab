@@ -401,13 +401,13 @@ export default function NotesPage() {
 
       // Step 2: Open Razorpay drop-in modal
       const options = {
-        key: orderData.keyId,
+        key: orderData.keyId || orderData.key_id || import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: orderData.amount,
         currency: orderData.currency || 'INR',
         name: 'RTechLab Publishing',
         description: `${selectedSubject.title} (${checkoutItem.title})`,
         image: '/brand/rtechlab-icon.png',
-        order_id: orderData.orderId,
+        order_id: orderData.orderId || orderData.order_id,
         prefill: {
           name: studentName,
           email: studentEmail,
@@ -472,6 +472,10 @@ export default function NotesPage() {
       };
 
       const rzpInstance = new window.Razorpay(options);
+      rzpInstance.on('payment.failed', function (response) {
+        setPaymentError(response?.error?.description || 'Payment was unsuccessful or cancelled by user.');
+        setIsPaymentProcessing(false);
+      });
       rzpInstance.open();
     } catch (err) {
       setPaymentError(`Payment initialization error: ${err.message}`);

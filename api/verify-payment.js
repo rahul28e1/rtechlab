@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-// Vercel Serverless Function to Verify Razorpay Payment & Dispatch Digital Goods
+// Vercel Serverless & Local Dev Function to Verify Razorpay Payment Signature
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -16,10 +16,13 @@ export default async function handler(req, res) {
 
   try {
     const data = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+
+    // Support both Razorpay standard and custom field names
+    const order_id = data.razorpay_order_id || data.order_id;
+    const payment_id = data.razorpay_payment_id || data.payment_id;
+    const signature = data.razorpay_signature || data.signature;
+
     const {
-      razorpay_order_id = '',
-      razorpay_payment_id = '',
-      razorpay_signature = '',
       name = '',
       email = '',
       phone = '',
@@ -30,37 +33,42 @@ export default async function handler(req, res) {
       price = 49,
     } = data;
 
-    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
+    // Missing fields check (Return 400)
+    if (!order_id || !payment_id || !signature) {
       return res.status(400).json({
+        success: false,
         verified: false,
-        error: 'Missing required Razorpay payment credentials.',
+        error: 'Missing required payment fields: order_id, payment_id, and signature are required.',
       });
     }
 
     const keySecret = process.env.RAZORPAY_KEY_SECRET;
     if (!keySecret) {
-      return res.status(503).json({
+      return res.status(500).json({
+        success: false,
         verified: false,
-        error: 'RAZORPAY_KEY_SECRET is not configured in Vercel.',
+        error: 'RAZORPAY_KEY_SECRET is not configured on the server.',
       });
     }
 
-    // Cryptographic HMAC SHA256 Verification
-    const generatedSignature = crypto
+    // Algorithm: HMAC-SHA256(order_id + "|" + payment_id, KEY_SECRET)
+    const expectedSignature = crypto
       .createHmac('sha256', keySecret)
-      .update(`${razorpay_order_id}|${razorpay_payment_id}`)
+      .update(`${order_id}|${payment_id}`)
       .digest('hex');
 
-    const isAuthentic = generatedSignature === razorpay_signature;
+    const isMatch = expectedSignature === signature;
 
-    if (!isAuthentic) {
+    // Signature mismatch: return 400, do NOT mark as paid
+    if (!isMatch) {
       return res.status(400).json({
+        success: false,
         verified: false,
-        error: 'Security alert: Payment signature verification failed. Download access blocked.',
+        error: 'Payment verification failed: Signature mismatch. Access denied.',
       });
     }
 
-    // Payment is 100% verified authentic!
+    // Payment is valid and authentic!
     const baseUrl =
       process.env.SITE_URL ||
       process.env.VITE_SITE_URL ||
@@ -85,7 +93,7 @@ export default async function handler(req, res) {
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
             <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-bottom: 20px;">
               <h1 style="color: #10b981; margin: 0; font-size: 22px;">RTechLab Official Verified Delivery</h1>
-              <p style="color: #9ca3af; margin: 4px 0 0; font-size: 13px;">Payment ID: ${razorpay_payment_id} · Amount: ₹${price}</p>
+              <p style="color: #9ca3af; margin: 4px 0 0; font-size: 13px;">Payment ID: ${payment_id} · Amount: ₹${price}</p>
             </div>
             
             <p>Dear <strong>${name || 'Student'}</strong>,</p>
@@ -140,9 +148,10 @@ export default async function handler(req, res) {
     }
 
     return res.status(200).json({
+      success: true,
       verified: true,
-      paymentId: razorpay_payment_id,
-      orderId: razorpay_order_id,
+      payment_id,
+      order_id,
       emailStatus,
       downloads: {
         corePdf: coreDownloadUrl,
@@ -151,6 +160,7 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     return res.status(500).json({
+      success: false,
       verified: false,
       error: 'Internal server error while verifying payment',
       message: err.message,

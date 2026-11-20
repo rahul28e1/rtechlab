@@ -33,6 +33,7 @@ export function Layout({ children }) {
           content="Universal, high-impact education in Computer Networking, CCNA, Linux, Cybersecurity, and Cloud Architecture. Free and open access."
         />
         <link rel="icon" type="image/x-icon" href="/brand/favicon.ico" />
+        <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
         <Meta />
         <Links />
       </head>
