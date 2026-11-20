@@ -410,3 +410,27 @@
     ]
   )
 }
+
+// Custom Terminal Specimen Box for Cisco CLI Output
+#let terminal-specimen(title: "CISCO IOS CLI OUTPUT SPECIMEN", body) = {
+  block(
+    width: 100%,
+    stroke: 0.5pt + rgb("#334155"),
+    fill: rgb("#0F172A"),
+    radius: 4pt,
+    inset: (x: 8pt, y: 5.5pt),
+    spacing: 3pt,
+    [
+      #grid(
+        columns: (1fr, auto),
+        align: (left, right),
+        [#text(size: 7.2pt, weight: "bold", fill: rgb("#38BDF8"), font: ("Consolas", "Courier New"))[> #title]],
+        [#text(size: 6.2pt, fill: rgb("#94A3B8"), font: ("Consolas", "Courier New"))[VT100 · 9600-8-N-1 · Cisco IOS-XE]]
+      )
+      #v(1.5pt)
+      #line(length: 100%, stroke: 0.5pt + rgb("#1E293B"))
+      #v(2.5pt)
+      #body
+    ]
+  )
+}

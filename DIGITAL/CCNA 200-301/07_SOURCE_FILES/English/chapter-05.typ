@@ -4,7 +4,7 @@
 = Chapter 5: Cisco IOS Architecture, Memories & Boot Flow
 
 #text(size: 8.5pt, fill: rtech-text.lighten(20%))[
-  Internal hardware architecture of Cisco routing and switching engines: CPU, system bus, ROM, Flash, NVRAM, RAM, the 5-stage Cisco boot sequence, Configuration Register bit patterns (0x2102 vs 0x2142), ROMMON emergency recovery, TFTP rescue, and switch password recovery procedures.
+  Internal hardware architecture of Cisco routing and switching engines: CPU, system bus, ROM, Flash, NVRAM, RAM, the 5-stage Cisco boot sequence, Configuration Register bit patterns (0x2102 vs 0x2142), ROMMON emergency recovery, TFTP rescue, and complete step-by-step router and switch password recovery procedures.
 ]
 
 #v(2pt)
@@ -12,61 +12,58 @@
 == 5.1 Cisco Hardware Architecture & Memory Subsystems
 A Cisco enterprise router is a specialized high-reliability computer executing Cisco Internetwork Operating System (IOS). Its operational state relies on four distinct memory architectures:
 - *ROM (Read-Only Memory):* Non-volatile firmware chip. Stores:
-  1. *Power-On Self-Test (POST):* Diagnostic microcode testing CPU, memory, and interface circuitry.
-  2. *Bootstrap Loader:* Locates and transfers the Cisco IOS software image into RAM.
-  3. *ROMMON (ROM Monitor):* Low-level mini-operating system invoked during corrupt flash or password recovery.
-- *Flash Memory:* Electrically Erasable Programmable ROM (EEPROM / NAND Flash). Non-volatile; stores the #hl[Cisco IOS system image (`.bin` file)] and system crash dumps. Retains files across power cycles.
-- *NVRAM (Non-Volatile RAM):* Battery/capacitor-backed memory. Stores the #hl[`startup-config` file] and the 16-bit software *Configuration Register*. Fast and persistent.
-- *RAM (Random Access Memory / DRAM):* Volatile working memory. Stores the active #hl[`running-config`], routing tables, ARP cache, interface packet buffers, and running IOS execution space. Erased during reboot.
+  1. *Power-On Self-Test (POST):* Diagnostic microcode testing CPU registers, memory controllers, and physical interface circuitry.
+  2. *Bootstrap Loader:* Locates and transfers the Cisco IOS software image from Flash/TFTP into RAM.
+  3. *ROMMON (ROM Monitor):* Low-level emergency mini-operating system invoked during corrupt flash, missing IOS, or password recovery.
+- *Flash Memory:* Electrically Erasable Programmable ROM (EEPROM / NAND Flash). Non-volatile; stores the #hl[Cisco IOS system image (`.bin` file)] and system crash dumps. Retains files across power cycles and can be upgraded in the field.
+- *NVRAM (Non-Volatile RAM):* Battery/capacitor-backed memory. Stores the #hl[`startup-config` file] and the 16-bit software *Configuration Register*. Fast, persistent, and read/write.
+- *RAM (Random Access Memory / DRAM):* Volatile high-speed working memory. Stores the active #hl[`running-config`], routing tables, ARP cache, interface packet buffers, and running IOS execution space. All contents are lost upon power loss or reboot!
 
-#v(2pt)
+#v(3pt)
 
 == 5.2 Cisco Memory Types Comparison Matrix
 #table(
-  columns: (1fr, 1.2fr, 1.2fr, 2.6fr),
+  columns: (1fr, 1fr, 1.2fr, 2.8fr),
   fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
-  table.header([*Memory Type*], [*Persistence*], [*Primary Contents*], [*Engineering Operational Role*]),
-  [ROM], [Non-Volatile], [POST, Bootstrap, ROMMON], [Hardcoded factory microcode; executes hardware diagnostics on cold start.],
-  [Flash], [Non-Volatile], [Cisco IOS (`c2900-universalk9.bin`)], [Permanent OS storage. Can hold multiple IOS images and web files.],
-  [NVRAM], [Non-Volatile], [`startup-config`, Config-Register], [Retains saved device configurations and boot register parameters.],
-  [RAM], [#hl[Volatile]], [`running-config`, Routing Tables], [High-speed working execution space; changes take effect here instantly.]
+  table.header([*Memory Type*], [*Volatility*], [*Contents Stored*], [*Operational Engineering Role*]),
+  [ROM], [Non-Volatile], [POST, Bootstrap, ROMMON], [Hardware initialization and emergency disaster recovery bootloader.],
+  [Flash], [Non-Volatile], [Cisco IOS Image (`.bin`)], [Persistent operating system storage; field upgradable via TFTP/USB.],
+  [NVRAM], [Non-Volatile], [`startup-config`, Config-Register], [Saves administrative configuration and boot behavior across reboots.],
+  [RAM], [Volatile], [`running-config`, Routing Tables], [High-speed processing engine; all unsaved changes lost on reboot.]
 )
 
-#v(2pt)
+#v(3pt)
 
 == 5.3 The 5-Stage Cisco Router Boot Sequence
-When an engineer toggles the power switch on a Cisco router, it executes five sequential operational phases:
-1. *Stage 1: POST (Power-On Self-Test):* Executes diagnostic microcode from ROM to verify CPU, DRAM, and physical bus controller integrity.
-2. *Stage 2: Bootstrap Execution:* Bootstrap program initializes CPU registers and checks the *Configuration Register* in NVRAM.
-3. *Stage 3: Locate the Cisco IOS Image:* Bootstrap searches for the IOS `.bin` image based on boot system commands:
-   - *Primary:* Flash memory file system (`flash:`).
-   - *Secondary:* TFTP network server across Ethernet.
-   - *Fallback:* If no valid image is found, system drops to *ROMMON mode* (`rommon 1 >`).
-4. *Stage 4: Load IOS into RAM:* The decompressed IOS image is transferred into high-speed system RAM; kernel takes control.
-5. *Stage 5: Locate & Apply Configuration:* Bootstrap checks Configuration Register:
-   - If `0x2102`: Loads `startup-config` from NVRAM into RAM as `running-config`.
-   - If `0x2142`: Ignores NVRAM; launches interactive *Setup Dialog Wizard* (`Would you like to enter initial configuration dialog? [yes/no]:`).
+When a Cisco router power switch is turned ON, it executes a deterministic 5-stage boot sequence:
+- *Stage 1: Power-On Self-Test (POST):* Microcode stored in ROM executes, performing hardware checks on CPU, memory, and physical interface circuitry. If a hardware failure is detected, LED indicators display amber/red failure codes.
+- *Stage 2: Bootstrap Execution:* After POST passes, CPU executes the Bootstrap program from ROM.
+- *Stage 3: Locate Cisco IOS Software:* Bootstrap program reads the Configuration Register to determine where to find IOS:
+  1. Default: Inspects Flash memory for a valid `.bin` image file.
+  2. Fallback: If Flash is missing or corrupt, attempts network TFTP boot using configured boot parameters.
+  3. Emergency: If TFTP fails, dumps execution into ROMMON prompt (`rommon 1 >`).
+- *Stage 4: Load & Decompress Cisco IOS into RAM:* The selected IOS `.bin` image is loaded into RAM, decompressed, and the operating system kernel is initialized.
+- *Stage 5: Locate & Apply Configuration:* IOS inspects the Configuration Register:
+  - If register is #hl[`0x2102`] (normal): IOS searches NVRAM for `startup-config`. If found, it copies it into RAM as `running-config`. If empty, enters System Configuration Dialog (Setup Mode).
+  - If register is #hl[`0x2142`] (recovery): IOS #hl[bypasses NVRAM entirely] and boots directly into an unconfigured prompt without asking for passwords!
 
-#pagebreak()
+#v(3pt)
 
 == 5.4 The Configuration Register Architecture
-The Configuration Register is a 16-bit hex register stored in NVRAM that controls how the router boots:
-- *Bit 6 (`0x0040`):* Ignore NVRAM bit. When set to `1`, router bypasses `startup-config` during boot.
-- *Bits 0–3 (Boot Field):*
-  - `0x0` (Bit 0): Boots directly into ROMMON mode for maintenance.
-  - `0x1` (Bit 1): Boots mini-IOS boot image from ROM.
-  - `0x2` to `0xF` (Bits 2–15): Normal boot; executes `boot system` commands or boots first file in Flash.
-- *Key Configuration Register Values:*
-  - #hl[`0x2102`]: Normal production boot (reads NVRAM, boots from Flash, 9600 console baud rate).
-  - #hl[`0x2142`]: Password recovery boot (ignores NVRAM startup-config, boots from Flash).
+The Configuration Register is a 16-bit software register stored in NVRAM controlling how the router boots. It is represented in hexadecimal format:
+- *Common Values & Meanings:*
+  - *`0x2102` (Standard Enterprise Boot):* Factory default. Tells the router to boot the first valid IOS image found in Flash, and load `startup-config` from NVRAM.
+  - *`0x2142` (Password Recovery Mode):* Flips bit 6 to `1`. Instructs Bootstrap to ignore NVRAM during boot, allowing an administrator to bypass forgotten enable passwords.
+  - *`0x2100` (Direct ROMMON Boot):* Boots directly into ROMMON mode on every power cycle.
+  - *`0x2101` (RxBoot / Mini-IOS Boot):* Boots a lightweight bootstrap image from ROM.
 
-#v(2pt)
+#v(3pt)
 
 == 5.5 Step-by-Step Cisco Router Password Recovery Procedure
 When administrative passwords are lost, an engineer resets credentials without losing the original configuration:
-1. Connect laptop via serial console cable (9600-8-N-1).
+1. Connect laptop via serial console rollover cable (PuTTY: 9600-8-N-1).
 2. Power cycle router; within 60 seconds of boot, send a #hl[Break Signal] (Ctrl+Break in PuTTY) to interrupt boot.
 3. Router enters ROMMON mode prompt: `rommon 1 >`
 4. Change config register to ignore NVRAM: `rommon 1 > confreg 0x2142`
@@ -76,21 +73,37 @@ When administrative passwords are lost, an engineer resets credentials without l
 8. #hl[CRITICAL STEP: Copy startup-config to running-config] to recover configurations without wiping:
    `Router# copy startup-config running-config`
 9. Reconfigure admin password:
-   `Router(config)# enable secret Cisco123!`
-   `Router(config)# username admin privilege 15 secret CiscoAdmin2027`
-10. #hl[RESET REGISTER TO NORMAL]:
+   `Router(config)# enable secret NewCiscoSecret2027!`
+   `Router(config)# username admin privilege 15 secret AdminPass2027!`
+10. #hl[RESET REGISTER TO NORMAL (MANDATORY)]:
     `Router(config)# config-register 0x2102`
 11. Save modified config: `Router# copy running-config startup-config`
 
 #v(2pt)
+#terminal-specimen(title: "ROMMON Password Recovery Command Trace")[
+```text
+System Bootstrap, Version 15.1(4)M4, RELEASE SOFTWARE (fc1)
+rommon 1 > confreg 0x2142
+You must reset or power cycle for new config to take effect
+rommon 2 > reset
+...
+Router> enable
+Router# copy startup-config running-config
+Destination filename [running-config]? <Enter>
+R1-EDGE-CORE# configure terminal
+R1-EDGE-CORE(config)# enable secret CiscoSecret2027!
+R1-EDGE-CORE(config)# config-register 0x2102
+R1-EDGE-CORE(config)# end
+R1-EDGE-CORE# copy running-config startup-config
+[OK]
+```
+]
 
-#photo-card(
-  "../03_VISUAL_ASSETS/authentic-hardware-photographs/digital-multimeter-testing.jpg",
-  caption: "Figure 5.1: Benchtop Diagnostic testing of Cisco router internal power rails during hardware triage.",
-  height: 52pt
-)
+#concept-box(title: "THE GOLDEN RULE OF PASSWORD RECOVERY")[
+  In Step 8 of password recovery, NEVER run `copy running-config startup-config` before loading the original configuration! Doing so overwrites NVRAM with a blank config, destroying all production IP addresses, VLANs, and routing configs! Always run `copy startup-config running-config` first!
+]
 
-#v(2pt)
+#v(3pt)
 
 == 5.6 Emergency TFTP Rescue in ROMMON (`tftpdnld`)
 If an engineer accidentally formats Flash (`delete flash:*`), the router cannot boot into IOS. It must be rescued via ROMMON:
@@ -104,7 +117,7 @@ rommon 6 > tftpdnld
 rommon 7 > boot flash:c2900-universalk9-mz.SPA.157-3.M3.bin
 ```
 
-#pagebreak()
+#v(3pt)
 
 == 5.7 Cisco Catalyst Switch Password Recovery Architecture
 Cisco Catalyst switches lack a ROMMON break key; instead, they feature a physical #hl[Mode Button] on the front panel:
@@ -120,87 +133,78 @@ Cisco Catalyst switches lack a ROMMON break key; instead, they feature a physica
 9. Enter privileged mode (`enable`), restore file name, and change credentials:
    `Switch# rename flash:config.old flash:config.text`
    `Switch# copy flash:config.text system:running-config`
-   `Switch(config)# enable secret CiscoSwitch2027`
+   `Switch(config)# enable secret CiscoSwitch2027!`
    `Switch# copy running-config startup-config`
 
-#v(2pt)
+#v(3pt)
 
+
+== 5.8 Cisco Enterprise Router Hardware Architecture
+Modern Cisco branch and edge routers feature modular architectures:
 #table(
-  columns: (1.2fr, 1.4fr, 1.4fr, 2fr),
+  columns: (1fr, 1.4fr, 1.4fr, 2.2fr),
   fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
-  inset: 2.8pt,
-  table.header([*Operation*], [*Cisco Router Command*], [*Cisco Switch Command*], [*Operational Target*]),
-  [Save Config], [`copy run start`], [`copy run start`], [Writes volatile RAM config to persistent NVRAM/Flash.],
-  [Erase Config], [`erase startup-config`], [`write erase`], [Deletes NVRAM startup config; defaults device on reboot.],
-  [View Image Files], [`dir flash:`], [`dir flash:`], [Inspects stored IOS `.bin` images and file sizes in Flash.],
-  [Check Boot Reg], [`show version`], [`show boot`], [Displays active Configuration Register (e.g. 0x2102).]
+  inset: 3pt,
+  table.header([*Hardware Series*], [*Target Deployment*], [*Architecture Type*], [*Enterprise Characteristics*]),
+  [Cisco ISR 1000 Series], [Small Branch & SOHO], [Fixed Appliance (Fanless option)], [Integrated LTE/5G wireless, 4-8 Gigabit ports, built-in security & SD-WAN.],
+  [Cisco ISR 4000 Series], [Medium to Large Enterprise], [Modular Multicore IOS-XE], [Dedicated control, data, and service planes. NIM and SM-X expansion slots.],
+  [Cisco Catalyst 8000], [Edge, Datacenter & Cloud], [Next-Gen SD-WAN Edge Platform], [High-density 10G/40G/100G interfaces, hardware cryptographic acceleration.],
+  [Cisco ASR 1000 Series], [Enterprise WAN Aggregation], [Cisco QuantumFlow Processor], [Hardware-accelerated traffic inspection, deep QoS, and broadband aggregation.]
 )
 
-#v(2pt)
+#v(3pt)
 
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 6pt,
-  [
-    #concept-box(title: "The Golden Rule of Password Recovery")[
-      In Step 8 of password recovery, NEVER run `copy running-config startup-config` before loading the original configuration! Doing so overwrites NVRAM with a blank config, destroying all production IP addresses, VLANs, and routing configs! Always run `copy startup-config running-config` first!
-    ]
-  ],
-  [
-    #concept-box(title: "Config Register Bit 6 Math")[
-      Hex `0x2102` = `0010 0001 0000 0010` binary.      Hex `0x2142` = `0010 0001 0100 0010` binary.      Notice bit 6 (value 4 in the third hex digit) is flipped to `1`. Bit 6 signals the Bootstrap loader to ignore NVRAM during boot!
-    ]
-  ]
+== 5.9 Cisco Hardware Health & Diagnostic CLI Commands
+#table(
+  columns: (1.3fr, 1.3fr, 2.4fr),
+  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.3pt + rtech-border,
+  inset: 3pt,
+  table.header([*Diagnostic Command*], [*Operational Output*], [*Triage & Analysis Target*]),
+  [`show version`], [IOS release, uptime, config-register], [Verifies software image file, total RAM/NVRAM, and boot register.],
+  [`show inventory`], [Chassis model, serial numbers, SFP modules], [Retrieves hardware serial numbers for Cisco TAC warranty service calls.],
+  [`show environment`], [Internal fan RPM, PSU status, temperatures], [Monitors thermal sensors and power supply redundancy status.],
+  [`show processes cpu sorted`], [Active processes sorted by CPU utilization], [Identifies rogue software tasks or broadcast loops consuming CPU cycles.],
+  [`show memory statistics`], [Total, used, and free processor RAM], [Triages memory leak bugs and buffer exhaustion crashes.],
+  [`show file systems`], [Available storage drives (`flash:`, `nvram:`)], [Checks free disk space before transferring new IOS-XE `.bin` images.]
 )
-
-#v(2pt)
-
-== 5.8 Essential Diagnostic Verification Commands
-- `show version` — Identifies IOS software release, system uptime, memory capacities (RAM/Flash), and active Configuration Register.
-- `show running-config` — Dumps active configuration in DRAM.
-- `show startup-config` — Displays saved configuration in NVRAM.
-- `show file systems` — Lists available storage prefixes (`flash:`, `nvram:`, `system:`).
-
-#pagebreak()
 
 == Comprehensive Review, FAQs & Chapter Evaluation
 
 #text(size: 7.5pt, weight: "bold", fill: rtech-navy)[1. Frequently Asked Student Questions (FAQs)]
-#faq-item(q: "What is the difference between copy running-config startup-config and write memory?", a: "Both execute the identical operation: writing active RAM configurations to persistent NVRAM. 'copy run start' is the modern Cisco standard syntax; 'write memory' (wr) is legacy syntax preserved for backward compatibility.")
-#faq-item(q: "Why did my router boot into the Initial Configuration Dialog wizard after rebooting?", a: "This occurs if NVRAM startup-config is empty or deleted, or if the Configuration Register is set to 0x2142 (bypassing NVRAM).")
-#faq-item(q: "How can I test whether a Cisco router is experiencing memory corruption?", a: "Inspect 'show version' for unexpected crash reasons (bus error, parity error) and verify flash checksum integrity via 'verify /md5 flash:[ios-image.bin]'.")
+#faq-item(q: "What happens if a router reboots and its configuration register is still 0x2142?", a: "Every time the router reboots, it will ignore NVRAM and prompt for the initial System Configuration Dialog as if unconfigured. To fix, enter privileged EXEC mode, configure 'config-register 0x2102', and copy run start.")
+#faq-item(q: "Where is the Cisco IOS operating system stored when the router is powered OFF?", a: "In non-volatile Flash memory (as a compressed .bin file). When powered ON, it is decompressed and loaded into RAM.")
+#faq-item(q: "Why is ROMMON needed if Cisco IOS is stored in Flash?", a: "ROMMON is an independent bootstrap firmware stored in ROM chips. If Flash becomes corrupted, erased, or absent, ROMMON provides the low-level rescue interface to reload IOS via TFTP or USB.")
 
-#v(1pt)
+#v(2pt)
 #text(size: 7.5pt, weight: "bold", fill: rtech-navy)[2. Short-Answer Review Questions]
-#short-q(num: 1, q: "Which memory component in a Cisco router is volatile and loses contents on power loss?", ans: "RAM (Random Access Memory / DRAM).")
-#short-q(num: 2, q: "What Configuration Register value bypasses NVRAM during router startup?", ans: "0x2142.")
-#short-q(num: 3, q: "Name the file in Flash where Cisco Catalyst switches store startup configurations.", ans: "flash:config.text.")
-#short-q(num: 4, q: "Which terminal keystroke sends a break sequence in PuTTY to interrupt Cisco boot?", ans: "Control + Break (Ctrl+Break).")
+#short-q(num: 1, q: "Which Cisco memory type stores the active running-config?", ans: "RAM (Random Access Memory).")
+#short-q(num: 2, q: "What is the standard hexadecimal configuration register value for normal boot?", ans: "0x2102.")
+#short-q(num: 3, q: "What configuration register value instructs the router to ignore NVRAM during boot?", ans: "0x2142.")
+#short-q(num: 4, q: "In Catalyst switches, what is the file name where persistent configuration is stored in flash?", ans: "config.text.")
+#short-q(num: 5, q: "What program in ROM executes initial hardware diagnostic checks upon powering on?", ans: "Power-On Self-Test (POST).")
 
-#v(1pt)
+#v(2pt)
 #text(size: 7.5pt, weight: "bold", fill: rtech-navy)[3. 5 High-Yield Multiple-Choice Questions (MCQs)]
-#mcq(num: 1, q: "Where does a Cisco router store its permanent Cisco IOS operating system binary file (.bin)?", a: "NVRAM", b: "RAM", c: "Flash Memory", d: "ROM", ans: "C", expl: "Flash memory is non-volatile EEPROM/NAND storage used to hold one or more Cisco IOS software images.")
-#mcq(num: 2, q: "During router password recovery, which command is critical to avoid wiping existing interface and routing configurations?", a: "copy running-config startup-config", b: "copy startup-config running-config", c: "erase startup-config", d: "write erase", ans: "B", expl: "Copying startup-config into running-config merges the saved production config into RAM so passwords can be safely updated without data loss.")
-#mcq(num: 3, q: "What is the default production Configuration Register value for Cisco routers?", a: "0x2142", b: "0x2102", c: "0x2101", d: "0x2000", ans: "B", expl: "0x2102 tells the router to boot normally: read NVRAM startup-config, load IOS from Flash, and use 9600 console baud.")
-#mcq(num: 4, q: "How is password recovery initiated on a Cisco Catalyst switch that lacks a serial break function?", a: "By typing break in terminal", b: "By depressing and holding the physical Mode button during power-on", c: "By flipping dip-switches on the back panel", d: "By shorting pins 1 and 8 on console", ans: "B", expl: "Holding the front Mode button during switch power-on halts bootloader execution at the 'switch:' prompt.")
-#mcq(num: 5, q: "If a Cisco router fails to find a valid IOS image in Flash or on a TFTP server, which mode does it enter?", a: "Setup Dialog Wizard", b: "User Exec Mode (Router>)", c: "ROMMON Mode (rommon 1 >)", d: "Kernel Panic Shutdown", ans: "C", expl: "If no bootable IOS image is discovered, the Bootstrap loader drops the router into low-level ROM Monitor (ROMMON) mode.")
+#mcq(num: 1, q: "Which memory component retains its contents when a Cisco router loses electrical power?", a: "RAM", b: "DRAM", c: "NVRAM", d: "SRAM", ans: "C", expl: "NVRAM (Non-Volatile RAM) retains the startup-config and config register across power outages.")
+#mcq(num: 2, q: "What is the correct command to reset a router's configuration register to normal production boot?", a: "boot system flash", b: "config-register 0x2102", c: "confreg 0x2142", d: "register reset default", ans: "B", expl: "config-register 0x2102 restores normal boot from global configuration mode.")
+#mcq(num: 3, q: "During router password recovery, why must the engineer run copy startup-config running-config?", a: "To clear the enable password", b: "To load the existing production configuration into RAM without erasing it", c: "To initialize flash memory", d: "To configure SSH v2", ans: "B", expl: "Loading startup-config into RAM prevents overwriting the production configuration with a blank file.")
+#mcq(num: 4, q: "Which hardware component on a Catalyst switch is held down during power-up to trigger password recovery?", a: "Reset pinhole", b: "Mode Button", c: "Console switch", d: "RPS toggle", ans: "B", expl: "Holding the front-panel Mode button interrupts normal boot and drops the switch into the bootloader 'switch:' prompt.")
+#mcq(num: 5, q: "What command displays the current active configuration register setting in Cisco IOS?", a: "show boot", b: "show running-config", c: "show version", d: "show registers", ans: "C", expl: "show version displays hardware specs, uptime, IOS filename, and the Configuration register at the bottom.")
 
-#v(1pt)
+#v(2pt)
 #grid(
   columns: (1fr, 1fr),
   gutter: 5pt,
   [
-    #fact-box(title: "The NVRAM Battery Lifecycle")[
-      NVRAM relies on a tiny lithium backup cell on the motherboard. If the cell dies after 10+ years, the router boots cleanly into the setup wizard every cold reboot!
+    #fact-box(title: "Config Register Bit 6")[
+      Hex `0x2102` = `0010 0001 0000 0010`. Hex `0x2142` = `0010 0001 0100 0010`. Bit 6 (value 4) instructs bootstrap to skip reading NVRAM!
     ]
   ],
   [
-    #tech-spotlight-box(title: "Cisco IOS-XE Linux Underlay")[
-      Modern Cisco Catalyst 9000 switches run Cisco IOS-XE, which executes the classic IOS daemon as a containerized process inside an underlying CentOS/Yocto Linux kernel!
+    #tech-spotlight-box(title: "Cisco Secure Boot & Hardware Root of Trust")[
+      Modern Cisco Catalyst 9000 switches feature Cisco Trust Anchor technology: hardware-anchored cryptographic verification of microcode before IOS-XE boots!
     ]
   ]
 )
-
-#v(1pt)
-#practice-lab-placeholder(lang: "en")

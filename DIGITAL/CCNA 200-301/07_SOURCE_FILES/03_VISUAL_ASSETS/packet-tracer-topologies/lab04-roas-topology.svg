@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" width="100%" height="100%" style="background:#F8FAFC; border-radius:6px; font-family:'Segoe UI',Roboto,Helvetica,sans-serif;">
+  <defs>
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#E2E8F0" stroke-width="0.8"/>
+    </pattern>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="720" height="220" fill="url(#grid)" rx="6"/>
+  <!-- Status Bar / Packet Tracer Canvas Header -->
+  <rect x="0" y="0" width="720" height="24" fill="#0F172A" rx="6 6 0 0"/>
+  <circle cx="14" cy="12" r="4" fill="#EF4444"/>
+  <circle cx="26" cy="12" r="4" fill="#F59E0B"/>
+  <circle cx="38" cy="12" r="4" fill="#10B981"/>
+  <text x="54" y="16" fill="#94A3B8" font-size="11" font-weight="600" font-family="monospace">Cisco Packet Tracer v8.2 · Real-Time Physical Workspace</text>
+  <rect x="610" y="4" width="102" height="16" fill="#1E293B" rx="3"/>
+  <text x="616" y="15" fill="#38BDF8" font-size="9.5" font-family="monospace">● Link Status: UP</text>
+  
+  <line x1="130" y1="65" x2="300" y2="100" stroke="#059669" stroke-width="2.5" /><polygon points="138,61 138,69 145,65" fill="#10B981"/><polygon points="292,96 292,104 285,100" fill="#10B981"/><text x="148" y="59" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Fa0/1</text><text x="262" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Fa0/10</text><rect x="150.0" y="64.5" width="130" height="18" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/><text x="215.0" y="77.5" text-anchor="middle" fill="#047857" font-size="9" font-weight="700" font-family="monospace">VLAN 10 (Sales)</text>
+  <line x1="130" y1="145" x2="300" y2="100" stroke="#2563EB" stroke-width="2.5" /><polygon points="138,141 138,149 145,145" fill="#10B981"/><polygon points="292,96 292,104 285,100" fill="#10B981"/><text x="148" y="139" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Fa0/1</text><text x="262" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Fa0/20</text><rect x="150.0" y="104.5" width="130" height="18" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/><text x="215.0" y="117.5" text-anchor="middle" fill="#047857" font-size="9" font-weight="700" font-family="monospace">VLAN 20 (Eng)</text>
+  <line x1="370" y1="100" x2="520" y2="100" stroke="#7C3AED" stroke-width="2.5" /><polygon points="378,96 378,104 385,100" fill="#10B981"/><polygon points="512,96 512,104 505,100" fill="#10B981"/><text x="388" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Gi0/1</text><text x="482" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Gi0/0/0</text><rect x="380.0" y="82.0" width="130" height="18" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/><text x="445.0" y="95.0" text-anchor="middle" fill="#047857" font-size="9" font-weight="700" font-family="monospace">802.1Q ROAS Trunk</text>
+  
+    <g transform="translate(70,40)" filter="url(#shadow)">
+      <rect x="5" y="5" width="50" height="34" rx="3" fill="#334155" stroke="#1E293B" stroke-width="2"/>
+      <rect x="9" y="9" width="42" height="26" fill="#38BDF8"/>
+      <polygon points="22,39 38,39 42,47 18,47" fill="#64748B"/>
+      <rect x="12" y="47" width="36" height="3" rx="1" fill="#475569"/>
+      <text x="30" y="64" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="700">PC-Sales</text>
+      <text x="30" y="76" text-anchor="middle" fill="#0284C7" font-size="8.5" font-family="monospace">192.168.10.50/24</text>
+    </g>
+  
+    <g transform="translate(70,120)" filter="url(#shadow)">
+      <rect x="5" y="5" width="50" height="34" rx="3" fill="#334155" stroke="#1E293B" stroke-width="2"/>
+      <rect x="9" y="9" width="42" height="26" fill="#38BDF8"/>
+      <polygon points="22,39 38,39 42,47 18,47" fill="#64748B"/>
+      <rect x="12" y="47" width="36" height="3" rx="1" fill="#475569"/>
+      <text x="30" y="64" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="700">PC-Eng</text>
+      <text x="30" y="76" text-anchor="middle" fill="#0284C7" font-size="8.5" font-family="monospace">192.168.20.50/24</text>
+    </g>
+  
+    <g transform="translate(300,75)" filter="url(#shadow)">
+      <rect x="0" y="10" width="70" height="42" rx="5" fill="#0D9488" stroke="#0F766E" stroke-width="2.5"/>
+      <path d="M 12 25 L 30 25 M 24 20 L 30 25 L 24 30" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <path d="M 58 25 L 40 25 M 46 20 L 40 25 L 46 30" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <path d="M 12 37 L 30 37 M 18 32 L 12 37 L 18 42" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <path d="M 58 37 L 40 37 M 52 32 L 58 37 L 52 42" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <text x="35" y="68" text-anchor="middle" fill="#0F172A" font-size="11.5" font-weight="700">SW1-2960</text>
+      <text x="35" y="81" text-anchor="middle" fill="#64748B" font-size="9" font-family="monospace">Access Switch</text>
+    </g>
+  
+    <g transform="translate(520,70)" filter="url(#shadow)">
+      <circle cx="35" cy="35" r="30" fill="#0284C7" stroke="#0369A1" stroke-width="2.5"/>
+      <path d="M 20 35 L 50 35 M 35 20 L 35 50 M 23 23 L 47 47 M 23 47 L 47 23" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="35" cy="35" r="7" fill="#0284C7" stroke="#FFFFFF" stroke-width="2"/>
+      <text x="35" y="77" text-anchor="middle" fill="#0F172A" font-size="11.5" font-weight="700">R1-ROAS</text>
+      <text x="35" y="90" text-anchor="middle" fill="#64748B" font-size="9" font-family="monospace">Cisco 2911 Router</text>
+    </g>
+  <!-- Subinterface callout -->
+  <rect x="530" y="160" width="165" height="42" rx="4" fill="#F8FAFC" stroke="#0284C7" stroke-width="1"/>
+  <text x="540" y="176" fill="#0369A1" font-size="8.5" font-family="monospace">g0/0/0.10: 192.168.10.1 (V10)</text>
+  <text x="540" y="192" fill="#0369A1" font-size="8.5" font-family="monospace">g0/0/0.20: 192.168.20.1 (V20)</text>
+
+</svg>

@@ -1,189 +1,197 @@
 #import "../07_PUBLISHING_ENGINE/master-theme.typ": *
 
 #text(size: 8pt, font: "Nirmala UI", weight: "bold", fill: rtech-emerald)[अध्याय 06 · सिस्को CLI कमांड्स एवं हार्डनिंग]
-= अध्याय 6: प्रोडक्शन सिस्को CLI कमांड्स एवं हार्डनिंग
+= अध्याय 6: प्रोडक्शन सिस्को CLI कमांड्स एवं बेसलाइन हार्डनिंग
 
 #text(size: 8.5pt, fill: rtech-text.lighten(20%))[
-  सिस्को IOS कमांड-लाइन पदानुक्रम में महारत: प्रॉम्प्ट नेविगेशन मोड्स, ग्लोबल कॉन्फ़िगरेशन सिंटेक्स, प्रशासनिक पासवर्ड एन्क्रिप्शन, SSH v2 2048-बिट RSA डिप्लॉयमेंट, कंसोल पोर्ट सुरक्षा, CDP एवं LLDP नेबर डिस्कवरी, तथा इंटरफेस स्पीड/डुप्लेक्स नेगोशिएशन।
+  सिस्को IOS कमांड-लाइन पदानुक्रम में दक्षता: प्रॉम्प्ट नेविगेशन मोड्स, उत्पादकता शॉर्टकट्स, ग्लोबल कॉन्फ़िगरेशन सिंटैक्स, प्रशासनिक पासवर्ड एन्क्रिप्शन, एंटरप्राइज SSH v2 2048-बिट RSA परिनियोजन, कंसोल सुरक्षा, CDP/LLDP नेबर डिस्कवरी, इंटरफेस स्पीड/डुप्लेक्स एवं TFTP डिजास्टर रिकवरी बैकअप व रीस्टोर।
 ]
 
 #v(2pt)
 
 == 6.1 सिस्को IOS कमांड-लाइन पदानुक्रम एवं नेविगेशन
-सिस्को इंटरनेटवर्क ऑपरेटिंग सिस्टम (IOS) अनधिकृत या आकस्मिक परिवर्तनों को रोकने के लिए एक सख्त पदानुक्रमित एक्सेस ट्री लागू करता है:
-- *1. यूजर एक्सेक मोड (`Router>`):* प्रारंभिक गैर-विशेषाधिकार प्राप्त मोड। बुनियादी निरीक्षण (`ping`, `traceroute`, `show version`) की अनुमति देता है। डिवाइस स्थिति को बदल नहीं सकता।
-- *2. प्रिविलेज्ड एक्सेक मोड (`Router#`):* प्रशासनिक निरीक्षण मोड जिसे `enable` द्वारा दर्ज किया जाता है। पूर्ण कॉन्फ़िगरेशन देखने (`show running-config`), फ्लैश फाइल प्रबंधन (`dir`, `delete`), डिबगिंग और रीबूट (`reload`) की अनुमति देता है।
-- *3. ग्लोबल कॉन्फ़िगरेशन मोड (`Router(config)#`):* सिस्टम-व्यापी कॉन्फ़िगरेशन मोड जिसे `configure terminal` द्वारा दर्ज किया जाता है। यहाँ कॉन्फ़िगर की गई कमांड पूरे डिवाइस (होस्टनेम, बैनर, रूटिंग प्रोटोकॉल) को प्रभावित करती हैं।
-- *4. प्रासंगिक कॉन्फ़िगरेशन सब-मोड्स:*
-  - *इंटरफेस मोड (`Router(config-if)#`):* `interface GigabitEthernet0/0/0` — पोर्ट आईपी एड्रेस, स्पीड, डुप्लेक्स।
-  - *सब-इंटरफेस मोड (`Router(config-subif)#`):* `interface g0/0/0.10` — 802.1Q VLAN एनकैप्सुलेशन टैग एवं रूटेड आईपी।
-  - *लाइन कॉन्फ़िगरेशन मोड (`Router(config-line)#`):* `line console 0` या `line vty 0 4` — कंसोल एवं रिमोट टर्मिनल सुरक्षा।
-  - *रूटिंग इंजन मोड (`Router(config-router)#`):* `router ospf 1` — डायनामिक रूटिंग नेटवर्क, एरिया, पैसिव इंटरफेस।
+सिस्को इंटरनेटवर्क ऑपरेटिंग सिस्टम (IOS) आकस्मिक या अनधिकृत परिवर्तनों को रोकने हेतु एक सख्त पदानुक्रमित एक्सेस मॉडल लागू करता है:
+- *1. User Exec Mode (`Router>`):* प्रारंभिक अप्रतिबंधित मॉनिटरिंग मोड। केवल बुनियादी निरीक्षण की अनुमति देता है (`ping`, `traceroute`, `show version`)। पूर्ण कॉन्फ़िगरेशन देखने की अनुमति नहीं होती।
+- *2. Privileged Exec Mode (`Router#`):* प्रशासनिक मोड, `enable` द्वारा प्रवेश। पूर्ण फाइल निरीक्षण (`show running-config`), फ्लैश प्रबंधन (`dir`, `delete`), डिबगिंग व सिस्टम रीबूट (`reload`) की अनुमति देता है।
+- *3. Global Configuration Mode (`Router(config)#`):* सिस्टम-व्यापी कॉन्फ़िगरेशन मोड, `configure terminal` द्वारा प्रवेश। यहां किए गए बदलाव संपूर्ण डिवाइस को प्रभावित करते हैं (होस्टनेम, बैनर्स, रूटिंग)।
+- *4. संदर्भ-विशिष्ट सब-कॉन्फ़िगरेशन मोड्स:*
+  - *Interface Mode (`Router(config-if)#`):* `interface GigabitEthernet0/0/0` — पोर्ट आईपी, स्पीड, डुप्लेक्स।
+  - *Subinterface Mode (`Router(config-subif)#`):* `interface g0/0/0.10` — 802.1Q VLAN टैगिंग एवं आईपी।
+  - *Line Configuration Mode (`Router(config-line)#`):* `line console 0` या `line vty 0 4` — कंसोल व टर्मिनल सुरक्षा।
+  - *Routing Engine Mode (`Router(config-router)#`):* `router ospf 1` — OSPF एरियाज एवं नेटवर्क्स।
 
-#v(2pt)
+#v(3pt)
 
-== 6.2 आवश्यक सिस्को CLI कीस्ट्रोक्स एवं शॉर्टकट्स
+== 6.2 आवश्यक सिस्को CLI कीस्ट्रोक्स एवं उत्पादकता शॉर्टकट्स
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
   fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
-  table.header([*शॉर्टकट कीस्ट्रोक*], [*CLI फंक्शन*], [*प्रोडक्शन उपयोगिता*]),
-  [`?` (क्वेश्चन मार्क)], [संदर्भ-संवेदनशील सहायता], [वर्तमान कर्सर स्थिति पर उपलब्ध सभी वैध कीवर्ड्स या सिंटेक्स पैरामीटर दिखाता है।],
-  [`Tab`], [कमांड ऑटो-कंप्लीशन], [पर्याप्त अद्वितीय अक्षर टाइप करने के बाद आंशिक कीवर्ड को स्वतः पूरा करता है।],
-  [`do` प्रीफिक्स], [प्रिविलेज्ड कमांड चलाना], [सब-मोड के अंदर से सीधे प्रिविलेज्ड `show` कमांड चलाता है (उदा. `do show ip int brief`)।],
-  [`Ctrl + A` / `Ctrl + E`], [कर्सर होम / एंड], [कर्सर को तुरंत सक्रिय कमांड लाइन की शुरुआत या अंत में ले जाता है।],
-  [`Ctrl + C` / `Ctrl + Z`], [प्रिविलेज्ड मोड में लौटना], [कॉन्फ़िगरेशन सब-मोड्स को तुरंत रद्द कर `Router#` प्रॉम्प्ट पर लौटता है।],
-  [`Ctrl + Shift + 6`], [DNS एस्केप ब्रेक], [गलत कमांड टाइप होने पर अटके हुए DNS ब्रॉडकास्ट लुकअप को तुरंत रोकता है।]
+  table.header([*शॉर्टकट कीस्ट्रोक*], [*CLI कार्य*], [*इंजीनियरिंग उपयोगिता*]),
+  [`?` (प्रश्न चिह्न)], [संदर्भ-संवेदनशील सहायता (Help)], [वर्तमान कर्सर स्थिति पर मान्य सभी कीवर्ड्स व पैरामीटर्स की सूची दिखाता है।],
+  [`Tab`], [कमांड स्वतः-पूर्णता (Auto-Complete)], [पर्याप्त अक्षर टाइप होने पर अधूरी कमांड को स्वतः पूरा कर देता है।],
+  [`Ctrl + A`], [कर्सर को लाइन के आरंभ में ले जाना], [शीघ्र संपादन हेतु तुरंत कमांड के पहले अक्षर पर पहुंचता है।],
+  [`Ctrl + E`], [कर्सर को लाइन के अंत में ले जाना], [कमांड लाइन के अंतिम अक्षर पर सीधे पहुंचता है।],
+  [`Ctrl + Z` या `end`], [Privileged Mode में वापसी], [किसी भी गहरे सब-मोड से सीधे एक ही झटके में `Router#` पर आता है।],
+  [`Ctrl + C`], [कमांड निरस्त करना (Abort)], [चल रहे पिंग, ट्रेसरूट या आउटपुट को बीच में ही रोक देता है।],
+  [`Ctrl + Shift + 6`], [ब्रेक सीक्वेंस (Break)], [गलत टाइपिंग पर हैंग हुए DNS ब्रॉडकास्ट को तुरंत तोड़ता है।],
+  [`Up Arrow` / `Down Arrow`], [कमांड इतिहास (History)], [सत्र में निष्पादित पिछली 10 कमांड्स को वापस लाता है।]
 )
 
-#v(2pt)
+#v(3pt)
 
 == 6.3 बेसलाइन डिवाइस कॉन्फ़िगरेशन एवं पासवर्ड हार्डनिंग
-फैक्ट्री से आए नए सिस्को राउटर या स्विच पर निम्नलिखित सुरक्षा बेसलाइन अनिवार्य है:
-- *होस्टनेम आवंटन:* डिवाइस की भूमिका की पहचान: `Router(config)# hostname R1-EDGE-CORE`
-- *कानूनी MOTD चेतावनी बैनर:* कानूनी स्थिति स्थापित करने के लिए अनुपालन अनिवार्य:
-  `R1(config)# banner motd # AUTHORIZED ACCESS ONLY. ALL SESSIONS MONITORED AND LOGGED. #`
-- *अवांछित DNS लुकअप बंद करना:* गलत टाइपिंग पर 30-सेकंड की रुकावट रोकता है: `R1(config)# no ip domain-lookup`
+- *DNS लुकअप अक्षम करना:* गलत कमांड टाइप होने पर राउटर उसे होस्टनेम मानकर DNS क्वेरी भेजने लगता है जिससे CLI 30 सेकंड अटक जाती है:
+  `Router(config)# no ip domain-lookup`
+- *Message of the Day (MOTD) बैनर:* घुसपैठियों को कानूनी चेतावनी देने हेतु:
+  `Router(config)# banner motd # AUTHORIZED PERSONNEL ONLY. ALL SESSIONS MONITORED. #`
 - *Enable Secret बनाम Enable Password:*
-  - `enable password CiscoPass` — पुराना; कमजोर Type 7 सिफर से सुरक्षित। #text(fill: rtech-rose, weight: "bold")[प्रोडक्शन में कभी इस्तेमाल न करें!]
-  - `enable secret CiscoSecret2027` — अपरिवर्तनीय क्रिप्टोग्राफ़िक हैश (Type 5 MD5 या Type 8/9 SHA-256) का उपयोग करता है।
-- *ग्लोबल पासवर्ड छिपाना:* प्लेनटेक्स्ट पासवर्ड्स को अस्पष्ट करता है: `R1(config)# service password-encryption`
+  - `enable password Cisco123`: कमजोर टाइप 7 एन्क्रिप्शन का उपयोग करता है जिसे तुरंत क्रैक किया जा सकता है। #hl[प्रोडक्शन में कभी उपयोग न करें!]
+  - `enable secret CiscoSecret2027!`: सुरक्षित क्रिप्टोग्राफिक SHA-256 / MD5 हैश बनाता है।
+- *ग्लोबल पासवर्ड एन्क्रिप्शन:*
+  `Router(config)# service password-encryption` (रनिंग-कॉन्फिग में सादे पासवर्ड्स को छिपाता है)।
 
-#pagebreak()
+#v(3pt)
 
-== 6.4 फिजिकल कंसोल एवं वर्चुअल टर्मिनल लाइन्स को सुरक्षित करना
-अनधिकृत भौतिक और नेटवर्क घुसपैठ के खिलाफ प्रशासनिक एक्सेस को सुरक्षित करना:
-- *कंसोल पोर्ट सुरक्षा (`line console 0`):*
-  ```bash
-  R1(config)# line console 0
-  R1(config-line)# password ConsoleAuth2027!
-  R1(config-line)# login
-  R1(config-line)# exec-timeout 5 0
-  R1(config-line)# logging synchronous
-  ```
-  - *`exec-timeout 5 0`:* 5 मिनट तक निष्क्रिय रहने पर कंसोल सत्र को स्वतः समाप्त कर देता है।
-  - *`logging synchronous`:* सिस्टम संदेश आने पर टाइप की जा रही कमांड को स्वतः अगली लाइन में पुनः प्रस्तुत करता है।
+== 6.4 हैंड्स-ऑन प्रैक्टिकल लैब: बेसलाइन हार्डनिंग एवं एंटरप्राइज SSH v2
+#text(size: 7.5pt, fill: rtech-text)[*उद्देश्य:* सिस्को 2911 राउटर पर बेसलाइन सुरक्षा एवं SSH वर्जन 2 परिनियोजित करना। 2048-बिट RSA कुंजी बनाएं, विशेषाधिकार 15 व्यवस्थापक बनाएं, `logging synchronous` लागू करें और एन्क्रिप्टेड PuTTY एक्सेस सत्यापित करें।]
 
 #v(2pt)
-
-== 6.5 एंटरप्राइज SSH v2 डिप्लॉयमेंट (असुरक्षित टेलनेट बंद करना)
-टेलनेट (TCP पोर्ट 23) यूजरनेम और पासवर्ड को प्लेनटेक्स्ट में भेजता है, जिससे स्निफिंग का खतरा होता है। प्रोडक्शन राउटर पर *SSH Version 2 (TCP पोर्ट 22)* लागू करना अनिवार्य है:
-1. *होस्टनेम एवं डोमेन नेम सेट करें:* (क्रिप्टोग्राफ़िक की के लिए पूर्व-शर्त)
-   `R1(config)# hostname R1-GATEWAY`
-   `R1(config)# ip domain-name rtechlab.internal`
-2. *2048-बिट RSA कीपेयर जनरेट करें:*
-   `R1(config)# crypto key generate rsa modulus 2048`
-3. *SSH वर्जन 2 लागू करें:*
-   `R1(config)# ip ssh version 2`
-4. *स्थानीय प्रशासनिक उपयोगकर्ता बनाएं:*
-   `R1(config)# username admin privilege 15 secret AdminSecurePass2027`
-5. *VTY लाइन्स पर SSH लागू करें (`line vty 0 4`):*
-   ```bash
-   R1(config)# line vty 0 4
-   R1(config-line)# transport input ssh
-   R1(config-line)# login local
-   R1(config-line)# exec-timeout 10 0
-   ```
-   - *`transport input ssh`:* लाइन्स 0-4 पर असुरक्षित टेलनेट को पूरी तरह ब्लॉक करता है।
-   - *`login local`:* स्थानीय `username` डेटाबेस से प्रमाणीकरण का निर्देश देता है।
-
+#image("/07_SOURCE_FILES/03_VISUAL_ASSETS/packet-tracer-topologies/lab01-ssh-topology.svg", width: 95%)
 #v(2pt)
 
-#photo-card(
-  "../03_VISUAL_ASSETS/authentic-hardware-photographs/hardware-security-yubikey.jpg",
-  caption: "चित्र 6.1: FIDO2 एवं SSH क्रिप्टोग्राफ़िक प्रमाणीकरण हेतु एंटरप्राइज हार्डवेयर सुरक्षा कुंजी।",
-  height: 52pt
+#table(
+  columns: (1fr, 1.2fr, 1.5fr, 1.4fr, 2fr),
+  stroke: 0.5pt + rtech-border,
+  fill: (col, row) => if row == 0 { rgb("#F1F5F9") } else { rgb("#FFFFFF") },
+  inset: (x: 5pt, y: 3pt),
+  [*डिवाइस*], [*इंटरफेस*], [*आईपी एड्रेस*], [*सबनेट मास्क*], [*भूमिका / विवरण*],
+  [R1-EDGE-CORE], [Gi0/0/0], [192.168.1.1], [255.255.255.0], [मैनेजमेंट गेटवे, SSH सर्वर],
+  [Admin-Laptop], [FastEthernet0], [192.168.1.10], [255.255.255.0], [एडमिन पीसी, PuTTY / SSH क्लाइंट],
+  [Admin-Laptop], [RS232 (COM)], [N/A (Console)], [N/A], [R1 RJ45 कंसोल की ओर रोलओवर केबल]
 )
 
 #v(2pt)
+#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[प्रोडक्शन कॉन्फ़िगरेशन स्क्रिप्ट (Copy-Paste Ready):]
+```cisco
+Router> enable
+Router# configure terminal
+R1-EDGE-CORE(config)# hostname R1-EDGE-CORE
+R1-EDGE-CORE(config)# no ip domain-lookup
+R1-EDGE-CORE(config)# banner motd # AUTHORIZED SESSIONS MONITORED. #
+R1-EDGE-CORE(config)# enable secret CiscoSecret2027!
+R1-EDGE-CORE(config)# service password-encryption
+! --- Line Console 0 सुरक्षा ---
+R1-EDGE-CORE(config)# line console 0
+R1-EDGE-CORE(config-line)# password ConsolePass2027! ; login
+R1-EDGE-CORE(config-line)# exec-timeout 5 0 ; logging synchronous ; exit
+! --- SSH v2 परिनियोजन ---
+R1-EDGE-CORE(config)# ip domain-name rtechlab.internal
+R1-EDGE-CORE(config)# crypto key generate rsa modulus 2048
+R1-EDGE-CORE(config)# ip ssh version 2
+R1-EDGE-CORE(config)# username netadmin privilege 15 secret AdminSecure2027!
+R1-EDGE-CORE(config)# line vty 0 4
+R1-EDGE-CORE(config-line)# transport input ssh ; login local
+R1-EDGE-CORE(config-line)# exec-timeout 10 0 ; logging synchronous ; exit
+! --- इंटरफेस सेटअप ---
+R1-EDGE-CORE(config)# interface GigabitEthernet0/0/0
+R1-EDGE-CORE(config-if)# description MGMT_LAN_INTERFACE
+R1-EDGE-CORE(config-if)# ip address 192.168.1.1 255.255.255.0 ; no shutdown
+R1-EDGE-CORE(config-if)# end ; copy running-config startup-config
+```
+
+#v(2pt)
+#terminal-specimen(title: "R1-EDGE-CORE# show ip ssh")[
+```text
+SSH Enabled - version 2.0
+Authentication timeout: 120 secs; Authentication retries: 3
+Minimum expected Diffie-Hellman key size : 2048 bits
+IOS Keys in SECSH format(ssh-rsa, base64 encoded): rtechlab.internal:2048
+R1-EDGE-CORE# show ip interface brief | include up
+GigabitEthernet0/0/0       192.168.1.1     YES manual up                    up
+```
+]
+
+#concept-box(title: "TAC फील्ड इंजीनियरिंग प्रो-टिप: LOGGING SYNCHRONOUS")[
+  CLI में टाइप करते समय आकस्मिक सिस्लॉग संदेश आपकी टाइप की जा रही कमांड को बीच में काट देते हैं।
+  *समाधान:* सदैव `line con 0` एवं `line vty 0 4` के अंतर्गत `logging synchronous` लागू करें। राउटर सिस्लॉग संदेश के ठीक नीचे आपकी टाइप की जा रही कमांड को नई स्वच्छ लाइन पर पुनः प्रदर्शित कर देता है!
+]
+
+#v(3pt)
+
+== 6.5 TFTP द्वारा सिस्को राउटर एवं IOS बैकअप व रीस्टोर
+हार्डवेयर विफलता से निपटने हेतु कॉन्फ़िगरेशन एवं IOS इमेजेस का केंद्रीय TFTP सर्वर (UDP पोर्ट 69) पर नियमित बैकअप अनिवार्य है:
+- *Cisco IOS इमेज का TFTP पर बैकअप:*
+  `Router# copy flash: tftp:`
+  `Source filename []? c2900-universalk9-mz.SPA.157-3.M3.bin`
+  `Address or name of remote host []? 192.168.1.100`
+- *रनिंग कॉन्फ़िगरेशन का बैकअप:*
+  `Router# copy running-config tftp:`
+  `Address or name of remote host []? 192.168.1.100`
+- *TFTP से कॉन्फ़िगरेशन रीस्टोर करना:*
+  `Router# copy tftp: startup-config` (NVRAM को डिजास्टर रिकवरी फाइल से ओवरराइट करता है)।
+
+#v(3pt)
 
 == 6.6 नेबर डिस्कवरी: सिस्को CDP बनाम ओपन स्टैंडर्ड LLDP
-भौतिक ट्रेसिंग के बिना जुड़े उपकरणों को मैप करने के लिए इंजीनियर लेयर 2 डिस्कवरी प्रोटोकॉल का उपयोग करते हैं:
-- *CDP (सिस्को डिस्कवरी प्रोटोकॉल):* सिस्को-मालिकाना प्रोटोकॉल जो सभी इंटरफेस पर डिफ़ॉल्ट रूप से सक्षम होता है। हर 60 सेकंड में मल्टीकास्ट MAC `01:00:0C:CC:CC:CC` पर संदेश भेजता है।
-- *LLDP (लिंक लेयर डिस्कवरी प्रोटोकॉल - IEEE 802.1AB):* विक्रेता-तटस्थ ओपन स्टैंडर्ड जो मिश्रित नेटवर्क (सिस्को, जुनिपर, अरिस्टा, लिनक्स) में काम करता है।
+- *Cisco Discovery Protocol (CDP):* सिस्को प्रोप्रायटरी; डिफ़ॉल्ट रूप से सक्रिय। मल्टीकास्ट `0100.0ccc.cccc` पर प्रत्येक 60 सेकंड में विज्ञापन भेजता है (होल्डटाइम 180s)।
+- *Link Layer Discovery Protocol (LLDP - IEEE 802.1AB):* वेंडर-तटस्थ ओपन स्टैंडर्ड; सिस्को पर डिफ़ॉल्ट रूप से बंद रहता है। वैश्विक रूप से चालू करने हेतु:
+  `Router(config)# lldp run`
 
-#pagebreak()
+#v(3pt)
 
-== 6.7 डिस्कवरी प्रोटोकॉल तुलना एवं CLI सिंटेक्स
+== 6.7 इंटरफेस स्पीड, डुप्लेक्स एवं एरर काउंटर्स डायग्नोस्टिक्स
 #table(
-  columns: (1.2fr, 1.4fr, 1.4fr, 2fr),
+  columns: (1fr, 1.4fr, 2.6fr),
   fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
-  inset: 2.8pt,
-  table.header([*फीचर*], [*सिस्को CDP*], [*IEEE 802.1AB LLDP*], [*परिचालन उपयोगिता*]),
-  [मानक], [सिस्को मालिकाना], [IEEE ओपन स्टैंडर्ड], [LLDP मिश्रित सिस्को/जुनिपर/लिनक्स सर्वर NICs में चलता है।],
-  [डिफ़ॉल्ट स्थिति], [#hl[डिफ़ॉल्ट रूप से सक्षम]], [डिफ़ॉल्ट रूप से अक्षम], [CDP सिस्को राउटर्स/स्विचों पर पहले से चालू रहता है।],
-  [ग्लोबल इनेबल], [`cdp run`], [`lldp run`], [पूरे सिस्टम में डिस्कवरी सेवा सक्षम करता है।],
-  [इंटरफेस डिसेबल], [`no cdp enable`], [`no lldp transmit / receive`], [इंटरनेट-फेसिंग पोर्ट्स पर सुरक्षा हेतु बंद करना अनिवार्य!],
-  [संक्षिप्त दृश्य], [`show cdp neighbors`], [`show lldp neighbors`], [डिवाइस आईडी, लोकल पोर्ट, होल्डटाइम, क्षमता एवं रिमोट पोर्ट दिखाता है।],
-  [विस्तृत दृश्य], [`show cdp neighbors detail`], [`show lldp neighbors detail`], [पड़ोसी का आईपी, पूर्ण IOS वर्जन, डुप्लेक्स और प्लेटफॉर्म दिखाता है।]
+  inset: 3pt,
+  table.header([*एरर मीट्रिक*], [*भौतिक मूल कारण*], [*इंजीनियरिंग सुधार व विश्लेषण*]),
+  [Runts], [64-बाइट न्यूनतम से छोटे फ्रेम्स], [टक्कर (Collisions), खराब NIC ड्राइवर, या विद्युत शोर।],
+  [Giants], [1518-बाइट सीमा से बड़े फ्रेम्स], [बिना MTU ट्यूनिंग के जंबो फ्रेम्स भेजना।],
+  [CRC Errors], [ईथरनेट ट्रेलर में बिगड़ा हुआ चेकसम], [खराब केबल, त्रुटिपूर्ण RJ45 क्रिम्प, या खराब SFP ऑप्टिकल मॉड्यूल।],
+  [Late Collisions], [पहले 64 बाइट्स के बाद होने वाली टक्कर], [#hl[Duplex Mismatch!] एक छोर Half-Duplex और दूसरा Full-Duplex पर सेट है।],
+  [Input Errors], [समस्त त्रुटियों का कुल योग], [पैच कॉर्ड बदलें या फाइबर के एंडफेस की सफाई करें।]
 )
 
-#v(2pt)
+#v(3pt)
 
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 6pt,
-  [
-    #concept-box(title: "CDP सुरक्षा चेतावनी")[
-      CDP नेटवर्क मैपिंग के लिए उपयोगी है, लेकिन यह संवेदनशील जानकारी (आईपी पते, IOS वर्जन, हार्डवेयर मॉडल) प्लेनटेक्स्ट में प्रसारित करता है! #text(fill: rtech-rose, weight: "bold")[इंटरनेट-फेसिंग पोर्ट्स पर CDP हमेशा बंद रखें]:      `R1(config-if)# no cdp enable`
-    ]
-  ],
-  [
-    #concept-box(title: "स्पीड एवं डुप्लेक्स हार्डकोडिंग")[
-      जब पुराने सर्वरों और स्विचों के बीच ऑटोनेगोशिएशन विफल हो जाए:      `Switch(config-if)# speed 1000`      `Switch(config-if)# duplex full`      _नियम: यदि आप एक तरफ हार्डकोड करते हैं, तो डुप्लेक्स मिसमैच से बचने के लिए दूसरी तरफ भी हार्डकोड करना अनिवार्य है!_
-    ]
-  ]
-)
-
-#v(2pt)
-
-== 6.8 आवश्यक सत्यापन एवं ट्रबलशूटिंग कमांड्स
-- `show ip interface brief` — सबसे महत्वपूर्ण CCNA कमांड। सभी इंटरफेस का आईपी, लेयर 1 स्टेटस (up/down), और लेयर 2 प्रोटोकॉल (up/down) दिखाता है।
-- `show interfaces [interface]` — पैकेट काउंटर, इनपुट/आउटपुट एरर्स, CRC एरर्स, MTU (1500 बाइट्स) और बैंडविड्थ दिखाता है।
-- `show ip route` — रूटिंग प्रोटोकॉल और एडमिनिस्ट्रेटिव डिस्टेंस के साथ सक्रिय रूटिंग टेबल दिखाता है।
-- `show running-config | section [keyword]` — रनिंग कॉन्फ़िगरेशन को फ़िल्टर कर केवल प्रासंगिक ब्लॉक (उदा. `section ospf`) दिखाता है।
-
-#pagebreak()
-
-== व्यापक अध्याय समीक्षा, FAQs एवं स्व-मूल्यांकन
+== व्यापक समीक्षा, अक्सर पूछे जाने वाले प्रश्न (FAQs) एवं मूल्यांकन
 
 #text(size: 7.5pt, weight: "bold", fill: rtech-navy)[1. अक्सर पूछे जाने वाले प्रश्न (Student FAQs)]
-#faq-item(q: "इंटरफेस स्थिति 'up / down' क्या दर्शाती है?", a: "स्टेटस 'up' पुष्टि करता है कि लेयर 1 फिजिकल सिग्नल मिल रहा है। प्रोटोकॉल 'down' लेयर 2 विफलता दर्शाता है: एनकैप्सुलेशन मिसमैच (HDLC vs PPP), क्लॉक रेट गायब होना या कीपअलाइव टाइमआउट।")
-#faq-item(q: "उच्च सुरक्षा वातावरण में service password-encryption अपर्याप्त क्यों है?", a: "यह एक कमजोर Type 7 विगेनेयर सिफर का उपयोग करता है जिसे ऑनलाइन क्रैकर टूल्स द्वारा मिलीसेकंड में डिक्रिप्ट किया जा सकता है। हमेशा 'enable secret' का उपयोग करें जो SHA-256 का उपयोग करता है।")
-#faq-item(q: "लाइन कंसोल पर logging synchronous कमांड का क्या कार्य है?", a: "यह अनचाहे सिस्टम लॉग और डिबग संदेशों को उस कमांड स्ट्रिंग को तोड़ने से रोकता है जिसे एक इंजीनियर सक्रिय रूप से टाइप कर रहा होता है।")
+#faq-item(q: "crypto key generate rsa चलाते समय डोमेन नेम एरर क्यों आता है?", a: "RSA की-पेयर को होस्टनेम और डोमेन नेम को मिलाकर बने FQDN (Fully Qualified Domain Name) की आवश्यकता होती है। 'ip domain-name' के बिना क्रिप्टो इंजन की को लेबल नहीं कर सकता!")
+#faq-item(q: "प्रोडक्शन नेटवर्क पर टेलनेट (Telnet) क्यों प्रतिबंधित है?", a: "टेलनेट पासवर्ड्स सहित सारा डेटा बिना एन्क्रिप्शन के सादे टेक्स्ट में भेजता है। Wireshark चलाने वाला कोई भी व्यक्ति इसे कैप्चर कर सकता है। SSH v2 सत्र को पूरी तरह एन्क्रिप्ट रखता है।")
+#faq-item(q: "copy run start और write memory में क्या अंतर है?", a: "दोनों बिल्कुल एक ही काम करते हैं: RAM के सक्रिय कॉन्फ़िग को NVRAM में लिखना। 'copy run start' आधिकारिक सिस्को सिंटैक्स है; 'write memory' पुराना शॉर्टकट है।")
 
-#v(1pt)
+#v(2pt)
 #text(size: 7.5pt, weight: "bold", fill: rtech-navy)[2. लघु-उत्तरीय समीक्षा प्रश्न]
-#short-q(num: 1, q: "सिस्को राउटर पर SSH वर्जन 2 लागू करने वाली ग्लोबल कॉन्फ़िगरेशन कमांड क्या है?", ans: "ip ssh version 2।")
-#short-q(num: 2, q: "CLI में गलत कमांड टाइप होने पर अटके हुए DNS लुकअप को कौन सी कमांड रोकती है?", ans: "कंट्रोल + शिफ्ट + 6 (Ctrl+Shift+6)।")
-#short-q(num: 3, q: "सुरक्षित SSH v2 के लिए सिस्को द्वारा अनुशंसित न्यूनतम RSA की साइज क्या है?", ans: "2048 बिट्स (crypto key generate rsa modulus 2048)।")
-#short-q(num: 4, q: "CDP का उपयोग करके पड़ोसी का आईपी एड्रेस और IOS वर्जन प्रदर्शित करने वाली कमांड क्या है?", ans: "show cdp neighbors detail।")
+#short-q(num: 1, q: "इंटरफेस मोड से सीधे privileged EXEC मोड में जाने वाली कमांड क्या है?", ans: "end (या कीस्ट्रोक Ctrl+Z).")
+#short-q(num: 2, q: "सुरक्षित SSH वर्जन 2 हेतु अनुशंसित न्यूनतम RSA की-लेंथ क्या है?", ans: "2048 बिट्स।")
+#short-q(num: 3, q: "गलत टाइपिंग पर राउटर को DNS लुकअप में हैंग होने से रोकने वाली कमांड क्या है?", ans: "no ip domain-lookup.")
+#short-q(num: 4, q: "TFTP फाइल ट्रांसफर हेतु कौन सा UDP पोर्ट उपयोग करता है?", ans: "UDP पोर्ट 69.")
+#short-q(num: 5, q: "सिस्को स्विच पर वैश्विक रूप से LLDP सक्षम करने वाली कमांड क्या है?", ans: "lldp run.")
 
-#v(1pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[3. 5 उच्च-प्राथमिकता बहुविकल्पीय प्रश्न (MCQs)]
-#mcq(num: 1, q: "रिमोट मैनेजमेंट लाइनों को केवल SSH कनेक्शन तक सीमित करने वाली कमांड कौन सी है?", a: "transport input all", b: "transport input ssh", c: "transport output telnet", d: "ip ssh enable", ans: "B", expl: "line vty 0 4 के तहत 'transport input ssh' असुरक्षित टेलनेट को अक्षम कर केवल एन्क्रिप्टेड SSH को अनुमति देता है।")
-#mcq(num: 2, q: "enable password और enable secret में क्या मुख्य अंतर है?", a: "password स्विच के लिए है; secret राउटर के लिए", b: "enable secret क्रिप्टोग्राफिक हैशिंग से सुरक्षित है; enable password कमजोर या प्लेनटेक्स्ट होता है", c: "enable password लेवल 15 देता है", d: "secret के लिए स्मार्ट कार्ड चाहिए", ans: "B", expl: "enable secret मजबूत एकतरफा हैशिंग (MD5 या SHA-256) का उपयोग करता है जिसे उलट नहीं किया जा सकता।")
-#mcq(num: 3, q: "SSH के लिए RSA की जनरेट करने से पहले सिस्को राउटर पर कौन सी दो चीजें कॉन्फ़िगर होनी चाहिए?", a: "IP एड्रेस और डिफॉल्ट गेटवे", b: "होस्टनेम (Hostname) और IP डोमेन-नेम (Domain-Name)", c: "NTP सर्वर और सिजलॉग", d: "OSPF और VLAN 1", ans: "B", expl: "सिस्को IOS होस्टनेम और डोमेन-नेम को मिलाकर RSA सर्टिफिकेट के लिए FQDN बनाता है।")
-#mcq(num: 4, q: "कौन सा कमांड एक इंजीनियर को इंटरफेस कॉन्फ़िगरेशन मोड के अंदर से ही आईपी स्थिति देखने की अनुमति देता है?", a: "show ip interface brief", b: "do show ip interface brief", c: "run show ip interface brief", d: "exit show ip interface brief", ans: "B", expl: "'do' प्रीफिक्स किसी भी कॉन्फ़िगरेशन सब-मोड के अंदर से सीधे प्रिविलेज्ड एक्सेक कमांड चलाने की अनुमति देता है।")
-#mcq(num: 5, q: "कौन सा लेयर 2 डिस्कवरी प्रोटोकॉल एक ओपन IEEE 802.1AB मानक है जो सभी विक्रेताओं के उपकरणों पर काम करता है?", a: "CDP", b: "LLDP", c: "STP", d: "VTP", ans: "B", expl: "लिंक लेयर डिस्कवरी प्रोटोकॉल (LLDP) मल्टी-वेंडर इंटरऑपरेबिलिटी के लिए मानकीकृत है।")
+#v(2pt)
+#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[3. 5 उच्च-अंक बहुविकल्पीय प्रश्न (MCQs)]
+#mcq(num: 1, q: "कौन सा सिस्को प्रॉम्प्ट दर्शाता है कि व्यवस्थापक ग्लोबल कॉन्फ़िगरेशन मोड में है?", a: "Router>", b: "Router#", c: "Router(config)#", d: "Router(config-if)#", ans: "C", expl: "Router(config)# ग्लोबल कॉन्फ़िगरेशन मोड है। Router> यूजर एक्सेक और Router# प्रिविलेज्ड एक्सेक है।")
+#mcq(num: 2, q: "कंसोल लाइन पर logging synchronous कमांड का मुख्य प्रभाव क्या है?", a: "कंसोल संदेशों को एन्क्रिप्ट करना", b: "सिस्लॉग संदेश के नीचे टाइप की जा रही कमांड को पुनः साफ प्रदर्शित करना", c: "NTP सर्वर से समय मिलाना", d: "SSH v2 लॉगिंग चालू करना", ans: "B", expl: "Logging synchronous सिस्लॉग आउटपुट को टाइप की जा रही कमांड के बीच में आने से रोकता है।")
+#mcq(num: 3, q: "VTY लाइनों पर केवल एन्क्रिप्टेड SSH की अनुमति देने वाली कमांड क्या है?", a: "transport input all", b: "transport input ssh", c: "transport output telnet", d: "line vty ssh only", ans: "B", expl: "transport input ssh केवल सुरक्षित SSH सत्र स्वीकार करता है और टेलनेट को ब्लॉक करता है।")
+#mcq(num: 4, q: "सीधे जुड़े पड़ोसी सिस्को डिवाइस का मॉडल व इंटरफेस विवरण देखने वाली कमांड क्या है?", a: "show ip route", b: "show cdp neighbors detail", c: "show ip arp", d: "show running-config", ans: "B", expl: "show cdp neighbors detail पड़ोसी डिवाइस का आईपी, ओएस वर्जन, प्लेटफॉर्म व डुप्लेक्स सेटिंग्स दिखाता है।")
+#mcq(num: 5, q: "वर्तमान सक्रिय रनिंग-कॉन्फ़िग को रीबूट के बाद सुरक्षित रखने हेतु कौन सी कमांड चलाते हैं?", a: "copy startup-config running-config", b: "copy running-config startup-config", c: "copy flash: running-config", d: "reload save", ans: "B", expl: "copy running-config startup-config वोलेटाइल रैम से नॉन-वोलेटाइल NVRAM में फाइल लिखता है।")
 
-#v(1pt)
+#v(2pt)
 #grid(
   columns: (1fr, 1fr),
   gutter: 5pt,
   [
-    #fact-box(title: "प्रिविलेज 15 सुपरयूज़र")[
-      सिस्को IOS में 16 प्रिविलेज लेवल (0 से 15) होते हैं। लेवल 1 सामान्य यूजर मोड है; लेवल 15 पूरे सिस्टम पर पूर्ण रूट प्रशासनिक नियंत्रण देता है!
+    #fact-box(title: "टाइप 7 एन्क्रिप्शन की कमजोरी")[
+      `service password-encryption` केवल टाइप 7 एन्क्रिप्शन लगाता है, जिसे सेकंडों में तोड़ा जा सकता है। प्रशासनिक सुरक्षा हेतु सदैव `enable secret` का ही प्रयोग करें!
     ]
   ],
   [
-    #tech-spotlight-box(title: "RESTCONF एवं NETCONF ऑटोमेशन")[
-      आधुनिक नेटवर्क इंजीनियर हाथ से टाइप करने के बजाय पायथन स्क्रिप्ट द्वारा RESTCONF (HTTPS/JSON) और NETCONF (SSH/YANG) से सिस्को राउटर कॉन्फ़िगर करते हैं!
+    #tech-spotlight-box(title: "प्रोग्रामेबल नेटवर्किंग 2027")[
+      आधुनिक नेटवर्क इंजीनियर्स मैन्युअल CLI के स्थान पर YANG डेटा मॉडल पर आधारित NETCONF (SSH पोर्ट 830) एवं RESTCONF (HTTPS पोर्ट 443) APIs द्वारा ऑटोमेशन करते हैं!
     ]
   ]
 )
-
-#v(1pt)
-#practice-lab-placeholder(lang: "hi")

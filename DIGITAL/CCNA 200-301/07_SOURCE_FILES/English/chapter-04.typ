@@ -40,7 +40,9 @@ To simplify writing and reading 128-bit addresses, two mandatory compression rul
   [Loopback], [`::1/128`], [Local Host], [Internal stack verification. Equivalent to `127.0.0.1` in IPv4.]
 )
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 4.4 The Modified EUI-64 Auto-Configuration Algorithm
 When configuring an interface IPv6 address, Cisco routers can automatically construct a 64-bit Interface Identifier from the device's physical 48-bit MAC address using the #hl[Modified EUI-64 algorithm]:
@@ -77,7 +79,9 @@ Because IPv6 completely eliminates broadcasts, essential network services utiliz
 - `ff02::6` — *OSPFv3 Designated Routers:* Reaches OSPFv3 DR and BDR routers.
 - `ff02::1:ffxx:xxxx` — *Solicited-Node Multicast:* Used for ARP replacement (NDP address resolution).
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 4.7 IPv4 to IPv6 Migration & Coexistence Strategies
 Because immediate worldwide migration is impossible, enterprises deploy three standard transition mechanisms:
@@ -129,7 +133,49 @@ Router# show ipv6 interface brief
 Router# show ipv6 route
 ```
 
-#pagebreak()
+
+#v(3pt)
+
+
+
+== 4.6 IPv6 Address Types & Scope Architecture Matrix
+IPv6 eliminates broadcast addressing entirely, relying on Unicast, Anycast, and Multicast:
+#table(
+  columns: (1.2fr, 1.4fr, 1.4fr, 2fr),
+  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.3pt + rtech-border,
+  inset: 3pt,
+  table.header([*Address Type*], [*Binary Prefix / Range*], [*Operational Scope*], [*CCNA Production Role*]),
+  [Global Unicast (GUA)], [`2000::/3` (`2000::` - `3fff::`)], [Public Internet], [Globally routable unique public addresses assigned to enterprise interfaces.],
+  [Link-Local (LLA)], [`fe80::/10` (`fe80::` - `febf::`)], [Single Local Link], [Mandatory auto-generated address; used as next-hop for routing protocols (OSPFv3).],
+  [Unique Local (ULA)], [`fc00::/7` (`fc00::` - `fdff::`)], [Internal Enterprise Site], [Equivalent to RFC 1918 private IPv4. Not routed on the public Internet.],
+  [Loopback], [`::1/128`], [Local Node Internal], [Tests local TCP/IP stack; equivalent to IPv4 127.0.0.1.],
+  [Unspecified], [`::/128`], [Local Node Initialization], [Used as source address during initial boot before obtaining an IP.],
+  [All-Nodes Multicast], [`ff02::1`], [Link-Local All Hosts], [Reaches all IPv6-enabled devices on the local segment (broadcast replacement).],
+  [All-Routers Multicast], [`ff02::2`], [Link-Local All Routers], [Reaches all active IPv6 routers on the link (RS destination).]
+)
+
+#v(3pt)
+
+== 4.7 EUI-64 Interface ID Generation Mechanics
+Under Modified EUI-64, a host automatically creates a unique 64-bit Interface ID from its 48-bit physical MAC address:
+1. *Step 1:* Split the 48-bit MAC address into two 24-bit halves. (Example MAC: `00:50:79:66:68:01` $arrow$ `00:50:79` and `66:68:01`).
+2. *Step 2:* Insert the 16-bit hex constant #hl[`FF-FE`] directly into the center: `0050:79FF:FE66:6801`.
+3. *Step 3:* Invert the 7th bit (Universal/Local bit) of the first byte:
+   - First byte hex `00` = binary `0000 0000`.
+   - Invert bit 7 (counting from left bit 1): binary `0000 0010` = hex `02`.
+   - Final EUI-64 Interface ID: #hl[`0250:79ff:fe66:6801`].
+- Combined with Link-Local prefix `fe80::/64`, the full Link-Local IP is `fe80::250:79ff:fe66:6801`.
+
+#v(3pt)
+
+== 4.8 IPv4 to IPv6 Migration & Coexistence Mechanisms
+Complete transition to IPv6 takes years; three coexistence technologies are tested on CCNA 200-301:
+- *1. Dual-Stack (Recommended):* Interfaces are configured simultaneously with an IPv4 address and an IPv6 address. Devices communicate natively over IPv4 with legacy hosts and IPv6 with modern services:
+  `Router(config-if)# ip address 192.168.1.1 255.255.255.0`
+  `Router(config-if)# ipv6 address 2001:db8:acad:1::1/64`
+- *2. Tunneling (6to4 / GRE):* Encapsulates native IPv6 packets inside standard IPv4 headers to cross legacy IPv4-only ISP backbones.
+- *3. Translation (NAT64 / DNS64):* Translates IPv6 packets to IPv4 packets at the border router, allowing IPv6-only clients to communicate with legacy IPv4-only web servers without software changes.
 
 == Comprehensive Review, FAQs & Chapter Evaluation
 

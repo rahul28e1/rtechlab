@@ -44,7 +44,9 @@ In 1993, RFC 1519 introduced *Classless Inter-Domain Routing (CIDR)* to halt add
 - *The ANDing Process:* Routers determine if a destination IP is local or remote by performing a bitwise Boolean AND between the destination IP and the subnet mask ($1 text("AND") 1 = 1$; any $text("AND") 0 = 0$).
 - *Host Formula:* $text("Usable Hosts") = 2^H - 2$ (where $H$ is the number of Host bits `0`). The subtraction of 2 accounts for the *Network ID* (all host bits 0) and the *Directed Broadcast Address* (all host bits 1).
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 3.4 The RTechLab "Magic Number" Subnetting Formula
 Subnetting can be solved mentally in under 10 seconds without converting to binary using the #hl[Magic Number rule]:
@@ -93,7 +95,9 @@ VLSM allows an engineer to allocate different subnet masks to different segments
 - *The Golden Rule of VLSM:* Always sort requirements in #hl[descending order of required host count] (Largest to Smallest) before allocating addresses!
 - If you allocate small subnets first, larger contiguous blocks cannot be formed without overlapping.
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 3.7 Solved VLSM Enterprise Case Study
 *Scenario:* Design subnets for enterprise network `192.168.10.0/24` with the following departmental requirements:
@@ -144,7 +148,37 @@ Router(config-if)# exit
 Router# show ip interface brief | include up
 ```
 
-#pagebreak()
+
+#v(3pt)
+
+
+
+== 3.6 IPv4 Subnetting & Wildcard Mask Fast-Lookup Super Matrix
+#table(
+  columns: (0.8fr, 1.5fr, 1.4fr, 1.1fr, 1.2fr, 1fr),
+  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.3pt + rtech-border,
+  inset: 2.8pt,
+  table.header([*CIDR*], [*Subnet Mask*], [*Wildcard Mask*], [*Total IPs*], [*Usable Hosts*], [*Block Size*]),
+  [/24], [255.255.255.0], [0.0.0.255], [256], [254], [256],
+  [/25], [255.255.255.128], [0.0.0.127], [128], [126], [128],
+  [/26], [255.255.255.192], [0.0.0.63], [64], [62], [64],
+  [/27], [255.255.255.224], [0.0.0.31], [32], [30], [32],
+  [/28], [255.255.255.240], [0.0.0.15], [16], [14], [16],
+  [/29], [255.255.255.248], [0.0.0.7], [8], [6], [8],
+  [/30], [255.255.255.252], [0.0.0.3], [4], [2 (Point-to-Point)], [4],
+  [/31], [255.255.255.254], [0.0.0.1], [2], [2 (RFC 3021 Routers)], [2],
+  [/32], [255.255.255.255], [0.0.0.0], [1], [1 (Single Host / Loopback)], [1]
+)
+
+#v(3pt)
+
+== 3.7 Special & Reserved IPv4 Address Blocks Architecture
+Beyond standard classful and RFC 1918 private addressing, specific IPv4 blocks are globally reserved by IANA:
+- *Loopback Block (`127.0.0.0/8`):* `127.0.0.1` represents the local host TCP/IP stack. Packets sent to `127.0.0.1` never exit the physical NIC. Used for software testing and internal process communication.
+- *APIPA / Link-Local (`169.254.0.0/16` - RFC 3927):* Automatic Private IP Addressing. When a DHCP client broadcasts `DHCPDISCOVER` and receives no response after 60 seconds, the OS self-assigns an address in `169.254.1.0` - `169.254.254.255`. APIPA allows local subnet communication but cannot reach the default gateway or Internet!
+- *Documentation / Test Ranges (RFC 5737):* `192.0.2.0/24` (TEST-NET-1), `198.51.100.0/24` (TEST-NET-2), and `203.0.113.0/24` (TEST-NET-3). Reserved strictly for educational textbooks and vendor configuration examples; never routable on the public Internet.
+- *Carrier-Grade NAT (CGNAT - RFC 6598):* `100.64.0.0/10` (`100.64.0.0` - `100.127.255.255`). Used by mobile network operators and ISPs to perform massive shared address translation between customer CPE routers and the ISP core.
 
 == Comprehensive Review, FAQs & Chapter Evaluation
 

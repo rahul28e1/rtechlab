@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" width="100%" height="100%" style="background:#F8FAFC; border-radius:6px; font-family:'Segoe UI',Roboto,Helvetica,sans-serif;">
+  <defs>
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#E2E8F0" stroke-width="0.8"/>
+    </pattern>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="720" height="220" fill="url(#grid)" rx="6"/>
+  <!-- Status Bar / Packet Tracer Canvas Header -->
+  <rect x="0" y="0" width="720" height="24" fill="#0F172A" rx="6 6 0 0"/>
+  <circle cx="14" cy="12" r="4" fill="#EF4444"/>
+  <circle cx="26" cy="12" r="4" fill="#F59E0B"/>
+  <circle cx="38" cy="12" r="4" fill="#10B981"/>
+  <text x="54" y="16" fill="#94A3B8" font-size="11" font-weight="600" font-family="monospace">Cisco Packet Tracer v8.2 · Real-Time Physical Workspace</text>
+  <rect x="610" y="4" width="102" height="16" fill="#1E293B" rx="3"/>
+  <text x="616" y="15" fill="#38BDF8" font-size="9.5" font-family="monospace">● Link Status: UP</text>
+  
+  <line x1="130" y1="75" x2="330" y2="110" stroke="#10B981" stroke-width="2.5" /><polygon points="138,71 138,79 145,75" fill="#10B981"/><polygon points="322,106 322,114 315,110" fill="#10B981"/><text x="148" y="69" fill="#475569" font-size="9" font-weight="600" font-family="monospace">NIC</text><text x="292" y="104" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Fa0/1</text><rect x="165.0" y="74.5" width="130" height="18" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/><text x="230.0" y="87.5" text-anchor="middle" fill="#047857" font-size="9" font-weight="700" font-family="monospace">Authorized MAC</text>
+  <line x1="130" y1="155" x2="330" y2="110" stroke="#EF4444" stroke-width="2.5" /><polygon points="138,151 138,159 145,155" fill="#10B981"/><polygon points="322,106 322,114 315,110" fill="#10B981"/><text x="148" y="149" fill="#475569" font-size="9" font-weight="600" font-family="monospace">NIC</text><text x="292" y="104" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Fa0/2</text><rect x="165.0" y="114.5" width="130" height="18" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/><text x="230.0" y="127.5" text-anchor="middle" fill="#047857" font-size="9" font-weight="700" font-family="monospace">Rogue Attacker</text>
+  
+    <g transform="translate(70,45)" filter="url(#shadow)">
+      <rect x="5" y="5" width="50" height="34" rx="3" fill="#334155" stroke="#1E293B" stroke-width="2"/>
+      <rect x="9" y="9" width="42" height="26" fill="#38BDF8"/>
+      <polygon points="22,39 38,39 42,47 18,47" fill="#64748B"/>
+      <rect x="12" y="47" width="36" height="3" rx="1" fill="#475569"/>
+      <text x="30" y="64" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="700">PC-1 (Authorized)</text>
+      <text x="30" y="76" text-anchor="middle" fill="#0284C7" font-size="8.5" font-family="monospace">MAC: 0011.2233.4455</text>
+    </g>
+  
+    <g transform="translate(70,125)" filter="url(#shadow)">
+      <rect x="5" y="5" width="50" height="34" rx="3" fill="#334155" stroke="#1E293B" stroke-width="2"/>
+      <rect x="9" y="9" width="42" height="26" fill="#38BDF8"/>
+      <polygon points="22,39 38,39 42,47 18,47" fill="#64748B"/>
+      <rect x="12" y="47" width="36" height="3" rx="1" fill="#475569"/>
+      <text x="30" y="64" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="700">Hacker-Laptop</text>
+      <text x="30" y="76" text-anchor="middle" fill="#0284C7" font-size="8.5" font-family="monospace">MAC: DEAD.BEEF.CAFE</text>
+    </g>
+  
+    <g transform="translate(330,80)" filter="url(#shadow)">
+      <rect x="0" y="10" width="70" height="42" rx="5" fill="#0D9488" stroke="#0F766E" stroke-width="2.5"/>
+      <path d="M 12 25 L 30 25 M 24 20 L 30 25 L 24 30" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <path d="M 58 25 L 40 25 M 46 20 L 40 25 L 46 30" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <path d="M 12 37 L 30 37 M 18 32 L 12 37 L 18 42" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <path d="M 58 37 L 40 37 M 52 32 L 58 37 L 52 42" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+      <text x="35" y="68" text-anchor="middle" fill="#0F172A" font-size="11.5" font-weight="700">SW1-ACCESS</text>
+      <text x="35" y="81" text-anchor="middle" fill="#64748B" font-size="9" font-family="monospace">Catalyst 2960 (PortSec)</text>
+    </g>
+  <!-- Err-disabled callout -->
+  <rect x="440" y="90" width="160" height="42" rx="4" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="450" y="106" fill="#B91C1C" font-size="9.5" font-weight="700">● Violation: SHUTDOWN</text>
+  <text x="450" y="122" fill="#7F1D1D" font-size="8.5" font-family="monospace">Fa0/2 -> err-disabled (Amber)</text>
+
+</svg>

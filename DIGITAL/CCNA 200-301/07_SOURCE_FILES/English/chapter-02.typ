@@ -38,7 +38,9 @@ Ethernet modular 8P8C (RJ45) terminations adhere to two standardized color codes
 - *Straight-Through Cable:* Both ends terminate with the #hl[same pinout] (A-to-A or B-to-B). Connects disparate Layer devices (PC to Switch, Router to Switch).
 - *Crossover Cable:* One end terminates in T568A, the other in T568B (swapping pins 1/2 with 3/6). Connects identical Layer devices (Switch to Switch, Router to PC, Router to Router). Modern NICs feature *Auto-MDIX* to automatically detect and correct pinouts.
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 2.4 Optical Fiber Physics: Single-Mode vs Multi-Mode Fiber
 When transmission distances exceed 100 meters or enterprise noise levels are severe, optical fiber is required:
@@ -80,7 +82,9 @@ Understanding Layer 1 and Layer 2 boundary physics is foundational for network a
    - Switches flood broadcasts out all ports within the same VLAN; an unsegmented switch is #hl[one single broadcast domain].
    - *Routers block Layer 2 broadcasts; each router interface terminates and bounds a broadcast domain*.
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 2.7 Console Cables & Out-of-Band Management Hardware
 When a brand new Cisco router or switch is delivered from the factory without an IP address, *Out-of-Band (OOB)* management is required:
@@ -127,7 +131,53 @@ To diagnose physical layer faults on Cisco IOS devices:
 - `show interfaces [interface] | include CRC` — CRC errors indicate faulty copper crimps, damaged patch panels, or electromagnetic noise.
 - `show controllers [interface]` — Identifies connected cable type (DTE vs DCE on legacy serial cables).
 
-#pagebreak()
+
+#v(3pt)
+
+
+
+== 2.6 Optical Transceiver Form Factors & Fiber Specifications
+Modern Cisco switches utilize modular hot-swappable optical transceivers to connect campus and datacenter fiber links:
+#table(
+  columns: (1fr, 1.1fr, 1.4fr, 1.3fr, 2.2fr),
+  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.3pt + rtech-border,
+  inset: 3pt,
+  table.header([*Transceiver*], [*Max Speed*], [*Fiber Media*], [*Max Distance*], [*Common Enterprise Application*]),
+  [1000BASE-SX], [1 Gbps], [Multimode (OM2/OM3)], [550 meters], [Intra-building building distribution uplinks (850nm laser).],
+  [1000BASE-LX], [1 Gbps], [Single-Mode (OS2)], [10 km], [Campus backbone and metropolitan interconnects (1310nm).],
+  [10GBASE-SR], [10 Gbps], [Multimode (OM3/OM4)], [300 - 400 meters], [Datacenter top-of-rack switch to server uplinks (SFP+).],
+  [10GBASE-LR], [10 Gbps], [Single-Mode (OS2)], [10 km], [Long-haul campus core and WAN point-to-point connections.],
+  [40GBASE-SR4], [40 Gbps], [Multimode MPO/MTP], [100 meters], [High-density QSFP+ spine-leaf switch interconnects.],
+  [100GBASE-LR4], [100 Gbps], [Single-Mode Duplex LC], [10 km], [Hyperscale cloud datacenter and telecom core backbones.]
+)
+
+#v(3pt)
+
+== 2.7 Twisted-Pair Category Standards & Pinout Reference
+#table(
+  columns: (1.1fr, 1.3fr, 1.3fr, 1.1fr, 2.2fr),
+  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.3pt + rtech-border,
+  inset: 3pt,
+  table.header([*Category*], [*Max Speed*], [*Bandwidth*], [*Max Reach*], [*Shielding & Recommended Deployment*]),
+  [Cat 5e], [1 Gbps], [100 MHz], [100 meters], [UTP; legacy basic desktop connectivity.],
+  [Cat 6], [1 Gbps / 10 Gbps], [250 MHz], [100m (1G) / 55m (10G)], [UTP/STP with internal spline separator; enterprise horizontal cabling.],
+  [Cat 6a], [10 Gbps], [500 MHz], [100 meters], [F/UTP or STP; high-performance 10G enterprise workstations & Wi-Fi 6/7 APs.],
+  [Cat 7 / 8], [25G / 40 Gbps], [600 - 2000 MHz], [30 meters (Cat 8)], [S/FTP fully shielded; datacenter top-of-rack server patching.]
+)
+
+#v(3pt)
+
+== 2.8 Power over Ethernet (PoE) IEEE Standards & Power Budgets
+Power over Ethernet delivers direct electrical current alongside data over twisted-pair copper cabling, eliminating external AC power supplies for remote devices:
+- *IEEE 802.3af (PoE Type 1):* Provides up to #hl[15.4 Watts] at switch port (delivers 12.95W to device over Cat3/5). Powers basic VoIP phones and stationary IP security cameras.
+- *IEEE 802.3at (PoE+ Type 2):* Delivers up to #hl[30.0 Watts] at switch port (25.5W to device). Powers dual-band 802.11ac Wi-Fi access points and pan-tilt-zoom (PTZ) surveillance cameras.
+- *IEEE 802.3bt (PoE++ Type 3 / 4 / 4PPoE):*
+  - *Type 3:* Up to #hl[60 Watts] per port using all 4 pairs. Powers video conferencing screens and multi-radio Wi-Fi 6 APs.
+  - *Type 4 (Universal PoE):* Up to #hl[90 - 100 Watts] per port. Powers smart LED lighting fixtures, thin clients, and industrial IoT controllers.
+- *Cisco CLI PoE Verification:*
+  `Switch# show power inline` ; `Switch# show power inline GigabitEthernet0/1`
 
 == Comprehensive Review, FAQs & Chapter Evaluation
 

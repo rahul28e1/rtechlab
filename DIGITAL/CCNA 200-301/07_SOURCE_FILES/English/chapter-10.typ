@@ -19,7 +19,9 @@
 #interview-compact(num: 7, q: "What are the distance and bandwidth constraints of Single-Mode vs Multi-Mode fiber?", a: "Single-Mode fiber (SMF, 9um core) uses laser light at 1310/1550nm to transmit up to 10-80+ km with negligible modal dispersion. Multi-Mode fiber (MMF, 50/62.5um core) uses LED/VCSEL at 850nm and is limited to 300-550m due to modal distortion.", follow_up: "What color is standard SMF patch cord? Answer: Yellow.")
 #interview-compact(num: 8, q: "What is an MTU and what happens if a packet exceeds it?", a: "Maximum Transmission Unit (standard 1500 bytes for Ethernet). If a packet exceeds interface MTU and the Don't Fragment (DF) flag is set to 0, the router fragments it into smaller packets. If DF=1, the router drops it and returns ICMP Type 3 Code 4 (Fragmentation Needed).", follow_up: "What is Path MTU Discovery (PMTUD)? Answer: Method to discover lowest MTU along path.")
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 10.2 IPv4 Subnetting & IPv6 Architecture (Q9 – Q17)
 #interview-compact(num: 9, q: "How do you calculate the usable hosts and network ID for 172.16.85.120/26?", a: "A /26 mask is 255.255.255.192. Magic Number is 256 - 192 = 64. Subnet multiples are 0, 64, 128. Host .120 falls in subnet 172.16.85.64. Broadcast address is .127. Usable host range is 172.16.85.65 through 172.16.85.126 (62 usable hosts).", follow_up: "What is the wildcard mask? Answer: 0.0.0.63.")
@@ -32,7 +34,9 @@
 #interview-compact(num: 16, q: "What replaces ARP broadcasts in IPv6?", a: "IPv6 replaces broadcast ARP with the Neighbor Discovery Protocol (NDP), utilizing ICMPv6 Neighbor Solicitation (NS) sent to a targeted Solicited-Node Multicast address (ff02::1:ffxx:xxxx) and Neighbor Advertisement (NA).", follow_up: "Why is NDP superior to ARP? Answer: Eliminates CPU-interrupting broadcasts.")
 #interview-compact(num: 17, q: "What are the three primary IPv4-to-IPv6 transition mechanisms?", a: "1. Dual-Stack: Devices run both IPv4 and IPv6 stacks concurrently. 2. Tunneling: Encapsulating IPv6 packets inside IPv4 headers (6to4, GRE). 3. Translation: Converting IPv6 headers to IPv4 headers using NAT64 and DNS64.", follow_up: "Which is preferred for enterprise networks? Answer: Dual-Stack.")
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 10.3 Cisco IOS Architecture & Device Hardening (Q18 – Q26)
 #interview-compact(num: 18, q: "What are the four primary memory types on a Cisco router and their roles?", a: "ROM stores POST, Bootstrap, and ROMMON mini-OS. Flash memory stores the Cisco IOS system image (.bin). NVRAM stores startup-config and configuration register. RAM stores running-config, routing tables, and ARP buffers (volatile).", follow_up: "Which memory is erased when power is lost? Answer: RAM.")
@@ -45,7 +49,9 @@
 #interview-compact(num: 25, q: "What is the function of the 'do' command in Cisco IOS CLI?", a: "The 'do' prefix allows privileged exec commands (such as 'do show ip int brief' or 'do show run') to be executed directly from within any configuration sub-mode without exiting back to privileged exec.", follow_up: "Can tab completion be used with 'do'? Answer: In modern IOS-XE versions, yes.")
 #interview-compact(num: 26, q: "How do you recover a Cisco switch when the administrator password is unknown?", a: "Unplug switch power cord, hold the front-panel Mode button while reconnecting power. Release when SYST LED turns solid green. Issue 'flash_init', 'rename flash:config.text flash:config.old', and 'boot'. Rename back in IOS and change password.", follow_up: "Why rename config.text? Answer: Switch bootloader bypasses startup configuration.")
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 10.4 Switching, VLANs, Trunking & STP (Q27 – Q35)
 #interview-compact(num: 27, q: "Explain the three core functions of a Layer 2 switch.", a: "1. Address Learning: Records Source MAC and port in CAM table (aging 300s). 2. Forwarding/Filtering: Forwards known unicast strictly out destination port; filters frames from looping. 3. Flooding: Floods unknown unicast, broadcast, and multicast out all ports in the same VLAN.", follow_up: "What causes a MAC address table overflow? Answer: MAC Flooding attack.")
@@ -58,7 +64,9 @@
 #interview-compact(num: 34, q: "Compare STP (802.1D) and Rapid STP (RSTP 802.1w) convergence.", a: "802.1D takes 30-50 seconds (Blocking 20s, Listening 15s, Learning 15s, Forwarding) relying on static timers. RSTP (802.1w) converges in under 1 second using an active Proposal/Agreement handshake on point-to-point full-duplex links.", follow_up: "What are RSTP port states? Answer: Discarding, Learning, Forwarding.")
 #interview-compact(num: 35, q: "What is the purpose of Spanning Tree PortFast and BPDU Guard?", a: "PortFast transitions access ports immediately from Discarding to Forwarding, bypassing 30s delays to prevent DHCP timeouts on booting PCs. BPDU Guard protects PortFast ports: if any device transmits a BPDU (rogue switch), the port is shut down into err-disabled state.", follow_up: "Should PortFast be enabled on trunk ports? Answer: NEVER, causes broadcast loops.")
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 10.5 IP Routing, OSPF, NAT & Security Services (Q36 – Q43)
 #interview-compact(num: 36, q: "Explain the Longest Prefix Match (LPM) rule in routing table lookups.", a: "When a packet arrives, the router searches for matching destination prefixes. The route with the longest (most specific) subnet mask is ALWAYS chosen. E.g., for destination 10.1.1.5, route 10.1.1.0/24 wins over 10.1.0.0/16 and 10.0.0.0/8, regardless of Administrative Distance.", follow_up: "What route matches if no specific prefix matches? Answer: Default route 0.0.0.0/0.")
@@ -70,7 +78,9 @@
 #interview-compact(num: 42, q: "Explain the 4-step DHCP DORA process and DHCP Relay Agent.", a: "Discover (client broadcast UDP 67), Offer (server unicast UDP 68), Request (client broadcast UDP 67), Acknowledge (server unicast UDP 68). Because routers block broadcasts, 'ip helper-address [server-ip]' converts client Discover into unicast forwarded to the remote DHCP server.", follow_up: "What port does the relay agent forward to? Answer: UDP port 67 on the server.")
 #interview-compact(num: 43, q: "What is the difference between Standard ACL and Extended ACL?", a: "Standard ACLs (1-99) filter strictly on Source IP address and must be placed as close to the Destination as possible. Extended ACLs (100-199) filter on Protocol, Source IP, Source Port, Dest IP, and Dest Port, and must be placed as close to the Source as possible.", follow_up: "What is at the end of every ACL? Answer: Implicit Deny All (deny ip any any).")
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 10.6 Advanced Security & Top 15 Viva Rapid-Fire One-Liners (Q44 – Q50 & Viva 1–15)
 #interview-compact(num: 44, q: "Explain Port Address Translation (PAT / NAT Overload) and Inside Local vs Global.", a: "PAT maps multiple private inside local IPs to a single public inside global IP by tracking unique Layer 4 source ports (>1024). Inside Local is private client IP; Inside Global is public ISP IP on outside router interface.", follow_up: "How many translations can PAT support? Answer: Up to ~64,000 ephemeral ports.")
@@ -100,7 +110,9 @@
 #short-qa(num: 14, q: "What is the default Spanning Tree bridge priority on VLAN 1?", a: "32769 (Base priority 32768 + Sys-ID-Ext 1).")
 #short-qa(num: 15, q: "What does the command 'ip routing' do on a Layer 3 switch?", a: "Enables the Layer 3 IP routing engine between VLAN SVIs.")
 
-#pagebreak()
+
+#v(3pt)
+
 
 == 10.8 Viva-Voce One-Liners (Part 2: 16–30) & 2027 CCNA Exam Strategy
 #short-qa(num: 16, q: "What is the IPv6 loopback address?", a: "::1/128.")
@@ -153,3 +165,9 @@
     ]
   ]
 )
+
+#faq-item(q: "How do you triage an MTU black hole in an enterprise WAN?", a: "An MTU black hole occurs when an intermediate router has a smaller MTU (e.g. 1400 on a VPN tunnel) and drops packets with the 'Don't Fragment' (DF) bit set, while ICMP 'Fragmentation Needed' packets are blocked by upstream firewalls. Triage by executing 'ping <ip> size 1500 df-bit' and decrementing packet size until ping succeeds. Fix by configuring 'ip tcp adjust-mss 1360' on the tunnel interface.")
+
+#faq-item(q: "What causes asymmetric routing in multi-homed BGP networks, and how is it resolved?", a: "Asymmetric routing occurs when traffic exits via ISP-A but returns via ISP-B due to differing upstream BGP routing policies. While IP is inherently asymmetric, stateful firewalls drop returning packets because no initial SYN was recorded. Fix by tuning BGP Local Preference for outbound traffic and AS-Path Prepending or MED for inbound traffic to ensure symmetrical paths.")
+
+#faq-item(q: "Explain the architectural difference between VXLAN overlay and 802.1Q VLANs in 2027 datacenters.", a: "Traditional 802.1Q VLANs use a 12-bit tag limited to 4,096 broadcast domains and rely on Spanning Tree to block redundant links. VXLAN (Virtual Extensible LAN) is an encapsulation protocol that wraps Layer 2 Ethernet frames inside Layer 3 UDP packets (Port 4789). It features a 24-bit VNI supporting 16.7 million segments and routes across Spine-Leaf underlay fabrics using ECMP, eliminating Spanning Tree entirely.")

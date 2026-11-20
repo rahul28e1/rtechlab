@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" width="100%" height="100%" style="background:#F8FAFC; border-radius:6px; font-family:'Segoe UI',Roboto,Helvetica,sans-serif;">
+  <defs>
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#E2E8F0" stroke-width="0.8"/>
+    </pattern>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="720" height="220" fill="url(#grid)" rx="6"/>
+  <!-- Status Bar / Packet Tracer Canvas Header -->
+  <rect x="0" y="0" width="720" height="24" fill="#0F172A" rx="6 6 0 0"/>
+  <circle cx="14" cy="12" r="4" fill="#EF4444"/>
+  <circle cx="26" cy="12" r="4" fill="#F59E0B"/>
+  <circle cx="38" cy="12" r="4" fill="#10B981"/>
+  <text x="54" y="16" fill="#94A3B8" font-size="11" font-weight="600" font-family="monospace">Cisco Packet Tracer v8.2 · Real-Time Physical Workspace</text>
+  <rect x="610" y="4" width="102" height="16" fill="#1E293B" rx="3"/>
+  <text x="616" y="15" fill="#38BDF8" font-size="9.5" font-family="monospace">● Link Status: UP</text>
+  
+  <line x1="120" y1="100" x2="290" y2="100" stroke="#10B981" stroke-width="2.5" /><polygon points="128,96 128,104 135,100" fill="#10B981"/><polygon points="282,96 282,104 275,100" fill="#10B981"/><text x="138" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Fa0/1</text><text x="252" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Gi0/0/0 (inside)</text><rect x="140.0" y="82.0" width="130" height="18" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/><text x="205.0" y="95.0" text-anchor="middle" fill="#047857" font-size="9" font-weight="700" font-family="monospace">Inside Local: 192.168.10.50</text>
+  <line x1="360" y1="100" x2="520" y2="100" stroke="#2563EB" stroke-width="2.5" /><polygon points="368,96 368,104 375,100" fill="#10B981"/><polygon points="512,96 512,104 505,100" fill="#10B981"/><text x="378" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Gi0/0/1 (outside)</text><text x="482" y="94" fill="#475569" font-size="9" font-weight="600" font-family="monospace">Internet</text><rect x="375.0" y="82.0" width="130" height="18" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/><text x="440.0" y="95.0" text-anchor="middle" fill="#047857" font-size="9" font-weight="700" font-family="monospace">Inside Global: 203.0.113.1:10523</text>
+  
+    <g transform="translate(60,70)" filter="url(#shadow)">
+      <rect x="5" y="5" width="50" height="34" rx="3" fill="#334155" stroke="#1E293B" stroke-width="2"/>
+      <rect x="9" y="9" width="42" height="26" fill="#38BDF8"/>
+      <polygon points="22,39 38,39 42,47 18,47" fill="#64748B"/>
+      <rect x="12" y="47" width="36" height="3" rx="1" fill="#475569"/>
+      <text x="30" y="64" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="700">Private PC</text>
+      <text x="30" y="76" text-anchor="middle" fill="#0284C7" font-size="8.5" font-family="monospace">192.168.10.50</text>
+    </g>
+  
+    <g transform="translate(290,70)" filter="url(#shadow)">
+      <circle cx="35" cy="35" r="30" fill="#0284C7" stroke="#0369A1" stroke-width="2.5"/>
+      <path d="M 20 35 L 50 35 M 35 20 L 35 50 M 23 23 L 47 47 M 23 47 L 47 23" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="35" cy="35" r="7" fill="#0284C7" stroke="#FFFFFF" stroke-width="2"/>
+      <text x="35" y="77" text-anchor="middle" fill="#0F172A" font-size="11.5" font-weight="700">Edge-RTR</text>
+      <text x="35" y="90" text-anchor="middle" fill="#64748B" font-size="9" font-family="monospace">PAT Overload</text>
+    </g>
+  
+    <g transform="translate(520,70)" filter="url(#shadow)">
+      <path d="M 25 35 A 15 15 0 0 1 50 20 A 22 22 0 0 1 85 24 A 18 18 0 0 1 100 42 A 16 16 0 0 1 90 58 L 25 58 A 16 16 0 0 1 25 35 Z" fill="#E0F2FE" stroke="#0284C7" stroke-width="2.5"/>
+      <text x="58" y="42" text-anchor="middle" fill="#0369A1" font-size="11" font-weight="700">Public Web Server</text>
+      <text x="58" y="53" text-anchor="middle" fill="#64748B" font-size="8.5" font-family="monospace">142.250.190.46:443</text>
+    </g>
+
+</svg>
