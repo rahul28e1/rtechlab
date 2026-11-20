@@ -1,222 +1,127 @@
 #import "../07_PUBLISHING_ENGINE/master-theme.typ": *
 
-#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 03 · IPV4 ADDRESSING & SUBNETTING]
-= Chapter 3: IPv4 Masterclass, Subnetting & VLSM Cheat Sheet
+#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 03 · IPV4 ADDRESSING & VLSM SUBNETTING]
+= Chapter 3: IPv4 Addressing, VLSM Subnetting & Design Mastery
 
 #text(size: 8.5pt, fill: rtech-text.lighten(20%))[
-  Mastery of IPv4 32-bit addressing: binary-to-decimal math, Classful architecture (A, B, C, D, E), RFC 1918 Private IP ranges, CIDR slash notation, the 256 Magic Number calculation formula, the instant /24 to /30 subnetting cheat sheet, and 5 step-by-step solved VLSM enterprise scenarios.
+  32-bit IPv4 structure, binary-to-decimal conversion, classful vs classless CIDR, RFC 1918 private scopes, Magic Number formula, instant /24 to /30 reference table, and five step-by-step enterprise VLSM design scenarios.
 ]
 
 #v(2pt)
 
-== 3.1 IPv4 32-Bit Structure & Classful Architecture
-An IPv4 address consists of #hl[32 binary bits divided into four 8-bit octets], separated by periods (dotted-decimal notation, e.g., `192.168.1.1`).
-- *Total Address Space:* $2^{32} = 4,294,967,296$ unique theoretical IP addresses.
-- *Octet Binary Weightings (8-Bit Radix):* 128 · 64 · 32 · 16 · 8 · 4 · 2 · 1. Any decimal number 0 to 255 is formed by summing active bit values (e.g., $192 = 128 + 64$; $168 = 128 + 32 + 8$).
-- *Historical Classful Boundaries:*
-  - *Class A (1 to 126):* Default Mask `255.0.0.0` (/8). 126 Networks, $16,777,214$ hosts per net.
-  - *Class B (128 to 191):* Default Mask `255.255.0.0` (/16). 16,384 Networks, 65,534 hosts per net.
-  - *Class C (192 to 223):* Default Mask `255.255.255.0` (/24). 2,097,152 Networks, 254 hosts per net.
-  - *Class D (224 to 239):* Reserved for Multicast (no host subnet masks).
-  - *Class E (240 to 255):* Reserved for Experimental / Research purposes.
+== 3.1 32-Bit IPv4 Header & Addressing Architecture
+An IPv4 address is a 32-bit binary number represented as four 8-bit octets in dotted-decimal format (e.g., `192.168.10.1`). Every IP address contains two components:
+- *Network Portion:* Identifies the specific IP network/subnet. Defined by the subnet mask.
+- *Host Portion:* Identifies the unique endpoint device interface on that network.
+- *Subnet Mask:* A continuous sequence of binary 1s (network bits) followed by binary 0s (host bits). An IP address without a subnet mask is mathematically meaningless.
 
 #v(2pt)
 
-== 3.2 RFC 1918 Private IP Ranges & Special Reserved Addresses
+== 3.2 Legacy Classful IP Architecture vs CIDR
+Historical RFC 791 classified addresses into five rigid categories before Classless Inter-Domain Routing (CIDR, RFC 1519) eliminated class boundaries:
+- *Class A (0 – 127):* Default `/8` mask (`255.0.0.0`). 16,777,214 hosts per network. (`127.0.0.0/8` reserved for loopback testing).
+- *Class B (128 – 191):* Default `/16` mask (`255.255.0.0`). 65,534 hosts per network.
+- *Class C (192 – 223):* Default `/24` mask (`255.255.255.0`). 254 hosts per network.
+- *Class D (224 – 239):* Reserved for Multicast groups (no subnet mask, no individual host assignment).
+- *Class E (240 – 255):* Experimental and research reserve.
+- *RFC 1918 Private Ranges:* Non-routable on the public Internet: `10.0.0.0/8`, `172.16.0.0/12` (`172.16.0.0` to `172.31.255.255`), and `192.168.0.0/16`.
+- *APIPA (Automatic Private IP Addressing):* `169.254.0.0/16` self-assigned when DHCP fails.
+
+#v(2pt)
+
+== 3.3 The Magic Number Subnetting Method
+To subnet instantly in under 15 seconds during exams and production outages, use the #hl[Magic Number Formula]:
+1. Identify the *Interesting Octet* (the octet where the subnet mask is neither `255` nor `0`).
+2. Calculate the *Magic Number (Block Size):* $text("Magic Number") = 256 - text("Subnet Mask Value in that Octet")$.
+3. Multiples of this Magic Number determine all valid Network IDs ($0, M, 2M, 3M, dots$).
+4. Broadcast Address is strictly $(text("Next Network ID") - 1)$.
+5. Usable Host Range spans $(text("Network ID") + 1)$ to $(text("Broadcast Address") - 1)$.
+6. Maximum Usable Hosts formula: $2^H - 2$, where $H$ is the number of host bits (binary 0s).
+
+#pagebreak()
+
+== 3.4 Instant /24 to /30 Quick Reference Matrix
 #table(
-  columns: (1fr, 1.4fr, 1.2fr, 2.4fr),
+  columns: (1fr, 1.8fr, 1.1fr, 1.4fr, 1.7fr),
   fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
-  inset: 3pt,
-  table.header([*Class*], [*RFC 1918 Private Address Block*], [*CIDR Prefix*], [*Enterprise Application*]),
-  [Class A], [`10.0.0.0` – `10.255.255.255`], [`10.0.0.0/8`], [Large corporate enterprise networks, datacenter VPCs (16.7M IPs).],
-  [Class B], [`172.16.0.0` – `172.31.255.255`], [`172.16.0.0/12`], [Mid-sized enterprise branches, university campuses (1M IPs).],
-  [Class C], [`192.168.0.0` – `192.168.255.255`], [`192.168.0.0/16`], [SOHO, home Wi-Fi routers, small branch offices (65K IPs).],
-  [Loopback], [`127.0.0.1` – `127.255.255.254`], [`127.0.0.0/8`], [Internal host TCP/IP stack diagnostic testing.],
-  [APIPA], [`169.254.0.1` – `169.254.255.254`], [`169.254.0.0/16`], [Auto-assigned when host fails to reach DHCP server (Link-Local).]
+  inset: 3.5pt,
+  table.header([*CIDR*], [*Subnet Mask*], [*Block Size*], [*Usable Hosts*], [*Primary Production Application*]),
+  [/24], [255.255.255.0], [256], [254 hosts], [Standard branch office LAN / user access segment],
+  [/25], [255.255.255.128], [128], [126 hosts], [Subdivided building floor / medium department],
+  [/26], [255.255.255.192], [64], [62 hosts], [Server cluster / development engineering pool],
+  [/27], [255.255.255.224], [32], [30 hosts], [Executive management / VoIP phone subnet],
+  [/28], [255.255.255.240], [16], [14 hosts], [DMZ public web/mail proxy tier],
+  [/29], [255.255.255.248], [8], [6 hosts], [Firewall active/standby failover & HA sync],
+  [/30], [255.255.255.252], [4], [2 hosts], [Dedicated point-to-point router serial/WAN link]
 )
 
 #v(2pt)
 
-== 3.3 CIDR Notation & Subnet Mask Bit Mechanics
-In 1993, RFC 1519 introduced *Classless Inter-Domain Routing (CIDR)* to halt address exhaustion:
-- *Subnet Mask:* A 32-bit string of continuous binary `1`s followed by continuous `0`s. Binary `1`s identify the #hl[Network ID bits]; binary `0`s identify the #hl[Host ID bits].
-- *The ANDing Process:* Routers determine if a destination IP is local or remote by performing a bitwise Boolean AND between the destination IP and the subnet mask ($1 text("AND") 1 = 1$; any $text("AND") 0 = 0$).
-- *Host Formula:* $text("Usable Hosts") = 2^H - 2$ (where $H$ is the number of Host bits `0`). The subtraction of 2 accounts for the *Network ID* (all host bits 0) and the *Directed Broadcast Address* (all host bits 1).
-
-
-#v(3pt)
-
-
-== 3.4 The RTechLab "Magic Number" Subnetting Formula
-Subnetting can be solved mentally in under 10 seconds without converting to binary using the #hl[Magic Number rule]:
-- *Step 1: Identify the Interesting Octet.* Look at the subnet mask. The octet that contains a number other than `255` or `0` is the *Interesting Octet*. (For `/24` to `/30`, the interesting octet is the 4th octet).
-- *Step 2: Calculate the Magic Number (Block Size):*
-  $ "Magic Number" = 256 - "Interesting Octet Value" $
-- *Step 3: Multiples of Magic Number.* Subnet Network IDs always start at `0` and increment by the Magic Number: $0, M, 2M, 3M, dots$
-- *Step 4: Determine Boundaries.* For any given subnet:
-  - *Network ID:* The multiple of $M$ that is less than or equal to the host IP.
-  - *Next Subnet Network ID:* The subsequent multiple of $M$.
-  - *Broadcast Address:* One less than the next subnet Network ID.
-  - *Usable Host Range:* From `Network ID + 1` to `Broadcast ID - 1`.
+== 3.5 Step-by-Step Enterprise VLSM Design Scenario
+*Scenario:* An enterprise network architect is allocated the private block #hl[`172.16.0.0/22`] (1,024 total addresses) and must design subnets for 4 requirements:
+1. *Engineering HQ:* Requires 220 usable host addresses.
+2. *Sales & Marketing:* Requires 110 usable host addresses.
+3. *Customer Support:* Requires 50 usable host addresses.
+4. *WAN Inter-Router Links:* Requires 4 point-to-point links (2 hosts each).
 
 #v(2pt)
 
-== 3.5 The CCNA Master Subnetting Cheat Sheet (/24 to /30)
-#table(
-  columns: (0.7fr, 1.4fr, 0.9fr, 1fr, 1.1fr, 1fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 2.8pt,
-  table.header([*CIDR*], [*Subnet Mask*], [*Magic No*], [*Total IPs*], [*Usable Hosts*], [*Application*]),
-  [/24], [`255.255.255.0`], [256], [256], [254], [Standard LAN subnet],
-  [/25], [`255.255.255.128`], [128], [128], [126], [Mid-sized department],
-  [/26], [`255.255.255.192`], [64], [64], [62], [Branch office floor],
-  [/27], [`255.255.255.224`], [32], [32], [30], [Server farm / DMZ],
-  [/28], [`255.255.255.240`], [16], [16], [14], [Management VLAN],
-  [/29], [`255.255.255.248`], [8], [8], [6], [Public WAN gateway pool],
-  [/30], [`255.255.255.252`], [4], [4], [#hl[2]], [Point-to-Point WAN link],
-  [/31], [`255.255.255.254`], [2], [2], [2 (RFC 3021)], [P2P Links (No broadcast)],
-  [/32], [`255.255.255.255`], [1], [1], [1 (Host)], [Router Loopback interface]
+*Execution Rule: Always allocate from largest host requirement to smallest.*
+- *Step 1: Engineering HQ (220 hosts).* Formula: $2^H - 2 >= 220$. For $H=8$, $2^8 - 2 = 254$. Subnet mask: $32 - 8 = bold("/24")$ (`255.255.255.0`).
+  - Network ID: `172.16.0.0/24` | Usable: `172.16.0.1` – `172.16.0.254` | Broadcast: `172.16.0.255`.
+- *Step 2: Sales & Marketing (110 hosts).* Formula: $2^H - 2 >= 110$. For $H=7$, $2^7 - 2 = 126$. Subnet mask: $32 - 7 = bold("/25")$ (`255.255.255.128`).
+  - Next available: `172.16.1.0/25` | Usable: `172.16.1.1` – `172.16.1.126` | Broadcast: `172.16.1.127`.
+- *Step 3: Customer Support (50 hosts).* Formula: $2^H - 2 >= 50$. For $H=6$, $2^6 - 2 = 62$. Subnet mask: $32 - 6 = bold("/26")$ (`255.255.255.192`).
+  - Next available: `172.16.1.128/26` | Usable: `172.16.1.129` – `172.16.1.190` | Broadcast: `172.16.1.191`.
+- *Step 4: WAN Links (2 hosts each).* Formula: $2^H - 2 = 2$. For $H=2$, $2^2 - 2 = 2$. Subnet mask: $32 - 2 = bold("/30")$ (`255.255.255.252`).
+  - WAN 1: `172.16.1.192/30` (`172.16.1.193` – `172.16.1.194`, Broadcast: `.195`)
+  - WAN 2: `172.16.1.196/30` (`172.16.1.197` – `172.16.1.198`, Broadcast: `.199`)
+  - WAN 3: `172.16.1.200/30` (`172.16.1.201` – `172.16.1.202`, Broadcast: `.203`)
+  - WAN 4: `172.16.1.204/30` (`172.16.1.205` – `172.16.1.206`, Broadcast: `.207`)
+
+#pagebreak()
+
+== Student Technical FAQs
+#faq-box("Why do we subtract 2 in the usable host formula (2^H - 2)?", "The very first address where all host bits are zero represents the Network ID. The final address where all host bits are binary 1s is the Directed Broadcast Address. Neither can ever be assigned to an end host interface.")
+#faq-box("Can /31 subnets be used on point-to-point links?", "Yes, RFC 3021 permits /31 subnets (mask 255.255.255.254, 2 total addresses) exclusively on point-to-point links where broadcast is unnecessary, conserving IP space in massive enterprise backbones.")
+#faq-box("What is the difference between classful subnetting and VLSM?", "Classful subnetting enforces the exact same subnet mask across every subnet, causing severe address waste. VLSM (Variable Length Subnet Masking) allows different subnets within the same major network to use customized masks tailored to exact host requirements.")
+
+#v(2pt)
+
+== Short-Answer Technical Review
+1. *Determine the valid host range for the subnet containing 192.168.5.85/28:* Subnet mask `/28` has block size $256 - 240 = 16$. Multiples: $0, 16, 32, 48, 64, bold(80), 96$. Network ID is `192.168.5.80/28`. Usable host range: `192.168.5.81` to `192.168.5.94`. Broadcast: `192.168.5.95`.
+2. *State the RFC 1918 private address ranges:* `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
+3. *Identify the default subnet mask for an unsubnetted Class B address:* `255.255.0.0` (`/16`).
+4. *Calculate the wildcard mask corresponding to subnet mask 255.255.255.224:* Invert each octet from 255: $255.255.255.255 - 255.255.255.224 = bold(0.0.0.31)$.
+
+#v(2pt)
+
+== High-Yield Exam MCQs
+#mcq-item(
+  "An engineer must subnet 10.50.0.0/16 to support at least 500 hosts per subnet while maximizing the number of subnets. Which CIDR prefix should be chosen?",
+  ("/22", "/23", "/24", "/25"),
+  1,
+  "Formula: 2^H - 2 >= 500. For H=9: 2^9 - 2 = 510 hosts. Prefix length = 32 - 9 = /23 (mask 255.255.254.0)."
 )
 
-#v(2pt)
-
-#photo-card(
-  "../03_VISUAL_ASSETS/authentic-hardware-photographs/network-switch-gigabit.jpg",
-  caption: "Figure 3.1: Enterprise Managed Switch terminating multiple routed /24 and /27 VLAN subnets.",
-  height: 52pt
+#mcq-item(
+  "Which IP address is a valid usable host address within the 172.20.32.0/20 network?",
+  ("172.20.32.0", "172.20.47.255", "172.20.40.100", "172.20.48.1"),
+  2,
+  "/20 has block size 16 in the 3rd octet. Subnet range: 172.20.32.0 to 172.20.47.255. 172.20.40.100 is valid within this usable range."
 )
 
-#v(2pt)
-
-== 3.6 Variable Length Subnet Masking (VLSM) Strategy
-VLSM allows an engineer to allocate different subnet masks to different segments of the same network address space, eliminating wasted host addresses.
-- *The Golden Rule of VLSM:* Always sort requirements in #hl[descending order of required host count] (Largest to Smallest) before allocating addresses!
-- If you allocate small subnets first, larger contiguous blocks cannot be formed without overlapping.
-
-
-#v(3pt)
-
-
-== 3.7 Solved VLSM Enterprise Case Study
-*Scenario:* Design subnets for enterprise network `192.168.10.0/24` with the following departmental requirements:
-1. Sales Department: 55 Hosts $|$ 2. Engineering Lab: 28 Hosts $|$ 3. Management: 12 Hosts $|$ 4. Router P2P Link 1: 2 Hosts $|$ 5. Router P2P Link 2: 2 Hosts.
-
-#v(1.5pt)
-
-#table(
-  columns: (1fr, 0.9fr, 0.9fr, 1.2fr, 1.1fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 2.5pt,
-  table.header([*Department*], [*Needed*], [*Mask*], [*Network ID*], [*Usable Range*], [*Broadcast ID*]),
-  [1. Sales], [55], [/26 (62)], [`192.168.10.0`], [`.1` – `.62`], [`192.168.10.63`],
-  [2. Engineering], [28], [/27 (30)], [`192.168.10.64`], [`.65` – `.94`], [`192.168.10.95`],
-  [3. Management], [12], [/28 (14)], [`192.168.10.96`], [`.97` – `.110`], [`192.168.10.111`],
-  [4. P2P Link 1], [2], [/30 (2)], [`192.168.10.112`], [`.113` – `.114`], [`192.168.10.115`],
-  [5. P2P Link 2], [2], [/30 (2)], [`192.168.10.116`], [`.117` – `.118`], [`192.168.10.119`],
-  [Unallocated], [Free], [/25+], [`192.168.10.120`], [Free for future growth], [`192.168.10.255`]
+#mcq-item(
+  "A host with IP 169.254.10.20 cannot reach the Internet. What is the root cause?",
+  ("DNS misconfiguration", "APIPA auto-assignment due to DHCP failure", "Duplicate IP conflict", "Default gateway ACL drop"),
+  1,
+  "169.254.0.0/16 is APIPA. When a host fails to receive a DHCP Offer, it self-assigns an APIPA address and cannot route beyond the local link."
 )
 
 #v(2pt)
 
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 6pt,
-  [
-    #concept-box(title: "Magic Number Worked Example")[
-      *Target IP:* `172.16.45.195/27`      - /27 mask = `255.255.255.224`      - Interesting Octet = 4th octet (224)      - Magic Number = $256 - 224 = 32$      - Multiples of 32: $0, 32, 64, 96, 128, 160, 192, 224$      - 195 lies between 192 and 224.      - *Network ID:* `172.16.45.192`      - *Broadcast ID:* `172.16.45.223`      - *Usable Range:* `172.16.45.193` to `.222`
-    ]
-  ],
-  [
-    #concept-box(title: "Subnetting Formula Proof")[
-      *Number of Subnets created:* $2^S$      (where $S$ is borrowed subnet bits `1`)      *Number of Usable Hosts:* $2^H - 2$      (where $H$ is remaining host bits `0`)      *Example:* Borrowing 3 bits from /24 yields a /27 subnet:      - Subnets = $2^3 = 8$ subnets      - Hosts per net = $2^5 - 2 = 30$ hosts.
-    ]
-  ]
-)
+== Did You Know & 2027 Tech Spotlight
+#fact-box("Did You Know? The \$50 Billion IPv4 Address Exhaustion", "IANA officially allocated its last IPv4 /8 blocks in February 2011. Today, clean /24 IPv4 address blocks trade on commercial broker markets for over \$55 per individual IP address, driving aggressive IPv6 migration.")
 
-#v(2pt)
-
-== 3.8 Practical Cisco IOS Interface Addressing Commands
-To assign IPv4 addresses and verify subnetting on Cisco routers:
-```bash
-Router(config)# interface GigabitEthernet0/0/0
-Router(config-if)# ip address 192.168.10.1 255.255.255.192
-Router(config-if)# no shutdown
-Router(config-if)# exit
-Router# show ip interface brief | include up
-```
-
-
-#v(3pt)
-
-
-
-== 3.6 IPv4 Subnetting & Wildcard Mask Fast-Lookup Super Matrix
-#table(
-  columns: (0.8fr, 1.5fr, 1.4fr, 1.1fr, 1.2fr, 1fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 2.8pt,
-  table.header([*CIDR*], [*Subnet Mask*], [*Wildcard Mask*], [*Total IPs*], [*Usable Hosts*], [*Block Size*]),
-  [/24], [255.255.255.0], [0.0.0.255], [256], [254], [256],
-  [/25], [255.255.255.128], [0.0.0.127], [128], [126], [128],
-  [/26], [255.255.255.192], [0.0.0.63], [64], [62], [64],
-  [/27], [255.255.255.224], [0.0.0.31], [32], [30], [32],
-  [/28], [255.255.255.240], [0.0.0.15], [16], [14], [16],
-  [/29], [255.255.255.248], [0.0.0.7], [8], [6], [8],
-  [/30], [255.255.255.252], [0.0.0.3], [4], [2 (Point-to-Point)], [4],
-  [/31], [255.255.255.254], [0.0.0.1], [2], [2 (RFC 3021 Routers)], [2],
-  [/32], [255.255.255.255], [0.0.0.0], [1], [1 (Single Host / Loopback)], [1]
-)
-
-#v(3pt)
-
-== 3.7 Special & Reserved IPv4 Address Blocks Architecture
-Beyond standard classful and RFC 1918 private addressing, specific IPv4 blocks are globally reserved by IANA:
-- *Loopback Block (`127.0.0.0/8`):* `127.0.0.1` represents the local host TCP/IP stack. Packets sent to `127.0.0.1` never exit the physical NIC. Used for software testing and internal process communication.
-- *APIPA / Link-Local (`169.254.0.0/16` - RFC 3927):* Automatic Private IP Addressing. When a DHCP client broadcasts `DHCPDISCOVER` and receives no response after 60 seconds, the OS self-assigns an address in `169.254.1.0` - `169.254.254.255`. APIPA allows local subnet communication but cannot reach the default gateway or Internet!
-- *Documentation / Test Ranges (RFC 5737):* `192.0.2.0/24` (TEST-NET-1), `198.51.100.0/24` (TEST-NET-2), and `203.0.113.0/24` (TEST-NET-3). Reserved strictly for educational textbooks and vendor configuration examples; never routable on the public Internet.
-- *Carrier-Grade NAT (CGNAT - RFC 6598):* `100.64.0.0/10` (`100.64.0.0` - `100.127.255.255`). Used by mobile network operators and ISPs to perform massive shared address translation between customer CPE routers and the ISP core.
-
-== Comprehensive Review, FAQs & Chapter Evaluation
-
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[1. Frequently Asked Student Questions (FAQs)]
-#faq-item(q: "Why do we subtract 2 in the host formula (2^H - 2)?", a: "The first address in any subnet represents the Network ID (all host bits 0) and the last address represents the Directed Broadcast Address (all host bits 1). Neither can be assigned to an individual host NIC.")
-#faq-item(q: "What is the Magic Number for a /29 subnet mask?", a: "A /29 mask has 29 ones, making the 4th octet 248. The Magic Number is 256 - 248 = 8. Each subnet increments by 8, yielding 6 usable hosts.")
-#faq-item(q: "Can two different departments in an enterprise use the same IP address range?", a: "Only if they reside in isolated VRF (Virtual Routing and Forwarding) instances or separate private NAT domains. Within a flat routed campus, duplicate IP addresses cause ARP conflicts and routing blackholes.")
-
-#v(1pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[2. Short-Answer Review Questions]
-#short-q(num: 1, q: "Identify the RFC standard that defines Private IPv4 address blocks.", ans: "RFC 1918.")
-#short-q(num: 2, q: "What is the network ID and broadcast ID of host 10.1.50.85/26?", ans: "Network ID: 10.1.50.64; Broadcast ID: 10.1.50.127 (Block size 64).")
-#short-q(num: 3, q: "How many usable host IP addresses are provided by a /30 subnet?", ans: "Exactly 2 usable hosts (2^2 - 2 = 2).")
-#short-q(num: 4, q: "What special address range is represented by 169.254.0.0/16?", ans: "Automatic Private IP Addressing (APIPA) link-local range.")
-
-#v(1pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[3. 5 High-Yield Multiple-Choice Questions (MCQs)]
-#mcq(num: 1, q: "Which subnet mask provides at least 50 usable host IP addresses while wasting the minimum number of addresses?", a: "255.255.255.128 (/25)", b: "255.255.255.192 (/26)", c: "255.255.255.224 (/27)", d: "255.255.255.240 (/28)", ans: "B", expl: "/26 provides 2^6 - 2 = 62 usable hosts, which satisfies the 50-host requirement with minimal waste. /27 only provides 30 hosts.")
-#mcq(num: 2, q: "What is the Broadcast Address for the subnet containing host 192.168.1.135 with subnet mask 255.255.255.224?", a: "192.168.1.143", b: "192.168.1.159", c: "192.168.1.191", d: "192.168.1.255", ans: "B", expl: "Block size is 32 (256 - 224). Subnet boundaries are 0, 32, 64, 96, 128, 160. Host 135 is in subnet 128. Broadcast is 159.")
-#mcq(num: 3, q: "Which address is a valid RFC 1918 private IPv4 address?", a: "172.32.10.1", b: "192.169.1.5", c: "172.25.100.50", d: "11.0.0.1", ans: "C", expl: "Class B private range spans 172.16.0.0 through 172.31.255.255. 172.25.100.50 falls squarely within this range.")
-#mcq(num: 4, q: "When performing Variable Length Subnet Masking (VLSM), what is the first rule of allocation?", a: "Allocate point-to-point links first", b: "Sort departments from largest host requirement to smallest", c: "Assign /24 masks to all interfaces", d: "Convert all IP addresses to hexadecimal", ans: "B", expl: "VLSM requires assigning the largest subnets first to prevent address fragmentation and overlapping subnet blocks.")
-#mcq(num: 5, q: "What is the purpose of the bitwise Boolean AND operation performed by a router during packet forwarding?", a: "To calculate packet checksums", b: "To determine if the destination IP is on the local subnet or requires a default gateway", c: "To encrypt the payload", d: "To negotiate port speed", ans: "B", expl: "The router ANDs the destination IP with the subnet mask to determine the target Network ID for routing table lookup.")
-
-#v(1pt)
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 5pt,
-  [
-    #fact-box(title: "The RFC 3021 /31 Breakthrough")[
-      RFC 3021 allows /31 subnets (2 addresses, no network or broadcast address) strictly on point-to-point links, saving millions of IPv4 addresses worldwide!
-    ]
-  ],
-  [
-    #tech-spotlight-box(title: "Carrier-Grade NAT (CGNAT)")[
-      ISPs assign RFC 6598 addresses (`100.64.0.0/10`) to home routers to share a single public IPv4 address across thousands of mobile subscribers.
-    ]
-  ]
-)
-
-#v(1pt)
-#practice-lab-placeholder(lang: "en")
+#spotlight-box("2027 Tech Spotlight: AI-Driven Automated IPAM Systems", "Modern cloud-native enterprises manage millions of dynamic container IP endpoints using Infoblox and NetBox IPAM integrated with Kubernetes CNI (Container Network Interface) plugins to automate zero-collision subnet provisioning.")

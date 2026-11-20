@@ -1,18 +1,18 @@
 #import "../07_PUBLISHING_ENGINE/master-theme.typ": *
 
-#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 02 · PHYSICAL LAYER & CABLING STANDARDS]
+#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 02 · PHYSICAL MEDIA & CABLING STANDARDS]
 = Chapter 2: Cabling Standards, Hardware Ports & Media
 
 #text(size: 8.5pt, fill: rtech-text.lighten(20%))[
-  Physical Layer transmission media, copper UTP twisted pair categories, T568A vs T568B termination pinouts, Straight-Through vs Crossover pinout math, Single-Mode vs Multi-Mode fiber optics, transceivers (SFP, SFP+, QSFP28), console ports, and collision vs broadcast domains.
+  Physical Layer transmission media, copper UTP twisted pair categories, T568A vs T568B termination pinouts, Straight-Through vs Crossover pinout math, Single-Mode vs Multi-Mode optical fiber, transceivers, console connections, and collision vs broadcast domains.
 ]
 
 #v(2pt)
 
 == 2.1 Copper Transmission Media & Twisted Pair Physics
-Copper cabling remains the backbone of enterprise campus access layers. Unshielded Twisted Pair (UTP) cancels Electromagnetic Interference (EMI) and radio frequency interference (RFI) via #hl[differential signaling across tightly twisted wire pairs].
-- *Twisting Principle:* Current flowing through a wire generates an electromagnetic field. Twisting adjacent wires causes equal and opposite fields to cancel each other, mitigating crosstalk (NEXT - Near-End Crosstalk).
-- *Attenuation & Velocity of Propagation:* High-frequency signals weaken as distance increases. Maximum channel link distance for certified Ethernet copper runs is strictly #hl[100 meters (90m solid horizontal run + 10m stranded patch cords)].
+Copper cabling remains the backbone of enterprise campus access layers. Unshielded Twisted Pair (UTP) cancels Electromagnetic Interference (EMI) and radio frequency interference (RFI) via #hl[differential signaling across tightly twisted wire pairs]:
+- *Twisting Principle:* Current flowing through a wire generates an electromagnetic field. Twisting adjacent wires causes equal and opposite fields to cancel each other, mitigating Near-End Crosstalk (NEXT).
+- *Channel Link Distance:* Maximum certified Ethernet copper channel distance is strictly #hl[100 meters (90m solid horizontal run + 10m stranded patch cords)].
 
 #v(2pt)
 
@@ -38,15 +38,30 @@ Ethernet modular 8P8C (RJ45) terminations adhere to two standardized color codes
 - *Straight-Through Cable:* Both ends terminate with the #hl[same pinout] (A-to-A or B-to-B). Connects disparate Layer devices (PC to Switch, Router to Switch).
 - *Crossover Cable:* One end terminates in T568A, the other in T568B (swapping pins 1/2 with 3/6). Connects identical Layer devices (Switch to Switch, Router to PC, Router to Router). Modern NICs feature *Auto-MDIX* to automatically detect and correct pinouts.
 
-
-#v(3pt)
-
+#pagebreak()
 
 == 2.4 Optical Fiber Physics: Single-Mode vs Multi-Mode Fiber
 When transmission distances exceed 100 meters or enterprise noise levels are severe, optical fiber is required:
 - *Core Physics:* Light propagates through a glass silica core via #hl[Total Internal Reflection (TIR)], bounded by cladding with a lower refractive index.
 - *Single-Mode Fiber (SMF):* Extremely thin core (9 $mu$m). Emits a single ray path via laser diode (1310nm / 1550nm). Negligible modal dispersion, enabling spans of #hl[10 km to 80+ km]. Standard for campus backbones and telco WANs (Yellow jacket).
 - *Multi-Mode Fiber (MMF):* Wider core (50 $mu$m / 62.5 $mu$m). Light bounces across multiple ray paths via VCSEL LEDs (850nm). Susceptible to modal dispersion; distance limited to #hl[300m to 550m] (Aqua/Orange jacket).
+
+#v(2pt)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 6pt,
+  [
+    #image("/07_SOURCE_FILES/03_VISUAL_ASSETS/authentic-hardware-photographs/rj45-connector-cat6.jpg", width: 92%)
+    #v(1pt)
+    #text(size: 6.5pt, fill: rtech-muted)[Figure 2.1: Precision Cat6 RJ45 8P8C Connector.]
+  ],
+  [
+    #image("/07_SOURCE_FILES/03_VISUAL_ASSETS/authentic-hardware-photographs/fiber-optic-duplex-lc.jpg", width: 92%)
+    #v(1pt)
+    #text(size: 6.5pt, fill: rtech-muted)[Figure 2.2: Duplex LC Optical Fiber Termination.]
+  ]
+)
 
 #v(2pt)
 
@@ -65,157 +80,53 @@ When transmission distances exceed 100 meters or enterprise noise levels are sev
 
 #v(2pt)
 
-#photo-card(
-  "../03_VISUAL_ASSETS/authentic-hardware-photographs/fiber-optic-duplex-lc.jpg",
-  caption: "Figure 2.1: Duplex LC Optical Fiber connector with ceramic ferrule for high-speed SFP+ uplinks.",
-  height: 52pt
+== 2.6 Console Ports & Collision vs Broadcast Domains
+- *Console Ports:* Out-of-band management access. Cisco routers provide RJ45 rollover console ports (9600 baud, 8 data bits, no parity, 1 stop bit, no flow control: 9600-8-N-1) and modern USB Type-B / Type-C console interfaces.
+- *Collision Domain:* A physical network segment where packets can collide. Legacy hubs formed a single collision domain. Every switch port creates a #hl[separate collision domain] operating in full duplex.
+- *Broadcast Domain:* The scope across which a broadcast frame (e.g., ARP, DHCP) propagates. Switches forward broadcasts across all ports in the same VLAN. Routers #hl[break broadcast domains] at Layer 3.
+
+#pagebreak()
+
+== Student Technical FAQs
+#faq-box("Why does Single-Mode fiber transmit so much farther than Multi-Mode fiber?", "Single-Mode fiber has a microscopic 9-micron core that permits only a single ray of laser light to travel straight down the center. Multi-Mode fiber has a wider 50-micron core where light bounces at multiple angles, causing modal dispersion that degrades the signal over distance.")
+#faq-box("Does Auto-MDIX make crossover cables obsolete in modern production?", "Yes. Auto-MDIX automatically senses the required transmit/receive pinout on modern NICs and switch ports. However, crossover pinout theory remains a critical CCNA exam requirement.")
+#faq-box("How many broadcast domains exist on a 24-port switch with default configuration?", "Exactly one. By default, all 24 ports belong to VLAN 1. Creating separate VLANs is required to segment the switch into multiple broadcast domains.")
+
+#v(2pt)
+
+== Short-Answer Technical Review
+1. *State the maximum channel link distance for certified Cat6 copper Ethernet:* 100 meters (90 meters permanent horizontal solid link + 10 meters patch cords).
+2. *Identify the pins swapped when converting a T568A cable to T568B:* Pins 1 and 2 swap with pins 3 and 6 (Green pair swaps with Orange pair).
+3. *Name the standard transceiver form factor used for 10 Gigabit Ethernet uplinks:* SFP+ (Enhanced Small Form-Factor Pluggable).
+4. *Distinguish how switches and routers affect collision and broadcast domains:* A switch breaks collision domains per port but preserves broadcast domains; a router breaks both collision and broadcast domains per interface.
+
+#v(2pt)
+
+== High-Yield Exam MCQs
+#mcq-item(
+  "An engineer is terminating an RJ45 connector using T568B. Which color wire must be placed into Pin 1?",
+  ("White/Green", "White/Orange", "Solid Orange", "White/Blue"),
+  1,
+  "In the T568B standard, Pin 1 is White/Orange and Pin 2 is Orange."
+)
+
+#mcq-item(
+  "Which optical fiber connector features a small form-factor push-pull latching mechanism commonly used with SFP/SFP+ transceivers?",
+  ("SC Connector", "ST Connector", "Duplex LC Connector", "BNC Connector"),
+  2,
+  "The Duplex LC (Lucent Connector) is the universal standard for SFP, SFP+, and SFP28 optical modules."
+)
+
+#mcq-item(
+  "A network has a 48-port Layer 2 switch with 3 VLANs configured: VLAN 10 (16 ports), VLAN 20 (16 ports), and VLAN 30 (16 ports). How many broadcast domains exist?",
+  ("1", "3", "48", "16"),
+  1,
+  "Each configured VLAN constitutes a separate Layer 2 broadcast domain. Therefore, 3 VLANs create exactly 3 broadcast domains."
 )
 
 #v(2pt)
 
-== 2.6 Collision Domains vs Broadcast Domains
-Understanding Layer 1 and Layer 2 boundary physics is foundational for network architecture:
-1. *Collision Domain:* A physical network segment where data frames can collide if two endpoints transmit simultaneously.
-   - *Legacy Hubs:* A hub is a Layer 1 multiport repeater; all ports share #hl[one single collision domain] (Half-Duplex CSMA/CD).
-   - *Modern Switches:* A Layer 2 switch micro-segments traffic; #hl[each switch port is an independent collision domain] operating in Full-Duplex.
-2. *Broadcast Domain:* A logical segment bounded by Layer 3 devices where a Layer 2 broadcast frame (`FFFF.FFFF.FFFF`) is forwarded.
-   - Switches flood broadcasts out all ports within the same VLAN; an unsegmented switch is #hl[one single broadcast domain].
-   - *Routers block Layer 2 broadcasts; each router interface terminates and bounds a broadcast domain*.
+== Did You Know & 2027 Tech Spotlight
+#fact-box("Did You Know? Why Copper Wire Pairs Have Different Twist Rates", "Inside a high-grade Cat6a cable, each of the four wire pairs is twisted at a slightly different twist rate (turns per inch). This mathematical offset prevents electromagnetic coupling between adjacent pairs inside the same outer jacket.")
 
-
-#v(3pt)
-
-
-== 2.7 Console Cables & Out-of-Band Management Hardware
-When a brand new Cisco router or switch is delivered from the factory without an IP address, *Out-of-Band (OOB)* management is required:
-- *Rollover Console Cable (RJ45 to DB9 / USB):* Pin 1 connects to Pin 8, Pin 2 to Pin 7, reversing all pins. Connects laptop COM port to the Cisco RJ45 CONSOLE port.
-- *USB Console Ports (Mini-B / Type-C):* Modern Cisco Catalyst 9000 switches feature integrated mini-USB or Type-C console ports requiring the Silicon Labs CP210x serial driver.
-- *Serial Terminal Settings:* Baud Rate: #hl[9600 bps], Data Bits: 8, Parity: None, Stop Bits: 1, Flow Control: None (abbreviated *9600-8-N-1*).
-
-#v(2pt)
-
-#table(
-  columns: (1.2fr, 1.4fr, 1.4fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 2.8pt,
-  table.header([*Device Type*], [*OSI Operating Layer*], [*Collision Domains*], [*Broadcast Domains*]),
-  [Hub / Repeater], [Layer 1 (Physical)], [1 (Shared across all ports)], [1 (All ports shared)],
-  [Bridge], [Layer 2 (Data Link)], [1 per port], [1 (Shared across bridge)],
-  [Switch], [Layer 2 (Data Link)], [#hl[1 per port (Full Duplex)]], [1 per VLAN (Switches flood broadcasts)],
-  [Router], [Layer 3 (Network)], [1 per port], [#hl[1 per port (Routers break broadcasts)]]
-)
-
-#v(2pt)
-
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 6pt,
-  [
-    #concept-box(title: "CSMA/CD Mechanism (Half Duplex)")[
-      Carrier Sense Multiple Access with Collision Detection:      1. *Listen before Talk:* Host senses carrier voltage.      2. *Contention:* If wire idle, host transmits frame.      3. *Collision Detect:* If simultaneous transmit occurs, jam signal emitted; hosts wait random truncated binary exponential backoff time. Full-Duplex disables CSMA/CD.
-    ]
-  ],
-  [
-    #concept-box(title: "Fiber LC Cleaning & Eye Safety Warning")[
-      Always inspect optical connectors with a fiberscope before insertion; microscopic dust blocks laser photons and cracks ferrule faces.      #text(fill: rtech-rose, weight: "bold")[NEVER LOOK DIRECTLY INTO AN ACTIVE FIBER PORT!] Invisible infrared laser emissions (1310/1550nm) cause irreversible retinal thermal burns.
-    ]
-  ]
-)
-
-#v(2pt)
-
-== 2.8 Common Physical Layer Troubleshooting Commands
-To diagnose physical layer faults on Cisco IOS devices:
-- `show interfaces status` — Displays port speed, duplex, duplex mismatch errors, and SFP transceiver presence.
-- `show interfaces [interface] | include CRC` — CRC errors indicate faulty copper crimps, damaged patch panels, or electromagnetic noise.
-- `show controllers [interface]` — Identifies connected cable type (DTE vs DCE on legacy serial cables).
-
-
-#v(3pt)
-
-
-
-== 2.6 Optical Transceiver Form Factors & Fiber Specifications
-Modern Cisco switches utilize modular hot-swappable optical transceivers to connect campus and datacenter fiber links:
-#table(
-  columns: (1fr, 1.1fr, 1.4fr, 1.3fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 3pt,
-  table.header([*Transceiver*], [*Max Speed*], [*Fiber Media*], [*Max Distance*], [*Common Enterprise Application*]),
-  [1000BASE-SX], [1 Gbps], [Multimode (OM2/OM3)], [550 meters], [Intra-building building distribution uplinks (850nm laser).],
-  [1000BASE-LX], [1 Gbps], [Single-Mode (OS2)], [10 km], [Campus backbone and metropolitan interconnects (1310nm).],
-  [10GBASE-SR], [10 Gbps], [Multimode (OM3/OM4)], [300 - 400 meters], [Datacenter top-of-rack switch to server uplinks (SFP+).],
-  [10GBASE-LR], [10 Gbps], [Single-Mode (OS2)], [10 km], [Long-haul campus core and WAN point-to-point connections.],
-  [40GBASE-SR4], [40 Gbps], [Multimode MPO/MTP], [100 meters], [High-density QSFP+ spine-leaf switch interconnects.],
-  [100GBASE-LR4], [100 Gbps], [Single-Mode Duplex LC], [10 km], [Hyperscale cloud datacenter and telecom core backbones.]
-)
-
-#v(3pt)
-
-== 2.7 Twisted-Pair Category Standards & Pinout Reference
-#table(
-  columns: (1.1fr, 1.3fr, 1.3fr, 1.1fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 3pt,
-  table.header([*Category*], [*Max Speed*], [*Bandwidth*], [*Max Reach*], [*Shielding & Recommended Deployment*]),
-  [Cat 5e], [1 Gbps], [100 MHz], [100 meters], [UTP; legacy basic desktop connectivity.],
-  [Cat 6], [1 Gbps / 10 Gbps], [250 MHz], [100m (1G) / 55m (10G)], [UTP/STP with internal spline separator; enterprise horizontal cabling.],
-  [Cat 6a], [10 Gbps], [500 MHz], [100 meters], [F/UTP or STP; high-performance 10G enterprise workstations & Wi-Fi 6/7 APs.],
-  [Cat 7 / 8], [25G / 40 Gbps], [600 - 2000 MHz], [30 meters (Cat 8)], [S/FTP fully shielded; datacenter top-of-rack server patching.]
-)
-
-#v(3pt)
-
-== 2.8 Power over Ethernet (PoE) IEEE Standards & Power Budgets
-Power over Ethernet delivers direct electrical current alongside data over twisted-pair copper cabling, eliminating external AC power supplies for remote devices:
-- *IEEE 802.3af (PoE Type 1):* Provides up to #hl[15.4 Watts] at switch port (delivers 12.95W to device over Cat3/5). Powers basic VoIP phones and stationary IP security cameras.
-- *IEEE 802.3at (PoE+ Type 2):* Delivers up to #hl[30.0 Watts] at switch port (25.5W to device). Powers dual-band 802.11ac Wi-Fi access points and pan-tilt-zoom (PTZ) surveillance cameras.
-- *IEEE 802.3bt (PoE++ Type 3 / 4 / 4PPoE):*
-  - *Type 3:* Up to #hl[60 Watts] per port using all 4 pairs. Powers video conferencing screens and multi-radio Wi-Fi 6 APs.
-  - *Type 4 (Universal PoE):* Up to #hl[90 - 100 Watts] per port. Powers smart LED lighting fixtures, thin clients, and industrial IoT controllers.
-- *Cisco CLI PoE Verification:*
-  `Switch# show power inline` ; `Switch# show power inline GigabitEthernet0/1`
-
-== Comprehensive Review, FAQs & Chapter Evaluation
-
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[1. Frequently Asked Student Questions (FAQs)]
-#faq-item(q: "Why does Single-Mode fiber transmit much further than Multi-Mode fiber?", a: "Single-Mode fiber has an ultra-narrow core (9um) that permits only a single wavelength path, eliminating modal dispersion. Multi-Mode fiber has a wide core where multiple light rays reflect at different angles, creating modal distortion over distance.")
-#faq-item(q: "What causes a duplex mismatch and what are the symptoms?", a: "A duplex mismatch occurs when one port is set to Full-Duplex and the other to Half-Duplex (often due to failed autonegotiation). Symptoms include severe packet loss, late collisions, and degraded throughput.")
-#faq-item(q: "What is the certified maximum distance for Category 6 copper cable at 10 Gbps?", a: "Cat6 supports 10 Gbps up to 55 meters in standard environments (37 meters in high-crosstalk bundles). Cat6a is required for full 100-meter 10GBASE-T runs.")
-
-#v(1pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[2. Short-Answer Review Questions]
-#short-q(num: 1, q: "State the standardized terminal serial port configuration for Cisco console connections.", ans: "9600 Baud, 8 Data Bits, No Parity, 1 Stop Bit, No Flow Control (9600-8-N-1).")
-#short-q(num: 2, q: "How many collision domains does an unmanaged 24-port Gigabit Ethernet switch create?", ans: "24 collision domains (one per active full-duplex port).")
-#short-q(num: 3, q: "Which TIA/EIA pinout standard starts with White/Orange and Orange on pins 1 and 2?", ans: "TIA/EIA-568B.")
-#short-q(num: 4, q: "What metric does an optical time-domain reflectometer (OTDR) measure?", ans: "Fiber link attenuation, reflectance, fusion splice loss, and exact distance to physical breaks.")
-
-#v(1pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[3. 5 High-Yield Multiple-Choice Questions (MCQs)]
-#mcq(num: 1, q: "Which device breaks both collision domains and broadcast domains on every physical interface?", a: "Layer 2 Switch", b: "Ethernet Hub", c: "Network Router", d: "Wireless Access Point", ans: "C", expl: "Routers terminate Layer 2 broadcast domains and provide dedicated full-duplex collision domains per interface.")
-#mcq(num: 2, q: "What color jacket conventionally identifies Single-Mode optical fiber patch cords?", a: "Aqua (50/125)", b: "Orange (62.5/125)", c: "Yellow (9/125)", d: "Violet (OM4)", ans: "C", expl: "Single-Mode fiber (OS1/OS2) is standardized with a bright yellow outer PVC/LSZH jacket.")
-#mcq(num: 3, q: "What type of cable connects a Cisco router Gigabit interface directly to a laptop Ethernet port without Auto-MDIX?", a: "Straight-Through Cable", b: "Crossover Cable", c: "Rollover Cable", d: "Null Modem Cable", ans: "B", expl: "Router NICs and PC NICs transmit on pins 1/2 and receive on pins 3/6; a Crossover cable is required to align TX to RX.")
-#mcq(num: 4, q: "Which optical transceiver form factor supports 100 Gbps Ethernet throughput using 4 parallel 25G channels?", a: "SFP", b: "SFP+", c: "XFP", d: "QSFP28", ans: "D", expl: "Quad Small Form-factor Pluggable 28 (QSFP28) aggregates four 25 Gbps electrical lanes to deliver 100 Gbps.")
-#mcq(num: 5, q: "What symptom on a Cisco switch interface indicates that a copper cable is receiving excessive noise or faulty crimping?", a: "Input buffer drops", b: "Increasing CRC errors", c: "Gi0/1 line protocol down (disabled)", d: "High CPU utilization", ans: "B", expl: "Cyclic Redundancy Check (CRC) errors indicate corrupted frame check sequences (FCS) caused by physical noise or bad crimps.")
-
-#v(1pt)
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 5pt,
-  [
-    #fact-box(title: "The 100-Meter Physics Wall")[
-      Ethernet's 100m limit is governed by the round-trip slot time in CSMA/CD to guarantee collision detection before transmission finishes!
-    ]
-  ],
-  [
-    #tech-spotlight-box(title: "Co-Packaged Optics (CPO)")[
-      Modern 800G/1.6T AI switches mount lasers directly onto the silicon substrate next to the ASIC die to eliminate copper trace signal losses.
-    ]
-  ]
-)
-
-#v(1pt)
-#practice-lab-placeholder(lang: "en")
+#spotlight-box("2027 Tech Spotlight: Co-Packaged Optics (CPO)", "At 800 Gbps and 1.6 Tbps datacenter speeds, transmitting electrical signals across circuit boards wastes excessive power. Co-Packaged Optics mounts the optical laser engine directly onto the silicon switch ASIC substrate, slashing energy consumption by 30%.")

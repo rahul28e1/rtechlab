@@ -1,201 +1,115 @@
 #import "../07_PUBLISHING_ENGINE/master-theme.typ": *
 
-#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 01 · ENTERPRISE NETWORK ARCHITECTURE]
-= Chapter 1: Network Architecture & Modern Topologies
+#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 01 · NETWORK ARCHITECTURE & TOPOLOGIES]
+= Chapter 1: Enterprise Network Architecture & Topologies
 
 #text(size: 8.5pt, fill: rtech-text.lighten(20%))[
-  Foundations of enterprise network engineering: formal definitions, client-server vs peer-to-peer, physical vs logical topologies, Cisco 3-tier hierarchical architecture, 2-tier collapsed core, modern spine-leaf datacenter fabric, and wide area network (WAN) interconnects.
+  Enterprise network models, three-tier hierarchical architecture, two-tier collapsed core, modern datacenter spine-and-leaf designs, cloud topologies, WAN connectivity options, and foundational physical versus logical network topologies.
 ]
 
 #v(2pt)
 
-== 1.1 Enterprise Networking Fundamentals & Data Communication
-A computer network is an #hl[interconnected collection of autonomous computing nodes] communicating via standardized physical media and protocols to exchange digital bitstreams.
-- *Client-Server vs Peer-to-Peer (P2P):* In a *Client-Server* model, dedicated high-capacity systems (servers) host centralized directory, file, and web services, while client endpoints request resources subject to authentication and access control. In *P2P* networks, each host acts concurrently as both client and server without centralized administrative control, introducing security and manageability challenges at scale.
-- *Physical vs Logical Topology:* The *Physical Topology* describes the actual spatial layout and cabling routes of network devices (racks, patch panels, conduits). The *Logical Topology* defines the transmission paths taken by data frames across the network fabric, regardless of physical cabling arrangement (e.g., physical star with a logical bus).
+== 1.1 The Cisco Three-Tier Hierarchical Model
+Modern corporate networks require high availability, deterministic latency, and modular scalability. To prevent unmanageable spaghetti cabling and broadcast storms, Cisco established the #hl[Three-Tier Hierarchical Architecture]:
+- *Core Layer (Network Backbone):* The high-speed switching backbone of the campus. Its singular objective is to switch packets as fast as possible between distribution blocks and the enterprise edge. #hl[Never apply packet filtering, ACLs, QoS policing, or VLAN routing at the core], as inspection overhead induces latency and jitter. Core switches utilize redundant power supplies, hot-swappable supervisor engines, and 40G/100G optical links.
+- *Distribution Layer (Policy Boundary):* The intelligence boundary between access and core. It terminates Layer 2 VLANs, routes between subnets (Inter-VLAN routing), enforces security access control lists (ACLs), aggregates dual-homed access switches, and manages First Hop Redundancy Protocols (HSRP/VRRP).
+- *Access Layer (Workgroup Edge):* Where end devices (workstations, IP phones, Wi-Fi 6/7 Access Points, IoT sensors) physically interface with the network. Provides port security, 802.1X network access control, Power over Ethernet (PoE/PoE+), and initial QoS packet classification.
 
 #v(2pt)
 
-== 1.2 Comparison of Network Topologies & Failure Domains
 #table(
-  columns: (1fr, 1.3fr, 1.4fr, 2.3fr),
+  columns: (1.2fr, 2.2fr, 2.6fr),
   fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
-  table.header([*Topology*], [*Fault Tolerance*], [*Implementation Cost*], [*Enterprise Operational Characteristics*]),
-  [Star], [High (Single host failure isolated)], [Moderate (Central switch required)], [Standard campus access architecture. Failure of central switch collapses segment; mitigated by dual-homing.],
-  [Full Mesh], [Maximum ($N(N-1)/2$ physical links)], [Prohibitive at scale], [Used in enterprise Core and WAN edge. Every node connects to all others; zero downtime on single link failure.],
-  [Partial Mesh], [High (Redundant uplinks)], [Balanced / Practical], [Standard enterprise WAN and distribution layer. Core nodes have redundant backup paths to key sites.],
-  [Bus / Ring], [Low (Single break disrupts bus)], [Low / Legacy], [Legacy Ethernet (10BASE2/5) and Token Ring / FDDI. Rarely deployed in modern high-speed enterprise LANs.]
+  table.header([*Hierarchical Layer*], [*Primary Mission & Role*], [*Hardware Form Factors & Protocols*]),
+  [Core Layer], [High-speed transport backbone without packet inspection], [Cisco Catalyst 9500/9600, Nexus 9300, 100G QSFP28, OSPF/IS-IS],
+  [Distribution Layer], [Routing boundary, ACL filtering, QoS, VLAN termination], [Cisco Catalyst 9300/9400, SVI/ROAS, HSRP, 10G/25G SFP28 uplinks],
+  [Access Layer], [User port connectivity, PoE delivery, Port Security, 802.1X], [Catalyst 9200, 1G copper UTP, 802.3at PoE+ (30W), 802.3bt (90W)]
 )
 
 #v(2pt)
 
-== 1.3 The Cisco 3-Tier Hierarchical Network Design Model
-To build predictable, scalable, and manageable enterprise campuses, Cisco developed the 3-Tier model:
-- *Core Layer (High-Speed Backbone):* Engineered for maximum throughput and zero packet filtering. Its sole duty is to switch packets between distribution blocks as fast as possible using high-capacity L3 switches, redundant power supplies, and hot-swappable supervisor modules.
-- *Distribution Layer (Policy & Routing Boundary):* Aggregates access layer switches, terminates VLANs, executes inter-VLAN routing, enforces Access Control Lists (ACLs), manages QoS prioritization, and defines boundary security filters.
-- *Access Layer (Endpoint Connectivity):* Delivers network access to end-user workstations, IP phones, wireless access points (APs), and network printers. Enforces port security, 802.1X authentication, and PoE (Power over Ethernet).
-
-
-#v(3pt)
-
-
-== 1.4 The 2-Tier Collapsed Core Architecture
-In small to mid-sized enterprises (under 500 users) or branch offices, a full 3-tier hierarchy introduces unnecessary hardware expense and latency.
-- *Design Concept:* The Core and Distribution layers are physically combined into a single unified switching tier known as the #hl[Collapsed Core].
-- *Advantages:* Cuts initial capital expenditure (CapEx) and power consumption by half, simplifies routing protocols, reduces rack footprint, and minimizes management overhead while retaining dual-homed uplink redundancy from the access tier.
-- *Constraint:* Scalability is bounded. When port density or routing table size exceeds collapsed switch capacity, modular migration back to 3-tier is required.
+== 1.2 Two-Tier Collapsed Core Architecture
+In Small-to-Medium Businesses (SMBs) or branch offices with fewer than 500 users, deploying a separate physical core and distribution layer is financially unjustified. The #hl[Collapsed Core Topology] fuses the core and distribution functions into a single logical switching tier.
+- *Advantages:* Reduced capital expenditure (CapEx), lower power consumption, fewer rack units required, simplified spanning tree and routing topology.
+- *Limitation:* Less modular expandability when scaling past 2,000 active endpoints.
 
 #v(2pt)
 
-== 1.5 Modern Data Center Fabric: Spine-Leaf Architecture
-Traditional 3-tier Spanning Tree designs create unpredictable latency bottlenecks for East-West traffic (server-to-server traffic within modern virtualized clusters). Modern datacenters employ the *Spine-Leaf (Clos)* topology:
-- *Leaf Switches (Top-of-Rack / ToR):* Every server connects directly to Leaf switches. Leaf switches never connect to other Leafs.
-- *Spine Switches (High-Speed Fabric Core):* Every Leaf switch connects to #hl[every single Spine switch]. Spine switches never connect to other Spines.
-- *Predictable 2-Hop Latency:* Any server communicates with any other server across the datacenter in exactly *2 network hops* (Leaf $arrow$ Spine $arrow$ Leaf).
-- *Equal-Cost Multi-Path (ECMP):* Eliminates Spanning Tree link blocking. All uplink connections remain active concurrently, delivering massive bisectional bandwidth.
+== 1.3 Datacenter Spine-and-Leaf Architecture (Clos Fabric)
+Traditional three-tier architectures were optimized for North-South traffic (user-to-server). Modern microservices, Kubernetes clusters, and distributed databases produce overwhelming #hl[East-West traffic (server-to-server)]. The Spine-Leaf architecture solves oversubscription:
+- *Leaf Tier:* Every leaf switch connects to every spine switch in a full mesh. Servers connect exclusively to leaf switches.
+- *Spine Tier:* Spine switches connect only to leaf switches, never to servers or other spines.
+- *Predictable Latency:* Any server is strictly #hl[two hops away] from any other server in the fabric. Equal-Cost Multi-Path (ECMP) routing utilizes all physical uplinks simultaneously without Spanning Tree blocking.
+
+#pagebreak()
+
+== 1.4 Cloud Architectures & Deployment Models
+Enterprise workloads increasingly span on-premises datacenters and multi-cloud providers (AWS, Microsoft Azure, Google Cloud Platform):
+- *Infrastructure as a Service (IaaS):* Cloud provider manages physical hardware, virtualization, and datacenters. Enterprise engineers provision and manage virtual machines, virtual networks (VPC/VNet), routing tables, and firewalls.
+- *Platform as a Service (PaaS):* Provider manages underlying OS, runtime, and scaling. Engineers deploy application code without server maintenance.
+- *Software as a Service (SaaS):* Fully managed end-user applications delivered via web browsers (e.g., Microsoft 365, Salesforce).
 
 #v(2pt)
 
-#photo-card(
-  "../03_VISUAL_ASSETS/authentic-hardware-photographs/server-room-datacenter.jpg",
-  caption: "Figure 1.1: Enterprise Spine-Leaf Datacenter Fabric with redundant Top-of-Rack (ToR) fiber uplinks.",
-  height: 52pt
+#align(center)[
+  #image("/07_SOURCE_FILES/03_VISUAL_ASSETS/authentic-hardware-photographs/server-room-datacenter.jpg", width: 85%)
+  #v(1pt)
+  #text(size: 7pt, fill: rtech-muted)[Figure 1.1: Production Enterprise Datacenter Spine-Leaf & Server Aggregation Racks.]
+]
+
+#v(2pt)
+
+== 1.5 Physical vs Logical Topologies & WAN Connections
+A network's *Physical Topology* describes actual cable runs and hardware locations. The *Logical Topology* illustrates how data frames flow through the network regardless of physical placement.
+- *Point-to-Point:* Direct dedicated connection between two nodes (e.g., leased line or GRE tunnel).
+- *Star & Extended Star Topology:* All edge endpoints connect radially to central access switches. Dominates all modern campus LANs.
+- *Full Mesh Topology:* Every node connects directly to every other node ($N(N-1)/2$ links). Maximum fault tolerance, highest cost.
+- *Dual-Homed WAN Edge:* Edge routers connect to two separate Internet Service Providers (ISPs) using BGP or Floating Static Routes with IP SLA to eliminate single points of network failure.
+
+#pagebreak()
+
+== Student Technical FAQs
+#faq-box("Why is packet filtering forbidden at the Core Layer?", "The Core Layer is designed purely for wire-speed switching. Applying ACLs, deep packet inspection, or NAT forces CPU microcode interrupts, which introduces latency and jitter into the entire campus backbone.")
+#faq-box("How does Spine-Leaf eliminate Spanning Tree Protocol (STP)?", "Spine-Leaf operates Layer 3 routing (such as OSPF, BGP, or IS-IS) down to the leaf switches. Because Layer 3 uses Equal-Cost Multi-Path (ECMP) to load balance across all links, loops are prevented mathematically via TTL expiration, eliminating blocked STP ports.")
+#faq-box("What is the difference between North-South and East-West traffic?", "North-South traffic flows between clients on the Internet/campus and internal servers. East-West traffic flows horizontally between servers inside the datacenter, such as database replication and microservice API calls.")
+
+#v(2pt)
+
+== Short-Answer Technical Review
+1. *Define the primary responsibility of the Cisco Distribution Layer:* Routing between VLANs, enforcing ACL security policies, aggregating access switches, and providing redundancy.
+2. *Calculate the number of links required for a 6-node Full Mesh topology:* $N(N-1)/2 = 6(5)/2 = 15$ physical links.
+3. *Identify two primary characteristics of a Collapsed Core design:* Combines Core and Distribution into one tier; ideal for small-to-midsize campuses to reduce hardware cost.
+4. *Explain the role of ECMP in modern datacenter fabrics:* Equal-Cost Multi-Pathing allows traffic to be dynamically distributed across all spine switches simultaneously without blocking.
+
+#v(2pt)
+
+== High-Yield Exam MCQs
+#mcq-item(
+  "An enterprise network engineer needs to connect 8 branch offices to headquarters with full redundancy. Which topology provides the highest fault tolerance?",
+  ("Hub-and-Spoke", "Bus Topology", "Full Mesh", "Ring Topology"),
+  2,
+  "Full Mesh provides direct interconnected links between all nodes, ensuring that the failure of any single link never disconnects a site."
+)
+
+#mcq-item(
+  "At which layer of the Cisco Three-Tier Hierarchical Model is 802.1Q Inter-VLAN routing typically performed?",
+  ("Access Layer", "Distribution Layer", "Core Layer", "Physical Layer"),
+  1,
+  "The Distribution layer is the Layer 2/3 boundary where default gateways (SVIs) and inter-VLAN routing reside."
+)
+
+#mcq-item(
+  "What is the maximum hop count between any two servers connected to a Spine-and-Leaf fabric?",
+  ("1 Hop", "2 Hops", "3 Hops", "Variable depending on STP state"),
+  1,
+  "In a standard two-tier Spine-Leaf fabric, a frame travels Leaf 1 -> Spine -> Leaf 2, which is strictly a 2-hop journey."
 )
 
 #v(2pt)
 
-== 1.6 Wide Area Network (WAN) Architectures & SOHO Edge
-Modern enterprise communication extends far beyond local physical campuses:
-1. *Point-to-Point Leased Lines (T1/E1, Metro Ethernet):* Dedicated, unshared bandwidth between two geographic endpoints; high reliability and security but expensive monthly recurring cost.
-2. *MPLS (Multiprotocol Label Switching):* Service-provider managed label-switched wide area network enabling guaranteed SLA metrics, traffic engineering, and private Layer 3 VPN connectivity.
-3. *SD-WAN (Software-Defined WAN):* Decouples control plane from underlying transport (Broadband, 4G/5G, MPLS), dynamically routing packets based on real-time jitter, packet loss, and application SLAs.
-4. *Small Office / Home Office (SOHO):* Integrates modem, router, firewall, 4-port Gigabit switch, and Wi-Fi access point into a single customer-premises equipment (CPE) appliance using NAT/PAT.
+== Did You Know & 2027 Tech Spotlight
+#fact-box("Did You Know? The Death of Spanning Tree in Datacenters", "Traditional datacenters lost up to 50% of their purchased network bandwidth because Spanning Tree Protocol forcibly blocked redundant uplinks to prevent loops. Modern datacenters utilize Leaf-Spine fabrics running VXLAN with BGP EVPN control planes, keeping 100% of uplinks actively forwarding.")
 
-
-#v(3pt)
-
-
-== 1.7 Network Topologies & Operational Metrics Matrix
-#table(
-  columns: (1fr, 1.3fr, 1.1fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 2.8pt,
-  table.header([*Architecture*], [*Primary Traffic Flow*], [*Redundancy Protocol*], [*Key Design Rule & Constraint*]),
-  [3-Tier Campus], [North-South (User to Internet/DC)], [HSRP / VRRP / STP], [Never configure packet filtering or ACLs on Core tier; keep Core pure high-speed packet switching.],
-  [Collapsed Core], [North-South & Local Inter-VLAN], [StackWise / VSS], [Ideal for 200–500 users. L3 routing and ACL policy enforced directly on the collapsed core switches.],
-  [Spine-Leaf], [East-West (Server to Server)], [ECMP L3 Routing (BGP/OSPF)], [Leaf switches must connect to every Spine; no Leaf-to-Leaf or Spine-to-Spine interconnections allowed.],
-  [SD-WAN Edge], [Dynamic Multi-Path WAN], [IPsec VPN Tunnels], [Applies application-aware routing over commodity internet; automatically steers VoIP over best-latency link.]
-)
-
-#v(2pt)
-
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 6pt,
-  [
-    #concept-box(title: "North-South vs East-West Traffic")[
-      *North-South Traffic:* Traffic entering or exiting the datacenter boundary (e.g., external user accessing a web portal via firewall and internet router).      *East-West Traffic:* Traffic moving laterally between servers, storage nodes, and microservices inside the datacenter (e.g., API backend querying database cluster). Spine-Leaf optimizes East-West traffic.
-    ]
-  ],
-  [
-    #concept-box(title: "Three-Tier Redundancy Rule")[
-      In a production 3-Tier design, each Access switch MUST maintain redundant physical uplinks to *two distinct Distribution switches*. Spanning Tree Protocol (STP) blocks one link to prevent Layer 2 loops while First Hop Redundancy Protocols (HSRP/VRRP) provide instant default-gateway failover.
-    ]
-  ]
-)
-
-#v(2pt)
-
-== 1.8 Summary of Enterprise Network Roles & Boundaries
-Enterprise network architecture establishes clear boundaries between operational domains:
-1. *Campus LAN:* High-bandwidth, low-latency infrastructure owned and operated internally by the enterprise.
-2. *Enterprise Edge:* The security perimeter hosting DMZ servers, next-generation firewalls (NGFW), border routers, and VPN concentrators.
-3. *Service Provider Core:* The carrier infrastructure (Tier 1 ISPs, telecom providers) transporting transit traffic across transatlantic fiber cables and national backbones.
-
-
-#v(3pt)
-
-
-
-== 1.6 Enterprise Topology Architecture Comparison Matrix
-#table(
-  columns: (1.2fr, 1.4fr, 1.4fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 3pt,
-  table.header([*Topology Model*], [*Target Scale*], [*Layer 2 / 3 Boundary*], [*Production Engineering Characteristics*]),
-  [Three-Tier Hierarchical], [Large Enterprise (1000+ hosts)], [Routed at Core/Distribution], [Strict segregation: Core (high-speed transport), Distribution (policy/routing), Access (endpoints).],
-  [Two-Tier Collapsed Core], [Medium/SMB (50 - 500 hosts)], [Routed at Collapsed Tier], [Combines Core and Distribution into single physical or VSS/StackWise switch pair. Cost-effective.],
-  [Spine-Leaf (Clos)], [Datacenter & Cloud Fabrics], [Routed at Leaf Switches (L3)], [Every Leaf connects to every Spine. Deterministic 2-hop East-West traffic latency. Loop-free without STP.],
-  [SOHO Architecture], [Branch / Home (1 - 25 hosts)], [Routed at Edge Gateway], [Integrated single-chassis router/switch/firewall/AP appliance. Uplink via single broadband/LTE ISP.]
-)
-
-#v(3pt)
-
-== 1.7 Cloud Service & Deployment Models Reference Matrix
-Cloud computing shifts enterprise workloads from physical on-premises datacenters to shared or private virtualization pools:
-#table(
-  columns: (1fr, 1.3fr, 1.5fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 3pt,
-  table.header([*Model*], [*Management Boundary*], [*Customer Responsibility*], [*Enterprise Example & CCNA Relevance*]),
-  [IaaS (Infrastructure)], [Hardware / Hypervisor], [OS, Middleware, Apps, Data], [AWS EC2, Cisco Cloud Services Router (CSR1000v), Azure VM.],
-  [PaaS (Platform)], [Underlying OS & Runtimes], [Application Code & Data], [AWS Elastic Beanstalk, Google App Engine. No OS maintenance.],
-  [SaaS (Software)], [Entire Stack Managed], [User Access & Configuration], [Cisco Webex, Microsoft 365, Salesforce. Complete turnkey service.],
-  [Private Cloud], [On-Premises Dedicated], [Total Stack Control & SLA], [VMware vSphere / OpenStack deployed in corporate datacenter.],
-  [Hybrid Cloud], [Interconnected Public/Private], [Unified Security & Orchestration], [On-premises database connected via AWS Direct Connect / IPsec VPN.]
-)
-
-#v(3pt)
-
-== 1.8 Network Performance Metrics & Quality of Service (QoS)
-Network performance is objectively measured across four core metrics governed by Service Level Agreements (SLAs):
-- *Bandwidth vs Throughput:* *Bandwidth* is the theoretical maximum data transfer capacity of a physical medium (e.g. 1 Gbps GigabitEthernet). *Throughput* is the actual rate of successfully delivered application data payload after subtracting Layer 2/3/4 header overhead, collisions, and retransmissions.
-- *Latency (Delay):* The elapsed time required for a packet to travel from source to destination. Sources include *Propagation Delay* (speed of light in copper/fiber: ~5 microseconds per kilometer), *Serialization Delay* (time to push bits onto wire), and *Queuing Delay* (time waiting in switch buffers).
-- *Jitter (Delay Variation):* The statistical variance in packet arrival times. High jitter causes audio distortion and video stuttering in Real-Time Transport Protocol (RTP) voice/video streams.
-- *Packet Loss:* Percentage of packets discarded due to link congestion or buffer overflow. Enterprise VoIP requires packet loss under #hl[1%], latency under #hl[150 ms], and jitter under #hl[30 ms].
-
-== Comprehensive Review, FAQs & Chapter Evaluation
-
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[1. Frequently Asked Student Questions (FAQs)]
-#faq-item(q: "Why should ACLs never be configured on the Cisco 3-Tier Core Layer?", a: "The Core layer is optimized exclusively for maximum packet throughput and low latency. Processing ACLs requires CPU cycles and packet inspection that create severe throughput bottlenecks.")
-#faq-item(q: "What is the primary operational advantage of Spine-Leaf over traditional 3-Tier?", a: "Spine-Leaf guarantees consistent 2-hop latency for server-to-server (East-West) traffic and utilizes Equal-Cost Multi-Path (ECMP) so all links are actively forwarding without STP blocking.")
-#faq-item(q: "When should an engineer select a Collapsed Core over a 3-Tier design?", a: "Collapsed Core is ideal for small to mid-sized campuses (under 500 users) where budget, power, and physical space do not justify separate physical core switches.")
-
-#v(1pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[2. Short-Answer Review Questions]
-#short-q(num: 1, q: "Name the three functional layers of the classic Cisco Hierarchical Model.", ans: "Core Layer, Distribution Layer, and Access Layer.")
-#short-q(num: 2, q: "How many physical links are required in a full-mesh topology with 8 nodes?", ans: "28 physical links (Formula: N(N-1)/2 = 8*7/2 = 28).")
-#short-q(num: 3, q: "What traffic pattern dominates modern cloud and virtualized datacenters?", ans: "East-West traffic (server-to-server and microservice communication).")
-#short-q(num: 4, q: "Which network layer enforces 802.1X port security and Power over Ethernet (PoE)?", ans: "The Access Layer.")
-
-#v(1pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[3. 5 High-Yield Multiple-Choice Questions (MCQs)]
-#mcq(num: 1, q: "Which tier in the Cisco 3-tier model is responsible for routing policy, VLAN termination, and ACL enforcement?", a: "Core Layer", b: "Distribution Layer", c: "Access Layer", d: "Physical Layer", ans: "B", expl: "The Distribution Layer aggregates access switches and enforces security boundaries, routing policies, and QoS.")
-#mcq(num: 2, q: "In a Spine-Leaf datacenter fabric, which device-to-device connection is strictly PROHIBITED?", a: "Leaf to Server", b: "Leaf to Spine", c: "Spine to Spine", d: "Leaf to Storage Array", ans: "C", expl: "In Spine-Leaf Clos architecture, Spines never connect to other Spines, and Leafs never connect to other Leafs.")
-#mcq(num: 3, q: "What is the main benefit of a 2-Tier Collapsed Core architecture?", a: "Eliminates need for Layer 3 routing", b: "Reduces cost, cabling, and hardware footprint while maintaining redundancy", c: "Provides infinite horizontal scalability", d: "Replaces Ethernet with InfiniBand", ans: "B", expl: "Collapsed Core combines Core and Distribution into one tier, reducing hardware cost and complexity for smaller networks.")
-#mcq(num: 4, q: "How many network hops are traversed between any two servers in a Spine-Leaf network?", a: "1 hop", b: "Exactly 2 hops", c: "3 to 5 hops depending on STP", d: "Variable based on MTU", ans: "B", expl: "Traffic travels from source Leaf to Spine, then directly to destination Leaf, ensuring a deterministic 2-hop journey.")
-#mcq(num: 5, q: "Which WAN technology decouples the control plane from physical hardware and dynamically routes over broadband and MPLS?", a: "Frame Relay", b: "ATM", c: "SD-WAN", d: "Dial-up ISDN", ans: "C", expl: "Software-Defined WAN (SD-WAN) virtualizes WAN connections and dynamically routes traffic based on real-time link quality.")
-
-#v(1pt)
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 5pt,
-  [
-    #fact-box(title: "The Bisectional Bandwidth Rule")[
-      In a non-blocking Spine-Leaf fabric, the total uplink bandwidth from Leafs to Spines must equal or exceed total downlink bandwidth to servers to prevent congestion!
-    ]
-  ],
-  [
-    #tech-spotlight-box(title: "AI Cluster InfiniBand & 800G Fabrics")[
-      Modern generative AI training datacenters utilize 800 Gbps optical transceivers and Ultra Ethernet / InfiniBand fabrics with sub-microsecond latency.
-    ]
-  ]
-)
-
-#v(1pt)
-#practice-lab-placeholder(lang: "en")
+#spotlight-box("2027 Tech Spotlight: Cisco Silicon One & AI Fabric Topologies", "Next-generation AI/ML cluster workloads demand ultra-low latency lossy-free networks using RoCEv2 (RDMA over Converged Ethernet). Cisco Silicon One architecture delivers 51.2 Tbps single-chip routing capacity to power multi-gigawatt AI training datacenters.")

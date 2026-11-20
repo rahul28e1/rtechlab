@@ -113,9 +113,9 @@
                 radius: 3pt,
                 inset: 5pt,
                 [
-                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[10 Chapters]\
+                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[16 In-Depth Modules]\
                   #v(1pt)
-                  #text(size: 6.3pt, fill: rgb("#64748B"))[Architecture, Subnetting, IPv6, Cisco CLI, VLANs & OSPF]
+                  #text(size: 6.3pt, fill: rgb("#64748B"))[Architecture, Subnetting, IPv6, Cisco CLI, VLANs, OSPF & GNS3]
                 ]
               )
             ],
@@ -141,7 +141,7 @@
                 radius: 3pt,
                 inset: 5pt,
                 [
-                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0284C7"))[50 MNC Q&As]\
+                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0284C7"))[60+ MNC Q&As]\
                   #v(1pt)
                   #text(size: 6.3pt, fill: rgb("#64748B"))[Cisco TAC, TCS, Wipro, Airtel Placement Solutions]
                 ]

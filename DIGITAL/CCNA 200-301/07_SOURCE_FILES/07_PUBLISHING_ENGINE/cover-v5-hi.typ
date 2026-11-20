@@ -113,9 +113,9 @@
                 radius: 3pt,
                 inset: 5pt,
                 [
-                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[10 संपूर्ण अध्याय]\
+                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[16 संपूर्ण मॉड्यूल]\
                   #v(1pt)
-                  #text(size: 6.3pt, fill: rgb("#64748B"))[आर्किटेक्चर, सबनेटिंग, IPv6, सिस्को CLI, VLAN एवं OSPF]
+                  #text(size: 6.3pt, fill: rgb("#64748B"))[आर्किटेक्चर, सबनेटिंग, IPv6, सिस्को CLI, VLAN, OSPF एवं GNS3]
                 ]
               )
             ],
@@ -141,7 +141,7 @@
                 radius: 3pt,
                 inset: 5pt,
                 [
-                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0284C7"))[50 MNC साक्षात्कार]\
+                  #text(size: 7.5pt, weight: "bold", fill: rgb("#0284C7"))[60+ MNC साक्षात्कार]\
                   #v(1pt)
                   #text(size: 6.3pt, fill: rgb("#64748B"))[सिस्को TAC, TCS, Wipro, Airtel तकनीकी समाधान]
                 ]
@@ -194,3 +194,5 @@
     ]
   )
 }
+
+#let rtech-cover-v5 = rtech-cover-hindi-v5

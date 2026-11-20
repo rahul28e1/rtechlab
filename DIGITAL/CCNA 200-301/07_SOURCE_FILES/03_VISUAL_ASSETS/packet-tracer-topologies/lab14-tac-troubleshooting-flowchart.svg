@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 190" width="100%" height="100%" style="background:#0F172A; border-radius:6px; font-family:'Segoe UI',sans-serif;">
+  <rect x="0" y="0" width="780" height="24" fill="#1E293B" rx="6" ry="6"/>
+  <circle cx="14" cy="12" r="4" fill="#EF4444"/>
+  <circle cx="28" cy="12" r="4" fill="#F59E0B"/>
+  <circle cx="42" cy="12" r="4" fill="#10B981"/>
+  <text x="60" y="16" fill="#94A3B8" font-size="10" font-weight="bold">Cisco TAC Enterprise 5-Tier Systematic Triage Flowchart</text>
+  <rect x="690" y="5" width="78" height="14" fill="#DC2626" rx="3"/>
+  <text x="698" y="15" fill="#FFFFFF" font-size="8" font-weight="bold">TAC ENGINE</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(30, 48)">
+    <rect width="125" height="90" rx="4" fill="#1E293B" stroke="#EF4444" stroke-width="1.5"/>
+    <text x="10" y="20" fill="#F87171" font-size="9" font-weight="bold">1. Physical (L1)</text>
+    <text x="10" y="38" fill="#94A3B8" font-size="7.5">LED Link Amber/Off?</text>
+    <text x="10" y="52" fill="#94A3B8" font-size="7.5">`show interfaces`</text>
+    <text x="10" y="66" fill="#CBD5E1" font-size="7">Cable/SFP replacement</text>
+    <text x="10" y="80" fill="#10B981" font-size="7">up / up verified</text>
+  </g>
+  <text x="165" y="98" fill="#64748B" font-size="14">→</text>
+
+  <!-- Step 2 -->
+  <g transform="translate(185, 48)">
+    <rect width="125" height="90" rx="4" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="10" y="20" fill="#FBBF24" font-size="9" font-weight="bold">2. Data Link (L2)</text>
+    <text x="10" y="38" fill="#94A3B8" font-size="7.5">Port Security err-disable?</text>
+    <text x="10" y="52" fill="#94A3B8" font-size="7.5">Trunk / Native VLAN 99?</text>
+    <text x="10" y="66" fill="#CBD5E1" font-size="7">`show mac address-table`</text>
+    <text x="10" y="80" fill="#10B981" font-size="7">STP Forwarding active</text>
+  </g>
+  <text x="320" y="98" fill="#64748B" font-size="14">→</text>
+
+  <!-- Step 3 -->
+  <g transform="translate(340, 48)">
+    <rect width="125" height="90" rx="4" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="10" y="20" fill="#60A5FA" font-size="9" font-weight="bold">3. Network (L3)</text>
+    <text x="10" y="38" fill="#94A3B8" font-size="7.5">IP &amp; Mask correct?</text>
+    <text x="10" y="52" fill="#94A3B8" font-size="7.5">`show ip route`</text>
+    <text x="10" y="66" fill="#CBD5E1" font-size="7">LPM matching check</text>
+    <text x="10" y="80" fill="#10B981" font-size="7">Default gateway ping</text>
+  </g>
+  <text x="475" y="98" fill="#64748B" font-size="14">→</text>
+
+  <!-- Step 4 -->
+  <g transform="translate(495, 48)">
+    <rect width="125" height="90" rx="4" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="10" y="20" fill="#A78BFA" font-size="9" font-weight="bold">4. Routing / OSPF</text>
+    <text x="10" y="38" fill="#94A3B8" font-size="7.5">`show ip ospf neighbor`</text>
+    <text x="10" y="52" fill="#94A3B8" font-size="7.5">MTU / Area mismatch?</text>
+    <text x="10" y="66" fill="#CBD5E1" font-size="7">Hello/Dead timers</text>
+    <text x="10" y="80" fill="#10B981" font-size="7">Full/DR adjacency</text>
+  </g>
+  <text x="630" y="98" fill="#64748B" font-size="14">→</text>
+
+  <!-- Step 5 -->
+  <g transform="translate(645, 48)">
+    <rect width="115" height="90" rx="4" fill="#1E293B" stroke="#10B981" stroke-width="1.5"/>
+    <text x="10" y="20" fill="#34D399" font-size="9" font-weight="bold">5. Policy (L4-L7)</text>
+    <text x="10" y="38" fill="#94A3B8" font-size="7.5">ACL implicit deny?</text>
+    <text x="10" y="52" fill="#94A3B8" font-size="7.5">`show ip nat trans`</text>
+    <text x="10" y="66" fill="#CBD5E1" font-size="7">DNS resolution test</text>
+    <text x="10" y="80" fill="#10B981" font-size="7">End-to-End Traffic OK</text>
+  </g>
+
+  <rect x="220" y="156" width="340" height="22" rx="4" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="230" y="171" fill="#38BDF8" font-size="8.5" font-weight="bold">Systematic bottom-up triage eliminates 90% of escalated enterprise tickets</text>
+</svg>

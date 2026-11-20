@@ -27,42 +27,66 @@
 // PAGE 2: BLUEPRINT
 #include "../07_PUBLISHING_ENGINE/blueprint-v5.typ"
 
-// PAGES 3–6: CHAPTER 1
+// CHAPTER 1
 #pagebreak()
 #include "chapter-01.typ"
 
-// PAGES 7–10: CHAPTER 2
+// CHAPTER 2
 #pagebreak()
 #include "chapter-02.typ"
 
-// PAGES 11–14: CHAPTER 3
+// CHAPTER 3
 #pagebreak()
 #include "chapter-03.typ"
 
-// PAGES 15–18: CHAPTER 4
+// CHAPTER 4
 #pagebreak()
 #include "chapter-04.typ"
 
-// PAGES 19–22: CHAPTER 5
+// CHAPTER 5
 #pagebreak()
 #include "chapter-05.typ"
 
-// PAGES 23–26: CHAPTER 6
+// CHAPTER 6
 #pagebreak()
 #include "chapter-06.typ"
 
-// PAGES 27–30: CHAPTER 7
+// CHAPTER 7
 #pagebreak()
 #include "chapter-07.typ"
 
-// PAGES 31–34: CHAPTER 8
+// CHAPTER 8
 #pagebreak()
 #include "chapter-08.typ"
 
-// PAGES 35–38: CHAPTER 9
+// CHAPTER 9
 #pagebreak()
 #include "chapter-09.typ"
 
-// PAGES 39–45: CHAPTER 10
+// CHAPTER 10
 #pagebreak()
 #include "chapter-10.typ"
+
+// CHAPTER 11
+#pagebreak()
+#include "chapter-11.typ"
+
+// CHAPTER 12
+#pagebreak()
+#include "chapter-12.typ"
+
+// CHAPTER 13
+#pagebreak()
+#include "chapter-13.typ"
+
+// CHAPTER 14
+#pagebreak()
+#include "chapter-14.typ"
+
+// CHAPTER 15
+#pagebreak()
+#include "chapter-15.typ"
+
+// CHAPTER 16
+#pagebreak()
+#include "chapter-16.typ"

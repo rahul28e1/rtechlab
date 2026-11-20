@@ -1,12 +1,12 @@
 #import "../07_PUBLISHING_ENGINE/master-theme.typ": *
-#import "../07_PUBLISHING_ENGINE/cover-v5-hi.typ": rtech-cover-hindi-v5
+#import "../07_PUBLISHING_ENGINE/cover-v5-hi.typ": rtech-cover-v5
 
 #set document(
-  title: "RTechLab Cisco CCNA 200-301 Master Guide (Hindi Edition 1)",
+  title: "RTechLab Cisco CCNA 200-301 Master Guide - Hindi (Edition 1)",
   author: "Rahul Patel"
 )
 
-// PAGE 1: COVER
+// PAGE 1: COVER (HINDI)
 #set page(
   paper: "a4",
   flipped: false,
@@ -14,55 +14,79 @@
   header: none,
   footer: none
 )
-#rtech-cover-hindi-v5()
+#rtech-cover-v5()
 
 // PAGE 2 ONWARDS: PUBLISHING THEME APPLIED
 #show: rtech-book.with(
-  title: "Cisco CCNA 200-301 Master Guide (Hindi)",
-  edition: "2027 Master Edition · Hindi Edition 1 Commercial Release",
-  author: "Rahul Patel",
+  title: "सिस्को CCNA 200-301 मास्टर गाइड",
+  edition: "2027 मास्टर संस्करण · संस्करण 1 वाणिज्यिक रिलीज",
+  author: "राहुल पटेल",
   subject-code: "RTL-2027-CCNA-ED1-HI"
 )
 
-// PAGE 2: BLUEPRINT
+// PAGE 2: BLUEPRINT (HINDI)
 #include "../07_PUBLISHING_ENGINE/blueprint-v5-hi.typ"
 
-// PAGES 3–6: CHAPTER 1
+// CHAPTER 1 (HINDI)
 #pagebreak()
 #include "chapter-01.typ"
 
-// PAGES 7–10: CHAPTER 2
+// CHAPTER 2 (HINDI)
 #pagebreak()
 #include "chapter-02.typ"
 
-// PAGES 11–14: CHAPTER 3
+// CHAPTER 3 (HINDI)
 #pagebreak()
 #include "chapter-03.typ"
 
-// PAGES 15–18: CHAPTER 4
+// CHAPTER 4 (HINDI)
 #pagebreak()
 #include "chapter-04.typ"
 
-// PAGES 19–22: CHAPTER 5
+// CHAPTER 5 (HINDI)
 #pagebreak()
 #include "chapter-05.typ"
 
-// PAGES 23–26: CHAPTER 6
+// CHAPTER 6 (HINDI)
 #pagebreak()
 #include "chapter-06.typ"
 
-// PAGES 27–30: CHAPTER 7
+// CHAPTER 7 (HINDI)
 #pagebreak()
 #include "chapter-07.typ"
 
-// PAGES 31–34: CHAPTER 8
+// CHAPTER 8 (HINDI)
 #pagebreak()
 #include "chapter-08.typ"
 
-// PAGES 35–38: CHAPTER 9
+// CHAPTER 9 (HINDI)
 #pagebreak()
 #include "chapter-09.typ"
 
-// PAGES 39–45: CHAPTER 10
+// CHAPTER 10 (HINDI)
 #pagebreak()
 #include "chapter-10.typ"
+
+// CHAPTER 11 (HINDI)
+#pagebreak()
+#include "chapter-11.typ"
+
+// CHAPTER 12 (HINDI)
+#pagebreak()
+#include "chapter-12.typ"
+
+// CHAPTER 13 (HINDI)
+#pagebreak()
+#include "chapter-13.typ"
+
+// CHAPTER 14 (HINDI)
+#pagebreak()
+#include "chapter-14.typ"
+
+// CHAPTER 15 (HINDI)
+#pagebreak()
+#include "chapter-15.typ"
+
+// CHAPTER 16 (HINDI)
+#pagebreak()
+#include "chapter-16.typ"

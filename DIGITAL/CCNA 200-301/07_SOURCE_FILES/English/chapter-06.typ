@@ -1,202 +1,158 @@
 #import "../07_PUBLISHING_ENGINE/master-theme.typ": *
 
-#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 06 · CISCO CLI COMMANDS & HARDENING]
-= Chapter 6: Production Cisco CLI Commands & Baseline Hardening
+#text(size: 8pt, font: "Segoe UI", weight: "bold", fill: rtech-emerald)[CHAPTER 06 · CISCO IOS CLI & DISASTER RECOVERY]
+= Chapter 6: Cisco IOS CLI Modes, Password Recovery (0x2142) & TFTP Disaster Recovery
 
 #text(size: 8.5pt, fill: rtech-text.lighten(20%))[
-  Mastery of Cisco IOS command-line hierarchy: prompt navigation modes, productivity shortcuts, global configuration syntax, administrative password encryption, enterprise SSH v2 2048-bit RSA deployment, console port security, CDP and LLDP neighbor discovery triage, interface speed/duplex negotiation, and TFTP disaster recovery backup/restore operations.
+  Cisco IOS CLI navigation hierarchy, foundational security hardening, step-by-step password recovery via ROMMON confreg 0x2142, and TFTP backup and restoration disaster recovery workflows.
 ]
 
 #v(2pt)
 
-== 6.1 Cisco IOS Command-Line Hierarchy & Navigation
-The Cisco Internetwork Operating System (IOS) enforces a strict hierarchical access tree to prevent unauthorized or accidental modifications:
-- *1. User Exec Mode (`Router>`):* Initial unprivileged monitoring mode. Allows basic inspection (`ping`, `traceroute`, `show version`). Cannot alter device state or view full running configuration.
-- *2. Privileged Exec Mode (`Router#`):* Administrative inspection mode entered via `enable`. Allows full configuration inspection (`show running-config`), flash file management (`dir`, `delete`), debugging, and software reboots (`reload`).
-- *3. Global Configuration Mode (`Router(config)#`):* System-wide configuration mode entered via `configure terminal`. Commands configured here impact the entire device (hostname, banners, routing protocols, user databases).
-- *4. Contextual Configuration Sub-Modes:*
-  - *Interface Mode (`Router(config-if)#`):* `interface GigabitEthernet0/0/0` — Port IP addresses, speed, duplex, switchport modes.
-  - *Subinterface Mode (`Router(config-subif)#`):* `interface g0/0/0.10` — 802.1Q VLAN encapsulation tags and routed IP addresses.
-  - *Line Configuration Mode (`Router(config-line)#`):* `line console 0` or `line vty 0 4` — Console and remote terminal security.
-  - *Routing Engine Mode (`Router(config-router)#`):* `router ospf 1` — Dynamic routing networks, areas, passive interfaces.
-
-#v(3pt)
-
-== 6.2 Essential Cisco CLI Keystrokes & Productivity Shortcuts
-#table(
-  columns: (1.2fr, 1.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
-  inset: 3pt,
-  table.header([*Shortcut Keystroke*], [*CLI Function*], [*Production Utility*]),
-  [`?` (Question Mark)], [Context-Sensitive Help], [Lists all valid keywords or syntax parameters available at the exact cursor position.],
-  [`Tab`], [Command Auto-Completion], [Completes a partially typed command once enough characters uniquely identify it.],
-  [`Ctrl + A`], [Move Cursor to Line Start], [Jumps immediately to the beginning of the command string for quick editing.],
-  [`Ctrl + E`], [Move Cursor to Line End], [Jumps immediately to the end of the command string.],
-  [`Ctrl + Z` or `end`], [Return to Privileged Mode], [Exits any deep sub-configuration level back to `Router#` in a single keystroke.],
-  [`Ctrl + C`], [Abort Running Command], [Terminates ongoing ping sequences, traceroutes, or raw terminal operations.],
-  [`Ctrl + Shift + 6`], [Break Sequence], [Interrupts hung DNS lookup broadcasts or deep IOS ping floods immediately.],
-  [`Up Arrow` / `Down Arrow`], [Command History], [Recalls the last 10 commands executed in the current session (configurable).]
-)
-
-#v(3pt)
-
-== 6.3 Baseline Device Configuration & Password Hardening
-When deploying any Cisco router or switch into production, the following baseline security controls must be configured:
-- *Disable DNS Lookups:* By default, if an engineer mistypes a command (e.g. `tehnet`), the router assumes it is a hostname and broadcasts DNS queries to `255.255.255.255`, hanging the CLI for up to 30 seconds:
-  `Router(config)# no ip domain-lookup`
-- *Message of the Day (MOTD) Banner:* Enforces legal notice informing unauthorized intruders of prosecution:
-  `Router(config)# banner motd # AUTHORIZED PERSONNEL ONLY. ALL SESSIONS MONITORED. #`
-- *Enable Secret vs Enable Password:*
-  - `enable password Cisco123`: Uses weak, easily cracked Type 7 Vigenere encryption. #hl[NEVER USE IN PRODUCTION!]
-  - `enable secret CiscoSecret2027!`: Computes a robust cryptographic SHA-256 or MD5 hash. Overrides `enable password`.
-- *Global Password Encryption:*
-  `Router(config)# service password-encryption` (Obfuscates plain-text passwords in `show running-config`).
-
-#v(3pt)
-
-== 6.4 Hands-On Practical Lab: Baseline Hardening & Enterprise SSH v2
-#text(size: 7.5pt, fill: rtech-text)[*Objective:* Deploy enterprise baseline security and SSH Version 2 on Cisco 2911 router (R1-EDGE-CORE). Generate a 2048-bit RSA keypair, create a local privilege-15 administrator, enforce console line timeouts with `logging synchronous`, and verify encrypted PuTTY access.]
+== 6.1 Cisco IOS CLI Command Hierarchy
+The Cisco Internetwork Operating System (IOS) organizes command execution into a strict permission hierarchy:
+- *User EXEC Mode (`Router>`):* Read-only basic monitoring. Permits basic ping, traceroute, and limited show commands.
+- *Privileged EXEC Mode (`Router#`):* Administrative control. Accessed via `enable`. Permits configuration viewing (`show running-config`), file manipulation, debugging, and reload.
+- *Global Configuration Mode (`Router(config)#`):* System-wide parameters. Accessed via `configure terminal`.
+- *Interface Configuration Submode (`Router(config-if)#`):* Specific port parameters (IP addressing, duplex, speed).
+- *Line Configuration Submode (`Router(config-line)#`):* Management lines (`line console 0`, `line vty 0 4`).
 
 #v(2pt)
-#image("/07_SOURCE_FILES/03_VISUAL_ASSETS/packet-tracer-topologies/lab01-ssh-topology.svg", width: 95%)
+
+== 6.2 Essential Security Hardening Configuration
+#terminal-box([
+```cisco
+Router(config)# hostname Edge-RTR
+Edge-RTR(config)# enable algorithm-type sha256 secret Cisco#123Secure!
+Edge-RTR(config)# service password-encryption
+Edge-RTR(config)# banner motd # AUTHORIZED ACCESS ONLY - VIOLATORS PROSECUTED #
+Edge-RTR(config)# line console 0
+Edge-RTR(config-line)# password ConsolePass#1
+Edge-RTR(config-line)# login
+Edge-RTR(config-line)# logging synchronous
+Edge-RTR(config-line)# exec-timeout 5 0
+Edge-RTR(config)# ip domain-name rtechlab.lan
+Edge-RTR(config)# crypto key generate rsa modulus 2048
+Edge-RTR(config)# ip ssh version 2
+Edge-RTR(config)# username admin privilege 15 secret AdminPass#2027
+Edge-RTR(config)# line vty 0 4
+Edge-RTR(config-line)# transport input ssh
+Edge-RTR(config-line)# login local
+```
+])
+
 #v(2pt)
 
-#table(
-  columns: (1fr, 1.2fr, 1.5fr, 1.4fr, 2fr),
-  stroke: 0.5pt + rtech-border,
-  fill: (col, row) => if row == 0 { rgb("#F1F5F9") } else { rgb("#FFFFFF") },
-  inset: (x: 5pt, y: 3pt),
-  [*Device*], [*Interface*], [*IP Address*], [*Subnet Mask*], [*Role / Notes*],
-  [R1-EDGE-CORE], [Gi0/0/0], [192.168.1.1], [255.255.255.0], [Management Gateway, SSH Server],
-  [Admin-Laptop], [FastEthernet0], [192.168.1.10], [255.255.255.0], [Admin PC, PuTTY / SSH Client],
-  [Admin-Laptop], [RS232 (COM)], [N/A (Console)], [N/A], [Light-Blue Rollover to R1 RJ45 Console]
-)
+#align(center)[
+  #image("/07_SOURCE_FILES/03_VISUAL_ASSETS/packet-tracer-topologies/lab01-ssh-topology.svg", width: 90%)
+  #v(1pt)
+  #text(size: 7pt, fill: rtech-muted)[Figure 6.1: Packet Tracer Lab 01 — Secure Out-of-Band SSH Management Topology.]
+]
 
-#v(2pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[Production Configuration Script (Copy-Paste Ready):]
+#pagebreak()
+
+== 6.3 Step-by-Step Password Recovery Procedure (Exact CLI Prompts)
+When administrative credentials are lost, the router password must be recovered without losing the production configuration:
+- *Step 1: Physical Console Connection:* Connect rollover console cable from PC COM/USB port to router Console port. Open PuTTY configured for `9600-8-N-1`.
+- *Step 2: Interrupt Boot Sequence:* Power cycle the router. Within 60 seconds of boot, press `Break` (or `Ctrl+Break` in PuTTY) to interrupt bootstrap and enter ROMMON mode.
+- *Step 3: Modify Configuration Register:*
+  At the `rommon 1 >` prompt, instruct the router to bypass NVRAM startup-config on next boot:
+  #terminal-box([
+```cisco
+rommon 1 > confreg 0x2142
+rommon 2 > reset
+```
+  ])
+- *Step 4: Bypass Initial Setup Dialog:*
+  The router reboots with factory defaults into RAM. Answer `no` when prompted:
+  `Would you like to enter the initial configuration dialog? [yes/no]: no`
+- *Step 5: Enter Privileged Mode & Restore Configuration:*
+  #hl[CRITICAL STEP: Do NOT enter 'configure terminal' first!] Copy startup-config from NVRAM into RAM so existing IP addresses and interface settings are preserved:
+  #terminal-box([
 ```cisco
 Router> enable
-Router# configure terminal
-R1-EDGE-CORE(config)# hostname R1-EDGE-CORE
-R1-EDGE-CORE(config)# no ip domain-lookup
-R1-EDGE-CORE(config)# banner motd # AUTHORIZED SESSIONS MONITORED. #
-R1-EDGE-CORE(config)# enable secret CiscoSecret2027!
-R1-EDGE-CORE(config)# service password-encryption
-! --- Line Console 0 Hardening ---
-R1-EDGE-CORE(config)# line console 0
-R1-EDGE-CORE(config-line)# password ConsolePass2027! ; login
-R1-EDGE-CORE(config-line)# exec-timeout 5 0 ; logging synchronous ; exit
-! --- SSH v2 Deployment ---
-R1-EDGE-CORE(config)# ip domain-name rtechlab.internal
-R1-EDGE-CORE(config)# crypto key generate rsa modulus 2048
-R1-EDGE-CORE(config)# ip ssh version 2
-R1-EDGE-CORE(config)# username netadmin privilege 15 secret AdminSecure2027!
-R1-EDGE-CORE(config)# line vty 0 4
-R1-EDGE-CORE(config-line)# transport input ssh ; login local
-R1-EDGE-CORE(config-line)# exec-timeout 10 0 ; logging synchronous ; exit
-! --- Interface Setup ---
-R1-EDGE-CORE(config)# interface GigabitEthernet0/0/0
-R1-EDGE-CORE(config-if)# description MGMT_LAN_INTERFACE
-R1-EDGE-CORE(config-if)# ip address 192.168.1.1 255.255.255.0 ; no shutdown
-R1-EDGE-CORE(config-if)# end ; copy running-config startup-config
+Router# copy startup-config running-config
 ```
+  ])
+- *Step 6: Reset Secret & Re-enable Interfaces:*
+  #terminal-box([
+```cisco
+Edge-RTR# configure terminal
+Edge-RTR(config)# enable secret NewMasterPassword#2027
+Edge-RTR(config)# interface GigabitEthernet0/0/0
+Edge-RTR(config-if)# no shutdown
+```
+  ])
+- *Step 7: Reset Configuration Register to Normal (0x2102):*
+  #hl[MANDATORY STEP: If forgotten, the router will ignore its configuration on every future reboot!]
+  #terminal-box([
+```cisco
+Edge-RTR(config)# config-register 0x2102
+Edge-RTR(config)# exit
+Edge-RTR# copy running-config startup-config
+Edge-RTR# reload
+```
+  ])
 
 #v(2pt)
-#terminal-specimen(title: "R1-EDGE-CORE# show ip ssh")[
-```text
-SSH Enabled - version 2.0
-Authentication timeout: 120 secs; Authentication retries: 3
-Minimum expected Diffie-Hellman key size : 2048 bits
-IOS Keys in SECSH format(ssh-rsa, base64 encoded): rtechlab.internal:2048
-R1-EDGE-CORE# show ip interface brief | include up
-GigabitEthernet0/0/0       192.168.1.1     YES manual up                    up
-```
-]
 
-#concept-box(title: "TAC FIELD ENGINEERING PRO-TIP: LOGGING SYNCHRONOUS")[
-  When working in Cisco CLI, unexpected Syslog messages (such as `%LINK-3-UPDOWN`) often interrupt your cursor in the middle of typing a command.
-  *Fix:* Always configure `logging synchronous` under `line con 0` and `line vty 0 4`. The router redisplays your currently typed string on a clean new line beneath the Syslog message!
-]
-
-#v(3pt)
-
-== 6.5 Cisco Router & IOS Backup and Restore via TFTP
-To prepare for hardware failure, configurations and IOS binary images must be regularly backed up to a central Trivial File Transfer Protocol (TFTP) server (UDP Port 69):
-- *Backing up Cisco IOS Image to TFTP:*
-  `Router# copy flash: tftp:`
-  `Source filename []? c2900-universalk9-mz.SPA.157-3.M3.bin`
-  `Address or name of remote host []? 192.168.1.100`
-  `Destination filename [c2900-universalk9-mz.SPA.157-3.M3.bin]? <Enter>`
-- *Backing up Running Configuration to TFTP:*
-  `Router# copy running-config tftp:`
-  `Address or name of remote host []? 192.168.1.100`
-  `Destination filename [r1-edge-core-confg]? R1-EDGE-CORE-CONFIG-BACKUP.cfg`
-- *Restoring Configuration from TFTP:*
-  `Router# copy tftp: running-config` (Merges TFTP configuration into active RAM).
-  `Router# copy tftp: startup-config` (Overwrites NVRAM with disaster recovery configuration).
-
-#v(3pt)
-
-== 6.6 Neighbor Discovery: Cisco CDP vs Industry-Standard LLDP
-Discovery protocols operate at Layer 2 to discover directly connected neighbors regardless of IP configurations:
-- *Cisco Discovery Protocol (CDP):* Cisco proprietary. Enabled by default. Multicast address `0100.0ccc.cccc`. Advertises device ID, local interface, capabilities (Router, Switch), platform model, and remote port ID every 60 seconds (Holdtime 180s).
-- *Link Layer Discovery Protocol (LLDP - IEEE 802.1AB):* Vendor-neutral open standard. Disabled by default on Cisco IOS. Transmits advertisements every 30 seconds (Holdtime 120s). Must be explicitly activated:
-  `Router(config)# lldp run` ; `Router(config-if)# lldp transmit` ; `Router(config-if)# lldp receive`
-
-#v(3pt)
-
-
-== 6.7 Interface Speed, Duplex & Error Counters Diagnostic Matrix
-When Ethernet interfaces experience physical link issues, `show interfaces` reports critical error counters:
+== 6.4 TFTP Server Backup & Disaster Recovery
+Production disaster recovery requires central off-box backups of configurations and operating system images:
 #table(
-  columns: (1fr, 1.4fr, 2.6fr),
+  columns: (1.5fr, 4fr),
   fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
-  table.header([*Error Metric*], [*Physical Root Cause*], [*Engineering Remediation & Triage*]),
-  [Runts], [Frames smaller than 64-byte minimum], [Caused by collisions, faulty NIC drivers, or transceiver electrical noise.],
-  [Giants], [Frames exceeding 1518-byte MTU limit], [Host transmitting baby-giant or jumbo frames without interface MTU adjustment.],
-  [CRC Errors], [Corrupted checksum in Ethernet trailer], [Defective Cat6 cable, bad RJ45 crimp, electromagnetic interference (EMI), or bad SFP.],
-  [Late Collisions], [Collision occurring after first 64 bytes], [#hl[Duplex Mismatch!] One side is set to Half-Duplex while the other is Full-Duplex.],
-  [Input Errors], [Total sum of runts, giants, and CRC errors], [Replace patch cord, clean fiber optical endfaces, or inspect switch ASIC port.]
+  table.header([*Disaster Recovery Task*], [*Production Cisco IOS CLI Command*]),
+  [Backup Running Config to TFTP], [`Edge-RTR# copy running-config tftp://192.168.1.50/Edge-RTR-cfg-backup`],
+  [Restore Running Config from TFTP], [`Edge-RTR# copy tftp://192.168.1.50/Edge-RTR-cfg-backup running-config`],
+  [Backup Flash IOS Image to TFTP], [`Edge-RTR# copy flash:c2900-universalk9-mz.bin tftp://192.168.1.50/`],
+  [Restore / Flash IOS from TFTP], [`Edge-RTR# copy tftp://192.168.1.50/c2900-universalk9-mz.bin flash:`],
+  [Verify IOS File Integrity Checksum], [`Edge-RTR# verify /md5 flash:c2900-universalk9-mz.bin`]
 )
 
-== Comprehensive Review, FAQs & Chapter Evaluation
+#pagebreak()
 
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[1. Frequently Asked Student Questions (FAQs)]
-#faq-item(q: "Why does crypto key generate rsa fail with an error asking for a domain name?", a: "The RSA public-private keypair requires a Fully Qualified Domain Name (FQDN) formed by combining the hostname with the domain name ('hostname.domain-name'). Without 'ip domain-name', the crypto engine cannot label the key!")
-#faq-item(q: "Why is Telnet strictly forbidden on enterprise production networks?", a: "Telnet transmits all data, including usernames and administrative passwords, in completely unencrypted cleartext. Anyone with Wireshark on the same subnet can capture the credentials in seconds. SSH v2 encrypts the entire session using AES/RSA.")
-#faq-item(q: "What is the difference between copy running-config startup-config and write memory?", a: "They perform the exact same operational task: writing the active RAM configuration into persistent NVRAM. 'copy running-config startup-config' is the official Cisco IOS syntax; 'write memory' (or 'wr') is an older legacy shortcut still supported in Cisco IOS.")
-
-#v(2pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[2. Short-Answer Review Questions]
-#short-q(num: 1, q: "Which command exits directly from interface configuration mode back to privileged EXEC mode in one step?", ans: "end (or keystroke Ctrl+Z).")
-#short-q(num: 2, q: "What is the minimum recommended RSA key modulus length for secure SSH Version 2 in enterprise environments?", ans: "2048 bits (minimum 1024 bits required by IOS; 2048 recommended for modern compliance).")
-#short-q(num: 3, q: "Identify the command used to prevent a Cisco router from hanging when an invalid command is mistyped.", ans: "no ip domain-lookup.")
-#short-q(num: 4, q: "Which UDP port number does Trivial File Transfer Protocol (TFTP) utilize for file transfers?", ans: "UDP Port 69.")
-#short-q(num: 5, q: "What command enables the vendor-neutral LLDP discovery protocol globally on a Cisco switch?", ans: "lldp run.")
+== Student Technical FAQs
+#faq-box("What happens if you enter 'configure terminal' instead of 'copy startup-config running-config' during password recovery?", "Entering global configuration directly writes a blank config into RAM. If you then save, you will completely overwrite and permanently destroy the entire production startup-config!")
+#faq-box("Why must interfaces be manually re-enabled after password recovery?", "When startup-config is loaded into running-config while the router is in bypass mode, Cisco IOS administratively shuts down all physical interfaces as a safety measure. You must issue 'no shutdown' on required interfaces.")
+#faq-box("What is the difference between 'enable password' and 'enable secret'?", "'enable password' uses weak reversible Type 7 Vigenere encryption. 'enable secret' uses irreversible Type 5 MD5 or Type 9 SHA-256 cryptographic hashes.")
 
 #v(2pt)
-#text(size: 7.5pt, weight: "bold", fill: rtech-navy)[3. 5 High-Yield Multiple-Choice Questions (MCQs)]
-#mcq(num: 1, q: "Which Cisco IOS prompt indicates that the administrator is currently in Global Configuration mode?", a: "Router>", b: "Router#", c: "Router(config)#", d: "Router(config-if)#", ans: "C", expl: "Router(config)# is Global Configuration mode. Router> is User Exec, Router# is Privileged Exec, and Router(config-if)# is Interface mode.")
-#mcq(num: 2, q: "What is the primary operational effect of configuring the logging synchronous command on a line console?", a: "It encrypts all console messages", b: "It redisplays the currently typed command line beneath any asynchronous Syslog message", c: "It synchronizes router time with an NTP server", d: "It enables SSH v2 logging", ans: "B", expl: "Logging synchronous prevents Syslog output from cutting off partially typed CLI commands by reprinting them neatly.")
-#mcq(num: 3, q: "Which command restricts virtual terminal (VTY) lines to accept strictly encrypted SSH connections while blocking cleartext Telnet?", a: "transport input all", b: "transport input ssh", c: "transport output telnet", d: "line vty ssh only", ans: "B", expl: "The command transport input ssh allows only SSH connections and automatically drops incoming Telnet sessions.")
-#mcq(num: 4, q: "Which command is utilized to verify directly connected neighboring Cisco hardware model and interface details?", a: "show ip route", b: "show cdp neighbors detail", c: "show ip arp", d: "show running-config", ans: "B", expl: "show cdp neighbors detail displays neighboring device IP addresses, IOS software version, platform model, and duplex settings.")
-#mcq(num: 5, q: "What command copies the currently running configuration into non-volatile storage to persist across reboots?", a: "copy startup-config running-config", b: "copy running-config startup-config", c: "copy flash: running-config", d: "reload save", ans: "B", expl: "copy running-config startup-config writes the volatile RAM active configuration to non-volatile NVRAM.")
+
+== Short-Answer Technical Review
+1. *State the command to generate 2048-bit RSA keys for SSH on Cisco IOS:* `crypto key generate rsa modulus 2048`.
+2. *Identify the exact ROMMON command used to bypass the startup-config:* `confreg 0x2142`.
+3. *Why is the command 'config-register 0x2102' required at the end of password recovery?* To restore normal boot behavior so the router reads the saved startup-config from NVRAM on subsequent power cycles.
+4. *Explain the purpose of 'logging synchronous' under line console 0:* It prevents unsolicited system log messages from interrupting and splitting the command line currently being typed by the engineer.
 
 #v(2pt)
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 5pt,
-  [
-    #fact-box(title: "The service password-encryption Weakness")[
-      `service password-encryption` applies Cisco Type 7 encryption, which uses a trivial XOR lookup key. Free web tools crack Type 7 in milliseconds! Always use `enable secret` and `algorithm-type scrypt`!
-    ]
-  ],
-  [
-    #tech-spotlight-box(title: "NETCONF & RESTCONF in 2027")[
-      Modern network engineers automate Cisco IOS-XE routers using programmatic APIs (NETCONF via SSH on port 830, and RESTCONF via HTTPS on port 443) using YANG data models rather than manual CLI!
-    ]
-  ]
+
+== High-Yield Exam MCQs
+#mcq-item(
+  "An engineer is connected to a router via console and needs to enter ROMMON mode. What must be done?",
+  ("Send the Break signal within 60 seconds of powering on", "Hold down the mode button for 30 seconds", "Type 'reload --rommon'", "Delete the IOS image from Flash"),
+  0,
+  "Sending a Break sequence via terminal emulator during POST interrupts the bootstrap loader and drops the router into ROMMON."
 )
+
+#mcq-item(
+  "Which command encrypts all existing plaintext passwords in the configuration file using Cisco Type 7 reversible hashing?",
+  ("enable secret", "service password-encryption", "crypto key generate rsa", "ip ssh version 2"),
+  1,
+  "'service password-encryption' obfuscates all plaintext line and enable passwords using Type 7 algorithm."
+)
+
+#mcq-item(
+  "After changing the secret during password recovery, what is the final command before reloading to make the new password permanent?",
+  ("copy startup-config running-config", "copy running-config startup-config", "erase startup-config", "write memory erase"),
+  1,
+  "'copy running-config startup-config' saves the new password and restored configuration into NVRAM."
+)
+
+#v(2pt)
+
+== Did You Know & 2027 Tech Spotlight
+#fact-box("Did You Know? Why Type 7 Passwords Are Never Secure", "Cisco Type 7 password encryption uses a fixed XOR key table that was reverse-engineered in 1995. Any Type 7 password hash can be decrypted instantly in 0.001 seconds using public web decoders. Always use Type 8 (PBKDF2) or Type 9 (SHA-256).")
+
+#spotlight-box("2027 Tech Spotlight: Zero Touch Provisioning (ZTP)", "Modern enterprise networks no longer use manual console cables to configure new hardware. Cisco Zero Touch Provisioning (ZTP) uses DHCP Option 43 and Python scripts to automatically download authenticated configurations from cloud portals upon first boot.")

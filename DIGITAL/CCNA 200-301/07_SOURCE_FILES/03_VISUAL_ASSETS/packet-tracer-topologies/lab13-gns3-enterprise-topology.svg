@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 190" width="100%" height="100%" style="background:#090D16; border-radius:6px; font-family:'Segoe UI',sans-serif;">
+  <rect x="0" y="0" width="780" height="24" fill="#1E293B" rx="6" ry="6"/>
+  <circle cx="14" cy="12" r="4" fill="#EF4444"/>
+  <circle cx="28" cy="12" r="4" fill="#F59E0B"/>
+  <circle cx="42" cy="12" r="4" fill="#10B981"/>
+  <text x="60" y="16" fill="#94A3B8" font-size="10" font-weight="bold">GNS3 Network Simulation Environment — Cisco IOS c7200 Enterprise Topology</text>
+  <rect x="690" y="5" width="78" height="14" fill="#2563EB" rx="3"/>
+  <text x="696" y="15" fill="#FFFFFF" font-size="8" font-weight="bold">GNS3 SERVER</text>
+
+  <!-- Cloud NAT Node -->
+  <g transform="translate(50, 48)">
+    <rect width="130" height="95" rx="5" fill="#1E293B" stroke="#3B82F6" stroke-width="2"/>
+    <rect x="0" y="0" width="130" height="20" fill="#1D4ED8" rx="5" ry="5"/>
+    <text x="14" y="14" fill="#FFFFFF" font-size="9" font-weight="bold">CLOUD-NAT-0</text>
+    <text x="10" y="40" fill="#93C5FD" font-size="8">Real PC Network Card</text>
+    <text x="10" y="55" fill="#94A3B8" font-size="7.5">Host NAT Gateway</text>
+    <text x="10" y="70" fill="#10B981" font-size="7.5">192.168.122.1</text>
+    <text x="10" y="85" fill="#F59E0B" font-size="7.5">Internet Breakout</text>
+  </g>
+
+  <line x1="180" y1="95" x2="280" y2="95" stroke="#3B82F6" stroke-width="2.5" stroke-dasharray="4,2"/>
+
+  <!-- c7200 Core Router -->
+  <g transform="translate(280, 48)">
+    <rect width="180" height="95" rx="5" fill="#1E293B" stroke="#0284C7" stroke-width="2"/>
+    <rect x="0" y="0" width="180" height="20" fill="#0284C7" rx="5" ry="5"/>
+    <text x="14" y="14" fill="#FFFFFF" font-size="9.5" font-weight="bold">R1-c7200-EDGE (IOS 15.2)</text>
+    <text x="10" y="38" fill="#38BDF8" font-size="8">f0/0: 192.168.122.50 (DHCP)</text>
+    <text x="10" y="53" fill="#94A3B8" font-size="7.5">f1/0: 10.10.10.1/24 (Trunk)</text>
+    <text x="10" y="68" fill="#F59E0B" font-size="7.5">PAT Overload + OSPFv2</text>
+    <text x="10" y="83" fill="#10B981" font-size="7.5">Dynamips Emulated MIPS64</text>
+  </g>
+
+  <line x1="460" y1="95" x2="560" y2="95" stroke="#10B981" stroke-width="2.5"/>
+
+  <!-- IOU L2 Switch & Linux Host -->
+  <g transform="translate(560, 48)">
+    <rect width="165" height="95" rx="5" fill="#1E293B" stroke="#10B981" stroke-width="2"/>
+    <rect x="0" y="0" width="165" height="20" fill="#059669" rx="5" ry="5"/>
+    <text x="14" y="14" fill="#FFFFFF" font-size="9" font-weight="bold">SW-IOU-L2 + Docker Host</text>
+    <text x="10" y="38" fill="#6EE7B7" font-size="8">Cisco IOU L2 Enterprise</text>
+    <text x="10" y="53" fill="#94A3B8" font-size="7.5">e0/0 Trunk to c7200</text>
+    <text x="10" y="68" fill="#94A3B8" font-size="7.5">e0/1 VPCS1 (VLAN 10)</text>
+    <text x="10" y="83" fill="#F59E0B" font-size="7.5">e0/2 Ubuntu ZTP / Netmiko</text>
+  </g>
+
+  <rect x="200" y="156" width="380" height="22" rx="4" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="210" y="171" fill="#38BDF8" font-size="8.5" font-weight="bold">GNS3 runs actual production Cisco IOS / IOU binaries with Wireshark packet capture</text>
+</svg>

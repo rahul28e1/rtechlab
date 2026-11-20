@@ -30,6 +30,30 @@
     margin: (x: 13.5mm, top: 18mm, bottom: 15mm),
     fill: rtech-paper,
     
+    // Universal RTechLab Watermark on Content Pages
+    background: context {
+      let page-num = counter(page).get().first()
+      if page-num > 1 {
+        place(
+          center + horizon,
+          rotate(
+            -32deg,
+            block(
+              align(center)[
+                #text(size: 38pt, weight: "black", fill: rgb(15, 23, 42, 4%), tracking: 3pt)[
+                  RTECHLAB
+                ]
+                #v(4pt)
+                #text(size: 16pt, weight: "bold", fill: rgb(2, 132, 199, 5%), tracking: 4pt)[
+                  OFFICIAL CERTIFIED PUBLICATION
+                ]
+              ]
+            )
+          )
+        )
+      }
+    },
+    
     // Universal Two-Tier Running Header
     header: context {
       let page-num = counter(page).get().first()
@@ -177,7 +201,16 @@
 }
 
 // 2027 Technology Spotlight Box
-#let tech-spotlight-box(title: "2027 FRONTIER TECHNOLOGY SPOTLIGHT", body) = {
+#let tech-spotlight-box(arg1, ..rest) = {
+  let title = "2027 FRONTIER TECHNOLOGY SPOTLIGHT"
+  let body = arg1
+  if rest.pos().len() > 0 {
+    title = arg1
+    body = rest.pos().at(0)
+  }
+  if rest.named().at("title", default: none) != none {
+    title = rest.named().at("title")
+  }
   block(
     width: 100%,
     stroke: 0.5pt + rtech-violet,
@@ -199,7 +232,16 @@
 }
 
 // Did You Know Fact Box
-#let fact-box(title: "DID YOU KNOW? — HARDWARE FACT", body) = {
+#let fact-box(arg1, ..rest) = {
+  let title = "DID YOU KNOW? — HARDWARE FACT"
+  let body = arg1
+  if rest.pos().len() > 0 {
+    title = arg1
+    body = rest.pos().at(0)
+  }
+  if rest.named().at("title", default: none) != none {
+    title = rest.named().at("title")
+  }
   block(
     width: 100%,
     stroke: 0.5pt + rtech-amber,
@@ -433,4 +475,17 @@
       #body
     ]
   )
+}
+
+// Convenience Aliases for Chapter Authoring
+#let terminal-box(body) = terminal-specimen(title: "CISCO IOS CLI CONFIGURATION & OUTPUT", body)
+#let faq-box(q, a) = faq-item(q: q, a: a)
+#let spotlight-box(title, body) = tech-spotlight-box(title: title, body)
+#let mcq-item(q, options, ans_idx, expl) = {
+  let opt_a = if options.len() > 0 { options.at(0) } else { "" }
+  let opt_b = if options.len() > 1 { options.at(1) } else { "" }
+  let opt_c = if options.len() > 2 { options.at(2) } else { "" }
+  let opt_d = if options.len() > 3 { options.at(3) } else { "" }
+  let ans_letter = if ans_idx == 0 { "A" } else if ans_idx == 1 { "B" } else if ans_idx == 2 { "C" } else { "D" }
+  mcq(num: 1, q: q, a: opt_a, b: opt_b, c: opt_c, d: opt_d, ans: ans_letter, expl: expl)
 }

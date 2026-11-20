@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 190" width="100%" height="100%" style="background:#0F172A; border-radius:6px; font-family:'Segoe UI',sans-serif;">
+  <rect x="0" y="0" width="780" height="24" fill="#1E293B" rx="6" ry="6"/>
+  <circle cx="14" cy="12" r="4" fill="#EF4444"/>
+  <circle cx="28" cy="12" r="4" fill="#F59E0B"/>
+  <circle cx="42" cy="12" r="4" fill="#10B981"/>
+  <text x="60" y="16" fill="#94A3B8" font-size="10" font-weight="bold">Cisco Packet Tracer — Lab 11: LACP EtherChannel (802.3ad) Link Aggregation</text>
+  <rect x="700" y="5" width="68" height="14" fill="#0284C7" rx="3"/>
+  <text x="705" y="15" fill="#FFFFFF" font-size="8" font-weight="bold">PACKET TRACER</text>
+
+  <!-- SW1 -->
+  <g transform="translate(90, 48)">
+    <rect width="160" height="95" rx="5" fill="#1E293B" stroke="#0284C7" stroke-width="2"/>
+    <rect x="0" y="0" width="160" height="20" fill="#0369A1" rx="5" ry="5"/>
+    <text x="14" y="14" fill="#FFFFFF" font-size="10" font-weight="bold">SW1-DISTRIBUTION</text>
+    <text x="12" y="38" fill="#38BDF8" font-size="8.5" font-weight="bold">Cisco Catalyst 3650</text>
+    <text x="12" y="53" fill="#94A3B8" font-size="8">Port-channel 1 (Active)</text>
+    <text x="12" y="68" fill="#10B981" font-size="8">LACP Mode: active</text>
+    <text x="12" y="83" fill="#F59E0B" font-size="8">Trunk: VLAN 10,20,99</text>
+  </g>
+
+  <!-- Dual Cable Links with bundling ring -->
+  <line x1="250" y1="80" x2="520" y2="80" stroke="#10B981" stroke-width="3"/>
+  <line x1="250" y1="105" x2="520" y2="105" stroke="#10B981" stroke-width="3"/>
+
+  <!-- Link Status Lights -->
+  <circle cx="260" cy="80" r="4" fill="#22C55E"/>
+  <circle cx="510" cy="80" r="4" fill="#22C55E"/>
+  <circle cx="260" cy="105" r="4" fill="#22C55E"/>
+  <circle cx="510" cy="105" r="4" fill="#22C55E"/>
+
+  <!-- Aggregation Oval Ring -->
+  <ellipse cx="385" cy="92.5" rx="42" ry="24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="3,3"/>
+  <rect x="330" y="82" width="110" height="21" fill="#0F172A" rx="4" stroke="#F59E0B" stroke-width="1"/>
+  <text x="338" y="96" fill="#F59E0B" font-size="9" font-weight="bold">Po1 (2 Gbps Aggregate)</text>
+
+  <text x="268" y="74" fill="#94A3B8" font-size="7.5">Gi0/1</text>
+  <text x="480" y="74" fill="#94A3B8" font-size="7.5">Gi0/1</text>
+  <text x="268" y="119" fill="#94A3B8" font-size="7.5">Gi0/2</text>
+  <text x="480" y="119" fill="#94A3B8" font-size="7.5">Gi0/2</text>
+
+  <!-- SW2 -->
+  <g transform="translate(520, 48)">
+    <rect width="160" height="95" rx="5" fill="#1E293B" stroke="#0284C7" stroke-width="2"/>
+    <rect x="0" y="0" width="160" height="20" fill="#0369A1" rx="5" ry="5"/>
+    <text x="24" y="14" fill="#FFFFFF" font-size="10" font-weight="bold">SW2-ACCESS</text>
+    <text x="12" y="38" fill="#38BDF8" font-size="8.5" font-weight="bold">Cisco Catalyst 2960</text>
+    <text x="12" y="53" fill="#94A3B8" font-size="8">Port-channel 1 (Active)</text>
+    <text x="12" y="68" fill="#10B981" font-size="8">LACP Mode: active</text>
+    <text x="12" y="83" fill="#F59E0B" font-size="8">Trunk: VLAN 10,20,99</text>
+  </g>
+
+  <rect x="230" y="156" width="310" height="22" rx="4" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="240" y="171" fill="#38BDF8" font-size="8.5" font-weight="bold">IEEE 802.3ad / 802.1AX: Load-Balances via src-dst-mac hash</text>
+</svg>
