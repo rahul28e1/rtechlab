@@ -1949,34 +1949,38 @@ export default function NotesPage() {
                   {/* Secondary Individual Downloads */}
                   <div className="p-3.5 rounded-2xl bg-black/60 border border-white/[0.08] space-y-2">
                     <div className="text-[10px] font-mono text-[#86868B] uppercase font-semibold flex items-center justify-between">
-                      <span>Download Alternate / Individual Files:</span>
+                      <span>{checkoutItem.plan === 'bundle' ? 'Download All Individual Files:' : 'Your Purchased Edition (Direct Offline File):'}</span>
                       <span className="text-emerald-400 font-bold">Lifetime Free Access</span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
-                      <a
-                        href={selectedSubject.fullPdfHi}
-                        download
-                        className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
-                      >
-                        <span className="flex items-center gap-1.5 truncate">
-                          <span>🇮🇳</span>
-                          <span className="truncate">Hindi Master PDF</span>
-                        </span>
-                        <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Download ↓</span>
-                      </a>
+                    <div className={checkoutItem.plan === 'bundle' ? "grid grid-cols-2 gap-2" : "grid grid-cols-1 gap-2"}>
+                      {(checkoutItem.plan === 'bundle' || selectedLanguage === 'hi') && (
+                        <a
+                          href={selectedSubject.fullPdfHi}
+                          download
+                          className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
+                        >
+                          <span className="flex items-center gap-1.5 truncate">
+                            <span>🇮🇳</span>
+                            <span className="truncate">Hindi Master PDF ({selectedSubject.pages})</span>
+                          </span>
+                          <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Direct Download ↓</span>
+                        </a>
+                      )}
 
-                      <a
-                        href={selectedSubject.fullPdfEn}
-                        download
-                        className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
-                      >
-                        <span className="flex items-center gap-1.5 truncate">
-                          <span>🇬🇧</span>
-                          <span className="truncate">English Master PDF</span>
-                        </span>
-                        <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Download ↓</span>
-                      </a>
+                      {(checkoutItem.plan === 'bundle' || selectedLanguage === 'en') && (
+                        <a
+                          href={selectedSubject.fullPdfEn}
+                          download
+                          className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
+                        >
+                          <span className="flex items-center gap-1.5 truncate">
+                            <span>🇬🇧</span>
+                            <span className="truncate">English Master PDF ({selectedSubject.pages})</span>
+                          </span>
+                          <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Direct Download ↓</span>
+                        </a>
+                      )}
                     </div>
 
                     {checkoutItem.plan === 'bundle' && (

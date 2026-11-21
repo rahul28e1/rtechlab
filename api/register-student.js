@@ -127,19 +127,29 @@ export default async function handler(req, res) {
           `}
 
           <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); text-align: left;">
-            <p style="color: #e5e7eb; font-size: 12px; font-weight: 700; margin: 0 0 8px;">📄 Individual Direct Master PDF Downloads (Mobile Friendly):</p>
+            <p style="color: #e5e7eb; font-size: 12px; font-weight: 700; margin: 0 0 8px;">
+              ${plan === 'bundle' ? '📄 Included Master PDFs &amp; Individual Files (Mobile Friendly):' : '📄 Your Purchased Master Edition (Direct File):'}
+            </p>
             <div style="display: flex; flex-direction: column; gap: 8px;">
-              <a href="${subjectInfo.coreHi}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #38bdf8; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
-                📥 Direct Download Hindi (Hinglish) Master PDF (${subjectInfo.pages}) &rarr;
-              </a>
-              <a href="${subjectInfo.coreEn}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #38bdf8; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
-                📥 Direct Download English Master PDF (${subjectInfo.pages}) &rarr;
-              </a>
               ${plan === 'bundle' ? `
+                <a href="${subjectInfo.coreHi}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #38bdf8; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                  📥 Direct Download Hindi (Hinglish) Master PDF (${subjectInfo.pages}) &rarr;
+                </a>
+                <a href="${subjectInfo.coreEn}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #38bdf8; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                  📥 Direct Download English Master PDF (${subjectInfo.pages}) &rarr;
+                </a>
                 <a href="${bundleZipUrl}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
                   📦 Direct Download Complete ZIP Bundle (${subjectInfo.bundleZipSize}) &rarr;
                 </a>
-              ` : ''}
+              ` : (language === 'hi' ? `
+                <a href="${subjectInfo.coreHi}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                  📥 Direct Download Hindi (Hinglish) Master PDF (${subjectInfo.pages}) &rarr;
+                </a>
+              ` : `
+                <a href="${subjectInfo.coreEn}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                  📥 Direct Download English Master PDF (${subjectInfo.pages}) &rarr;
+                </a>
+              `)}
             </div>
           </div>
         </div>
