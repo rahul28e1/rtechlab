@@ -41,6 +41,16 @@
   चयनित टेक्स्ट पर `Shift + F3` बार-बार दबाने पर वर्ड स्वतः तीन रूपों में बदलता है: (1) सभी छोटे अक्षर (lowercase), (2) सभी बड़े अक्षर (UPPERCASE), और (3) प्रत्येक शब्द का पहला अक्षर बड़ा (Title Case)।
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-ribbon-layout.png", width: 95%, height: 115pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 2.1: माइक्रोसॉफ्ट वर्ड 365 रिबन लेआउट संरचना एवं प्रासंगिक कमांड ग्रुप पदानुक्रम।
+  ]
+]
+
 #pagebreak()
 
 == 2.3 पैराग्राफ अलाइनमेंट एवं जस्टिफिकेशन डायनामिक्स

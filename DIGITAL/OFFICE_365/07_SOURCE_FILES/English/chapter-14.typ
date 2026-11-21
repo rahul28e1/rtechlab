@@ -41,6 +41,16 @@ Plural  SUMIFS Syntax:  =SUMIFS( sum_range , criteria_range1 , criteria1 , [rang
   In `=SUMIF`, the `sum_range` is optional and placed at the very end. In `=SUMIFS`, the `sum_range` is *mandatory and placed first*! Why? Because `=SUMIFS` accepts up to 127 pairs of criteria ranges, requiring the target numeric vector to be declared upfront.
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-vlookup-xlookup-ui.png", width: 95%, height: 150pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 14.1: Excel 365 Modern Lookup Architecture — XLOOKUP Formula Bar, Argument Inspector & Table References.
+  ]
+]
+
 #pagebreak()
 
 == 14.3 Multi-Criteria Aggregations: COUNTIFS, SUMIFS & AVERAGEIFS

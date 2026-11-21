@@ -41,6 +41,16 @@
   [टेबल (Table)], [पंक्तियों व स्तंभों की संख्या पूछकर ब्रांडेड तालिका बनाता है।], [तुलनात्मक विश्लेषण ग्रिड।]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/ppt-slidemaster-ui.png", width: 95%, height: 145pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 24.1: पावरपॉइंट 365 स्लाइड मास्टर व्यू — लेआउट इनहेरिटेंस ट्री एवं ग्लोबल प्लेसहोल्डर पदानुक्रम।
+  ]
+]
+
 #pagebreak()
 
 == 24.3 सुरक्षित कॉर्पोरेट ब्रांड टेम्पलेट (.potx) का निर्माण

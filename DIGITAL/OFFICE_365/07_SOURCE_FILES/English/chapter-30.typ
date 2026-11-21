@@ -33,6 +33,16 @@ When you submit a prompt inside Word, Excel, or PowerPoint:
   [PowerPoint 365], [Transforming Word briefs into 10-slide branded decks, adding visual layout cards, speaker notes synthesis.], [\"Create a 6-slide investor deck from /CloudMigrationStrategy.docx. Use a modern dark theme and include metric callout cards on slide 3.\"]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/copilot-office365-ui.png", width: 95%, height: 150pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 30.1: Microsoft 365 Copilot AI Executive Sidebar with Conversational Modeling & Automated Column Generation.
+  ]
+]
+
 #pagebreak()
 
 == 30.3 The 4-Tier Enterprise Prompt Engineering Framework

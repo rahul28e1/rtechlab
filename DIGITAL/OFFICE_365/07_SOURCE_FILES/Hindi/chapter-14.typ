@@ -41,6 +41,16 @@
   `=SUMIF` में जोड़ने वाली रेंज (`sum_range`) अंत में आती है। परंतु `=SUMIFS` में जोड़ने वाली रेंज *अनिवार्य रूप से सबसे पहले लिखी जाती है*! ऐसा इसलिए है क्योंकि `=SUMIFS` में आगे 127 अलग-अलग शर्तें जोड़ी जा सकती हैं, अतः जिस कॉलम को जोड़ना है उसे प्रारंभ में ही घोषित करना पड़ता है।
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-vlookup-xlookup-ui.png", width: 95%, height: 150pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 14.1: एक्सेल 365 आधुनिक लुकअप आर्किटेक्चर — XLOOKUP फॉर्मूला बार, आर्गुमेंट इंस्पेक्टर एवं टेबल संदर्भ।
+  ]
+]
+
 #pagebreak()
 
 == 14.3 बहु-शर्त एग्रीगेशन्स: COUNTIFS, SUMIFS एवं AVERAGEIFS

@@ -53,6 +53,16 @@
 #v(2pt)
 #ribbon-specimen(path: "Mailings > Start Mail Merge > Select Recipients", command: "बाहरी एक्सेल डेटाबेस से कनेक्ट करना", shortcut: "Alt + M + R + E")
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-mailmerge-ui.png", width: 95%, height: 150pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 9.1: वर्ड 365 मेल मर्ज ऑटोमेशन — एक्सेल डेटा सोर्स इंटीग्रेशन एवं डायनामिक फील्ड मैपिंग।
+  ]
+]
+
 #pagebreak()
 
 == 9.3 एक्सेल डेटा सोर्स तैयार करना एवं डेटा स्वच्छता

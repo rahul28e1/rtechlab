@@ -41,6 +41,16 @@ Amateurs insert regular text boxes on master slides; professionals insert dynami
   [Table], [Prompts for row/column count and applies locked corporate table formatting.], [SLA comparison grids.]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/ppt-slidemaster-ui.png", width: 95%, height: 145pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 24.1: PowerPoint 365 Slide Master View showing Layout Inheritance Tree & Global Placeholder Hierarchy.
+  ]
+]
+
 #pagebreak()
 
 == 24.3 Building a Protected Corporate Brand Template (.potx)

@@ -53,6 +53,16 @@ Word 365 streamlines bulk generation through the *Mailings Tab* or the *Step-by-
 #v(2pt)
 #ribbon-specimen(path: "Mailings > Start Mail Merge > Select Recipients", command: "Connect to External Excel Data Source", shortcut: "Alt + M + R + E")
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-mailmerge-ui.png", width: 95%, height: 150pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 9.1: Word 365 Mail Merge Automation showing Excel Data Source Integration & Dynamic Field Mapping.
+  ]
+]
+
 #pagebreak()
 
 == 9.3 Preparing & Sanitizing the Excel Data Source

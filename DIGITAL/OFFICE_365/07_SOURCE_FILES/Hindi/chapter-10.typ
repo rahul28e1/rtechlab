@@ -41,6 +41,16 @@
    - *Tracked changes*: ट्रैक चेंजेस को स्थायी रूप से ऑन करना ताकि कोई भी बिना अपनी पहचान दर्ज किए संपादन न कर सके।
 3. *Start Enforcement*: सेटिंग्स को सुरक्षित करने हेतु AES-256 पासवर्ड दर्ज करें।
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-customize-map.png", width: 95%, height: 110pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 10.1: वर्ड 365 क्विक एक्सेस टूलबार एवं रिबन कस्टमाइज़ेशन कमांड मैपिंग।
+  ]
+]
+
 #pagebreak()
 
 == 10.3 कॉर्पोरेट प्रोडक्शन लैब 1: कार्यकारी वार्षिक व्यावसायिक रिपोर्ट

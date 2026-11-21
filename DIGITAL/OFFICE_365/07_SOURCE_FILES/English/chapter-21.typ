@@ -39,6 +39,16 @@ A Pivot Table (`Insert > PivotTable` or `Alt + N + V`) categorizes unstructured 
 3. *Values*: The numerical metrics to be mathematically aggregated (e.g. `Sum of Sales`, `Count of Orders`).
 4. *Filters*: High-level page boundaries to isolate specific subsets (e.g. Filter by Fiscal Year = 2027).
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-pivottable-sample.png", width: 95%, height: 140pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 21.1: Excel PivotTable Analytical Cache Architecture & Dynamic Field List Arrangement.
+  ]
+]
+
 #pagebreak()
 
 == 21.3 Summarize Values By vs. Show Values As

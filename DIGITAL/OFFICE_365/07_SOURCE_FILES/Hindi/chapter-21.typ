@@ -39,6 +39,16 @@
 3. *मान (Values)*: वे संख्यात्मक मान जिनका गणितीय योग या औसत निकालना है (उदा. बिक्री राशि, ऑर्डर्स संख्या)।
 4. *फ़िल्टर (Filters)*: पूरी रिपोर्ट को किसी उच्च स्तर पर फ़िल्टर करने हेतु (उदा. वित्तीय वर्ष = 2027)।
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-pivottable-sample.png", width: 95%, height: 140pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 21.1: एक्सेल पिवट टेबल एनालिटिकल कैश संरचना एवं डायनामिक फील्ड लिस्ट व्यवस्था।
+  ]
+]
+
 #pagebreak()
 
 == 21.3 Summarize Values By बनाम Show Values As

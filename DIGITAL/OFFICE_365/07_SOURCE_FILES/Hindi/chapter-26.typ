@@ -42,6 +42,16 @@
   [प्रगति पट्टी (Progress Bar)], [2.0 इंच चौड़ाई वाली नीली पट्टी (20% काम)।], [वही पट्टी स्वतः बढ़कर 8.0 इंच (80% लक्ष्य प्राप्ति) हो जाती है।]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/ppt-morph-transition.png", width: 95%, height: 130pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 26.1: पावरपॉइंट मॉर्फ ट्रांजिशन रिबन कंट्रोल्स एवं सिनेमैटिक मोशन ट्वीनिंग इंजन।
+  ]
+]
+
 #pagebreak()
 
 == 26.3 पेशेवर ट्रांजिशन अनुशासन: Fade बनाम Push बनाम Wipe

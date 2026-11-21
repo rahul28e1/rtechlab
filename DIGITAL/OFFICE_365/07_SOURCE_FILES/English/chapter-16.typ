@@ -32,6 +32,16 @@ When a dynamic array formula attempts to spill its results, but one or more targ
   3. *Table Boundary*: Dynamic arrays cannot spill inside official Excel Tables (`Ctrl + T`).
 - *Resolution*: Select the formula cell. Excel illuminates the intended spill boundary with a dotted line. Clear the obstructing cells, and the formula instantly populates!
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-conditional-formatting-ui.png", width: 95%, height: 145pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 16.1: Excel 365 Conditional Formatting Rules Manager showing Stop-If-True Priority Logic & Custom Formula Triggers.
+  ]
+]
+
 #pagebreak()
 
 == 16.3 The Complete Retirement of VLOOKUP & HLOOKUP

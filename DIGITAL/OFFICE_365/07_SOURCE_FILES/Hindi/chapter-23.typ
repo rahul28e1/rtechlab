@@ -40,6 +40,16 @@
   [रंगों का अनुशासन], [8 अलग-अलग भड़कीले रंगों की भरमार।], [कठोर 3-रंग पैलेट: प्राथमिक ब्रांड, डार्क स्लेट, एक्सेंट।]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/powerpoint-365-full-workspace.png", width: 95%, height: 155pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 23.1: माइक्रोसॉफ्ट पावरपॉइंट 365 लाइव इंटरफेस — स्लाइड सॉर्टर थंबनेल, कैनवास अलाइनमेंट एवं मॉर्फ ट्रांजिशन इंडिकेटर।
+  ]
+]
+
 #pagebreak()
 
 == 23.3 टाइपोग्राफी पदानुक्रम एवं पठनीयता मानक

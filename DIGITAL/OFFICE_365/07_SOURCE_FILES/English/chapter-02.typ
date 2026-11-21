@@ -41,6 +41,16 @@ The *Font Dialog* (`Ctrl + D` or `Ctrl + Shift + F`) exposes low-level typograph
   Highlight any selected sentence and press `Shift + F3` repeatedly. Word cycles dynamically through: (1) all lowercase, (2) ALL UPPERCASE, and (3) Capitalize Each Word (Title Case) without requiring manual retyping.
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-ribbon-layout.png", width: 95%, height: 115pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 2.1: Microsoft Word 365 Ribbon Layout Architecture & Contextual Group Command Hierarchy.
+  ]
+]
+
 #pagebreak()
 
 == 2.3 Paragraph Alignment, Geometry & Justification Dynamics

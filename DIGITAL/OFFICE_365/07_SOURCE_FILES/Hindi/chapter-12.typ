@@ -41,6 +41,16 @@
   शून्य शेष दर्शाने हेतु सेल में हाथ से कभी भी माइनस (-) टाइप न करें! कॉलम को *Accounting* फॉर्मेट दें। एक्सेल वास्तविक शून्य को स्वतः सुंदर डैश (-) में बदल देगा और उसका योग भी सही निकलेगा।
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-ribbon-display.png", width: 95%, height: 80pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    चित्र 12.1: माइक्रोसॉफ्ट एक्सेल 365 रिबन डिस्प्ले विकल्प एवं फॉर्मूला बार टेलीमेट्री।
+  ]
+]
+
 #pagebreak()
 
 == 12.3 कस्टम नंबर फॉर्मेटिंग सिंटैक्स: 4-भागों की संरचना

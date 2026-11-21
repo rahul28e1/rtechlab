@@ -51,6 +51,16 @@ The foundation of spreadsheet modeling is understanding how cell addresses trans
   While writing a formula, highlight any cell reference and tap the `F4` key repeatedly. Excel cycles dynamically: `A1` -> `$A$1` (Absolute) -> `A$1` (Row locked) -> `$A1` (Column locked) -> `A1` (Relative), saving thousands of manual typing clicks.
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-365-full-workspace.png", width: 95%, height: 155pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 11.1: Live Microsoft Excel 365 Enterprise Grid showing Structured Table Architecture, Formula Bar & Copilot AI Sidebar.
+  ]
+]
+
 #pagebreak()
 
 == 11.3 Enterprise Name Manager Architecture

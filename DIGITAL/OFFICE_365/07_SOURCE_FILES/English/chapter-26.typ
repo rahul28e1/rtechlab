@@ -42,6 +42,16 @@ Normally, Morph only transforms identical objects. If you want a square on Slide
   [Progress Bar Advance], [Horizontal bar shape with width `2.0 in` (20%).], [Same bar shape lengthened to `8.0 in` (80% milestone achievement).]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/ppt-morph-transition.png", width: 95%, height: 130pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 26.1: PowerPoint Morph Transition Ribbon Controls & Cinematic Motion Tweening Engine.
+  ]
+]
+
 #pagebreak()
 
 == 26.3 Professional Transition Discipline: Fade vs. Push vs. Wipe

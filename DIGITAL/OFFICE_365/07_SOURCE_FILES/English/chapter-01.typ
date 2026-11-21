@@ -46,6 +46,16 @@ Clicking *File* transitions from canvas authoring to the Microsoft 365 Backstage
   Before emailing proposals or legal NDAs to external clients, always execute *Inspect Document*. Failing to remove hidden revisions or internal author comments has historically resulted in high-profile corporate contract leaks and confidentiality breaches.
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-365-full-workspace.png", width: 95%, height: 150pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 1.1: Live Microsoft Word 365 Enterprise Interface showing Fluent Ribbon Tabs, Navigation Sidebar & Document Geometry.
+  ]
+]
+
 #pagebreak()
 
 == 1.3 Document View Modes & Productivity Environments

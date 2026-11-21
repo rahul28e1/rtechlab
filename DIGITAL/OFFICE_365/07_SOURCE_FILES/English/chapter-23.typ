@@ -40,6 +40,16 @@ Executive audiences make decisions in seconds. Cognitive overload occurs when sl
   [Color Discipline], [Rainbow of 8 unbranded colors.], [Strict 3-color palette: Primary, Dark Slate, Accent.]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/powerpoint-365-full-workspace.png", width: 95%, height: 155pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 23.1: Live Microsoft PowerPoint 365 Interface showing Slide Sorter Thumbnails, Canvas Alignment & Morph Transition Indicator.
+  ]
+]
+
 #pagebreak()
 
 == 23.3 Typography Hierarchy & Legibility Standards

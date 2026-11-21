@@ -4,7 +4,7 @@
 = The Top 100 Corporate Keyboard Shortcuts Master Reference Vault
 
 #text(size: 7.5pt, fill: rgb("#1E293B").lighten(20%))[
-  Reaching for the mouse destroys cognitive flow and costs enterprise professionals hundreds of cumulative hours annually. Master the top 100 essential shortcuts across Word, Excel, PowerPoint, and the Cloud Ecosystem to achieve true keyboard-driven productivity.
+  Reaching for the physical mouse destroys cognitive flow and costs enterprise professionals hundreds of cumulative hours annually. Master the top 100 essential shortcuts across Word, Excel, PowerPoint, and the Cloud Ecosystem to achieve true keyboard-driven productivity.
 ]
 
 #v(2pt)
@@ -12,15 +12,15 @@
 == 31.1 Microsoft Word 365: Navigation, Formatting & Structural Shortcuts (1-25)
 
 #table(
-  columns: (1.5fr, 1.2fr, 3.3fr),
+  columns: (1.2fr, 0.9fr, 2.9fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 3.5pt, y: 2pt),
+  inset: (x: 4pt, y: 2.1pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
   [`Ctrl + Enter`], [Structural], [Inserts an instant Hard Page Break at current cursor position.],
   [`Ctrl + Shift + Enter`], [Structural], [Splits table horizontally above current active row.],
-  [`Alt + Shift + D`], [Field Code], [Inserts dynamic self-updating Date field `{DATE}`.],
-  [`Alt + Shift + P`], [Field Code], [Inserts dynamic page number field `{PAGE}`.],
+  [`Alt + Shift + D`], [Field Code], [Inserts dynamic self-updating Date field {DATE}.],
+  [`Alt + Shift + P`], [Field Code], [Inserts dynamic page number field {PAGE}.],
   [`Ctrl + Shift + C`], [Formatting], [Copies character/paragraph formatting (Format Painter source).],
   [`Ctrl + Shift + V`], [Formatting], [Pastes copied formatting onto current selection.],
   [`Ctrl + Shift + N`], [Styles], [Reverts selected paragraph to default Normal body style.],
@@ -44,18 +44,28 @@
   [`F7`], [Proofing], [Launches Microsoft Editor spelling and grammar inspection pane.]
 )
 
+#v(2pt)
+
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-365-full-workspace.png", width: 98%)
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 31.1: Official Microsoft Word 365 Fluent Interface: Ribbon Anatomy, Heading Styles Hierarchy & Navigation Pane.
+  ]
+]
+
 #pagebreak()
 
 == 31.2 Microsoft Excel 365: Navigation, Selection & Data Entry Shortcuts (26-55)
 
 #table(
-  columns: (1.5fr, 1.2fr, 3.3fr),
+  columns: (1.2fr, 0.9fr, 2.9fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 3.5pt, y: 2pt),
+  inset: (x: 4pt, y: 1.8pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
-  [`F4`], [Formulas], [Cycles absolute/relative reference modes (`$A$1` > `A$1` > `$A1` > `A1`).],
-  [`Alt + =`], [Formulas], [Inserts intelligent AutoSum `=SUM(...)` range detection.],
+  [`F4`], [Formulas], [Cycles absolute/relative reference modes ($A$1 > A$1 > $A1 > A1).],
+  [`Alt + =`], [Formulas], [Inserts intelligent AutoSum =SUM(...) range detection.],
   [`Ctrl + ~ (Grave)`], [Auditing], [Toggles worksheet display between calculated values and formulas.],
   [`Ctrl + [`], [Auditing], [Selects all direct precedent cells feeding active formula.],
   [`Ctrl + ]`], [Auditing], [Selects all direct dependent cells relying on active cell.],
@@ -86,15 +96,25 @@
   [`F12`], [File System], [Opens Save As dialog directly bypassing cloud menus.]
 )
 
+#v(2pt)
+
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-365-full-workspace.png", width: 98%)
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 31.2: Official Microsoft Excel 365 Enterprise Grid: Dynamic XLOOKUP Formula Bar, Data Validation & Copilot AI Insights.
+  ]
+]
+
 #pagebreak()
 
 == 31.3 Microsoft Excel Advanced & PowerPoint 365 Shortcuts (56-85)
 
 #table(
-  columns: (1.5fr, 1.2fr, 3.3fr),
+  columns: (1.3fr, 0.9fr, 2.8fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 3.5pt, y: 2pt),
+  inset: (x: 4pt, y: 1.8pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
   [`Alt + E + S + V`], [Paste Special], [Pastes Values only, stripping all formulas and formatting.],
   [`Alt + E + S + T`], [Paste Special], [Pastes Formats only, leaving underlying values untouched.],
@@ -128,15 +148,25 @@
   [`Shift + F5`], [PowerPoint], [Launches slideshow starting from currently active slide.]
 )
 
+#v(2pt)
+
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/powerpoint-365-full-workspace.png", width: 98%)
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 31.3: Official Microsoft PowerPoint 365 Workspace: Slide Master Architecture, 6x6 Layout Rule & Morph Transitions.
+  ]
+]
+
 #pagebreak()
 
 == 31.4 PowerPoint Delivery & Cloud Ecosystem Shortcuts (86-100)
 
 #table(
-  columns: (1.5fr, 1.2fr, 3.3fr),
+  columns: (1.3fr, 0.9fr, 2.8fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 3.5pt, y: 2pt),
+  inset: (x: 4pt, y: 1.8pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
   [`Alt + F5`], [Presenter View], [Forces Presenter View delivery mode on primary monitor.],
   [`B (During Show)`], [Live Show], [Blacks out presentation screen, redirecting eyes to speaker.],
@@ -146,17 +176,43 @@
   [`Ctrl + A`], [Live Show], [Restores annotation pen back to normal Arrow cursor.],
   [`Ctrl + E`], [Live Show], [Activates digital Eraser to scrub specific live ink strokes.],
   [`E (During Show)`], [Live Show], [Erases all live on-screen ink annotations simultaneously.],
-  [`Number + Enter`], [Live Show], [Jumps directly to target slide number (e.g., `1` + `8` + `Enter`).],
+  [`Number + Enter`], [Live Show], [Jumps directly to target slide number (e.g., 1 + 8 + Enter).],
   [`Ctrl + S`], [Cloud File], [Triggers immediate background cloud delta sync save.],
-  [`Alt + Q`], [Search / AI], [Opens 'Tell Me' / Copilot universal application search box.],
+  [`Alt + Q`], [Search / AI], [Opens ‘Tell Me’ / Copilot universal application search box.],
   [`Ctrl + Alt + Space`], [Accessibility], [Activates Immersive Reader neural Read Aloud engine.],
   [`Win + Shift + S`], [Screen Clip], [Launches Windows Snipping Tool for instant visual paste.],
   [`Ctrl + Z`], [Undo Engine], [Reverts last chronological action across all applications.],
   [`Ctrl + Y`], [Redo Engine], [Re-executes last undone action (or repeats last command).]
 )
 
-#v(4pt)
+#v(2pt)
+
+== Enterprise Ribbon KeyTip Accelerator Matrix (Zero-Mouse Navigation)
+#table(
+  columns: (1fr, 1.8fr, 3.2fr),
+  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  inset: (x: 4pt, y: 2pt),
+  table.header([*Sequence*], [*Application Target*], [*Action Executed Instantly*]),
+  [`Alt > H > O > I`], [Excel 365], [Auto-fits selected column widths to match longest cell string.],
+  [`Alt > H > M > C`], [Excel 365], [Merges active cell block and aligns contents to center.],
+  [`Alt > A > T`], [Excel 365], [Toggles AutoFilter arrows on or off across active dataset.],
+  [`Alt > N > V > T`], [Excel 365], [Launches PivotTable from Table / Range dialog box.],
+  [`Alt > W > R`], [Word 365], [Toggles horizontal and vertical margin rulers on canvas.]
+)
+
+#v(2pt)
+
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/office-visual-refresh.png", width: 98%)
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 31.4: Microsoft 365 Visual Refresh Interface Architecture: Unified Ribbon, Cloud Co-Authoring & Multi-Window Synchronization.
+  ]
+]
+
+#v(2pt)
 
 #spotlight-box("THE 14-DAY KEYBOARD MASTERY CHALLENGE", [
-  Unplug your physical mouse for 2 hours every morning. Navigating formulas, tables, and presentation decks using the Alt-key ribbon accelerator sequences (`Alt > H > O > I`, `Alt > E > S > V`) rewires neural muscle memory. Corporate MIS analysts who operate purely by keyboard complete weekly financial closing cycles 3.5x faster than peers.
+  Unplug your physical mouse for 2 hours every morning. Navigating formulas, tables, and presentation decks using Alt-key ribbon accelerators (`Alt > H > O > I`, `Alt > E > S > V`) rewires neural muscle memory. Corporate MIS analysts who operate purely by keyboard complete weekly financial closing cycles 3.5x faster than peers.
 ])

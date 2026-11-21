@@ -41,6 +41,16 @@ Financial analysts must adhere strictly to corporate accounting presentation sta
   Never type a literal hyphen `-` to indicate a zero balance! In accounting ledgers, format the column as *Accounting*. Excel will automatically render true mathematical zeros as elegant centered dashes while preserving their ability to be summed.
 ])
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-ribbon-display.png", width: 95%, height: 80pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 12.1: Microsoft Excel 365 Ribbon Display Options & Formula Bar Telemetry.
+  ]
+]
+
 #pagebreak()
 
 == 12.3 Custom Number Formatting Syntax: The 4-Section Architecture

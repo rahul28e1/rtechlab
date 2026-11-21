@@ -41,6 +41,16 @@ Under `Review > Protect > Restrict Editing`, administrators enforce security bou
    - *Tracked changes*: Forces Track Changes permanently on; users cannot make edits without logging their identity.
 3. *Start Enforcement*: Protect with an AES-256 password to lock the administrative settings.
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-customize-map.png", width: 95%, height: 110pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 10.1: Word 365 Quick Access Toolbar & Ribbon Customization Command Mapping.
+  ]
+]
+
 #pagebreak()
 
 == 10.3 Corporate Production Lab 1: Executive Annual Business Report

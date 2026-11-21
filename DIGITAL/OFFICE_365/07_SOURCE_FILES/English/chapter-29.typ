@@ -42,6 +42,16 @@ When 20 analysts work simultaneously inside the same financial workbook:
   [Conflict Resolution], [Overwriting colleague changes without warning.], [Intelligent 3-way merge engine highlighting differing edits.]
 )
 
+
+#v(3pt)
+#align(center)[
+  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/office-visual-refresh.png", width: 95%, height: 150pt, fit: "contain")
+  #v(1pt)
+  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
+    Figure 29.1: Microsoft 365 Modern Unified Visual Refresh across Word, Excel and PowerPoint with Cloud AutoSave & Presence Telemetry.
+  ]
+]
+
 #pagebreak()
 
 == 29.3 Version History, Audit Trails & Rollback Mechanics
