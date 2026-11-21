@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import { WhatsAppCommunityCard } from '../components/WhatsAppCommunityCard';
 
 // ── 4 आधिकारिक RTECHLAB विषय (सटीक क्रम एवं वास्तविक पेज संख्या) ────────
 const SUBJECTS_HI = [
@@ -230,6 +231,11 @@ export function NotesHiPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Official WhatsApp Community Card */}
+        <div className="mt-12 mb-12">
+          <WhatsAppCommunityCard />
         </div>
 
         {/* 49 vs 149 Comparison Framework in Hindi */}

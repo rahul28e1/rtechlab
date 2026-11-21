@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import { WhatsAppCommunityCard } from '../components/WhatsAppCommunityCard';
 
 // ── 4 OFFICIAL RTECHLAB SUBJECTS (EXACT SEQUENCE & REAL PAGE COUNTS) ────────
 const SUBJECTS = [
@@ -906,6 +907,26 @@ export default function NotesPage() {
             <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mx-auto max-w-xl">
               Inspect syllabus topics, read real 5-page interactive previews, and choose between the ₹49 Core Pass or the ₹149 Executive Career Suite.
             </p>
+
+            {/* Quick-Jump Navigation (Super handy on mobile) */}
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
+              <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">Quick Jump:</span>
+              {SUBJECTS.map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className="px-3 py-1 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-[11px] font-semibold text-white/80 hover:text-white transition-all active:scale-95"
+                >
+                  {s.id === 'ai' ? '🤖 AI' : s.id === 'office-365' ? '📊 Office 365' : s.id === 'fundamentals' ? '💻 Fundamentals' : '🌐 CCNA'}
+                </a>
+              ))}
+              <a
+                href="#reviews"
+                className="px-3 py-1 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-[11px] font-semibold text-amber-300 transition-all active:scale-95"
+              >
+                ⭐ Reviews (14)
+              </a>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14">
@@ -1272,6 +1293,11 @@ export default function NotesPage() {
             </div>
 
           </div>
+        </div>
+
+        {/* ── OFFICIAL WHATSAPP STUDENT COMMUNITY BANNER ──────────── */}
+        <div className="mb-14">
+          <WhatsAppCommunityCard />
         </div>
 
         {/* ── VERIFIED STUDENT REVIEWS & PLACEMENT STORIES (14 INDIAN REVIEWS) ── */}

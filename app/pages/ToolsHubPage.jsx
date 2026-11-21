@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router';
 import { CATEGORIES, TOOL_COUNT, TOOLS, toolsByCategory } from '../../src/data/toolCatalog';
 import { ToolCard } from '../../src/components/tools/ToolShell';
 import { getTriedTools } from '../../src/utils/toolProgress';
+import { WhatsAppCommunityCard } from '../components/WhatsAppCommunityCard';
 
 export function ToolsHubPage() {
   const [params, setParams] = useSearchParams();
@@ -231,6 +232,11 @@ export function ToolsHubPage() {
           <span className="mt-3 inline-block text-xs font-semibold text-electric-400">Start a quiz →</span>
         </Link>
       </section>
+
+      {/* Official WhatsApp Community Card */}
+      <div className="mt-12">
+        <WhatsAppCommunityCard />
+      </div>
     </div>
   );
 }

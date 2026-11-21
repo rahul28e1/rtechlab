@@ -20,7 +20,7 @@ export function Navbar({ onOpenSearch }) {
   }, [location.pathname]);
 
   const navItems = [
-    { to: isHindi ? '/hi/notes' : '/notes', label: isHindi ? 'रोडमैप्स (Notes)' : 'Roadmaps' },
+    { to: isHindi ? '/hi/notes' : '/notes', label: isHindi ? 'नोट्स (Notes)' : 'Notes' },
     { to: '/tools', label: isHindi ? 'टूल्स (Tools)' : 'Tools' },
     { to: isHindi ? '/hi/tutorials' : '/tutorials', label: isHindi ? 'ट्यूटोरियल्स' : 'Tutorials' },
     { to: isHindi ? '/hi/system-design' : '/system-design', label: isHindi ? 'सिम्युलेटर' : 'Simulator' },
@@ -137,6 +137,20 @@ export function Navbar({ onOpenSearch }) {
                 {label}
               </NavLink>
             ))}
+            <div className="pt-2 px-2">
+              <a
+                href="https://whatsapp.com/channel/0029Vb4qWJv7Noa1mZgTkl1O"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 hover:bg-emerald-500/25 transition-all"
+              >
+                <span className="flex items-center gap-2">
+                  <span>💬</span>
+                  <span>Join WhatsApp Channel</span>
+                </span>
+                <span className="text-[10px] font-mono bg-emerald-500/30 px-2 py-0.5 rounded-full text-white">Free</span>
+              </a>
+            </div>
           </div>
         )}
       </div>

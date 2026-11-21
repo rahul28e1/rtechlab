@@ -118,16 +118,16 @@ export function Hero() {
             to="/notes"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white text-black font-semibold text-sm sm:text-base hover:bg-[#E8E8ED] transition-all duration-200 shadow-lg shadow-white/5 active:scale-[0.98]"
           >
-            Explore All Tracks
+            <span>Browse Master Notes (₹49)</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </Link>
           <Link
-            to="/tools/subnet-calculator"
+            to="/tools"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.15] font-semibold text-sm sm:text-base transition-all duration-200 active:scale-[0.98]"
           >
-            Interactive Tools
+            Free Tools &amp; Simulators
           </Link>
         </div>
 
@@ -211,21 +211,21 @@ export function CategoryExplorer() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <div className="text-xs font-mono uppercase tracking-widest text-[#86868B] mb-2 font-semibold">
-              Curriculum &amp; Tracks
+              Curriculum &amp; Study Notes
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-              Interactive Roadmaps
+              Engineering Tracks &amp; Notes
             </h2>
           </div>
           <p className="text-[#A1A1A6] text-sm sm:text-base max-w-md font-normal leading-relaxed">
-            Step-by-step learning paths created to take you from foundational concepts to production-grade infrastructure mastery.
+            Step-by-step curriculum tracks with comprehensive study notes, interactive previews, and enterprise interview question banks.
           </p>
         </div>
 
-        {/* Filter Pills (Roadmap.sh inspired) */}
+        {/* Filter Pills */}
         <div className="flex flex-wrap items-center gap-2 mb-8">
           {[
-            { id: 'all', label: 'All Roadmaps' },
+            { id: 'all', label: 'All Subjects' },
             { id: 'infra', label: 'Core Infrastructure' },
             { id: 'cert', label: 'Certifications (CCNA)' },
             { id: 'ops', label: 'Systems & Security' },
@@ -295,7 +295,7 @@ export function CategoryExplorer() {
                   Target: {cat.targetRole.split('/')[0]}
                 </span>
                 <span className="inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  View Roadmap →
+                  Explore Notes &amp; Track →
                 </span>
               </div>
             </Link>

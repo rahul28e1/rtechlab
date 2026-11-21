@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { YOUTUBE_MASTERCLASSES, INSTAGRAM_REELS_AND_SHORTS } from '../../src/data/videoCurriculumData';
 import { tutorialsData } from '../../src/data/tutorials';
+import { WhatsAppCommunityCard } from '../components/WhatsAppCommunityCard';
 
 const YoutubeIcon = ({ className = "w-4 h-4" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -704,6 +705,11 @@ export function TutorialsHubPage() {
             </div>
           </section>
         )}
+
+        {/* Official WhatsApp Community Card */}
+        <div className="mt-16">
+          <WhatsAppCommunityCard />
+        </div>
       </div>
     </div>
   );

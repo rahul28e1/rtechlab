@@ -64,6 +64,18 @@ export function Footer() {
               <li className="pt-2 text-white/40 border-t border-white/[0.06]">Official Channels:</li>
               <li>
                 <a
+                  href="https://whatsapp.com/channel/0029Vb4qWJv7Noa1mZgTkl1O"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-1 font-semibold text-emerald-400"
+                  title="Join RTechLab Official WhatsApp Channel"
+                >
+                  <span>💬 WhatsApp Channel (Free Tech Updates)</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://www.youtube.com/@RTechLabOfficial"
                   target="_blank"
                   rel="noopener noreferrer"
