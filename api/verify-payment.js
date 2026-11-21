@@ -58,12 +58,7 @@ async function processVerifyLogic(data) {
     };
   }
 
-  const baseUrl =
-    process.env.SITE_URL ||
-    process.env.VITE_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
-    'https://rtechlab.vercel.app';
+  const baseUrl = 'https://rtechlab.vercel.app';
 
   // ── DYNAMIC SUBJECT CATALOG MAPPING (ALL 4 RTECHLAB SUBJECTS) ──────────
   const SUBJECT_CATALOG = {
@@ -119,45 +114,63 @@ async function processVerifyLogic(data) {
   const fromEmail = process.env.EMAIL_FROM || 'RTechLab Publishing <onboarding@resend.dev>';
 
   if (email) {
-    const emailSubject = `[Verified Access] Your ${resolvedSubjectTitle} Digital Download`;
+    const emailSubject = `[RTechLab Verified] Direct Download: Your ${resolvedSubjectTitle} Notes Are Ready`;
     const emailHtml = `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1);">
         <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-bottom: 20px;">
-          <h1 style="color: #10b981; margin: 0; font-size: 22px;">🎉 RTechLab Official Verified Delivery</h1>
+          <h1 style="color: #10b981; margin: 0; font-size: 22px; font-weight: 800;">🎉 RTechLab Official Verified Delivery</h1>
           <p style="color: #9ca3af; margin: 4px 0 0; font-size: 13px;">Payment ID: ${payment_id} · Amount: ₹${price}</p>
         </div>
         <p style="font-size: 15px;">Dear <strong>${name || 'Student'}</strong>,</p>
-        <p style="color: #d1d5db; line-height: 1.6;">
-          Your payment of <strong>₹${price}</strong> for <strong>${resolvedSubjectTitle}</strong> was successfully verified. Your official study materials are unlocked below:
+        <p style="color: #d1d5db; line-height: 1.6; font-size: 14px;">
+          Your payment of <strong>₹${price}</strong> for <strong>${resolvedSubjectTitle}</strong> was successfully verified. 
+          <br/><span style="color: #10b981; font-weight: 600;">⚡ Direct Offline Download:</span> Clicking any button below directly downloads the files to your device without opening any website.
         </p>
         
-        <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
-          <h3 style="color: #10b981; margin-top: 0; font-size: 18px; text-transform: uppercase;">📥 Download Your Notes</h3>
+        <div style="background: rgba(16, 185, 129, 0.08); border: 2px solid #10b981; padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+          <h3 style="color: #10b981; margin-top: 0; font-size: 17px; text-transform: uppercase; letter-spacing: 0.5px;">📥 Click Below To Directly Download:</h3>
           
           ${plan === 'bundle' ? `
-            <div style="margin: 16px 0;">
-              <a href="${bundleZipUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
-                📦 DOWNLOAD COMPLETE 1-CLICK ZIP BUNDLE (${subjectInfo.bundleZipSize})
+            <div style="margin: 14px 0;">
+              <a href="${bundleZipUrl}" download style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 15px; padding: 14px 20px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                📦 DOWNLOAD COMPLETE ZIP BUNDLE (${subjectInfo.bundleZipSize})
               </a>
-              <p style="color: #9ca3af; font-size: 12px; margin-top: 6px;">Includes Full Theory Guide + Interview Vault + Career Blueprint + Labs</p>
+              <p style="color: #9ca3af; font-size: 11px; margin-top: 5px;">All Master PDFs + Interview Vaults + Career Roadmap + Labs</p>
             </div>
           ` : `
-            <div style="margin: 16px 0;">
-              <a href="${coreDownloadUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
+            <div style="margin: 14px 0;">
+              <a href="${coreDownloadUrl}" download style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 15px; padding: 14px 20px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
                 ⚡ DOWNLOAD MASTER PDF (${language === 'hi' ? 'हिंदी' : 'English'} Edition - ${subjectInfo.pages})
               </a>
             </div>
           `}
 
-          <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px;">
-            <p style="color: #9ca3af; margin: 4px 0;">Alternate Language / Individual PDF:</p>
-            <a href="${alternateDownloadUrl}" style="color: #38bdf8; text-decoration: underline; margin-right: 12px;">
-              Download ${language === 'hi' ? 'English' : 'Hindi'} PDF
-            </a>
-            <a href="${coreDownloadUrl}" style="color: #38bdf8; text-decoration: underline;">
-              Download ${language === 'hi' ? 'Hindi' : 'English'} PDF
-            </a>
+          <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); text-align: left;">
+            <p style="color: #e5e7eb; font-size: 12px; font-weight: 700; margin: 0 0 8px;">📄 Individual Direct Master PDF Downloads (Mobile Friendly):</p>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <a href="${subjectInfo.coreHi}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #38bdf8; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                📥 Direct Download Hindi (Hinglish) Master PDF (${subjectInfo.pages}) &rarr;
+              </a>
+              <a href="${subjectInfo.coreEn}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #38bdf8; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                📥 Direct Download English Master PDF (${subjectInfo.pages}) &rarr;
+              </a>
+              ${plan === 'bundle' ? `
+                <a href="${bundleZipUrl}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                  📦 Direct Download Complete ZIP Bundle (${subjectInfo.bundleZipSize}) &rarr;
+                </a>
+              ` : ''}
+            </div>
           </div>
+        </div>
+
+        <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 14px; margin: 16px 0;">
+          <p style="margin: 0; font-size: 13px; color: #bae6fd; line-height: 1.5;">
+            📢 <strong>Official Community Channel:</strong> Join our WhatsApp channel for new chapter drops, live lecture links, and career updates:
+            <br/>
+            <a href="https://whatsapp.com/channel/0029VbETSEpBvvsaksASaJ0i" style="color: #38bdf8; font-weight: 700; text-decoration: underline; display: inline-block; margin-top: 6px;">
+              👉 Tap here to Join RTechLab WhatsApp Channel
+            </a>
+          </p>
         </div>
 
         <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 14px; border-radius: 8px; font-size: 12px; color: #9ca3af; line-height: 1.6;">
