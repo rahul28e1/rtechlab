@@ -44,7 +44,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               <li><Link to="/system-design" className="hover:text-white transition-colors">System Design Simulator</Link></li>
               <li><Link to="/tutorials" className="hover:text-white transition-colors">Engineering Tutorials</Link></li>
-              <li><a href="#interview-prep" className="hover:text-white transition-colors">Interview Scenarios</a></li>
+              <li><Link to="/notes" className="hover:text-white transition-colors">MNC Interview Vaults</Link></li>
               <li><Link to="/hi/notes" className="hover:text-white transition-colors">हिंदी संस्करण (Hindi Edition)</Link></li>
             </ul>
           </div>
@@ -59,6 +59,7 @@ export function Footer() {
               <li><Link to="/editorial-policy" className="hover:text-white transition-colors">Editorial Policy</Link></li>
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link to="/disclaimer" className="hover:text-white transition-colors">Legal Disclaimer</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Support</Link></li>
               <li className="pt-2 text-white/40 border-t border-white/[0.06]">Official Channels:</li>
               <li>
