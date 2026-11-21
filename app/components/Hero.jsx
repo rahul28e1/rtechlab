@@ -112,22 +112,28 @@ export function Hero() {
           Comprehensive, zero-fluff roadmaps across Computer Fundamentals, Hardware, Enterprise Networking, Linux, Cybersecurity, Cloud, DevOps &amp; AI. Built for real-world engineers worldwide.
         </p>
 
-        {/* Call to Actions (Apple & Roadmap.sh style) */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-16">
+        {/* 3 Core Pillars: Notes (Monetization), Tools (Utility), Videos (Education) */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5 mb-14 max-w-2xl mx-auto">
           <Link
             to="/notes"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white text-black font-semibold text-sm sm:text-base hover:bg-[#E8E8ED] transition-all duration-200 shadow-lg shadow-white/5 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full bg-emerald-400 hover:bg-emerald-300 text-black font-extrabold text-sm sm:text-base transition-all shadow-xl shadow-emerald-500/20 active:scale-[0.98]"
           >
-            <span>Browse Master Notes (₹49)</span>
+            <span>📚 Browse Notes (₹49)</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </Link>
           <Link
             to="/tools"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.15] font-semibold text-sm sm:text-base transition-all duration-200 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/[0.15] font-semibold text-sm sm:text-base transition-all active:scale-[0.98]"
           >
-            Free Tools &amp; Simulators
+            <span>🛠️ Free Engineering Tools</span>
+          </Link>
+          <Link
+            to="/tutorials"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-cyan-300 border border-cyan-500/30 font-semibold text-sm sm:text-base transition-all active:scale-[0.98]"
+          >
+            <span>🎬 Video Series</span>
           </Link>
         </div>
 

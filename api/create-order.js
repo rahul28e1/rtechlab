@@ -28,20 +28,14 @@ async function processOrderLogic(data) {
     };
   }
 
-  let amountInPaise;
-  if (amount !== undefined && amount !== null) {
-    const numAmount = Number(amount);
-    amountInPaise = numAmount < 1000 ? Math.round(numAmount * 100) : Math.round(numAmount);
-  } else {
-    amountInPaise = 4900;
-  }
-
-  if (amountInPaise < 100) {
-    return {
-      status: 400,
-      body: { error: 'Amount must be at least 100 paise (₹1.00)' },
-    };
-  }
+  // ── SECURITY ENFORCEMENT: STRICT SERVER-SIDE PRICING CATALOG ─────────
+  // Prevents parameter tampering (attacker cannot send amount: 1 to get a cheap order)
+  const OFFICIAL_PRICES = {
+    single: 4900,  // ₹49.00 in paise
+    bundle: 14900, // ₹149.00 in paise
+  };
+  const enforcedPlan = (plan === 'bundle' || String(amount) === '149' || String(amount) === '14900') ? 'bundle' : 'single';
+  const amountInPaise = OFFICIAL_PRICES[enforcedPlan];
 
   const receiptId = receipt || `rcpt_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
 

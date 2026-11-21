@@ -1,6 +1,8 @@
 # robots.txt for RTechLab
 User-agent: *
 Allow: /
+Disallow: /downloads/
+Disallow: /api/
 Disallow: /dashboard
 
-Sitemap: https://rtechlab.com/sitemap.xml
+Sitemap: https://rtechlab.vercel.app/sitemap.xml

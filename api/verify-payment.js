@@ -14,8 +14,11 @@ async function processVerifyLogic(data) {
     subject = 'fundamentals',
     subjectTitle = 'Computer Fundamentals',
     plan = 'single',
-    price = 49,
   } = data;
+
+  // ── SERVER-SIDE ENFORCED PRICING & PLAN SECURITY ───────────────────────
+  const enforcedPlan = plan === 'bundle' ? 'bundle' : 'single';
+  const price = enforcedPlan === 'bundle' ? 149 : 49;
 
   if (!order_id || !payment_id || !signature) {
     return {
