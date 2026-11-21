@@ -11,11 +11,11 @@ import { buildUpiUri, buildWhatsAppLink, buildOrderMessage, formatINR } from '..
 import { useQrDataUrl } from '../utils/useQr';
 
 export function NotesPage() {
-  const [selectedSubjectId, setSelectedSubjectId] = useState('office365');
+  const [selectedSubjectId, setSelectedSubjectId] = useState('ai');
   const [selectedTierId, setSelectedTierId] = useState('single');
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
-  const [previewPage, setPreviewPage] = useState(1);
+  const [previewPage, setPreviewPage] = useState(0);
   const [lang, setLang] = useState('en'); // 'en' | 'hi'
 
   // Form state for checkout
@@ -23,9 +23,9 @@ export function NotesPage() {
   const [copiedVpa, setCopiedVpa] = useState(false);
   const [formError, setFormError] = useState('');
   const [checkoutItem, setCheckoutItem] = useState({
-    title: 'Microsoft Office 365 Master Guide',
+    title: 'Artificial Intelligence Essentials Master Guide',
     amount: 49,
-    code: 'RTL-2027-O365',
+    code: 'RTL-2027-AI',
   });
 
   const selectedSubject = useMemo(() => {
@@ -35,6 +35,69 @@ export function NotesPage() {
   const selectedTier = useMemo(() => {
     return PRICING_TIERS.find((t) => t.id === selectedTierId) || PRICING_TIERS[0];
   }, [selectedTierId]);
+
+  const previewImages = useMemo(() => {
+    const isHi = lang === 'hi';
+    if (selectedSubject.id === 'ai') {
+      return [
+        { num: 1, title: isHi ? 'कवर पेज' : 'Cover Page', src: isHi ? '/previews/ai/preview-hi-1.png' : '/previews/ai/preview-1.png' },
+        { num: 2, title: isHi ? '42-अध्याय ब्लूप्रिंट' : '42-Chapter Blueprint', src: isHi ? '/previews/ai/preview-hi-2.png' : '/previews/ai/preview-2.png' },
+        { num: 3, title: isHi ? 'AI कॉन्सेंट्रिक पदानुक्रम' : 'AI Concentric Hierarchy', src: isHi ? '/previews/ai/preview-hi-3.png' : '/previews/ai/preview-3.png' },
+        { num: 4, title: isHi ? 'ट्रांसफार्मर एवं अटेंशन' : 'Transformer & Attention Engine', src: isHi ? '/previews/ai/preview-hi-4.png' : '/previews/ai/preview-4.png' },
+        { num: 5, title: isHi ? '2027 सैलरी लैडर' : '2027 Salary Ladder (₹38 LPA)', src: isHi ? '/previews/ai/preview-hi-5.png' : '/previews/ai/preview-5.png' },
+      ];
+    } else if (selectedSubject.id === 'office365') {
+      return [
+        { num: 1, title: isHi ? 'कवर पेज' : 'Cover Page', src: isHi ? '/previews/office365/preview-hi-1.png' : '/previews/office365/preview-1.png' },
+        { num: 2, title: isHi ? '30-अध्याय ब्लूप्रिंट' : '30-Chapter Blueprint', src: isHi ? '/previews/office365/preview-hi-2.png' : '/previews/office365/preview-2.png' },
+        { num: 3, title: isHi ? 'वर्ड 365 मॉडर्न रिबन' : 'Word 365 Modern Ribbon', src: isHi ? '/previews/office365/preview-hi-3.png' : '/previews/office365/preview-3.png' },
+        { num: 4, title: isHi ? 'एक्सेल 365 कैलकुलेशन' : 'Excel 365 Calculation Engine', src: isHi ? '/previews/office365/preview-hi-4.png' : '/previews/office365/preview-4.png' },
+        { num: 5, title: isHi ? 'कॉपायलट AI इंटीग्रेशन' : 'Copilot AI Integration', src: isHi ? '/previews/office365/preview-hi-5.png' : '/previews/office365/preview-5.png' },
+      ];
+    }
+    return null;
+  }, [selectedSubject.id, lang]);
+
+  const getTierDeliverables = (tierId) => {
+    const isSingle = tierId === 'single';
+    if (selectedSubject.id === 'ai') {
+      return [
+        { name: '44-Page Core Master Guide (Complete PDF)', ok: true },
+        { name: 'Dual Editions: Pure English + Technical Hindi', ok: true },
+        { name: 'Authentic Architecture Diagrams & GPU Cluster Specs', ok: true },
+        { name: '42 Chapter Review Questions & Certified MCQs', ok: true },
+        { name: 'Instant Interactive QR Links to Web Tools', ok: true },
+        { name: 'Top 50 FAANG / MNC AI Interview Questions (12 Pages)', ok: !isSingle },
+        { name: '100 Enterprise System Prompts & Guardrails Vault (12 Pages)', ok: !isSingle },
+        { name: '2027 AI CTC Salary Blueprint & ₹38 LPA Ladder (12 Pages)', ok: !isSingle },
+        { name: 'All-In-One ZIP Archive Download (Complete Bundle)', ok: !isSingle },
+      ];
+    } else if (selectedSubject.id === 'office365') {
+      return [
+        { name: '113-Page Full Master Handbook (Complete PDF)', ok: true },
+        { name: 'Dual Editions: English + Hindi', ok: true },
+        { name: 'Real Industrial Hardware Photos & Software UI', ok: true },
+        { name: 'Chapter Review Questions & MCQs', ok: true },
+        { name: 'Instant Interactive QR Links to Web Tools', ok: true },
+        { name: 'Top 50 MNC MIS Interview Vault (10 Pages)', ok: !isSingle },
+        { name: '12 Enterprise Excel Practical Workbooks (16 Pages)', ok: !isSingle },
+        { name: '2027 Industry CTC Salary Blueprint (12 Pages)', ok: !isSingle },
+        { name: 'All-In-One ZIP Archive Download (14.5 MB)', ok: !isSingle },
+      ];
+    } else {
+      return [
+        { name: 'Full Master Handbook (Complete PDF)', ok: true },
+        { name: 'Dual Editions: English + Hindi', ok: true },
+        { name: 'Real Industrial Hardware Photos & Topologies', ok: true },
+        { name: 'Chapter Review Questions & MCQs', ok: true },
+        { name: 'Instant Interactive QR Links to Web Tools', ok: true },
+        { name: 'Top 50 Technical Interview Vault (10-12 Pages)', ok: !isSingle },
+        { name: 'Practical Lab Workbooks & Schematics', ok: !isSingle },
+        { name: '2027 Industry CTC Salary Blueprint (12 Pages)', ok: !isSingle },
+        { name: 'All-In-One ZIP Archive Download', ok: !isSingle },
+      ];
+    }
+  };
 
   // Handle opening checkout
   const handleOpenCheckout = (item) => {
@@ -245,11 +308,17 @@ export function NotesPage() {
                 <button
                   onClick={() =>
                     handleOpenCheckout({
-                      title: selectedSubject.id === 'office365' 
+                      title: selectedSubject.id === 'ai'
+                        ? 'AI Career Accelerator 4-in-1 Bundle'
+                        : selectedSubject.id === 'office365' 
                         ? 'Office 365 Career Accelerator 4-in-1 Bundle' 
-                        : 'Career Accelerator Complete Bundle',
+                        : `${selectedSubject.title} Career Accelerator Complete Bundle`,
                       amount: selectedSubject.bundlePrice || 149,
-                      code: selectedSubject.id === 'office365' ? 'RTL-2027-O365-BUNDLE' : 'RTL-2027-BUNDLE',
+                      code: selectedSubject.id === 'ai'
+                        ? 'RTL-2027-AI-BUNDLE'
+                        : selectedSubject.id === 'office365'
+                        ? 'RTL-2027-O365-BUNDLE'
+                        : 'RTL-2027-BUNDLE',
                     })
                   }
                   className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#0071E3] to-[#0284C7] hover:from-[#0077ED] hover:to-[#0396E5] text-white text-xs sm:text-sm font-bold transition-all shadow-lg shadow-[#0071E3]/25 ring-1 ring-white/20"
@@ -286,6 +355,47 @@ export function NotesPage() {
               </div>
             </div>
           </div>
+
+          {/* Interactive 5-Page Visual Sample Carousel Strip */}
+          {previewImages && (
+            <div className="py-5 border-b border-white/[0.08]">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#2997FF]">
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>{lang === 'en' ? 'Interactive 5-Page Visual Sample (Click to Enlarge)' : 'इंटरएक्टिव 5-पेज विज़ुअल सैंपल (बड़ा देखने के लिए क्लिक करें)'}</span>
+                </div>
+                <span className="text-[11px] text-[#86868b] hidden sm:inline">
+                  100% High-Density Production Master Pages
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                {previewImages.map((img, i) => (
+                  <div
+                    key={i}
+                    onClick={() => { setPreviewPage(i); setShowPreviewModal(true); }}
+                    className="group cursor-pointer rounded-xl border border-white/[0.1] bg-[#16171d] p-1.5 hover:border-[#0071E3] hover:shadow-lg hover:shadow-[#0071E3]/20 transition-all"
+                  >
+                    <div className="aspect-[1/1.414] overflow-hidden rounded-lg bg-black relative">
+                      <img
+                        src={img.src}
+                        alt={img.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="px-2 py-1 rounded-full text-[10px] font-bold bg-[#0071E3] text-white flex items-center gap-1 shadow-md">
+                          <Eye className="w-3 h-3" /> View
+                        </span>
+                      </div>
+                    </div>
+                    <p className="mt-1.5 text-[10px] font-medium text-center text-[#a1a1a6] truncate group-hover:text-white">
+                      {img.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Real Photography & Authenticity Highlight Bar */}
           {selectedSubject.photoHighlights && (
@@ -415,7 +525,7 @@ export function NotesPage() {
                     </div>
 
                     <div className="space-y-3 pb-6 border-b border-white/[0.08]">
-                      {tier.deliverables.map((del, didx) => (
+                      {getTierDeliverables(tier.id).map((del, didx) => (
                         <div key={didx} className="flex items-start gap-2.5 text-xs">
                           {del.ok ? (
                             <Check className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
@@ -434,9 +544,21 @@ export function NotesPage() {
                     <button
                       onClick={() =>
                         handleOpenCheckout({
-                          title: tier.id === 'single' ? `${selectedSubject.title} Master Notes` : 'Office 365 Career Accelerator 4-in-1 Bundle',
+                          title: tier.id === 'single'
+                            ? `${selectedSubject.title} Master Notes`
+                            : selectedSubject.id === 'ai'
+                            ? 'AI Career Accelerator 4-in-1 Bundle'
+                            : selectedSubject.id === 'office365'
+                            ? 'Office 365 Career Accelerator 4-in-1 Bundle'
+                            : `${selectedSubject.title} Career Accelerator Complete Bundle`,
                           amount: tier.price,
-                          code: tier.id === 'single' ? selectedSubject.code : 'RTL-2027-BUNDLE',
+                          code: tier.id === 'single'
+                            ? selectedSubject.code
+                            : selectedSubject.id === 'ai'
+                            ? 'RTL-2027-AI-BUNDLE'
+                            : selectedSubject.id === 'office365'
+                            ? 'RTL-2027-O365-BUNDLE'
+                            : 'RTL-2027-BUNDLE',
                         })
                       }
                       className={`w-full py-3 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
@@ -711,6 +833,77 @@ export function NotesPage() {
                   <ExternalLink className="w-4 h-4" />
                 </button>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* =========================================================================
+          INTERACTIVE FULLSCREEN VISUAL PREVIEW MODAL
+         ========================================================================= */}
+      {showPreviewModal && previewImages && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+          <div className="rounded-3xl border border-white/[0.15] bg-[#111216] w-full max-w-4xl overflow-hidden shadow-2xl relative flex flex-col max-h-[94vh]">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.08] bg-[#16171d]">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#25B6F9]">
+                  {selectedSubject.title} · Visual Preview ({previewPage + 1} of 5)
+                </span>
+                <h3 className="text-sm font-bold text-white">{previewImages[previewPage]?.title}</h3>
+              </div>
+              <button
+                onClick={() => setShowPreviewModal(false)}
+                className="w-7 h-7 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white flex items-center justify-center text-xs"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="flex-1 overflow-auto p-4 flex items-center justify-center bg-black/60">
+              <img
+                src={previewImages[previewPage]?.src}
+                alt={previewImages[previewPage]?.title}
+                className="max-h-[70vh] object-contain rounded-lg shadow-2xl border border-white/[0.1]"
+              />
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-6 py-3 border-t border-white/[0.08] bg-[#16171d]">
+              <div className="flex gap-2">
+                {previewImages.map((p, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setPreviewPage(idx)}
+                    className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
+                      previewPage === idx ? 'bg-[#0071E3] text-white shadow-md' : 'bg-white/[0.06] text-[#86868b] hover:text-white'
+                    }`}
+                  >
+                    {idx + 1}. {p.title}
+                  </button>
+                ))}
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href={lang === 'hi' ? selectedSubject.previewPdfHi : selectedSubject.previewPdfEn}
+                  target="_blank"
+                  rel="noreferrer"
+                  download
+                  className="px-4 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-xs text-white border border-white/[0.1] transition-colors flex items-center gap-1.5"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Free 5-Page PDF</span>
+                </a>
+                <button
+                  onClick={() => {
+                    setShowPreviewModal(false);
+                    handleOpenCheckout({
+                      title: `${selectedSubject.title} Master Notes`,
+                      amount: selectedSubject.price,
+                      code: selectedSubject.code,
+                    });
+                  }}
+                  className="px-4 py-2 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-xs font-bold text-white transition-colors"
+                >
+                  Get Full Guide (₹{selectedSubject.price})
+                </button>
+              </div>
             </div>
           </div>
         </div>
