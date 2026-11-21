@@ -64,11 +64,47 @@ async function processVerifyLogic(data) {
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
     'https://rtechlab.vercel.app';
 
-  const coreDownloadUrl = language === 'hi'
-    ? `${baseUrl}/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf`
-    : `${baseUrl}/downloads/Computer-Fundamentals-English-Edition-1.pdf`;
+  // ── DYNAMIC SUBJECT CATALOG MAPPING (ALL 4 RTECHLAB SUBJECTS) ──────────
+  const SUBJECT_CATALOG = {
+    ai: {
+      title: 'Artificial Intelligence Mastery',
+      coreEn: `${baseUrl}/downloads/AI-Essentials-English-Edition-1.pdf`,
+      coreHi: `${baseUrl}/downloads/AI-Essentials-Hindi-Edition-1.pdf`,
+      bundleZip: `${baseUrl}/downloads/AI-Career-Accelerator-Bundle.zip`,
+      bundleZipSize: '6.4 MB',
+      pages: '44 Pages',
+    },
+    'office-365': {
+      title: 'Microsoft Office 365 Enterprise Suite',
+      coreEn: `${baseUrl}/downloads/Office-365-English-Edition-1.pdf`,
+      coreHi: `${baseUrl}/downloads/Office-365-Hindi-Edition-1.pdf`,
+      bundleZip: `${baseUrl}/downloads/Office-365-Career-Accelerator-Bundle.zip`,
+      bundleZipSize: '13.7 MB',
+      pages: '113 Pages',
+    },
+    fundamentals: {
+      title: 'Computer Fundamentals & Architecture',
+      coreEn: `${baseUrl}/downloads/Computer-Fundamentals-English-Edition-1.pdf`,
+      coreHi: `${baseUrl}/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf`,
+      bundleZip: `${baseUrl}/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip`,
+      bundleZipSize: '30 MB',
+      pages: '45 Pages',
+    },
+    ccna: {
+      title: 'Cisco CCNA (200-301) Networking Master Guide',
+      coreEn: `${baseUrl}/downloads/CCNA-200-301-English-Edition-1.pdf`,
+      coreHi: `${baseUrl}/downloads/CCNA-200-301-Hindi-Edition-1.pdf`,
+      bundleZip: `${baseUrl}/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip`,
+      bundleZipSize: '19.8 MB',
+      pages: '72 Pages',
+    },
+  };
 
-  const bundleZipUrl = `${baseUrl}/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip`;
+  const subjectInfo = SUBJECT_CATALOG[subject] || SUBJECT_CATALOG.fundamentals;
+  const coreDownloadUrl = language === 'hi' ? subjectInfo.coreHi : subjectInfo.coreEn;
+  const alternateDownloadUrl = language === 'hi' ? subjectInfo.coreEn : subjectInfo.coreHi;
+  const bundleZipUrl = subjectInfo.bundleZip;
+  const resolvedSubjectTitle = subjectTitle || subjectInfo.title;
 
   let emailStatus = 'Not sent';
   const resendKey = process.env.RESEND_API_KEY;
@@ -77,31 +113,53 @@ async function processVerifyLogic(data) {
   if (resendKey && email) {
     try {
       const emailHtml = `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1);">
           <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-bottom: 20px;">
-            <h1 style="color: #10b981; margin: 0; font-size: 22px;">RTechLab Official Verified Delivery</h1>
+            <h1 style="color: #10b981; margin: 0; font-size: 22px;">🎉 RTechLab Official Verified Delivery</h1>
             <p style="color: #9ca3af; margin: 4px 0 0; font-size: 13px;">Payment ID: ${payment_id} · Amount: ₹${price}</p>
           </div>
-          <p>Dear <strong>${name || 'Student'}</strong>,</p>
-          <p>Your payment of <strong>₹${price}</strong> for <strong>${subjectTitle} (${language === 'hi' ? 'हिंदी Edition 1' : 'English Edition 1'})</strong> was successfully verified.</p>
-          <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 18px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #10b981; margin-top: 0; font-size: 16px;">📥 Your Verified Download Links:</h3>
-            <p style="margin: 10px 0;">
-              <a href="${coreDownloadUrl}" style="display: inline-block; background: #10b981; color: #000000; font-weight: bold; padding: 10px 18px; border-radius: 6px; text-decoration: none;">
-                ⚡ Download Master PDF (${language === 'hi' ? 'हिंदी Edition 1' : 'English Edition 1'})
-              </a>
-            </p>
-            ${plan === 'bundle' ? `
-              <p style="margin: 14px 0 6px;">
-                <a href="${bundleZipUrl}" style="display: inline-block; background: #06b6d4; color: #000000; font-weight: bold; padding: 10px 18px; border-radius: 6px; text-decoration: none;">
-                  📦 Download Complete 5-in-1 Suite (.ZIP - 30 MB)
-                </a>
-              </p>
-            ` : ''}
-          </div>
-          <p style="color: #9ca3af; font-size: 12px; line-height: 1.5;">
-            <strong>Official Receipt &amp; Lifetime Updates:</strong> Keep this email as proof of purchase.
+          <p style="font-size: 15px;">Dear <strong>${name || 'Student'}</strong>,</p>
+          <p style="color: #d1d5db; line-height: 1.6;">
+            Your payment of <strong>₹${price}</strong> for <strong>${resolvedSubjectTitle}</strong> was successfully verified. Your official study materials are unlocked below:
           </p>
+          
+          <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
+            <h3 style="color: #10b981; margin-top: 0; font-size: 18px; text-transform: uppercase;">📥 Download Your Notes</h3>
+            
+            ${plan === 'bundle' ? `
+              <div style="margin: 16px 0;">
+                <a href="${bundleZipUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
+                  📦 DOWNLOAD COMPLETE 1-CLICK ZIP BUNDLE (${subjectInfo.bundleZipSize})
+                </a>
+                <p style="color: #9ca3af; font-size: 12px; margin-top: 6px;">Includes Full Theory Guide + Interview Vault + Career Blueprint + Labs</p>
+              </div>
+            ` : `
+              <div style="margin: 16px 0;">
+                <a href="${coreDownloadUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
+                  ⚡ DOWNLOAD MASTER PDF (${language === 'hi' ? 'हिंदी' : 'English'} Edition - ${subjectInfo.pages})
+                </a>
+              </div>
+            `}
+
+            <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px;">
+              <p style="color: #9ca3af; margin: 4px 0;">Alternate Language / Individual PDF:</p>
+              <a href="${alternateDownloadUrl}" style="color: #38bdf8; text-decoration: underline; margin-right: 12px;">
+                Download ${language === 'hi' ? 'English' : 'Hindi'} PDF
+              </a>
+              <a href="${coreDownloadUrl}" style="color: #38bdf8; text-decoration: underline;">
+                Download ${language === 'hi' ? 'Hindi' : 'English'} PDF
+              </a>
+            </div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 14px; border-radius: 8px; font-size: 12px; color: #9ca3af; line-height: 1.6;">
+            <p style="margin: 0 0 6px;"><strong>👨‍🏫 Rahul Sir's Direct Mentorship:</strong> If you ever need help, career guidance, or resume review, reply directly to this email or write to <strong style="color: #10b981;">rahul.28e1@gmail.com</strong> with your Payment ID.</p>
+            <p style="margin: 0;"><strong>Lifetime Free Updates:</strong> As new chapters and interview questions are added, you will receive all future editions free of charge.</p>
+          </div>
+
+          <div style="text-align: center; margin-top: 20px; font-size: 11px; color: #6b7280;">
+            RTechLab Universal Open-Access Technical Academy · Official Digital Publications
+          </div>
         </div>
       `;
 
@@ -114,13 +172,16 @@ async function processVerifyLogic(data) {
         body: JSON.stringify({
           from: fromEmail,
           to: [email],
-          subject: `[Verified Access] Your ${subjectTitle} (${language === 'hi' ? 'हिंदी' : 'English'}) Digital Download`,
+          subject: `[Verified Access] Your ${resolvedSubjectTitle} Digital Download`,
           html: emailHtml,
         }),
       });
 
       if (resendRes.ok) {
         emailStatus = 'Dispatched successfully';
+      } else {
+        const resendErr = await resendRes.json().catch(() => ({}));
+        emailStatus = `Resend API Error: ${resendErr.message || resendRes.statusText}`;
       }
     } catch (err) {
       emailStatus = `Email error: ${err.message}`;

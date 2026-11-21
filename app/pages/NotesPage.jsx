@@ -1901,245 +1901,282 @@ export default function NotesPage() {
                 </svg>
               </button>
 
-              <div className="text-center mb-4">
-                <div className="text-xs font-mono text-emerald-400 uppercase font-bold mb-1">
-                  Instant Access &amp; Delivery · 2027 Edition
-                </div>
-                <h3 className="text-lg sm:text-2xl font-black text-white px-2">
-                  {checkoutItem.title}
-                </h3>
-                <div className="text-2xl sm:text-3xl font-black text-white mt-1 flex items-baseline justify-center gap-2">
-                  <span className="text-base font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
-                    {checkoutItem.price === 149 ? '₹1,099' : '₹199'}
-                  </span>
-                  <span>₹{checkoutItem.price}</span>
-                  <span className="text-xs font-normal text-[#86868B] font-mono">one-time access</span>
-                </div>
-              </div>
-
-              {/* ── STEP 1: SELECT LANGUAGE FOR MAIN DIGITAL NOTEBOOK ── */}
-              <div className="mb-4 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
-                <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase mb-2 flex items-center justify-between">
-                  <span>Step 1: Choose Primary Language</span>
-                  <span className="text-[#86868B] text-[10px]">Required</span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 mb-2">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedLanguage('en')}
-                    className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
-                      selectedLanguage === 'en'
-                        ? 'bg-emerald-500/15 border-emerald-400 text-white ring-1 ring-emerald-500/40 shadow-sm shadow-emerald-500/20'
-                        : 'bg-white/[0.03] border-white/10 text-[#86868B] hover:border-white/20'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between font-bold text-xs text-white">
-                      <span>🇬🇧 English Edition</span>
-                      {selectedLanguage === 'en' && <span className="text-emerald-400 text-[10px] font-bold">✓ SELECTED</span>}
+              {/* ── CONDITIONAL MODAL BODY: VICTORY & GIANT DOWNLOAD VS CHECKOUT FORM ── */}
+              {paymentVerified ? (
+                <div className="space-y-4 py-2 animate-fadeIn">
+                  {/* Top Celebratory Header */}
+                  <div className="text-center">
+                    <div className="w-14 h-14 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center text-2xl mx-auto mb-2.5 shadow-xl shadow-emerald-500/30">
+                      ✓
                     </div>
-                    <div className="text-[10px] font-mono text-[#86868B] mt-1">
-                      {selectedSubject.pages} · Global Standard
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold mb-2">
+                      <span>🎉 PAYMENT VERIFIED · ₹{checkoutItem.price} RECEIVED</span>
                     </div>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setSelectedLanguage('hi')}
-                    className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
-                      selectedLanguage === 'hi'
-                        ? 'bg-cyan-500/15 border-cyan-400 text-white ring-1 ring-cyan-500/40 shadow-sm shadow-cyan-500/20'
-                        : 'bg-white/[0.03] border-white/10 text-[#86868B] hover:border-white/20'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between font-bold text-xs text-white">
-                      <span>🇮🇳 Hindi Edition</span>
-                      {selectedLanguage === 'hi' && <span className="text-cyan-400 text-[10px] font-bold">✓ SELECTED</span>}
-                    </div>
-                    <div className="text-[10px] font-mono text-[#86868B] mt-1">
-                      {selectedSubject.pages} · Complete Hindi Edition
-                    </div>
-                  </button>
-                </div>
-
-                <p className="text-[10px] text-[#86868B] leading-relaxed">
-                  💡 <em>In the ₹149 Career Accelerator Suite, you get BOTH English and Hindi editions included inside the 1-Click ZIP bundle!</em>
-                </p>
-              </div>
-
-              {/* ── STEP 2: STUDENT DETAILS & SECURE RAZORPAY PAYMENT ── */}
-              {!paymentVerified ? (
-                <form onSubmit={handleInitiatePayment} className="space-y-3 mb-4 p-4 rounded-2xl bg-black border border-white/[0.12] shadow-xl">
-                  <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase mb-1 flex items-center justify-between">
-                    <span>Step 2: Enter Student Details</span>
-                    <span className="text-[#86868B] text-[10px]">Instant Delivery</span>
-                  </div>
-                  <div className="space-y-2">
-                    <input
-                      type="text"
-                      placeholder="Your Full Name (e.g. Rahul Sharma)"
-                      value={studentName}
-                      onChange={(e) => setStudentName(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
-                      required
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your Email Address (For official receipt & downloads)"
-                      value={studentEmail}
-                      onChange={(e) => setStudentEmail(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
-                      required
-                    />
-                    <input
-                      type="tel"
-                      placeholder="WhatsApp Mobile Number (Optional - for payment backup)"
-                      value={studentPhone}
-                      onChange={(e) => setStudentPhone(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
-                    />
-                  </div>
-
-                  {paymentError && (
-                    <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-[11px] text-red-400 font-mono leading-relaxed">
-                      ⚠️ {paymentError}
-                    </div>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={isPaymentProcessing}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black font-black text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
-                  >
-                    {isPaymentProcessing ? (
-                      <>
-                        <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                        <span>Connecting Razorpay Gateway...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>🔒 Pay ₹{checkoutItem.price} &amp; Unlock Instant Downloads</span>
-                        <span>→</span>
-                      </>
-                    )}
-                  </button>
-
-                  {/* Payment Badges */}
-                  <div className="pt-2 text-center">
-                    <div className="text-[10px] font-mono text-[#86868B] mb-1.5 flex items-center justify-center gap-1">
-                      <span>Supported 1-Click Payments:</span>
-                    </div>
-                    <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] font-mono text-white/70">
-                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Google Pay</span>
-                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">PhonePe</span>
-                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Paytm</span>
-                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">UPI QR</span>
-                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Cards / NetBanking</span>
-                    </div>
-                    <p className="text-[10px] text-white/40 mt-2 font-mono">
-                      🔒 256-Bit SSL Encrypted · Instant Automatic Verification · Zero Waiting Time
+                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                      Congratulations {studentName || 'Student'}!
+                    </h3>
+                    <p className="text-xs text-[#A1A1A6] mt-0.5 max-w-md mx-auto">
+                      Official access unlocked for <strong className="text-white">{selectedSubject.title}</strong> ({checkoutItem.plan === 'bundle' ? 'Executive Career Suite' : 'Core Master Pass'}).
                     </p>
                   </div>
-                </form>
-              ) : (
-                <div className="mb-4 p-4 rounded-2xl bg-emerald-500/15 border border-emerald-500/40 text-center animate-fadeIn shadow-lg shadow-emerald-500/10">
-                  <div className="text-emerald-400 font-extrabold text-sm flex items-center justify-center gap-2 mb-1">
-                    <span>✅</span>
-                    <span>Payment Verified &amp; Access Unlocked!</span>
+
+                  {/* ── BADA DOWNLOAD BUTTON (GIANT HIGH-VISIBILITY BUTTON) ── */}
+                  <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#13281e] via-[#0d1c15] to-[#0a120e] border-2 border-emerald-400 shadow-2xl shadow-emerald-950 text-center space-y-2.5">
+                    <div className="text-[11px] font-mono text-emerald-300 font-bold uppercase tracking-wider flex items-center justify-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                      <span>Instant Offline Download Access</span>
+                    </div>
+
+                    <a
+                      href={checkoutItem.plan === 'bundle' && selectedSubject.bundleZip ? selectedSubject.bundleZip : (selectedLanguage === 'hi' ? selectedSubject.fullPdfHi : selectedSubject.fullPdfEn)}
+                      download
+                      className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 hover:brightness-110 text-black text-base sm:text-xl font-black tracking-tight text-center shadow-2xl shadow-emerald-500/50 transform hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-3 border-2 border-white/60 cursor-pointer block"
+                    >
+                      <span className="text-2xl sm:text-3xl">📥</span>
+                      <span className="uppercase">DOWNLOAD NOTES NOW</span>
+                      <span className="text-[11px] font-mono bg-black text-emerald-400 px-2.5 py-0.5 rounded-full font-bold">
+                        {checkoutItem.plan === 'bundle' ? 'ZIP BUNDLE' : 'MASTER PDF'}
+                      </span>
+                    </a>
+
+                    <p className="text-[11px] text-emerald-200/90 font-mono">
+                      {checkoutItem.plan === 'bundle'
+                        ? `📦 Complete Master Bundle (.ZIP · ${selectedSubject.bundleZipSize}) — All Theory Guides + Interview Vaults + Labs`
+                        : `⚡ Core Master Guide (${selectedLanguage === 'hi' ? 'Hindi' : 'English'} Edition · ${selectedSubject.pages})`}
+                    </p>
                   </div>
-                  <p className="text-xs text-[#D2D2D7] font-mono">
-                    Payment ID: <strong className="text-white">{verifiedPaymentId}</strong> · Registered to: <strong className="text-emerald-300">{studentEmail}</strong>
-                  </p>
-                  <p className="text-[11px] text-[#86868B] mt-1 font-mono">
-                    Your official download links are unlocked below. A confirmation receipt has also been dispatched to your email.
-                  </p>
-                </div>
-              )}
 
-              {/* ── STEP 3: UNLOCKED DOWNLOAD ACCESS ── */}
-              {paymentVerified ? (
-                <div className="space-y-3 animate-fadeIn">
-                  <div className="p-4 rounded-2xl bg-black border border-emerald-500/30 space-y-3">
-                    <div className="flex items-center justify-between text-xs font-mono font-bold text-emerald-400">
-                      <span>📦 UNLOCKED DOWNLOAD ACCESS</span>
-                      <span>{checkoutItem.plan === 'bundle' ? 'Complete Career Suite' : 'Core Master Pass'}</span>
+                  {/* Secondary Individual Downloads */}
+                  <div className="p-3.5 rounded-2xl bg-black/60 border border-white/[0.08] space-y-2">
+                    <div className="text-[10px] font-mono text-[#86868B] uppercase font-semibold flex items-center justify-between">
+                      <span>Download Alternate / Individual Files:</span>
+                      <span className="text-emerald-400 font-bold">Lifetime Free Access</span>
                     </div>
 
-                    {/* 1-Click ZIP Download for Bundle */}
-                    {checkoutItem.plan === 'bundle' && selectedSubject.bundleZip && (
+                    <div className="grid grid-cols-2 gap-2">
                       <a
-                        href={selectedSubject.bundleZip}
+                        href={selectedSubject.fullPdfHi}
                         download
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black font-black text-xs text-center shadow-lg shadow-emerald-500/20 block"
+                        className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
                       >
-                        📦 1-Click Download: Complete {selectedSubject.title} Suite (.ZIP - {selectedSubject.bundleZipSize})
+                        <span className="flex items-center gap-1.5 truncate">
+                          <span>🇮🇳</span>
+                          <span className="truncate">Hindi Master PDF</span>
+                        </span>
+                        <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Download ↓</span>
                       </a>
-                    )}
 
-                    {/* Primary Selected Language PDF */}
-                    <div className="pt-1">
-                      <div className="text-[10px] font-mono text-[#86868B] mb-1.5">
-                        Primary Master Handbook ({selectedLanguage === 'hi' ? 'Hindi' : 'English'} Selected):
-                      </div>
                       <a
-                        href={selectedLanguage === 'hi' ? selectedSubject.fullPdfHi : selectedSubject.fullPdfEn}
+                        href={selectedSubject.fullPdfEn}
                         download
-                        className="w-full py-2.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-xs font-bold text-center border border-emerald-400/40 block mb-1"
+                        className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
                       >
-                        ⚡ Download {selectedLanguage === 'hi' ? 'Hindi' : 'English'} Core Master PDF ({selectedSubject.pages})
+                        <span className="flex items-center gap-1.5 truncate">
+                          <span>🇬🇧</span>
+                          <span className="truncate">English Master PDF</span>
+                        </span>
+                        <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Download ↓</span>
                       </a>
                     </div>
 
-                    {/* Alternate Language PDF */}
-                    <div>
-                      <a
-                        href={selectedLanguage === 'hi' ? selectedSubject.fullPdfEn : selectedSubject.fullPdfHi}
-                        download
-                        className="w-full py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
-                      >
-                        Also download {selectedLanguage === 'hi' ? 'English' : 'Hindi'} Core Master ({selectedSubject.pages})
-                      </a>
-                    </div>
-
-                    {/* Additional Files for Bundle */}
                     {checkoutItem.plan === 'bundle' && (
-                      <div className="pt-2 border-t border-white/[0.08]">
-                        <div className="text-[10px] font-mono text-emerald-400 mb-2 font-bold">
-                          Specialized Career Editions Included:
+                      <div className="pt-2 border-t border-white/[0.06]">
+                        <div className="text-[10px] font-mono text-emerald-400 mb-1.5 font-bold">
+                          Career Accelerators Included in your Suite:
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-mono">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[10px] font-mono">
                           {selectedSubject.bundleItems.filter(item => !item.file.endsWith('.zip')).map((item, idx) => (
                             <a
                               key={idx}
                               href={`/downloads/${item.file}`}
                               download
-                              className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between truncate"
+                              className="p-2 rounded-lg bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] text-[#D2D2D7] hover:text-white flex items-center justify-between truncate transition-all"
                             >
                               <span className="truncate">{item.name}</span>
-                              <span className="text-emerald-400 shrink-0 ml-1">({item.pages})</span>
+                              <span className="text-emerald-400 shrink-0 ml-1 font-bold">↓</span>
                             </a>
                           ))}
                         </div>
                       </div>
                     )}
+                  </div>
 
-                    {/* Mentorship & Support */}
-                    <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-[11px] font-mono text-purple-200">
-                      👨‍🏫 <strong>Rahul Sir's Direct Mentorship:</strong> Save your payment receipt and email <strong>rahul.28e1@gmail.com</strong> for career guidance, resume feedback, and free future edition updates!
+                  {/* Email & Mentorship Info */}
+                  <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.08] text-xs space-y-1.5">
+                    <div className="flex items-center gap-2 text-emerald-400 font-mono font-semibold text-[11px]">
+                      <span>📧</span>
+                      <span>Receipt &amp; backup links sent to:</span>
+                      <strong className="text-white">{studentEmail}</strong>
+                    </div>
+                    <p className="text-[10px] text-[#86868B] leading-relaxed">
+                      Payment ID: <strong className="text-emerald-300 font-mono">{verifiedPaymentId}</strong>. If email takes a minute or lands in Spam, don't worry — your notes can be downloaded directly from the big button above anytime!
+                    </p>
+                    <div className="pt-1.5 border-t border-white/[0.06] text-[10px] font-mono text-purple-300">
+                      👨‍🏫 <strong>Rahul Sir Mentorship:</strong> Email <strong className="text-white">rahul.28e1@gmail.com</strong> with your Payment ID for resume reviews and career guidance.
                     </div>
                   </div>
 
-                  <p className="text-[10px] sm:text-[11px] text-center text-[#86868B]">
-                    🔒 Official RTechLab Digital Publication · Authorized Author: Rahul Patel
-                  </p>
+                  {/* Done / Close Button */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsCheckoutOpen(false);
+                      setPaymentVerified(false);
+                    }}
+                    className="w-full py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-[#A1A1A6] hover:text-white font-mono text-xs font-semibold transition-all text-center cursor-pointer"
+                  >
+                    Done / Close Window
+                  </button>
                 </div>
               ) : (
-                <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center">
-                  <div className="text-xs font-mono text-[#86868B] flex items-center justify-center gap-1.5">
-                    <span>🔒</span>
-                    <span>Full Master PDFs &amp; Bundles are securely locked. Complete Step 2 above to unlock instant access.</span>
+                <>
+                  <div className="text-center mb-4">
+                    <div className="text-xs font-mono text-emerald-400 uppercase font-bold mb-1">
+                      Instant Access &amp; Delivery · 2027 Edition
+                    </div>
+                    <h3 className="text-lg sm:text-2xl font-black text-white px-2">
+                      {checkoutItem.title}
+                    </h3>
+                    <div className="text-2xl sm:text-3xl font-black text-white mt-1 flex items-baseline justify-center gap-2">
+                      <span className="text-base font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
+                        {checkoutItem.price === 149 ? '₹1,099' : '₹199'}
+                      </span>
+                      <span>₹{checkoutItem.price}</span>
+                      <span className="text-xs font-normal text-[#86868B] font-mono">one-time access</span>
+                    </div>
                   </div>
-                </div>
+
+                  {/* ── STEP 1: SELECT LANGUAGE FOR MAIN DIGITAL NOTEBOOK ── */}
+                  <div className="mb-4 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
+                    <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase mb-2 flex items-center justify-between">
+                      <span>Step 1: Choose Primary Language</span>
+                      <span className="text-[#86868B] text-[10px]">Required</span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 mb-2">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedLanguage('en')}
+                        className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                          selectedLanguage === 'en'
+                            ? 'bg-emerald-500/15 border-emerald-400 text-white ring-1 ring-emerald-500/40 shadow-sm shadow-emerald-500/20'
+                            : 'bg-white/[0.03] border-white/10 text-[#86868B] hover:border-white/20'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between font-bold text-xs text-white">
+                          <span>🇬🇧 English Edition</span>
+                          {selectedLanguage === 'en' && <span className="text-emerald-400 text-[10px] font-bold">✓ SELECTED</span>}
+                        </div>
+                        <div className="text-[10px] font-mono text-[#86868B] mt-1">
+                          {selectedSubject.pages} · Global Standard
+                        </div>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setSelectedLanguage('hi')}
+                        className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                          selectedLanguage === 'hi'
+                            ? 'bg-cyan-500/15 border-cyan-400 text-white ring-1 ring-cyan-500/40 shadow-sm shadow-cyan-500/20'
+                            : 'bg-white/[0.03] border-white/10 text-[#86868B] hover:border-white/20'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between font-bold text-xs text-white">
+                          <span>🇮🇳 Hindi Edition</span>
+                          {selectedLanguage === 'hi' && <span className="text-cyan-400 text-[10px] font-bold">✓ SELECTED</span>}
+                        </div>
+                        <div className="text-[10px] font-mono text-[#86868B] mt-1">
+                          {selectedSubject.pages} · Complete Hindi Edition
+                        </div>
+                      </button>
+                    </div>
+
+                    <p className="text-[10px] text-[#86868B] leading-relaxed">
+                      💡 <em>In the ₹149 Career Accelerator Suite, you get BOTH English and Hindi editions included inside the 1-Click ZIP bundle!</em>
+                    </p>
+                  </div>
+
+                  {/* ── STEP 2: STUDENT DETAILS & SECURE RAZORPAY PAYMENT ── */}
+                  <form onSubmit={handleInitiatePayment} className="space-y-3 mb-4 p-4 rounded-2xl bg-black border border-white/[0.12] shadow-xl">
+                    <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase mb-1 flex items-center justify-between">
+                      <span>Step 2: Enter Student Details</span>
+                      <span className="text-[#86868B] text-[10px]">Instant Delivery</span>
+                    </div>
+                    <div className="space-y-2">
+                      <input
+                        type="text"
+                        placeholder="Your Full Name (e.g. Rahul Sharma)"
+                        value={studentName}
+                        onChange={(e) => setStudentName(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
+                        required
+                      />
+                      <input
+                        type="email"
+                        placeholder="Your Email Address (For official receipt & downloads)"
+                        value={studentEmail}
+                        onChange={(e) => setStudentEmail(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
+                        required
+                      />
+                      <input
+                        type="tel"
+                        placeholder="WhatsApp Mobile Number (Optional - for payment backup)"
+                        value={studentPhone}
+                        onChange={(e) => setStudentPhone(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-xs text-white placeholder-[#86868B] focus:outline-none focus:border-emerald-400 font-mono"
+                      />
+                    </div>
+
+                    {paymentError && (
+                      <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-[11px] text-red-400 font-mono leading-relaxed">
+                        ⚠️ {paymentError}
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={isPaymentProcessing}
+                      className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black font-black text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+                    >
+                      {isPaymentProcessing ? (
+                        <>
+                          <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
+                          <span>Connecting Razorpay Gateway...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>🔒 Pay ₹{checkoutItem.price} &amp; Unlock Instant Downloads</span>
+                          <span>→</span>
+                        </>
+                      )}
+                    </button>
+
+                    {/* Payment Badges */}
+                    <div className="pt-2 text-center">
+                      <div className="text-[10px] font-mono text-[#86868B] mb-1.5 flex items-center justify-center gap-1">
+                        <span>Supported 1-Click Payments:</span>
+                      </div>
+                      <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] font-mono text-white/70">
+                        <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Google Pay</span>
+                        <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">PhonePe</span>
+                        <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Paytm</span>
+                        <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">UPI QR</span>
+                        <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Cards / NetBanking</span>
+                      </div>
+                      <p className="text-[10px] text-white/40 mt-2 font-mono">
+                        🔒 256-Bit SSL Encrypted · Instant Automatic Verification · Zero Waiting Time
+                      </p>
+                    </div>
+                  </form>
+
+                  <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center">
+                    <div className="text-xs font-mono text-[#86868B] flex items-center justify-center gap-1.5">
+                      <span>🔒</span>
+                      <span>Full Master PDFs &amp; Bundles are securely locked. Complete Step 2 above to unlock instant access.</span>
+                    </div>
+                  </div>
+                </>
               )}
             </div>
           </div>
