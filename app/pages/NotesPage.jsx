@@ -1,246 +1,209 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 
-// ── 8 OFFICIAL RTECHLAB SUBJECTS (2027 INDUSTRIAL EDITION) ─────────────────
-// Each subject includes realistic page volume (100+ to 210+ pages), syllabus module topics, and contextual combo pairing
+// ── 4 OFFICIAL RTECHLAB SUBJECTS (EXACT SEQUENCE & REAL PAGE COUNTS) ────────
 const SUBJECTS = [
+  {
+    id: 'ai',
+    category: 'ai',
+    title: 'Artificial Intelligence Mastery',
+    subtitle: 'Neural Networks, LLMs, Enterprise Prompts & Autonomous AI Agents',
+    desc: 'Complete mathematical & architectural foundations of Deep Learning, Transformers & Attention, Enterprise Prompt Engineering, RAG Vector Search, Autonomous AI Agents, and the 2027 India & Global Job Market roadmap.',
+    pages: '44 Pages Master Guide',
+    bundlePages: '112 Pages Complete Suite',
+    tag: '2027 Next-Gen Standard · Edition 1',
+    accent: 'purple',
+    badge: '🔥 Most Popular',
+    badgeSub: 'Highest CTC Track (₹6L–₹22L+)',
+    previewPdfEn: '/downloads/AI-Essentials-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/AI-Essentials-Hindi-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/AI-Essentials-English-Edition-1.pdf',
+    fullPdfHi: '/downloads/AI-Essentials-Hindi-Edition-1.pdf',
+    bundleZip: '/downloads/AI-Career-Accelerator-Bundle.zip',
+    bundleZipSize: '6.4 MB',
+    bundleItems: [
+      { name: 'AI Essentials Core Master Guide (English)', pages: '44 Pages', file: 'AI-Essentials-English-Edition-1.pdf', badge: 'Master Guide' },
+      { name: 'AI Essentials Core Master Guide (Hindi)', pages: '44 Pages', file: 'AI-Essentials-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Top 50 AI Interview Questions & 100 Enterprise Prompts Vault', pages: '12 Pages', file: 'AI-Top-50-Interview-Questions-and-100-Enterprise-Prompts-Vault.pdf', badge: 'Interview Vault' },
+      { name: 'AI Career, Salary Blueprint & Roadmap', pages: '12 Pages', file: 'AI-Career-and-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
+      { name: '1-Click Master ZIP Offline Bundle', pages: 'All 4 PDFs', file: 'AI-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+    ],
+    topics: [
+      'Ch 01-02: Foundations of AI, Machine Learning & Deep Neural Nets',
+      'Ch 03-04: Transformer Architecture, Self-Attention & LLM Internals',
+      'Ch 05-06: Enterprise Prompt Engineering & Production RAG Vector Search',
+      'Ch 07-08: Autonomous AI Agents, Tool Calling & Multi-Agent Swarms',
+      'Ch 09-10: Ethical AI, India vs Global IT Market & 2027 Career Blueprint',
+    ],
+  },
+  {
+    id: 'office-365',
+    category: 'productivity',
+    title: 'Microsoft Office 365 Enterprise Suite',
+    subtitle: 'Advanced Excel, Word, PowerPoint, Access, Outlook & MIS Automation',
+    desc: 'From corporate Word legal document styling to Advanced Excel XLOOKUP, Dynamic Arrays, Power Query, Executive PowerPoint pitch decks, Access relational databases, and corporate MIS workflows.',
+    pages: '113 Pages Master Guide',
+    bundlePages: '272 Pages Complete Suite',
+    tag: 'Corporate Enterprise Edition · Edition 1',
+    accent: 'blue',
+    badge: '⚡ 100% Placement Ready',
+    badgeSub: 'Corporate MIS Standard (₹3.5L–₹9.5L)',
+    previewPdfEn: '/downloads/Office-365-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/Office-365-Hindi-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/Office-365-English-Edition-1.pdf',
+    fullPdfHi: '/downloads/Office-365-Hindi-Edition-1.pdf',
+    bundleZip: '/downloads/Office-365-Career-Accelerator-Bundle.zip',
+    bundleZipSize: '13.7 MB',
+    bundleItems: [
+      { name: 'Office 365 Enterprise Master Guide (English)', pages: '113 Pages', file: 'Office-365-English-Edition-1.pdf', badge: 'Master Guide' },
+      { name: 'Office 365 Enterprise Master Guide (Hindi)', pages: '113 Pages', file: 'Office-365-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Top 100 Shortcuts & 50 MIS Interview Vault (English)', pages: '9 Pages', file: 'Office-365-Top-100-Shortcuts-and-50-MIS-Interview-Vault-English.pdf', badge: 'Interview Vault' },
+      { name: 'Top 100 Shortcuts & 50 MIS Interview Vault (Hindi)', pages: '9 Pages', file: 'Office-365-Top-100-Shortcuts-and-50-MIS-Interview-Vault-Hindi.pdf', badge: 'Hindi Vault' },
+      { name: 'Practical Excel Templates & Formula Workbook', pages: '16 Pages', file: 'Office-365-Practical-Excel-Templates-Workbook-Guide.pdf', badge: 'Practical Labs' },
+      { name: 'MIS Executive Career, Salary Blueprint & Roadmap', pages: '12 Pages', file: 'Office-365-MIS-Career-and-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
+      { name: '1-Click Master ZIP Offline Bundle', pages: 'All 6 PDFs', file: 'Office-365-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+    ],
+    topics: [
+      'Ch 01-03: Word 365 Corporate Architecture, Mail Merge & Legal Document Control',
+      'Ch 04-07: Advanced Excel XLOOKUP, Pivot Tables, Power Query & Dynamic Arrays',
+      'Ch 08-09: Executive PowerPoint Pitch Decks, Data Storytelling & Master Slides',
+      'Ch 10-12: Access Relational DBs, Outlook Inbox Zero Protocol & Security Rules',
+      'Ch 13: Top 100 Enterprise Shortcuts & 50 Corporate MIS Placement Question Bank',
+    ],
+  },
   {
     id: 'fundamentals',
     category: 'systems',
-    title: 'Computer Fundamentals',
-    subtitle: 'Silicon Architecture, Memory Hierarchy & Placement Bank',
-    desc: 'Silicon IPO cycle, RAM/ROM storage hierarchy, CPU machine cycle, and Top 50 MNC technical placement questions with senior model answers.',
-    pages: '45 Pages',
+    title: 'Computer Fundamentals & Architecture',
+    subtitle: 'Silicon Architecture, Memory Hierarchy, OS & Hardware Diagnostics',
+    desc: 'Silicon IPO cycle, RAM/ROM storage hierarchy, CPU machine cycle, OS kernel architecture, PC assembly, and Top 50 MNC technical placement questions with senior model answers.',
+    pages: '45 Pages Master Guide',
+    bundlePages: '119 Pages Complete Suite',
     tag: 'Core Foundation · Edition 1',
     accent: 'emerald',
-    badge: 'Edition 1',
+    badge: '💻 Core Foundation',
+    badgeSub: 'Silicon Architecture (₹3.2L–₹7.5L)',
     previewPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1.pdf',
     fullPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf',
-    relatedComboId: 'combo-it-support',
-    pairingReason: 'Pair with Computer Hardware for complete physical computer architecture mastery.',
-    topics: [
-      'Ch 01-02: IPO Cycle, Modern I/O Ports & 5 Generations',
-      'Ch 03-05: RAM/ROM Hierarchy, Cache L1-L3 & Logic Gates',
-      'Ch 06-08: OS Architecture, Linux vs Windows & Security',
-      'Ch 09: PC Assembly, ESD Safety & Diagnostic Tools',
-      'Ch 10: Top 50 MNC Technical Interview Question Bank',
+    bundleZip: '/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip',
+    bundleZipSize: '30 MB',
+    bundleItems: [
+      { name: 'Computer Fundamentals Core Master Guide (English)', pages: '45 Pages', file: 'Computer-Fundamentals-English-Edition-1.pdf', badge: 'Master Guide' },
+      { name: 'Computer Fundamentals Core Master Guide (Hindi)', pages: '45 Pages', file: 'Computer-Fundamentals-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Enterprise & FAANG Systems Deep-Dive', pages: '7 Pages', file: 'Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf', badge: 'FAANG DeepDive' },
+      { name: 'Top 50 MNC Placement Interview Practice Vault', pages: '7 Pages', file: 'Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf', badge: 'Interview Vault' },
+      { name: 'Career & Salary Blueprint Roadmap', pages: '5 Pages', file: 'Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
+      { name: 'Practical Lab Diagnostics Workbook', pages: '10 Pages', file: 'Computer-Fundamentals-Practical-Lab-Workbook-Edition-1.pdf', badge: 'Practical Labs' },
+      { name: '1-Click Master ZIP Offline Bundle', pages: 'All 6 PDFs', file: 'RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip', badge: '1-Click ZIP' },
     ],
-  },
-  {
-    id: 'hardware',
-    category: 'systems',
-    title: 'Computer Hardware & Architecture',
-    subtitle: 'Desktop Support & Systems Engineering',
-    desc: 'CPU sockets (LGA/PGA), DDR4/DDR5 high-speed bus, NVMe PCIe 5.0, Motherboard VRM phases, and PSU diagnostics.',
-    pages: '130+ Pages',
-    tag: 'Industrial Hardware',
-    accent: 'blue',
-    badge: 'Popular',
-    previewPdfEn: '/downloads/RTechLab-Computer-Hardware-2027-5Page-Preview.pdf',
-    fullPdfEn: '/downloads/RTechLab-Computer-Hardware-2027-Master-Edition.pdf',
-    relatedComboId: 'combo-it-support',
-    pairingReason: 'Industry roles require both Hardware + Networking for L1/L2 Desktop Support & Field Engineering.',
     topics: [
-      'CPU Sockets (Intel LGA 1700 vs AMD AM5) & Gold Pin Triage',
-      'Motherboard VRM Phases, MOSFETs, Chokes & Power Throttling',
-      'High-Speed RAM Bus (DDR4 vs DDR5) & Daisy-Chain Slot Rules',
-      'Storage Architecture: NVMe PCIe 5.0 M.2 vs SATA 3D NAND Flash',
-      'Power Supply Units: 80 Plus Standards & 24-Pin Paperclip Test',
-      'Graphics Cards: PCIe Gen 5 Lanes, GPU HDMI Cable Trap & Heatsinks',
-    ],
-  },
-  {
-    id: 'networking',
-    category: 'networking',
-    title: 'Computer Networking Fundamentals',
-    subtitle: 'The OSI Model to Enterprise Routing & Cisco IOS',
-    desc: 'TCP/IP vs OSI, IPv4 subnetting VLSM, IPv6 architecture, Ethernet cabling T568A/B, Cisco IOS CLI, and Top 50 MNC placement interview questions.',
-    pages: '45 Pages',
-    tag: 'Networking Core · Edition 1',
-    accent: 'cyan',
-    badge: 'Edition 1',
-    previewPdfEn: '/downloads/CCNA-200-301-English-Edition-1-5Page-Preview.pdf',
-    previewPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1-5Page-Preview.pdf',
-    fullPdfEn: '/downloads/CCNA-200-301-English-Edition-1.pdf',
-    fullPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1.pdf',
-    bundleZip: '/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip',
-    relatedComboId: 'combo-network',
-    pairingReason: 'Pair with CCNA Master Guide to master enterprise Cisco routers, switches, and real TAC troubleshooting.',
-    topics: [
-      'Ch 01-02: 3-Tier/Spine-Leaf Architectures & Cat6/Fiber Cabling',
-      'Ch 03-04: IPv4 Subnetting Masterclass & IPv6 EUI-64/SLAAC',
-      'Ch 05-06: Cisco IOS Architecture, ROMMON & CLI Navigation',
-      'Ch 07-08: Switching (VLANs/STP/ROAS) & IP Routing (OSPFv2/AD)',
-      'Ch 09-10: Enterprise Services (DHCP/NAT/ACL) & Top 50 MNC Placement Bank',
+      'Ch 01-02: Silicon IPO Cycle, Modern I/O Ports & 5 Generations Matrix',
+      'Ch 03-05: RAM/ROM Hierarchy, Cache L1-L3, CPU Machine Cycle & Logic Gates',
+      'Ch 06-08: Operating System Architecture, Kernel, Memory Management & Security',
+      'Ch 09: Physical Assembly, ESD Safety Standards & Diagnostic Triage Tools',
+      'Ch 10: Top 50 MNC Placement Technical Interview Question Bank',
     ],
   },
   {
     id: 'ccna',
     category: 'networking',
-    title: 'Cisco CCNA 200-301 Master Guide',
-    subtitle: 'Switching, Routing, IPv6, Cisco IOS & Placement Bank',
-    desc: '3-Tier/Spine-Leaf networks, IPv4 VLSM & IPv6 architecture, Cisco IOS CLI & ROMMON recovery, VLANs/STP, OSPF, ACLs, and Top 50 MNC placement Q&A.',
-    pages: '45 Pages',
+    title: 'Cisco CCNA 200-301 Master Suite',
+    subtitle: 'Enterprise Switching, OSPF Routing, IPv6 & Cisco IOS TAC Standard',
+    desc: '3-Tier/Spine-Leaf enterprise networks, IPv4 VLSM & IPv6 architecture, Cisco IOS CLI & ROMMON recovery, VLANs/STP, OSPF, ACLs, and Top 120 Cisco TAC placement Q&A.',
+    pages: '49 Pages Master Guide',
+    bundlePages: '128 Pages Complete Suite',
     tag: 'Cisco TAC Standard · Edition 1',
-    accent: 'blue',
-    badge: 'Edition 1',
+    accent: 'cyan',
+    badge: '🌐 Cisco TAC Standard',
+    badgeSub: 'Network Pro Track (₹4.5L–₹14L+)',
     previewPdfEn: '/downloads/CCNA-200-301-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/CCNA-200-301-English-Edition-1.pdf',
     fullPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1.pdf',
     bundleZip: '/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip',
-    relatedComboId: 'combo-network',
-    pairingReason: 'Pair with Networking Fundamentals for bulletproof subnetting, packet headers, and OSI base foundation.',
-    topics: [
-      'Ch 01-02: 3-Tier/Spine-Leaf Architectures & Cat6/Fiber Cabling',
-      'Ch 03-04: IPv4 Subnetting Masterclass & IPv6 EUI-64/SLAAC',
-      'Ch 05-06: Cisco IOS Architecture, ROMMON & CLI Navigation',
-      'Ch 07-08: Switching (VLANs/STP/ROAS) & IP Routing (OSPFv2/AD)',
-      'Ch 09-10: Enterprise Services (DHCP/NAT/ACL) & Top 50 MNC Placement Bank',
+    bundleZipSize: '19.8 MB',
+    bundleItems: [
+      { name: 'Cisco CCNA 200-301 Master Guide (English)', pages: '49 Pages', file: 'CCNA-200-301-English-Edition-1.pdf', badge: 'Master Guide' },
+      { name: 'Cisco CCNA 200-301 Master Guide (Hindi)', pages: '49 Pages', file: 'CCNA-200-301-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Cisco TAC Top 120 Technical Interview Question Vault', pages: '14 Pages', file: 'CCNA-200-301-Interview-Question-Vault-Edition-1.pdf', badge: 'Interview Vault' },
+      { name: 'Network Engineer Career & Salary Blueprint', pages: '4 Pages', file: 'CCNA-200-301-Network-Engineer-Career-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
+      { name: 'Packet Tracer Hands-on Production Lab Workbook', pages: '12 Pages', file: 'CCNA-200-301-Packet-Tracer-Lab-Workbook-Edition-1.pdf', badge: 'Packet Tracer Labs' },
+      { name: '1-Click Master ZIP Offline Bundle', pages: 'All 5 PDFs', file: 'RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip', badge: '1-Click ZIP' },
     ],
-  },
-  {
-    id: 'aws',
-    category: 'cloud',
-    title: 'AWS Cloud Solutions Architect',
-    subtitle: 'Enterprise Cloud Infrastructure',
-    desc: 'VPC subnets, IGW, NAT Gateways, EC2 auto-scaling, S3 storage tiers, IAM least privilege, and high-availability design.',
-    pages: '190+ Pages',
-    tag: 'Cloud Architect',
-    accent: 'amber',
-    badge: 'High CTC',
-    relatedComboId: 'combo-cloud',
-    pairingReason: 'Enterprise companies hire Multi-Cloud Architects. Mastering AWS + Azure unlocks ₹8L–₹15L CTC roles.',
     topics: [
-      'AWS Global Cloud Infrastructure: Regions, AZs & 400+ Edge Locations',
-      'Virtual Private Cloud (VPC): Public/Private Subnets, IGW & NAT Gateways',
-      'EC2 Elastic Compute: Instance Families, EBS Volumes & Auto-Scaling Groups',
-      'S3 Storage: Standard, Infrequent, Glacier Deep Archive & Bucket Policies',
-      'IAM Security: Least Privilege, Role Delegation, Policies & STS Tokens',
-      'Elastic Load Balancing (ALB / NLB) & Route 53 DNS Latency Policies',
-    ],
-  },
-  {
-    id: 'azure',
-    category: 'cloud',
-    title: 'Microsoft Azure Infrastructure',
-    subtitle: 'Hybrid Enterprise & Entra ID',
-    desc: 'Virtual Networks (VNet), Azure AD (Entra ID), Resource Groups, ARM Templates, ExpressRoute, and Azure VMs.',
-    pages: '175+ Pages',
-    tag: 'Enterprise Cloud',
-    accent: 'blue',
-    badge: 'Enterprise',
-    relatedComboId: 'combo-cloud',
-    pairingReason: 'Pair with AWS Cloud Architect to cover both global market leaders in hybrid cloud engineering.',
-    topics: [
-      'Azure Cloud Hierarchy: Subscriptions, Management Groups & Resource Groups',
-      'Azure Virtual Networks (VNets), Subnets, Peering & NSG Firewall Rules',
-      'Azure Virtual Machines: Availability Sets, Availability Zones & Proximity',
-      'Microsoft Entra ID (Azure AD): Hybrid Join, Seamless SSO & Conditional Access',
-      'Azure Storage Accounts: Blob (Hot/Cool/Archive), File Shares & Azure Backup',
-      'Hybrid Cloud Connectivity: Site-to-Site VPN, ExpressRoute & Bastion Hosts',
-    ],
-  },
-  {
-    id: 'cybersecurity',
-    category: 'security',
-    title: 'Cyber Security & Defensive Ops',
-    subtitle: 'Blue Team & SOC Triage',
-    desc: 'Threat vectors, Malware remediation, SIEM log analysis, Firewalls vs WAF, Zero Trust, and Incident Response.',
-    pages: '160+ Pages',
-    tag: 'Defensive Security',
-    accent: 'purple',
-    badge: 'Defensive',
-    relatedComboId: 'combo-cyber',
-    pairingReason: 'Pair with Ethical Hacking to understand both Red Team attack tools and Blue Team SOC defense tactics.',
-    topics: [
-      'Threat Vectors: Phishing, Ransomware Kill Chain & Man-In-The-Middle',
-      'SOC Operations: SIEM Log Correlation (Splunk / Elastic) & Event Triage',
-      'Perimeter Security: Next-Gen Firewalls (NGFW), IDS / IPS & Cloud WAF',
-      'Endpoint Detection & Response (EDR) & Memory Dump Malware Isolation',
-      'Zero Trust Security Architecture: Mutual TLS, Microsegmentation & RBAC',
-      'NIST SP 800-61 Incident Response Phases & Digital Evidence Chain-of-Custody',
-    ],
-  },
-  {
-    id: 'ethical-hacking',
-    category: 'security',
-    title: 'Ethical Hacking & Penetration Testing',
-    subtitle: 'Red Team & Offensive Tools',
-    desc: 'Reconnaissance, Nmap port scanning, Metasploit, Wireshark packet dissection, SQL Injection, and Burp Suite labs.',
-    pages: '195+ Pages',
-    tag: 'Offensive Security',
-    accent: 'red',
-    badge: 'Hands-on Labs',
-    relatedComboId: 'combo-cyber',
-    pairingReason: 'Pair with Defensive Cyber Security to master full-spectrum penetration testing and defensive remediation.',
-    topics: [
-      'Passive & Active Reconnaissance: OSINT, WHOIS, Shodan & DNS Harvesting',
-      'Port Scanning & OS Fingerprinting: Nmap SYN / UDP Scans & NSE Scripts',
-      'Network Packet Sniffing & Decryption: Wireshark Pcap Filters & ARP Spoofing',
-      'Web Application Exploitation: OWASP Top 10, SQL Injection & Burp Suite Proxy',
-      'Metasploit Framework: Exploit Payloads, Meterpreter & Post-Exploitation',
-      'Privilege Escalation: Linux SUID Bits, Windows Token Impersonation & Reports',
+      'Ch 01-02: 3-Tier Enterprise vs Spine-Leaf Architectures & Cat6/Fiber Media',
+      'Ch 03-04: IPv4 Subnetting Masterclass (VLSM/FLSM) & IPv6 SLAAC/EUI-64',
+      'Ch 05-06: Cisco IOS Architecture, ROMMON Recovery & CLI Command Mastery',
+      'Ch 07-08: Switching (VLANs/Trunking/STP) & IP Routing (OSPFv2/AD/Metrics)',
+      'Ch 09-10: Enterprise Network Services (DHCP/NAT/ACL) & TAC Placement Vault',
     ],
   },
 ];
 
-// ── ₹249 HIGH-CONVERTING POWER COMBO DUOS ──────────────────────────────────
-const COMBOS = [
-  {
-    id: 'combo-it-support',
-    name: 'IT Support & Systems Engineer Duo',
-    subjects: ['Computer Hardware', 'Computer Networking'],
-    totalVolume: '290+ Pages Combined',
-    tag: 'Most Popular for Freshers',
-    price: 249,
-    originalPrice: 298,
-    desc: 'Complete physical + logical foundation. Everything needed to crack Desktop Support, Field Engineer, or L1 NOC roles.',
-    accent: 'emerald',
-    badge: 'Save ₹49 Extra',
-  },
-  {
-    id: 'combo-cloud',
-    name: 'Multi-Cloud Architect Duo',
-    subjects: ['AWS Cloud Architect', 'Microsoft Azure Infrastructure'],
-    totalVolume: '365+ Pages Combined',
-    tag: 'High CTC Enterprise Track',
-    price: 249,
-    originalPrice: 298,
-    desc: 'Master both global cloud giants. High-availability AWS VPCs paired with Microsoft Azure Entra ID hybrid networks.',
-    accent: 'amber',
-    badge: 'Cloud Master',
-  },
-  {
-    id: 'combo-cyber',
-    name: 'Cyber Security & Pentesting Master Duo',
-    subjects: ['Cyber Security Defensive', 'Ethical Hacking Offensive'],
-    totalVolume: '355+ Pages Combined',
-    tag: 'Complete Red + Blue Team',
-    price: 249,
-    originalPrice: 298,
-    desc: 'The complete offensive & defensive security library. Threat hunting, malware isolation, Nmap scanning & Wireshark traces.',
-    accent: 'purple',
-    badge: 'Security Duo',
-  },
-  {
-    id: 'combo-network',
-    name: 'Enterprise Network Specialist Duo',
-    subjects: ['Networking Fundamentals', 'CCNA Top Tier Notes'],
-    totalVolume: '370+ Pages Combined',
-    tag: 'Cisco TAC / NOC Track',
-    price: 249,
-    originalPrice: 298,
-    desc: 'From basic subnetting to enterprise Cisco IOS router & switch configurations. Built for network engineers.',
-    accent: 'blue',
-    badge: 'Network Pro',
-  },
-];
-
-// ── REAL PREVIEW ASSETS & LABELS (AUTHENTIC DIGITAL BOOK) ────────────────────
+// ── REAL PREVIEW ASSETS & LABELS (AUTHENTIC 3D NOTEBOOK) ─────────────────────
 const PREVIEW_ASSETS = {
+  ai: {
+    en: [
+      '/previews/ai/preview-1.png',
+      '/previews/ai/preview-2.png',
+      '/previews/ai/preview-3.png',
+      '/previews/ai/preview-4.png',
+      '/previews/ai/preview-5.png',
+    ],
+    hi: [
+      '/previews/ai/preview-hi-1.png',
+      '/previews/ai/preview-hi-2.png',
+      '/previews/ai/preview-hi-3.png',
+      '/previews/ai/preview-hi-4.png',
+      '/previews/ai/preview-hi-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official Master Book Cover · Deep Learning & Sovereign AI',
+      'Page 2: 2027 Curriculum Blueprint · 42 Production Modules & Labs',
+      'Page 3: Part 1 — The Dawn of Intelligent Machines: 1950 to Dartmouth 1956',
+      'Page 4: Golden Age, Perceptrons & The First AI Winter (1957–1980)',
+      'Page 5: Expert Systems & The Second AI Winter (1980–1993)',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक AI मास्टर बुक कवर · डीप लर्निंग व सॉवरेन AI',
+      'पेज 2: 2027 AI पाठ्यक्रम ब्लूप्रिंट · 42 प्रोडक्शन मॉड्यूल्स व लैब्स',
+      'पेज 3: भाग 1 — AI की शुरुआत: 1950 से डार्टमाउथ कॉन्फ्रेंस 1956',
+      'पेज 4: गोल्डन एरा, परसेप्ट्रॉन व पहला AI विंटर (1957–1980)',
+      'पेज 5: एक्सपर्ट सिस्टम्स व दूसरा AI विंटर (1980–1993)',
+    ],
+  },
+  'office-365': {
+    en: [
+      '/previews/office365/preview-1.png',
+      '/previews/office365/preview-2.png',
+      '/previews/office365/preview-3.png',
+      '/previews/office365/preview-4.png',
+      '/previews/office365/preview-5.png',
+    ],
+    hi: [
+      '/previews/office365/preview-hi-1.png',
+      '/previews/office365/preview-hi-2.png',
+      '/previews/office365/preview-hi-3.png',
+      '/previews/office365/preview-hi-4.png',
+      '/previews/office365/preview-hi-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official Office 365 Enterprise Master Cover',
+      'Page 2: Master Blueprint · 32 Production Modules & 13 Real Labs',
+      'Page 3: Part 1 — Word 365 Architecture, Workspace & File Backstage',
+      'Page 4: Document View Modes & Corporate Productivity Environments',
+      'Page 5: Corporate Standard Templates & Style Automation',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक Office 365 एंटरप्राइज मास्टर कवर',
+      'पेज 2: मास्टर ब्लूप्रिंट · 32 प्रोडक्शन मॉड्यूल्स और 13 प्रैक्टिकल लैब्स',
+      'पेज 3: भाग 1 — Word 365 आर्किटेक्चर और फाइल बैकस्टेज',
+      'पेज 4: डॉक्यूमेंट व्यू मोड्स और प्रोडक्टिविटी टूल्स',
+      'पेज 5: कॉर्पोरेट टेम्पलेट्स और स्टाइल ऑटोमेशन',
+    ],
+  },
   fundamentals: {
     en: [
       '/previews/fundamentals/en-page-1.png',
@@ -257,34 +220,18 @@ const PREVIEW_ASSETS = {
       '/previews/fundamentals/hi-page-5.png',
     ],
     labelsEn: [
-      'Page 1: Official Master Book Cover',
-      'Page 2: Ch 01 — Computer Systems & The IPO Cycle',
+      'Page 1: Official Master Book Cover · Silicon Architecture',
+      'Page 2: Ch 01 — Computer Systems & The Silicon IPO Cycle',
       'Page 3: Computer Generations (1st to 5th Matrix)',
       'Page 4: Modern Input Peripherals & Sensor Tech',
-      'Page 5: Display Technology (OLED vs IPS) & Ports',
+      'Page 5: Display Technology (OLED vs IPS) & Diagnostics Ports',
     ],
     labelsHi: [
-      'पेज 1: आधिकारिक मास्टर बुक कवर',
-      'पेज 2: अध्याय 1 — कम्प्यूटर सिस्टम और IPO साइकिल',
+      'पेज 1: आधिकारिक मास्टर बुक कवर · सिलिकॉन आर्किटेक्चर',
+      'पेज 2: अध्याय 1 — कम्प्यूटर सिस्टम और सिलिकॉन IPO साइकिल',
       'पेज 3: 5 कम्प्यूटर पीढ़ियाँ और हार्डवेयर कंपैरिजन',
       'पेज 4: इनपुट डिवाइसेस, सेंसर्स और पोर्ट्स',
       'पेज 5: डिस्प्ले टेक्नोलॉजी और डायग्नोस्टिक पोर्ट्स',
-    ],
-  },
-  hardware: {
-    en: [
-      '/previews/hardware/en-page-1.png',
-      '/previews/hardware/en-page-2.png',
-      '/previews/hardware/en-page-3.png',
-      '/previews/hardware/en-page-4.png',
-      '/previews/hardware/en-page-5.png',
-    ],
-    labelsEn: [
-      'Page 1: Official Hardware Cover',
-      'Page 2: CPU Sockets (LGA vs PGA) & Gold Pins',
-      'Page 3: Motherboard VRM Phases & Power Throttling',
-      'Page 4: High-Speed RAM Bus (DDR4 vs DDR5)',
-      'Page 5: Storage Architecture: NVMe PCIe 5.0 vs SATA',
     ],
   },
   ccna: {
@@ -303,39 +250,9 @@ const PREVIEW_ASSETS = {
       '/previews/ccna/hi-page-5.png',
     ],
     labelsEn: [
-      'Page 1: Official CCNA Master Book Cover',
+      'Page 1: Official CCNA Master Book Cover · Cisco TAC Standard',
       'Page 2: Ch 01 — Modern Enterprise Network Architectures',
-      'Page 3: 2-Tier Collapsed Core vs 3-Tier vs Spine-Leaf',
-      'Page 4: Network Media & UTP vs Fiber Cabling Standards',
-      'Page 5: T568A/B Pinouts & Collision/Broadcast Domains',
-    ],
-    labelsHi: [
-      'पेज 1: आधिकारिक CCNA 200-301 मास्टर बुक कवर',
-      'पेज 2: अध्याय 1 — आधुनिक एंटरप्राइज नेटवर्क आर्किटेक्चर',
-      'पेज 3: 2-टियर कोलैप्सड कोर, 3-टियर और स्पाइन-लीफ डिजाइन',
-      'पेज 4: UTP Cat6 और सिंगल/मल्टी-मोड फाइबर केबलिंग',
-      'पेज 5: T568A/B पिनआउट्स और कोलिजन/ब्रॉडकास्ट डोमेन',
-    ],
-  },
-  networking: {
-    en: [
-      '/previews/ccna/en-page-1.png',
-      '/previews/ccna/en-page-2.png',
-      '/previews/ccna/en-page-3.png',
-      '/previews/ccna/en-page-4.png',
-      '/previews/ccna/en-page-5.png',
-    ],
-    hi: [
-      '/previews/ccna/hi-page-1.png',
-      '/previews/ccna/hi-page-2.png',
-      '/previews/ccna/hi-page-3.png',
-      '/previews/ccna/hi-page-4.png',
-      '/previews/ccna/hi-page-5.png',
-    ],
-    labelsEn: [
-      'Page 1: Official CCNA Master Book Cover',
-      'Page 2: Ch 01 — Modern Enterprise Network Architectures',
-      'Page 3: 2-Tier Collapsed Core vs 3-Tier vs Spine-Leaf',
+      'Page 3: 2-Tier Collapsed Core vs 3-Tier vs Spine-Leaf Design',
       'Page 4: Network Media & UTP vs Fiber Cabling Standards',
       'Page 5: T568A/B Pinouts & Collision/Broadcast Domains',
     ],
@@ -350,47 +267,45 @@ const PREVIEW_ASSETS = {
 };
 
 const getPreviewImage = (subjectId, lang, page) => {
-  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.fundamentals;
+  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.ai;
   if (lang === 'hi' && asset.hi) {
     return asset.hi[page - 1] || asset.hi[0];
   }
-  const enPages = asset.en || PREVIEW_ASSETS.fundamentals.en;
+  const enPages = asset.en || PREVIEW_ASSETS.ai.en;
   return enPages[page - 1] || enPages[0];
 };
 
 const getPageLabel = (subjectId, lang, page) => {
-  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.fundamentals;
+  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.ai;
   if (lang === 'hi' && asset.labelsHi) {
     return asset.labelsHi[page - 1] || `पेज ${page} of 5`;
   }
-  const labels = asset.labelsEn || PREVIEW_ASSETS.fundamentals.labelsEn;
+  const labels = asset.labelsEn || PREVIEW_ASSETS.ai.labelsEn;
   return labels[page - 1] || `Page ${page} of 5`;
 };
 
 export default function NotesPage() {
-  // View mode: 'catalog' (clean list of topic boxes) or 'preview' (subject detail + 5p preview + payment comparison)
-  const [viewMode, setViewMode] = useState('catalog');
-  // State for active category filter
-  const [activeCategory, setActiveCategory] = useState('all');
-  // State for active selected subject
+  // Active selected subject (Default: AI Essentials 1st)
   const [selectedSubject, setSelectedSubject] = useState(SUBJECTS[0]);
-  // State for preview reader page (1 to 5)
+  // Preview reader page (1 to 5)
   const [previewPage, setPreviewPage] = useState(1);
-  // State for real digital book preview modal pop-up
+  // Real digital book preview modal pop-up
   const [isReaderModalOpen, setIsReaderModalOpen] = useState(false);
   // Language for preview reader: 'hi' | 'en'
-  const [previewLang, setPreviewLang] = useState('hi');
+  const [previewLang, setPreviewLang] = useState('en');
   // 3D Realistic notebook page turn states
   const [isPageFlipping, setIsPageFlipping] = useState(false);
-  const [flipDirection, setFlipDirection] = useState('next'); // 'next' | 'prev'
+  const [flipDirection, setFlipDirection] = useState('next');
   const [targetFlipPage, setTargetFlipPage] = useState(1);
-  // State for modals
+
+  // Modals
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  // Modal package choice: 'single' (49), 'bundle' (149), or 'combo' (249)
-  const [modalSelectedPlan, setModalSelectedPlan] = useState('single');
+  // Modal plan choice: 'bundle' (149 - preselected/recommended) or 'single' (49)
+  const [modalSelectedPlan, setModalSelectedPlan] = useState('bundle');
   // Language preference for main digital notebook: 'en' | 'hi'
   const [selectedLanguage, setSelectedLanguage] = useState('en');
+
   // Student lead & Razorpay payment states
   const [studentName, setStudentName] = useState('');
   const [studentEmail, setStudentEmail] = useState('');
@@ -399,6 +314,52 @@ export default function NotesPage() {
   const [paymentVerified, setPaymentVerified] = useState(false);
   const [verifiedPaymentId, setVerifiedPaymentId] = useState('');
   const [paymentError, setPaymentError] = useState('');
+
+  // Checkout selection state
+  const [checkoutItem, setCheckoutItem] = useState({
+    title: 'Artificial Intelligence Mastery (Career Accelerator Bundle)',
+    plan: 'bundle',
+    price: 149,
+  });
+
+  // Tab inside package explorer modal
+  const [upsellTab, setUpsellTab] = useState('interview');
+  // Toast notification for sharing
+  const [toastMessage, setToastMessage] = useState('');
+
+  const handleShareCourse = (sub, e) => {
+    if (e) e.stopPropagation();
+    const url = typeof window !== 'undefined' ? `${window.location.origin}/notes#${sub.id}` : `https://rtechlab.vercel.app/notes#${sub.id}`;
+    if (typeof navigator !== 'undefined' && navigator.share) {
+      navigator.share({
+        title: `${sub.title} | RTechLab`,
+        text: `Check out ${sub.title} (2027 Official Notes & Career Accelerator Suite) on RTechLab:`,
+        url: url,
+      }).catch(() => {
+        copyToClipboard(url, sub.title);
+      });
+    } else {
+      copyToClipboard(url, sub.title);
+    }
+  };
+
+  const copyToClipboard = (url, title) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(() => {
+        setToastMessage(`✓ Direct link copied for ${title}! Share with your college friends.`);
+        setTimeout(() => setToastMessage(''), 3500);
+      });
+    }
+  };
+
+  const handleWhatsAppShare = (sub, e) => {
+    if (e) e.stopPropagation();
+    const url = typeof window !== 'undefined' ? `${window.location.origin}/notes#${sub.id}` : `https://rtechlab.vercel.app/notes#${sub.id}`;
+    const text = `Hey! Check out the official ${sub.title} (2027 Master Notes & Career Suite) on RTechLab:\n${url}`;
+    if (typeof window !== 'undefined') {
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+    }
+  };
 
   // Dynamically load Razorpay SDK
   const loadRazorpaySDK = () => {
@@ -565,15 +526,6 @@ export default function NotesPage() {
     }
   };
 
-  // Checkout selection
-  const [checkoutItem, setCheckoutItem] = useState({
-    title: 'Computer Fundamentals (Complete Master Notes)',
-    plan: 'single',
-    price: 49,
-  });
-  // Tab inside package explorer modal
-  const [upsellTab, setUpsellTab] = useState('interview');
-
   // Turn page with authentic 3D page flip animation
   const handleTurnPage = (direction) => {
     if (isPageFlipping) return;
@@ -599,13 +551,13 @@ export default function NotesPage() {
   };
 
   // ESC & Arrow key listener for modals & reader
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setIsUpsellOpen(false);
         setIsCheckoutOpen(false);
         setIsReaderModalOpen(false);
-      } else if (isReaderModalOpen || viewMode === 'preview') {
+      } else if (isReaderModalOpen) {
         if (e.key === 'ArrowLeft') {
           handleTurnPage('prev');
         } else if (e.key === 'ArrowRight' || e.key === ' ') {
@@ -615,119 +567,47 @@ export default function NotesPage() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isReaderModalOpen, viewMode, previewPage, isPageFlipping]);
-
-  // Filtered subject list
-  const filteredSubjects = activeCategory === 'all'
-    ? SUBJECTS
-    : SUBJECTS.filter((s) => s.category === activeCategory);
-
-  // Active combo pairing for currently selected subject
-  const activeRelatedCombo = COMBOS.find((c) => c.id === selectedSubject.relatedComboId) || COMBOS[0];
-
-  // Open dedicated preview view for a subject
-  const handleOpenSubjectPreview = (sub) => {
-    setSelectedSubject(sub);
-    setPreviewPage(1);
-    setPreviewLang(sub.previewPdfHi ? 'hi' : 'en');
-    setViewMode('preview');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, [isReaderModalOpen, previewPage, isPageFlipping]);
 
   // Open real digital book pop-up modal
   const handleOpenPreviewModal = (sub) => {
     setSelectedSubject(sub);
     setPreviewPage(1);
-    setPreviewLang(sub.previewPdfHi ? 'hi' : 'en');
+    setPreviewLang('en');
     setIsReaderModalOpen(true);
   };
 
-  // Back to catalog view
-  const handleBackToCatalog = () => {
-    setViewMode('catalog');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Trigger modal when student clicks ₹49 Single Notes (Honest option)
-  const handleSingleClick = (sub = selectedSubject) => {
+  // Trigger modal when student clicks Buy (Shows both ₹49 and ₹149, pre-selected with ₹149 value offer)
+  const handleOpenPurchaseModal = (sub, defaultPlan = 'bundle') => {
     setSelectedSubject(sub);
-    setModalSelectedPlan('single');
+    setModalSelectedPlan(defaultPlan);
     setIsUpsellOpen(true);
   };
 
-  // Trigger modal when student clicks Career Bundle (+100 Qs)
-  const handleBundleClick = (sub = selectedSubject) => {
-    setSelectedSubject(sub);
-    setModalSelectedPlan('bundle');
-    setIsUpsellOpen(true);
-  };
-
-  // Direct checkout without modal
-  const handleDirectSingleCheckout = (sub = selectedSubject) => {
+  // Direct checkout
+  const handleDirectCheckout = (sub, plan = 'bundle') => {
     setSelectedSubject(sub);
     setCheckoutItem({
-      title: sub.title + ' (Complete Master Handbook)',
-      plan: 'single',
-      price: 49,
+      title: `${sub.title} (${plan === 'bundle' ? 'Complete Career Accelerator Suite' : 'Core Master Pass'})`,
+      plan: plan,
+      price: plan === 'bundle' ? 149 : 49,
     });
     setIsCheckoutOpen(true);
   };
 
-  const handleDirectBundleCheckout = (sub = selectedSubject) => {
-    setSelectedSubject(sub);
-    setCheckoutItem({
-      title: sub.title + ' (Career Accelerator Bundle)',
-      plan: 'bundle',
-      price: 149,
-    });
-    setIsCheckoutOpen(true);
-  };
-
-  const handleComboClick = (combo) => {
-    setCheckoutItem({
-      title: combo.name + ' (Power Combo Bundle)',
-      plan: 'combo',
-      price: combo.price,
-    });
-    setIsCheckoutOpen(true);
-  };
-
-  const handleAllAccessClick = () => {
-    setCheckoutItem({
-      title: 'All-Access Lifetime Master Library (All 8 Subjects)',
-      plan: 'all-access',
-      price: 499,
-    });
-    setIsCheckoutOpen(true);
-  };
-
-  // Proceed to checkout with the plan selected in the modal
+  // Proceed from Package Modal to Razorpay Checkout Modal
   const proceedToCheckoutWithSelectedPlan = () => {
-    if (modalSelectedPlan === 'single') {
-      setCheckoutItem({
-        title: selectedSubject.title + ' (Complete Master Handbook)',
-        plan: 'single',
-        price: 49,
-      });
-    } else if (modalSelectedPlan === 'bundle') {
-      setCheckoutItem({
-        title: selectedSubject.title + ' (Career Accelerator Bundle)',
-        plan: 'bundle',
-        price: 149,
-      });
-    } else {
-      setCheckoutItem({
-        title: activeRelatedCombo.name + ' (Power Combo Bundle)',
-        plan: 'combo',
-        price: activeRelatedCombo.price,
-      });
-    }
+    setCheckoutItem({
+      title: `${selectedSubject.title} (${modalSelectedPlan === 'bundle' ? 'Complete Career Accelerator Suite' : 'Core Master Pass'})`,
+      plan: modalSelectedPlan,
+      price: modalSelectedPlan === 'bundle' ? 149 : 49,
+    });
     setIsUpsellOpen(false);
     setIsCheckoutOpen(true);
   };
 
   return (
-    <div className="min-h-screen bg-black text-[#EDEDED] py-6 sm:py-10 px-3 sm:px-6 lg:px-8 overflow-x-hidden">
+    <div className="min-h-screen bg-black text-[#EDEDED] py-6 sm:py-10 px-3 sm:px-6 lg:px-8 overflow-x-hidden selection:bg-emerald-500 selection:text-black">
       <div className="max-w-6xl mx-auto">
         
         {/* ── Breadcrumb & Utility Bar ───────────────────────────────────── */}
@@ -735,23 +615,9 @@ export default function NotesPage() {
           <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono text-[#86868B] overflow-x-auto whitespace-nowrap">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
-            {viewMode === 'preview' ? (
-              <>
-                <button onClick={handleBackToCatalog} className="hover:text-white transition-colors">
-                  Master Digital Notes Store
-                </button>
-                <span>/</span>
-                <span className="text-white truncate max-w-[180px]">{selectedSubject.title}</span>
-                <span>/</span>
-                <span className="text-emerald-400">Preview &amp; Compare</span>
-              </>
-            ) : (
-              <>
-                <span className="text-white">Master Digital Notes Store</span>
-                <span>/</span>
-                <span className="text-emerald-400">2027 Industrial Standard</span>
-              </>
-            )}
+            <span className="text-white">Master Digital Notes Store</span>
+            <span>/</span>
+            <span className="text-emerald-400">2027 Industrial Standard</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
@@ -773,808 +639,488 @@ export default function NotesPage() {
               </svg>
               <span>Chapter Tools + QR</span>
             </Link>
-            <button
-              onClick={handleAllAccessClick}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-90 text-black text-xs font-bold transition-all shadow-lg shadow-emerald-500/20 whitespace-nowrap"
-            >
-              <span>All 8 Subjects Pass (₹499)</span>
-              <span className="bg-black/20 px-1 py-0.5 rounded text-[10px]">SAVE 90%</span>
-            </button>
           </div>
         </div>
 
-        {/* ===================================================================
-            VIEW 1: CLEAN CATALOG MODE (ONLY NOTES & TOPIC-WISE BOXES)
-        ==================================================================== */}
-        {viewMode === 'catalog' && (
-          <div className="animate-fadeIn">
-            {/* ── Page Header ────────────────────────────────────────────── */}
-            <div className="text-center sm:text-left mb-8 sm:mb-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] sm:text-xs font-mono text-emerald-400 mb-3 sm:mb-4 backdrop-blur-md max-w-full overflow-hidden text-ellipsis">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                <span className="truncate">⚡ OFFICIAL CURRICULUM · RESEARCH-VERIFIED DIGITAL NOTES · TRANSPARENT PRICING</span>
-              </div>
-              <h1 className="text-2xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-2 sm:mb-3">
-                Industrial Master Digital Notes
-              </h1>
-              <p className="text-[#86868B] text-xs sm:text-base max-w-3xl leading-relaxed mb-4 sm:mb-6">
-                Comprehensive, research-verified engineering handbooks designed for modern IT professionals, college students, and certification aspirants. Inspect topics, read live 5-page previews, and get complete digital editions starting at just <strong className="text-white">₹49</strong>.
-              </p>
+        {/* ── Page Header ────────────────────────────────────────────── */}
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] sm:text-xs font-mono text-emerald-400 mb-4 backdrop-blur-md shadow-lg shadow-emerald-500/5 max-w-full">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="truncate">⚡ 2027 OFFICIAL INDUSTRIAL EDITIONS · TRANSPARENT PRICING · NO SUBSCRIPTIONS</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-3 sm:mb-4 leading-tight">
+            Industrial Master Digital Notes
+          </h1>
+          <p className="text-[#86868B] text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-6">
+            Comprehensive, research-verified engineering handbooks designed for modern IT professionals, college students, and placement aspirants. Start with the core theory handbook at just <strong className="text-white">₹49</strong>, or unlock the complete <strong className="text-emerald-400">₹149 Career Accelerator Suite</strong> (+MNC Interview Vault, Practical Labs &amp; Salary Blueprint).
+          </p>
 
-              {/* Value Badges */}
-              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-mono">
-                <span className="px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white font-semibold">
-                  ✅ Complete Master Notes @ ₹49
-                </span>
-                <span className="px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-emerald-400">
-                  ✅ Optional Career Bundle (+100 Qs) @ ₹149
-                </span>
-                <span className="px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-cyan-400">
-                  ✅ Optional Dual Combos @ ₹249
-                </span>
-                <span className="px-2.5 py-1 rounded-full bg-white/[0.05] border border-white/10 text-amber-400">
-                  ✅ All 8 Subjects Pass @ ₹499
-                </span>
-              </div>
+          {/* Value Badges Centered */}
+          <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs font-mono">
+            <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white font-semibold">
+              ✅ Core Master Pass @ ₹49 (Bilingual Theory Guide)
+            </span>
+            <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold">
+              🔥 Career Accelerator Suite @ ₹149 (Complete Interview Vault + Labs + Blueprint)
+            </span>
+            <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
+              ⚡ Instant 1-Click Offline ZIP Downloads
+            </span>
+            <span className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300">
+              📩 Rahul Sir Direct Mentorship &amp; Free Updates
+            </span>
+          </div>
+        </div>
+
+        {/* ── 4 MASTER SUBJECT CARDS IN EXACT USER SEQUENCE ──────────── */}
+        <div className="mb-6">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-[#86868B] mb-2.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span>4 Industry Placement Tracks Available</span>
             </div>
+            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
+              Select Your Subject Notes
+            </h2>
+            <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mx-auto max-w-xl">
+              Inspect syllabus topics, read real 5-page interactive previews, and choose between the ₹49 Core Pass or the ₹149 Executive Career Suite.
+            </p>
+          </div>
 
-            {/* ── Category Filter Pills ──────────────────────────────────── */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
-              <div>
-                <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight">
-                  Choose Your Subject Notes
-                </h2>
-                <p className="text-xs text-[#86868B]">
-                  Explore syllabus modules, hardware pinouts, and system diagrams. Click 'Preview 5 Pages' to inspect sample:
-                </p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14">
+            {SUBJECTS.map((sub, index) => (
+              <div
+                key={sub.id}
+                id={sub.id}
+                className="relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-xl hover:shadow-2xl hover:shadow-emerald-500/5 scroll-mt-24"
+              >
+                <div>
+                  {/* Header Track Tag & Status Badges */}
+                  <div className="flex items-center justify-between mb-3.5">
+                    <span className="text-[10px] font-mono text-white/50 font-bold px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">
+                      TRACK #{index + 1}
+                    </span>
+                    <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
+                      sub.id === 'ai'
+                        ? 'bg-purple-500/15 text-purple-300 border-purple-500/30'
+                        : sub.id === 'office-365'
+                        ? 'bg-blue-500/15 text-blue-300 border-blue-500/30'
+                        : sub.id === 'fundamentals'
+                        ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30'
+                        : 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
+                    }`}>
+                      {sub.badge}
+                    </span>
+                  </div>
 
-              <div className="flex items-center gap-1.5 bg-[#0D0D10] p-1 rounded-full border border-white/[0.08] overflow-x-auto max-w-full">
-                {[
-                  { id: 'all', label: 'All 8' },
-                  { id: 'systems', label: 'Systems' },
-                  { id: 'networking', label: 'Network & CCNA' },
-                  { id: 'cloud', label: 'AWS & Azure' },
-                  { id: 'security', label: 'Security' },
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveCategory(tab.id)}
-                    className={`px-3 py-1 rounded-full text-xs font-semibold transition-all whitespace-nowrap ${
-                      activeCategory === tab.id
-                        ? 'bg-white text-black font-bold shadow'
-                        : 'text-[#86868B] hover:text-white'
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* ── 8 SUBJECT CARDS WITH DETAILED TOPIC-WISE BOXES ──────────── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-16">
-              {filteredSubjects.map((sub) => (
-                <div
-                  key={sub.id}
-                  className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-lg"
-                >
-                  <div>
-                    {/* Header Badges */}
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.06] text-emerald-400 font-bold border border-emerald-500/20">
-                        {sub.pages} · 2027 Edition
-                      </span>
-                      <span className="text-[10px] font-mono font-bold text-white bg-white/10 px-2 py-0.5 rounded">
-                        {sub.badge}
-                      </span>
-                    </div>
-
+                  {/* Title & Description Middle Centered */}
+                  <div className="text-center mb-3">
                     <h3 className="text-lg sm:text-xl font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors leading-snug">
                       {sub.title}
                     </h3>
-                    <div className="text-xs font-mono text-emerald-400 mb-2 font-semibold">
+                    <div className="text-[11px] font-mono text-emerald-400 mb-1 font-semibold">
                       {sub.subtitle}
                     </div>
-                    <p className="text-xs text-[#86868B] leading-relaxed mb-4">
+                    <div className="text-[10px] font-mono text-[#86868B] mb-2.5">
+                      {sub.badgeSub}
+                    </div>
+                    <p className="text-xs text-[#86868B] leading-relaxed line-clamp-3">
                       {sub.desc}
                     </p>
+                  </div>
 
-                    {/* ── TOPIC-WISE MODULES BOXES (CLEAN SYLLABUS LIST) ─── */}
-                    <div className="space-y-1.5 mb-5 p-3 rounded-xl bg-black/50 border border-white/[0.06]">
-                      <div className="text-[9px] font-mono text-white/50 uppercase tracking-widest font-semibold flex items-center justify-between">
-                        <span>Topics Covered</span>
-                        <span className="text-emerald-400 font-bold">Industrial Ready</span>
-                      </div>
-                      <div className="space-y-1">
-                        {sub.topics.slice(0, 3).map((topic, i) => (
-                          <div key={i} className="flex items-center gap-1.5 text-[10px] font-mono text-[#D2D2D7] truncate">
-                            <span className="text-emerald-400 font-bold shrink-0">›</span>
-                            <span className="truncate">{topic}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="text-[10px] font-mono text-emerald-400/90 pt-1 font-semibold flex items-center justify-between">
-                        <span>+ {sub.topics.length - 3} more modules inside</span>
-                        <button
-                          type="button"
-                          onClick={() => handleOpenPreviewModal(sub)}
-                          className="hover:underline text-emerald-400 font-bold"
-                        >
-                          Click preview →
-                        </button>
-                      </div>
+                  {/* ── Verified Exact Pages Tag ── */}
+                  <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-3 text-[10px] font-mono space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[#86868B]">Core Theory Guide:</span>
+                      <strong className="text-white">{sub.pages}</strong>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-white/[0.04] pt-1">
+                      <span className="text-emerald-400 font-semibold">Executive Suite:</span>
+                      <strong className="text-emerald-300 font-bold">{sub.bundlePages}</strong>
                     </div>
                   </div>
 
-                  <div className="space-y-2.5 pt-3 border-t border-white/[0.06]">
-                    {/* Price Tag */}
-                    <div className="flex items-baseline justify-between">
-                      <div>
-                        <div className="text-[10px] font-mono text-[#86868B] uppercase">Single Full Notes</div>
-                        <div className="text-xl sm:text-2xl font-black text-white">₹49</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-[10px] font-mono text-emerald-400">Career Bundle (+100 Qs)</div>
-                        <div className="text-xs font-mono text-[#86868B]">₹149</div>
-                      </div>
+                  {/* ── TOPIC-WISE MODULES BOXES ── */}
+                  <div className="space-y-1.5 mb-5 p-3 rounded-xl bg-black/60 border border-white/[0.06]">
+                    <div className="text-[9px] font-mono text-white/50 uppercase tracking-widest font-semibold flex items-center justify-between">
+                      <span>Key Curriculum</span>
+                      <span className="text-emerald-400 font-bold">2027 Ready</span>
                     </div>
-
-                    {/* Two Action Buttons: Preview 5 Pages vs Buy for ₹49 */}
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="space-y-1">
+                      {sub.topics.slice(0, 3).map((topic, i) => (
+                        <div key={i} className="flex items-center gap-1.5 text-[10px] font-mono text-[#D2D2D7] truncate">
+                          <span className="text-emerald-400 font-bold shrink-0">›</span>
+                          <span className="truncate">{topic}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-[10px] font-mono text-emerald-400/90 pt-1 font-semibold flex items-center justify-between">
+                      <span>+ {sub.topics.length - 3} more modules</span>
                       <button
                         type="button"
                         onClick={() => handleOpenPreviewModal(sub)}
-                        className="py-2.5 rounded-xl bg-white/[0.08] hover:bg-emerald-500 hover:text-black text-xs font-bold text-white transition-all text-center border border-white/10 active:scale-95 flex items-center justify-center gap-1 shadow-sm"
+                        className="hover:underline text-emerald-400 font-bold"
                       >
-                        <span>Preview 5p</span>
-                        <span>→</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => handleSingleClick(sub)}
-                        className="py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-black transition-all text-center shadow-lg shadow-emerald-500/20 active:scale-95"
-                      >
-                        Buy for ₹49
+                        Preview 5p →
                       </button>
                     </div>
+                  </div>
+                </div>
 
+                <div className="space-y-2.5 pt-3 border-t border-white/[0.06]">
+                  {/* Price Tag with Highlighted Crosses & Rich Slogans */}
+                  <div className="flex items-baseline justify-between p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                    <div>
+                      <div className="text-[9px] font-mono text-[#86868B] uppercase tracking-wider font-semibold">
+                        Core Master Pass
+                      </div>
+                      <div className="flex items-baseline gap-1.5 mt-0.5">
+                        <span className="text-xl sm:text-2xl font-black text-white">₹49</span>
+                        <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
+                          ₹199
+                        </span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-[9px] font-mono text-emerald-400 uppercase tracking-wider font-bold">
+                        👑 Executive Suite
+                      </div>
+                      <div className="flex items-baseline justify-end gap-1.5 mt-0.5">
+                        <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
+                          ₹1,099
+                        </span>
+                        <span className="text-xl sm:text-2xl font-black text-emerald-400">₹149</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Two Action Buttons: Preview 5 Pages vs Buy */}
+                  <div className="grid grid-cols-2 gap-2">
                     <button
                       type="button"
                       onClick={() => handleOpenPreviewModal(sub)}
-                      className="w-full text-center text-[11px] text-[#86868B] hover:text-emerald-400 transition-colors pt-0.5 block truncate"
+                      className="py-2.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.16] hover:text-white text-xs font-bold text-white transition-all text-center border border-white/10 active:scale-95 flex items-center justify-center gap-1 shadow-sm"
                     >
-                      Compare ₹49 vs ₹149 &amp; Read 5-Page Preview →
+                      <span>Preview 5p</span>
+                      <span>→</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleOpenPurchaseModal(sub, 'bundle')}
+                      className="py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black text-xs font-black transition-all text-center shadow-lg shadow-emerald-500/20 active:scale-95"
+                    >
+                      Get Notes
                     </button>
                   </div>
-                </div>
-              ))}
-            </div>
 
-            {/* ── FREQUENTLY BOUGHT TOGETHER DUOS (₹249 COMBOS) ───────────── */}
-            <div className="mb-16">
-              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
-                <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider mb-1">
-                    <span>🔥 OPTIONAL FREQUENTLY BOUGHT TOGETHER DUOS</span>
+                  {/* Course Share Bar Centered */}
+                  <div className="flex items-center justify-center gap-2 pt-2 border-t border-white/[0.06] text-[11px] font-mono">
+                    <span className="text-[#86868B] text-[10px] flex items-center gap-1">
+                      <span>🔗</span>
+                      <span>Share:</span>
+                    </span>
+                    <button
+                      type="button"
+                      onClick={(e) => handleShareCourse(sub, e)}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/[0.05] hover:bg-white/[0.12] text-[#D2D2D7] hover:text-white border border-white/10 transition-all text-[10px] font-semibold active:scale-95"
+                      title="Copy direct link to share with friends"
+                    >
+                      <svg className="w-3 h-3 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                      <span>Copy Link</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => handleWhatsAppShare(sub, e)}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-all text-[10px] font-bold active:scale-95"
+                      title="Share on WhatsApp with college friends"
+                    >
+                      <span>💬 WhatsApp</span>
+                    </button>
                   </div>
-                  <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight">
-                    Dual-Domain Power Duos (₹249)
-                  </h2>
-                </div>
-                <p className="text-xs text-[#86868B] max-w-md">
-                  Curated domain pairs designed for high-impact cross-skilling. Includes both complete handbooks and full career interview vaults for ₹249.
-                </p>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {COMBOS.map((combo) => (
-                  <div
-                    key={combo.id}
-                    className="relative p-5 rounded-2xl bg-[#0D0D10] border border-white/[0.1] hover:border-cyan-500/50 transition-all flex flex-col justify-between group shadow-lg"
+                  <button
+                    type="button"
+                    onClick={() => handleOpenPurchaseModal(sub, 'bundle')}
+                    className="w-full text-center text-[11px] text-[#86868B] hover:text-emerald-400 transition-colors pt-0.5 block truncate"
                   >
-                    <div className="absolute top-3 right-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-bold">
-                      {combo.badge}
-                    </div>
-
-                    <div>
-                      <div className="text-[10px] font-mono opacity-50 uppercase tracking-widest mb-1">
-                        {combo.tag}
-                      </div>
-                      <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                        {combo.name}
-                      </h3>
-                      
-                      <div className="flex flex-wrap gap-1.5 mb-2.5">
-                        {combo.subjects.map((s, i) => (
-                          <span key={i} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08] text-[#D2D2D7]">
-                            ✓ {s}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="text-[11px] font-mono text-cyan-400 mb-2">
-                        {combo.totalVolume}
-                      </div>
-
-                      <p className="text-xs text-[#86868B] leading-relaxed mb-4">
-                        {combo.desc}
-                      </p>
-                    </div>
-
-                    <div>
-                      <div className="flex items-baseline gap-2 mb-3 pt-3 border-t border-white/[0.06]">
-                        <span className="text-xl sm:text-2xl font-black text-white">₹{combo.price}</span>
-                        <span className="text-xs text-[#86868B] line-through font-mono">₹{combo.originalPrice}</span>
-                        <span className="text-[11px] text-cyan-400 font-mono font-bold">SAVE ₹49</span>
-                      </div>
-                      <button
-                        onClick={() => handleComboClick(combo)}
-                        className="w-full py-2.5 rounded-xl bg-white/[0.08] hover:bg-cyan-500 hover:text-black text-white font-bold text-xs transition-all border border-white/[0.1]"
-                      >
-                        Get Duo Bundle — ₹{combo.price}
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                    Compare ₹49 vs ₹149 Bundle Details →
+                  </button>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        )}
+        </div>
 
-        {/* ===================================================================
-            VIEW 2: DEDICATED SUBJECT DETAIL, 5-PAGE PREVIEW & PAYMENT COMPARISON
-        ==================================================================== */}
-        {viewMode === 'preview' && (
-          <div className="animate-fadeIn space-y-10 sm:space-y-12">
-            
-            {/* Top Back Navigation Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-[#0D0D10] border border-white/[0.08]">
-              <button
-                onClick={handleBackToCatalog}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-xs font-bold text-white transition-all border border-white/10"
-              >
-                <span>← Back to All 8 Subjects</span>
-              </button>
+        {/* ── THE DEFINITIVE 49 VS 149 CAREER COMPARISON & PSYCHOLOGY FRAMEWORK ──── */}
+        <div className="mb-16 p-6 sm:p-10 rounded-3xl bg-gradient-to-b from-[#111116] to-[#0A0A0D] border border-white/[0.12] shadow-2xl relative overflow-hidden">
+          {/* Subtle Glow Background */}
+          <div className="absolute -top-40 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-40 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono text-[#86868B]">Switch Subject:</span>
-                <select
-                  value={selectedSubject.id}
-                  onChange={(e) => {
-                    const found = SUBJECTS.find((s) => s.id === e.target.value);
-                    if (found) {
-                      setSelectedSubject(found);
-                      setPreviewPage(1);
-                    }
-                  }}
-                  className="bg-black border border-white/20 text-xs text-white rounded-xl px-3 py-1.5 font-mono focus:outline-none focus:border-emerald-400"
-                >
-                  {SUBJECTS.map((s) => (
-                    <option key={s.id} value={s.id}>
-                      {s.title} ({s.pages})
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            {/* Subject Hero Card with Full Syllabus Topics */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0D0D12] border border-white/[0.12] shadow-2xl">
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold">
-                  OFFICIAL 2027 INDUSTRIAL EDITION
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-white font-mono text-xs">
-                  {selectedSubject.pages}
-                </span>
-                <span className="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-mono text-xs">
-                  {selectedSubject.tag}
-                </span>
-              </div>
-
-              <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
-                {selectedSubject.title}
-              </h1>
-              <h2 className="text-base sm:text-xl font-bold text-emerald-400 mb-4 font-mono">
-                {selectedSubject.subtitle}
+          <div className="relative z-10">
+            {/* Header */}
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold mb-3">
+                ⚖️ 49 vs 149 : CAREER DECISION MATRIX · HONEST ADVICE
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-3">
+                Why 89% of Students Pick the ₹149 Career Accelerator Suite
               </h2>
-              <p className="text-xs sm:text-sm text-[#86868B] max-w-3xl leading-relaxed mb-6">
-                {selectedSubject.desc} High-resolution vector diagrams, live production terminal commands, and 100+ company interview questions. Volume: {selectedSubject.pages}.
+              <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed">
+                We believe in complete transparency. No false promises, no subscription traps. Here is the exact difference between buying only the basic theory notes versus investing ₹100 extra in the complete career arsenal:
               </p>
-
-              {/* Complete Topic Breakdown */}
-              <div className="pt-4 border-t border-white/[0.08]">
-                <div className="text-xs font-mono text-white/60 uppercase tracking-wider font-bold mb-3">
-                  Complete Industrial Syllabus Modules:
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                  {selectedSubject.topics.map((t, idx) => (
-                    <div key={idx} className="p-2.5 rounded-xl bg-black border border-white/[0.06] text-xs font-mono text-[#D2D2D7] flex items-center gap-2">
-                      <span className="text-emerald-400 font-bold shrink-0">{String(idx + 1).padStart(2, '0')}.</span>
-                      <span className="truncate">{t}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
-            {/* ── REAL 5-PAGE DIGITAL BOOK SLIDER (AUTHENTIC HIGH-RES PAGES) ── */}
-            <div className="rounded-2xl sm:rounded-3xl bg-[#0D0D0F] border border-white/[0.1] shadow-2xl overflow-hidden">
-              {/* Top Bar of the Reader with Bilingual Language Switcher */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-4 sm:px-6 py-3.5 sm:py-4 bg-[#141417] border-b border-white/[0.08]">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
-                    📖 REAL 5-PAGE DIGITAL BOOK PREVIEW
-                  </span>
-                  <span className="text-xs text-[#86868B] font-mono">
-                    Page {previewPage} of 5
-                  </span>
-                </div>
-
-                {/* Bilingual Edition Switcher: Hindi & English Tabs */}
-                <div className="flex items-center gap-1.5 bg-black/70 p-1 rounded-xl border border-white/10 shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => setPreviewLang('hi')}
-                    disabled={!selectedSubject.previewPdfHi}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                      previewLang === 'hi'
-                        ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-black shadow-md shadow-emerald-500/20'
-                        : selectedSubject.previewPdfHi
-                        ? 'text-[#86868B] hover:text-white'
-                        : 'text-white/20 cursor-not-allowed'
-                    }`}
-                  >
-                    <span>🇮🇳 हिंदी संस्करण (5 पेज)</span>
-                    {!selectedSubject.previewPdfHi && (
-                      <span className="text-[9px] font-normal text-white/30">(जल्द)</span>
-                    )}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setPreviewLang('en')}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                      previewLang === 'en'
-                        ? 'bg-white text-black shadow'
-                        : 'text-[#86868B] hover:text-white'
-                    }`}
-                  >
-                    <span>🇬🇧 English Edition (5 Pages)</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Main Physical Notebook Stage with 3D Page Flip */}
-              <div className="relative bg-[#09090B] p-4 sm:p-8 flex flex-col items-center justify-center min-h-[500px] sm:min-h-[620px] select-none">
-                {/* Previous Page Arrow Button */}
-                <button
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); handleTurnPage('prev'); }}
-                  disabled={previewPage === 1 || isPageFlipping}
-                  aria-label="Previous Page"
-                  className={`absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
-                    previewPage === 1
-                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
-                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95 cursor-pointer'
-                  }`}
-                >
-                  ‹
-                </button>
-
-                {/* THE PHYSICAL NOTEBOOK */}
-                <div
-                  className="relative flex rounded-xl overflow-hidden notebook-stack border border-white/10 bg-[#121215] max-h-[62vh] sm:max-h-[70vh] cursor-pointer group select-none notebook-perspective"
-                  onClick={(e) => {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    const clickX = e.clientX - rect.left;
-                    if (clickX > rect.width / 2) {
-                      handleTurnPage('next');
-                    } else {
-                      handleTurnPage('prev');
-                    }
-                  }}
-                >
-                  {/* Spiral Binder Spine (Left Edge) */}
-                  <div className="w-6 sm:w-8 bg-gradient-to-r from-[#141417] via-[#24242a] to-[#141417] flex flex-col justify-between py-6 rounded-l-md border-r border-black/60 select-none shrink-0 z-30 shadow-inner">
-                    {[...Array(11)].map((_, i) => (
-                      <div key={i} className="flex items-center justify-center relative my-0.5 sm:my-1">
-                        <div className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-black shadow-inner border border-zinc-700/60" />
-                        <div className="absolute w-5 sm:w-6 h-2 sm:h-2.5 rounded-full bg-gradient-to-r from-zinc-500 via-zinc-100 to-zinc-600 shadow-md transform -rotate-12 border border-zinc-950 pointer-events-none" />
-                      </div>
-                    ))}
+            {/* Side-by-Side Comparison Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8">
+              
+              {/* Option A: ₹49 Core Master Pass */}
+              <div className="p-6 sm:p-7 rounded-2xl bg-black/60 border border-white/[0.1] flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono font-bold text-[#86868B] px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08]">
+                      OPTION 1: FOUNDATIONAL MASTER PASS™
+                    </span>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
+                        ₹199
+                      </span>
+                      <span className="text-2xl font-black text-white">₹49</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.08] text-emerald-400 font-bold border border-white/10">75% OFF</span>
+                    </div>
                   </div>
 
-                  {/* Notebook Page Stage */}
-                  <div className="relative flex-1 bg-black overflow-hidden flex items-center justify-center">
-                    {/* BASE LAYER (Underneath Page shown during flip, or current page when static) */}
-                    <div className="relative w-full h-full flex items-center justify-center">
-                      <img
-                        src={getPreviewImage(
-                          selectedSubject.id,
-                          previewLang,
-                          isPageFlipping ? targetFlipPage : previewPage
-                        )}
-                        alt={getPageLabel(
-                          selectedSubject.id,
-                          previewLang,
-                          isPageFlipping ? targetFlipPage : previewPage
-                        )}
-                        className="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full object-contain block select-none pointer-events-none"
-                        loading="eager"
-                      />
-
-                      {/* Paper spine crease shadow */}
-                      <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/60 via-black/20 to-transparent pointer-events-none" />
-
-                      {/* Subtle printed page number stamp at bottom right corner of notebook */}
-                      <div className="absolute bottom-2 sm:bottom-3 right-3 sm:right-4 z-20 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-white/10 text-[10px] sm:text-xs font-mono font-bold text-white/70 pointer-events-none">
-                        {previewLang === 'hi' ? 'पेज' : 'Page'} {isPageFlipping ? targetFlipPage : previewPage} / 5
-                      </div>
+                  <div className="text-center mb-4">
+                    <h3 className="text-lg font-bold text-white mb-1">
+                      Foundational Engineering Master Pass™
+                    </h3>
+                    <div className="text-xs font-mono text-zinc-400 font-semibold mb-2">
+                      📘 The Essential Technical Blueprint · 100% Concept Mastery &amp; Academic Excellence
                     </div>
+                    <p className="text-xs text-[#86868B] leading-relaxed max-w-md mx-auto">
+                      Designed for students who want to build a bulletproof conceptual foundation, revise silicon architectures, and master theory for university and semester exams.
+                    </p>
+                  </div>
 
-                    {/* FLIPPING TOP LAYER (Only rendered while turning page) */}
-                    {isPageFlipping && (
-                      <div
-                        className={`absolute inset-0 z-20 flex items-center justify-center origin-left ${
-                          flipDirection === 'next' ? 'animate-page-flip-next' : 'animate-page-flip-prev'
-                        }`}
-                      >
-                        <img
-                          src={getPreviewImage(
-                            selectedSubject.id,
-                            previewLang,
-                            flipDirection === 'next' ? previewPage : targetFlipPage
-                          )}
-                          alt="Turning Page"
-                          className="max-h-[58vh] sm:max-h-[66vh] w-auto max-w-full object-contain block select-none pointer-events-none shadow-2xl"
-                        />
-                        {/* Dynamic Paper Curl Shadow Overlay */}
-                        <div
-                          className={`absolute inset-0 pointer-events-none bg-gradient-to-r from-black/80 via-black/30 to-transparent ${
-                            flipDirection === 'next' ? 'animate-curl-shadow-next' : 'animate-curl-shadow-prev'
-                          }`}
-                        />
-                      </div>
-                    )}
+                  <div className="space-y-2 mb-6">
+                    <div className="text-xs font-mono font-bold text-white/80 uppercase tracking-wider mb-2">
+                      What's Included in ₹49:
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#D2D2D7]">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span>Full Core Master Guide (English or Hindi PDF)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#D2D2D7]">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span>High-resolution vector architecture &amp; pinout diagrams</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-[#D2D2D7]">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span>Chapter-wise practice MCQs &amp; conceptual summaries</span>
+                    </div>
+                  </div>
+
+                  {/* The Reality & Limitation */}
+                  <div className="p-4 rounded-xl bg-red-500/[0.06] border border-red-500/20 text-xs space-y-1.5 mb-4">
+                    <div className="font-bold text-red-400 flex items-center gap-1.5 font-mono text-[11px]">
+                      <span>⚠️</span>
+                      <span>What Happens If You Only Choose the ₹49 Core Pass?</span>
+                    </div>
+                    <p className="text-red-200/80 leading-relaxed text-[11px]">
+                      Your theoretical concepts will be clear and you will pass your college semester exams. However, when you appear for <strong>real MNC technical interviews</strong> (TCS, Infosys, Cisco, Accenture, Tech Startups), interviewers never ask textbook definitions! They evaluate live troubleshooting, production edge cases, and salary negotiation. Without the Interview Vault &amp; Practical Labs, candidates frequently struggle in 2nd-round technical rounds or end up settling for low-tier <strong>₹2.5L–₹3.2L CTC</strong> packages.
+                    </p>
                   </div>
                 </div>
 
-                {/* Next Page Arrow Button */}
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); handleTurnPage('next'); }}
-                  disabled={previewPage === 5 || isPageFlipping}
-                  aria-label="Next Page"
-                  className={`absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
-                    previewPage === 5
-                      ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
-                      : 'bg-black/85 hover:bg-emerald-500 hover:text-black text-white border border-white/20 hover:scale-110 active:scale-95 cursor-pointer'
-                  }`}
+                  onClick={() => handleOpenPurchaseModal(selectedSubject, 'single')}
+                  className="w-full py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white text-xs font-bold transition-all border border-white/10"
                 >
-                  ›
+                  Choose ₹49 Core Pass Only
                 </button>
               </div>
 
-              {/* Bottom Controls: Direct Download & Link to Comparison (NO SLIDE PILLS) */}
-              <div className="p-3 sm:p-4 bg-[#141417] border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div className="text-[11px] font-mono text-[#86868B] flex items-center gap-1.5">
-                  <span className="text-emerald-400">⚡</span>
-                  <span>{previewLang === 'hi' ? 'पेज पर क्लिक या स्वाइप करके पन्ने पलटें' : 'Click page or swipe to turn pages'}</span>
+              {/* Option B: ₹149 Career Accelerator Suite (BEST VALUE) */}
+              <div className="relative p-6 sm:p-7 rounded-2xl bg-[#0F161A] border-2 border-emerald-500 shadow-2xl shadow-emerald-500/10 flex flex-col justify-between">
+                {/* Glow Badge */}
+                <div className="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-emerald-500 text-black text-[11px] font-black font-mono shadow-md uppercase tracking-wide">
+                  ★ RECOMMENDED BY 89% STUDENTS · BEST VALUE
                 </div>
 
-                {/* Direct Sample Download & Link to Comparison */}
-                <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-                  {previewLang === 'hi' && selectedSubject.previewPdfHi ? (
-                    <a
-                      href={selectedSubject.previewPdfHi}
-                      download
-                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-mono font-bold transition-all"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                      <span>डाउनलोड सैंपल (5p)</span>
-                    </a>
-                  ) : (
-                    <a
-                      href={selectedSubject.previewPdfEn || "/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf"}
-                      download
-                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold transition-all"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                      <span>Download Sample (5p)</span>
-                    </a>
-                  )}
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono font-bold text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30">
+                      OPTION 2: EXECUTIVE CAREER ACCELERATOR SUITE™
+                    </span>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
+                        ₹1,099
+                      </span>
+                      <span className="text-2xl font-black text-emerald-400">₹149</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40">SAVE ₹950 · 86% OFF</span>
+                    </div>
+                  </div>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const el = document.getElementById('payment-comparison');
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="text-xs font-mono text-emerald-400 hover:text-emerald-300 font-bold px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20"
-                  >
-                    Compare Plans Below ↓
-                  </button>
+                  <div className="text-center mb-4">
+                    <h3 className="text-lg font-bold text-white mb-1">
+                      Executive Career Accelerator Suite™ (Elite Placement Edition)
+                    </h3>
+                    <div className="text-xs font-mono text-emerald-400 font-semibold mb-2">
+                      👑 The 6-Figure Placement Arsenal · Enterprise Career Advantage
+                    </div>
+                    <p className="text-xs text-emerald-200/80 leading-relaxed max-w-md mx-auto">
+                      A comprehensive placement weapon designed to help you clear technical interview rounds and negotiate high-tier salary packages at top tech firms.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2 mb-6">
+                    <div className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider mb-2">
+                      Everything in ₹49 PLUS for just +₹100 extra:
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>Both English + Hindi Master Guides</strong> (No language lock)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>Top 50–120 MNC Technical Interview Question Vault</strong> (Senior model answers)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>100 Enterprise Prompts / Shortcuts / Hands-on Lab Workbooks</strong></span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>2027 Career &amp; Salary Blueprint</strong> (LPA CTC bands ₹4.5L to ₹18L+, HR negotiation scripts)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>High-Converting InMail Outreach &amp; ATS Resume Templates</strong></span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>1-Click Master ZIP Offline Bundle</strong> (Instant offline backup)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>Founder Rahul Sir's Direct Career Email</strong> (rahul.28e1@gmail.com)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white">
+                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span><strong>100% Lifetime Free Yearly Updates</strong> directly to your inbox</span>
+                    </div>
+                  </div>
+
+                  {/* The Career Advantage */}
+                  <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs space-y-1.5 mb-4">
+                    <div className="font-bold text-emerald-400 flex items-center gap-1.5 font-mono text-[11px]">
+                      <span>🚀</span>
+                      <span>What Happens When You Upgrade to the ₹149 Career Suite?</span>
+                    </div>
+                    <p className="text-emerald-100/90 leading-relaxed text-[11px]">
+                      For just <strong>₹100 extra</strong> (less than the price of a single movie ticket or pizza!), you enter corporate interviews armed with senior engineer-approved answers, ATS-ready resume templates, proven salary negotiation scripts, and direct continuous mentorship from Rahul Sir. Instead of struggling with low-ball offers, you stand out from thousands of applicants and aim straight for <strong>₹5L to ₹12L+ CTC</strong> career opportunities!
+                    </p>
+                  </div>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={() => handleOpenPurchaseModal(selectedSubject, 'bundle')}
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black text-sm font-black transition-all shadow-lg shadow-emerald-500/25 active:scale-98"
+                >
+                  Upgrade to ₹149 Career Accelerator Suite →
+                </button>
               </div>
+
             </div>
 
-            {/* ── RIGHT BELOW THE PREVIEW: TRANSPARENT PRODUCT COMPARISON & PAYMENT ── */}
-            <div id="payment-comparison" className="p-6 sm:p-10 rounded-3xl bg-[#0D0D12] border border-white/[0.12] shadow-2xl">
-              <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold mb-3">
-                  ⚖️ TRANSPARENT PRODUCT COMPARISON · SELECT YOUR PLAN
+            {/* Quick Summary Pill Banner */}
+            <div className="p-4 rounded-2xl bg-black/50 border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+              <div className="text-xs text-[#86868B]">
+                <strong className="text-white">Bottom line:</strong> If you only need exam notes, choose ₹49. If you are preparing for real jobs, campus placements, or high CTC salaries, choose ₹149.
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-[11px] font-mono text-emerald-400 font-bold">
+                  🔒 Zero Risk · Instant Access
                 </span>
-                <h3 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-2">
-                  Choose Your Package for {selectedSubject.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed">
-                  Student ka ₹49 bhi hamare liye utna hi precious hai! Compare every feature transparently below:
-                </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-                
-                {/* TIER 1: ₹49 SINGLE PASS */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-black border border-white/[0.12] flex flex-col justify-between">
-                  <div>
-                    <div className="inline-block px-2.5 py-0.5 rounded-full bg-white/[0.08] text-white font-mono text-[10px] font-bold uppercase mb-3">
-                      Single Subject Full Pass
-                    </div>
-                    <h4 className="text-lg sm:text-xl font-black text-white mb-1">
-                      Complete Master Notes
-                    </h4>
-                    <p className="text-xs text-[#86868B] mb-4">
-                      Full {selectedSubject.pages} handbook. Best for college semester exams, viva, and quick conceptual mastery.
-                    </p>
-                    <div className="text-2xl sm:text-3xl font-black text-white mb-5 sm:mb-6">
-                      ₹49 <span className="text-xs font-normal text-[#86868B] font-mono">one-time</span>
-                    </div>
-
-                    <div className="space-y-2 text-xs text-[#D2D2D7] pb-5">
-                      <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span> Full Master Handbook ({selectedSubject.pages})
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span> Full Theory &amp; Architecture Standards
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span> Real Macro Hardware Photos &amp; Inspection
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span> Human Body &amp; Kitchen Chef Analogies
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span> 4-Step Diagnostic Flowcharts &amp; Traps
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span> Topic Practice MCQs &amp; Solutions
-                      </div>
-                      <div className="flex items-center gap-2 text-[#86868B]">
-                        <span>✕</span> 100+ Company Interview Questions
-                      </div>
-                      <div className="flex items-center gap-2 text-[#86868B]">
-                        <span>✕</span> Hands-on Practical Lab Worksheets
-                      </div>
-                      <div className="flex items-center gap-2 text-[#86868B]">
-                        <span>✕</span> Payscale Salary Blueprint
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => handleDirectSingleCheckout(selectedSubject)}
-                    className="w-full py-3 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] text-white font-bold text-xs transition-all border border-white/10"
-                  >
-                    Buy ₹49 Single Notes
-                  </button>
-                </div>
-
-                {/* TIER 2: ₹149 CAREER ACCELERATOR */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-[#0F0F14] border-2 border-emerald-500/60 shadow-xl shadow-emerald-500/10 flex flex-col justify-between relative">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-emerald-500 text-black font-mono text-[10px] font-black uppercase whitespace-nowrap">
-                    Most Popular · Just ₹100 Extra
-                  </div>
-
-                  <div>
-                    <div className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold uppercase mb-3 mt-1">
-                      Career Accelerator
-                    </div>
-                    <h4 className="text-lg sm:text-xl font-black text-white mb-1">
-                      Notes + 100 Qs + Labs
-                    </h4>
-                    <p className="text-xs text-[#86868B] mb-4">
-                      Best for cracking L1/L2 Technical Support, Desktop, NOC &amp; Cloud interviews.
-                    </p>
-                    <div className="text-2xl sm:text-3xl font-black text-emerald-400 mb-5 sm:mb-6">
-                      ₹149 <span className="text-xs font-normal text-[#86868B] font-mono">one-time</span>
-                    </div>
-
-                    <div className="space-y-2 text-xs text-[#D2D2D7] pb-5">
-                      <div className="flex items-center gap-2 font-semibold text-white">
-                        <span className="text-emerald-400 font-bold">✓</span> Book 1: 45-Page Core Master Handbook (English &amp; Hindi)
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-emerald-400">
-                        <span>✓</span> Book 2: Enterprise &amp; FAANG Deep-Dive (CPU, MESI Cache, NUMA, DC)
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-emerald-400">
-                        <span>✓</span> Book 3: 100+ Company Interview Vault (Google, Amazon, Cisco, TCS)
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-emerald-400">
-                        <span>✓</span> Book 4: Global IT Career &amp; Salary Blueprint (India &amp; Global CTC)
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-emerald-400">
-                        <span>✓</span> Book 5: Hands-on Practical Lab Workbook (8 Enterprise Labs &amp; Checklists)
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-emerald-400">
-                        <span>✓</span> Lifetime Yearly Updates (Free email delivery)
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => handleDirectBundleCheckout(selectedSubject)}
-                    className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs transition-all shadow-lg shadow-emerald-500/25 active:scale-95"
-                  >
-                    Get Career Accelerator (₹149)
-                  </button>
-                </div>
-
-                {/* TIER 3: ₹249 SMART CONTEXTUAL COMBO */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-black border border-cyan-500/30 flex flex-col justify-between">
-                  <div>
-                    <div className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 font-mono text-[10px] font-bold uppercase mb-3">
-                      Smart Best Buy · Save ₹49
-                    </div>
-                    <h4 className="text-lg sm:text-xl font-black text-white mb-1">
-                      {activeRelatedCombo.name}
-                    </h4>
-                    <p className="text-xs text-cyan-200/80 mb-2">
-                      {selectedSubject.pairingReason}
-                    </p>
-                    <div className="text-[11px] font-mono text-[#86868B] mb-4">
-                      {activeRelatedCombo.totalVolume}
-                    </div>
-                    <div className="text-2xl sm:text-3xl font-black text-cyan-400 mb-5 sm:mb-6">
-                      ₹249 <span className="text-xs font-normal text-[#86868B] line-through font-mono">₹298</span>
-                    </div>
-
-                    <div className="space-y-2 text-xs text-[#D2D2D7] pb-5">
-                      <div className="flex items-center gap-2 font-semibold text-white">
-                        <span className="text-cyan-400 font-bold">✓</span> TWO Complete Handbooks ({activeRelatedCombo.totalVolume})
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-cyan-400">
-                        <span>✓</span> ALL 100+ Interview Qs for BOTH subjects
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-cyan-400">
-                        <span>✓</span> ALL Lab Worksheets for BOTH subjects
-                      </div>
-                      <div className="flex items-center gap-2 font-semibold text-cyan-400">
-                        <span>✓</span> ALL Salary Blueprints &amp; Updates for BOTH
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => handleComboClick(activeRelatedCombo)}
-                    className="w-full py-3 rounded-xl bg-cyan-500/10 hover:bg-cyan-500 hover:text-black text-cyan-400 font-bold text-xs transition-all border border-cyan-500/30"
-                  >
-                    Get Smart Duo (₹249)
-                  </button>
-                </div>
-
-              </div>
-            </div>
-
-            {/* Bottom Back Button */}
-            <div className="text-center pt-4">
-              <button
-                onClick={handleBackToCatalog}
-                className="text-xs font-mono text-[#86868B] hover:text-white transition-colors underline"
-              >
-                ← Back to Browse All 8 Subject Notes
-              </button>
             </div>
 
           </div>
-        )}
+        </div>
 
-        {/* ── 5-PAGE LIVE PREVIEW REAL DIGITAL BOOK POP-UP MODAL ─────────────── */}
+        {/* ── INTERACTIVE 3D NOTEBOOK PREVIEW MODAL ──────────────────────────── */}
         {isReaderModalOpen && (
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label="Real Digital Book 5-Page Preview Modal"
-            className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-md animate-fadeIn"
-            onClick={() => setIsReaderModalOpen(false)}
-          >
-            <div
-              className="relative w-full max-w-4xl max-h-[96vh] rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/20 shadow-2xl flex flex-col overflow-hidden my-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Top Header of the Modal */}
-              <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#141418] border-b border-white/10 shrink-0">
-                <div className="flex items-center gap-2.5 truncate">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm shrink-0">
-                    📖
-                  </div>
-                  <div className="truncate">
-                    <h3 className="text-sm sm:text-base font-bold text-white truncate flex items-center gap-2">
-                      <span>{selectedSubject.title}</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30">
-                        Edition 1
-                      </span>
-                    </h3>
-                    <p className="text-[10px] sm:text-xs font-mono text-[#86868B] truncate">
-                      {selectedSubject.pages} · 5-Page Live Authentic Book Sample
-                    </p>
-                  </div>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-xl animate-fadeIn">
+            <div className="relative w-full max-w-4xl max-h-[96vh] rounded-2xl sm:rounded-3xl bg-[#101014] border border-white/20 shadow-2xl flex flex-col overflow-hidden">
+              
+              {/* Header Bar */}
+              <div className="p-3 sm:p-4 bg-[#141418] border-b border-white/10 flex items-center justify-between gap-2 shrink-0">
+                <div className="flex items-center gap-2 truncate">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <h3 className="text-xs sm:text-base font-bold text-white truncate">
+                    {selectedSubject.title} — 5-Page Interactive Preview
+                  </h3>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setIsReaderModalOpen(false)}
-                  aria-label="Close Sample Preview"
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-[#D2D2D7] hover:text-white flex items-center justify-center text-base font-bold transition-all shrink-0 ml-2 border border-white/10"
-                >
-                  ✕
-                </button>
-              </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  {/* Language Toggle */}
+                  <div className="flex items-center bg-black/60 rounded-lg p-0.5 border border-white/15">
+                    <button
+                      type="button"
+                      onClick={() => setPreviewLang('en')}
+                      className={`px-2 py-1 rounded text-[10px] font-mono font-bold transition-all ${
+                        previewLang === 'en' ? 'bg-emerald-500 text-black' : 'text-[#86868B] hover:text-white'
+                      }`}
+                    >
+                      EN (Global)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPreviewLang('hi')}
+                      className={`px-2 py-1 rounded text-[10px] font-mono font-bold transition-all ${
+                        previewLang === 'hi' ? 'bg-cyan-500 text-black' : 'text-[#86868B] hover:text-white'
+                      }`}
+                    >
+                      HI (हिंदी)
+                    </button>
+                  </div>
 
-              {/* 1. LANGUAGE SELECTION (First Option as requested by user) */}
-              <div className="px-4 sm:px-6 py-3 bg-[#18181E] border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 shrink-0">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-[#86868B]">1. भाषा चुनें / Choose Edition:</span>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold">
-                    {previewLang === 'hi' ? 'हिंदी संस्करण सक्रिय' : 'English Edition Active'}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-2">
+                  {/* Close button */}
                   <button
                     type="button"
-                    onClick={() => setPreviewLang('hi')}
-                    disabled={!selectedSubject.previewPdfHi}
-                    className={`flex-1 sm:flex-none px-4 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
-                      previewLang === 'hi'
-                        ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-black shadow-lg shadow-emerald-500/25 ring-2 ring-emerald-400/50'
-                        : selectedSubject.previewPdfHi
-                        ? 'bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10'
-                        : 'bg-white/[0.02] text-white/30 border border-white/5 cursor-not-allowed'
-                    }`}
+                    onClick={() => setIsReaderModalOpen(false)}
+                    className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all"
                   >
-                    <span>🇮🇳 हिंदी संस्करण (5 पेज)</span>
-                    {!selectedSubject.previewPdfHi && (
-                      <span className="text-[9px] font-normal text-white/30">(जल्द)</span>
-                    )}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setPreviewLang('en')}
-                    className={`flex-1 sm:flex-none px-4 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
-                      previewLang === 'en'
-                        ? 'bg-white text-black shadow-lg shadow-white/25 ring-2 ring-white/50'
-                        : 'bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10'
-                    }`}
-                  >
-                    <span>🇬🇧 English Edition (5 Pages)</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                   </button>
                 </div>
               </div>
 
-              {/* 2. REALISTIC PHYSICAL NOTEBOOK STAGE (ONLY NOTEBOOK + 3D PAGE SLIDE FLIP) */}
-              <div className="relative bg-[#070709] p-3 sm:p-6 flex flex-col items-center justify-center flex-1 overflow-hidden select-none min-h-[420px] sm:min-h-[540px]">
-                {/* Previous Page Arrow */}
+              {/* Sub-header / Page Title Label */}
+              <div className="px-4 py-2 bg-black/60 border-b border-white/[0.06] flex items-center justify-between text-xs font-mono text-[#86868B] shrink-0">
+                <span className="truncate text-emerald-400 font-semibold">
+                  {getPageLabel(selectedSubject.id, previewLang, previewPage)}
+                </span>
+                <span className="shrink-0 text-white/60">
+                  Page {previewPage} of 5
+                </span>
+              </div>
+
+              {/* 3D Realistic Notebook Viewer Stage */}
+              <div className="relative flex-1 bg-[#09090C] overflow-hidden flex items-center justify-center p-2 sm:p-6 min-h-[360px] sm:min-h-[500px]">
+                
+                {/* Prev Page Button */}
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); handleTurnPage('prev'); }}
+                  onClick={() => handleTurnPage('prev')}
                   disabled={previewPage === 1 || isPageFlipping}
-                  aria-label="Previous Page"
                   className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
                     previewPage === 1
                       ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
@@ -1584,20 +1130,12 @@ export default function NotesPage() {
                   ‹
                 </button>
 
-                {/* THE PHYSICAL NOTEBOOK */}
+                {/* Notebook Physical Frame */}
                 <div
-                  className="relative flex rounded-xl overflow-hidden notebook-stack border border-white/10 bg-[#121215] max-h-[58vh] sm:max-h-[66vh] cursor-pointer group select-none notebook-perspective"
-                  onClick={(e) => {
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    const clickX = e.clientX - rect.left;
-                    if (clickX > rect.width / 2) {
-                      handleTurnPage('next');
-                    } else {
-                      handleTurnPage('prev');
-                    }
-                  }}
+                  onClick={() => handleTurnPage('next')}
+                  className="relative max-w-full max-h-full flex items-stretch rounded-lg sm:rounded-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] border border-white/10 overflow-hidden cursor-pointer group"
                 >
-                  {/* Spiral Binder Spine (Left Edge) */}
+                  {/* Spiral Binder Spine */}
                   <div className="w-5 sm:w-7 bg-gradient-to-r from-[#141417] via-[#24242a] to-[#141417] flex flex-col justify-between py-4 sm:py-6 rounded-l-md border-r border-black/60 select-none shrink-0 z-30 shadow-inner">
                     {[...Array(11)].map((_, i) => (
                       <div key={i} className="flex items-center justify-center relative my-0.5 sm:my-1">
@@ -1609,65 +1147,32 @@ export default function NotesPage() {
 
                   {/* Notebook Page Stage */}
                   <div className="relative flex-1 bg-black overflow-hidden flex items-center justify-center">
-                    {/* BASE LAYER (Underneath Page shown during flip, or current page when static) */}
-                    <div className="relative w-full h-full flex items-center justify-center">
-                      <img
-                        src={getPreviewImage(
-                          selectedSubject.id,
-                          previewLang,
-                          isPageFlipping ? targetFlipPage : previewPage
-                        )}
-                        alt={getPageLabel(
-                          selectedSubject.id,
-                          previewLang,
-                          isPageFlipping ? targetFlipPage : previewPage
-                        )}
-                        className="max-h-[54vh] sm:max-h-[62vh] w-auto max-w-full object-contain block select-none pointer-events-none"
-                        loading="eager"
-                      />
+                    <img
+                      src={getPreviewImage(
+                        selectedSubject.id,
+                        previewLang,
+                        isPageFlipping ? targetFlipPage : previewPage
+                      )}
+                      alt={getPageLabel(
+                        selectedSubject.id,
+                        previewLang,
+                        isPageFlipping ? targetFlipPage : previewPage
+                      )}
+                      className="max-h-[50vh] sm:max-h-[60vh] w-auto max-w-full object-contain block select-none pointer-events-none"
+                    />
 
-                      {/* Paper spine crease shadow */}
-                      <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/60 via-black/20 to-transparent pointer-events-none" />
-
-                      {/* Subtle printed page number stamp at bottom right corner of notebook */}
-                      <div className="absolute bottom-2 sm:bottom-3 right-3 sm:right-4 z-20 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-white/10 text-[10px] sm:text-xs font-mono font-bold text-white/70 pointer-events-none">
-                        {previewLang === 'hi' ? 'पेज' : 'Page'} {isPageFlipping ? targetFlipPage : previewPage} / 5
-                      </div>
+                    {/* Bottom Right Page Stamp */}
+                    <div className="absolute bottom-2 sm:bottom-3 right-3 sm:right-4 z-20 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-white/10 text-[10px] sm:text-xs font-mono font-bold text-white/70 pointer-events-none">
+                      {previewLang === 'hi' ? 'पेज' : 'Page'} {isPageFlipping ? targetFlipPage : previewPage} / 5
                     </div>
-
-                    {/* FLIPPING TOP LAYER (Only rendered while turning page) */}
-                    {isPageFlipping && (
-                      <div
-                        className={`absolute inset-0 z-20 flex items-center justify-center origin-left ${
-                          flipDirection === 'next' ? 'animate-page-flip-next' : 'animate-page-flip-prev'
-                        }`}
-                      >
-                        <img
-                          src={getPreviewImage(
-                            selectedSubject.id,
-                            previewLang,
-                            flipDirection === 'next' ? previewPage : targetFlipPage
-                          )}
-                          alt="Turning Page"
-                          className="max-h-[54vh] sm:max-h-[62vh] w-auto max-w-full object-contain block select-none pointer-events-none shadow-2xl"
-                        />
-                        {/* Dynamic Paper Curl Shadow Overlay */}
-                        <div
-                          className={`absolute inset-0 pointer-events-none bg-gradient-to-r from-black/80 via-black/30 to-transparent ${
-                            flipDirection === 'next' ? 'animate-curl-shadow-next' : 'animate-curl-shadow-prev'
-                          }`}
-                        />
-                      </div>
-                    )}
                   </div>
                 </div>
 
-                {/* Next Page Arrow */}
+                {/* Next Page Button */}
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); handleTurnPage('next'); }}
+                  onClick={() => handleTurnPage('next')}
                   disabled={previewPage === 5 || isPageFlipping}
-                  aria-label="Next Page"
                   className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold transition-all backdrop-blur-md shadow-2xl ${
                     previewPage === 5
                       ? 'opacity-20 cursor-not-allowed bg-black/40 text-white/30 border border-white/5'
@@ -1678,60 +1183,39 @@ export default function NotesPage() {
                 </button>
               </div>
 
-              {/* 3. MODAL FOOTER: Clean, Direct Actions (NO SLIDE PILLS) */}
+              {/* Modal Footer Bar */}
               <div className="p-3 sm:p-4 bg-[#141418] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
                 <div className="text-[11px] font-mono text-[#86868B] flex items-center gap-1.5">
                   <span className="text-emerald-400">⚡</span>
-                  <span>{previewLang === 'hi' ? 'पेज पर क्लिक या स्वाइप करके पन्ने पलटें' : 'Click page or swipe to turn pages'}</span>
+                  <span>Click page or press Arrow keys to turn pages</span>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-                  {previewLang === 'hi' && selectedSubject.previewPdfHi ? (
-                    <a
-                      href={selectedSubject.previewPdfHi}
-                      download
-                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-xs font-mono font-bold transition-all shrink-0"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                      <span>सैंपल PDF (5p)</span>
-                    </a>
-                  ) : (
-                    <a
-                      href={selectedSubject.previewPdfEn || "/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf"}
-                      download
-                      className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold transition-all shrink-0"
-                    >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                      <span>Sample PDF (5p)</span>
-                    </a>
-                  )}
-
                   <button
                     type="button"
                     onClick={() => {
                       setIsReaderModalOpen(false);
-                      handleSingleClick(selectedSubject);
+                      handleOpenPurchaseModal(selectedSubject, 'bundle');
                     }}
                     className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-90 text-black text-xs sm:text-sm font-black transition-all shadow-lg shadow-emerald-500/30 active:scale-95 shrink-0"
                   >
-                    <span>{previewLang === 'hi' ? 'पूरी डिजिटल बुक खरीदें — ₹49' : 'Buy Complete Notes — ₹49'}</span>
+                    <span>Get Full Notes &amp; Career Suite</span>
                     <span>→</span>
                   </button>
                 </div>
               </div>
+
             </div>
           </div>
         )}
 
-        {/* ── PACKAGE SELECTOR MODAL (WHEN CLICKING BUY FOR ₹49 ON CARD) ────── */}
+        {/* ── PACKAGE SELECTOR & UPSELL MODAL (₹49 VS ₹149 UPGRADE) ──────────── */}
         {isUpsellOpen && (
-          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-            <div className="relative w-full max-w-2xl rounded-t-3xl sm:rounded-3xl bg-[#0F0F13] border border-white/[0.15] p-5 sm:p-8 shadow-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/95 backdrop-blur-xl animate-fadeIn">
+            <div
+              className="relative w-full max-w-2xl rounded-t-3xl sm:rounded-3xl bg-zinc-950 border border-white/[0.18] p-5 sm:p-8 shadow-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto"
+              style={{ backgroundColor: '#0e0e13' }}
+            >
               
               {/* Close Button */}
               <button
@@ -1746,20 +1230,62 @@ export default function NotesPage() {
               {/* Header */}
               <div className="text-center mb-5 sm:mb-6">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[10px] sm:text-xs font-mono font-bold mb-2">
-                  ✨ TRANSPARENT STUDENT CHOICE · NO FORCED UPSELL
+                  ✨ TRANSPARENT STUDENT CHOICE · NO PRESSURE
                 </span>
                 <h3 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-1">
-                  Select Your Package for {selectedSubject.title}
+                  Select Package for {selectedSubject.title}
                 </h3>
                 <p className="text-xs text-[#86868B] max-w-lg mx-auto leading-relaxed">
-                  Choose the standalone handbook at ₹49, the full Career Accelerator Bundle (+100 MNC Questions), or a paired dual-subject combo:
+                  Choose between the standalone theory handbook at ₹49 or upgrade to the complete Career Accelerator Suite (+Interview Vault, Labs &amp; Salary Blueprint) for just +₹100 extra:
                 </p>
               </div>
 
-              {/* Three Selectable Options */}
+              {/* Two Selectable Options */}
               <div className="space-y-3 mb-5">
                 
-                {/* Plan A: ₹49 Single Notes */}
+                {/* Plan 1: ₹149 Career Accelerator Suite (PRE-SELECTED / BEST VALUE) */}
+                <div
+                  onClick={() => setModalSelectedPlan('bundle')}
+                  className={`p-4 sm:p-5 rounded-2xl cursor-pointer border-2 transition-all flex items-start justify-between gap-3 relative ${
+                    modalSelectedPlan === 'bundle'
+                      ? 'bg-[#0E161B] border-emerald-500 text-white shadow-xl shadow-emerald-500/15 ring-1 ring-emerald-500/40'
+                      : 'bg-black/40 border-white/[0.1] text-[#86868B] hover:border-emerald-500/40'
+                  }`}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
+                      modalSelectedPlan === 'bundle' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
+                    }`}>
+                      {modalSelectedPlan === 'bundle' && <div className="w-2 h-2 rounded-full bg-black" />}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <span className="font-bold text-white text-sm sm:text-base">
+                          Executive Career Accelerator Suite™ (Elite Edition)
+                        </span>
+                        <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-extrabold border border-emerald-500/30">
+                          👑 RECOMMENDED BY 89% STUDENTS · BEST VALUE
+                        </span>
+                      </div>
+                      <div className="text-[11px] font-mono text-emerald-400 font-semibold mb-1">
+                        👑 The 6-Figure Placement Arsenal · Real-World Enterprise Advantage
+                      </div>
+                      <p className="text-xs text-emerald-200/90 leading-relaxed mb-2">
+                        Includes <strong>all {selectedSubject.bundleItems.length} specialized engineering guides</strong> ({selectedSubject.bundlePages}): Both English &amp; Hindi Core Guides + Top MNC Interview Vault + Practical Labs/Templates + Career Salary Blueprint + 1-Click ZIP Download.
+                      </p>
+                      <div className="text-[11px] font-mono text-[#86868B]">
+                        ✓ Personal Mentorship Email from Rahul Sir · 100% Lifetime Free Yearly Updates
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹1,099</div>
+                    <div className="text-lg sm:text-2xl font-black text-emerald-400">₹149</div>
+                    <div className="text-[9px] font-mono text-emerald-300 font-bold">SAVE ₹950 · 86% OFF</div>
+                  </div>
+                </div>
+
+                {/* Plan 2: ₹49 Single Core Notes */}
                 <div
                   onClick={() => setModalSelectedPlan('single')}
                   className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border transition-all flex items-start justify-between gap-3 ${
@@ -1769,99 +1295,32 @@ export default function NotesPage() {
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${modalSelectedPlan === 'single' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'}`}>
+                    <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
+                      modalSelectedPlan === 'single' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
+                    }`}>
                       {modalSelectedPlan === 'single' && <div className="w-2 h-2 rounded-full bg-black" />}
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-0.5">
                         <span className="font-bold text-white text-sm sm:text-base">
-                          Single Subject Core Edition
+                          Foundational Engineering Master Pass™
                         </span>
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.06] text-[#86868B]">
-                          {selectedSubject.id === 'fundamentals' ? '45 Pages En + 45 Pages Hi' : selectedSubject.pages}
+                          {selectedSubject.pages}
                         </span>
                       </div>
+                      <div className="text-[11px] font-mono text-zinc-400 font-semibold mb-1">
+                        📘 The Essential Technical Blueprint · 100% Concept Mastery &amp; Academic Excellence
+                      </div>
                       <p className="text-xs text-[#86868B] leading-relaxed">
-                        {selectedSubject.id === 'fundamentals'
-                          ? 'Official Edition 1 Core Master Edition in both English & Hindi (45 pages each) with authentic macro photos, IPO cycle, and verified MCQs.'
-                          : `Complete ${selectedSubject.pages} Master Handbook PDF with all theory, real macro photos, analogies, and practice MCQs.`}
+                        Complete {selectedSubject.pages} Theory Handbook PDF in your chosen language with verified silicon concepts, vector schematics, and practice MCQs. (Does NOT include the MNC Interview Vault, Practical Labs, or Salary Blueprint).
                       </p>
                     </div>
                   </div>
                   <div className="text-right shrink-0">
+                    <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹199</div>
                     <div className="text-lg sm:text-xl font-black text-white">₹49</div>
-                    <div className="text-[10px] text-[#86868B] font-mono">one-time</div>
-                  </div>
-                </div>
-
-                {/* Plan B: ₹149 Career Accelerator */}
-                <div
-                  onClick={() => setModalSelectedPlan('bundle')}
-                  className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border transition-all flex items-start justify-between gap-3 relative ${
-                    modalSelectedPlan === 'bundle'
-                      ? 'bg-[#121218] border-emerald-500 text-white shadow-xl shadow-emerald-500/10 ring-1 ring-emerald-500/30'
-                      : 'bg-black/40 border-white/[0.08] text-[#86868B] hover:border-emerald-500/40'
-                  }`}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${modalSelectedPlan === 'bundle' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'}`}>
-                      {modalSelectedPlan === 'bundle' && <div className="w-2 h-2 rounded-full bg-black" />}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                        <span className="font-bold text-white text-sm sm:text-base">
-                          {selectedSubject.id === 'fundamentals' ? 'Complete 5-in-1 Career Accelerator Suite' : 'Career Accelerator Edition'}
-                        </span>
-                        <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-extrabold border border-emerald-500/30">
-                          +₹100 EXTRA · RECOMMENDED · BEST VALUE
-                        </span>
-                      </div>
-                      <p className="text-xs text-[#86868B] leading-relaxed">
-                        {selectedSubject.id === 'fundamentals'
-                          ? 'All 5 Books & 6 PDFs (119 Pages Total): Core English (45p) + Core Hindi (45p) + Enterprise Deep Dive (7p) + Interview Practice Vault (7p) + Salary Blueprint (5p) + Practical Lab Workbook (10p).'
-                          : `Full ${selectedSubject.pages} Notes + 100 Company Interview Questions + Practical Labs + Payscale Salary Blueprint + Yearly Updates.`}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-lg sm:text-xl font-black text-emerald-400">₹149</div>
-                    <div className="text-[10px] text-[#86868B] font-mono">one-time</div>
-                  </div>
-                </div>
-
-                {/* Plan C: 🔥 Smart Best Buy Combo */}
-                <div
-                  onClick={() => setModalSelectedPlan('combo')}
-                  className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border transition-all flex items-start justify-between gap-3 relative ${
-                    modalSelectedPlan === 'combo'
-                      ? 'bg-[#0E1520] border-cyan-400 text-white shadow-xl shadow-cyan-500/10 ring-1 ring-cyan-400/30'
-                      : 'bg-black/40 border-cyan-500/30 text-[#86868B] hover:border-cyan-400/60'
-                  }`}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${modalSelectedPlan === 'combo' ? 'border-cyan-400 bg-cyan-400' : 'border-cyan-500/40'}`}>
-                      {modalSelectedPlan === 'combo' && <div className="w-2 h-2 rounded-full bg-black" />}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                        <span className="font-bold text-white text-sm sm:text-base">
-                          🔥 Smart Best Buy: {activeRelatedCombo.name}
-                        </span>
-                        <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 font-extrabold border border-cyan-500/30">
-                          SAVE ₹49 · 2 SUBJECTS
-                        </span>
-                      </div>
-                      <p className="text-xs text-cyan-200/80 leading-relaxed mb-1">
-                        {selectedSubject.pairingReason}
-                      </p>
-                      <div className="text-[11px] font-mono text-[#86868B]">
-                        Includes BOTH {activeRelatedCombo.subjects.join(' + ')} ({activeRelatedCombo.totalVolume}) + ALL Interview Qs for both!
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-lg sm:text-xl font-black text-cyan-400">₹249</div>
-                    <div className="text-[10px] text-[#86868B] line-through font-mono">₹298</div>
+                    <div className="text-[9px] font-mono text-zinc-400">SAVE 75%</div>
                   </div>
                 </div>
 
@@ -1870,15 +1329,14 @@ export default function NotesPage() {
               {/* Sneak Peek Tabs */}
               <div className="mb-5">
                 <div className="text-[11px] font-mono text-center text-[#86868B] mb-2 uppercase">
-                  Sneak Peek: What's included in the Career Assets?
+                  Sneak Peek: What's inside the ₹149 Career Package?
                 </div>
                 <div className="flex items-center justify-center gap-1 mb-2.5 bg-black/60 p-1 rounded-full border border-white/[0.08] max-w-lg mx-auto overflow-x-auto">
                   {[
-                    { id: 'interview', label: '100+ Interview Qs' },
-                    { id: 'labs', label: 'Practical Labs' },
-                    { id: 'salary', label: 'Payscale Salaries' },
-                    { id: 'faang', label: 'FAANG Deep-Dive' },
-                    { id: 'updates', label: 'Yearly Updates' },
+                    { id: 'interview', label: 'MNC Interview Vault' },
+                    { id: 'labs', label: 'Labs & Prompts' },
+                    { id: 'salary', label: 'Salary & Roadmap' },
+                    { id: 'mentorship', label: 'Rahul Sir Support' },
                   ].map((t) => (
                     <button
                       key={t.id}
@@ -1895,120 +1353,67 @@ export default function NotesPage() {
                 </div>
 
                 {/* Preview Content Area */}
-                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-black border border-white/[0.08] min-h-[120px] sm:min-h-[140px] text-xs">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-black border border-white/[0.08] min-h-[120px] text-xs">
                   {upsellTab === 'interview' && (
                     <div className="space-y-1.5 animate-fadeIn">
                       <div className="font-mono text-emerald-400 font-bold text-[11px]">
-                        🏢 Amazon AWS Cloud Support Associate Interview:
+                        🏢 Real Scenario MNC Technical Interview Questions:
                       </div>
                       <p className="text-white font-medium text-xs">
-                        "A user reports latency connecting to your app. How do you isolate whether the bottleneck is DNS, MTU mismatch, or a saturated NAT Gateway?"
+                        "How do you isolate production bottlenecks, optimize enterprise architectures, and explain trade-offs to senior interviewers?"
                       </p>
                       <div className="text-[#86868B] text-[11px] italic">
-                        + Includes 99 more real scenario questions asked by TCS, Wipro, Cisco TAC, and Infosys with Senior Engineer model answers.
+                        Includes senior model answers for TCS, Infosys, Cisco, Wipro, and global MNCs.
                       </div>
-                      <a
-                        href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/30 transition-all"
-                      >
-                        <span>📄 Preview Interview Vault PDF (5 Pages)</span>
-                        <span>→</span>
-                      </a>
                     </div>
                   )}
 
                   {upsellTab === 'labs' && (
                     <div className="space-y-1.5 animate-fadeIn font-mono">
                       <div className="text-cyan-400 font-bold text-[11px]">
-                        🧪 Production Lab Worksheet 04:
+                        🧪 Enterprise Labs, Templates &amp; Prompt Engineering:
                       </div>
                       <p className="text-emerald-400 text-xs">
-                        $ DISM /Online /Cleanup-Image /RestoreHealth &amp;&amp; sfc /scannow
+                        Production-grade worksheets, Packet Tracer files, Advanced Excel formulas (XLOOKUP / Dynamic Arrays), and 100 enterprise AI prompts.
                       </p>
-                      <div className="text-[#86868B] text-[11px]">
-                        8 battle-tested production worksheets covering ATX multimeter probing, DDR5 dual-channel verification, BIOS TPM 2.0, and Linux CLI diagnostics.
-                      </div>
-                      <a
-                        href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-Edition-1.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold border border-cyan-500/30 transition-all"
-                      >
-                        <span>🧪 Preview Practical Lab Workbook PDF (10 Pages)</span>
-                        <span>→</span>
-                      </a>
                     </div>
                   )}
 
                   {upsellTab === 'salary' && (
                     <div className="space-y-2 animate-fadeIn">
                       <div className="flex items-center justify-between font-mono text-[11px]">
-                        <span className="text-amber-400 font-bold">💼 2027 Payscale &amp; AmbitionBox Salary Benchmarks:</span>
+                        <span className="text-amber-400 font-bold">💼 2027 Salary Benchmarks &amp; Slabs:</span>
                         <span className="text-[#86868B]">India IT Hubs</span>
                       </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 text-center text-[10px] font-mono">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-center text-[10px] font-mono">
                         <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                          <div className="text-[#86868B]">Fresher (0-1 yr)</div>
-                          <div className="font-bold text-white text-xs mt-0.5">₹3.2L - ₹4.5L</div>
+                          <div className="text-[#86868B]">Fresher</div>
+                          <div className="font-bold text-white text-xs mt-0.5">₹3.5L - ₹5L</div>
                         </div>
                         <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                          <div className="text-[#86868B]">L1 Support (1-2y)</div>
-                          <div className="font-bold text-white text-xs mt-0.5">₹4.5L - ₹6.5L</div>
+                          <div className="text-[#86868B]">Associate (1-2y)</div>
+                          <div className="font-bold text-white text-xs mt-0.5">₹5.5L - ₹8.5L</div>
                         </div>
                         <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                          <div className="text-[#86868B]">L2 Engineer (3-5y)</div>
-                          <div className="font-bold text-white text-xs mt-0.5">₹7.0L - ₹11.5L</div>
+                          <div className="text-[#86868B]">Senior (3-5y)</div>
+                          <div className="font-bold text-white text-xs mt-0.5">₹9L - ₹15L</div>
                         </div>
                         <div className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                          <div className="text-emerald-400 font-bold">L3 / Highest</div>
-                          <div className="font-bold text-emerald-400 text-xs mt-0.5">₹14L - ₹28L+</div>
+                          <div className="text-emerald-400 font-bold">Lead / Staff</div>
+                          <div className="font-bold text-emerald-400 text-xs mt-0.5">₹18L - ₹30L+</div>
                         </div>
                       </div>
-                      <a
-                        href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 mt-1 px-3 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 font-mono text-[10px] font-bold border border-amber-500/30 transition-all"
-                      >
-                        <span>💼 Preview Salary &amp; Roadmap Blueprint PDF (6 Pages)</span>
-                        <span>→</span>
-                      </a>
                     </div>
                   )}
 
-                  {upsellTab === 'faang' && (
+                  {upsellTab === 'mentorship' && (
                     <div className="space-y-1.5 animate-fadeIn">
                       <div className="font-mono text-purple-400 font-bold text-[11px]">
-                        ⚡ Enterprise &amp; FAANG Systems Deep-Dive:
+                        👨‍🏫 Direct Mentorship with Founder Rahul Sir:
                       </div>
-                      <p className="text-white font-medium text-xs">
-                        Advanced Out-of-Order CPU execution, L1-L3 Cache Coherence (MESI), NUMA node topology, 5-level paging, and PCIe 6.0 PAM4 signaling.
+                      <p className="text-white text-xs leading-relaxed">
+                        Have questions about your resume, career roadmap, or technical doubts? Every student who purchases the ₹149 Career Suite gets direct email support with Rahul Sir (`rahul.28e1@gmail.com`) and free future PDF updates for life.
                       </p>
-                      <a
-                        href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 font-mono text-[10px] font-bold border border-purple-500/30 transition-all"
-                      >
-                        <span>📘 Preview FAANG Deep-Dive PDF (7 Pages)</span>
-                        <span>→</span>
-                      </a>
-                    </div>
-                  )}
-
-                  {upsellTab === 'updates' && (
-                    <div className="space-y-1.5 animate-fadeIn">
-                      <div className="font-mono text-emerald-400 font-bold text-[11px] flex items-center gap-1.5">
-                        <span>🔄 LIFETIME YEARLY VERSION UPDATES GUARANTEE</span>
-                      </div>
-                      <p className="text-[#D2D2D7] text-xs leading-relaxed">
-                        Technology moves fast — from DDR5 to DDR6, PCIe 5 to PCIe 6, and Windows 11 to Windows 12. You only pay once today!
-                      </p>
-                      <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-[11px] text-emerald-300">
-                        📩 <strong>Just save your payment receipt!</strong> Every year, our engineering team updates the entire book and bundle with the latest industrial changes and emails it directly to your inbox for free.
-                      </div>
                     </div>
                   )}
                 </div>
@@ -2019,32 +1424,25 @@ export default function NotesPage() {
                 <button
                   onClick={proceedToCheckoutWithSelectedPlan}
                   className={`w-full py-3.5 sm:py-4 rounded-xl sm:rounded-full font-black text-sm sm:text-base transition-all shadow-xl flex items-center justify-center gap-2 active:scale-98 ${
-                    modalSelectedPlan === 'combo'
-                      ? 'bg-cyan-400 hover:bg-cyan-300 text-black shadow-cyan-500/30'
-                      : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-emerald-500/30'
+                    modalSelectedPlan === 'bundle'
+                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black shadow-emerald-500/30'
+                      : 'bg-white hover:bg-zinc-200 text-black shadow-white/20'
                   }`}
                 >
-                  {modalSelectedPlan === 'single' && (
+                  {modalSelectedPlan === 'bundle' ? (
                     <>
-                      <span>Proceed with ₹49 Single Master Notes ({selectedSubject.pages})</span>
+                      <span>Proceed with ₹149 Career Accelerator Suite (All Files + ZIP)</span>
                       <span>→</span>
                     </>
-                  )}
-                  {modalSelectedPlan === 'bundle' && (
+                  ) : (
                     <>
-                      <span>Proceed with ₹149 Career Bundle (Notes + 100 Qs + Labs)</span>
-                      <span>→</span>
-                    </>
-                  )}
-                  {modalSelectedPlan === 'combo' && (
-                    <>
-                      <span>Proceed with ₹249 Smart Duo Combo ({activeRelatedCombo.totalVolume})</span>
+                      <span>Proceed with ₹49 Core Master Pass Only</span>
                       <span>→</span>
                     </>
                   )}
                 </button>
                 <p className="text-[10px] sm:text-[11px] text-center text-[#86868B]">
-                  🔒 100% Honest Pricing · Instant Download Link on Payment · Zero Subscription Traps
+                  🔒 Instant Download Access on Payment · 100% Secure Razorpay Verification
                 </p>
               </div>
 
@@ -2052,10 +1450,13 @@ export default function NotesPage() {
           </div>
         )}
 
-        {/* ── INSTANT CHECKOUT / ACCESS MODAL WITH LANGUAGE SELECTION & AUTOMATED LEAD CAPTURE ── */}
+        {/* ── INSTANT CHECKOUT / ACCESS MODAL (LANGUAGE SELECTION & AUTOMATED LEAD CAPTURE) ── */}
         {isCheckoutOpen && (
-          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
-            <div className="relative w-full max-w-xl rounded-t-3xl sm:rounded-3xl bg-[#0F0F13] border border-white/[0.12] p-5 sm:p-7 shadow-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/95 backdrop-blur-xl animate-fadeIn">
+            <div
+              className="relative w-full max-w-xl rounded-t-3xl sm:rounded-3xl bg-zinc-950 border border-white/[0.18] p-5 sm:p-7 shadow-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto"
+              style={{ backgroundColor: '#0e0e13' }}
+            >
               <button
                 onClick={() => setIsCheckoutOpen(false)}
                 className="absolute top-4 right-4 text-[#86868B] hover:text-white p-1.5 rounded-full bg-white/[0.06]"
@@ -2072,15 +1473,19 @@ export default function NotesPage() {
                 <h3 className="text-lg sm:text-2xl font-black text-white px-2">
                   {checkoutItem.title}
                 </h3>
-                <div className="text-2xl sm:text-3xl font-black text-white mt-1">
-                  ₹{checkoutItem.price} <span className="text-xs font-normal text-[#86868B] font-mono">one-time access</span>
+                <div className="text-2xl sm:text-3xl font-black text-white mt-1 flex items-baseline justify-center gap-2">
+                  <span className="text-base font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
+                    {checkoutItem.price === 149 ? '₹1,099' : '₹199'}
+                  </span>
+                  <span>₹{checkoutItem.price}</span>
+                  <span className="text-xs font-normal text-[#86868B] font-mono">one-time access</span>
                 </div>
               </div>
 
               {/* ── STEP 1: SELECT LANGUAGE FOR MAIN DIGITAL NOTEBOOK ── */}
               <div className="mb-4 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
                 <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase mb-2 flex items-center justify-between">
-                  <span>Step 1: Choose Main Digital Notebook Language</span>
+                  <span>Step 1: Choose Primary Language</span>
                   <span className="text-[#86868B] text-[10px]">Required</span>
                 </div>
 
@@ -2099,7 +1504,7 @@ export default function NotesPage() {
                       {selectedLanguage === 'en' && <span className="text-emerald-400 text-[10px] font-bold">✓ SELECTED</span>}
                     </div>
                     <div className="text-[10px] font-mono text-[#86868B] mt-1">
-                      45 Pages · Global Tech Standard
+                      {selectedSubject.pages} · Global Standard
                     </div>
                   </button>
 
@@ -2113,26 +1518,26 @@ export default function NotesPage() {
                     }`}
                   >
                     <div className="flex items-center justify-between font-bold text-xs text-white">
-                      <span>🇮🇳 हिंदी एडिशन</span>
+                      <span>🇮🇳 Hindi Edition</span>
                       {selectedLanguage === 'hi' && <span className="text-cyan-400 text-[10px] font-bold">✓ SELECTED</span>}
                     </div>
                     <div className="text-[10px] font-mono text-[#86868B] mt-1">
-                      45 Pages · सरल हिंदी व्याख्या
+                      {selectedSubject.pages} · Complete Hindi Edition
                     </div>
                   </button>
                 </div>
 
                 <p className="text-[10px] text-[#86868B] leading-relaxed">
-                  💡 <em>Main Digital Notebook is provided in your chosen language ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'}). All specialized career books (Enterprise FAANG Deep Dive, Interview Practice Vault, Salary Blueprint, Practical Lab Workbook) are in English (Global Industry Standard).</em>
+                  💡 <em>In the ₹149 Career Accelerator Suite, you get BOTH English and Hindi editions included inside the 1-Click ZIP bundle!</em>
                 </p>
               </div>
 
-              {/* ── STEP 2: STUDENT DETAILS & 100% AUTOMATED SECURE PAYMENT ── */}
+              {/* ── STEP 2: STUDENT DETAILS & SECURE RAZORPAY PAYMENT ── */}
               {!paymentVerified ? (
                 <form onSubmit={handleInitiatePayment} className="space-y-3 mb-4 p-4 rounded-2xl bg-black border border-white/[0.12] shadow-xl">
                   <div className="text-[11px] font-mono text-emerald-400 font-bold uppercase mb-1 flex items-center justify-between">
                     <span>Step 2: Enter Student Details</span>
-                    <span className="text-[#86868B] text-[10px]">Zero-Touch Delivery</span>
+                    <span className="text-[#86868B] text-[10px]">Instant Delivery</span>
                   </div>
                   <div className="space-y-2">
                     <input
@@ -2194,8 +1599,7 @@ export default function NotesPage() {
                       <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">PhonePe</span>
                       <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Paytm</span>
                       <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">UPI QR</span>
-                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Debit/Credit Cards</span>
-                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">NetBanking</span>
+                      <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/10">Cards / NetBanking</span>
                     </div>
                     <p className="text-[10px] text-white/40 mt-2 font-mono">
                       🔒 256-Bit SSL Encrypted · Instant Automatic Verification · Zero Waiting Time
@@ -2212,327 +1616,105 @@ export default function NotesPage() {
                     Payment ID: <strong className="text-white">{verifiedPaymentId}</strong> · Registered to: <strong className="text-emerald-300">{studentEmail}</strong>
                   </p>
                   <p className="text-[11px] text-[#86868B] mt-1 font-mono">
-                    Your official download links are unlocked below. An official confirmation receipt has also been dispatched to your email.
+                    Your official download links are unlocked below. A confirmation receipt has also been dispatched to your email.
                   </p>
                 </div>
               )}
 
-              {/* ── STEP 3: INSTANT DOWNLOADS (STRICTLY LOCKED UNTIL PAYMENT SUCCESS) ── */}
+              {/* ── STEP 3: UNLOCKED DOWNLOAD ACCESS ── */}
               {paymentVerified ? (
                 <div className="space-y-3 animate-fadeIn">
-                  {(selectedSubject?.id === 'ccna' || selectedSubject?.id === 'networking' || checkoutItem.title?.toLowerCase().includes('ccna') || checkoutItem.title?.toLowerCase().includes('network')) ? (
-                    <div className="space-y-2.5 w-full pt-1">
-                      {checkoutItem.plan === 'bundle' ? (
-                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-blue-500/30">
-                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-blue-400">
-                            <span>📦 CCNA 200-301 COMPLETE CAREER BUNDLE</span>
-                            <span>5 Guides · 69 Pages</span>
-                          </div>
-
-                          {/* 1-Click ZIP Master Download */}
-                          <a
-                            href="/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip"
-                            download
-                            className="w-full py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-black font-black text-xs text-center shadow-lg shadow-blue-500/20 block"
-                          >
-                            📦 1-Click Download: Complete CCNA Suite (.ZIP - 20 MB)
-                          </a>
-
-                          {/* Individual Primary Download According to Selected Language */}
-                          <div className="pt-2">
-                            <div className="text-[10px] font-mono text-[#86868B] mb-1.5">
-                              Primary Master Handbook ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'} Selected):
-                            </div>
-                            {selectedLanguage === 'hi' ? (
-                              <a
-                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
-                                download
-                                className="w-full py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-mono text-[11px] font-bold text-center border border-cyan-400/50 block mb-1"
-                              >
-                                ⚡ डाउनलोड मुख्य हिंदी Core Master PDF (45 Pages)
-                              </a>
-                            ) : (
-                              <a
-                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
-                                download
-                                className="w-full py-2 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-300 font-mono text-[11px] font-bold text-center border border-blue-400/50 block mb-1"
-                              >
-                                ⚡ Download Main English Core Master PDF (45 Pages)
-                              </a>
-                            )}
-                          </div>
-
-                          <div className="text-[10px] font-mono text-[#86868B] text-center pt-1">
-                            Specialized Career Editions (Global English Standard):
-                          </div>
-                          <div className="grid grid-cols-2 gap-1.5 text-[10px] font-mono">
-                            <a
-                              href="/downloads/CCNA-200-301-Packet-Tracer-Lab-Workbook-Edition-1.pdf"
-                              download
-                              className="py-1.5 px-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center truncate block"
-                              title="Packet Tracer Lab Workbook (12 Pages)"
-                            >
-                              🧪 PT Labs (12p)
-                            </a>
-                            <a
-                              href="/downloads/CCNA-200-301-Interview-Question-Vault-Edition-1.pdf"
-                              download
-                              className="py-1.5 px-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-center truncate block"
-                              title="120 TAC Interview Questions (8 Pages)"
-                            >
-                              🎯 120 TAC Q&amp;A (8p)
-                            </a>
-                            <a
-                              href="/downloads/CCNA-200-301-Network-Engineer-Career-Salary-Blueprint-Edition-1.pdf"
-                              download
-                              className="py-1.5 px-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-center truncate block col-span-2"
-                              title="Career & Salary Blueprint (4 Pages)"
-                            >
-                              💼 Career &amp; Salary Blueprint (4p)
-                            </a>
-                          </div>
-
-                          {/* Alternate Language Option */}
-                          <div className="text-center pt-1 border-t border-white/[0.06]">
-                            {selectedLanguage === 'hi' ? (
-                              <a
-                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
-                                download
-                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
-                              >
-                                Also want English Core Master? Click here to download (45 Pages)
-                              </a>
-                            ) : (
-                              <a
-                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
-                                download
-                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
-                              >
-                                हिंदी एडिशन भी चाहिए? यहाँ क्लिक करें (45 Pages)
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
-                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-blue-400 px-1">
-                            <span>📘 CCNA CORE MASTER PASS</span>
-                            <span>45 Pages ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'})</span>
-                          </div>
-                          {selectedLanguage === 'hi' ? (
-                            <div className="space-y-1.5">
-                              <a
-                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
-                                download
-                                className="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-cyan-500/20"
-                              >
-                                ⚡ डायरेक्ट डाउनलोड: मुख्य हिंदी Edition 1 (45 Pages PDF)
-                              </a>
-                              <a
-                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
-                                download
-                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
-                              >
-                                Alternate: Download English Edition 1 (45 Pages)
-                              </a>
-                            </div>
-                          ) : (
-                            <div className="space-y-1.5">
-                              <a
-                                href="/downloads/CCNA-200-301-English-Edition-1.pdf"
-                                download
-                                className="w-full py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-blue-500/20"
-                              >
-                                ⚡ Direct Download: English Edition 1 (45 Pages PDF)
-                              </a>
-                              <a
-                                href="/downloads/CCNA-200-301-Hindi-Edition-1.pdf"
-                                download
-                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
-                              >
-                                वैकल्पिक: डाउनलोड करें हिंदी Edition 1 (45 Pages)
-                              </a>
-                            </div>
-                          )}
-                        </div>
-                      )}
+                  <div className="p-4 rounded-2xl bg-black border border-emerald-500/30 space-y-3">
+                    <div className="flex items-center justify-between text-xs font-mono font-bold text-emerald-400">
+                      <span>📦 UNLOCKED DOWNLOAD ACCESS</span>
+                      <span>{checkoutItem.plan === 'bundle' ? 'Complete Career Suite' : 'Core Master Pass'}</span>
                     </div>
-                  ) : checkoutItem.title?.toLowerCase().includes('fundamental') ? (
-                    <div className="space-y-2.5 w-full pt-1">
-                      {checkoutItem.plan === 'bundle' ? (
-                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-emerald-500/30">
-                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400">
-                            <span>📦 COMPLETE 5-IN-1 CAREER ACCELERATOR</span>
-                            <span>6 PDFs · 119 Pages</span>
-                          </div>
 
-                          {/* 1-Click ZIP Master Download */}
-                          <a
-                            href="/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip"
-                            download
-                            className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-black font-black text-xs text-center shadow-lg shadow-emerald-500/20 block"
-                          >
-                            📦 1-Click Download: Complete 5-in-1 Suite (.ZIP - 30 MB)
-                          </a>
+                    {/* 1-Click ZIP Download for Bundle */}
+                    {checkoutItem.plan === 'bundle' && selectedSubject.bundleZip && (
+                      <a
+                        href={selectedSubject.bundleZip}
+                        download
+                        className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black font-black text-xs text-center shadow-lg shadow-emerald-500/20 block"
+                      >
+                        📦 1-Click Download: Complete {selectedSubject.title} Suite (.ZIP - {selectedSubject.bundleZipSize})
+                      </a>
+                    )}
 
-                          {/* Individual Primary Download According to Selected Language */}
-                          <div className="pt-2">
-                            <div className="text-[10px] font-mono text-[#86868B] mb-1.5">
-                              Primary Digital Notebook ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'} Selected):
-                            </div>
-                            {selectedLanguage === 'hi' ? (
-                              <a
-                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                                download
-                                className="w-full py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 font-mono text-[11px] font-bold text-center border border-cyan-400/50 block mb-1"
-                              >
-                                ⚡ डाउनलोड मुख्य हिंदी Core Master PDF (45 Pages)
-                              </a>
-                            ) : (
-                              <a
-                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                                download
-                                className="w-full py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-[11px] font-bold text-center border border-emerald-400/50 block mb-1"
-                              >
-                                ⚡ Download Main English Core Master PDF (45 Pages)
-                              </a>
-                            )}
-                          </div>
-
-                          <div className="text-[10px] font-mono text-[#86868B] text-center pt-1">
-                            Specialized Career Editions (Global English Standard):
-                          </div>
-                          <div className="grid grid-cols-2 gap-1.5 text-[10px] font-mono">
-                            <a
-                              href="/downloads/Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf"
-                              download
-                              className="py-1.5 px-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/30 text-center truncate block"
-                              title="Enterprise & FAANG Deep Dive (7 Pages)"
-                            >
-                              ⚡ FAANG DeepDive (7p)
-                            </a>
-                            <a
-                              href="/downloads/Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf"
-                              download
-                              className="py-1.5 px-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-center truncate block"
-                              title="Interview Practice Vault (7 Pages)"
-                            >
-                              🎯 Interview Vault (7p)
-                            </a>
-                            <a
-                              href="/downloads/Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf"
-                              download
-                              className="py-1.5 px-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-center truncate block"
-                              title="Career & Salary Blueprint (5 Pages)"
-                            >
-                              💼 Career Blueprint (5p)
-                            </a>
-                            <a
-                              href="/downloads/Computer-Fundamentals-Practical-Lab-Workbook-Edition-1.pdf"
-                              download
-                              className="py-1.5 px-2 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-center truncate block"
-                              title="Practical Lab Workbook (10 Pages)"
-                            >
-                              🧪 Practical Labs (10p)
-                            </a>
-                          </div>
-
-                          {/* Alternate Language Option */}
-                          <div className="text-center pt-1 border-t border-white/[0.06]">
-                            {selectedLanguage === 'hi' ? (
-                              <a
-                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                                download
-                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
-                              >
-                                Also want English Core Master? Click here to download (45 Pages)
-                              </a>
-                            ) : (
-                              <a
-                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                                download
-                                className="text-[10px] font-mono text-[#86868B] hover:text-white underline"
-                              >
-                                हिंदी एडिशन भी चाहिए? यहाँ क्लिक करें (45 Pages)
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
-                          <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400 px-1">
-                            <span>📘 CORE MASTER PASS</span>
-                            <span>45 Pages ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'})</span>
-                          </div>
-                          {selectedLanguage === 'hi' ? (
-                            <div className="space-y-1.5">
-                              <a
-                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                                download
-                                className="w-full py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-cyan-500/20"
-                              >
-                                ⚡ डायरेक्ट डाउनलोड: मुख्य हिंदी Edition 1 (45 Pages PDF)
-                              </a>
-                              <a
-                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                                download
-                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
-                              >
-                                Alternate: Download English Edition 1 (45 Pages)
-                              </a>
-                            </div>
-                          ) : (
-                            <div className="space-y-1.5">
-                              <a
-                                href="/downloads/Computer-Fundamentals-English-Edition-1.pdf"
-                                download
-                                className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold font-mono text-xs text-center block shadow-md shadow-emerald-500/20"
-                              >
-                                ⚡ Direct Download: English Edition 1 (45 Pages PDF)
-                              </a>
-                              <a
-                                href="/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf"
-                                download
-                                className="w-full py-1.5 rounded-lg bg-white/[0.05] hover:bg-white/[0.1] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
-                              >
-                                वैकल्पिक: डाउनलोड करें हिंदी Edition 1 (45 Pages)
-                              </a>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div className="space-y-2 p-3.5 rounded-2xl bg-black border border-white/[0.08]">
-                      <div className="flex items-center justify-between text-[11px] font-mono font-bold text-emerald-400 px-1">
-                        <span>📘 DIGITAL MASTER EDITION</span>
-                        <span>{selectedSubject?.pages || '45 Pages'} ({selectedLanguage === 'hi' ? 'हिंदी' : 'English'})</span>
+                    {/* Primary Selected Language PDF */}
+                    <div className="pt-1">
+                      <div className="text-[10px] font-mono text-[#86868B] mb-1.5">
+                        Primary Master Handbook ({selectedLanguage === 'hi' ? 'Hindi' : 'English'} Selected):
                       </div>
-                      <div className="space-y-1.5">
-                        <a
-                          href={selectedLanguage === 'hi' ? (selectedSubject?.fullPdfHi || selectedSubject?.fullPdfEn || '/downloads/CCNA-200-301-Hindi-Edition-1.pdf') : (selectedSubject?.fullPdfEn || '/downloads/CCNA-200-301-English-Edition-1.pdf')}
-                          download
-                          className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-extrabold font-mono text-xs text-center block shadow-md"
-                        >
-                          ⚡ Direct Download: Full Edition PDF
-                        </a>
-                      </div>
+                      <a
+                        href={selectedLanguage === 'hi' ? selectedSubject.fullPdfHi : selectedSubject.fullPdfEn}
+                        download
+                        className="w-full py-2.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-xs font-bold text-center border border-emerald-400/40 block mb-1"
+                      >
+                        ⚡ Download {selectedLanguage === 'hi' ? 'Hindi' : 'English'} Core Master PDF ({selectedSubject.pages})
+                      </a>
                     </div>
-                  )}
+
+                    {/* Alternate Language PDF */}
+                    <div>
+                      <a
+                        href={selectedLanguage === 'hi' ? selectedSubject.fullPdfEn : selectedSubject.fullPdfHi}
+                        download
+                        className="w-full py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-[#86868B] hover:text-white font-mono text-[10px] text-center border border-white/10 block"
+                      >
+                        Also download {selectedLanguage === 'hi' ? 'English' : 'Hindi'} Core Master ({selectedSubject.pages})
+                      </a>
+                    </div>
+
+                    {/* Additional Files for Bundle */}
+                    {checkoutItem.plan === 'bundle' && (
+                      <div className="pt-2 border-t border-white/[0.08]">
+                        <div className="text-[10px] font-mono text-emerald-400 mb-2 font-bold">
+                          Specialized Career Editions Included:
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px] font-mono">
+                          {selectedSubject.bundleItems.filter(item => !item.file.endsWith('.zip')).map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={`/downloads/${item.file}`}
+                              download
+                              className="p-2 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between truncate"
+                            >
+                              <span className="truncate">{item.name}</span>
+                              <span className="text-emerald-400 shrink-0 ml-1">({item.pages})</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Mentorship & Support */}
+                    <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-[11px] font-mono text-purple-200">
+                      👨‍🏫 <strong>Rahul Sir's Direct Mentorship:</strong> Save your payment receipt and email <strong>rahul.28e1@gmail.com</strong> for career guidance, resume feedback, and free future edition updates!
+                    </div>
+                  </div>
 
                   <p className="text-[10px] sm:text-[11px] text-center text-[#86868B]">
-                    🔒 100% Genuine Notes · Authorized Author: Rahul Sir · Lifetime Updates
+                    🔒 Official RTechLab Digital Publication · Authorized Author: Rahul Patel
                   </p>
                 </div>
               ) : (
                 <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center">
                   <div className="text-xs font-mono text-[#86868B] flex items-center justify-center gap-1.5">
                     <span>🔒</span>
-                    <span>Full Master PDF ({selectedLanguage === 'hi' ? 'हिंदी 45 Pages' : 'English 45 Pages'}) &amp; Bundles are securely locked. Complete Step 2 above to unlock instant access.</span>
+                    <span>Full Master PDFs &amp; Bundles are securely locked. Complete Step 2 above to unlock instant access.</span>
                   </div>
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {/* Floating Toast Notification Centered */}
+        {toastMessage && (
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl bg-zinc-950 border border-emerald-500/60 text-white text-xs font-mono shadow-2xl flex items-center gap-2.5 animate-fadeIn shadow-emerald-500/10 whitespace-nowrap">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span>{toastMessage}</span>
           </div>
         )}
 
