@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import nodemailer from 'nodemailer';
 
 async function processVerifyLogic(data) {
   const order_id = data.razorpay_order_id || data.order_id;
@@ -107,84 +108,116 @@ async function processVerifyLogic(data) {
   const resolvedSubjectTitle = subjectTitle || subjectInfo.title;
 
   let emailStatus = 'Not sent';
+  const gmailPass = process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASS;
+  const gmailUser = process.env.GMAIL_USER || 'rahul.28e1@gmail.com';
   const resendKey = process.env.RESEND_API_KEY;
   const fromEmail = process.env.EMAIL_FROM || 'RTechLab Publishing <onboarding@resend.dev>';
 
-  if (resendKey && email) {
-    try {
-      const emailHtml = `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1);">
-          <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-bottom: 20px;">
-            <h1 style="color: #10b981; margin: 0; font-size: 22px;">🎉 RTechLab Official Verified Delivery</h1>
-            <p style="color: #9ca3af; margin: 4px 0 0; font-size: 13px;">Payment ID: ${payment_id} · Amount: ₹${price}</p>
-          </div>
-          <p style="font-size: 15px;">Dear <strong>${name || 'Student'}</strong>,</p>
-          <p style="color: #d1d5db; line-height: 1.6;">
-            Your payment of <strong>₹${price}</strong> for <strong>${resolvedSubjectTitle}</strong> was successfully verified. Your official study materials are unlocked below:
-          </p>
+  if (email) {
+    const emailSubject = `[Verified Access] Your ${resolvedSubjectTitle} Digital Download`;
+    const emailHtml = `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1);">
+        <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-bottom: 20px;">
+          <h1 style="color: #10b981; margin: 0; font-size: 22px;">🎉 RTechLab Official Verified Delivery</h1>
+          <p style="color: #9ca3af; margin: 4px 0 0; font-size: 13px;">Payment ID: ${payment_id} · Amount: ₹${price}</p>
+        </div>
+        <p style="font-size: 15px;">Dear <strong>${name || 'Student'}</strong>,</p>
+        <p style="color: #d1d5db; line-height: 1.6;">
+          Your payment of <strong>₹${price}</strong> for <strong>${resolvedSubjectTitle}</strong> was successfully verified. Your official study materials are unlocked below:
+        </p>
+        
+        <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
+          <h3 style="color: #10b981; margin-top: 0; font-size: 18px; text-transform: uppercase;">📥 Download Your Notes</h3>
           
-          <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
-            <h3 style="color: #10b981; margin-top: 0; font-size: 18px; text-transform: uppercase;">📥 Download Your Notes</h3>
-            
-            ${plan === 'bundle' ? `
-              <div style="margin: 16px 0;">
-                <a href="${bundleZipUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
-                  📦 DOWNLOAD COMPLETE 1-CLICK ZIP BUNDLE (${subjectInfo.bundleZipSize})
-                </a>
-                <p style="color: #9ca3af; font-size: 12px; margin-top: 6px;">Includes Full Theory Guide + Interview Vault + Career Blueprint + Labs</p>
-              </div>
-            ` : `
-              <div style="margin: 16px 0;">
-                <a href="${coreDownloadUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
-                  ⚡ DOWNLOAD MASTER PDF (${language === 'hi' ? 'हिंदी' : 'English'} Edition - ${subjectInfo.pages})
-                </a>
-              </div>
-            `}
-
-            <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px;">
-              <p style="color: #9ca3af; margin: 4px 0;">Alternate Language / Individual PDF:</p>
-              <a href="${alternateDownloadUrl}" style="color: #38bdf8; text-decoration: underline; margin-right: 12px;">
-                Download ${language === 'hi' ? 'English' : 'Hindi'} PDF
+          ${plan === 'bundle' ? `
+            <div style="margin: 16px 0;">
+              <a href="${bundleZipUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
+                📦 DOWNLOAD COMPLETE 1-CLICK ZIP BUNDLE (${subjectInfo.bundleZipSize})
               </a>
-              <a href="${coreDownloadUrl}" style="color: #38bdf8; text-decoration: underline;">
-                Download ${language === 'hi' ? 'Hindi' : 'English'} PDF
+              <p style="color: #9ca3af; font-size: 12px; margin-top: 6px;">Includes Full Theory Guide + Interview Vault + Career Blueprint + Labs</p>
+            </div>
+          ` : `
+            <div style="margin: 16px 0;">
+              <a href="${coreDownloadUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 16px; padding: 14px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);">
+                ⚡ DOWNLOAD MASTER PDF (${language === 'hi' ? 'हिंदी' : 'English'} Edition - ${subjectInfo.pages})
               </a>
             </div>
-          </div>
+          `}
 
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 14px; border-radius: 8px; font-size: 12px; color: #9ca3af; line-height: 1.6;">
-            <p style="margin: 0 0 6px;"><strong>👨‍🏫 Rahul Sir's Direct Mentorship:</strong> If you ever need help, career guidance, or resume review, reply directly to this email or write to <strong style="color: #10b981;">rahul.28e1@gmail.com</strong> with your Payment ID.</p>
-            <p style="margin: 0;"><strong>Lifetime Free Updates:</strong> As new chapters and interview questions are added, you will receive all future editions free of charge.</p>
-          </div>
-
-          <div style="text-align: center; margin-top: 20px; font-size: 11px; color: #6b7280;">
-            RTechLab Universal Open-Access Technical Academy · Official Digital Publications
+          <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px;">
+            <p style="color: #9ca3af; margin: 4px 0;">Alternate Language / Individual PDF:</p>
+            <a href="${alternateDownloadUrl}" style="color: #38bdf8; text-decoration: underline; margin-right: 12px;">
+              Download ${language === 'hi' ? 'English' : 'Hindi'} PDF
+            </a>
+            <a href="${coreDownloadUrl}" style="color: #38bdf8; text-decoration: underline;">
+              Download ${language === 'hi' ? 'Hindi' : 'English'} PDF
+            </a>
           </div>
         </div>
-      `;
 
-      const resendRes = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${resendKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          from: fromEmail,
-          to: [email],
-          subject: `[Verified Access] Your ${resolvedSubjectTitle} Digital Download`,
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 14px; border-radius: 8px; font-size: 12px; color: #9ca3af; line-height: 1.6;">
+          <p style="margin: 0 0 6px;"><strong>👨‍🏫 Rahul Sir's Direct Mentorship:</strong> If you ever need help, career guidance, or resume review, reply directly to this email or write to <strong style="color: #10b981;">rahul.28e1@gmail.com</strong> with your Payment ID.</p>
+          <p style="margin: 0;"><strong>Lifetime Free Updates:</strong> As new chapters and interview questions are added, you will receive all future editions free of charge.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; font-size: 11px; color: #6b7280;">
+          RTechLab Universal Open-Access Technical Academy · Official Digital Publications
+        </div>
+      </div>
+    `;
+
+    // ── PRIORITY 1: GMAIL SMTP (DIRECT FROM rahul.28e1@gmail.com TO ANY EMAIL) ──
+    if (gmailPass) {
+      try {
+        const cleanPass = gmailPass.replace(/\s+/g, '');
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: gmailUser,
+            pass: cleanPass,
+          },
+        });
+
+        await transporter.sendMail({
+          from: `"Rahul Sir · RTechLab" <${gmailUser}>`,
+          to: email,
+          replyTo: gmailUser,
+          subject: emailSubject,
           html: emailHtml,
-        }),
-      });
+        });
 
-      if (resendRes.ok) {
-        emailStatus = 'Dispatched successfully';
-      } else {
-        const resendErr = await resendRes.json().catch(() => ({}));
-        emailStatus = `Resend API Error: ${resendErr.message || resendRes.statusText}`;
+        emailStatus = `Dispatched successfully via Gmail (${gmailUser})`;
+      } catch (gmailErr) {
+        emailStatus = `Gmail SMTP error: ${gmailErr.message}`;
       }
-    } catch (err) {
-      emailStatus = `Email error: ${err.message}`;
+    }
+
+    // ── PRIORITY 2: RESEND API (FALLBACK IF GMAIL PASS NOT SET) ──
+    if (!emailStatus.includes('Dispatched') && resendKey) {
+      try {
+        const resendRes = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: fromEmail,
+            to: [email],
+            subject: emailSubject,
+            html: emailHtml,
+          }),
+        });
+
+        if (resendRes.ok) {
+          emailStatus = 'Dispatched successfully via Resend';
+        } else {
+          const resendErr = await resendRes.json().catch(() => ({}));
+          emailStatus += ` | Resend API Error: ${resendErr.message || resendRes.statusText}`;
+        }
+      } catch (resendErr) {
+        emailStatus += ` | Resend error: ${resendErr.message}`;
+      }
     }
   }
 
