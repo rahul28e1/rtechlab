@@ -4,7 +4,7 @@
 = शीर्ष 100 कॉर्पोरेट कीबोर्ड शॉर्टकट्स मास्टर संदर्भ वॉल्ट
 
 #text(size: 7.5pt, fill: rgb("#1E293B").lighten(20%))[
-  Reaching for the physical mouse destroys cognitive flow and costs enterprise professionals hundreds of cumulative hours annually. Master the top 100 essential shortcuts across Word, Excel, PowerPoint, and the Cloud Ecosystem to achieve true keyboard-driven productivity.
+  काम करते समय बार-बार माउस पकड़ने से सोचने का प्रवाह टूटता है और प्रति वर्ष सैकड़ों घंटे बर्बाद होते हैं। वर्ड, एक्सेल, पावरपॉइंट तथा क्लाउड इकोसिस्टम के शीर्ष 100 शॉर्टकट्स में महारत हासिल करें और बिना माउस छुए बिजली जैसी गति से काम करना सीखें।
 ]
 
 #v(2pt)
@@ -12,206 +12,150 @@
 == 31.1 माइक्रोसॉफ्ट वर्ड 365: नेविगेशन, फॉर्मेटिंग एवं संरचना शॉर्टकट्स (1-25)
 
 #table(
-  columns: (1.2fr, 0.9fr, 2.9fr),
+  columns: (1.5fr, 1.2fr, 3.3fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 4pt, y: 2.1pt),
-  table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
-  [`Ctrl + Enter`], [Structural], [Inserts an instant Hard Page Break at current cursor position.],
-  [`Ctrl + Shift + Enter`], [Structural], [Splits table horizontally above current active row.],
-  [`Alt + Shift + D`], [Field Code], [Inserts dynamic self-updating Date field {DATE}.],
-  [`Alt + Shift + P`], [Field Code], [Inserts dynamic page number field {PAGE}.],
-  [`Ctrl + Shift + C`], [Formatting], [Copies character/paragraph formatting (Format Painter source).],
-  [`Ctrl + Shift + V`], [Formatting], [Pastes copied formatting onto current selection.],
-  [`Ctrl + Shift + N`], [Styles], [Reverts selected paragraph to default Normal body style.],
-  [`Alt + Ctrl + 1`], [Styles], [Applies Heading 1 style immediately to paragraph.],
-  [`Alt + Ctrl + 2`], [Styles], [Applies Heading 2 style immediately to paragraph.],
-  [`Alt + Ctrl + 3`], [Styles], [Applies Heading 3 style immediately to paragraph.],
-  [`Shift + F3`], [Typography], [Cycles text case: Sentence case > UPPERCASE > lowercase.],
-  [`Ctrl + Shift + A`], [Typography], [Toggles all selected text into true All Caps format.],
-  [`Ctrl + Shift + K`], [Typography], [Toggles Small Caps formatting on current selection.],
-  [`Ctrl + Spacebar`], [Formatting], [Clears all direct manual font styling back to underlying style.],
-  [`Ctrl + Q`], [Formatting], [Clears all direct manual paragraph styling (margins, line spacing).],
-  [`Ctrl + Shift + >`], [Typography], [Increases font size by next incremental point value.],
-  [`Ctrl + Shift + <`], [Typography], [Decreases font size by next incremental point value.],
-  [`Ctrl + Shift + 8 (*)`], [View], [Toggles non-printing formatting marks (pilcrow, spaces, tabs).],
-  [`Alt + Shift + ↑`], [Paragraph], [Moves current paragraph or table row upward past preceding block.],
-  [`Alt + Shift + ↓`], [Paragraph], [Moves current paragraph or table row downward past following block.],
-  [`Ctrl + K`], [Navigation], [Launches Insert Hyperlink dialog for bookmarks or cloud URLs.],
-  [`Ctrl + F`], [Navigation], [Opens Navigation Pane with live search and Headings tree.],
-  [`Ctrl + H`], [Editing], [Opens Find & Replace dialog with advanced regex/wildcard support.],
-  [`F4`], [Productivity], [Repeats the very last formatting or editing action performed.],
-  [`F7`], [Proofing], [Launches Microsoft Editor spelling and grammar inspection pane.]
+  inset: (x: 3.5pt, y: 2pt),
+  table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
+  [`Ctrl + Enter`], [संरचना], [कर्सर के स्थान पर तुरंत नया हार्ड पेज ब्रेक लगाता है।],
+  [`Ctrl + Shift + Enter`], [संरचना], [सक्रिय पंक्ति के ठीक ऊपर से तालिका को दो हिस्सों में बांटता है।],
+  [`Alt + Shift + D`], [फील्ड कोड], [स्वतः अपडेट होने वाला दिनांक कोड `{DATE}` जोड़ता है।],
+  [`Alt + Shift + P`], [फील्ड कोड], [स्वतः अपडेट होने वाली पृष्ठ संख्या `{PAGE}` जोड़ता है।],
+  [`Ctrl + Shift + C`], [फॉर्मेटिंग], [टेक्स्ट की संपूर्ण फॉर्मेटिंग कॉपी करता है (Format Painter)।],
+  [`Ctrl + Shift + V`], [फॉर्मेटिंग], [कॉपी की गई फॉर्मेटिंग को चुने हुए टेक्स्ट पर लागू करता है।],
+  [`Ctrl + Shift + N`], [स्टाइल्स], [चुने हुए पैराग्राफ को पुनः साधारण Normal स्टाइल में बदलता है।],
+  [`Alt + Ctrl + 1`], [स्टाइल्स], [पैराग्राफ पर सीधे Heading 1 स्टाइल लागू करता है।],
+  [`Alt + Ctrl + 2`], [स्टाइल्स], [पैराग्राफ पर सीधे Heading 2 स्टाइल लागू करता है।],
+  [`Alt + Ctrl + 3`], [स्टाइल्स], [पैराग्राफ पर सीधे Heading 3 स्टाइल लागू करता है।],
+  [`Shift + F3`], [टाइपोग्राफी], [केस बदलता है: Sentence case > UPPERCASE > lowercase।],
+  [`Ctrl + Shift + A`], [टाइपोग्राफी], [चुने हुए अक्षरों को वास्तविक ALL CAPS में बदलता है।],
+  [`Ctrl + Shift + K`], [टाइपोग्राफी], [चुने हुए अक्षरों को Small Caps प्रारूप में बदलता है।],
+  [`Ctrl + Spacebar`], [फॉर्मेटिंग], [फॉन्ट पर की गई सभी अतिरिक्त फॉर्मेटिंग हटाकर मूल स्टाइल लाता है।],
+  [`Ctrl + Q`], [फॉर्मेटिंग], [पैराग्राफ मार्जिन व लाइन स्पेसिंग हटाकर डिफ़ॉल्ट करता है।],
+  [`Ctrl + Shift + >`], [टाइपोग्राफी], [फॉन्ट साइज को एक कदम बड़ा करता है।],
+  [`Ctrl + Shift + <`], [टाइपोग्राफी], [फॉन्ट साइज को एक कदम छोटा करता है।],
+  [`Ctrl + Shift + 8 (*)`], [व्यू], [छिपे हुए फॉर्मेटिंग सिंबल्स (Pilcrow, Space, Tab) दिखाता है।],
+  [`Alt + Shift + ↑`], [पैराग्राफ], [सक्रिय पैराग्राफ या तालिका पंक्ति को ऊपर खिसकाता है।],
+  [`Alt + Shift + ↓`], [पैराग्राफ], [सक्रिय पैराग्राफ या तालिका पंक्ति को नीचे खिसकाता है।],
+  [`Ctrl + K`], [नेविगेशन], [वेबसाइट लिंक या बुकमार्क हेतु हाइपरलिंक बॉक्स खोलता है।],
+  [`Ctrl + F`], [नेविगेशन], [शीर्षकों की सूची सहित नेविगेशन पेन खोलता है।],
+  [`Ctrl + H`], [संपादन], [फाइंड एंड रिप्लेस (खोजें व बदलें) डायलॉग बॉक्स खोलता है।],
+  [`F4`], [उत्पादकता], [किए गए अंतिम कार्य या फॉर्मेटिंग को दोबारा दोहराता है।],
+  [`F7`], [प्रूफिंग], [माइक्रोसॉफ्ट एडिटर द्वारा स्पेलिंग व व्याकरण जांच शुरू करता है।]
 )
-
-#v(2pt)
-
-#align(center)[
-  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/word-365-full-workspace.png", width: 98%)
-  #v(1pt)
-  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
-    चित्र 31.1: ऑफिशियल माइक्रोसॉफ्ट वर्ड 365 इंटरफ़ेस: रिबन संरचना, हेडिंग स्टाइल्स पदानुक्रम एवं नेविगेशन पेन।
-  ]
-]
 
 #pagebreak()
 
 == 31.2 माइक्रोसॉफ्ट एक्सेल 365: नेविगेशन, चयन एवं डेटा एंट्री शॉर्टकट्स (26-55)
 
 #table(
-  columns: (1.2fr, 0.9fr, 2.9fr),
+  columns: (1.5fr, 1.2fr, 3.3fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 4pt, y: 1.8pt),
-  table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
-  [`F4`], [Formulas], [Cycles absolute/relative reference modes ($A$1 > A$1 > $A1 > A1).],
-  [`Alt + =`], [Formulas], [Inserts intelligent AutoSum =SUM(...) range detection.],
-  [`Ctrl + ~ (Grave)`], [Auditing], [Toggles worksheet display between calculated values and formulas.],
-  [`Ctrl + [`], [Auditing], [Selects all direct precedent cells feeding active formula.],
-  [`Ctrl + ]`], [Auditing], [Selects all direct dependent cells relying on active cell.],
-  [`Ctrl + T`], [Data Table], [Converts contiguous data range into structured Excel Table.],
-  [`Ctrl + Shift + L`], [Filtering], [Toggles AutoFilter dropdown arrows across table headers.],
-  [`Alt + ↓`], [Filtering], [Opens filter dropdown menu on active header cell.],
-  [`Ctrl + Spacebar`], [Selection], [Selects entire active column across the sheet.],
-  [`Shift + Spacebar`], [Selection], [Selects entire active row across the sheet.],
-  [`Ctrl + Shift + Plus`], [Grid Edit], [Inserts new cells, rows, or columns at selection.],
-  [`Ctrl + Minus`], [Grid Edit], [Deletes selected cells, rows, or columns.],
-  [`Ctrl + D`], [Data Entry], [Fills formula/value downward from cell directly above.],
-  [`Ctrl + R`], [Data Entry], [Fills formula/value rightward from cell directly to left.],
-  [`Ctrl + E`], [Intelligence], [Triggers Flash Fill AI pattern recognition engine.],
-  [`Alt + Enter`], [Data Entry], [Inserts hard line break / carriage return inside active cell.],
-  [`Ctrl + ; (Semicolon)`], [Data Entry], [Inserts current static date serial number.],
-  [`Ctrl + Shift + :`], [Data Entry], [Inserts current static timestamp fraction.],
-  [`Ctrl + 1`], [Formatting], [Opens Format Cells dialog box with custom number formatting.],
-  [`Ctrl + Shift + 1 (!)`], [Formatting], [Applies Number format with commas and two decimals.],
-  [`Ctrl + Shift + 4 ($)`], [Formatting], [Applies Currency format with regional symbol and decimals.],
-  [`Ctrl + Shift + 5 (%)`], [Formatting], [Applies Percentage format with zero decimal places.],
-  [`Ctrl + A`], [Selection], [Selects current contiguous data region (Current Region).],
-  [`Ctrl + Arrow Keys`], [Navigation], [Jumps instantly to outer edge of contiguous data block.],
-  [`Ctrl + Shift + Arrows`], [Selection], [Extends cell selection to edge of contiguous data block.],
-  [`Ctrl + Page Down`], [Navigation], [Switches to the next worksheet tab to the right.],
-  [`Ctrl + Page Up`], [Navigation], [Switches to the previous worksheet tab to the left.],
-  [`Alt + H + O + I`], [Ribbon Fast], [Auto-fits column widths to fit widest cell content.],
-  [`Alt + H + M + C`], [Ribbon Fast], [Merges and centers selected cell block.],
-  [`F12`], [File System], [Opens Save As dialog directly bypassing cloud menus.]
+  inset: (x: 3.5pt, y: 2pt),
+  table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
+  [`F4`], [फॉर्मूला], [सेल संदर्भ बदलता है (`$A$1` > `A$1` > `$A1` > `A1`)।],
+  [`Alt + =`], [फॉर्मूला], [रेंज पहचानकर स्वतः `=SUM(...)` फॉर्मूला लगाता है (AutoSum)।],
+  [`Ctrl + ~ (Grave)`], [ऑडिटिंग], [मानों के स्थान पर शीट के सभी फॉर्मूले प्रदर्शित करता है।],
+  [`Ctrl + [`], [ऑडिटिंग], [सक्रिय फॉर्मूले में उपयोग किए गए मूल सेल्स को चुनता है।],
+  [`Ctrl + ]`], [ऑडिटिंग], [इस सेल पर निर्भर अन्य सभी फॉर्मूला सेल्स को चुनता है।],
+  [`Ctrl + T`], [डेटा टेबल], [साधारण डेटा रेंज को संरचित एक्सेल टेबल में बदलता है।],
+  [`Ctrl + Shift + L`], [फिल्टरिंग], [शीर्षक पर ऑटो-फिल्टर ड्रॉपडाउन तीर चालू या बंद करता है।],
+  [`Alt + ↓`], [फिल्टरिंग], [सक्रिय शीर्षक सेल पर फिल्टर ड्रॉपडाउन मेनू खोलता है।],
+  [`Ctrl + Spacebar`], [चयन], [पूरी सक्रिय कॉलम (स्तंभ) को ऊपर से नीचे तक चुनता है।],
+  [`Shift + Spacebar`], [चयन], [पूरी सक्रिय रो (पंक्ति) को बाएं से दाएं तक चुनता है।],
+  [`Ctrl + Shift + Plus`], [ग्रिड संपादन], [नया सेल, पंक्ति या स्तंभ जोड़ता है।],
+  [`Ctrl + Minus`], [ग्रिड संपादन], [चुने हुए सेल, पंक्ति या स्तंभ को डिलीट करता है।],
+  [`Ctrl + D`], [डेटा एंट्री], [ऊपर वाले सेल का मान या फॉर्मूला नीचे भरता है (Fill Down)।],
+  [`Ctrl + R`], [डेटा एंट्री], [बाएं वाले सेल का मान या फॉर्मूला दाएं भरता है (Fill Right)।],
+  [`Ctrl + E`], [AI बुद्धि], [पैटर्न पहचानकर स्वतः डेटा भरता है (Flash Fill)।],
+  [`Alt + Enter`], [डेटा एंट्री], [एक ही सेल के भीतर नई लाइन (Line Break) बनाता है।],
+  [`Ctrl + ; (सेमीकोलन)`], [डेटा एंट्री], [आज की स्थिर दिनांक दर्ज करता है।],
+  [`Ctrl + Shift + :`], [डेटा एंट्री], [वर्तमान स्थिर समय दर्ज करता है।],
+  [`Ctrl + 1`], [फॉर्मेटिंग], [फॉर्मेट सेल्स (Format Cells) डायलॉग बॉक्स खोलता है।],
+  [`Ctrl + Shift + 1 (!)`], [फॉर्मेटिंग], [दशमलव व कॉमा सहित संख्या प्रारूप (Number) लगाता है।],
+  [`Ctrl + Shift + 4 ($)`], [फॉर्मेटिंग], [करेंसी प्रारूप (Currency) लागू करता है।],
+  [`Ctrl + Shift + 5 (%)`], [फॉर्मेटिंग], [प्रतिशत प्रारूप (Percentage) लागू करता है।],
+  [`Ctrl + A`], [चयन], [संपूर्ण डेटा तालिका को एक साथ चुनता है।],
+  [`Ctrl + एरो कीज`], [नेविगेशन], [डेटा ब्लॉक के सबसे अंतिम छोर पर तुरंत छलांग लगाता है।],
+  [`Ctrl + Shift + एरो`], [चयन], [डेटा ब्लॉक के छोर तक सभी सेल्स को चुनता है।],
+  [`Ctrl + Page Down`], [नेविगेशन], [दाहिनी ओर स्थित अगली वर्कशीट टैब पर जाता है।],
+  [`Ctrl + Page Up`], [नेविगेशन], [बाईं ओर स्थित पिछली वर्कशीट टैब पर जाता है।],
+  [`Alt + H + O + I`], [रिबन फास्ट], [कॉलम की चौड़ाई को सबसे बड़े टेक्स्ट के अनुसार स्वतः सेट करता है।],
+  [`Alt + H + M + C`], [रिबन फास्ट], [चुने हुए सेल्स को जोड़कर केंद्र में करता है (Merge & Center)।],
+  [`F12`], [फाइल सिस्टम], [क्लाउड मेनू बाईपास करके सीधे Save As विंडो खोलता है।]
 )
-
-#v(2pt)
-
-#align(center)[
-  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/excel-365-full-workspace.png", width: 98%)
-  #v(1pt)
-  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
-    चित्र 31.2: ऑफिशियल माइक्रोसॉफ्ट एक्सेल 365 एंटरप्राइज ग्रिड: डायनामिक XLOOKUP फॉर्मूला बार व कोपायलट AI एनालिटिक्स।
-  ]
-]
 
 #pagebreak()
 
 == 31.3 एक्सेल एडवांस्ड एवं पावरपॉइंट 365 शॉर्टकट्स (56-85)
 
 #table(
-  columns: (1.3fr, 0.9fr, 2.8fr),
+  columns: (1.5fr, 1.2fr, 3.3fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 4pt, y: 1.8pt),
-  table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
-  [`Alt + E + S + V`], [Paste Special], [Pastes Values only, stripping all formulas and formatting.],
-  [`Alt + E + S + T`], [Paste Special], [Pastes Formats only, leaving underlying values untouched.],
-  [`Alt + E + S + E`], [Paste Special], [Transposes copied horizontal row into vertical column.],
-  [`Alt + N + V + T`], [PivotTable], [Launches PivotTable generation wizard from current table.],
-  [`Alt + F1`], [Visual Chart], [Generates embedded Default Column Chart on active sheet.],
-  [`F11`], [Visual Chart], [Generates full-screen dedicated Chart Sheet in workbook.],
-  [`Ctrl + F1`], [Interface], [Toggles Office Ribbon between collapsed and pinned states.],
-  [`Ctrl + F3`], [Name Manager], [Opens Name Manager to view and define scoped Named Ranges.],
-  [`F9`], [Calculation], [Forces manual recalculation across all open workbooks.],
-  [`Shift + F9`], [Calculation], [Calculates active worksheet only, ignoring background sheets.],
-  [`Shift + F2`], [Notes], [Inserts or edits traditional legacy cell Comment/Note.],
-  [`Ctrl + Shift + F2`], [Comments], [Opens modern threaded collaborative Comment pane.],
-  [`Alt + N + K`], [Symbols], [Opens Symbol and Special Character insertion matrix.],
-  [`Ctrl + Backspace`], [Navigation], [Scrolls viewport back to active cell without losing selection.],
-  [`Shift + F11`], [Sheets], [Inserts a brand-new blank worksheet tab.],
-  [`Ctrl + M`], [PowerPoint], [Inserts a new blank slide formatted to previous layout.],
-  [`Ctrl + D`], [PowerPoint], [Duplicates selected slide, shape, or card instantaneously.],
-  [`Ctrl + G`], [PowerPoint], [Groups multiple selected shapes into single transformable unit.],
-  [`Ctrl + Shift + G`], [PowerPoint], [Ungroups selected shape group into individual vector paths.],
-  [`Shift + F9`], [PowerPoint], [Toggles visual alignment gridlines across slide canvas.],
-  [`Alt + F9`], [PowerPoint], [Toggles horizontal and vertical center reference guides.],
-  [`Alt + F10`], [PowerPoint], [Opens Selection Pane to manage object z-order and names.],
-  [`Ctrl + Shift + C`], [PowerPoint], [Copies shape formatting attributes (fill, stroke, shadow).],
-  [`Ctrl + Shift + V`], [PowerPoint], [Pastes copied shape formatting onto target shape.],
-  [`Shift + Resize Handle`], [PowerPoint], [Constrains proportions (forces perfect squares / circles).],
-  [`Ctrl + Resize Handle`], [PowerPoint], [Resizes shape symmetrically anchored from exact center.],
-  [`Ctrl + Shift + Rotate`], [PowerPoint], [Constrains rotation to crisp 15-degree increments.],
-  [`Ctrl + K`], [PowerPoint], [Creates interactive hyperlink or slide-to-slide jump.],
-  [`F5`], [PowerPoint], [Launches slideshow presentation from Slide 1.],
-  [`Shift + F5`], [PowerPoint], [Launches slideshow starting from currently active slide.]
+  inset: (x: 3.5pt, y: 2pt),
+  table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
+  [`Alt + E + S + V`], [पेस्ट स्पेशल], [केवल मान (Values) पेस्ट करता है, फॉर्मूला हटा देता है।],
+  [`Alt + E + S + T`], [पेस्ट स्पेशल], [केवल फॉर्मेटिंग पेस्ट करता है, डेटा नहीं बदलता।],
+  [`Alt + E + S + E`], [पेस्ट स्पेशल], [आड़ी पंक्ति को खड़ी कॉलम में बदलता है (Transpose)।],
+  [`Alt + N + V + T`], [पिवट टेबल], [सक्रिय तालिका से पिवट टेबल बनाने का विज़ार्ड खोलता है।],
+  [`Alt + F1`], [विजुअल चार्ट], [उसी शीट पर त्वरित कॉलम चार्ट बनाता है।],
+  [`F11`], [विजुअल चार्ट], [नई अलग चार्ट शीट पर पूर्ण स्क्रीन चार्ट बनाता है।],
+  [`Ctrl + F1`], [इंटरफेस], [ऑफिस रिबन मेनू को छुपाता या दिखाता है।],
+  [`Ctrl + F3`], [नेम मैनेजर], [नेम्ड रेंजेस (Named Ranges) प्रबंधित करने का बॉक्स खोलता है।],
+  [`F9`], [गणना], [खुली हुई सभी वर्कबुक्स के फॉर्मूलों की पुनः गणना करता है।],
+  [`Shift + F9`], [गणना], [केवल वर्तमान सक्रिय शीट के फॉर्मूलों की गणना करता है।],
+  [`Shift + F2`], [नोट्स], [सेल में पुराना क्लासिक कमेंट या नोट जोड़ता है।],
+  [`Ctrl + Shift + F2`], [कमेंट्स], [आधुनिक थ्रेडेड सहयोगात्मक कमेंट पेन खोलता है।],
+  [`Alt + N + K`], [सिंबल्स], [विशेष चिह्न व प्रतीक डालने की विंडो खोलता है।],
+  [`Ctrl + Backspace`], [नेविगेशन], [चयन खोए बिना स्क्रीन को सक्रिय सेल पर वापस लाता है।],
+  [`Shift + F11`], [शीट्स], [वर्कबुक में तुरंत एक नई खाली वर्कशीट जोड़ता है।],
+  [`Ctrl + M`], [पावरपॉइंट], [समान लेआउट वाली नई खाली स्लाइड जोड़ता है।],
+  [`Ctrl + D`], [पावरपॉइंट], [चुनी गई स्लाइड, कार्ड या आकृति की हूबहू प्रति बनाता है।],
+  [`Ctrl + G`], [पावरपॉइंट], [कई आकृतियों को मिलाकर एक संयुक्त ग्रुप बनाता है।],
+  [`Ctrl + Shift + G`], [पावरपॉइंट], [आकृतियों के ग्रुप को अलग-अलग टुकड़ों में खोलता है।],
+  [`Shift + F9`], [पावरपॉइंट], [स्लाइड पर अलाइनमेंट ग्रिडलाइन्स दिखाता या छुपाता है।],
+  [`Alt + F9`], [पावरपॉइंट], [स्लाइड के केंद्र में संदर्भ गाइड्स (Guides) दिखाता है।],
+  [`Alt + F10`], [पावरपॉइंट], [ऑब्जेक्ट्स को नाम देने व क्रम बदलने हेतु Selection Pane खोलता है।],
+  [`Ctrl + Shift + C`], [पावरपॉइंट], [आकृति का रंग, बॉर्डर व शैडो कॉपी करता है।],
+  [`Ctrl + Shift + V`], [पावरपॉइंट], [कॉपी की गई स्टाइल को दूसरी आकृति पर लगाता है।],
+  [`Shift + कोना खींचना`], [पावरपॉइंट], [आकृति को बिना टेढ़ा किए बिल्कुल समान अनुपात में बड़ा करता है।],
+  [`Ctrl + कोना खींचना`], [पावरपॉइंट], [आकृति को केंद्र बिंदु से चारों तरफ समान फैलाता है।],
+  [`Ctrl + Shift + रोटेट`], [पावरपॉइंट], [आकृति को ठीक 15-डिग्री के चरणों में घुमाता है।],
+  [`Ctrl + K`], [पावरपॉइंट], [क्लिक करने योग्य लिंक या स्लाइड जंप बनाता है।],
+  [`F5`], [पावरपॉइंट], [प्रस्तुति को पहली स्लाइड से शुरू करता है।],
+  [`Shift + F5`], [पावरपॉइंट], [प्रस्तुति को वर्तमान सक्रिय स्लाइड से शुरू करता है।]
 )
-
-#v(2pt)
-
-#align(center)[
-  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/powerpoint-365-full-workspace.png", width: 98%)
-  #v(1pt)
-  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
-    चित्र 31.3: ऑफिशियल माइक्रोसॉफ्ट पावरपॉइंट 365 इंटरफ़ेस: स्लाइड मास्टर, 6x6 लेआउट नियम एवं मॉर्फ ट्रांजिशन।
-  ]
-]
 
 #pagebreak()
 
 == 31.4 पावरपॉइंट डिलीवरी एवं क्लाउड इकोसिस्टम शॉर्टकट्स (86-100)
 
 #table(
-  columns: (1.3fr, 0.9fr, 2.8fr),
+  columns: (1.5fr, 1.2fr, 3.3fr),
   fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 4pt, y: 1.8pt),
-  table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
-  [`Alt + F5`], [Presenter View], [Forces Presenter View delivery mode on primary monitor.],
-  [`B (During Show)`], [Live Show], [Blacks out presentation screen, redirecting eyes to speaker.],
-  [`W (During Show)`], [Live Show], [Whites out presentation screen for whiteboard projection.],
-  [`Ctrl + L`], [Live Show], [Transforms standard mouse cursor into digital Laser Pointer.],
-  [`Ctrl + P`], [Live Show], [Transforms mouse cursor into live digital Annotation Pen.],
-  [`Ctrl + A`], [Live Show], [Restores annotation pen back to normal Arrow cursor.],
-  [`Ctrl + E`], [Live Show], [Activates digital Eraser to scrub specific live ink strokes.],
-  [`E (During Show)`], [Live Show], [Erases all live on-screen ink annotations simultaneously.],
-  [`Number + Enter`], [Live Show], [Jumps directly to target slide number (e.g., 1 + 8 + Enter).],
-  [`Ctrl + S`], [Cloud File], [Triggers immediate background cloud delta sync save.],
-  [`Alt + Q`], [Search / AI], [Opens ‘Tell Me’ / Copilot universal application search box.],
-  [`Ctrl + Alt + Space`], [Accessibility], [Activates Immersive Reader neural Read Aloud engine.],
-  [`Win + Shift + S`], [Screen Clip], [Launches Windows Snipping Tool for instant visual paste.],
-  [`Ctrl + Z`], [Undo Engine], [Reverts last chronological action across all applications.],
-  [`Ctrl + Y`], [Redo Engine], [Re-executes last undone action (or repeats last command).]
+  inset: (x: 3.5pt, y: 2pt),
+  table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
+  [`Alt + F5`], [प्रेजेंटर व्यू], [प्राथमिक स्क्रीन पर प्रेजेंटर व्यू डिलीवरी मोड खोलता है।],
+  [`B (शो के दौरान)`], [लाइव शो], [स्क्रीन को तुरंत काला कर देता है ताकि लोग वक्ता को सुनें।],
+  [`W (शो के दौरान)`], [लाइव शो], [स्क्रीन को तुरंत सफेद कर देता है।],
+  [`Ctrl + L`], [लाइव शो], [कर्सर को लाल डिजिटल लेजर पॉइंटर में बदलता है।],
+  [`Ctrl + P`], [लाइव शो], [स्क्रीन पर लिखने हेतु डिजिटल पेन चालू करता है।],
+  [`Ctrl + A`], [लाइव शो], [पेन को बंद करके वापस सामान्य तीर कर्सर लाता है।],
+  [`Ctrl + E`], [लाइव शो], [स्क्रीन पर लिखी गई स्याही को मिटाने वाला इरेज़र लाता है।],
+  [`E (शो के दौरान)`], [लाइव शो], [स्क्रीन पर की गई सभी लाइव ड्राइंग्स को एक साथ मिटाता है।],
+  [`नंबर + Enter`], [लाइव शो], [सीधे उस नंबर की स्लाइड पर कूदता है (जैसे `1` + `8` + `Enter`)।],
+  [`Ctrl + S`], [क्लाउड फाइल], [क्लाउड पर त्वरित बैकग्राउंड डेल्टा सेव निष्पादित करता है।],
+  [`Alt + Q`], [सर्च / AI], ['Tell Me' / Copilot सार्वभौमिक सर्च बॉक्स खोलता है।],
+  [`Ctrl + Alt + Space`], [सुलभता], [इमर्सिव रीडर द्वारा पाठ को बोलकर सुनाने की सुविधा चलाता है।],
+  [`Win + Shift + S`], [स्क्रीन क्लिप], [स्क्रीनशॉट लेने हेतु विंडोज स्निपिंग टूल सक्रिय करता है।],
+  [`Ctrl + Z`], [अंडू इंजन], [किए गए अंतिम कार्य को वापस निरस्त करता है।],
+  [`Ctrl + Y`], [रीडू इंजन], [निरस्त किए गए कार्य को दोबारा लागू करता है।]
 )
 
-#v(2pt)
-
-== एंटरप्राइज रिबन की-टिप एक्सेलेरेटर मैट्रिक्स (शून्य-माउस नेविगेशन)
-#table(
-  columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
-  inset: (x: 4pt, y: 2pt),
-  table.header([*Sequence*], [*Application Target*], [*Action Executed Instantly*]),
-  [`Alt > H > O > I`], [Excel 365], [Auto-fits selected column widths to match longest cell string.],
-  [`Alt > H > M > C`], [Excel 365], [Merges active cell block and aligns contents to center.],
-  [`Alt > A > T`], [Excel 365], [Toggles AutoFilter arrows on or off across active dataset.],
-  [`Alt > N > V > T`], [Excel 365], [Launches PivotTable from Table / Range dialog box.],
-  [`Alt > W > R`], [Word 365], [Toggles horizontal and vertical margin rulers on canvas.]
-)
-
-#v(2pt)
-
-#align(center)[
-  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/office-visual-refresh.png", width: 98%)
-  #v(1pt)
-  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
-    चित्र 31.4: माइक्रोसॉफ्ट 365 विजुअल रिफ्रेश इंटरफेस: एकीकृत रिबन, क्लाउड सह-लेखन एवं मल्टी-विंडो तुल्यकालन।
-  ]
-]
-
-#v(2pt)
+#v(4pt)
 
 #spotlight-box("14-दिवसीय कीबोर्ड मास्टरी चुनौती", [
   प्रतिदिन सुबह 2 घंटे के लिए अपने माउस को अलग रख दें। Alt-की त्वरित अनुक्रमों (`Alt > H > O > I`, `Alt > E > S > V`) द्वारा तालिकाओं व रिपोर्ट्स को नेविगेट करने से उंगलियों में स्थायी मसल मेमोरी विकसित होती है। बिना माउस छुए केवल कीबोर्ड से काम करने वाले कॉर्पोरेट विश्लेषक सामान्य कर्मचारियों से 3.5 गुना तेजी से काम पूरा करते हैं।

@@ -62,7 +62,7 @@ def package_bundle():
     readme_content = """================================================================================
 RTECHLAB OFFICIAL MICROSOFT OFFICE 365 CAREER ACCELERATOR BUNDLE (EDITION 1)
 Author: Rahul Patel (Founder & Chief Technology Architect, RTechLab)
-Official Platform: https://rtechlab.in | Email: support@rtechlab.in
+Official Platform: https://rtechlab.vercel.app | Email: rahul.28e1@gmail.com
 ================================================================================
 
 Congratulations on securing the RTechLab Microsoft Office 365 Career Accelerator
@@ -93,8 +93,8 @@ Bundle (Commercial Release 2027). This archive includes your complete master too
    and senior executive career progression roadmaps.
 
 SUPPORT & DIRECT MENTORSHIP:
-For technical questions or quarterly update access, contact support@rtechlab.in
-or join Rahul Sir's direct community at https://rtechlab.in
+For technical questions or quarterly update access, contact rahul.28e1@gmail.com
+or visit Rahul Sir's official platform at https://rtechlab.vercel.app
 
 © 2027 RTechLab. All rights reserved. Technology Made Practical · Learn. Practice. Innovate.
 """

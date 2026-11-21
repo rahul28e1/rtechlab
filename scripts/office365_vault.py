@@ -1050,7 +1050,7 @@ Step-by-step workflow transforming a 50-page raw tender into an executive briefi
 
     #v(3pt)
     #align(center)[
-      #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[Visit https://rtechlab.in · Email: support\@rtechlab.in · WhatsApp: +91 91095 86284]
+      #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[Visit https://rtechlab.vercel.app · Email: rahul.28e1\@gmail.com · WhatsApp: +91 91095 86284]
     ]
   ]
 )
@@ -1253,7 +1253,7 @@ Step-by-step workflow transforming a 50-page raw tender into an executive briefi
 
     #v(3pt)
     #align(center)[
-      #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[वेबसाइट: https://rtechlab.in · ईमेल: support\@rtechlab.in · व्हाट्सएप: +91 91095 86284]
+      #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[वेबसाइट: https://rtechlab.vercel.app · ईमेल: rahul.28e1\@gmail.com · व्हाट्सएप: +91 91095 86284]
     ]
   ]
 )

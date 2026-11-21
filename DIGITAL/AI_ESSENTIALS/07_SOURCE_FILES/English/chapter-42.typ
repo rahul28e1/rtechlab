@@ -88,7 +88,7 @@ Investing in this RTechLab guide is not the end of a transaction—it is the beg
       #text(weight: "bold", size: 8.5pt, fill: rgb("#38BDF8"))[RTECHLAB OFFICIAL LIFELONG MENTORSHIP & ALUMNI NETWORK]\
       #v(2pt)
       #text(size: 7pt, fill: rgb("#E2E8F0"))[
-        Official Platform: *rtechlab.in* · Founder Desk: *rahul\@rtechlab.in* · Support: *support\@rtechlab.in* \
+        Official Platform: *rtechlab.vercel.app* · Founder & Mentorship Desk: *rahul.28e1\@gmail.com* \
         Always remember: Disciplined daily practice beats passive intelligence. Learn. Practice. Innovate. Make Bharat proud!
       ]
     ]

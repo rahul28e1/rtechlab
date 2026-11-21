@@ -805,9 +805,9 @@ df[['Customer_ID', 'Churn_Risk']].sort_values(by='Churn_Risk', ascending=False)
   stroke: 0.3pt + rgb(15, 23, 42, 12%),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Resource Channel*], [*Access URL / Coordinate*], [*Community Deliverables & Engagement*]),
-  [Official Web Platform], [https://rtechlab.in], [Access latest digital releases, course updates & downloadable workbooks.],
-  [Student Notes Portal], [https://rtechlab.in/notes], [Quarterly curriculum errata updates & bonus practical case studies.],
-  [Direct Mentorship Support], [support\@rtechlab.in], [Direct technical clarification and formula troubleshooting with author team.],
+  [Official Web Platform], [https://rtechlab.vercel.app], [Access latest digital releases, course updates & downloadable workbooks.],
+  [Student Notes Portal], [https://rtechlab.vercel.app/notes], [Quarterly curriculum errata updates & bonus practical case studies.],
+  [Direct Mentorship Support], [rahul.28e1\@gmail.com], [Direct technical clarification and formula troubleshooting with author team.],
   [Live Weekend Masterclasses], [Quarterly Community Invitations], [Live walkthroughs of complex financial modeling & Power Query workflows.]
 )
 

@@ -804,7 +804,7 @@ Output strict JSON with exact claim-level attribution citations.
     )
     #v(2pt)
     #text(size: 6.4pt, fill: rgb("#1E293B"))[
-      *Lifelong Mentorship Commitment:* As an owner of this vault, you have my complete backing in your technical career. Whenever you encounter difficult production bugs, prepare for FAANG/MNC interviews, or need guidance on compensation negotiation, my team and I are here to guide you. Direct Mentorship Desk: *rahul\@rtechlab.in* · Official Platform: *rtechlab.in*
+      *Lifelong Mentorship Commitment:* As an owner of this vault, you have my complete backing in your technical career. Whenever you encounter difficult production bugs, prepare for FAANG/MNC interviews, or need guidance on compensation negotiation, my team and I are here to guide you. Direct Mentorship Desk: *rahul.28e1\@gmail.com* · Official Platform: *rtechlab.vercel.app*
     ]
   ]
 )

@@ -42,16 +42,6 @@
   [टकराव समाधान], [बिना पूछे सहयोगी का लिखा डेटा ओवरराइट हो जाना।], [स्मार्ट 3-वे मर्ज इंजन जो अलग-अलग किए गए बदलावों को हाइलाइट करता है।]
 )
 
-
-#v(3pt)
-#align(center)[
-  #image("/DIGITAL/OFFICE_365/07_SOURCE_FILES/03_VISUAL_ASSETS/software-ui/office-visual-refresh.png", width: 95%, height: 150pt, fit: "contain")
-  #v(1pt)
-  #text(size: 6.8pt, fill: rgb("#64748B"), style: "italic")[
-    चित्र 29.1: माइक्रोसॉफ्ट 365 मॉडर्न यूनिफाइड विजुअल रिफ्रेश — वर्ड, एक्सेल एवं पावरपॉइंट में क्लाउड ऑटोसेव व प्रेजेंस टेलीमेट्री।
-  ]
-]
-
 #pagebreak()
 
 == 29.3 वर्जन हिस्ट्री (Version History) एवं रोलबैक तकनीक

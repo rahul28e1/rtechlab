@@ -88,7 +88,7 @@
       #text(weight: "bold", size: 8.5pt, fill: rgb("#38BDF8"))[RTECHLAB आधिकारिक आजीवन मेंटरशिप एवं सपोर्ट नेटवर्क]\
       #v(2pt)
       #text(size: 7pt, fill: rgb("#E2E8F0"))[
-        ऑफिशियल प्लेटफॉर्म: *rtechlab.in* · मेंटर डेस्क: *rahul\@rtechlab.in* · सपोर्ट: *support\@rtechlab.in* \
+        ऑफिशियल प्लेटफॉर्म: *rtechlab.vercel.app* · मेंटर डेस्क: *rahul.28e1\@gmail.com* \
         याद रखें: निरंतर दैनिक अभ्यास ही सफलता की कुंजी है। सीखें. अभ्यास करें. नवाचार करें. भारत को गौरवान्वित करें!
       ]
     ]

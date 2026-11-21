@@ -477,7 +477,7 @@ def generate_vault_both():
     #v(4pt)
     #align(center)[
       #text(size: 7.5pt, weight: "bold", fill: rgb("#0F172A"))[
-        Visit #text(fill: rgb("#0284C7"))[https://rtechlab.in] · Email: #text(fill: rgb("#0284C7"))[support\@rtechlab.in] · WhatsApp: +91 91095 86284
+        Visit #text(fill: rgb("#0284C7"))[https://rtechlab.vercel.app] · Email: #text(fill: rgb("#0284C7"))[rahul.28e1\@gmail.com] · WhatsApp: +91 91095 86284
       ]
     ]
   ]
@@ -501,7 +501,7 @@ def generate_vault_both():
 #v(4pt)
 
 #spotlight-box("STUDENT LIFETIME COMMUNITY & DIRECT CONNECT", [
-  Scan the QR code or visit https://rtechlab.in/notes to download updated quarterly errata packs, access live student Discord forums, and register for Rahul Sir's exclusive monthly C-Suite productivity webinars. Your educational journey with RTechLab never ends.
+  Scan the QR code or visit https://rtechlab.vercel.app/notes to download updated quarterly errata packs, access live student Discord forums, and register for Rahul Sir's exclusive monthly C-Suite productivity webinars. Your educational journey with RTechLab never ends.
 ])
 """
 
@@ -537,7 +537,7 @@ def generate_vault_both():
         hi_ch32 += r"""
 #v(4pt)
 #spotlight-box("विद्यार्थी आजीवन कम्युनिटी एवं डायरेक्ट कनेक्ट", [
-  क्यूआर कोड स्कैन करें अथवा https://rtechlab.in/notes पर जाएं ताकि अद्यतन तिमाही एर्राटा पैक्स डाउनलोड कर सकें, लाइव विद्यार्थी डिस्कॉर्ड फ़ोरम में शामिल हो सकें, तथा राहुल सर के मासिक C-Suite प्रोडक्टिविटी वेबिनार में भाग ले सकें। आरटेक लैब के साथ आपकी सीखने की यात्रा कभी समाप्त नहीं होती।
+  क्यूआर कोड स्कैन करें अथवा https://rtechlab.vercel.app/notes पर जाएं ताकि अद्यतन तिमाही एर्राटा पैक्स डाउनलोड कर सकें, लाइव विद्यार्थी डिस्कॉर्ड फ़ोरम में शामिल हो सकें, तथा राहुल सर के मासिक C-Suite प्रोडक्टिविटी वेबिनार में भाग ले सकें। आरटेक लैब के साथ आपकी सीखने की यात्रा कभी समाप्त नहीं होती।
 ])
 """
 

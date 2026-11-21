@@ -1071,7 +1071,7 @@ Your RTechLab Career Accelerator purchase unlocks lifetime access to the entire 
   [Chief Technology Architect:], [Rahul Patel, Founder & Chief Technology Architect, RTechLab],
   [Digital Verification Token:], [SHA256-RTL-O365-2027-EXCEL-WORKBOOK-PRACTICAL-VERIFIED],
   [Bundle Commercial Value:], [₹1,999 Corporate Training Value (Accessible at ₹149 Subsidized)],
-  [Corporate Support Portal:], [support\@rtechlab.in · Verified Telegram Community Access]
+  [Corporate Support Portal:], [rahul.28e1\@gmail.com · Verified Telegram Community Access]
 )
 
 #v(3pt)
