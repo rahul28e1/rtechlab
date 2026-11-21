@@ -174,7 +174,7 @@ async function processVerifyLogic(data) {
     // ── PRIORITY 1: GMAIL SMTP (DIRECT FROM rahul.28e1@gmail.com TO ANY EMAIL) ──
     if (gmailPass) {
       try {
-        const cleanPass = gmailPass.replace(/\s+/g, '');
+        const cleanPass = gmailPass.replace(/["'\s]/g, '');
         const transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {

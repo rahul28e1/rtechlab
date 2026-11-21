@@ -1,3 +1,5 @@
+import nodemailer from 'nodemailer';
+
 // Health check endpoint for Email & Payment configurations
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,15 +13,31 @@ export default async function handler(req, res) {
     process.env.SMTP_PASSWORD;
 
   const gmailUser = process.env.GMAIL_USER || 'rahul.28e1@gmail.com';
+  const cleanPass = gmailPass ? gmailPass.replace(/["'\s]/g, '') : '';
   const resendKey = process.env.RESEND_API_KEY;
   const razorpaySecret = process.env.RAZORPAY_KEY_SECRET;
+
+  let smtpVerify = 'No password configured';
+  if (cleanPass) {
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: { user: gmailUser, pass: cleanPass },
+      });
+      await transporter.verify();
+      smtpVerify = 'Verified successfully';
+    } catch (err) {
+      smtpVerify = `Verification failed: ${err.message}`;
+    }
+  }
 
   return res.status(200).json({
     status: 'ok',
     gmail: {
       configured: !!gmailPass,
       user: gmailUser,
-      passLength: gmailPass ? gmailPass.trim().length : 0,
+      cleanPassLength: cleanPass.length,
+      smtpVerify,
     },
     resend: {
       configured: !!resendKey,

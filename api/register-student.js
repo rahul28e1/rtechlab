@@ -50,26 +50,85 @@ export default async function handler(req, res) {
       (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '') ||
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
       'https://rtechlab.vercel.app';
-    const downloadUrl = language === 'hi'
-      ? `${baseUrl}/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf`
-      : `${baseUrl}/downloads/Computer-Fundamentals-English-Edition-1.pdf`;
 
-    const bundleZipUrl = `${baseUrl}/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip`;
+    // ── DYNAMIC SUBJECT CATALOG MAPPING ──────────
+    const SUBJECT_CATALOG = {
+      ai: {
+        title: 'Artificial Intelligence Mastery',
+        coreEn: `${baseUrl}/downloads/AI-Essentials-English-Edition-1.pdf`,
+        coreHi: `${baseUrl}/downloads/AI-Essentials-Hindi-Edition-1.pdf`,
+        bundleZip: `${baseUrl}/downloads/AI-Career-Accelerator-Bundle.zip`,
+        bundleZipSize: '6.4 MB',
+        pages: '44 Pages',
+      },
+      'office-365': {
+        title: 'Microsoft Office 365 Enterprise Suite',
+        coreEn: `${baseUrl}/downloads/Office-365-English-Edition-1.pdf`,
+        coreHi: `${baseUrl}/downloads/Office-365-Hindi-Edition-1.pdf`,
+        bundleZip: `${baseUrl}/downloads/Office-365-Career-Accelerator-Bundle.zip`,
+        bundleZipSize: '13.7 MB',
+        pages: '113 Pages',
+      },
+      fundamentals: {
+        title: 'Computer Fundamentals & Architecture',
+        coreEn: `${baseUrl}/downloads/Computer-Fundamentals-English-Edition-1.pdf`,
+        coreHi: `${baseUrl}/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf`,
+        bundleZip: `${baseUrl}/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip`,
+        bundleZipSize: '30 MB',
+        pages: '45 Pages',
+      },
+      ccna: {
+        title: 'Cisco CCNA (200-301) Networking Master Guide',
+        coreEn: `${baseUrl}/downloads/CCNA-200-301-English-Edition-1.pdf`,
+        coreHi: `${baseUrl}/downloads/CCNA-200-301-Hindi-Edition-1.pdf`,
+        bundleZip: `${baseUrl}/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip`,
+        bundleZipSize: '19.8 MB',
+        pages: '72 Pages',
+      },
+    };
 
-    const emailSubject = `[RTechLab] Your ${subjectTitle} (${language === 'hi' ? 'हिंदी' : 'English'}) Digital Access`;
+    const subjectInfo = SUBJECT_CATALOG[subject] || SUBJECT_CATALOG.fundamentals;
+    const downloadUrl = language === 'hi' ? subjectInfo.coreHi : subjectInfo.coreEn;
+    const alternateDownloadUrl = language === 'hi' ? subjectInfo.coreEn : subjectInfo.coreHi;
+    const bundleZipUrl = subjectInfo.bundleZip;
+    const resolvedSubjectTitle = subjectTitle || subjectInfo.title;
+
+    const emailSubject = `[RTechLab] Your ${resolvedSubjectTitle} (${language === 'hi' ? 'हिंदी' : 'English'}) Digital Access`;
     const emailHtml = `
-      <div style="font-family: Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto;">
+      <div style="font-family: Arial, sans-serif; background: #0b0c10; color: #ffffff; padding: 24px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid rgba(255,255,255,0.1);">
         <div style="text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 16px; margin-bottom: 20px;">
-          <h1 style="color: #10b981; margin: 0; font-size: 24px;">RTechLab Official Digital Delivery</h1>
-          <p style="color: #9ca3af; margin: 4px 0 0; font-size: 14px;">Authorized Industrial Notes · 2027 Edition 1</p>
+          <h1 style="color: #10b981; margin: 0; font-size: 24px;">🎉 RTechLab Official Digital Delivery</h1>
+          <p style="color: #9ca3af; margin: 4px 0 0; font-size: 14px;">Authorized Industrial Notes · 2027 Edition</p>
         </div>
         <p>Hello <strong>${name || 'Student'}</strong>,</p>
-        <p>Thank you for choosing RTechLab! Your digital access for <strong>${subjectTitle} (${language === 'hi' ? 'हिंदी Edition 1' : 'English Edition 1'})</strong> is ready.</p>
+        <p>Thank you for choosing RTechLab! Your digital access for <strong>${resolvedSubjectTitle}</strong> is ready below:</p>
         
-        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 16px; border-radius: 8px; margin: 20px 0;">
-          <h3 style="color: #10b981; margin-top: 0;">📥 Direct Download Links:</h3>
-          <p style="margin: 8px 0;"><a href="${downloadUrl}" style="color: #38bdf8; font-weight: bold; text-decoration: underline;">👉 Download Core Master Edition (${language === 'hi' ? 'हिंदी Edition 1' : 'English Edition 1'})</a></p>
-          ${plan === 'bundle' ? `<p style="margin: 8px 0;"><a href="${bundleZipUrl}" style="color: #34d399; font-weight: bold; text-decoration: underline;">👉 Download Complete 5-in-1 Suite (.ZIP Bundle - 30 MB)</a></p>` : ''}
+        <div style="background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center;">
+          <h3 style="color: #10b981; margin-top: 0; font-size: 18px;">📥 Direct Download Links:</h3>
+          
+          ${plan === 'bundle' ? `
+            <div style="margin: 14px 0;">
+              <a href="${bundleZipUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 15px; padding: 12px 20px; border-radius: 8px; text-decoration: none;">
+                📦 DOWNLOAD COMPLETE 1-CLICK ZIP BUNDLE (${subjectInfo.bundleZipSize})
+              </a>
+              <p style="color: #9ca3af; font-size: 11px; margin-top: 5px;">All Master PDFs + Interview Vaults + Career Roadmap + Labs</p>
+            </div>
+          ` : `
+            <div style="margin: 14px 0;">
+              <a href="${downloadUrl}" style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 15px; padding: 12px 20px; border-radius: 8px; text-decoration: none;">
+                ⚡ DOWNLOAD MASTER PDF (${language === 'hi' ? 'हिंदी' : 'English'} Edition - ${subjectInfo.pages})
+              </a>
+            </div>
+          `}
+
+          <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px;">
+            <a href="${downloadUrl}" style="color: #38bdf8; text-decoration: underline; margin-right: 12px;">
+              ${language === 'hi' ? 'हिंदी' : 'English'} PDF
+            </a>
+            <a href="${alternateDownloadUrl}" style="color: #38bdf8; text-decoration: underline;">
+              ${language === 'hi' ? 'English' : 'Hindi'} PDF
+            </a>
+          </div>
         </div>
 
         <p style="color: #9ca3af; font-size: 12px; line-height: 1.5;">
@@ -85,7 +144,7 @@ export default async function handler(req, res) {
     // Priority 1: Gmail SMTP
     if (gmailPass) {
       try {
-        const cleanPass = gmailPass.replace(/\s+/g, '');
+        const cleanPass = gmailPass.replace(/["'\s]/g, '');
         const transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
