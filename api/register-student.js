@@ -34,7 +34,12 @@ export default async function handler(req, res) {
     let emailSent = false;
     let emailStatus = 'Saved';
 
-    const gmailPass = process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASS;
+    const gmailPass =
+      process.env.GMAIL_APP_PASSWORD ||
+      process.env.GOOGLE_APP_PASSWORD ||
+      process.env.GMAIL_PASSWORD ||
+      process.env.SMTP_PASS ||
+      process.env.SMTP_PASSWORD;
     const gmailUser = process.env.GMAIL_USER || 'rahul.28e1@gmail.com';
     const resendKey = process.env.RESEND_API_KEY;
     const fromEmail = process.env.EMAIL_FROM || 'RTechLab Publishing <onboarding@resend.dev>';
