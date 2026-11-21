@@ -455,25 +455,26 @@
   )
 }
 
-// Custom Terminal Specimen Box for Cisco CLI Output
-#let terminal-specimen(title: "CISCO IOS CLI OUTPUT SPECIMEN", body) = {
+// Custom Specimen Box for CLI, Prompts & Scripts (High-Contrast Clean Theme)
+#let terminal-specimen(title: "PRODUCTION CODE & COMMAND SPECIMEN", body) = {
   block(
     width: 100%,
-    stroke: 0.5pt + rgb("#334155"),
-    fill: rgb("#0F172A"),
+    stroke: 0.8pt + rgb("#CBD5E1"),
+    fill: rgb("#F8FAFC"),
     radius: 4pt,
-    inset: (x: 8pt, y: 5.5pt),
-    spacing: 3pt,
+    inset: (x: 8.5pt, y: 6pt),
+    spacing: 3.5pt,
     [
       #grid(
         columns: (1fr, auto),
-        align: (left, right),
-        [#text(size: 7.2pt, weight: "bold", fill: rgb("#38BDF8"), font: ("Consolas", "Courier New"))[> #title]],
-        [#text(size: 6.2pt, fill: rgb("#94A3B8"), font: ("Consolas", "Courier New"))[VT100 · 9600-8-N-1 · Cisco IOS-XE]]
+        align: (left + horizon, right + horizon),
+        [#text(size: 7.2pt, weight: "bold", fill: rgb("#0F172A"), font: ("Consolas", "Courier New", "Segoe UI"))[#text(fill: rgb("#0284C7"))[⚡] #title]],
+        [#box(fill: rgb("#E0F2FE"), stroke: 0.5pt + rgb("#38BDF8"), radius: 2pt, inset: (x: 5pt, y: 2pt), text(size: 5.8pt, weight: "bold", fill: rgb("#0369A1"))[RTECHLAB ENTERPRISE SPECIMEN])]
       )
-      #v(1.5pt)
-      #line(length: 100%, stroke: 0.5pt + rgb("#1E293B"))
-      #v(2.5pt)
+      #v(2pt)
+      #line(length: 100%, stroke: 0.5pt + rgb("#E2E8F0"))
+      #v(3pt)
+      #set text(size: 7.1pt, fill: rgb("#0F172A"), font: ("Consolas", "Courier New", "Nirmala UI", "Segoe UI"))
       #body
     ]
   )

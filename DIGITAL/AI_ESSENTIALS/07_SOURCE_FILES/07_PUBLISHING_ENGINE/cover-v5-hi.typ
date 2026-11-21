@@ -55,7 +55,7 @@
           // --- Book Title Block ---
           #align(left)[
             #text(size: 8.5pt, font: ("Nirmala UI", "Segoe UI"), weight: "bold", fill: rgb("#0284C7"), tracking: 2pt)[
-              एंटरप्राइज प्रोडक्टिविटी एवं बिजनेस इंटेलिजेंस सुइट
+              डीप लर्निंग, फाउंडेशन मॉडल्स एवं संप्रभु एजेंटिक सिस्टम्स
             ]
             #v(4pt)
             #text(size: 21pt, font: ("Nirmala UI", "Segoe UI"), weight: "black", fill: rgb("#0F172A"), tracking: 0.5pt)[
@@ -88,10 +88,10 @@
                   inset: (x: 4pt, bottom: 2pt),
                   [
                     #text(size: 6.5pt, fill: rgb("#94A3B8"), font: ("Nirmala UI", "Segoe UI"))[
-                      #text(fill: rgb("#38BDF8"))[●] आधुनिक एंटरप्राइज कम्प्यूटिंग आर्किटेक्चर · ऑफिस 365 क्लाउड इकोसिस्टम एवं को-ऑथरिंग
+                      #text(fill: rgb("#38BDF8"))[●] आधुनिक न्यूरल कम्प्यूटेशन आर्किटेक्चर · स्केल्ड अटेंशन इंजन एवं स्वदेशी इंडिक मॉडल्स
                     ],
                     #text(size: 6.5pt, weight: "bold", fill: rgb("#38BDF8"), font: "Segoe UI")[
-                      डिजिटल वर्कप्लेस स्पेसिमेन
+                      प्रोडक्शन AI इंफ्रास्ट्रक्चर स्पेसिमेन
                     ]
                   ]
                 )

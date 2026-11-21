@@ -55,7 +55,7 @@
           // --- Book Title Block ---
           #align(left)[
             #text(size: 8.5pt, font: "Segoe UI", weight: "bold", fill: rgb("#0284C7"), tracking: 2pt)[
-              ENTERPRISE PRODUCTIVITY & BUSINESS INTELLIGENCE SUITE
+              DEEP LEARNING, FOUNDATION MODELS & SOVEREIGN AGENTIC SYSTEMS
             ]
             #v(4pt)
             #text(size: 23pt, font: "Segoe UI", weight: "black", fill: rgb("#0F172A"), tracking: 0.5pt)[
@@ -88,10 +88,10 @@
                   inset: (x: 4pt, bottom: 2pt),
                   [
                     #text(size: 6.5pt, fill: rgb("#94A3B8"), font: "Segoe UI")[
-                      #text(fill: rgb("#38BDF8"))[●] Modern Enterprise Computing Architecture · Office 365 Cloud Ecosystem & Co-Authoring
+                      #text(fill: rgb("#38BDF8"))[●] Advanced Neural Computation Architecture · Scaled Attention Engine & Indic Foundation Models
                     ],
                     #text(size: 6.5pt, weight: "bold", fill: rgb("#38BDF8"), font: "Segoe UI")[
-                      DIGITAL WORKPLACE SPECIMEN
+                      PRODUCTION AI INFRASTRUCTURE SPECIMEN
                     ]
                   ]
                 )
