@@ -53,170 +53,149 @@ print(f"      Loaded {len(eng_chapters)} Eng, {len(hi_chapters)} Hi, {len(gu_cha
 def assemble_master_book(lang="en"):
     if lang == "en":
         title = "TALLY PRIME WITH GST & CORPORATE ACCOUNTING"
-        sub = "Double Entry Bookkeeping · 28 Groups · 24 Vouchers · Modern GST Slabs (0%, 5%, 18%) · TDS · 50 Invoices"
+        sub = "Double Entry Bookkeeping · 28 Predefined Groups · 24 Vouchers · Modern GST Slabs · TDS · 50 Commercial Invoices"
         cover_call = """#rtech-tally-cover(
   title: "TALLY PRIME WITH GST & CORPORATE ACCOUNTING",
-  subtitle: "Double Entry Bookkeeping · 28 Predefined Groups · 24 Vouchers · Modern GST Slabs · TDS · 50 Invoices",
+  subtitle: "Double Entry Bookkeeping · 28 Predefined Groups · 24 Vouchers · Modern GST Slabs · TDS · 50 Commercial Invoices",
   edition: "2027 MASTER COMMERCIAL EDITION · EDITION 1",
   series-pill: "OFFICIAL RTECHLAB & IANT CERTIFIED PUBLICATION",
   author: "Rahul Patel",
-  author-title: "Founder & Chief Technology Architect, RTechLab | Lead Accounting Trainer, IANT Palanpur",
+  author-title: "Lead Corporate Accounting Trainer, IANT Palanpur | Founder, RTechLab",
   lang-tag: "ENGLISH MASTER EDITION",
-  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png",
-  photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg"
+  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png"
 )"""
         chapters = eng_chapters
-        foreword = """
-= Author's Foreword & Institutional Endorsement
-
-#grid(
-  columns: (32mm, 1fr),
-  gutter: 12pt,
-  align: (center + horizon, left + horizon),
-  [
-    #box(
-      clip: true,
-      radius: 4pt,
-      stroke: 1.5pt + rgb("#0E7490"),
-      image("../02_BRAND_ASSETS/rahul-patel.jpg", width: 30mm, height: 38mm, fit: "cover")
-    )
-  ],
-  [
-    #text(size: 11pt, weight: "black", fill: rgb("#0F172A"))[Rahul Patel]\\
-    #text(size: 8pt, weight: "bold", fill: rgb("#0E7490"))[Founder, RTechLab · Master Corporate Accounting Trainer, IANT Palanpur]\\
-    #v(3pt)
-    #text(size: 7.5pt, fill: rgb("#475569"))[
-      "Accounting is the universal language of business. Over the past decade of training thousands of students across Gujarat and nationwide, I have observed that textbooks often drown learners in abstract theory while failing to prepare them for the realities of modern ERP systems. This handbook was built to bridge that gap permanently—uniting Luca Pacioli's timeless double-entry rules with modern Tally Prime 4.x/5.x and the rationalized GST tax slabs."
-    ]
-  ]
-)
-
-#v(8pt)
+        intro_block = """
+= Course Architecture & 11-Topic Curriculum Roadmap
 
 #block(
   fill: rgb("#F0FDFA"),
   stroke: 1pt + rgb("#99F6E4"),
   radius: 4pt,
-  inset: 8pt,
+  inset: 9pt,
   [
-    #text(weight: "bold", size: 8.5pt, fill: rgb("#0F766E"))[INSTITUTIONAL CURRICULAR HIGHLIGHTS:]\\
-    - *Full Double-Entry Parity:* 28 predefined groups, 24 vouchers, and complete Golden Rules analysis.
-    - *Modern GST Rationalization:* Full coverage of 0% Exempt APMC commodities, 5% Essentials, and 18% Standard IT/Electronics.
-    - *Corporate TDS Integration:* Sections 194C, 194J, 194I, Challan ITNS 281, and Form 26Q return filing.
-    - *Real Field Practice:* Mr. Verma's 50 real transactions and Salman Trading Co. 18 group case scenarios.
+    #text(weight: "bold", size: 8.8pt, fill: rgb("#0F766E"))[ACADEMIC PUBLICATION & STATUTORY COMPLIANCE GUARANTEE:]\\
+    This master curriculum is standardized by RTechLab and IANT Palanpur to bridge the gap between academic theory and real-world corporate accounting. Designed for commerce students, CA articles, and corporate accounts executives, every chapter is verified against the latest Tally Prime 4.x/5.x engine, the statutory GST portal requirements, and Income Tax TDS regulations.
   ]
+)
+
+#v(6pt)
+
+#table(
+  columns: (0.7fr, 2fr, 2.3fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[Topic]], [#text(weight: "bold", fill: white)[Curriculum Domain]], [#text(weight: "bold", fill: white)[Core Practical Learning Outcomes]],
+  [Topic 01], [History of Tally & Licensing], [Bharat Goenka, 80% market share, download from tallysolutions.com, Silver/Gold/Edu mode],
+  [Topic 02], [What is Tally Prime & Architecture], [Cactus in-memory DB, Top menu (Alt+K/Y/Z/O/E/M/P), Go To (Alt+G) multi-tasking],
+  [Topic 03], [Comprehensive GST & TDS Foundation], [CGST+SGST vs IGST, 0% Exempt, 5% Essentials, 18% Standard slabs, Sec 194C/J/I/H, 26Q],
+  [Topic 04], [Ledgers, Accounts & Golden Rules], [Personal, Real & Nominal accounts, Luca Pacioli rules, 20+ practical Dr/Cr proofs],
+  [Topic 05], [Vouchers & 4 Main Categories], [Accounting, Inventory, Order & Memo categories, 24 vouchers with shortcuts],
+  [Topic 06], [Groups & Complete Ledger Mapping], [15 Primary + 13 Secondary groups, 50+ real account mappings (Salman, HDFC, Taxes)],
+  [Topic 07], [Company & Step-by-Step Creation], [Company creation, Gujarat Code 24, FY beginning, Tally Vault, F11 Features & F12 Config],
+  [Topic 08], [Types of Business Organizations], [Trading concerns (Unjha Mandi), Manufacturing (Morbi Ceramics), Service providers],
+  [Topic 09], [Practical Commercial Invoices], [Inventory Invoices (Item Mode) vs Accounting Invoices (Service Mode, Ctrl+H)],
+  [Topic 10], [Master Keyboard Shortcuts (40+)], [General navigation, master alteration, voucher shortcuts, and reporting speeds],
+  [Topic 11], [Corporate Bridge Highlights], [GST portal returns (GSTR-1/3B/2B), BRS bank reconciliation, Cost Centres, Splitting]
 )
 """
     elif lang == "hi":
         title = "टैली प्राइम विद जीएसटी एवं कॉर्पोरेट अकाउंटिंग"
-        sub = "डबल एंट्री बुककीपिंग · 28 ग्रुप्स · 24 वाउचर्स · आधुनिक जीएसटी स्लैब्स (0%, 5%, 18%) · टीडीएस · 50 इनवॉइस"
+        sub = "डबल एंट्री बुककीपिंग · 28 पूर्व-निर्धारित ग्रुप्स · 24 वाउचर्स · आधुनिक जीएसटी स्लैब्स (0%, 5%, 18%) · टीडीएस · 50 प्रैक्टिकल इनवॉइस"
         cover_call = """#rtech-tally-cover-hi(
   title: "टैली प्राइम विद जीएसटी एवं कॉर्पोरेट अकाउंटिंग",
   subtitle: "डबल एंट्री बुककीपिंग · 28 पूर्व-निर्धारित ग्रुप्स · 24 वाउचर्स · आधुनिक जीएसटी स्लैब्स (0%, 5%, 18%) · टीडीएस · 50 प्रैक्टिकल इनवॉइस",
   edition: "2027 मास्टर कमर्शियल संस्करण · एडिशन 1",
   series-pill: "ऑफिशियल आरटेक लैब एवं आईएएनटी प्रमाणित प्रकाशन",
   author: "राहुल पटेल",
-  author-title: "फाउंडर एवं चीफ टेक्नोलॉजी आर्किटेक्ट, RTechLab | कॉर्पोरेट अकाउंटिंग ट्रेनर",
+  author-title: "लीड कॉर्पोरेट अकाउंटिंग ट्रेनर, IANT पालनपुर | फाउंडर, RTechLab",
   lang-tag: "हिंदी मास्टर एडिशन (HINDI COMPLETE EDITION)",
-  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png",
-  photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg"
+  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png"
 )"""
         chapters = hi_chapters
-        foreword = """
-= लेखक का संदेश एवं आधिकारिक संस्थागत अनुमोदन
-
-#grid(
-  columns: (32mm, 1fr),
-  gutter: 12pt,
-  align: (center + horizon, left + horizon),
-  [
-    #box(
-      clip: true,
-      radius: 4pt,
-      stroke: 1.5pt + rgb("#0E7490"),
-      image("../02_BRAND_ASSETS/rahul-patel.jpg", width: 30mm, height: 38mm, fit: "cover")
-    )
-  ],
-  [
-    #text(size: 11pt, weight: "black", fill: rgb("#0F172A"))[राहुल पटेल]\\
-    #text(size: 8pt, weight: "bold", fill: rgb("#0E7490"))[फाउंडर, RTechLab · मुख्य कॉर्पोरेट अकाउंटिंग ट्रेनर, IANT पालनपुर]\\
-    #v(3pt)
-    #text(size: 7.5pt, fill: rgb("#475569"))[
-      "अकाउंटिंग व्यापार की आत्मा है। पिछले एक दशक में आईएएनटी पालनपुर और विभिन्न मंचों पर हजारों छात्रों को प्रशिक्षित करते हुए मैंने महसूस किया कि बाजार में उपलब्ध अधिकांश किताबें केवल सैद्धांतिक बातों तक सीमित रहती हैं। यह पुस्तक जमीनी कॉर्पोरेट कार्यप्रणाली—जैसे एपीएमसी मंडी के बिल, इलेक्ट्रॉनिक्स जीएसटी बिल, टीडीएस कटौती और वित्तीय वर्ष क्लोजिंग—को सीधे आपके हाथों में सौंपती है।"
-    ]
-  ]
-)
-
-#v(8pt)
+        intro_block = """
+= पाठ्यक्रम संरचना एवं संपूर्ण 11-विषय अध्ययन मार्गदर्शिका
 
 #block(
   fill: rgb("#F0FDFA"),
   stroke: 1pt + rgb("#99F6E4"),
   radius: 4pt,
-  inset: 8pt,
+  inset: 9pt,
   [
-    #text(weight: "bold", size: 8.5pt, fill: rgb("#0F766E"))[पाठ्यक्रम की प्रमुख विशेषताएं:]\\
-    - *दोहरा लेखा प्रणाली का सरल हिंदी विश्लेषण:* 28 पूर्व-निर्धारित ग्रुप्स, 24 वाउचर्स और डेबिट-क्रेडिट के सुनहरे नियम।
-    - *आधुनिक जीएसटी स्लैब्स (00%, 05%, 18%):* करमुक्त कृषि जींस, 5% आवश्यक सामग्री और 18% मानक आईटी इलेक्ट्रॉनिक्स।
-    - *टीडीएस का 4-चरणीय चक्र:* धारा 194C, 194J, 194I, चालान 281 द्वारा बैंक भुगतान और फॉर्म 26Q।
-    - *प्रैक्टिकल सेट्स:* श्री वर्मा के 50 वास्तविक लेनदेन और सलमान ट्रेडिंग 18 ग्रुप्स का सटीक तलपट।
+    #text(weight: "bold", size: 8.8pt, fill: rgb("#0F766E"))[आधिकारिक संस्थागत प्रकाशन एवं वैधानिक प्रमाणन:]\\
+    यह संपूर्ण हैंडबुक आरटेक लैब एवं आईएएनटी पालनपुर द्वारा सैद्धांतिक पढ़ाई और आधुनिक कॉरपोरेट जगत के बीच के अंतर को समाप्त करने हेतु तैयार की गई है। इसमें कॉमर्स विद्यार्थियों, सीए आर्टिकल्स और अकाउंटेंट्स हेतु टैली प्राइम 4.x/5.x, जीएसटी पोर्टल एवं आयकर टीडीएस नियमों के शत-प्रतिशत व्यावहारिक सिद्धांतों को समाहित किया गया है।
   ]
+)
+
+#v(6pt)
+
+#table(
+  columns: (0.7fr, 2fr, 2.3fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[विषय]], [#text(weight: "bold", fill: white)[पाठ्यक्रम क्षेत्र]], [#text(weight: "bold", fill: white)[व्यावहारिक अध्ययन एवं दक्षता लक्ष्य]],
+  [विषय 01], [टैली का इतिहास एवं डाउनलोडिंग], [भरत गोयनका, 80% बाजार हिस्सेदारी, tallysolutions.com से डाउनलोड, सिल्वर/गोल्ड/एजुकेशन],
+  [विषय 02], [टैली प्राइम एवं सिस्टम आर्किटेक्चर], [कैक्टस इन-मेमोरी डेटाबेस, टॉप मेनू (Alt+K/Y/Z/O/E/M/P), गो-टू (Alt+G) मल्टीटास्किंग],
+  [विषय 03], [संपूर्ण जीएसटी एवं टीडीएस आधारशिला], [CGST+SGST बनाम IGST, 0% मुक्त, 5% आवश्यक, 18% मानक स्लैब्स, धारा 194C/J/I/H, 26Q],
+  [विषय 04], [लेजर, खाते एवं सुनहरे नियम], [व्यक्तिगत, वास्तविक, नाममात्र खाते, ल्यूका पैसिओली नियम, 20+ व्यावहारिक Dr/Cr प्रमाण],
+  [विषय 05], [वाउचर्स एवं 4 प्रमुख श्रेणियां], [एकाउंटिंग, इन्वेंटरी, ऑर्डर एवं मेमो श्रेणियां, 24 वाउचर्स मय शॉर्टकट्स],
+  [विषय 06], [ग्रुप्स एवं संपूर्ण लेजर मैपिंग], [15 प्राथमिक + 13 द्वितीयक ग्रुप्स, 50+ व्यावहारिक लेजर मैपिंग (सलमान, बैंक, टैक्स)],
+  [विषय 07], [कंपनी निर्माण चरणबद्ध प्रक्रिया], [कंपनी निर्माण, गुजरात कोड 24, वित्तीय वर्ष, टैली वॉल्ट, F11 फीचर्स व F12 सेटअप],
+  [विषय 08], [व्यावसायिक संगठनों के प्रकार], [ट्रेडिंग फर्में (ऊंझा मंडी), मैन्युफैक्चरिंग (मोरबी सिरामिक्स), सर्विस सेक्टर],
+  [विषय 09], [प्रैक्टिकल इनवॉइस निर्माण], [इन्वेंटरी इनवॉइस (Item Mode) बनाम एकाउंटिंग इनवॉइस (Service Mode, Ctrl+H)],
+  [विषय 10], [मास्टर कीबोर्ड शॉर्टकट्स (40+)], [सामान्य नेविगेशन, वाउचर एंट्री, लेजर सुधार व उच्च गति रिपोर्टिंग],
+  [विषय 11], [कॉरपोरेट ब्रिज विषय], [GSTR-1/3B/2B मिलान, बैंक समाधान (BRS), कॉस्ट सेंटर एवं वर्ष विभाजन (Split)]
 )
 """
     else: # gujarati
         title = "ટેલી પ્રાઇમ વિથ જીએસટી અને કોર્પોરેટ એકાઉન્ટિંગ"
-        sub = "ડબલ એન્ટ્રી બુકકીપિંગ · 28 ગ્રુપ્સ · 24 વાઉચર્સ · આધુનિક GST સ્લેબ્સ (0%, 5%, 18%) · TDS · 50 ઇનવોઇસ"
+        sub = "ડબલ એન્ટ્રી બુકકીપિંગ · 28 પૂર્વ-નિર્ધારિત ગ્રુપ્સ · 24 વાઉચર્સ · આધુનિક જીએસટી સ્લેબ્સ (0%, 5%, 18%) · ટીડીએસ · 50 પ્રેક્ટિકલ ઇનવોઇસ"
         cover_call = """#rtech-tally-cover-gu(
   title: "ટેલી પ્રાઇમ વિથ જીએસટી અને કોર્પોરેટ એકાઉન્ટિંગ",
-  subtitle: "ડબલ એન્ટ્રી બુકકીપિંગ · 28 પ્રીડિફાઇન્ડ ગ્રુપ્સ · 24 વાઉચર્સ · આધુનિક GST સ્લેબ્સ (0%, 5%, 18%) · TDS · 50 પ્રેક્ટિકલ ઇનવોઇસ",
-  edition: "2027 માસ્ટર કોમર્શિયલ આવૃત્તિ · આવૃત્તિ 1",
+  subtitle: "ડબલ એન્ટ્રી બુકકીપિંગ · 28 પૂર્વ-નિર્ધારિત ગ્રુપ્સ · 24 વાઉચર્સ · આધુનિક જીએસટી સ્લેબ્સ (0%, 5%, 18%) · ટીડીએસ · 50 પ્રેક્ટિકલ ઇનવોઇસ",
+  edition: "2027 માસ્ટર કોમર્શિયલ આવૃત્તિ · એડિશન 1",
   series-pill: "ઓફિશિયલ આરટેક લેબ અને આઇએએનટી પ્રમાણિત પ્રકાશન",
   author: "રાહુલ પટેલ",
-  author-title: "સ્થાપક અને ચીફ ટેકનોલોજી આર્કિટેક્ટ, RTechLab | કોર્પોરેટ એકાઉન્ટિંગ ટ્રેનર",
-  lang-tag: "ગુજરાતી માસ્ટર આવૃત્તિ (GUJARATI COMPLETE EDITION)",
-  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png",
-  photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg"
+  author-title: "લીડ કોર્પોરેટ એકાઉન્ટિંગ ટ્રેનર, IANT પાલનપુર | ફાઉન્ડર, RTechLab",
+  lang-tag: "ગુજરાતી માસ્ટર એડિશન (GUJARATI COMPLETE EDITION)",
+  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png"
 )"""
         chapters = gu_chapters
-        foreword = """
-= લેખકનો પરિચય અને સંસ્થાકીય સમર્થન
-
-#grid(
-  columns: (32mm, 1fr),
-  gutter: 12pt,
-  align: (center + horizon, left + horizon),
-  [
-    #box(
-      clip: true,
-      radius: 4pt,
-      stroke: 1.5pt + rgb("#0E7490"),
-      image("../02_BRAND_ASSETS/rahul-patel.jpg", width: 30mm, height: 38mm, fit: "cover")
-    )
-  ],
-  [
-    #text(size: 11pt, weight: "black", fill: rgb("#0F172A"))[રાહુલ પટેલ]\\
-    #text(size: 8pt, weight: "bold", fill: rgb("#0E7490"))[સ્થાપક, RTechLab · મુખ્ય કોર્પોરેટ એકાઉન્ટિંગ ટ્રેનર, IANT પાલનપુર]\\
-    #v(3pt)
-    #text(size: 7.5pt, fill: rgb("#475569"))[
-      "એકાઉન્ટિંગ એ વેપારની ખરી ઓળખ છે. છેલ્લા દાયકામાં પાલનપુર, મહેસાણા, અમદાવાદ અને સમગ્ર ગુજરાતના હજારો વિદ્યાર્થીઓને એકાઉન્ટિંગનું શિક્ષણ આપતી વખતે મેં જોયું છે કે માર્કેટમાં ગુજરાતી ભાષામાં પ્રેક્ટિકલ જીએસટી અને ટેલી પ્રાઇમનું સાચું સાહિત્ય મળતું નથી. આ પુસ્તક ગુજરાતના ઊંઝા, પાલનપુર, રાજકોટ અને સુરતના વેપાર જગતના સાચા બિલ અને વ્યવહારો સાથે તૈયાર કરવામાં આવ્યું છે."
-    ]
-  ]
-)
-
-#v(8pt)
+        intro_block = """
+= અભ્યાસક્રમ માળખું અને સંપૂર્ણ 11-વિષય માર્ગદર્શિકા
 
 #block(
   fill: rgb("#F0FDFA"),
   stroke: 1pt + rgb("#99F6E4"),
   radius: 4pt,
-  inset: 8pt,
+  inset: 9pt,
   [
-    #text(weight: "bold", size: 8.5pt, fill: rgb("#0F766E"))[અભ્યાસક્રમની વિશેષતાઓ:]\\
-    - *દ્વિનોંધી નામા પદ્ધતિ:* 28 પ્રીડિફાઇન્ડ ગ્રુપ્સ, 24 વાઉચર્સ અને ઉધાર-જમાના સુવર્ણ નિયમોની સરળ ગુજરાતી સમજૂતી.
-    - *આધુનિક GST સ્લેબ્સ (00%, 05%, 18%):* કરમુક્ત કૃષિ પાક (જીરું, ઇસબગૂલ, રાયડો), 5% તેલ અને 18% સ્માર્ટફોન-લેપટોપ.
-    - *TDS કાયદાકીય નિયમો:* કલમ 194C, 194J, 194I, ચલણ ITNS 281 બેંક પેમેન્ટ અને ત્રિમાસિક ફોર્મ 26Q.
-    - *પ્રેક્ટિકલ સેટ્સ:* શ્રી વર્માના 50 વ્યવહારો અને સલમાન ટ્રેડિંગના 18 ગ્રુપ્સનું કાચું સરવૈયું.
+    #text(weight: "bold", size: 8.8pt, fill: rgb("#0F766E"))[સત્તાવાર સંસ્થાકીય પ્રકાશન અને પ્રમાણીકરણ:]\\
+    આ સમગ્ર હેન્ડબુક આરટેક લેબ અને આઇએએનટી પાલનપુર દ્વારા સૈદ્ધાંતિક અભ્યાસ અને આધુનિક કોર્પોરેટ એકાઉન્ટિંગ વચ્ચેના અંતરને દૂર કરવા માટે તૈયાર કરવામાં આવી છે. કોમર્સ વિદ્યાર્થીઓ, સીએ આર્ટિકલ્સ અને એકાઉન્ટન્ટ્સ માટે ટેલી પ્રાઇમ 4.x/5.x, જીએસટી પોર્ટલ અને ઇન્કમટેક્સ ટીડીએસના 100% વ્યવહારુ નિયમો અહીં સામેલ છે.
   ]
+)
+
+#v(6pt)
+
+#table(
+  columns: (0.7fr, 2fr, 2.3fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[વિષય]], [#text(weight: "bold", fill: white)[અભ્યાસક્રમ ક્ષેત્ર]], [#text(weight: "bold", fill: white)[વ્યવહારુ શિક્ષણ અને સિદ્ધિ લક્ષ્યાંકો]],
+  [વિષય 01], [ટેલીનો ઇતિહાસ અને લાયસન્સિંગ], [ભરત ગોયનકા, 80% બજાર હિસ્સો, tallysolutions.com પરથી ડાઉનલોડ, સિલ્વર/ગોલ્ડ/એજ્યુકેશન],
+  [વિષય 02], [ટેલી પ્રાઇમ અને સિસ્ટમ આર્કિટેક્ચર], [કેક્ટસ ઇન-મેમરી ડેટાબેઝ, ટોપ મેનૂ (Alt+K/Y/Z/O/E/M/P), ગો-ટૂ (Alt+G) મલ્ટીટાસ્કિંગ],
+  [વિષય 03], [સંપૂર્ણ જીએસટી અને ટીડીએસ પાયો], [CGST+SGST વિરુદ્ધ IGST, 0% કરમુક્ત, 5% આવશ્યક, 18% સ્ટાન્ડર્ડ સ્લેબ્સ, કલમ 194C/J/I/H, 26Q],
+  [વિષય 04], [લેજર, ખાતા અને સુવર્ણ નિયમો], [વ્યક્તિગત, માલ-મિલકત, ઉપજ-ખર્ચ ખાતા, લ્યુકા પેસિઓલી નિયમો, 20+ વ્યવહારુ Dr/Cr પુરાવા],
+  [વિષય 05], [વાઉચર્સ અને 4 મુખ્ય શ્રેણીઓ], [એકાઉન્ટિંગ, ઇન્વેન્ટરી, ઓર્ડર અને મેમો શ્રેણીઓ, 24 વાઉચર્સ અને શોર્ટકટ્સ],
+  [વિષય 06], [ગ્રુપ્સ અને સંપૂર્ણ લેજર મેપિંગ], [15 પ્રાથમિક + 13 ગૌણ ગ્રુપ્સ, 50+ વાસ્તવિક લેજર મેપિંગ્સ (સલમાન, બેંક, ટેક્સ)],
+  [વિષય 07], [કંપની બનાવવાની તબક્કાવાર રીત], [કંપની નિર્માણ, ગુજરાત કોડ 24, નાણાકીય વર્ષ, ટેલી વોલ્ટ, F11 ફીચર્સ અને F12 સેટઅપ],
+  [વિષય 08], [વ્યાપારિક સંગઠનોના પ્રકારો], [ટ્રેડિંગ પેઢીઓ (ઊંઝા મંડી), મેન્યુફેક્ચરિંગ (મોરબી સિરામિક્સ), સર્વિસ પ્રોવાઇડર્સ],
+  [વિષય 09], [પ્રેક્ટિકલ ઇનવોઇસિંગ પદ્ધતિ], [ઇન્વેન્ટરી ઇનવોઇસ (Item Mode) વિરુદ્ધ એકાઉન્ટિંગ ઇનવોઇસ (Service Mode, Ctrl+H)],
+  [વિષય 10], [માસ્ટર કીબોર્ડ શોર્ટકટ્સ (40+)], [સામાન્ય નેવિગેશન, વાઉચર એન્ટ્રી, લેજર સુધારો અને ઝડપી રિપોર્ટિંગ],
+  [વિષય 11], [કોર્પોરેટ બ્રિજ વિષયો], [GSTR-1/3B/2B મેળવણું, બેંક રિકન્સિલિયેશન (BRS), કોસ્ટ સેન્ટર્સ અને ડેટા સ્પ્લિટ (Split)]
 )
 """
 
@@ -250,17 +229,17 @@ def assemble_master_book(lang="en"):
   lang: "{lang}"
 )
 
-{foreword}
+{intro_block}
 
-#pagebreak()
+#v(14pt)
 """
-    # Append all 16 chapters
-    for ch_idx in range(1, 17):
+    # Append all 11 topics with natural continuous flow (NO artificial pagebreaks!)
+    for ch_idx in range(1, 12):
         if ch_idx in chapters:
-            typ_content += f"\n{chapters[ch_idx].strip()}\n#pagebreak()\n"
+            typ_content += f"\n{chapters[ch_idx].strip()}\n\n#v(14pt)\n"
 
-    # Append Author's Final Mentorship & Motto Page
-    typ_content += f'\n#rtech-final-page(lang: "{lang}", photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg", logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png")\n'
+    # Append Author's Final Mentorship & Motto Page on the VERY LAST PAGE
+    typ_content += f'\n#pagebreak()\n#rtech-final-page(lang: "{lang}", photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg", logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png")\n'
 
     return typ_content
 

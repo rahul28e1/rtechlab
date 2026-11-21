@@ -67,7 +67,7 @@ async function sendReleaseEmail() {
       <div style="background: #f0fdfa; border-left: 4px solid #059669; border-radius: 6px; padding: 14px; margin: 16px 0;">
         <h3 style="margin: 0 0 8px; color: #065f46; font-size: 15px;">📦 सम्पूर्ण बंडल सुइट में शामिल प्रमुख सामग्रियां:</h3>
         <ul style="margin: 0; padding-left: 20px; font-size: 13.5px; color: #1e293b; line-height: 1.6;">
-          <li><strong>Tally Prime Hindi Master Guide:</strong> 16 अध्याय, सुनहरे नियम, 28 ग्रुप्स, 24 वाउचर्स, आधुनिक GST (0%, 5%, 18%) और TDS (अटैचमेंट में शामिल)।</li>
+          <li><strong>Tally Prime Hindi Master Guide:</strong> 11 सम्पूर्ण विषय, भरत गोयनका व इतिहास, कैक्टस आर्किटेक्चर, सुनहरे नियम, 28 ग्रुप्स, 24 वाउचर्स, आधुनिक GST (0%, 5%, 18%) और TDS (अटैचमेंट में शामिल)।</li>
           <li><strong>Tally Prime Gujarati Edition (ગુજરાતી આવૃત્તિ):</strong> ગુજરાતના વિદ્યાર્થીઓ માટે શુદ્ધ વ્યાવસાયિક ભાષામાં સંપૂર્ણ ગાઇડ।</li>
           <li><strong>50-Invoice Commercial Mega-Workbook:</strong> APMC ઊંઝા/પાલનપુર જીરું-ઇસબગૂલ, ઇલેક્ટ્રોનિક્સ અને IGST બિલિંગ (16 પાના, સોલ્યુશન સાથે)।</li>
           <li><strong>Advanced TDS &amp; Form 26Q Practice Set:</strong> કલમ 194C, 194J, 194I, ચલણ 281 અને ત્રિમાસિક રિટર્ન।</li>

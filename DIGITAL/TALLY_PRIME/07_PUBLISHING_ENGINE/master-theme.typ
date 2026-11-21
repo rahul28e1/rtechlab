@@ -299,9 +299,11 @@
       radius: 4pt,
       inset: (x: 12pt, y: 5pt),
       text(size: 9pt, weight: "black", fill: rgb("#065F46"))[
-        #if lang == "hi" [पाठ्यक्रम समापन प्रमाणन एवं लेखक का संदेश]
-        else if lang == "gu" [અભ્યાસક્રમ પૂર્ણતા પ્રમાણપત્ર અને લેખકનો સંદેશ]
-        else [CURRICULUM COMPLETION & AUTHOR'S FINAL MENTORSHIP MESSAGE]
+        #{
+          if lang == "hi" [पाठ्यक्रम समापन प्रमाणन एवं लेखक का संदेश]
+          else if lang == "gu" [અભ્યાસક્રમ પૂર્ણતા પ્રમાણપત્ર અને લેખકનો સંદેશ]
+          else [CURRICULUM COMPLETION & AUTHOR'S FINAL MENTORSHIP MESSAGE]
+        }
       ]
     )
   ]
@@ -333,27 +335,33 @@
         ],
         [
           #text(size: 13pt, weight: "black", fill: rgb("#0F172A"))[
-            #if lang == "hi" [हार्दिक बधाई एवं शुभकामनाएं!]
-            else if lang == "gu" [હૃદયપૂર્વક અભિનંદન અને શુભેચ્છાઓ!]
-            else [Heartiest Congratulations & Best of Luck!]
+            #{
+              if lang == "hi" [हार्दिक बधाई एवं शुभकामनाएं!]
+              else if lang == "gu" [હૃદયપૂર્વક અભિનંદન અને શુભેચ્છાઓ!]
+              else [Heartiest Congratulations & Best of Luck!]
+            }
           ]
           #v(4pt)
           #text(size: 8.2pt, style: "italic", weight: "bold", fill: rgb("#059669"))[
-            #if lang == "hi" ["हिसाब में सच्चाई और नियमों में स्पष्टता ही एक सफल अकाउंटेंट की असली पहचान है।"]
-            else if lang == "gu" ["હિસાબમાં પવિત્રતા અને નિયમોમાં ચોકસાઈ જ એક સફળ એકાઉન્ટન્ટની સાચી ઓળખ છે."]
-            else ["Precision in accounts and integrity in tax compliance is the hallmark of a true corporate accountant."]
+            #{
+              if lang == "hi" ["हिसाब में सच्चाई और नियमों में स्पष्टता ही एक सफल अकाउंटेंट की असली पहचान है।"]
+              else if lang == "gu" ["હિસાબમાં પવિત્રતા અને નિયમોમાં ચોકસાઈ જ એક સફળ એકાઉન્ટન્ટની સાચી ઓળખ છે."]
+              else ["Precision in accounts and integrity in tax compliance is the hallmark of a true corporate accountant."]
+            }
           ]
           #v(5pt)
           #text(size: 7.6pt, fill: rgb("#334155"))[
-            #if lang == "hi" [
-              प्रिय विद्यार्थी, आपने इस सम्पूर्ण हैंडबुक का अध्ययन करके अपने करियर की सबसे ठोस नींव रखी है। टैली प्राइम केवल एक सॉफ्टवेयर नहीं, बल्कि व्यापार का दर्पण है। अब समय है इन नियमों, वाउचर्स और जीएसटी स्लैब्स को अपनी प्रयोगशाला और कार्यक्षेत्र में क्रियान्वित करने का। मुझे पूर्ण विश्वास है कि आप कॉरपोरेट जगत में शीर्ष स्थान प्राप्त करेंगे।
-            ]
-            else if lang == "gu" [
-              વ્હાલા વિદ્યાર્થી મિત્ર, આ સમગ્ર હેન્ડબુકનો અભ્યાસ પૂર્ણ કરવા બદલ ખૂબ ખૂબ અભિનંદન! ટેલી પ્રાઇમ એ માત્ર એક સોફ્ટવેર નથી પણ વેપારની કરોડરજ્જુ છે. હવે આ સુવર્ણ નિયમો, વાઉચર્સ અને જીએસટી સ્લેબ્સને તમારા પ્રેક્ટિકલ કાર્યક્ષેત્રમાં લાગુ કરવાનો સમય છે. મને પૂરો વિશ્વાસ છે કે તમે સફળતાના શિખરો સર કરશો.
-            ]
-            else [
-              Dear Student, Congratulations on mastering this comprehensive curriculum! Tally Prime is not merely software—it is the operational backbone of global commerce. Now is the time to translate these double-entry rules, practical invoices, and statutory tax mechanisms into real-world excellence. You have my full confidence and backing.
-            ]
+            #{
+              if lang == "hi" [
+                प्रिय विद्यार्थी, आपने इस सम्पूर्ण हैंडबुक का अध्ययन करके अपने करियर की सबसे ठोस नींव रखी है। टैली प्राइम केवल एक सॉफ्टवेयर नहीं, बल्कि व्यापार का दर्पण है। अब समय है इन नियमों, वाउचर्स और जीएसटी स्लैब्स को अपनी प्रयोगशाला और कार्यक्षेत्र में क्रियान्वित करने का। मुझे पूर्ण विश्वास है कि आप कॉरपोरेट जगत में शीर्ष स्थान प्राप्त करेंगे।
+              ]
+              else if lang == "gu" [
+                વ્હાલા વિદ્યાર્થી મિત્ર, આ સમગ્ર હેન્ડબુકનો અભ્યાસ પૂર્ણ કરવા બદલ ખૂબ ખૂબ અભિનંદન! ટેલી પ્રાઇમ એ માત્ર એક સોફ્ટવેર નથી પણ વેપારની કરોડરજ્જુ છે. હવે આ સુવર્ણ નિયમો, વાઉચર્સ અને જીએસટી સ્લેબ્સને તમારા પ્રેક્ટિકલ કાર્યક્ષેત્રમાં લાગુ કરવાનો સમય છે. મને પૂરો વિશ્વાસ છે કે તમે સફળતાના શિખરો સર કરશો.
+              ]
+              else [
+                Dear Student, Congratulations on mastering this comprehensive curriculum! Tally Prime is not merely software—it is the operational backbone of global commerce. Now is the time to translate these double-entry rules, practical invoices, and statutory tax mechanisms into real-world excellence. You have my full confidence and backing.
+              ]
+            }
           ]
         ]
       )
@@ -379,9 +387,11 @@
           #text(size: 8.5pt, weight: "bold", fill: rgb("#059669"))[Learn. Practice. Innovate.]\\
           #v(3pt)
           #text(size: 7.2pt, fill: rgb("#475569"))[
-            #if lang == "hi" [जटिल तकनीकों और अकाउंटिंग को हर विद्यार्थी के लिए सरल, व्यावहारिक और परिणामोन्मुखी बनाना।]
-            else if lang == "gu" [અઘરી ટેકનોલોજી અને એકાઉન્ટિંગને દરેક વિદ્યાર્થી માટે સરળ અને વ્યવહારુ બનાવવી.]
-            else [Transforming complex technical and financial systems into actionable, career-defining practical skills.]
+            #{
+              if lang == "hi" [जटिल तकनीकों और अकाउंटिंग को हर विद्यार्थी के लिए सरल, व्यावहारिक और परिणामोन्मुखी बनाना।]
+              else if lang == "gu" [અઘરી ટેકનોલોજી અને એકાઉન્ટિંગને દરેક વિદ્યાર્થી માટે સરળ અને વ્યવહારુ બનાવવી.]
+              else [Transforming complex technical and financial systems into actionable, career-defining practical skills.]
+            }
           ]
         ]
       )
@@ -399,9 +409,11 @@
           #text(size: 8.5pt, weight: "bold", fill: rgb("#0E7490"))[From Palanpur to Global Corporates]\\
           #v(3pt)
           #text(size: 7.2pt, fill: rgb("#475569"))[
-            #if lang == "hi" [गुणवत्तापूर्ण शिक्षा केवल बड़े शहरों तक सीमित न रहे, बल्कि गुजरात के हर कोने तक पहुंचे।]
-            else if lang == "gu" [શ્રેષ્ઠ શિક્ષણ માત્ર મોટા શહેરો સુધી સીમિત ન રહેતાં, ગુજરાતના દરેક વિદ્યાર્થી સુધી પહોંચે.]
-            else [Democratizing premier corporate education so every dedicated student achieves financial independence.]
+            #{
+              if lang == "hi" [गुणवत्तापूर्ण शिक्षा केवल बड़े शहरों तक सीमित न रहे, बल्कि गुजरात के हर कोने तक पहुंचे।]
+              else if lang == "gu" [શ્રેષ્ઠ શિક્ષણ માત્ર મોટા શહેરો સુધી સીમિત ન રહેતાં, ગુજરાતના દરેક વિદ્યાર્થી સુધી પહોંચે.]
+              else [Democratizing premier corporate education so every dedicated student achieves financial independence.]
+            }
           ]
         ]
       )
@@ -422,9 +434,11 @@
         align: (left + horizon, right + horizon),
         [
           #text(size: 9pt, weight: "bold", fill: rgb("#0F766E"))[
-            #if lang == "hi" [आजीवन मेंटरशिप एवं कॉर्पोरेट सपोर्ट डेस्क:]
-            else if lang == "gu" [આજીવન માર્ગદર્શન અને સપોર્ટ ડેસ્ક:]
-            else [Lifetime Direct Mentorship Desk:]
+            #{
+              if lang == "hi" [आजीवन मेंटरशिप एवं कॉर्पोरेट सपोर्ट डेस्क:]
+              else if lang == "gu" [આજીવન માર્ગદર્શન અને સપોર્ટ ડેસ્ક:]
+              else [Lifetime Direct Mentorship Desk:]
+            }
           ]\\
           #v(2pt)
           #text(size: 7.5pt, fill: rgb("#334155"))[
@@ -437,9 +451,11 @@
             radius: 3pt,
             inset: (x: 8pt, y: 4pt),
             text(size: 7.5pt, weight: "bold", fill: white)[
-              #if lang == "hi" [बेस्ट ऑफ लक!]
-              else if lang == "gu" [બેસ્ટ ઓફ લક!]
-              else [BEST OF LUCK!]
+              #{
+                if lang == "hi" [बेस्ट ऑफ लक!]
+                else if lang == "gu" [બેસ્ટ ઓફ લક!]
+                else [BEST OF LUCK!]
+              }
             ]
           )
         ]

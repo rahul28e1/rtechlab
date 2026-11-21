@@ -62,7 +62,7 @@
 
 #table(
   columns: (1.2fr, 1.4fr, 1.2fr, 1.4fr, 2.2fr),
-  fill: (col, row) => if row == 0 {{ rgb("#0E7490") }} else if calc.even(row) {{ rgb("#F8FAFC") }} else {{ white }},
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4.5pt,
   [#text(weight: "bold", fill: white)[Career Stage]], [#text(weight: "bold", fill: white)[Corporate Designation]], [#text(weight: "bold", fill: white)[Experience]], [#text(weight: "bold", fill: white)[Salary Range (INR)]], [#text(weight: "bold", fill: white)[Core Expected Responsibilities]],

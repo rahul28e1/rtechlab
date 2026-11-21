@@ -17,14 +17,13 @@
 )
 #rtech-tally-cover(
   title: "TALLY PRIME WITH GST & CORPORATE ACCOUNTING",
-  subtitle: "Double Entry Bookkeeping · 28 Predefined Groups · 24 Vouchers · Modern GST Slabs · TDS · 50 Invoices",
+  subtitle: "Double Entry Bookkeeping · 28 Predefined Groups · 24 Vouchers · Modern GST Slabs · TDS · 50 Commercial Invoices",
   edition: "2027 MASTER COMMERCIAL EDITION · EDITION 1",
   series-pill: "OFFICIAL RTECHLAB & IANT CERTIFIED PUBLICATION",
   author: "Rahul Patel",
-  author-title: "Founder & Chief Technology Architect, RTechLab | Lead Accounting Trainer, IANT Palanpur",
+  author-title: "Lead Corporate Accounting Trainer, IANT Palanpur | Founder, RTechLab",
   lang-tag: "ENGLISH MASTER EDITION",
-  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png",
-  photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg"
+  logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png"
 )
 
 #pagebreak()
@@ -32,620 +31,563 @@
 // MASTER BOOK SETTINGS
 #show: rtech-tally-book.with(
   title: "TALLY PRIME WITH GST & CORPORATE ACCOUNTING",
-  subtitle: "Double Entry Bookkeeping · 28 Groups · 24 Vouchers · Modern GST Slabs (0%, 5%, 18%) · TDS · 50 Invoices",
+  subtitle: "Double Entry Bookkeeping · 28 Predefined Groups · 24 Vouchers · Modern GST Slabs · TDS · 50 Commercial Invoices",
   author: "Rahul Patel",
   edition: "2027 Master Commercial Edition",
   lang: "en"
 )
 
 
-= Author's Foreword & Institutional Endorsement
-
-#grid(
-  columns: (32mm, 1fr),
-  gutter: 12pt,
-  align: (center + horizon, left + horizon),
-  [
-    #box(
-      clip: true,
-      radius: 4pt,
-      stroke: 1.5pt + rgb("#0E7490"),
-      image("../02_BRAND_ASSETS/rahul-patel.jpg", width: 30mm, height: 38mm, fit: "cover")
-    )
-  ],
-  [
-    #text(size: 11pt, weight: "black", fill: rgb("#0F172A"))[Rahul Patel]\
-    #text(size: 8pt, weight: "bold", fill: rgb("#0E7490"))[Founder, RTechLab · Master Corporate Accounting Trainer, IANT Palanpur]\
-    #v(3pt)
-    #text(size: 7.5pt, fill: rgb("#475569"))[
-      "Accounting is the universal language of business. Over the past decade of training thousands of students across Gujarat and nationwide, I have observed that textbooks often drown learners in abstract theory while failing to prepare them for the realities of modern ERP systems. This handbook was built to bridge that gap permanently—uniting Luca Pacioli's timeless double-entry rules with modern Tally Prime 4.x/5.x and the rationalized GST tax slabs."
-    ]
-  ]
-)
-
-#v(8pt)
+= Course Architecture & 11-Topic Curriculum Roadmap
 
 #block(
   fill: rgb("#F0FDFA"),
   stroke: 1pt + rgb("#99F6E4"),
   radius: 4pt,
-  inset: 8pt,
+  inset: 9pt,
   [
-    #text(weight: "bold", size: 8.5pt, fill: rgb("#0F766E"))[INSTITUTIONAL CURRICULAR HIGHLIGHTS:]\
-    - *Full Double-Entry Parity:* 28 predefined groups, 24 vouchers, and complete Golden Rules analysis.
-    - *Modern GST Rationalization:* Full coverage of 0% Exempt APMC commodities, 5% Essentials, and 18% Standard IT/Electronics.
-    - *Corporate TDS Integration:* Sections 194C, 194J, 194I, Challan ITNS 281, and Form 26Q return filing.
-    - *Real Field Practice:* Mr. Verma's 50 real transactions and Salman Trading Co. 18 group case scenarios.
+    #text(weight: "bold", size: 8.8pt, fill: rgb("#0F766E"))[ACADEMIC PUBLICATION & STATUTORY COMPLIANCE GUARANTEE:]\
+    This master curriculum is standardized by RTechLab and IANT Palanpur to bridge the gap between academic theory and real-world corporate accounting. Designed for commerce students, CA articles, and corporate accounts executives, every chapter is verified against the latest Tally Prime 4.x/5.x engine, the statutory GST portal requirements, and Income Tax TDS regulations.
   ]
 )
 
+#v(6pt)
 
-#pagebreak()
+#table(
+  columns: (0.7fr, 2fr, 2.3fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[Topic]], [#text(weight: "bold", fill: white)[Curriculum Domain]], [#text(weight: "bold", fill: white)[Core Practical Learning Outcomes]],
+  [Topic 01], [History of Tally & Licensing], [Bharat Goenka, 80% market share, download from tallysolutions.com, Silver/Gold/Edu mode],
+  [Topic 02], [What is Tally Prime & Architecture], [Cactus in-memory DB, Top menu (Alt+K/Y/Z/O/E/M/P), Go To (Alt+G) multi-tasking],
+  [Topic 03], [Comprehensive GST & TDS Foundation], [CGST+SGST vs IGST, 0% Exempt, 5% Essentials, 18% Standard slabs, Sec 194C/J/I/H, 26Q],
+  [Topic 04], [Ledgers, Accounts & Golden Rules], [Personal, Real & Nominal accounts, Luca Pacioli rules, 20+ practical Dr/Cr proofs],
+  [Topic 05], [Vouchers & 4 Main Categories], [Accounting, Inventory, Order & Memo categories, 24 vouchers with shortcuts],
+  [Topic 06], [Groups & Complete Ledger Mapping], [15 Primary + 13 Secondary groups, 50+ real account mappings (Salman, HDFC, Taxes)],
+  [Topic 07], [Company & Step-by-Step Creation], [Company creation, Gujarat Code 24, FY beginning, Tally Vault, F11 Features & F12 Config],
+  [Topic 08], [Types of Business Organizations], [Trading concerns (Unjha Mandi), Manufacturing (Morbi Ceramics), Service providers],
+  [Topic 09], [Practical Commercial Invoices], [Inventory Invoices (Item Mode) vs Accounting Invoices (Service Mode, Ctrl+H)],
+  [Topic 10], [Master Keyboard Shortcuts (40+)], [General navigation, master alteration, voucher shortcuts, and reporting speeds],
+  [Topic 11], [Corporate Bridge Highlights], [GST portal returns (GSTR-1/3B/2B), BRS bank reconciliation, Cost Centres, Splitting]
+)
 
-= Chapter 01: Fundamentals of Accounting & Double-Entry Bookkeeping
 
-== 1.1 What is Accounting?
-Accounting is universally defined as the systematic art of identifying, recording, classifying, summarizing, and interpreting financial transactions and events of a business entity. In modern enterprise resource planning (ERP) environments such as *Tally Prime*, accounting transforms raw business transactions (purchases, sales, bank deposits, salary payouts) into statutory financial statements—namely the *Trading Account*, *Profit & Loss Account*, and the *Balance Sheet*.
+#v(14pt)
 
-#concept-box(title: "The Financial Accounting Cycle")[
-  *Step 1: Identifying Transactions* (Invoices, vouchers, receipts, bank statements)\
-  *Step 2: Recording in Journals* (Debit and Credit entry in books of prime entry)\
-  *Step 3: Posting to Ledgers* (Classifying into individual debtor, creditor, bank, and expense ledgers)\
-  *Step 4: Trial Balance Preparation* (Verifying arithmetical equality of Total Debits = Total Credits)\
-  *Step 5: Adjustments & Closing Entries* (Prepaid expenses, depreciation, outstanding liabilities)\
-  *Step 6: Financial Statements* (Balance Sheet, Profit & Loss A/c, Cash Flow Statement)
+= Topic 01: History of Tally, Evolution & Downloading Tally Prime
+
+== 1.1 The Genesis of Tally: A Proud Indian Innovation
+The story of Tally represents one of the most remarkable journeys in Indian software engineering. In 1986, *Shyam Sundar Goenka* (running a textile machinery company in Bangalore) was struggling with manual paper-based bookkeeping. Frustrated by the lack of simple accounting software that did not require complex computer programming, he challenged his son, *Bharat Goenka* (a mathematics graduate), to build a software that an ordinary Indian accountant could operate in plain English without knowing programming code.
+
+Bharat Goenka founded *Peutronics Financial Services* in Bangalore in 1986 and developed the world's first "codeless" accounting software called *The Accountant*. In 1999, Peutronics was formally renamed *Tally Solutions Pvt. Ltd.* Today, headquartered in Bangalore, Tally dominates the Indian business landscape with over *80% market share* across MSMEs, manufacturing plants, retail chains, and Chartered Accountancy firms.
+
+#concept-box(title: "The Historical Evolution of Tally Software")[
+  - *Tally 4.5 (1990s):* DOS-based, keyboard-driven double-entry bookkeeping without graphical mouse support.
+  - *Tally 5.4 (1998):* Transitioned to 32-bit Windows operating systems, introducing graphical interface.
+  - *Tally 6.3 (2001):* Added rudimentary data communication, multi-lingual printing, and audio-visual help.
+  - *Tally 7.2 (2005):* Integrated state-level Value Added Tax (VAT), Service Tax, and central Excise duties.
+  - *Tally 8.1 & 9 (2006):* Added multi-currency, point-of-sale (POS), and multi-lingual Indian script input.
+  - *Tally.ERP 9 (2009 - 2020):* The monumental ERP workhorse of India, adding Payroll, Remote Access, and GST in 2017.
+  - *Tally Prime (2020 - Present):* Complete ground-up redesign featuring top-bar navigation, multi-tasking (Alt+G), unified single-window installer, and native e-Invoicing/e-Way bill automation.
 ]
 
-== 1.2 Core Accounting Terminology
-Every certified accountant and Tally operator must possess flawless clarity on the core foundational terms:
+== 1.2 How to Download & Install Tally Prime
+To download the authentic, digitally signed release of Tally Prime:
+1. Open any modern web browser (Google Chrome, Microsoft Edge, Mozilla Firefox) and navigate to the official portal: #link("https://tallysolutions.com")[tallysolutions.com].
+2. Click on the top-right *Download* button to obtain the latest setup executable: `Setup.exe` (approx. 45 MB).
+3. Run `Setup.exe` as Administrator on a Windows 10/11 64-bit PC.
+4. The unified installer detects existing installations. Click *Install* (default directory: `C:\Program Files\TallyPrime`).
+5. Launch Tally Prime from the desktop shortcut or Start Menu.
 
+== 1.3 Tally Prime Licensing Modes
+When launching Tally Prime, you are presented with four licensing startup options:
+#table(
+  columns: (1.2fr, 1.4fr, 2.4fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 5pt,
+  [#text(weight: "bold", fill: white)[License Edition]], [#text(weight: "bold", fill: white)[User Access Limit]], [#text(weight: "bold", fill: white)[Operational Features & Restrictions]],
+  [Silver Edition (Single User)], [1 Active Machine at a time], [Full commercial functionality for standalone desktop/laptop PCs. Ideal for small retail shops, trading concerns, and solo practitioners.],
+  [Gold Edition (Multi-User)], [Unlimited Users on Local LAN], [Enables concurrent multi-user access across multiple office computers connected via Ethernet/Wi-Fi local network. Standard for CA firms, corporate accounts departments, and factories.],
+  [Educational Mode], [Single User (Free of Cost)], [Designed specifically for students, schools, and training institutes like IANT Palanpur. *Critical Restriction:* Vouchers can only be entered on the *1st, 2nd, and 31st day* of any calendar month. All double-entry and reporting features remain 100% functional!],
+  [Rental Mode], [Monthly / Quarterly Subscription], [Allows businesses to lease Silver or Gold licenses for short seasonal durations without permanent capital investment.]
+)
+
+#v(14pt)
+
+= Topic 02: What is Tally Prime & System Architecture
+
+== 2.1 What is Tally Prime?
+*Tally Prime* is India's premier enterprise resource planning (ERP) and business management software. It seamlessly integrates financial accounting, inventory management, statutory tax compliance (GST & TDS), banking automation, purchase/sales order processing, and payroll into a unified, lightning-fast application.
+
+Unlike conventional accounting packages that require rigid ledger numbering codes or database query scripts, Tally Prime allows accountants to record transactions in natural commercial terms. Entering a payment voucher instantly updates the cash/bank book, customer ledger, trial balance, profit & loss statement, balance sheet, and statutory GST returns in real time!
+
+== 2.2 The Proprietary "Cactus" In-Memory Database Engine
+The unmatched speed and responsiveness of Tally Prime are powered by its proprietary in-memory database architecture, internally known as the *Cactus Engine*:
+- *Zero-Latency In-Memory Processing:* Traditional ERP systems (e.g., SAP, Oracle) rely on external relational database management systems (RDBMS like SQL/PostgreSQL) with tables, foreign keys, and disk queries. Tally holds the entire hierarchical chart of accounts and transaction tree directly in RAM (Random Access Memory).
+- *Instant Real-Time Recalculation:* When a sales invoice is saved, Cactus recalculates financial ratios, stock valuations (FIFO, Weighted Average), and tax ledgers across years of data in milliseconds.
+- *Extensibility via TDL (Tally Definition Language):* Every screen, menu, report, invoice format, and voucher in Tally Prime is written in TDL, enabling rapid customization, custom invoice layouts, and API integrations.
+
+== 2.3 Interface Architecture & Navigation Mastery
+Tally Prime features an intuitive top-bar menu that stays accessible across every screen:
+#table(
+  columns: (1.2fr, 1.2fr, 2.6fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 5pt,
+  [#text(weight: "bold", fill: white)[Top Menu Element]], [#text(weight: "bold", fill: white)[Keyboard Shortcut]], [#text(weight: "bold", fill: white)[Operational Function]],
+  [Company Menu], [#key-pill("Alt + K")], [Create, alter, select, shut, or configure company data paths and security credentials.],
+  [Data Menu], [#key-pill("Alt + Y")], [Manage data backups, restore archive files, split company data at year-end, and repair corrupted databases.],
+  [Exchange Menu], [#key-pill("Alt + Z")], [Synchronize multi-branch data between head office and regional godowns/retail outlets.],
+  [Import Menu], [#key-pill("Alt + O")], [Import ledgers, stock items, transactions, and electronic bank statements (CSV/XML).],
+  [Export Menu], [#key-pill("Alt + E")], [Export invoices and financial statements into PDF, Excel, XML, HTML, or CSV formats.],
+  [Email Menu], [#key-pill("Alt + M")], [Dispatch invoices, outstanding statements, and customer ledgers directly via corporate SMTP email.],
+  [Print Menu], [#key-pill("Alt + P")], [Print formal tax invoices, cheques, vouchers, and statutory audit balance sheets.],
+  [Help Menu], [#key-pill("F1")], [Access TallyHelp documentation, keyboard shortcut lists, license management, and software update wizards.]
+)
+
+#v(6pt)
+
+#concept-box(title: "The Universal Search & Multi-Tasking Revolution: Go To (Alt + G)")[
+  The hallmark innovation of Tally Prime is *Go To* (#key-pill("Alt + G")). In older software, if you were in the middle of entering a 30-item purchase bill and a customer walked in asking for their balance, you had to cancel or save the incomplete voucher. In Tally Prime, you simply press #key-pill("Alt + G"), type "Balance Sheet" or "Ledger Voucher", review or print the customer's account, and press *Esc* to return directly to your active, unsaved purchase voucher without losing a single keystroke!
+]
+
+#v(14pt)
+
+= Topic 03: Comprehensive GST & TDS Foundation (Full Details & Slabs)
+
+== 3.1 Understanding Goods and Services Tax (GST)
+Implemented on *1st July 2017* via the *101st Constitutional Amendment Act*, the Goods and Services Tax (GST) dismantled India's fragmented indirect tax web (Central Excise, Service Tax, State VAT, Entry Tax, Luxury Tax) under the motto *"One Nation, One Tax, One Market"*.
+
+GST is an *indirect, destination-based, comprehensive multi-stage consumption tax*. The tax revenue accrues to the state where the goods or services are actually consumed (*Place of Supply*), rather than where they originated.
+
+== 3.2 Dual GST Framework: Intrastate vs Interstate
+India adopted a dual GST model to maintain fiscal federalism between the Centre and States:
+- *Intrastate Supply (Within Same State, e.g., Gujarat to Gujarat):*
+  $ "Total GST" = "CGST (Central Tax 50%)" + "SGST (State Tax 50%)" $
+- *Interstate Supply (Between Different States, e.g., Gujarat to Maharashtra/Delhi):*
+  $ "Total GST" = "IGST (Integrated Tax 100%)" $
+  IGST is collected by the Central Government and apportioned to the destination consumer state.
+- *Union Territory Supply (e.g., Daman & Diu, Ladakh):*
+  $ "Total GST" = "CGST" + "UTGST" $
+
+== 3.3 Modern Rationalized GST Slabs (What Falls Under What)
+Modern GST rates are systematically structured to protect essential commodities while fairly taxing luxury goods:
+#table(
+  columns: (0.9fr, 1.4fr, 2.7fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 5pt,
+  [#text(weight: "bold", fill: white)[GST Slab]], [#text(weight: "bold", fill: white)[Commercial Category]], [#text(weight: "bold", fill: white)[Exact Commodities, Services & Practical Field Examples]],
+  [0% (00 Slab)], [Nil-Rated & Fully Exempt APMC Goods], [Unbranded fresh agricultural produce directly from farmers/APMC Mandis: unbranded cumin (jeera), psyllium husk (isabgol), fresh vegetables, fresh unpasteurized milk, curd, unbranded wheat and rice, salt, organic manure, and basic municipal education/healthcare services.],
+  [5% (05 Slab)], [Essential Daily Items & Mass Transport], [Packaged edible oils (mustard, groundnut, sunflower oil), tea leaves, coffee beans, spices (packaged cumin, turmeric), basic footwear priced under ₹1,000, cotton textiles/fabrics, railway economy passenger travel, goods transport agency (GTA) services, and life-saving pharmaceuticals/vaccines.],
+  [18% (18 Slab)], [Standard Industrial Goods & Corporate Services], [IT hardware, desktop computers, laptops, servers, smartphones, consumer electronics, industrial machinery, software subscriptions, CA/legal consulting fees, commercial transport, and hotel room accommodation exceeding ₹1,000 per night.],
+  [12% & 28%], [Specialized & Luxury/Sin Goods], [*12%:* Specific processed foods, dairy machinery, fruit juices. *28% + Compensation Cess:* Luxury motor cars, racing vehicles, pan masala, tobacco products, and aerated carbonated beverages.]
+)
+
+== 3.4 Input Tax Credit (ITC) & Utilization Mechanism
+Input Tax Credit (ITC) prevents tax cascading ("tax on tax"). When a business buys goods, the tax paid (*Input GST*) can be offset against tax collected on sales (*Output GST*).
+#concept-box(title: "Statutory Order of ITC Utilization (Section 49)")[
+  1. *Input IGST* must first be utilized 100% against Output IGST, and any surplus can offset Output CGST or SGST in any proportion.
+  2. *Input CGST* is utilized next against Output CGST, and any surplus against Output IGST (*Input CGST can NEVER offset SGST!*).
+  3. *Input SGST* is utilized last against Output SGST, and any surplus against Output IGST (*Input SGST can NEVER offset CGST!*).
+]
+
+== 3.5 What is TDS (Tax Deducted at Source)?
+Governed by the *Income Tax Act, 1961*, TDS ensures regular income tax collection at the very point of income generation. The entity making a payment (*Deductor*) deducts tax from the payee (*Deductee*) and remits it directly to the Central Government treasury using a 10-digit alphanumeric *Tax Deduction and Collection Account Number (TAN)*.
+
+#table(
+  columns: (0.9fr, 1.4fr, 1.1fr, 1.6fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 5pt,
+  [#text(weight: "bold", fill: white)[Section]], [#text(weight: "bold", fill: white)[Nature of Payment]], [#text(weight: "bold", fill: white)[TDS Rate]], [#text(weight: "bold", fill: white)[Statutory Threshold & Applicability]],
+  [Sec 194C], [Payments to Contractors / Subcontractors], [1% (Ind/HUF)\ 2% (Companies)], [Single contract exceeding ₹30,000 or aggregate FY payments exceeding ₹1,00,000. Applies to transport, catering, advertising.],
+  [Sec 194J], [Fees for Professional or Technical Services], [10% (Prof)\ 2% (Tech/BPO)], [Aggregate payment exceeding ₹30,000 per financial year. Applies to CA audit fees, legal charges, IT programming services.],
+  [Sec 194I], [Rent of Land, Building or Machinery], [10% (Land/Bldg)\ 2% (Plant/Mach)], [Aggregate rent exceeding ₹2,40,000 per financial year per payee.],
+  [Sec 194H], [Commission or Brokerage], [5%], [Aggregate commission exceeding ₹15,000 per financial year.],
+  [Sec 206AA], [Mandatory PAN Requirement], [*Flat 20%*], [If the payee fails to furnish a valid Permanent Account Number (PAN), TDS must be deducted at a penalty rate of 20%!]
+)
+
+*Deposit & Filing Timelines:* Monthly TDS must be deposited via *Challan ITNS 281* by the *7th of the following month* (30th April for March). Quarterly returns must be filed via *Form 26Q* (Non-salaries) and *Form 24Q* (Salaries) on the TRACES/Income Tax portal.
+
+#v(14pt)
+
+= Topic 04: Ledgers, Types of Accounts & Golden Rules of Accounting
+
+== 4.1 What is a Ledger?
+In double-entry bookkeeping and Tally Prime, a *Ledger* is the fundamental individual accounting record where all transactions affecting a specific asset, liability, equity, income, or expense are recorded. Every commercial invoice, payment, receipt, or journal adjustment must reference at least two ledgers (one Debited and one Credited) to maintain arithmetical balance.
+
+== 4.2 The Three Fundamental Types of Accounts
+Every financial transaction in the commercial world falls into one of three classical account types:
+1. *Personal Accounts (વ્યક્તિગત ખાતા / व्यक्तिगत खाते):* Accounts relating to natural human beings (e.g., Rahul Patel A/c, Ramesh A/c), artificial corporate persons (e.g., HDFC Bank Ltd., Reliance Industries Ltd., Tata Motors Ltd.), and representative personal accounts (e.g., Outstanding Salary A/c, Prepaid Rent A/c).
+2. *Real Accounts (માલ-મિલકતના ખાતા / वास्तविक खाते):* Accounts relating to tangible property and economic assets owned by the business (e.g., Cash A/c, Plant & Machinery A/c, Computer & Server A/c, Office Furniture A/c, Stock A/c) and intangible assets (Goodwill, Copyrights, Patents).
+3. *Nominal Accounts (ઉપજ-ખર્ચના ખાતા / नाममात्र खाते):* Accounts relating to business expenses, losses, revenues, and gains (e.g., Office Rent A/c, Staff Salary A/c, Interest Received A/c, Discount Allowed A/c, Commission Received A/c).
+
+== 4.3 The Golden Rules of Accounting
+Formulated by Franciscan mathematician *Luca Pacioli* in 1494, these three timeless rules govern all double-entry accounting in Tally Prime:
+#table(
+  columns: (1.2fr, 1.4fr, 1.4fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 6pt,
+  [#text(weight: "bold", fill: white)[Account Type]], [#text(weight: "bold", fill: white)[Debit Rule (ડૉ. / नाम)]], [#text(weight: "bold", fill: white)[Credit Rule (જ. / जमा)]],
+  [Personal Account], [*Debit the Receiver*\ (જે વ્યક્તિ લાભ મેળવે તેને ઉધાર કરો / पाने वाले को डेबिट करो)], [*Credit the Giver*\ (જે વ્યક્તિ લાભ આપે તેને જમા કરો / देने वाले को क्रेडिट करो)],
+  [Real Account], [*Debit what comes in*\ (ધંધામાં જે માલ/મિલકત આવે તે ઉધાર / जो वस्तु व्यापार में आए उसे डेबिट)], [*Credit what goes out*\ (ધંધામાંથી જે માલ/મિલકત જાય તે જમા / जो वस्तु व्यापार से जाए उसे क्रेडिट)],
+  [Nominal Account], [*Debit all expenses and losses*\ (ધંધાના તમામ ખર્ચ કે નુકસાન ઉધાર કરો / सभी खर्चों एवं हानियों को डेबिट)], [*Credit all incomes and gains*\ (ધંધાની તમામ આવક કે ઉપજ જમા કરો / सभी आय एवं लाभों को क्रेडिट)]
+)
+
+== 4.4 20 Practical Dr / Cr Examples with Step-by-Step Accounting Logic
+#table(
+  columns: (0.4fr, 2.4fr, 1.2fr, 1.2fr, 2fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Business Transaction]], [#text(weight: "bold", fill: white)[Debit Ledger]], [#text(weight: "bold", fill: white)[Credit Ledger]], [#text(weight: "bold", fill: white)[Core Accounting Rule & Reasoning]],
+  [01], [Started business with Cash ₹5,00,000], [Cash A/c (₹5L)], [Capital A/c (₹5L)], [Real A/c (Cash comes in = Dr) | Personal A/c (Owner gives funds = Cr)],
+  [02], [Deposited cash ₹2,00,000 in HDFC Bank], [HDFC Bank A/c], [Cash A/c], [Personal A/c (Bank receives = Dr) | Real A/c (Cash goes out = Cr)],
+  [03], [Purchased office computer for cash ₹45,000], [Computer A/c], [Cash A/c], [Real A/c (Asset comes in = Dr) | Real A/c (Cash goes out = Cr)],
+  [04], [Purchased goods for cash ₹50,000], [Purchase A/c], [Cash A/c], [Nominal A/c (Purchase cost = Dr) | Real A/c (Cash goes out = Cr)],
+  [05], [Purchased goods on credit from Rajesh Bros ₹1,20,000], [Purchase A/c], [Rajesh Bros A/c], [Nominal A/c (Expense = Dr) | Personal A/c (Supplier gives goods = Cr)],
+  [06], [Sold goods for cash ₹40,000], [Cash A/c], [Sales A/c], [Real A/c (Cash comes in = Dr) | Nominal A/c (Sales revenue = Cr)],
+  [07], [Sold goods on credit to Mehta Traders ₹95,000], [Mehta Traders A/c], [Sales A/c], [Personal A/c (Customer receives = Dr) | Nominal A/c (Revenue = Cr)],
+  [08], [Paid office rent by cheque ₹18,000], [Office Rent A/c], [HDFC Bank A/c], [Nominal A/c (Expense = Dr) | Personal A/c (Bank pays = Cr)],
+  [09], [Paid staff salaries in cash ₹35,000], [Salary A/c], [Cash A/c], [Nominal A/c (Expense = Dr) | Real A/c (Cash goes out = Cr)],
+  [10], [Received commission by cheque ₹12,000], [HDFC Bank A/c], [Commission A/c], [Personal A/c (Bank receives = Dr) | Nominal A/c (Income = Cr)],
+  [11], [Owner withdrew cash for personal use ₹15,000], [Drawings A/c], [Cash A/c], [Personal A/c (Owner receives = Dr) | Real A/c (Cash goes out = Cr)],
+  [12], [Paid Rajesh Bros ₹1,18,000 in full settlement (Discount ₹2,000)], [Rajesh Bros (₹1.2L)], [Cash / Discount Rec.], [Personal (Dr Receiver) | Real (Cr Cash ₹1.18L) | Nominal (Cr Discount ₹2k)],
+  [13], [Received from Mehta Traders ₹93,500 (Discount ₹1,500)], [Cash / Discount All.], [Mehta Traders], [Real (Dr Cash ₹93.5k) | Nominal (Dr Discount ₹1.5k) | Personal (Cr Giver)],
+  [14], [Depreciation charged on office computer ₹4,500], [Depreciation A/c], [Computer A/c], [Nominal A/c (Loss = Dr) | Real A/c (Asset value reduces = Cr)],
+  [15], [Paid electricity bill for office in cash ₹4,200], [Electricity Exp A/c], [Cash A/c], [Nominal A/c (Expense = Dr) | Real A/c (Cash goes out = Cr)],
+  [16], [Sold old damaged office furniture for cash ₹8,000], [Cash A/c], [Furniture A/c], [Real A/c (Cash comes in = Dr) | Real A/c (Asset goes out = Cr)],
+  [17], [Goods destroyed by accidental warehouse fire ₹10,000], [Loss by Fire A/c], [Purchase A/c], [Nominal A/c (Loss = Dr) | Real/Nominal (Goods value reduced = Cr)],
+  [18], [Paid carriage inward on purchased goods ₹3,500], [Carriage Inward A/c], [Cash A/c], [Nominal A/c (Direct expense = Dr) | Real A/c (Cash goes out = Cr)],
+  [19], [Interest credited by bank into current account ₹2,400], [HDFC Bank A/c], [Bank Interest Rec.], [Personal A/c (Bank balance increases = Dr) | Nominal A/c (Income = Cr)],
+  [20], [Withdrew cash from HDFC Bank for office petty cash ₹25,000], [Cash A/c], [HDFC Bank A/c], [Real A/c (Cash comes in = Dr) | Personal A/c (Bank gives = Cr)]
+)
+
+#v(14pt)
+
+= Topic 05: Vouchers & The 4 Main Voucher Categories
+
+== 5.1 What is a Voucher?
+In accounting and Tally Prime, a *Voucher* is the formal legal document that records the details of a financial or inventory transaction. Vouchers serve as verifiable audit proof for statutory tax auditors and Chartered Accountants.
+
+== 5.2 The 4 Main Voucher Categories in Tally Prime
+Every voucher in Tally Prime belongs to one of four distinct functional categories:
+1. *Accounting Vouchers:* Vouchers that record purely financial inflows, outflows, and double-entry adjustments without altering physical stock quantities.
+2. *Inventory Vouchers:* Vouchers that record the physical movement, receipt, delivery, or transfer of goods between warehouses without immediately altering ledger financial balances.
+3. *Order Vouchers:* Commercial commitments (Purchase Orders and Sales Orders) entered before the actual delivery or invoicing of merchandise.
+4. *Non-Accounting / Memo Vouchers:* Provisional entries (Memorandum Vouchers and Reversing Journals) used for future forecasting, budgeting, and draft review that do not impact financial books until converted.
+
+== 5.3 Complete Reference: 24 Vouchers & Keyboard Shortcuts
+#table(
+  columns: (0.9fr, 1.4fr, 1.1fr, 2.6fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 5pt,
+  [#text(weight: "bold", fill: white)[Shortcut]], [#text(weight: "bold", fill: white)[Voucher Name]], [#text(weight: "bold", fill: white)[Category]], [#text(weight: "bold", fill: white)[Operational Purpose & Transaction Example]],
+  [#key-pill("F4")], [Contra Voucher], [Accounting], [Internal cash & bank transfers: depositing cash into bank, withdrawing cash from bank, or transferring funds between HDFC and SBI.],
+  [#key-pill("F5")], [Payment Voucher], [Accounting], [Payments to vendors, expense payouts, salaries, rent, and government tax deposits (Challan 281/GST) via Cash or Bank.],
+  [#key-pill("F6")], [Receipt Voucher], [Accounting], [Inflow of funds from customers, capital introduction, interest received, or loan proceeds via Cash or Bank.],
+  [#key-pill("F7")], [Journal Voucher], [Accounting], [Non-cash adjustment entries: booking depreciation, prepaid expenses, year-end provisions, and TDS deduction bookings.],
+  [#key-pill("F8")], [Sales Voucher], [Accounting], [Recording sale of merchandise or services to customers. Supports Item Invoice, Accounting Invoice, and As Voucher modes.],
+  [#key-pill("F9")], [Purchase Voucher], [Accounting], [Recording inward purchase of raw materials, trade stock, or capital assets from suppliers with GST verification.],
+  [#key-pill("Alt + F5")], [Debit Note], [Accounting], [Purchase returns of defective goods to suppliers, or claiming price reductions and debit adjustments from vendors.],
+  [#key-pill("Alt + F6")], [Credit Note], [Accounting], [Sales returns received from customers, or issuing credit adjustments for volume discounts or damaged goods.],
+  [#key-pill("Alt + F7")], [Stock Journal], [Inventory], [Transferring stock from Central Godown to Branch Godown, or recording consumption & production in manufacturing.],
+  [#key-pill("Ctrl + F7")], [Physical Stock], [Inventory], [Recording actual physical stock counts during warehouse audits to auto-reconcile stock discrepancies.],
+  [#key-pill("Alt + F8")], [Delivery Note], [Inventory], [Generating Delivery Challan when dispatching physical merchandise to customers prior to issuing final tax invoice.],
+  [#key-pill("Alt + F9")], [Receipt Note (GRN)], [Inventory], [Recording Goods Receipt Note when receiving raw materials or stock from suppliers prior to purchase bill arrival.],
+  [#key-pill("Ctrl + F8")], [Rejections Out], [Inventory], [Returning rejected, defective, or incorrect stock back to the supplier before the purchase bill is recorded.],
+  [#key-pill("Ctrl + F9")], [Rejections In], [Inventory], [Receiving goods rejected and returned by customers before the sales invoice is finalized.],
+  [#key-pill("Ctrl + F4")], [Purchase Order], [Order], [Placing formal legal purchase orders with suppliers specifying expected items, delivery dates, and contracted prices.],
+  [#key-pill("Ctrl + F5")], [Sales Order], [Order], [Booking formal sales orders received from corporate customers specifying delivery schedules and agreed rates.],
+  [#key-pill("Ctrl + F10")], [Memorandum], [Non-Accounting], [Recording provisional or suspense entries that do not affect the Balance Sheet or P&L until formally converted.],
+  [#key-pill("F10")], [Other Vouchers], [Master Menu], [Accessing the complete list of all 24 vouchers, including payroll, job work, and attendance registers.]
+)
+
+#v(14pt)
+
+= Topic 06: Groups & Mapping of Ledgers to Groups
+
+== 6.1 What is a Group in Tally Prime?
+A *Group* is an accounting classification container that dictates where a ledger account reports in the statutory financial statements (*Balance Sheet* or *Profit & Loss Account*). Tally Prime comes pre-configured with *28 Predefined Groups* (15 Primary Groups and 13 Secondary Groups).
+
+Correct group classification is the absolute foundation of reliable accounting. If an accountant erroneously creates a supplier ledger under *Direct Expenses* instead of *Sundry Creditors*, Cost of Goods Sold is artificially inflated, Gross Profit is distorted, and the Balance Sheet liabilities become legally defective!
+
+== 6.2 The 15 Primary Groups & 13 Secondary Groups
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 10pt,
+  [
+    #block(fill: rgb("#F0FDFA"), stroke: 1pt + rgb("#99F6E4"), inset: 8pt, radius: 4pt)[
+      #text(weight: "bold", size: 8.5pt, fill: rgb("#0F766E"))[15 PRIMARY GROUPS:]      1. Capital Account      2. Loans (Liability)      3. Current Liabilities      4. Fixed Assets      5. Current Assets      6. Investments      7. Miscellaneous Expenses (Asset)      8. Suspense Account      9. Branch / Divisions      10. Sales Accounts      11. Purchase Accounts      12. Direct Incomes      13. Indirect Incomes      14. Direct Expenses      15. Indirect Expenses
+    ]
+  ],
+  [
+    #block(fill: rgb("#EFF6FF"), stroke: 1pt + rgb("#BFDBFE"), inset: 8pt, radius: 4pt)[
+      #text(weight: "bold", size: 8.5pt, fill: rgb("#1D4ED8"))[13 SECONDARY (SUB) GROUPS:]      1. Reserves & Surplus (under Capital Account)      2. Bank OD A/c (under Loans Liability)      3. Secured Loans (under Loans Liability)      4. Unsecured Loans (under Loans Liability)      5. Duties & Taxes (under Current Liabilities)      6. Provisions (under Current Liabilities)      7. Sundry Creditors (under Current Liabilities)      8. Bank Accounts (under Current Assets)      9. Cash-in-Hand (under Current Assets)      10. Deposits (Asset) (under Current Assets)      11. Loans & Advances (Asset) (under Current Assets)      12. Stock-in-Hand (under Current Assets)      13. Sundry Debtors (under Current Assets)
+    ]
+  ]
+)
+
+== 6.3 Exhaustive 50+ Ledger-to-Group Mapping Table
+Directly modeled from Rahul Sir's authoritative classroom practice sheets:
+#table(
+  columns: (0.4fr, 2.2fr, 1.8fr, 2fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Commercial Ledger Name]], [#text(weight: "bold", fill: white)[Tally Group Classification]], [#text(weight: "bold", fill: white)[Financial Statement & Nature]],
+  [01], [Salman's Capital A/c], [Capital Account], [Balance Sheet (Owner's Equity)],
+  [02], [Partner's Drawings A/c], [Capital Account], [Balance Sheet (Deducted from Equity)],
+  [03], [HDFC Bank Current A/c], [Bank Accounts], [Balance Sheet (Current Asset)],
+  [04], [SBI Cash Credit / Overdraft A/c], [Bank OD A/c], [Balance Sheet (Loans Liability)],
+  [05], [Petty Cash A/c], [Cash-in-hand], [Balance Sheet (Current Asset)],
+  [06], [Plant & Heavy Machinery A/c], [Fixed Assets], [Balance Sheet (Long-Term Asset)],
+  [07], [Office Computers & Laptops A/c], [Fixed Assets], [Balance Sheet (Fixed Asset)],
+  [08], [Office Furniture & Fixtures A/c], [Fixed Assets], [Balance Sheet (Fixed Asset)],
+  [09], [Mehta Traders A/c (Customer)], [Sundry Debtors], [Balance Sheet (Current Asset - Receivable)],
+  [10], [Rajesh Brothers A/c (Customer)], [Sundry Debtors], [Balance Sheet (Current Asset - Receivable)],
+  [11], [Patel Electronics A/c (Supplier)], [Sundry Creditors], [Balance Sheet (Current Liability - Payable)],
+  [12], [Ambica Trading Co. A/c (Supplier)], [Sundry Creditors], [Balance Sheet (Current Liability - Payable)],
+  [13], [Output CGST / SGST / IGST A/c], [Duties & Taxes], [Balance Sheet (Current Liability)],
+  [14], [Input CGST / SGST / IGST A/c], [Duties & Taxes], [Balance Sheet (Tax Credit Asset)],
+  [15], [TDS Payable on Contractor (194C)], [Duties & Taxes], [Balance Sheet (Current Liability)],
+  [16], [TDS Payable on Prof Fees (194J)], [Duties & Taxes], [Balance Sheet (Current Liability)],
+  [17], [Security Deposit on Office Rent], [Deposits (Asset)], [Balance Sheet (Current Asset - Refundable)],
+  [18], [Electricity Deposit to Electricity Board], [Deposits (Asset)], [Balance Sheet (Long-Term Deposit Asset)],
+  [19], [Short-Term Advance to Staff], [Loans & Advances (Asset)], [Balance Sheet (Current Asset)],
+  [20], [Advance to Raw Material Supplier], [Loans & Advances (Asset)], [Balance Sheet (Current Asset)],
+  [21], [Term Loan from Bank of Baroda], [Secured Loans], [Balance Sheet (Long-Term Liability)],
+  [22], [Loan from Friend / Director], [Unsecured Loans], [Balance Sheet (Unsecured Liability)],
+  [23], [Fixed Deposit (FD) with SBI], [Investments], [Balance Sheet (Investment Asset)],
+  [24], [Investment in Equity Shares / Mutual Funds], [Investments], [Balance Sheet (Investment Asset)],
+  [25], [Factory Workers Wages A/c], [Direct Expenses], [Trading Account (Affects Gross Profit)],
+  [26], [Freight & Carriage Inward A/c], [Direct Expenses], [Trading Account (Added to Cost of Goods)],
+  [27], [Factory Power, Coal & Fuel A/c], [Direct Expenses], [Trading Account (Direct Production Cost)],
+  [28], [Staff & Executive Salary A/c], [Indirect Expenses], [Profit & Loss Account (Operating Expense)],
+  [29], [Office Rent & Property Tax A/c], [Indirect Expenses], [Profit & Loss Account (Administration)],
+  [30], [Office Electricity & Internet Bill], [Indirect Expenses], [Profit & Loss Account (Utility Expense)],
+  [31], [Chartered Accountant Audit Fees], [Indirect Expenses], [Profit & Loss Account (Professional Cost)],
+  [32], [Depreciation on Fixed Assets], [Indirect Expenses], [Profit & Loss Account (Non-Cash Expense)],
+  [33], [Trade Sales Local 18% A/c], [Sales Accounts], [Trading Account (Operating Revenue)],
+  [34], [Interstate Sales IGST A/c], [Sales Accounts], [Trading Account (Operating Revenue)],
+  [35], [Sales Return (Return Inward) A/c], [Sales Accounts], [Trading Account (Deducted from Gross Sales)],
+  [36], [Trade Purchase Local 18% A/c], [Purchase Accounts], [Trading Account (Cost of Inventory)],
+  [37], [Purchase Return (Return Outward) A/c], [Purchase Accounts], [Trading Account (Deducted from Purchases)],
+  [38], [Cash Discount Allowed to Customers], [Indirect Expenses], [Profit & Loss Account (Financial Expense)],
+  [39], [Cash Discount Received from Suppliers], [Indirect Incomes], [Profit & Loss Account (Financial Gain)],
+  [40], [Bank Interest Received on Current/FD], [Indirect Incomes], [Profit & Loss Account (Non-Operating Income)],
+  [41], [Bad Debts Written Off A/c], [Indirect Expenses], [Profit & Loss Account (Financial Loss)],
+  [42], [Provision for Doubtful Debts A/c], [Provisions], [Balance Sheet (Offset against Debtors)],
+  [43], [Outstanding Office Rent Payable], [Provisions / Current Liab], [Balance Sheet (Current Liability)],
+  [44], [Prepaid Insurance Policy A/c], [Loans & Advances (Asset)], [Balance Sheet (Current Asset)],
+  [45], [General Reserve Fund], [Reserves & Surplus], [Balance Sheet (Retained Earnings)],
+  [46], [Mumbai Branch Office A/c], [Branch / Divisions], [Balance Sheet (Inter-Branch Clearing)],
+  [47], [Office Stationery & Printing A/c], [Indirect Expenses], [Profit & Loss Account (Administrative Expense)],
+  [48], [Business Travelling & Conveyance], [Indirect Expenses], [Profit & Loss Account (Selling & Marketing)],
+  [49], [Bank Service & Cheque Charges], [Indirect Expenses], [Profit & Loss Account (Finance Cost)],
+  [50], [Unidentified Inward Remittance], [Suspense Account], [Balance Sheet (Temporary Unclassified)]
+)
+
+#v(14pt)
+
+= Topic 07: Company & Company Creation in Tally Prime
+
+== 7.1 What is a "Company" in Tally Prime?
+In Tally Prime, a *Company* is the independent legal and financial accounting container that holds a complete chart of accounts, master ledgers, stock items, voucher registers, and statutory tax configurations for a specific enterprise. Each company maintains its own distinct financial year, base currency, and security credentials.
+
+== 7.2 Step-by-Step Company Creation Workflow
+To create a corporate company in Tally Prime:
+1. From the *Gateway of Tally*, press #key-pill("Alt + K") (Company Menu) and select *Create* (or press #key-pill("F3") -> *Create Company*).
+2. *Company Data Path:* Default storage directory (e.g., `C:\ProgramData\TallyPrime\Data` or network drive).
+3. *Company Name:* Enter the legal business name (e.g., `Ravi Private Limited` or `Shree Ambica Agro Traders`).
+4. *Mailing Name & Address:* Auto-fills with company name. Enter full street address, city, and pin code (e.g., `Shop 14, APMC Market Yard, Highway Road, Palanpur - 385001`).
+5. *State & Country:* Select *Gujarat* and *India*.
+   #concept-box(title: "CRITICAL STATUTORY NOTE: STATE CODE MATTERS!")[
+     Selecting the state determines your *State Code* (e.g., `24` for Gujarat, `27` for Maharashtra). Tally automatically uses this state code to calculate CGST+SGST for local trade or IGST for interstate commerce!
+   ]
+6. *Financial Year Beginning From:* Enter `01-Apr-2026` (Standard Indian fiscal year: 1st April to 31st March).
+7. *Books Beginning From:* Enter the date when actual accounting begins in Tally (usually `01-Apr-2026`).
+8. *Security / Tally Vault:* Set *Control User Access to Company Data = Yes*. Enter Administrator Username and secure Password.
+9. *Base Currency Information:* Currency Symbol `₹`, Formal Name `INR`, Number of Decimal Places `2`. Press #key-pill("Ctrl + A") to save and create the company!
+
+== 7.3 Statutory Features Configuration: F11 Menu
+Immediately after company creation, Tally Prime opens the *F11: Features* screen:
+- *Accounting Features:* Maintain Accounts = `Yes`, Enable Bill-wise Details = `Yes`.
+- *Inventory Features:* Maintain Inventory = `Yes`, Integrate Accounts with Inventory = `Yes`.
+- *Statutory & Taxation (GST):*
+  - Enable Goods and Services Tax (GST) = `Yes`.
+  - State: `Gujarat` | Registration Type: `Regular` | Assessee of Other Territory: `No`.
+  - GSTIN / UIN: Enter 15-digit GSTIN (e.g., `24AABCR1234F1Z5`).
+  - Periodicity of GSTR-1: `Monthly` (or `Quarterly` for QRMP scheme).
+  - e-Way Bill Applicable: `Yes` (Threshold Limit: `₹50,000`).
+- *TDS Configuration:* Enable Tax Deducted at Source (TDS) = `Yes`. Enter TAN (e.g., `AHMR12345D`), Deductor Type: `Company` or `Individual`. Press #key-pill("Ctrl + A") to lock statutory configurations.
+
+#v(14pt)
+
+= Topic 08: Types of Business Organizations & Accounting Treatment
+
+Commercial enterprises in India operate under three fundamental operational models:
+
+== 8.1 Trading Concerns (વેપારી પેઢી / व्यापारिक संस्थाएं)
+*Definition:* Businesses that purchase finished commercial goods from manufacturers or wholesale distributors and resell them to retailers or end-consumers at a profit margin without altering the physical form of the goods.
+#concept-box(title: "Field Case Example: Shree Ambica Agro Traders, Unjha APMC Mandi")[
+  - *Business Activity:* Procurement of agricultural commodities (cumin/jeera, psyllium husk/isabgol, fennel seeds) from local North Gujarat farmers at 0% GST, sorting/cleaning, and distributing in 50 KG bags to domestic and export buyers.
+  - *Accounting Setup in Tally:*
+    - *Units of Measure:* `KGS` (Kilograms), `QNTL` (Quintals), `BAG` (Bags of 50 KGs).
+    - *Stock Items:* Unbranded Jeera Grade-A (HSN 0909, GST 0%), Packaged Roasted Cumin (HSN 0909, GST 5%).
+    - *Voucher Workflow:* Purchase (F9) -> Sales (F8) with batch-wise expiry tracking.
+]
+
+== 8.2 Manufacturing Concerns (ઉત્પાદન એકમો / विनिर्माण संस्थाएं)
+*Definition:* Entities that procure raw materials, utilize factory labor, machinery, electricity, and industrial fuel to convert raw inputs into completely new finished goods.
+#concept-box(title: "Field Case Example: Morbi Ceramic Tiles Pvt. Ltd., Morbi Cluster")[
+  - *Business Activity:* Procuring raw ball clay, feldspar, glaze chemicals, and natural gas. Converting raw materials via hydraulic presses and kilns into glazed vitrified porcelain floor tiles.
+  - *Accounting Setup in Tally:*
+    - *Bill of Materials (BOM):* Pre-defined recipe in Tally specifying that 1 Box of 600x1200mm Tiles requires 28 KG Clay + 2.5 KG Glaze + 1.2 SCM Gas + ₹45 Labor.
+    - *Godown Hierarchy:* Central Raw Material Godown -> Production Floor -> Finished Goods Yard.
+    - *Voucher Workflow:* Stock Journal (#key-pill("Alt + F7")) using *Manufacturing Journal* mode to auto-consume raw materials and produce finished tiles.
+]
+
+== 8.3 Service Organizations (સેવાકીય સંસ્થાઓ / सेवा प्रदाता)
+*Definition:* Organizations delivering intangible professional, technical, logistical, or financial services without trading in physical stock inventory.
+#concept-box(title: "Field Case Example: Ahmedabad Cloud Tech & CA Advisory LLP")[
+  - *Business Activity:* Providing software development, corporate tax audits, cloud hosting, and IT consultancy services across India.
+  - *Accounting Setup in Tally:* Zero inventory stock items. Pure service ledgers configured with 6-digit SAC (Services Accounting Code) codes (e.g., SAC 998314 for IT Consulting at 18% GST).
+  - *Invoicing:* Billed strictly via *Accounting Invoice* mode (#key-pill("Ctrl + H")) with Section 194J TDS deductions.
+]
+
+#v(14pt)
+
+= Topic 09: Practical Invoices (Inventory Invoices vs Accounting Invoices)
+
+In Tally Prime, the invoice mode is toggled using the universal Change Mode shortcut: #key-pill("Ctrl + H").
+
+== 9.1 Inventory Invoices (Item Invoice Mode)
+*When to Use:* Essential for trading and manufacturing businesses where physical stock items are bought or sold with specific Quantities, Rates, Units of Measure, and HSN codes.
 #table(
   columns: (1.2fr, 2.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 5pt,
-  [#text(weight: "bold", fill: white)[Accounting Term]], [#text(weight: "bold", fill: white)[Practical Corporate Definition]],
-  [Capital (Equity)], [The total monetary value or assets invested by the business owner/proprietor into the business to start or expand operations. Represented under the *Capital Account* group in Tally.],
-  [Drawings], [Monetary funds or commercial goods withdrawn by the business owner for personal, non-commercial use. Treated as a direct reduction from Capital.],
-  [Assets (Current & Fixed)], [Economic resources owned by the business yielding future economic benefits. *Fixed Assets* (Machinery, Computers, Office Furniture) are held long-term for operations. *Current Assets* (Cash, Bank balance, Debtors, Stock) are converted into cash within one financial year.],
-  [Liabilities], [Financial debts and contractual obligations owed by the enterprise to outside parties (Creditors, Bank Overdraft, Term Loans, Outstanding Rent).],
-  [Sundry Debtors (Customers)], [Persons or entities to whom the business has sold goods or provided services on credit, and from whom money is receivable in the future.],
-  [Sundry Creditors (Suppliers)], [Suppliers, vendors, or entities from whom goods or raw materials have been purchased on credit, and to whom payment is legally payable.],
-  [Revenue & Income], [Gross inflow of cash, receivables, or other consideration arising in the course of ordinary activities (Gross Sales, Commission received, Discount received).],
-  [Expenses (Direct & Indirect)], [Costs incurred in business operations. *Direct Expenses* (Wages, Freight Inward, Factory Power) directly affect cost of goods sold. *Indirect Expenses* (Office Rent, Staff Salaries, Electricity, Depreciation) relate to administration and selling.]
+  [#text(weight: "bold", fill: white)[Invoice Field]], [#text(weight: "bold", fill: white)[Practical Field Configuration & Entry Step]],
+  [Voucher Mode], [Open Sales (#key-pill("F8")), press #key-pill("Ctrl + H") and select *Item Invoice*.],
+  [Party A/c Name], [Select Sundry Debtor (e.g., `Alpha Infotech Pvt Ltd`, Gujarat State Code 24).],
+  [Sales Ledger], [Select `Sales Local Taxable 18%` (or allow item-based auto tax allocation).],
+  [Item Table], [Select Stock Item (e.g., `Dell Latitude 3420 Laptop`). Specify Godown, Quantity (5 Nos), and Rate (₹52,000/No). Taxable Value = ₹2,60,000.],
+  [Tax Ledgers], [Below the item line, select `Output CGST` (9% = ₹23,400) and `Output SGST` (9% = ₹23,400). Total Invoice Value = *₹3,06,800*.],
+  [E-Way Bill & Print], [If invoice value exceeds ₹50,000, Tally prompts for e-Way Bill dispatch details. Press #key-pill("Ctrl + A") to save and #key-pill("Alt + P") to print.]
 )
 
-== 1.3 Types of Business Organizations
-1. *Trading Concerns:* Businesses that purchase finished goods at wholesale rates and sell them to retailers or end-consumers at retail rates with a profit margin (e.g., Electronics showroom, FMCG distributor, APMC Mandi commodity merchant).
-2. *Manufacturing Concerns:* Entities that procure raw materials, utilize labor and factory machinery to convert them into finished goods, and distribute the manufactured products (e.g., Textile mills, Ceramic manufacturing in Morbi, Pharmaceutical production).
-3. *Service Providers:* Organizations delivering intangible professional, technical, or financial services without dealing directly in physical goods (e.g., Chartered Accountant firms, Software agencies, Transportation & Logistics, Educational institutes).
-#pagebreak()
-
-= Chapter 02: The Three Golden Rules of Accounting & Double Entry System
-
-== 2.1 The Philosophy of Double Entry Bookkeeping
-Introduced by Italian mathematician Luca Pacioli in 1494, the *Double Entry System* dictates that every financial transaction has two equal and opposite effects: a *Debit (Dr.)* and a *Credit (Cr.)*.
-$ "Total Debits" = "Total Credits" $
-In Tally Prime, every journal entry, sales invoice, and bank payment enforces this immutable mathematical balance.
-
-== 2.2 Classification of Accounts
-Every ledger in commercial commerce falls into one of three distinct categories:
-1. *Personal Accounts (વ્યક્તિગત ખાતા / व्यक्तिगत खाते):* Relate to individual persons, firms, companies, banks, or representative entities (e.g., Mr. Verma A/c, Reliance Industries Ltd, HDFC Bank, Outstanding Salary A/c).
-2. *Real Accounts (માલ-મિલકત ખાતા / वास्तविक खाते):* Relate to tangible or intangible properties and assets owned by the enterprise (e.g., Cash A/c, Computer & Server A/c, Office Furniture A/c, Machinery A/c, Trademark/Patent A/c).
-3. *Nominal Accounts (ઉપજ-ખર્ચ ખાતા / नाममात्र खाते):* Relate to all business expenditures, operating losses, revenue inflows, and financial gains (e.g., Salary Paid A/c, Office Rent A/c, Interest Received A/c, Commission Received A/c, Bad Debts A/c).
-
-== 2.3 The Three Golden Rules of Accounting
-#rule-box(title: "THE THREE GOLDEN RULES (MEMORIZE FOR LIFETIME ACCOUNTS)")[
-  *1. Personal Account Rule:*
-  $ "Debit the Receiver" quad <---> quad "Credit the Giver" $
-  *(पाने वाले को नाम (Debit) करें · देने वाले को जमा (Credit) करें)*\
-  *(લેનાર ખાતે ઉધાર (Debit) કરો · આપનાર ખાતે જમા (Credit) કરો)*
-
-  *2. Real Account Rule:*
-  $ "Debit what comes in" quad <---> quad "Credit what goes out" $
-  *(व्यापार में जो वस्तु/सम्पत्ति आए उसे Debit करें · जो बाहर जाए उसे Credit करें)*\
-  *(ધંધામાં જે આવે તે ઉધાર (Debit) કરો · જે જાય તે જમા (Credit) કરો)*
-
-  *3. Nominal Account Rule:*
-  $ "Debit all Expenses & Losses" quad <---> quad "Credit all Incomes & Gains" $
-  *(सभी खर्च एवं हानियों को Debit करें · सभी आय एवं लाभ को Credit करें)*\
-  *(બધા ખર્ચ અને નુકસાન ઉધાર (Debit) કરો · બધી આવક અને નફો જમા (Credit) કરો)*
-]
-
-== 2.4 Practical Analysis of 10 Core Transaction Entries
+== 9.2 Accounting Invoices (Service Invoice Mode)
+*When to Use:* Mandatory for professional service firms, rent billing, freight forwarding, and AMC maintenance contracts where no physical inventory moves.
 #table(
-  columns: (2.2fr, 1.2fr, 1.2fr, 2.4fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
-  inset: 4.5pt,
-  [#text(weight: "bold", fill: white)[Transaction Description]], [#text(weight: "bold", fill: white)[Debit (Dr.)]], [#text(weight: "bold", fill: white)[Credit (Cr.)]], [#text(weight: "bold", fill: white)[Reasoning / Rule Applied]],
-  [Proprietor invested ₹5,00,000 Cash], [Cash A/c], [Capital A/c], [Cash comes in (Real); Proprietor gives (Personal)],
-  [Opened Current Account in HDFC with ₹1,00,000], [HDFC Bank A/c], [Cash A/c], [HDFC receives (Personal); Cash goes out (Real)],
-  [Purchased Office Computers for ₹45,000 Cash], [Computer A/c], [Cash A/c], [Computer comes in (Real); Cash goes out (Real)],
-  [Purchased Goods worth ₹80,000 on credit from Rajesh Bros], [Purchase A/c], [Rajesh Bros A/c], [Purchase is expense (Nominal); Rajesh gives (Personal)],
-  [Sold Goods worth ₹1,20,000 on credit to Mehta Traders], [Mehta Traders A/c], [Sales A/c], [Mehta receives (Personal); Sales is income (Nominal)],
-  [Paid Office Rent of ₹15,000 by HDFC Cheque], [Rent Expense A/c], [HDFC Bank A/c], [Rent is expense (Nominal); Bank gives funds (Personal)],
-  [Received ₹50,000 NEFT from Mehta Traders], [HDFC Bank A/c], [Mehta Traders A/c], [Bank receives funds (Personal); Mehta gives (Personal)],
-  [Paid Staff Salaries ₹35,000 via NetBanking], [Salary A/c], [HDFC Bank A/c], [Salary is expense (Nominal); Bank gives (Personal)],
-  [Proprietor withdrew ₹10,000 Cash for personal home use], [Drawings A/c], [Cash A/c], [Proprietor receives (Personal); Cash goes out (Real)],
-  [Paid Electricity Bill ₹4,200 Cash], [Electricity Exp A/c], [Cash A/c], [Electricity is expense (Nominal); Cash goes out (Real)]
-)
-#pagebreak()
-
-= Chapter 03: Architecture of Tally Prime 4.x/5.x & Company Creation
-
-== 3.1 Understanding Tally Prime Architecture
-*Tally Prime* is engineered on the proprietary *Tally Definition Language (TDL)* and runs on a lightning-fast in-memory database engine (*Cactus*). The interface is divided into:
-- *Top Navigation Ribbon:* Contains `Company` (Alt+K), `Data` (Alt+Y), `Exchange` (Alt+Z), `Go To` (Alt+G), `Import` (Alt+O), `Export` (Alt+E), `Email` (Alt+M), and `Print` (Alt+P).
-- *Gateway of Tally (GOT):* The central operational dashboard categorised into *Masters* (Create, Alter, Chart of Accounts), *Transactions* (Vouchers, Day Book), and *Utilities / Reports* (Banking, Balance Sheet, Profit & Loss, Stock Summary, Ratio Analysis, Display More Reports).
-
-== 3.2 Step-by-Step Corporate Company Creation
-#shortcut-box(title: "COMPANY CREATION WORKFLOW")[
-  1. Launch Tally Prime -> Press #key-pill("Alt + K") (Company Menu) -> Select *Create*.
-  2. *Company Data Path:* Default is `C:\Program Files\TallyPrime\Data` or custom server path.
-  3. *Company Name:* Enter legal registered name (e.g., `RTechLab Solutions Pvt Ltd`).
-  4. *Mailing Name & Address:* Mention full corporate address with Pin Code (e.g., `Palanpur, Banaskantha, Gujarat - 385001`).
-  5. *State & Country:* Select `Gujarat (24)` and `India`. State code 24 is mandatory for accurate CGST/SGST vs IGST calculation!
-  6. *Financial Year Beginning From:* Typically `1-Apr-2026`.
-  7. *Books Beginning From:* Date from which accounts are actually computerized (e.g., `1-Apr-2026`).
-  8. *Security / TallyVault:* Set TallyVault password for database encryption or enable user-level security control with Admin rights.
-  9. *Base Currency Symbol:* `₹`, Formal Name: `INR`.
-  10. Press #key-pill("Ctrl + A") to save and accept company creation.
-]
-
-== 3.3 Mastering F11 (Company Features)
-Immediately upon company creation, Tally Prime opens the *F11: Company Features* screen. To configure corporate operations, press #key-pill("F11"):
-- *Accounting Features:* Maintain Accounts (Yes), Enable Bill-wise Details (Yes), Enable Cost Centres (Yes for departmental budgeting).
-- *Inventory Features:* Maintain Inventory (Yes), Integrate Accounts with Inventory (Yes), Enable Multiple Price Levels (Yes), Enable Batches (Yes for pharmaceutical/FMCG expiry tracking), Enable Job Order Processing (Yes).
-- *Taxation Features:* Enable Goods and Services Tax (GST) (Yes), Enable Tax Deducted at Source (TDS) (Yes), Enable Tax Collected at Source (TCS) (Optional).
-#pagebreak()
-
-= Chapter 04: The 28 Predefined Groups & Chart of Accounts Hierarchy
-
-== 4.1 What are Groups in Tally Prime?
-Groups are classification categories that dictate how individual ledger accounts behave and where they report on the financial statements. Tally Prime provides *28 Predefined Groups*, divided into:
-- *15 Primary Groups* (9 Balance Sheet groups + 6 Profit & Loss groups)
-- *13 Secondary (Sub) Groups* (Sub-classifications of primary groups)
-
-== 4.2 Comprehensive Matrix of the 28 Predefined Groups
-#table(
-  columns: (0.4fr, 1.4fr, 1.1fr, 1fr, 2.1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
-  inset: 4pt,
-  [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Group Name]], [#text(weight: "bold", fill: white)[Type]], [#text(weight: "bold", fill: white)[Reports To]], [#text(weight: "bold", fill: white)[Typical Commercial Ledgers]],
-  [1], [Capital Account], [Primary], [Balance Sheet], [Proprietor Capital, Partner Share, Share Capital],
-  [2], [Reserves & Surplus], [Secondary], [Capital Account], [General Reserve, Retained Earnings, Capital Reserve],
-  [3], [Current Assets], [Primary], [Balance Sheet], [Prepaid Insurance, Accrued Interest, Advance Tax],
-  [4], [Bank Accounts], [Secondary], [Current Assets], [SBI Current A/c, HDFC Bank, ICICI Bank],
-  [5], [Cash-in-Hand], [Secondary], [Current Assets], [Main Cash A/c, Petty Cash A/c],
-  [6], [Deposits (Asset)], [Secondary], [Current Assets], [Office Rent Deposit, Electricity Security Deposit],
-  [7], [Loans & Advances (Asset)], [Secondary], [Current Assets], [Staff Salary Advance, Vendor Security Advances],
-  [8], [Stock-in-Hand], [Secondary], [Current Assets], [Opening Stock, Raw Materials Inventory, Closing Stock],
-  [9], [Sundry Debtors], [Secondary], [Current Assets], [Mehta Traders, Patel Brothers, Customer Ledgers],
-  [10], [Current Liabilities], [Primary], [Balance Sheet], [Outstanding Expenses, GST Payable, TDS Payable],
-  [11], [Duties & Taxes], [Secondary], [Current Liabilities], [CGST, SGST, IGST, TDS 194C, TDS 194J],
-  [12], [Provisions], [Secondary], [Current Liabilities], [Provision for Income Tax, Provision for Bad Debts],
-  [13], [Sundry Creditors], [Secondary], [Current Liabilities], [Rajesh & Sons, APMC Vendors, Raw Material Suppliers],
-  [14], [Fixed Assets], [Primary], [Balance Sheet], [Office Building, Plant & Machinery, Computers, ACs],
-  [15], [Investments], [Primary], [Balance Sheet], [Fixed Deposits (FDs), Mutual Funds, Govt Bonds],
-  [16], [Loans (Liability)], [Primary], [Balance Sheet], [Long-term Business Borrowings],
-  [17], [Bank OD A/c], [Secondary], [Loans (Liability)], [Bank Overdraft, Cash Credit (CC) Facility Limits],
-  [18], [Secured Loans], [Secondary], [Loans (Liability)], [HDFC Commercial Vehicle Loan, Machinery Mortgage Loan],
-  [19], [Unsecured Loans], [Secondary], [Loans (Liability)], [Directors Loan, Friends & Relatives Borrowing],
-  [20], [Suspense Account], [Primary], [Balance Sheet], [Unidentified Bank Credit/Debit discrepancies],
-  [21], [Branch / Divisions], [Primary], [Balance Sheet], [Ahmedabad Branch A/c, Surat Branch A/c],
-  [22], [Sales Accounts], [Primary], [Profit & Loss], [Local Sales (GST), Interstate Sales (IGST), Export Sales],
-  [23], [Purchase Accounts], [Primary], [Profit & Loss], [Local Purchase (GST), Interstate Purchase (IGST)],
-  [24], [Direct Incomes], [Primary], [Trading / P&L], [Freight Inward recovery, Job Work charges received],
-  [25], [Direct Expenses], [Primary], [Trading A/c], [Factory Wages, Factory Power, Freight Inward],
-  [26], [Indirect Incomes], [Primary], [Profit & Loss], [Interest on Bank FDs, Discount Received, Rental Income],
-  [27], [Indirect Expenses], [Primary], [Profit & Loss], [Staff Salaries, Office Rent, Electricity, Audit Fees, Depreciation],
-  [28], [Misc. Expenses (Asset)], [Primary], [Balance Sheet], [Preliminary Formation Expenses not yet written off]
-)
-#pagebreak()
-
-= Chapter 05: Master Ledger Creation & Banking Configuration
-
-== 5.1 The Art of Creating Corporate Ledgers
-In Tally Prime, a *Ledger* is the actual book of record for each individual account. To create ledgers:
-*Gateway of Tally -> Masters -> Create -> Ledger* (or press #key-pill("Alt + G") -> `Create Master` -> `Ledger`).
-
-== 5.2 Vital Sub-Fields in Ledger Master
-1. *Name:* Clean official name (e.g., `HDFC Bank Current A/c No 50200012345678`).
-2. *Under Group:* Select the appropriate group from the 28 predefined groups. *Never misclassify a ledger group; an incorrect group corrupts Balance Sheet and Tax computations!*
-3. *Maintain Balances Bill-by-Bill:* Must be set to *Yes* for all Sundry Debtors and Sundry Creditors. This enables:
-   - *New Ref:* Assigned when issuing a new invoice.
-   - *Agst Ref (Against Reference):* Selected when receiving payment or clearing bills, linking money directly to bill numbers!
-   - *Advance:* Used for advance receipts/payments before billing.
-   - *On Account:* Used for unreferenced lump-sum transactions.
-4. *Credit Period & Credit Limit:* Set commercial credit days (e.g., 30 Days) and maximum monetary limit. Tally will warn or block sales vouchers if credit limits are breached.
-5. *Banking Details:* Provide Bank Account Number, IFSC Code, Client Code, and Swift Code for e-payments and automated BRS.
-6. *Mailing & Statutory Details:* Complete Street Address, State (with State Code e.g. Gujarat 24), PIN Code, PAN/IT Number, and GSTIN (15-character alphanumeric GST Identification Number).
-
-#warning-box(title: "CRITICAL AUDIT RULE: GSTIN STRUCTURE VERIFICATION")[
-  A valid Indian GSTIN consists of 15 characters:
-  `24AAAAA0000A1Z5`
-  - First 2 digits: State Code (e.g., 24 for Gujarat, 27 for Maharashtra, 08 for Rajasthan).
-  - Next 10 characters: Business PAN (e.g., `AAAAA0000A`).
-  - 13th character: Entity number of business within the state.
-  - 14th character: Letter `Z` by default.
-  - 15th character: Checksum validation digit.
-]
-#pagebreak()
-
-= Chapter 06: The 24 Accounting & Inventory Vouchers
-
-== 6.1 Understanding Vouchers in Tally Prime
-A *Voucher* is the primary commercial source document evidencing a business transaction. Tally Prime provides *24 Predefined Voucher Types*, categorized into Accounting, Inventory, and Order vouchers.
-
-== 6.2 Master Voucher Reference Table
-#table(
-  columns: (1fr, 1.4fr, 1.1fr, 2.5fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
-  inset: 4.5pt,
-  [#text(weight: "bold", fill: white)[Voucher Type]], [#text(weight: "bold", fill: white)[Shortcut Key]], [#text(weight: "bold", fill: white)[Category]], [#text(weight: "bold", fill: white)[Primary Commercial Function]],
-  [Contra], [#key-pill("F4")], [Accounting], [Fund transfers between Cash and Bank, or between Bank and Bank. No third party involved.],
-  [Payment], [#key-pill("F5")], [Accounting], [All cash or bank payments made to vendors, expenses, assets, or statutory tax authorities.],
-  [Receipt], [#key-pill("F6")], [Accounting], [All cash or bank receipts received from debtors, capital infusion, or income.],
-  [Journal], [#key-pill("F7")], [Accounting], [Non-cash adjustment entries, depreciation, prepaid expenses, accruals, and TDS booking.],
-  [Sales], [#key-pill("F8")], [Accounting/Inv], [Recording sales of goods or services. Supports Item Invoice, Accounting Invoice, and As Voucher modes.],
-  [Purchase], [#key-pill("F9")], [Accounting/Inv], [Recording inward purchase of goods or services with supplier bill numbers and dates.],
-  [Credit Note], [#key-pill("Alt + F6")], [Accounting], [Sales Returns, post-sale discounts, or rate difference adjustments allowed to customers.],
-  [Debit Note], [#key-pill("Alt + F5")], [Accounting], [Purchase Returns, or claiming rate differences from suppliers.],
-  [Delivery Note], [#key-pill("Alt + F8")], [Inventory], [Dispatching goods to customer prior to raising tax invoice (Challan out).],
-  [Receipt Note], [#key-pill("Alt + F9")], [Inventory], [Receiving goods from vendor prior to receiving purchase bill (Challan in).],
-  [Rejections Out], [#key-pill("Ctrl + F5")], [Inventory], [Rejecting and sending back damaged goods received via Receipt Note before purchase bill.],
-  [Rejections In], [#key-pill("Ctrl + F6")], [Inventory], [Accepting returned damaged goods dispatched earlier via Delivery Note.],
-  [Stock Journal], [#key-pill("Alt + F7")], [Inventory], [Inter-godown transfer of inventory from Source location to Destination location.],
-  [Physical Stock], [#key-pill("Ctrl + F7")], [Inventory], [Recording physical stock audit counts to reconcile actual inventory with book stock.],
-  [Sales Order], [#key-pill("Ctrl + F8")], [Order], [Recording customer order booking for goods to be delivered in future.],
-  [Purchase Order], [#key-pill("Ctrl + F9")], [Order], [Placing official purchase order to vendor specifying rates, quantities, and delivery dates.]
-)
-
-== 6.3 Invoice Modes in Tally Prime (Change Mode: Ctrl + H)
-- *Item Invoice Mode:* Used for trading and manufacturing when selling/purchasing physical goods with stock item names, quantity, rate, and unit of measure.
-- *Accounting Invoice Mode:* Used for professional services (consultancy, audit fees, freight, advertising) without physical stock items.
-- *As Voucher Mode:* Traditional Dr/Cr double-entry bookkeeping mode.
-#pagebreak()
-
-= Chapter 07: Foundational Practice Set 1: Mr. Verma's 50 Transactions
-
-== 7.1 Real-World Corporate Simulation: Verma Enterprises
-*Company Name:* Verma Enterprises\
-*Financial Year:* 2026-2027 · *State:* Gujarat (24) · *Bank:* HDFC Bank Current A/c
-
-#shortcut-box(title: "MR. VERMA TRANSACTIONS 1 TO 25 (PRACTICE PROTOCOL)")[
-  Record each transaction in Tally Prime, identify the Voucher Type, Debit Ledger, and Credit Ledger:
-]
-
-#table(
-  columns: (0.4fr, 3.2fr, 1.1fr, 1.1fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
-  inset: 4pt,
-  [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Transaction Particulars]], [#text(weight: "bold", fill: white)[Voucher]], [#text(weight: "bold", fill: white)[Debit (Dr)]], [#text(weight: "bold", fill: white)[Credit (Cr)]],
-  [1], [Mr. Verma deposited ₹10,000 cash into HDFC Bank.], [Contra (F4)], [HDFC Bank], [Cash],
-  [2], [Mr. Verma withdrew ₹5,000 from HDFC Bank for office use.], [Contra (F4)], [Cash], [HDFC Bank],
-  [3], [Mr. Verma transferred ₹15,000 from HDFC Bank to Axis Bank.], [Contra (F4)], [Axis Bank], [HDFC Bank],
-  [4], [Mr. Verma deposited ₹20,000 cash into Axis Bank.], [Contra (F4)], [Axis Bank], [Cash],
-  [5], [Mr. Verma withdrew ₹2,000 from Axis Bank for office use.], [Contra (F4)], [Cash], [Axis Bank],
-  [6], [Mr. Verma transferred ₹8,000 from Axis Bank to HDFC Bank.], [Contra (F4)], [HDFC Bank], [Axis Bank],
-  [7], [Mr. Verma deposited ₹12,000 cash into HDFC Bank.], [Contra (F4)], [HDFC Bank], [Cash],
-  [8], [Mr. Verma withdrew ₹3,000 from HDFC Bank for office use.], [Contra (F4)], [Cash], [HDFC Bank],
-  [9], [Mr. Verma transferred ₹10,000 from HDFC Bank to SBI Bank.], [Contra (F4)], [SBI Bank], [HDFC Bank],
-  [10], [Mr. Verma deposited ₹18,000 cash into SBI Bank.], [Contra (F4)], [SBI Bank], [Cash],
-  [11], [Mr. Verma paid office rent ₹12,000 by HDFC Bank Cheque.], [Payment (F5)], [Rent Expense], [HDFC Bank],
-  [12], [Mr. Verma paid staff salary ₹25,000 via NEFT from Axis Bank.], [Payment (F5)], [Salary Expense], [Axis Bank],
-  [13], [Mr. Verma paid electricity bill ₹3,500 in cash.], [Payment (F5)], [Electricity Exp], [Cash],
-  [14], [Mr. Verma purchased office stationery ₹1,200 in cash.], [Payment (F5)], [Stationery Exp], [Cash],
-  [15], [Mr. Verma paid internet broadband bill ₹1,500 by UPI.], [Payment (F5)], [Internet Exp], [HDFC Bank],
-  [16], [Mr. Verma paid telephone bill ₹800 by cheque.], [Payment (F5)], [Telephone Exp], [HDFC Bank],
-  [17], [Mr. Verma paid travelling expenses ₹2,500 in cash.], [Payment (F5)], [Travelling Exp], [Cash],
-  [18], [Mr. Verma paid tea & refreshment expenses ₹650 in cash.], [Payment (F5)], [Tea Refreshment], [Cash],
-  [19], [Mr. Verma paid advertising expenses ₹8,000 by cheque.], [Payment (F5)], [Advertising Exp], [Axis Bank],
-  [20], [Mr. Verma paid courier charges ₹350 in cash.], [Payment (F5)], [Courier Exp], [Cash],
-  [21], [Received consultancy commission ₹15,000 in cash.], [Receipt (F6)], [Cash], [Commission Income],
-  [22], [Received interest on bank fixed deposit ₹4,500 credited to HDFC.], [Receipt (F6)], [HDFC Bank], [Interest Income],
-  [23], [Received bad debts recovered ₹6,000 in cash.], [Receipt (F6)], [Cash], [Bad Debts Recov],
-  [24], [Received dividend on investments ₹2,800 into Axis Bank.], [Receipt (F6)], [Axis Bank], [Dividend Income],
-  [25], [Received rent from sublet warehouse ₹18,000 by cheque.], [Receipt (F6)], [HDFC Bank], [Rental Income]
-)
-
-== 7.2 Transactions 26 to 50: Advanced Vendor Payments & Adjustments
-#table(
-  columns: (0.4fr, 3.2fr, 1.1fr, 1.1fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
-  inset: 4pt,
-  [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Transaction Particulars]], [#text(weight: "bold", fill: white)[Voucher]], [#text(weight: "bold", fill: white)[Debit (Dr)]], [#text(weight: "bold", fill: white)[Credit (Cr)]],
-  [26], [Purchased Office Furniture worth ₹35,000 on credit from Royal Decor.], [Journal (F7)], [Furniture A/c], [Royal Decor],
-  [27], [Depreciation charged on Office Furniture \@ 10% ₹3,500.], [Journal (F7)], [Depreciation Exp], [Furniture A/c],
-  [28], [Purchased 5 Dell Laptops @₹42,000 each on credit from Infotech Ltd.], [Purchase (F9)], [Purchase A/c], [Infotech Ltd],
-  [29], [Sold 3 Dell Laptops @₹52,000 each on credit to Apex Systems.], [Sales (F8)], [Apex Systems], [Sales A/c],
-  [30], [Apex Systems returned 1 damaged Dell Laptop.], [Credit Note], [Sales Return], [Apex Systems],
-  [31], [Returned the damaged Laptop back to Infotech Ltd.], [Debit Note], [Infotech Ltd], [Purchase Return],
-  [32], [Paid Infotech Ltd ₹1,20,000 by HDFC cheque against bill.], [Payment (F5)], [Infotech Ltd], [HDFC Bank],
-  [33], [Received ₹95,000 from Apex Systems in full settlement.], [Receipt (F6)], [HDFC Bank], [Apex Systems],
-  [34], [Discount allowed to Apex Systems ₹9,000.], [Journal (F7)], [Discount Allowed], [Apex Systems],
-  [35], [Paid Audit Fees ₹20,000 to CA Mehta by cheque.], [Payment (F5)], [Audit Fees], [HDFC Bank],
-  [36], [Purchased Packing Materials ₹4,500 in cash.], [Payment (F5)], [Packing Exp], [Cash],
-  [37], [Paid Freight Inward on raw materials ₹3,200 in cash.], [Payment (F5)], [Freight Inward], [Cash],
-  [38], [Sold Scrap packaging boxes for ₹1,800 cash.], [Receipt (F6)], [Cash], [Scrap Sales],
-  [39], [Withdrew ₹15,000 cash for personal medical expenses.], [Payment (F5)], [Drawings A/c], [Cash],
-  [40], [Transferred ₹50,000 to Bank Fixed Deposit (FD) A/c.], [Payment (F5)], [FD Investment], [HDFC Bank],
-  [41], [Paid Annual Trade License Fee ₹2,400 by cheque.], [Payment (F5)], [Trade License], [HDFC Bank],
-  [42], [Paid Municipal Property Tax ₹5,600 by cheque.], [Payment (F5)], [Property Tax], [HDFC Bank],
-  [43], [Purchased Air Conditioner for Managing Director Cabin ₹42,000.], [Payment (F5)], [Air Conditioner], [Axis Bank],
-  [44], [Paid AC Installation & Piping Charges ₹2,500 cash.], [Payment (F5)], [Air Conditioner], [Cash],
-  [45], [Received interest on Income Tax Refund ₹1,240 into HDFC.], [Receipt (F6)], [HDFC Bank], [Interest on Refund],
-  [46], [Paid Insurance Premium for Office Building ₹8,500.], [Payment (F5)], [Insurance Exp], [HDFC Bank],
-  [47], [Goods lost in transit due to accident ₹12,000.], [Journal (F7)], [Loss in Transit], [Purchase A/c],
-  [48], [Insurance claim admitted by New India Assurance ₹9,500.], [Journal (F7)], [Insurance Co], [Loss in Transit],
-  [49], [Received insurance claim settlement ₹9,500 in HDFC.], [Receipt (F6)], [HDFC Bank], [Insurance Co],
-  [50], [Net unrecovered transit loss transferred to P&L ₹2,500.], [Journal (F7)], [P&L A/c], [Loss in Transit]
-)
-#pagebreak()
-
-= Chapter 08: Practice Set 2: Salman Trading Co. 18 Group Transactions
-
-== 8.1 Scenario & Chart of Accounts Verification
-*Entity:* Salman Trading Corporation (Unjha, Gujarat)\
-*Objective:* Verify accurate group assignment across 18 diverse commercial activities, ensuring a zero-discrepancy Trial Balance.
-
-#table(
-  columns: (0.4fr, 2.8fr, 1.4fr, 1.4fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
-  inset: 4pt,
-  [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Commercial Transaction]], [#text(weight: "bold", fill: white)[Primary Ledger]], [#text(weight: "bold", fill: white)[Tally Group]], [#text(weight: "bold", fill: white)[Nature]],
-  [1], [Salman introduced Capital ₹10,00,000 in SBI Current A/c], [Salman Capital A/c], [Capital Account], [Liability],
-  [2], [Took secured loan of ₹5,00,000 from Bank of Baroda], [BOB Term Loan A/c], [Secured Loans], [Liability],
-  [3], [Deposited ₹1,00,000 cash for Electricity Security Deposit], [UGVCL Deposit A/c], [Deposits (Asset)], [Asset],
-  [4], [Purchased Delivery Van for ₹4,50,000 via SBI Cheque], [Delivery Van A/c], [Fixed Assets], [Asset],
-  [5], [Procured 100 bags Jeera @₹4,000/bag from APMC Merchant], [APMC Unjha Merchant], [Sundry Creditors], [Liability],
-  [6], [Incurred APMC Mandi Tax Cess \@ 1% ₹4,000], [Mandi Cess Exp A/c], [Direct Expenses], [Expense],
-  [7], [Paid unloading hamali/labour wages ₹2,500 in cash], [Wages A/c], [Direct Expenses], [Expense],
-  [8], [Supplied 60 bags Jeera @₹5,200/bag on credit to Kutch Spices], [Kutch Spices A/c], [Sundry Debtors], [Asset],
-  [9], [Paid Godown Rent ₹18,000 by NetBanking], [Godown Rent A/c], [Indirect Expenses], [Expense],
-  [10], [Earned Commission on third-party spice brokerage ₹12,000], [Brokerage Income], [Indirect Incomes], [Income],
-  [11], [Obtained Bank Overdraft Limit of ₹2,00,000 from SBI], [SBI Bank OD A/c], [Bank OD A/c], [Liability],
-  [12], [Purchased 5-year National Savings Certificates (NSC) ₹50,000], [NSC Investment A/c], [Investments], [Asset],
-  [13], [Advanced ₹20,000 loan to godown supervisor Ramesh], [Staff Advance A/c], [Loans & Advances (Asset)], [Asset],
-  [14], [Received ₹1,500 cash from scrap gunny bags auction], [Scrap Sales A/c], [Indirect Incomes], [Income],
-  [15], [Created Provision for Doubtful Debts \@ 5% ₹15,600], [Provision for Bad Debts], [Provisions], [Liability],
-  [16], [Transferred ₹50,000 into General Reserve for expansion], [General Reserve A/c], [Reserves & Surplus], [Liability],
-  [17], [Received unidentified NEFT credit of ₹14,200 in SBI], [Suspense A/c], [Suspense Account], [Temporary],
-  [18], [Depreciation on Delivery Van \@ 15% ₹67,500], [Depreciation A/c], [Indirect Expenses], [Expense]
-)
-#pagebreak()
-
-= Chapter 09: Inventory Management & Multi-Location Godowns
-
-== 9.1 The Inventory Hierarchy in Tally Prime
-Tally Prime integrates robust multi-location inventory management structured as:
-$ "Units of Measure (UoM)" --> "Stock Groups" --> "Stock Categories" --> "Godowns/Locations" --> "Stock Items" $
-
-== 9.2 Units of Measure (Simple vs. Compound)
-- *Simple Units:* Single measurement units such as `Kgs` (Kilograms), `Nos` (Numbers), `Box` (Boxes), `Mtr` (Meters), `Ltr` (Liters). Decimal places must be configured accurately (e.g., 3 decimal places for `Kgs` to record `1.250 Kgs`).
-- *Compound Units:* A compound relationship between two simple units:
-  $ 1 "Box" = 50 "Nos" quad | quad 1 "Carton" = 24 "Pcs" quad | quad 1 "Ton" = 1000 "Kgs" $
-
-== 9.3 Godown & Multi-Location Warehouse Configuration
-In corporate commerce, businesses maintain central hubs and retail outlets. Enable Godowns via #key-pill("F11") -> `Enable Multi-Godowns` = *Yes*.
-*Create Locations:*
-1. `Central Warehouse (Unjha Mandi)`
-2. `Palanpur Retail Outlet`
-3. `Morbi Dispatch Yard`
-
-#shortcut-box(title: "STOCK JOURNAL (ALT + F7) INTER-GODOWN TRANSFER")[
-  When transferring stock between warehouses, press #key-pill("Alt + F7") to launch the *Stock Journal*.
-  - *Source (Consumption):* Specify Godown where stock originates, Stock Item name, Quantity, and Rate.
-  - *Destination (Production):* Specify Destination Godown where stock is delivered.
-  - The Stock Journal updates individual warehouse balances without affecting Profit & Loss!
-]
-
-== 9.4 Batch-Wise Inventory & Expiry Dates (FMCG / Pharma)
-For pharmaceuticals and food commodities, enable *Maintain Batches* and *Set Expiry Dates* in F11/F12.
-When purchasing or selling stock items:
-1. Provide *Batch Number* (e.g., `BATCH-2026-X01`).
-2. Specify *Manufacturing Date* (e.g., `01-Apr-2026`).
-3. Specify *Expiry Date* (e.g., `31-Mar-2028`).
-Tally prevents billing of expired batches, preventing regulatory penalties.
-#pagebreak()
-
-= Chapter 10: Purchase & Sales Order Processing Workflow
-
-== 10.1 The Corporate Procurement Cycle (Purchase Order Workflow)
-Corporate organizations strictly forbid direct billing without formal purchase orders. The 5-stage procurement cycle is:
-
-#concept-box(title: "THE 5-STAGE PURCHASE CYCLE")[
-  *Stage 1: Purchase Order (Ctrl + F9)* -> Formal contract issued to supplier with agreed rate, terms, and delivery date.\
-  *Stage 2: Receipt Note (Alt + F9)* -> Goods physically arrive at warehouse accompanied by Delivery Challan. Stock increases in warehouse; financial accounts not yet impacted.\
-  *Stage 3: Rejections Out (Ctrl + F5)* -> Damaged, defective, or off-spec items returned to supplier before raising the bill.\
-  *Stage 4: Purchase Bill (F9)* -> Supplier tax invoice received. Linked directly to Receipt Note tracking number! Financial liability booked in Sundry Creditors.\
-  *Stage 5: Payment Voucher (F5)* -> Payment released via Bank/Cheque against the specific purchase bill reference.
-]
-
-== 10.2 The Corporate Order-to-Cash Cycle (Sales Order Workflow)
-Similarly, enterprise sales follow a structured 5-stage cycle:
-1. *Sales Order (Ctrl + F8):* Booking customer order with delivery schedules and agreed price list.
-2. *Delivery Note (Alt + F8):* Dispatched from godown via transport challan. Stock decreases; invoice not yet billed.
-3. *Rejections In (Ctrl + F6):* Customer rejects damaged transit pieces before final tax billing.
-4. *Sales Invoice (F8):* Generating formal GST Tax Invoice automatically populating item quantities from Delivery Note tracking numbers.
-5. *Receipt Voucher (F6):* Collecting payment from customer against the invoice reference.
-#pagebreak()
-
-= Chapter 11: Modern GST Masterclass (0% Exempt, 5% Essential, 18% Standard)
-
-== 11.1 The Architecture of GST in India
-The Goods and Services Tax (GST) is a destination-based consumption tax. Tax revenue accrues to the state where goods or services are consumed.
-- *Intrastate Transaction (Within Gujarat State - State Code 24):*
-  $ "Total GST" = "CGST (Central GST 50%)" + "SGST (State GST 50%)" $
-- *Interstate Transaction (Gujarat to Maharashtra, Rajasthan, etc.):*
-  $ "Total GST" = "IGST (Integrated GST 100%)" $
-
-== 11.2 The Modern GST Slab Rationalization (2025-2027)
-#gst-box(title: "CRITICAL REGULATORY TAX POLICY UPDATE")[
-  In recent GST Council reforms, the complex historical 5-slab structure (0%, 5%, 12%, 18%, 28%) has undergone major structural rationalization to simplify compliance:
-  - *The 3 Primary Active Workhorse Slabs:* *0% (Exempt)*, *5% (Essential Items)*, and *18% (Standard Commercial Goods & Services)*.
-  - *The 12% Slab:* Merged predominantly into the 5% slab for merit goods or transitioned to 18% for processed items.
-  - *The 28% Slab + Compensation Cess:* Retained exclusively for luxury automobiles, aerated sodas, and sin goods (tobacco, gaming).
-  *For 95%+ of standard corporate and trading accountants, day-to-day accounting revolves around 0%, 5%, and 18%!*
-]
-
-== 11.3 Detailed Item-Wise GST Breakdown Table
-#table(
-  columns: (1fr, 1.4fr, 1.8fr, 2.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
-  inset: 4.5pt,
-  [#text(weight: "bold", fill: white)[GST Slab]], [#text(weight: "bold", fill: white)[Tax Division (Local)]], [#text(weight: "bold", fill: white)[HSN/SAC Ranges]], [#text(weight: "bold", fill: white)[Covered Commodities & Services]],
-  [0% (Nil / Exempt)], [Nil CGST + Nil SGST], [HSN 1209, 0701, 0401, 1001], [Unbranded APMC agricultural produce: Jeera (Cumin), Isabgol (Psyllium), Mustard seeds, Fennel (Saunf), Fresh milk, curd, unbranded wheat, fresh vegetables, educational services, healthcare services.],
-  [5% (Essentials)], [2.5% CGST + 2.5% SGST (or 5% IGST)], [HSN 1515, 6401, 8708, 2701], [Packaged edible oils, mustard oil, cotton seed oil, basic footwear under ₹1,000, domestic transport services, railway freight, spices packaged in registered brand, coal, life-saving medicines.],
-  [18% (Standard)], [9% CGST + 9% SGST (or 18% IGST)], [HSN 8517, 8471, 9983, 8528], [IT hardware & laptops, smartphones & mobile phones, computer peripherals, LED monitors, electronic components, software consulting, accounting & audit fees, hotel stays above ₹1,000, machinery parts.],
-  [28% + Cess (Luxury)], [14% CGST + 14% SGST (or 28% IGST)], [HSN 8703, 2402], [Motor cars, racing motorcycles, pan masala, aerated sugary soft drinks, tobacco products, luxury yachts (historical luxury bracket).]
-)
-#pagebreak()
-
-= Chapter 12: Real Commercial GST Invoicing & Tax Ledger Setup
-
-== 12.1 Configuring GST in Tally Prime
-To activate GST:
-1. Press #key-pill("F11") -> *Enable Goods and Services Tax (GST)* = *Yes*.
-2. *State:* Gujarat (24).
-3. *Registration Type:* Regular (or Composition for turnover under ₹1.5 Cr).
-4. *GSTIN/UIN:* Enter 15-character corporate GSTIN.
-5. *Periodicity of GSTR-1:* Monthly (or Quarterly under QRMP).
-6. Set *Tax Rate Details:* Press Yes to configure HSN/SAC and default GST rate, or configure item-wise at the stock item master level.
-
-== 12.2 Creating Tax Ledgers (Duties & Taxes)
-#warning-box(title: "CRITICAL LEDGER CONFIGURATION: DUTIES & TAXES")[
-  Create three universal statutory tax ledgers under the *Duties & Taxes* group:
-  1. *CGST:* Type of Duty: `GST` -> Tax Type: `Central Tax` -> Percentage: `0%` (Tally auto-calculates based on stock item!).
-  2. *SGST:* Type of Duty: `GST` -> Tax Type: `State Tax` -> Percentage: `0%`.
-  3. *IGST:* Type of Duty: `GST` -> Tax Type: `Integrated Tax` -> Percentage: `0%`.
-  *Never hardcode 9% or 2.5% inside the ledger percentage field! Leaving it at 0% allows Tally to auto-compute 2.5%, 9%, or 14% dynamically based on the items in the invoice!*
-]
-
-== 12.3 Multi-Tax Rate Invoice Example (0%, 5%, and 18% on Same Bill)
-In modern commerce, a single invoice frequently contains multiple tax rates:
-- *Item A:* 10 Bags Unbranded Jeera Seeds @₹4,000 = ₹40,000 (0% Exempt)
-- *Item B:* 5 Tins Edible Oil @₹2,000 = ₹10,000 (5% GST: 2.5% CGST + 2.5% SGST)
-- *Item C:* 1 HP LaserJet Printer @₹15,000 = ₹15,000 (18% GST: 9% CGST + 9% SGST)
-
-#table(
-  columns: (2.5fr, 1.2fr, 1fr, 1fr, 1.3fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  columns: (1.2fr, 2.8fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 5pt,
-  [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[Taxable Value]], [#text(weight: "bold", fill: white)[CGST]], [#text(weight: "bold", fill: white)[SGST]], [#text(weight: "bold", fill: white)[Total Amount]],
-  [Unbranded APMC Jeera (0%)], [₹40,000.00], [₹0.00], [₹0.00], [₹40,000.00],
-  [Packaged Edible Oil (5%)], [₹10,000.00], [₹250.00 (2.5%)], [₹250.00 (2.5%)], [₹10,500.00],
-  [HP LaserJet Printer (18%)], [₹15,000.00], [₹1,350.00 (9%)], [₹1,350.00 (9%)], [₹17,700.00],
-  [*Subtotal & Total Invoice Value*], [*₹65,000.00*], [*₹1,600.00*], [*₹1,600.00*], [*₹68,200.00*]
+  [#text(weight: "bold", fill: white)[Invoice Field]], [#text(weight: "bold", fill: white)[Practical Field Configuration & Entry Step]],
+  [Voucher Mode], [Open Sales (#key-pill("F8")), press #key-pill("Ctrl + H") and select *Accounting Invoice*.],
+  [Party A/c Name], [Select Corporate Client (e.g., `Apex Global Mumbai`, Maharashtra State Code 27).],
+  [Particulars (Ledger)], [Select service ledger `IT Consulting & System Architecture` (SAC 998314). Enter Amount = ₹50,000.00.],
+  [Tax Ledger], [Because Party State (27) != Company State (24), select `Output IGST` (18% = ₹9,000.00). Total = *₹59,000.00*.],
+  [TDS Deduction], [Client deducts 10% TDS under Section 194J (₹5,000) on taxable value, remitting net ₹54,000 via NEFT.]
 )
-#pagebreak()
 
-= Chapter 13: TDS (Tax Deducted at Source) Corporate Essentials
+#v(14pt)
 
-== 13.1 What is TDS and Why Does it Exist?
-*Tax Deducted at Source (TDS)* is an indirect collection mechanism governed by the *Income Tax Act, 1961*. Under this statutory mandate, any business entity or individual making specified payments (such as contractor charges, professional fees, rent, or brokerage) must deduct a prescribed tax percentage at source and remit it directly to the Central Government on behalf of the recipient.
+= Topic 10: Master Keyboard Shortcuts of Tally Prime
 
-== 13.2 Core TDS Sections Every Corporate Accountant Must Know
+Speed and keyboard fluidity distinguish novice data-entry operators from elite corporate accountants. Here are the 40+ authentic keyboard shortcuts directly curated from Rahul Sir's official IANT Palanpur handbook:
+
 #table(
-  columns: (1fr, 2.2fr, 1.5fr, 1.5fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  columns: (1fr, 1.4fr, 1.6fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4.5pt,
-  [#text(weight: "bold", fill: white)[Section]], [#text(weight: "bold", fill: white)[Nature of Payment]], [#text(weight: "bold", fill: white)[Threshold Exemption]], [#text(weight: "bold", fill: white)[TDS Rate]],
-  [Section 194C], [Payments to Contractors & Sub-contractors (Transport, Civil works, Event management)], [₹30,000 (Single Contract) or ₹1,00,000 (Aggregate FY)], [1% for Individuals/HUF; 2% for Corporate Companies],
-  [Section 194J], [Fees for Professional or Technical Services (CA audit fees, Legal, Software development)], [₹30,000 per financial year], [10% for Professional Services; 2% for Technical Services / Call Centers],
-  [Section 194I], [Rent of Commercial Land, Building, or Furniture], [₹2,40,000 per financial year], [10% for Land/Building/Furniture; 2% for Plant & Machinery],
-  [Section 194H], [Commission or Brokerage charges], [₹15,000 per financial year], [5% for all deductees],
-  [Section 206AA], [Mandatory Non-PAN Penalty Rate], [No exemption], [*Flat 20%* if deductee fails to furnish valid PAN!]
+  [#text(weight: "bold", fill: white)[Shortcut Key]], [#text(weight: "bold", fill: white)[Function in Tally Prime]], [#text(weight: "bold", fill: white)[Corporate Accounting Practical Usage]],
+  [#key-pill("Alt + G")], [Go To (Universal Search)], [Open any report or create masters on-the-fly without leaving active voucher.],
+  [#key-pill("Ctrl + G")], [Switch To], [Switch completely to another report or menu screen.],
+  [#key-pill("Esc")], [Escape / Go Back], [Close currently active popup or return to previous screen.],
+  [#key-pill("Alt + K")], [Company Top Menu], [Create, alter, select, shut companies, or configure security.],
+  [#key-pill("F2")], [Change Date], [Change the voucher date during daily transaction recording.],
+  [#key-pill("Alt + F2")], [Change Financial Period], [Change accounting period (e.g., from 01-Apr-2026 to 31-Mar-2027).],
+  [#key-pill("F3")], [Switch Company], [Switch active company from the list of loaded companies.],
+  [#key-pill("Alt + F3")], [Select / Open Company], [Select and open another company from local disk or network path.],
+  [#key-pill("Alt + Y")], [Data Menu], [Access backup, restore, split company data, and repair tools.],
+  [#key-pill("Alt + Z")], [Exchange Menu], [Synchronize multi-branch data between head office and regional stores.],
+  [#key-pill("Alt + O")], [Import Menu], [Import masters, voucher data, and electronic bank statements.],
+  [#key-pill("Alt + E")], [Export Menu], [Export reports to PDF, Excel, CSV, or XML formats.],
+  [#key-pill("Alt + M")], [Email Menu], [Email tax invoices and ledger account statements directly to clients.],
+  [#key-pill("Alt + P")], [Print Menu], [Print tax invoices, cheques, vouchers, and financial statements.],
+  [#key-pill("F1")], [Help Menu], [Open TallyHelp documentation, keyboard guides, and upgrade wizards.],
+  [#key-pill("F4")], [Contra Voucher], [Record cash-to-bank deposits, withdrawals, and inter-bank transfers.],
+  [#key-pill("F5")], [Payment Voucher], [Record payments to suppliers, operational expenses, and tax deposits.],
+  [#key-pill("F6")], [Receipt Voucher], [Record inward funds from customers, loans, and business incomes.],
+  [#key-pill("F7")], [Journal Voucher], [Record non-cash adjustments, depreciation, prepaid deferrals, and TDS.],
+  [#key-pill("F8")], [Sales Voucher], [Issue sales invoices for merchandise or professional services.],
+  [#key-pill("F9")], [Purchase Voucher], [Record inward purchases of goods, raw materials, or trade inventory.],
+  [#key-pill("Alt + F5")], [Debit Note], [Record purchase returns of defective stock or vendor debit notes.],
+  [#key-pill("Alt + F6")], [Credit Note], [Record sales returns from customers or post-sale credit allowances.],
+  [#key-pill("Alt + F7")], [Stock Journal], [Inter-godown stock transfers and manufacturing consumption/production.],
+  [#key-pill("Ctrl + F7")], [Physical Stock], [Record physical stock count discrepancies during warehouse audit.],
+  [#key-pill("Alt + F8")], [Delivery Note], [Generate delivery challan for goods dispatched before final bill.],
+  [#key-pill("Alt + F9")], [Receipt Note (GRN)], [Record goods received from suppliers before invoice arrival.],
+  [#key-pill("Ctrl + F4")], [Purchase Order], [Generate legal purchase orders issued to vendors.],
+  [#key-pill("Ctrl + F5")], [Sales Order], [Record sales orders received from corporate customers.],
+  [#key-pill("F10")], [Other Vouchers], [Display complete master directory of all 24 voucher types.],
+  [#key-pill("F11")], [Company Features], [Enable statutory GST, TDS, multi-currency, and inventory features.],
+  [#key-pill("F12")], [Configuration], [Screen-specific configuration (hide/show fields, narration, buyer details).],
+  [#key-pill("Alt + C")], [Secondary Create / Calc], [Create a ledger or stock item on-the-fly inside voucher / Open calculator.],
+  [#key-pill("Ctrl + Enter")], [Alter Master from Voucher], [Open and modify any ledger or item master directly from the voucher line.],
+  [#key-pill("Ctrl + A")], [Accept & Save Instantly], [Save and post the current screen or voucher immediately.],
+  [#key-pill("Alt + D")], [Delete Voucher / Master], [Permanently delete a voucher, ledger, or stock item (if unused).],
+  [#key-pill("Alt + X")], [Cancel Voucher], [Cancel a voucher while keeping voucher number intact for audit sequence.],
+  [#key-pill("Ctrl + H")], [Change Voucher Mode], [Toggle between Item Invoice, Accounting Invoice, and As Voucher.],
+  [#key-pill("Ctrl + I")], [More Details], [Input sub-details (e-Way bill, vehicle number, dispatch location).],
+  [#key-pill("Alt + R")], [Recall Narration], [Copy the narration entered in the previous voucher of the same type.],
+  [#key-pill("Ctrl + T")], [Post-Dated Voucher], [Flag voucher as post-dated for future cheques without affecting today's books.],
+  [#key-pill("Spacebar")], [Select / Deselect Row], [Select one or multiple transaction rows in reports for batch printing/export.]
 )
 
-== 13.3 TDS Accounting Workflow in Tally Prime
-#tds-box(title: "THE 4-STEP TDS ACCOUNTING LIFECYCLE")[
-  *Step 1: Booking Expense with TDS Deduction via Journal Voucher (F7):*
-  $ "Debit: Professional Fees A/c (Nominal - Expense)" quad ₹1,00,000 $
-  $ "Credit: CA Rahul Mehta & Associates (Personal - Sundry Creditor)" quad ₹90,000 $
-  $ "Credit: TDS on Professional Fees 194J (Duties & Taxes)" quad ₹10,000 $
+#v(14pt)
 
-  *Step 2: Remitting TDS to Government via Bank Payment Voucher (F5):*
-  Must be paid by the 7th of the following month using *Challan ITNS 281*.
-  $ "Debit: TDS on Professional Fees 194J" quad ₹10,000 $
-  $ "Credit: HDFC Bank Current A/c" quad ₹10,000 $
+= Topic 11: Professional Intermediate Highlights (Bridge to Corporate Accounting)
 
-  *Step 3: Quarterly TDS Return Filing:*
-  Reconcile transactions in Tally Prime's *Form 26Q* (for non-salary payments) or *Form 24Q* (for salaries) and export clean e-TDS text files for NSDL submission.
-  
-  *Step 4: Form 16A Issuance:*
-  Generate TRACES Form 16A TDS certificate and furnish to the deductee within 15 days of return filing.
-]
+To bridge the gap between junior bookkeeping and senior corporate accounting, every student must understand four vital corporate practices:
+
+== 11.1 GST Reforms & Statutory Returns Reconciliation
+Corporate accountants do not merely create invoices—they reconcile books with the GST Common Portal:
+- *GSTR-1:* Monthly statement of Outward Supplies (Sales) filed by the 11th of the following month.
+- *GSTR-3B:* Self-declared monthly tax summary return filed by the 20th, offsetting Output Tax against eligible ITC.
+- *GSTR-2B Matching:* A static auto-generated ITC statement compiled on the 14th of each month reflecting supplies uploaded by vendors. *Golden Rule:* If a vendor has not uploaded their sales bill in GSTR-1, it will not appear in your GSTR-2B, and claiming ITC is legally barred under Section 16(2)(aa)! Tally Prime's *Reconciliation Report* matches purchase books with JSON from the GST portal in seconds.
+
+== 11.2 Bank Reconciliation Statement (BRS)
+The bank balance shown in company books rarely matches the balance on the bank statement due to timing differences:
+- *Cheques issued but not yet presented for payment by suppliers.*
+- *Cheques deposited into bank but not yet cleared/credited.*
+- *Direct bank charges, ECS loan EMIs, or interest credited directly by bank.*
+*How to Reconcile in Tally:* Navigate to *Gateway of Tally -> Banking -> Bank Reconciliation*. Enter the actual *Bank Clearance Date* against each transaction. Tally auto-reconciles the difference to zero! Tally Prime also supports *Auto BRS* by importing digital CSV/MT940 statements directly from HDFC, SBI, ICICI, and Axis banks.
+
+== 11.3 Cost Centres & Cost Categories
+In corporate enterprises, management needs to track profitability by branch, department, or construction project without cluttering the Balance Sheet with hundreds of redundant ledgers:
+- *Cost Category:* The broad organizational division (e.g., `Regional Branches` or `Marketing Projects`).
+- *Cost Centre:* The specific unit under the category (e.g., `Ahmedabad Branch`, `Surat Branch`, `Palanpur Hub`).
+When recording an operational expense (e.g., ₹60,000 in *Travelling Expenses*), Tally prompts for Cost Centre allocation: Ahmedabad (₹30k), Surat (₹20k), Palanpur (₹10k). Management obtains departmental P&L reports instantly!
+
+== 11.4 Year-End Closing & Company Data Splitting
+On 31st March, certified corporate accountants finalize financial statements:
+1. Pass depreciation adjustments on fixed assets as per Companies Act and IT Act.
+2. Provide for outstanding expenses (March salaries, electricity, audit fees).
+3. Defer unexpired prepaid expenses (insurance, software annual licenses).
+4. Perform physical stock inventory audit and reconcile book stock.
+5. *Company Data Splitting (#key-pill("Alt + Y") -> Split):* At the start of the new financial year (1st April), split the historical database. Tally archives the preceding year and creates a clean new company where closing balances roll forward as opening balances!
+
+#v(14pt)
+
 #pagebreak()
-
-= Chapter 14: Debit Note, Credit Note & Purchase/Sales Returns
-
-== 14.1 Commercial Purpose of Debit and Credit Notes
-In business commerce, transactions do not always end with the initial invoice. Rejections, transit damages, rate discrepancies, and post-sale turnover discounts require statutory adjustments without altering the original tax invoice.
-- *Credit Note (Alt + F6):* Issued by the SELLER to the buyer when:
-  1. Buyer returns damaged or rejected goods (*Sales Return*).
-  2. Seller offers post-sale discount or price reduction.
-  3. Tax charged on original invoice was higher than actual.
-- *Debit Note (Alt + F5):* Issued by the BUYER to the seller when:
-  1. Buyer returns goods to vendor (*Purchase Return*).
-  2. Seller undercharged in original invoice.
-
-== 14.2 GST Statutory Implications of Credit & Debit Notes
-Under Section 34 of the CGST Act, 2017:
-- When a seller issues a Credit Note, their output GST tax liability is *reduced*, and the buyer's Input Tax Credit (ITC) must be *reversed*.
-- In Tally Prime, every Credit Note and Debit Note must be linked to the *Original Invoice Number* and *Original Invoice Date* to reflect accurately in *Table 9B of GSTR-1*!
-#pagebreak()
-
-= Chapter 15: Financial Statements & Comprehensive Year-End Closing
-
-== 15.1 The Holy Trinity of Financial Statements
-1. *Trial Balance (Alt + G -> Trial Balance):* Verifies mathematical equality of debit and credit balances. Press #key-pill("F12") to expand opening balances, transactions, and closing balances.
-2. *Profit & Loss Account (P&L):* Measures operational profitability over a financial period:
-   $ "Gross Profit" = "Net Sales" - "Cost of Goods Sold (Opening Stock + Purchases + Direct Exp - Closing Stock)" $
-   $ "Net Profit" = "Gross Profit" + "Indirect Incomes" - "Indirect Expenses" $
-3. *Balance Sheet:* Reflects financial position at a specific point in time:
-   $ "Total Capital & Liabilities" = "Total Assets" $
-
-== 15.2 Mandatory 31st March Year-End Adjustment Entries
-Prior to closing books on March 31st, a corporate accountant must record the following adjustment entries in the *Journal Voucher (F7)*:
-1. *Depreciation on Fixed Assets:* Dr. Depreciation Expense | Cr. Respective Fixed Asset A/c.
-2. *Prepaid Expenses:* Dr. Prepaid Insurance/Rent (Current Asset) | Cr. Insurance/Rent Expense.
-3. *Outstanding Expenses:* Dr. Staff Salary / Electricity Exp | Cr. Salary / Electricity Payable (Current Liability).
-4. *Accrued Incomes:* Dr. Accrued Interest (Current Asset) | Cr. Interest Income.
-
-== 15.3 Splitting Company Data & Exporting for New Financial Year
-When transitioning from FY 2025-2026 to FY 2026-2027:
-- Navigate to `Alt + Y (Data)` -> *Split* -> *Split Company Data*.
-- Select `1-Apr-2026` as the splitting date.
-- Tally Prime automatically creates two clean companies: one for historical archive and one for the active new financial year with all closing balances carried forward as opening balances!
-#pagebreak()
-
-= Chapter 16: Bank Reconciliation Statement (BRS) & Audit Essentials
-
-== 16.1 What is Bank Reconciliation Statement (BRS)?
-BRS is an audit statement that reconciles discrepancies between the cash book bank balance maintained in Tally Prime and the actual balance shown in the bank's passbook/online statement.
-
-== 16.2 Common Causes of Difference
-1. *Cheques issued to suppliers but not yet presented for payment:* Cash book decreased; bank passbook higher.
-2. *Cheques deposited into bank but not yet cleared/credited by bank:* Cash book increased; bank passbook lower.
-3. *Direct bank debits (Bank charges, interest on overdraft, auto-debit ECS):* Bank passbook decreased; cash book not updated.
-4. *Direct customer deposits into bank via NEFT/RTGS/UPI:* Bank passbook increased; cash book not updated until statement review.
-
-== 16.3 Auto BRS in Tally Prime
-Tally Prime supports *Auto Bank Reconciliation*:
-1. Download e-Statement (CSV/Excel) from corporate internet banking portal (HDFC, SBI, ICICI).
-2. Go to *Banking -> Bank Reconciliation* -> Select Bank Account.
-3. Click *Import Bank Statement* (Alt + O) and select downloaded bank file.
-4. Tally automatically matches voucher dates, cheque numbers, and transaction amounts, reconciling hundreds of entries within seconds!
-#pagebreak()
-
 #rtech-final-page(lang: "en", photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg", logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png")
