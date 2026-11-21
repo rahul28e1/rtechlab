@@ -354,9 +354,8 @@ export function NotesPage() {
         </div>
 
         {/* =========================================================================
-            TRANSPARENT VALUE MATRIX: ₹49 vs ₹149 vs ₹249
-            (Directly fulfilling user request: "promotion 49 ka hi krna hai...
-             option aaye comparision ho taki value of money pata chale")
+            TRANSPARENT VALUE MATRIX: ₹49 vs ₹149
+            (Focused binary choice: Single Subject Pass vs 4-in-1 Career Accelerator)
            ========================================================================= */}
         <div className="mb-14">
           <div className="text-center max-w-2xl mx-auto mb-8">
@@ -364,16 +363,16 @@ export function NotesPage() {
               Transparent Pricing · Zero Hidden Costs
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-              {lang === 'en' ? 'Choose Your Learning Pass' : 'अपनी आवश्यकता अनुसार प्लान चुनें'}
+              {lang === 'en' ? 'Choose Your Plan: ₹49 vs ₹149' : 'अपनी आवश्यकता अनुसार चुनें: ₹49 बनाम ₹149'}
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-[#86868b]">
               {lang === 'en'
-                ? 'We promote ₹49 because every student deserves affordable notes. If you want career accelerators, upgrade with 1 click; otherwise proceed with ₹49!'
-                : '₹49 हर छात्र के लिए सुलभ नोट्स हैं। यदि आपको इंटरव्यू और सैलरी ब्लूप्रिंट चाहिए तो अपग्रेड करें, अन्यथा बिना किसी दबाव ₹49 से शुरुआत करें!'}
+                ? 'Direct, honest comparison. Get foundational master notes at ₹49, or unlock the complete job-ready 4-in-1 Career Accelerator bundle at ₹149!'
+                : 'स्पष्ट और सीधा चुनाव। ₹49 में मास्टर नोट्स लें, या ₹149 में इंटरव्यू वॉल्ट, 12 प्रैक्टिकल वर्कशीट्स एवं सैलरी ब्लूप्रिंट का पूरा बंडल अनलॉक करें!'}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {PRICING_TIERS.map((tier) => {
               const isSelected = selectedTierId === tier.id;
               return (
@@ -435,9 +434,9 @@ export function NotesPage() {
                     <button
                       onClick={() =>
                         handleOpenCheckout({
-                          title: tier.title,
+                          title: tier.id === 'single' ? `${selectedSubject.title} Master Notes` : 'Office 365 Career Accelerator 4-in-1 Bundle',
                           amount: tier.price,
-                          code: tier.id === 'single' ? selectedSubject.code : tier.id === 'bundle' ? 'RTL-2027-BUNDLE' : 'RTL-2027-ALLACCESS',
+                          code: tier.id === 'single' ? selectedSubject.code : 'RTL-2027-BUNDLE',
                         })
                       }
                       className={`w-full py-3 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
@@ -446,7 +445,7 @@ export function NotesPage() {
                           : 'bg-white/[0.08] hover:bg-white/[0.15] text-white border border-white/[0.1]'
                       }`}
                     >
-                      <span>{tier.id === 'single' ? `Get ${selectedSubject.title} (₹49)` : `Upgrade to ${tier.title} (₹${tier.price})`}</span>
+                      <span>{tier.id === 'single' ? `Get ${selectedSubject.title} (₹49)` : `Get Complete 4-in-1 Bundle (₹149)`}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
