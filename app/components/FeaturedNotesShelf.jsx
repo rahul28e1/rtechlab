@@ -136,7 +136,7 @@ export function FeaturedNotesShelf() {
                   📖 Sample
                 </a>
                 <Link
-                  to="/notes"
+                  to={`/notes?book=${book.id}`}
                   className="py-2 px-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black text-xs font-extrabold text-center transition-all shadow-md shadow-emerald-500/20 active:scale-95 truncate"
                 >
                   ⚡ Get ₹{book.price}

@@ -2,90 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { categoriesData } from '../../src/data/categories';
 
-// ── Core Technology Domains for the Hero Showcase ──────────────────────────
-const coreDomains = [
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m18-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-      </svg>
-    ),
-    title: 'Hardware & Architecture',
-    summary: 'CPUs, Motherboards, Memory channels, Storage RAID & Assembly',
-    tag: 'Physical Layer',
-  },
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 2a2 2 0 100 4 2 2 0 000-4zM2 10a2 2 0 100 4 2 2 0 000-4zm20 0a2 2 0 100 4 2 2 0 000-4zm-10 8a2 2 0 100 4 2 2 0 000-4zm-8-6l6 2m4 0l6-2m-10 4v4" />
-      </svg>
-    ),
-    title: 'Enterprise Networking & CCNA',
-    summary: 'OSI 7 Layers, TCP/IP Suite, IPv4/v6 Subnetting & Cisco 200-301',
-    tag: 'Networking',
-  },
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: 'Linux Systems & Admin',
-    summary: 'Command Line Mastery, Bash Scripting, Permissions & Systemd',
-    tag: 'Operating Systems',
-  },
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-    title: 'Cyber Security & Defense',
-    summary: 'Wireshark Packet Analysis, Firewalls, Threat Mitigation & SOC',
-    tag: 'Security',
-  },
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-      </svg>
-    ),
-    title: 'Cloud Computing & DevOps',
-    summary: 'AWS, Azure, VPC Architecture, Docker Containers & Automation',
-    tag: 'Cloud & Infra',
-  },
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-    title: 'AI & Automation Engineering',
-    summary: 'Python for Network Engineers, REST APIs, JSON & AI Tooling',
-    tag: 'Automation & AI',
-  },
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: 'Computer Fundamentals',
-    summary: 'Binary Math, Logic Gates, Operating System Kernels & Protocols',
-    tag: 'Foundations',
-  },
-  {
-    icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-      </svg>
-    ),
-    title: 'System Design & Visuals',
-    summary: 'Interactive Simulators, Architecture Topologies & Design Flow',
-    tag: 'Design & Visuals',
-  },
-];
-
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-16 sm:pt-24 pb-16 px-4 sm:px-6">
@@ -137,61 +53,23 @@ export function Hero() {
           </Link>
         </div>
 
-        {/* ── Topic Spectrum Mini Details (Directly in Hero) ──────────────── */}
-        <div className="pt-8 border-t border-white/[0.08] text-left">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#86868B] font-semibold">
-              Complete Tech Spectrum Covered:
-            </span>
-            <span className="text-xs text-[#86868B] font-mono hidden sm:inline">
-              8 Core Disciplines
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {coreDomains.map((domain) => (
-              <div
-                key={domain.title}
-                className="p-4 rounded-xl bg-[#0D0D0F] border border-white/[0.06] hover:border-white/20 hover:bg-[#121215] transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <div className="p-1.5 rounded-lg bg-white/[0.06] text-white">
-                      {domain.icon}
-                    </div>
-                    <span className="text-[10px] font-mono text-[#86868B] uppercase tracking-wider">
-                      {domain.tag}
-                    </span>
-                  </div>
-                  <h4 className="text-sm font-bold text-white tracking-tight mb-1">
-                    {domain.title}
-                  </h4>
-                  <p className="text-xs text-[#86868B] leading-relaxed">
-                    {domain.summary}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Minimalist Specs Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto mt-12 pt-8 border-t border-white/[0.08]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto pt-8 border-t border-white/[0.08]">
           <div className="p-2 text-center">
-            <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">120+</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">120+</div>
             <div className="text-xs sm:text-sm text-[#86868B] font-medium mt-1">Video Lessons</div>
           </div>
           <div className="p-2 text-center border-l border-white/[0.08]">
-            <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">8</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">8</div>
             <div className="text-xs sm:text-sm text-[#86868B] font-medium mt-1">Guided Tracks</div>
           </div>
           <div className="p-2 text-center border-l-0 md:border-l border-white/[0.08]">
-            <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">6</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">6+</div>
             <div className="text-xs sm:text-sm text-[#86868B] font-medium mt-1">Live Simulators</div>
           </div>
           <div className="p-2 text-center border-l border-white/[0.08]">
-            <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">100%</div>
-            <div className="text-xs sm:text-sm text-[#86868B] font-medium mt-1">Free &amp; Open</div>
+            <div className="text-2xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight">₹49</div>
+            <div className="text-xs sm:text-sm text-[#86868B] font-medium mt-1">Student Notes</div>
           </div>
         </div>
       </div>

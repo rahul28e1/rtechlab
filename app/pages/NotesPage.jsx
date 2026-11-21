@@ -523,6 +523,27 @@ export default function NotesPage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Auto-select subject from URL search params or hash on arrival (e.g. ?book=ccna or #ccna)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const targetId = (params.get('book') || params.get('subject') || hash).toLowerCase();
+      if (targetId) {
+        const found = SUBJECTS.find(
+          (s) => s.id === targetId || s.category === targetId
+        );
+        if (found) {
+          setSelectedSubject(found);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      }
+    }
+  }, []);
+
   const filteredReviews = STUDENT_REVIEWS.filter(
     (r) => reviewFilter === 'all' || r.subjectId === reviewFilter
   );
