@@ -11,7 +11,7 @@ import { buildUpiUri, buildWhatsAppLink, buildOrderMessage, formatINR } from '..
 import { useQrDataUrl } from '../utils/useQr';
 
 export function NotesPage() {
-  const [selectedSubjectId, setSelectedSubjectId] = useState('fundamentals');
+  const [selectedSubjectId, setSelectedSubjectId] = useState('office365');
   const [selectedTierId, setSelectedTierId] = useState('single');
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
@@ -23,9 +23,9 @@ export function NotesPage() {
   const [copiedVpa, setCopiedVpa] = useState(false);
   const [formError, setFormError] = useState('');
   const [checkoutItem, setCheckoutItem] = useState({
-    title: 'Computer Fundamentals Master Notes',
+    title: 'Microsoft Office 365 Master Guide',
     amount: 49,
-    code: 'RTL-2027-FUND',
+    code: 'RTL-2027-O365',
   });
 
   const selectedSubject = useMemo(() => {
@@ -226,20 +226,38 @@ export function NotesPage() {
             </div>
 
             {/* Quick Action CTA Box */}
-            <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
-              <button
-                onClick={() =>
-                  handleOpenCheckout({
-                    title: `${selectedSubject.title} Master Notes`,
-                    amount: selectedSubject.price,
-                    code: selectedSubject.code,
-                  })
-                }
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white text-sm font-semibold transition-all shadow-lg shadow-[#0071E3]/20"
-              >
-                <span>{lang === 'en' ? 'Get Full Notes — ₹49' : 'पूरी नोट्स डाउनलोड करें — ₹49'}</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+            <div className="flex flex-col gap-2.5 shrink-0 min-w-[280px]">
+              <div className="flex flex-col sm:flex-row md:flex-col gap-2">
+                <button
+                  onClick={() =>
+                    handleOpenCheckout({
+                      title: `${selectedSubject.title} Master Notes`,
+                      amount: selectedSubject.price,
+                      code: selectedSubject.code,
+                    })
+                  }
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white text-xs sm:text-sm font-semibold border border-white/[0.15] transition-all"
+                >
+                  <span>{lang === 'en' ? `Get Master Guide — ₹${selectedSubject.price}` : `मास्टर गाइड लें — ₹${selectedSubject.price}`}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+
+                <button
+                  onClick={() =>
+                    handleOpenCheckout({
+                      title: selectedSubject.id === 'office365' 
+                        ? 'Office 365 Career Accelerator 4-in-1 Bundle' 
+                        : 'Career Accelerator Complete Bundle',
+                      amount: selectedSubject.bundlePrice || 149,
+                      code: selectedSubject.id === 'office365' ? 'RTL-2027-O365-BUNDLE' : 'RTL-2027-BUNDLE',
+                    })
+                  }
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#0071E3] to-[#0284C7] hover:from-[#0077ED] hover:to-[#0396E5] text-white text-xs sm:text-sm font-bold transition-all shadow-lg shadow-[#0071E3]/25 ring-1 ring-white/20"
+                >
+                  <Sparkles className="w-4 h-4 text-[#FDE047]" />
+                  <span>{lang === 'en' ? 'Complete Bundle — ₹149' : 'सम्पूर्ण 4-इन-1 बंडल — ₹149'}</span>
+                </button>
+              </div>
 
               {/* Free 5-page Preview Buttons */}
               <div className="flex items-center gap-2">
@@ -248,9 +266,9 @@ export function NotesPage() {
                   target="_blank"
                   rel="noreferrer"
                   download
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.1] text-xs text-white border border-white/[0.1] transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-[#a1a1a6] hover:text-white border border-white/[0.08] transition-colors"
                 >
-                  <Download className="w-3.5 h-3.5 text-[#25B6F9]" />
+                  <Download className="w-3 h-3 text-[#25B6F9]" />
                   <span>Free 5-Page (EN)</span>
                 </a>
                 {selectedSubject.previewPdfHi && (
@@ -259,9 +277,9 @@ export function NotesPage() {
                     target="_blank"
                     rel="noreferrer"
                     download
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.1] text-xs text-white border border-white/[0.1] transition-colors"
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-[#a1a1a6] hover:text-white border border-white/[0.08] transition-colors"
                   >
-                    <Download className="w-3.5 h-3.5 text-[#10B981]" />
+                    <Download className="w-3 h-3 text-[#10B981]" />
                     <span>फ्री 5-पेज (हिंदी)</span>
                   </a>
                 )}
