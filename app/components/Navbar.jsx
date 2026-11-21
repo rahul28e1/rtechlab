@@ -139,7 +139,7 @@ export function Navbar({ onOpenSearch }) {
             ))}
             <div className="pt-2 px-2">
               <a
-                href="https://whatsapp.com/channel/0029Vb4qWJv7Noa1mZgTkl1O"
+                href="https://whatsapp.com/channel/0029VbETSEpBvvsaksASaJ0i"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 hover:bg-emerald-500/25 transition-all"

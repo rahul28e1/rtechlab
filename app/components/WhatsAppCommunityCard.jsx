@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export function WhatsAppCommunityCard({ className = "" }) {
   const [copied, setCopied] = useState(false);
-  const channelUrl = "https://whatsapp.com/channel/0029Vb4qWJv7Noa1mZgTkl1O";
+  const channelUrl = "https://whatsapp.com/channel/0029VbETSEpBvvsaksASaJ0i";
   const shareText = "Hey! Check out RTechLab for free interactive engineering tools, animated system design videos, and complete IT placement notes: https://rtechlab.vercel.app/notes";
 
   const handleCopyLink = () => {
