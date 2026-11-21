@@ -3,6 +3,18 @@ import { Link } from 'react-router';
 
 const FEATURED_BOOKS = [
   {
+    id: 'tally',
+    title: 'Tally Prime with GST & Corporate Accounting',
+    subtitle: 'Golden Rules, 28 Groups, 24 Vouchers, Modern GST (0%/5%/18%) & TDS',
+    pages: '120 Pages',
+    tag: 'Commerce & Accounting',
+    badge: '📊 Gujarat #1 Vocational Track',
+    previewUrl: '/downloads/Tally-Prime-Hindi-Edition-1-5Page-Preview.pdf',
+    price: 49,
+    accent: 'amber',
+    highlights: ['28 Groups & 24 Vouchers', 'Modern GST 0%, 5%, 18% Slabs', 'TDS & 50+ Real Business Invoices'],
+  },
+  {
     id: 'ccna',
     title: 'Cisco CCNA 200-301 Master Suite',
     subtitle: 'Enterprise Switching, OSPF, IPv6 & Cisco TAC Standard',
@@ -77,8 +89,8 @@ export function FeaturedNotesShelf() {
         </Link>
       </div>
 
-      {/* 4 Clean Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* 5 Clean Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {FEATURED_BOOKS.map((book) => (
           <div
             key={book.id}
@@ -122,7 +134,7 @@ export function FeaturedNotesShelf() {
                   <span className="text-[10px] text-[#86868B] line-through">₹299</span>
                 </div>
                 <span className="text-[10px] font-mono text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded">
-                  Hindi / English
+                  Hindi / Eng / ગુજ
                 </span>
               </div>
 

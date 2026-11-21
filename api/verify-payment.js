@@ -63,12 +63,22 @@ async function processVerifyLogic(data) {
 
   const baseUrl = 'https://rtechlab.vercel.app';
 
-  // ── DYNAMIC SUBJECT CATALOG MAPPING (ALL 4 RTECHLAB SUBJECTS) ──────────
+  // ── DYNAMIC SUBJECT CATALOG MAPPING (ALL 5 RTECHLAB SUBJECTS) ──────────
   const SUBJECT_CATALOG = {
+    tally: {
+      title: 'Tally Prime with GST & Corporate Accounting',
+      coreEn: `${baseUrl}/downloads/Tally-Prime-English-Edition-1.pdf`,
+      coreHi: `${baseUrl}/downloads/Tally-Prime-Hindi-Edition-1.pdf`,
+      coreGu: `${baseUrl}/downloads/Tally-Prime-Gujarati-Edition-1.pdf`,
+      bundleZip: `${baseUrl}/downloads/Tally-Prime-Career-Accelerator-Bundle.zip`,
+      bundleZipSize: '15.2 MB',
+      pages: '120 Pages',
+    },
     ai: {
       title: 'Artificial Intelligence Mastery',
       coreEn: `${baseUrl}/downloads/AI-Essentials-English-Edition-1.pdf`,
       coreHi: `${baseUrl}/downloads/AI-Essentials-Hindi-Edition-1.pdf`,
+      coreGu: `${baseUrl}/downloads/AI-Essentials-Hindi-Edition-1.pdf`,
       bundleZip: `${baseUrl}/downloads/AI-Career-Accelerator-Bundle.zip`,
       bundleZipSize: '6.4 MB',
       pages: '44 Pages',
@@ -77,6 +87,7 @@ async function processVerifyLogic(data) {
       title: 'Microsoft Office 365 Enterprise Suite',
       coreEn: `${baseUrl}/downloads/Office-365-English-Edition-1.pdf`,
       coreHi: `${baseUrl}/downloads/Office-365-Hindi-Edition-1.pdf`,
+      coreGu: `${baseUrl}/downloads/Office-365-Hindi-Edition-1.pdf`,
       bundleZip: `${baseUrl}/downloads/Office-365-Career-Accelerator-Bundle.zip`,
       bundleZipSize: '13.7 MB',
       pages: '113 Pages',
@@ -85,6 +96,7 @@ async function processVerifyLogic(data) {
       title: 'Computer Fundamentals & Architecture',
       coreEn: `${baseUrl}/downloads/Computer-Fundamentals-English-Edition-1.pdf`,
       coreHi: `${baseUrl}/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf`,
+      coreGu: `${baseUrl}/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf`,
       bundleZip: `${baseUrl}/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip`,
       bundleZipSize: '30 MB',
       pages: '45 Pages',
@@ -93,6 +105,7 @@ async function processVerifyLogic(data) {
       title: 'Cisco CCNA (200-301) Networking Master Guide',
       coreEn: `${baseUrl}/downloads/CCNA-200-301-English-Edition-1.pdf`,
       coreHi: `${baseUrl}/downloads/CCNA-200-301-Hindi-Edition-1.pdf`,
+      coreGu: `${baseUrl}/downloads/CCNA-200-301-Hindi-Edition-1.pdf`,
       bundleZip: `${baseUrl}/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip`,
       bundleZipSize: '19.8 MB',
       pages: '72 Pages',
@@ -100,10 +113,13 @@ async function processVerifyLogic(data) {
   };
 
   const subjectInfo = SUBJECT_CATALOG[subject] || SUBJECT_CATALOG.fundamentals;
-  const coreDownloadUrl = language === 'hi' ? subjectInfo.coreHi : subjectInfo.coreEn;
+  const coreDownloadUrl = language === 'gu'
+    ? (subjectInfo.coreGu || subjectInfo.coreHi)
+    : (language === 'hi' ? subjectInfo.coreHi : subjectInfo.coreEn);
   const alternateDownloadUrl = language === 'hi' ? subjectInfo.coreEn : subjectInfo.coreHi;
   const bundleZipUrl = subjectInfo.bundleZip;
   const resolvedSubjectTitle = subjectTitle || subjectInfo.title;
+  const languageLabel = language === 'gu' ? 'ગુજરાતી' : (language === 'hi' ? 'हिंदी' : 'English');
 
   const formattedDate = new Date().toLocaleString('en-IN', {
     timeZone: 'Asia/Kolkata',
@@ -150,7 +166,7 @@ async function processVerifyLogic(data) {
           ` : `
             <div style="margin: 14px 0;">
               <a href="${coreDownloadUrl}" download style="display: block; background: #10b981; color: #000000; font-weight: 900; font-size: 15px; padding: 14px 20px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
-                ⚡ DOWNLOAD MASTER PDF (${language === 'hi' ? 'हिंदी' : 'English'} Edition - ${subjectInfo.pages})
+                ⚡ DOWNLOAD MASTER PDF (${languageLabel} Edition - ${subjectInfo.pages})
               </a>
             </div>
           `}
@@ -161,6 +177,9 @@ async function processVerifyLogic(data) {
             </p>
             <div style="display: flex; flex-direction: column; gap: 8px;">
               ${plan === 'bundle' ? `
+                <a href="${subjectInfo.coreGu || subjectInfo.coreHi}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #f59e0b; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                  📥 Direct Download Gujarati (ગુજરાતી આવૃત્તિ) Master PDF (${subjectInfo.pages}) &rarr;
+                </a>
                 <a href="${subjectInfo.coreHi}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #38bdf8; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
                   📥 Direct Download Hindi (Hinglish) Master PDF (${subjectInfo.pages}) &rarr;
                 </a>
@@ -170,15 +189,11 @@ async function processVerifyLogic(data) {
                 <a href="${bundleZipUrl}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
                   📦 Direct Download Complete ZIP Bundle (${subjectInfo.bundleZipSize}) &rarr;
                 </a>
-              ` : (language === 'hi' ? `
-                <a href="${subjectInfo.coreHi}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
-                  📥 Direct Download Hindi (Hinglish) Master PDF (${subjectInfo.pages}) &rarr;
-                </a>
               ` : `
-                <a href="${subjectInfo.coreEn}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
-                  📥 Direct Download English Master PDF (${subjectInfo.pages}) &rarr;
+                <a href="${coreDownloadUrl}" download style="display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: #10b981; text-decoration: none; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;">
+                  📥 Direct Download ${languageLabel} Master PDF (${subjectInfo.pages}) &rarr;
                 </a>
-              `)}
+              `}
             </div>
           </div>
         </div>

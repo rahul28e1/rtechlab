@@ -108,6 +108,44 @@ const SUBJECTS = [
     ],
   },
   {
+    id: 'tally',
+    category: 'accounting',
+    title: 'Tally Prime with GST & Corporate Accounting',
+    subtitle: 'Golden Rules, 28 Groups, 24 Vouchers, Modern GST (0%/5%/18%) & TDS',
+    desc: 'Complete practical vocational handbook from accounting fundamentals to 28 master groups, 24 voucher types, modern GST slabs (0%, 5%, 18%), TDS deduction entries (Sec 194C, 194J, 194I), and 50+ real-world commercial invoice sets (APMC agriculture commodities, electronics, and interstate IGST).',
+    pages: '120 Pages Master Guide',
+    bundlePages: '250+ Pages Complete Suite',
+    tag: 'Tally Prime 2027 · Edition 1',
+    accent: 'amber',
+    badge: '📊 Gujarat #1 Vocational Track',
+    badgeSub: 'Corporate Accountant Track (₹2.5L–₹7.5L)',
+    previewPdfEn: '/downloads/Tally-Prime-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/Tally-Prime-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Tally-Prime-Gujarati-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/Tally-Prime-English-Edition-1.pdf',
+    fullPdfHi: '/downloads/Tally-Prime-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/Tally-Prime-Gujarati-Edition-1.pdf',
+    bundleZip: '/downloads/Tally-Prime-Career-Accelerator-Bundle.zip',
+    bundleZipSize: '15.2 MB',
+    bundleItems: [
+      { name: 'Tally Prime with GST Core Master Guide (English)', pages: '120 Pages', file: 'Tally-Prime-English-Edition-1.pdf', badge: 'Master Guide' },
+      { name: 'Tally Prime with GST Core Master Guide (Hindi)', pages: '120 Pages', file: 'Tally-Prime-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Tally Prime with GST Core Master Guide (Gujarati)', pages: '120 Pages', file: 'Tally-Prime-Gujarati-Edition-1.pdf', badge: 'Gujarati Edition' },
+      { name: '50-Invoice Commercial Practice Workbook & APMC Datasets', pages: '36 Pages', file: 'Tally-50-Invoice-Commercial-Workbook.pdf', badge: 'Practice Workbook' },
+      { name: 'Advanced TDS & Form 26Q Live Practice Set', pages: '16 Pages', file: 'Tally-TDS-and-Form-26Q-Practice-Workbook.pdf', badge: 'TDS Workbook' },
+      { name: 'Top 50 Corporate Accountant & GST Interview Question Vault (English)', pages: '10 Pages', file: 'Tally-Top-50-Accountant-Interview-Vault.pdf', badge: 'Interview Vault' },
+      { name: 'Corporate Accountant Career Roadmap & Salary Blueprint', pages: '6 Pages', file: 'Tally-Accountant-Career-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
+      { name: '1-Click Master ZIP Offline Bundle', pages: 'All 7 PDFs', file: 'Tally-Prime-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+    ],
+    topics: [
+      'Ch 01-03: Tally Prime Architecture, Golden Rules of Accounting & Mr. Verma 50 Practice Set',
+      'Ch 04-06: 28 Pre-defined Groups, 24 Voucher Types & Company Creation Labs (Palanpur/Ahmedabad)',
+      'Ch 07-08: Modern GST Framework (0%, 5%, 18% Slabs & F11 SOP) & TDS Essentials (194C, 194J, 194I)',
+      'Ch 09-10: 50+ Invoices (APMC Jeera/Isabgol, Electronics, Interstate IGST, Debit/Credit Notes)',
+      'Ch 11-14: Year-End Final Accounts (Depreciation/P&L/Balance Sheet), 100+ Ledgers & 100+ Shortcuts',
+    ],
+  },
+  {
     id: 'ccna',
     category: 'networking',
     title: 'Cisco CCNA 200-301 Master Suite',
@@ -263,6 +301,50 @@ const PREVIEW_ASSETS = {
       'पेज 3: 2-टियर कोलैप्सड कोर, 3-टियर और स्पाइन-लीफ डिजाइन',
       'पेज 4: UTP Cat6 और सिंगल/मल्टी-मोड फाइबर केबलिंग',
       'पेज 5: T568A/B पिनआउट्स और कोलिजन/ब्रॉडकास्ट डोमेन',
+    ],
+  },
+  tally: {
+    en: [
+      '/previews/office365/preview-1.png',
+      '/previews/office365/preview-2.png',
+      '/previews/office365/preview-3.png',
+      '/previews/office365/preview-4.png',
+      '/previews/office365/preview-5.png',
+    ],
+    hi: [
+      '/previews/office365/preview-hi-1.png',
+      '/previews/office365/preview-hi-2.png',
+      '/previews/office365/preview-hi-3.png',
+      '/previews/office365/preview-hi-4.png',
+      '/previews/office365/preview-hi-5.png',
+    ],
+    gu: [
+      '/previews/office365/preview-hi-1.png',
+      '/previews/office365/preview-hi-2.png',
+      '/previews/office365/preview-hi-3.png',
+      '/previews/office365/preview-hi-4.png',
+      '/previews/office365/preview-hi-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official Master Book Cover · Tally Prime with GST & TDS',
+      'Page 2: Chapter 1 — Financial Accounting Basics & Gateway of Tally',
+      'Page 3: Chapter 2 — The 3 Golden Rules & Accounting Classification',
+      'Page 4: Chapter 4 — The 28 Pre-defined Master Groups',
+      'Page 5: Chapter 7 — Modern GST Slabs (0%, 5%, 18%) & Tally Setup SOP',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक मास्टर बुक कवर · Tally Prime with GST & TDS',
+      'पेज 2: अध्याय 1 — वित्तीय लेखांकन परिचय और गेटवे ऑफ टैली',
+      'पेज 3: अध्याय 2 — लेखांकन के 3 सुनहरे नियम और खाते',
+      'पेज 4: अध्याय 4 — टैली के 28 प्री-डिफ़ाइंड मास्टर ग्रुप्स',
+      'पेज 5: अध्याय 7 — आधुनिक GST स्लैब (0%, 5%, 18%) और टैली सेटअप SOP',
+    ],
+    labelsGu: [
+      'પેજ 1: સત્તાવાર માસ્ટર બુક કવર · Tally Prime with GST & TDS',
+      'પેજ 2: પ્રકરણ 1 — નાણાકીય હિસાબ અને ગેટવે ઓફ ટેલી પરિચય',
+      'પેજ 3: પ્રકરણ 2 — નામું લખવાના 3 સુવર્ણ નિયમો (Golden Rules)',
+      'પેજ 4: પ્રકરણ 4 — ટેલી પ્રાઇમના 28 પ્રી-ડિફાઇન્ડ માસ્ટર ગ્રુપ્સ',
+      'પેજ 5: પ્રકરણ 7 — આધુનિક GST સ્લેબ (0%, 5%, 18%) અને ટેલી સેટઅપ SOP',
     ],
   },
 };
@@ -1246,7 +1328,7 @@ export default function NotesPage() {
                     </div>
                     <div className="flex items-center gap-2 text-xs text-white">
                       <span className="text-emerald-400 font-bold shrink-0">✓</span>
-                      <span><strong>Both English + Hindi Master Guides</strong> (No language lock)</span>
+                      <span><strong>English + Hindi + Gujarati Master Guides</strong> (No language lock)</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-white">
                       <span className="text-emerald-400 font-bold shrink-0">✓</span>
@@ -1727,7 +1809,7 @@ export default function NotesPage() {
                         👑 The 6-Figure Placement Arsenal · Real-World Enterprise Advantage
                       </div>
                       <p className="text-xs text-emerald-200/90 leading-relaxed mb-2">
-                        Includes <strong>all {selectedSubject.bundleItems.length} specialized engineering guides</strong> ({selectedSubject.bundlePages}): Both English &amp; Hindi Core Guides + Top MNC Interview Vault + Practical Labs/Templates + Career Salary Blueprint + 1-Click ZIP Download.
+                        Includes <strong>all {selectedSubject.bundleItems.length} specialized engineering guides</strong> ({selectedSubject.bundlePages}): English, Hindi &amp; Gujarati Core Guides + Top MNC Interview Vault + Practical Labs/Templates + Career Salary Blueprint + 1-Click ZIP Download.
                       </p>
                       <div className="text-[11px] font-mono text-[#86868B]">
                         ✓ Personal Mentorship Email from Rahul Sir · 100% Lifetime Free Yearly Updates
@@ -1949,7 +2031,7 @@ export default function NotesPage() {
                     </div>
 
                     <a
-                      href={checkoutItem.plan === 'bundle' && selectedSubject.bundleZip ? selectedSubject.bundleZip : (selectedLanguage === 'hi' ? selectedSubject.fullPdfHi : selectedSubject.fullPdfEn)}
+                      href={checkoutItem.plan === 'bundle' && selectedSubject.bundleZip ? selectedSubject.bundleZip : (selectedLanguage === 'gu' && selectedSubject.fullPdfGu ? selectedSubject.fullPdfGu : (selectedLanguage === 'hi' ? selectedSubject.fullPdfHi : selectedSubject.fullPdfEn))}
                       download
                       className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 hover:brightness-110 text-black text-base sm:text-xl font-black tracking-tight text-center shadow-2xl shadow-emerald-500/50 transform hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-3 border-2 border-white/60 cursor-pointer block"
                     >
@@ -1963,7 +2045,7 @@ export default function NotesPage() {
                     <p className="text-[11px] text-emerald-200/90 font-mono">
                       {checkoutItem.plan === 'bundle'
                         ? `📦 Complete Master Bundle (.ZIP · ${selectedSubject.bundleZipSize}) — All Theory Guides + Interview Vaults + Labs`
-                        : `⚡ Core Master Guide (${selectedLanguage === 'hi' ? 'Hindi' : 'English'} Edition · ${selectedSubject.pages})`}
+                        : `⚡ Core Master Guide (${selectedLanguage === 'gu' ? 'ગુજરાતી' : (selectedLanguage === 'hi' ? 'Hindi' : 'English')} Edition · ${selectedSubject.pages})`}
                     </p>
                   </div>
 
@@ -1974,7 +2056,21 @@ export default function NotesPage() {
                       <span className="text-emerald-400 font-bold">Lifetime Free Access</span>
                     </div>
 
-                    <div className={checkoutItem.plan === 'bundle' ? "grid grid-cols-2 gap-2" : "grid grid-cols-1 gap-2"}>
+                    <div className={checkoutItem.plan === 'bundle' ? "grid grid-cols-1 sm:grid-cols-3 gap-2" : "grid grid-cols-1 gap-2"}>
+                      {(checkoutItem.plan === 'bundle' || selectedLanguage === 'gu') && selectedSubject.fullPdfGu && (
+                        <a
+                          href={selectedSubject.fullPdfGu}
+                          download
+                          className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
+                        >
+                          <span className="flex items-center gap-1.5 truncate">
+                            <span>🦁</span>
+                            <span className="truncate">ગુજરાતી આવૃત્તિ ({selectedSubject.pages})</span>
+                          </span>
+                          <span className="text-amber-400 font-mono text-[10px] shrink-0 font-bold">Direct Download ↓</span>
+                        </a>
+                      )}
+
                       {(checkoutItem.plan === 'bundle' || selectedLanguage === 'hi') && (
                         <a
                           href={selectedSubject.fullPdfHi}
@@ -2078,47 +2174,70 @@ export default function NotesPage() {
                       <span className="text-[#86868B] text-[10px]">Required</span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2 mb-2">
+                    <div className="grid grid-cols-3 gap-2 mb-2">
                       <button
                         type="button"
                         onClick={() => setSelectedLanguage('en')}
-                        className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                        className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
                           selectedLanguage === 'en'
                             ? 'bg-emerald-500/15 border-emerald-400 text-white ring-1 ring-emerald-500/40 shadow-sm shadow-emerald-500/20'
                             : 'bg-white/[0.03] border-white/10 text-[#86868B] hover:border-white/20'
                         }`}
                       >
-                        <div className="flex items-center justify-between font-bold text-xs text-white">
-                          <span>🇬🇧 English Edition</span>
-                          {selectedLanguage === 'en' && <span className="text-emerald-400 text-[10px] font-bold">✓ SELECTED</span>}
+                        <div className="flex items-center justify-between font-bold text-[11px] sm:text-xs text-white">
+                          <span>🇬🇧 English</span>
+                          {selectedLanguage === 'en' && <span className="text-emerald-400 text-[10px] font-bold">✓</span>}
                         </div>
-                        <div className="text-[10px] font-mono text-[#86868B] mt-1">
-                          {selectedSubject.pages} · Global Standard
+                        <div className="text-[9px] sm:text-[10px] font-mono text-[#86868B] mt-1 truncate">
+                          Global Standard
                         </div>
                       </button>
 
                       <button
                         type="button"
                         onClick={() => setSelectedLanguage('hi')}
-                        className={`p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                        className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
                           selectedLanguage === 'hi'
                             ? 'bg-cyan-500/15 border-cyan-400 text-white ring-1 ring-cyan-500/40 shadow-sm shadow-cyan-500/20'
                             : 'bg-white/[0.03] border-white/10 text-[#86868B] hover:border-white/20'
                         }`}
                       >
-                        <div className="flex items-center justify-between font-bold text-xs text-white">
-                          <span>🇮🇳 Hindi Edition</span>
-                          {selectedLanguage === 'hi' && <span className="text-cyan-400 text-[10px] font-bold">✓ SELECTED</span>}
+                        <div className="flex items-center justify-between font-bold text-[11px] sm:text-xs text-white">
+                          <span>🇮🇳 Hindi</span>
+                          {selectedLanguage === 'hi' && <span className="text-cyan-400 text-[10px] font-bold">✓</span>}
                         </div>
-                        <div className="text-[10px] font-mono text-[#86868B] mt-1">
-                          {selectedSubject.pages} · Complete Hindi Edition
+                        <div className="text-[9px] sm:text-[10px] font-mono text-[#86868B] mt-1 truncate">
+                          Complete Hindi
+                        </div>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setSelectedLanguage('gu')}
+                        className={`p-2 sm:p-2.5 rounded-xl border text-left transition-all flex flex-col justify-between ${
+                          selectedLanguage === 'gu'
+                            ? 'bg-amber-500/15 border-amber-400 text-white ring-1 ring-amber-500/40 shadow-sm shadow-amber-500/20'
+                            : 'bg-white/[0.03] border-white/10 text-[#86868B] hover:border-white/20'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between font-bold text-[11px] sm:text-xs text-white">
+                          <span>🦁 ગુજરાતી</span>
+                          {selectedLanguage === 'gu' && <span className="text-amber-400 text-[10px] font-bold">✓</span>}
+                        </div>
+                        <div className="text-[9px] sm:text-[10px] font-mono text-[#86868B] mt-1 truncate">
+                          ગુજરાતી આવૃત્તિ
                         </div>
                       </button>
                     </div>
 
-                    <p className="text-[10px] text-[#86868B] leading-relaxed">
-                      💡 <em>In the ₹149 Career Accelerator Suite, you get BOTH English and Hindi editions included inside the 1-Click ZIP bundle!</em>
-                    </p>
+                    <div className="p-2 sm:p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-[10px] text-[#A1A1A6] leading-relaxed space-y-1">
+                      <div>
+                        📌 <strong>Language Policy:</strong> Core Theory Handbooks are delivered in your chosen language (English, Hindi, or Gujarati). In the ₹149 Suite, you get Core Guides in <strong>all 3 languages</strong>.
+                      </div>
+                      <div className="text-[#86868B]">
+                        💼 MNC Placement Interview Vaults &amp; Salary Blueprints are intentionally provided in <strong>Professional English Standard</strong> to ensure real-world corporate interview readiness.
+                      </div>
+                    </div>
                   </div>
 
                   {/* ── STEP 2: STUDENT DETAILS & SECURE RAZORPAY PAYMENT ── */}
