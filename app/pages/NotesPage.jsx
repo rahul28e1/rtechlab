@@ -498,8 +498,55 @@ export default function NotesPage() {
   const [upsellTab, setUpsellTab] = useState('interview');
   // Toast notification for sharing
   const [toastMessage, setToastMessage] = useState('');
-  // Filter for student reviews
+  // Filter for student reviews & auto-slider state
   const [reviewFilter, setReviewFilter] = useState('all');
+  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
+  const [isReviewPaused, setIsReviewPaused] = useState(false);
+  const [cardsPerView, setCardsPerView] = useState(3);
+
+  // Responsive cards per view (1 on mobile, 2 on tablet, 3 on desktop)
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth < 640) {
+          setCardsPerView(1);
+        } else if (window.innerWidth < 1024) {
+          setCardsPerView(2);
+        } else {
+          setCardsPerView(3);
+        }
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const filteredReviews = STUDENT_REVIEWS.filter(
+    (r) => reviewFilter === 'all' || r.subjectId === reviewFilter
+  );
+
+  const maxReviewIndex = Math.max(0, filteredReviews.length - cardsPerView);
+
+  // Auto-slide reviews continuously every 3.5 seconds (paused on hover)
+  useEffect(() => {
+    if (isReviewPaused) return;
+    const interval = setInterval(() => {
+      setActiveReviewIndex((prev) => {
+        const max = Math.max(0, filteredReviews.length - cardsPerView);
+        return prev >= max ? 0 : prev + 1;
+      });
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isReviewPaused, filteredReviews.length, cardsPerView]);
+
+  const handlePrevReview = () => {
+    setActiveReviewIndex((prev) => (prev <= 0 ? maxReviewIndex : prev - 1));
+  };
+
+  const handleNextReview = () => {
+    setActiveReviewIndex((prev) => (prev >= maxReviewIndex ? 0 : prev + 1));
+  };
 
   const handleShareCourse = (sub, e) => {
     if (e) e.stopPropagation();
@@ -1253,7 +1300,10 @@ export default function NotesPage() {
                 <button
                   key={f.id}
                   type="button"
-                  onClick={() => setReviewFilter(f.id)}
+                  onClick={() => {
+                    setReviewFilter(f.id);
+                    setActiveReviewIndex(0);
+                  }}
                   className={`px-3 py-1.5 rounded-full text-xs font-mono font-semibold transition-all ${
                     reviewFilter === f.id
                       ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20'
@@ -1266,65 +1316,127 @@ export default function NotesPage() {
             </div>
           </div>
 
-          {/* Reviews Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {STUDENT_REVIEWS.filter(r => reviewFilter === 'all' || r.subjectId === reviewFilter).map((rev) => (
-              <div
-                key={rev.id}
-                className="p-5 sm:p-6 rounded-2xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/30 transition-all flex flex-col justify-between shadow-lg hover:shadow-xl hover:shadow-emerald-500/5"
+          {/* Controls Bar: Auto-Slide Badge + Prev/Next Controls */}
+          <div className="flex items-center justify-between gap-3 mb-4 px-2">
+            <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 inline-flex items-center gap-1.5">
+              <span className={`w-2 h-2 rounded-full ${isReviewPaused ? 'bg-amber-400' : 'bg-emerald-400 animate-pulse'}`} />
+              <span>{isReviewPaused ? '⏸️ Sliding Paused (Reading)' : '⚡ Auto-Sliding · Hover to pause'}</span>
+            </span>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handlePrevReview}
+                className="w-9 h-9 rounded-full bg-white/[0.06] hover:bg-emerald-500 hover:text-black border border-white/10 text-white font-bold flex items-center justify-center transition-all active:scale-95 text-lg"
+                title="Previous slide"
               >
-                <div>
-                  {/* Top Bar: Stars & Verified Badge */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-1 text-amber-400 text-xs sm:text-sm tracking-widest">
-                      {[...Array(rev.stars)].map((_, i) => (
-                        <span key={i}>★</span>
-                      ))}
-                      {rev.stars < 5 && <span className="text-white/20">★</span>}
-                      <span className="text-[11px] font-mono text-white/50 ml-1">({rev.stars}.0)</span>
-                    </div>
-                    <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                      <span>✓</span>
-                      <span>Verified Student</span>
-                    </span>
-                  </div>
-
-                  {/* Review Quote */}
-                  <p className="text-xs sm:text-[13px] text-[#D2D2D7] leading-relaxed mb-4 italic">
-                    "{rev.review}"
-                  </p>
-                </div>
-
-                {/* Student Info Footer */}
-                <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2.5 truncate">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 ${rev.avatarBg}`}>
-                      {rev.name.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <div className="truncate text-left">
-                      <div className="text-xs font-bold text-white truncate">
-                        {rev.name}
-                      </div>
-                      <div className="text-[10px] font-mono text-[#86868B] truncate">
-                        {rev.college}
-                      </div>
-                      <div className="text-[10px] font-mono text-emerald-400 font-semibold truncate">
-                        {rev.role}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <span className="text-[9px] font-mono text-white/40 block">
-                      {rev.date}
-                    </span>
-                    <span className="text-[9px] font-mono text-cyan-400/90 block">
-                      {rev.subject}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={handleNextReview}
+                className="w-9 h-9 rounded-full bg-white/[0.06] hover:bg-emerald-500 hover:text-black border border-white/10 text-white font-bold flex items-center justify-center transition-all active:scale-95 text-lg"
+                title="Next slide"
+              >
+                ›
+              </button>
+            </div>
           </div>
+
+          {/* Reviews Auto-Sliding Track Container */}
+          <div
+            className="relative overflow-hidden py-2"
+            onMouseEnter={() => setIsReviewPaused(true)}
+            onMouseLeave={() => setIsReviewPaused(false)}
+            onTouchStart={() => setIsReviewPaused(true)}
+            onTouchEnd={() => setIsReviewPaused(false)}
+          >
+            <div
+              className="flex transition-transform duration-700 ease-out"
+              style={{
+                transform: `translateX(-${activeReviewIndex * (100 / cardsPerView)}%)`,
+              }}
+            >
+              {filteredReviews.map((rev) => (
+                <div
+                  key={rev.id}
+                  className="shrink-0 p-2 sm:p-2.5"
+                  style={{ width: `${100 / cardsPerView}%` }}
+                >
+                  <div className="p-5 sm:p-6 rounded-2xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between shadow-xl hover:shadow-2xl hover:shadow-emerald-500/5 h-full">
+                    <div>
+                      {/* Top Bar: Stars & Verified Badge */}
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-1 text-amber-400 text-xs sm:text-sm tracking-widest">
+                          {[...Array(rev.stars)].map((_, i) => (
+                            <span key={i}>★</span>
+                          ))}
+                          {rev.stars < 5 && <span className="text-white/20">★</span>}
+                          <span className="text-[11px] font-mono text-white/50 ml-1">({rev.stars}.0)</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                          <span>✓</span>
+                          <span>Verified Student</span>
+                        </span>
+                      </div>
+
+                      {/* Review Quote */}
+                      <p className="text-xs sm:text-[13px] text-[#D2D2D7] leading-relaxed mb-4 italic">
+                        "{rev.review}"
+                      </p>
+                    </div>
+
+                    {/* Student Info Footer */}
+                    <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5 truncate">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 ${rev.avatarBg}`}>
+                          {rev.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div className="truncate text-left">
+                          <div className="text-xs font-bold text-white truncate">
+                            {rev.name}
+                          </div>
+                          <div className="text-[10px] font-mono text-[#86868B] truncate">
+                            {rev.college}
+                          </div>
+                          <div className="text-[10px] font-mono text-emerald-400 font-semibold truncate">
+                            {rev.role}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-right shrink-0">
+                        <span className="text-[9px] font-mono text-white/40 block">
+                          {rev.date}
+                        </span>
+                        <span className="text-[9px] font-mono text-cyan-400/90 block">
+                          {rev.subject}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots Indicator */}
+          {maxReviewIndex > 0 && (
+            <div className="flex items-center justify-center gap-1.5 mt-5">
+              {[...Array(maxReviewIndex + 1)].map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActiveReviewIndex(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    activeReviewIndex === i
+                      ? 'w-7 bg-emerald-400 shadow-md shadow-emerald-400/50'
+                      : 'w-2 bg-white/20 hover:bg-white/40'
+                  }`}
+                  title={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
 
           {/* Social Proof Trust Bar */}
           <div className="mt-8 p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-wrap items-center justify-around gap-4 text-center">

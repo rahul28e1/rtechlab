@@ -1,0 +1,11 @@
+file 'C:\Users\Rahul\Videos\My projects\RtechLab\public\brand\reel_scenes\scene1.png'
+duration 11.0
+file 'C:\Users\Rahul\Videos\My projects\RtechLab\public\brand\reel_scenes\scene2.png'
+duration 10.0
+file 'C:\Users\Rahul\Videos\My projects\RtechLab\public\brand\reel_scenes\scene3.png'
+duration 25.0
+file 'C:\Users\Rahul\Videos\My projects\RtechLab\public\brand\reel_scenes\scene4.png'
+duration 9.0
+file 'C:\Users\Rahul\Videos\My projects\RtechLab\public\brand\reel_scenes\scene5.png'
+duration 13.0
+file 'C:\Users\Rahul\Videos\My projects\RtechLab\public\brand\reel_scenes\scene5.png'
