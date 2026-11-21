@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
 } from 'react-router';
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { SearchModal } from './components/SearchModal';
@@ -39,6 +40,7 @@ export function Layout({ children }) {
       </head>
       <body className="bg-black text-[#EDEDED] font-sans antialiased selection:bg-white selection:text-black min-h-screen">
         {children}
+        <Analytics />
         <ScrollRestoration />
         <Scripts />
       </body>
