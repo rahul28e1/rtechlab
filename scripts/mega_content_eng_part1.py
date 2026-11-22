@@ -16,13 +16,13 @@ def get_part1_chapters():
 = Topic 01: History of Tally, Evolution & Downloading Tally Prime
 
 == 1.1 The Genesis of Tally: A Proud Indian Innovation
-The story of Tally represents one of the most remarkable breakthroughs in the global software industry. In 1986, *Shyam Sundar Goenka*, an entrepreneur running a textile machinery spare parts business in Bangalore, faced severe challenges with manual paper-based bookkeeping. Every transaction required tedious physical ledger entries, and errors in trial balances took weeks to trace. At the time, early business computer systems were prohibitively expensive and required complex database programming knowledge.
+The story of Tally represents one of the most remarkable breakthroughs in the global software industry. In 1986, *#ul-yellow[Shyam Sundar Goenka]*, an entrepreneur running a textile machinery spare parts business in Bangalore, faced severe challenges with manual paper-based bookkeeping. Every transaction required tedious physical ledger entries, and errors in trial balances took weeks to trace. At the time, early business computer systems were prohibitively expensive and required complex database programming knowledge.
 
-Determined to find an automated yet user-friendly solution, Shyam Sundar Goenka challenged his son, *Bharat Goenka* (a mathematics graduate with a passion for software design), to develop an accounting tool that any Indian accountant could use in natural commercial language without writing computer code.
+Determined to find an automated yet user-friendly solution, #ul-yellow[Shyam Sundar Goenka] challenged his son, *#hl-yellow[Bharat Goenka]* (a mathematics graduate with a passion for software design), to develop an accounting tool that any Indian accountant could use in natural commercial language without writing computer code.
 
-Bharat Goenka founded *Peutronics Financial Services* in Bangalore in 1986. Operating from a small office, he created *The Accountant*, the world's first "codeless" accounting software. In 1999, recognizing the immense nationwide adoption and the verb "to tally" (to agree or balance accounts), the enterprise was officially renamed *Tally Solutions Pvt. Ltd.*
+#hl-yellow[Bharat Goenka] founded *#ul-yellow[Peutronics Financial Services]* in Bangalore in 1986. Operating from a small office, he created *The Accountant*, the world's first "codeless" accounting software. In 1999, recognizing the immense nationwide adoption and the verb "to tally" (to agree or balance accounts), the enterprise was officially renamed *Tally Solutions Pvt. Ltd.*
 
-Today, headquartered in Bangalore, Tally dominates the Indian business landscape with over *80% market share* across micro, small, and medium enterprises (MSMEs), large industrial corporations, government boards, and Chartered Accountancy firms.
+Today, headquartered in Bangalore, Tally dominates the Indian business landscape with over *#hl-yellow[80% market share]* across micro, small, and medium enterprises (MSMEs), large industrial corporations, government boards, and Chartered Accountancy firms.
 
 #v(6pt)
 
@@ -179,8 +179,8 @@ Upon first launch, Tally Prime presents the Welcome Screen with four distinct op
   inset: 8pt,
   [
     #text(weight: "black", size: 8.5pt, fill: rgb("#0F766E"))[TOPIC 01 SUMMARY & KEY REVISION TAKEAWAYS]
-    - Tally was founded in 1986 by Shyam Sundar Goenka and Bharat Goenka under the initial company name *Peutronics*.
-    - Rebranded to *Tally Solutions Pvt. Ltd.* in 1999; commands over *80% market share* in Indian business accounting.
+    - Tally was founded in 1986 by #ul-yellow[Shyam Sundar Goenka] and #hl-yellow[Bharat Goenka] under the initial company name *Peutronics*.
+    - Rebranded to *Tally Solutions Pvt. Ltd.* in 1999; commands over *#hl-yellow[80% market share]* in Indian business accounting.
     - Evolution: DOS-based Tally 4.5 -> Windows 5.4 -> VAT-compliant 7.2 -> ERP workhorse Tally.ERP 9 -> Modern Tally Prime.
     - Key Tally Prime advantages: Clean light interface, Go To (Alt+G) multi-tasking, standard Ctrl+C/V, direct e-Invoicing.
     - Download verified installer exclusively from #link("https://tallysolutions.com")[tallysolutions.com] (`setup.exe`).
@@ -199,7 +199,7 @@ Upon first launch, Tally Prime presents the Welcome Screen with four distinct op
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Tally Edition]], [#text(weight: "bold", fill: white)[Release Year]], [#text(weight: "bold", fill: white)[Operating System]], [#text(weight: "bold", fill: white)[Milestone Capabilities & Architectural Leaps]],
-  [The Accountant], [1986], [MS-DOS 3.3], [First codeless accounting software developed by Bharat Goenka in Bangalore.],
+  [The Accountant], [1986], [MS-DOS 3.3], [First codeless accounting software developed by #hl-yellow[Bharat Goenka] in Bangalore.],
   [Tally 4.5], [1992], [MS-DOS], [Financial accounting engine with basic stock inventory; widely adopted by Indian traders.],
   [Tally 5.4], [1996], [Windows 95/NT], [Transition from DOS to native 32-bit graphical Windows interface; automated trial balance.],
   [Tally 6.3], [2001], [Windows 98/2000], [Introduction of Indian Value Added Tax (VAT), multi-currency, and ODBC connectivity.],
@@ -245,11 +245,11 @@ Corporate organizations choose their licensing tier based on network concurrency
 == Topic 01: High-Yield Exam & Interview MCQs
 
 1. *Who is regarded as the father of Tally and developed its first codeless engine?*\\
-   (A) Narayana Murthy #h(10pt) (B) Bharat Goenka #h(10pt) (C) Azim Premji #h(10pt) (D) Shyam Sundar Goenka\\
-   *Answer: (B)* | *Explanation:* Bharat Goenka developed "The Accountant" in 1986 and architected the Cactus engine.
+   (A) Narayana Murthy #h(10pt) (B) #hl-yellow[Bharat Goenka] #h(10pt) (C) Azim Premji #h(10pt) (D) #ul-yellow[Shyam Sundar Goenka]\\
+   *Answer: (B)* | *Explanation:* #hl-yellow[Bharat Goenka] developed "The Accountant" in 1986 and architected the Cactus engine.
 
 2. *What was the original company name of Tally Solutions when founded in 1986?*\\
-   (A) Tally India Pvt Ltd #h(10pt) (B) Peutronics Financial Services #h(10pt) (C) Indian Software Corp #h(10pt) (D) Cactus ERP Ltd\\
+   (A) Tally India Pvt Ltd #h(10pt) (B) #ul-yellow[Peutronics Financial Services] #h(10pt) (C) Indian Software Corp #h(10pt) (D) Cactus ERP Ltd\\
    *Answer: (B)* | *Explanation:* Peutronics was founded in Bangalore in 1986 and renamed Tally Solutions in 1999.
 
 3. *In Educational Mode of Tally Prime, on which dates of a calendar month can vouchers be recorded?*\\
@@ -267,7 +267,7 @@ Corporate organizations choose their licensing tier based on network concurrency
 
 6. *What approximate market share does Tally command across Indian business accounting?*\\
    (A) 25% #h(10pt) (B) 50% #h(10pt) (C) Over 80% #h(10pt) (D) 99%\\
-   *Answer: (C)* | *Explanation:* Tally commands over 80% market share across MSMEs, CAs, and retail in India.
+   *Answer: (C)* | *Explanation:* Tally commands over #hl-yellow[80% market share] across MSMEs, CAs, and retail in India.
 
 7. *Which keyboard shortcut in Tally.ERP 9 was required to copy text, which has now been replaced by standard Ctrl+C in Tally Prime?*\\
    (A) Alt + C #h(10pt) (B) Ctrl + Alt + C #h(10pt) (C) Shift + C #h(10pt) (D) F12\\
@@ -277,7 +277,7 @@ Corporate organizations choose their licensing tier based on network concurrency
    (A) `C:\\Tally` #h(10pt) (B) `C:\\Program Files\\TallyPrime` #h(10pt) (C) `C:\\Windows\\Tally` #h(10pt) (D) `D:\\Data`\\
    *Answer: (B)* | *Explanation:* Tally Prime defaults to `C:\\Program Files\\TallyPrime` on standard 64-bit Windows installations.
 
-9. *In which year was Peutronics Financial Services formally renamed Tally Solutions Pvt. Ltd.?*\\
+9. *In which year was #ul-yellow[Peutronics Financial Services] formally renamed Tally Solutions Pvt. Ltd.?*\\
    (A) 1986 #h(10pt) (B) 1991 #h(10pt) (C) 1999 #h(10pt) (D) 2005\\
    *Answer: (C)* | *Explanation:* In 1999, the company embraced the brand name Tally Solutions Pvt. Ltd.
 
@@ -289,7 +289,7 @@ Corporate organizations choose their licensing tier based on network concurrency
 
 // VIVA & LAB
 == Topic 01: Practical Viva Questions & Hands-On Lab Task
-- *Viva Q1:* Why did Shyam Sundar Goenka want a codeless accounting system in 1986?\\
+- *Viva Q1:* Why did #ul-yellow[Shyam Sundar Goenka] want a codeless accounting system in 1986?\\
   *Answer:* Because existing computer systems required complex programming and external database specialists, making them impractical for ordinary Indian traders.
 - *Viva Q2:* How can an institute or student use Tally Prime without purchasing a commercial license?\\
   *Answer:* By launching Tally Prime in *Educational Mode*, which provides full double-entry, inventory, and GST features with a transaction date restriction (1st, 2nd, 31st).
@@ -309,7 +309,7 @@ Corporate organizations choose their licensing tier based on network concurrency
 
 Unlike traditional relational accounting software that forces data entry operators to remember rigid alphanumeric chart-of-accounts codes (e.g., account `4010-002`), Tally Prime operates on *natural commercial accounting*. An accountant records a transaction using standard business vouchers—such as an F5 Payment, F6 Receipt, or F8 Sales Invoice. 
 
-The moment a voucher is accepted, Tally Prime instantly and simultaneously updates the relevant ledger accounts, customer/supplier balances, inventory stock ledgers, Trial Balance, Profit & Loss Account, Balance Sheet, and statutory GST returns (GSTR-1 and GSTR-3B) with zero batch processing delay!
+The moment a voucher is accepted, Tally Prime instantly and simultaneously updates the relevant ledger accounts, customer/supplier balances, inventory stock ledgers, #ul-green[Trial Balance], Profit & Loss Account, Balance Sheet, and statutory GST returns (#ul-green[GSTR-1] and #ul-green[GSTR-3B]) with zero batch processing delay!
 
 #v(6pt)
 
@@ -338,7 +338,7 @@ The *Gateway of Tally* is the nerve center and command dashboard of Tally Prime.
   [1. Masters], [Create, Alter, Chart of Accounts], [Build and maintain master records: Ledgers, Groups, Stock Items, Units, Godowns, and Tax Categories.],
   [2. Transactions], [Vouchers, Day Book], [Record day-to-day commercial vouchers (F4 Contra to F9 Purchase) and review the chronological Day Book diary.],
   [3. Utilities], [Banking], [Access Cheque Printing, Cheque Register, Bank Reconciliation (BRS), Deposit Slips, and Payment Advice.],
-  [4. Reports], [Balance Sheet, Profit & Loss A/c, Stock Summary, Ratio Analysis, Display More Reports], [Generate instant audited financial statements, inventory valuation trees, liquidity ratios, GST statutory returns, and Trial Balance.]
+  [4. Reports], [Balance Sheet, Profit & Loss A/c, Stock Summary, Ratio Analysis, Display More Reports], [Generate instant audited financial statements, inventory valuation trees, liquidity ratios, GST statutory returns, and #ul-green[Trial Balance].]
 )
 
 #v(6pt)
@@ -395,7 +395,7 @@ Tally Prime introduces the revolutionary *Go To* search and multitasking engine:
   [
     #text(weight: "black", size: 8.5pt, fill: rgb("#0F766E"))[TOPIC 02 SUMMARY & KEY REVISION TAKEAWAYS]
     - Tally Prime is an integrated business ERP managing accounts, stock, statutory GST/TDS, banking, and payroll.
-    - Gateway of Tally (GOT) is structured into 4 sections: Masters, Transactions, Utilities, and Reports.
+    - #hl-yellow[Gateway of Tally (GOT)] is structured into 4 sections: Masters, Transactions, Utilities, and Reports.
     - Operates on *natural commercial accounting*—vouchers immediately update all financial books and tax returns.
     - Powered by the proprietary *Cactus Engine*, an in-memory RAM database enabling sub-millisecond dynamic recalculation without SQL disk bottlenecks.
     - Top Menu Bar provides unified access: #key-pill("Alt+K") (Company), #key-pill("Alt+Y") (Data), #key-pill("Alt+Z") (Exchange), #key-pill("Alt+O") (Import), #key-pill("Alt+E") (Export), #key-pill("Alt+M") (Email), #key-pill("Alt+P") (Print).
@@ -408,7 +408,7 @@ Tally Prime introduces the revolutionary *Go To* search and multitasking engine:
 // MCQS
 
 == 2.6 The 4 Operational Quadrants of the Gateway of Tally
-The Gateway of Tally (GOT) is the central command console of Tally Prime. It is divided into 4 primary operational quadrants:
+The #hl-yellow[Gateway of Tally (GOT)] is the central command console of Tally Prime. It is divided into 4 primary operational quadrants:
 
 #table(
   columns: (1.2fr, 1.2fr, 2.6fr),
@@ -418,7 +418,7 @@ The Gateway of Tally (GOT) is the central command console of Tally Prime. It is 
   [#text(weight: "bold", fill: white)[Quadrant]], [#text(weight: "bold", fill: white)[Menu Options]], [#text(weight: "bold", fill: white)[Operational Capabilities & Business Function]],
   [1. Masters], [Create, Alter, Chart of Accounts], [Create and modify foundational accounting accounts (Ledgers, Groups), inventory items (Stock Items, Units, Godowns, Categories), statutory tax rates, and payroll heads.],
   [2. Transactions], [Vouchers, Day Book], [Record daily commercial operations (Sales, Purchase, Payment, Receipt, Contra, Journal). Day Book displays all daily chronological vouchers with drill-down audit capability.],
-  [3. Utilities], [Banking], [Access Cheque Printing, Cheque Register, Post-Dated Cheque Management, Bank Reconciliation Statement (BRS), and Deposit Slips.],
+  [3. Utilities], [Banking], [Access Cheque Printing, Cheque Register, Post-Dated Cheque Management, #hl-green[Bank Reconciliation Statement (BRS)], and Deposit Slips.],
   [4. Reports], [Balance Sheet, P&L, Stock Summary, Ratio Analysis], [Generate executive statutory financial statements: Balance Sheet (financial position), Profit & Loss Account (operating net income), Stock Summary (inventory valuation), and Ratio Analysis (liquidity and solvency).]
 )
 
@@ -627,18 +627,18 @@ Corporate accountants must master the exact deduction, threshold, and booking en
 
 === Statutory Compliance Schedule for Corporate TDS
 1. *Monthly Payment:* TDS deducted in any calendar month must be deposited via *Challan ITNS 281* to the central government portal by the *7th day of the subsequent month* (except March deductions, which must be deposited by April 30th).
-2. *Quarterly Return Filing:* Every corporate deductor must file *Form 26Q* (Quarterly Return of TDS for non-salary payments) within 31 days from the end of each quarter (Q1: July 31, Q2: Oct 31, Q3: Jan 31, Q4: May 31).
-3. *TDS Certificate:* Deductors must issue *Form 16A* digitally signed certificates to vendors within 15 days of filing Form 26Q.
+2. *Quarterly Return Filing:* Every corporate deductor must file *#ul-green[Form 26Q]* (Quarterly Return of TDS for non-salary payments) within 31 days from the end of each quarter (Q1: July 31, Q2: Oct 31, Q3: Jan 31, Q4: May 31).
+3. *TDS Certificate:* Deductors must issue *Form 16A* digitally signed certificates to vendors within 15 days of filing #ul-green[Form 26Q].
 
 #concept-box(title: "Practical Accounting Proof: Passing a TDS Entry in Tally Prime")[
   *Scenario:* Ravi Private Limited receives a professional legal consultancy invoice of ₹50,000 from Adv. Sharma & Associates.\\
-  - *Applicable Law:* Section 194J applies (exceeds ₹30,000 threshold). Rate = 10%.\\
+  - *Applicable Law:* #ul-orange[Section 194J] applies (exceeds ₹30,000 threshold). Rate = 10%.\\
   - *Calculation:* Total Fee = ₹50,000. TDS Deduction = 10% of ₹50,000 = ₹5,000. Net Payable to Adv. Sharma = ₹45,000.\\
   - *Journal Voucher Entry (#key-pill("F7")):*\\
     #h(15pt) *Dr.* Legal & Professional Expenses A/c ......... ₹50,000\\
     #h(25pt) *Cr.* Adv. Sharma & Associates (Party) ................. ₹45,000\\
     #h(25pt) *Cr.* TDS on Professional Fees Payable ................. ₹5,000\\
-    (Narration: Being legal fees booked after deducting 10% TDS under Section 194J)
+    (Narration: Being legal fees booked after deducting #hl-orange[10% TDS] under #ul-orange[Section 194J])
 ]
 
 #v(8pt)
@@ -656,8 +656,8 @@ Corporate accountants must master the exact deduction, threshold, and booking en
     - GST Registration: ₹40 Lakhs turnover for goods, ₹20 Lakhs for services; Composition Scheme available up to ₹1.5 Crore.
     - Rate Slabs: 0% (Exempt basic staples), 5% (Essentials/Spices/Oils), 18% (Standard corporate workhorse), 28% (Luxury/Demerit).
     - GSTIN consists of 15 characters; first 2 digits represent State Code (*24 = Gujarat*), followed by 10-digit PAN.
-    - TDS under Income Tax Act: Section 194C (Contractors 1%/2%), 194J (Professional 10%), 194I (Rent 10%/2%), 194H (Commission 5%).
-    - Monthly TDS must be deposited by the 7th of the following month via *Challan ITNS 281*; filed quarterly in *Form 26Q*.
+    - TDS under Income Tax Act: #ul-orange[Section 194C] (Contractors 1%/2%), 194J (Professional 10%), 194I (Rent 10%/2%), 194H (Commission 5%).
+    - Monthly TDS must be deposited by the 7th of the following month via *Challan ITNS 281*; filed quarterly in *#ul-green[Form 26Q]*.
   ]
 )
 
@@ -666,7 +666,7 @@ Corporate accountants must master the exact deduction, threshold, and booking en
 // MCQS
 
 == 3.6 Statutory Input Tax Credit (ITC) Rules under Section 16 & Blocked ITC (Sec 17(5))
-Input Tax Credit (ITC) is the core mechanism that prevents cascading taxation under GST. However, claiming ITC is subject to strict statutory preconditions:
+#hl-green[Input Tax Credit (ITC)] is the core mechanism that prevents cascading taxation under GST. However, claiming ITC is subject to strict statutory preconditions:
 
 #table(
   columns: (1.2fr, 2.8fr),
@@ -674,11 +674,11 @@ Input Tax Credit (ITC) is the core mechanism that prevents cascading taxation un
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Statutory Dimension]], [#text(weight: "bold", fill: white)[Legal Precondition under CGST Act, 2017]],
-  [Possession of Tax Invoice], [The buyer must possess a valid legal Tax Invoice, Debit Note, or Bill of Entry issued by an approved registered supplier under Rule 46.],
+  [Possession of Tax Invoice], [The buyer must possess a valid legal Tax Invoice, Debit Note, or Bill of Entry issued by an approved registered supplier under #ul-orange[Rule 46].],
   [Physical Receipt of Goods], [Goods or services must have been physically received. In "Bill To - Ship To" scenarios, receipt by the designated third party qualifies.],
-  [Tax Actually Paid to Government], [The supplier must have deposited the collected tax with the Government via cash or eligible ITC in their monthly GSTR-3B return.],
-  [GSTR-2B Matching (Sec 16(2)(aa))], [ITC is strictly restricted to invoices uploaded by the supplier in GSTR-1 and appearing in the buyer's auto-drafted GSTR-2B statement.],
-  [Blocked ITC under Section 17(5)], [ITC is permanently prohibited on: Motor vehicles for transport of persons (seating <= 13), Food & beverages, Outdoor catering, Health insurance, Membership of clubs, Personal gifts/free samples, and Goods lost, stolen, or destroyed!]
+  [Tax Actually Paid to Government], [The supplier must have deposited the collected tax with the Government via cash or eligible ITC in their monthly #ul-green[GSTR-3B] return.],
+  [#ul-green[GSTR-2B] Matching (Sec 16(2)(aa))], [ITC is strictly restricted to invoices uploaded by the supplier in #ul-green[GSTR-1] and appearing in the buyer's auto-drafted #ul-green[GSTR-2B] statement.],
+  [Blocked ITC under #ul-orange[Section 17(5)]], [ITC is permanently prohibited on: Motor vehicles for transport of persons (seating <= 13), Food & beverages, Outdoor catering, Health insurance, Membership of clubs, Personal gifts/free samples, and Goods lost, stolen, or destroyed!]
 )
 
 #v(6pt)
@@ -699,14 +699,14 @@ Under Indian GST compliance, regular taxpayers must adhere to a strict statutory
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Return Form]], [#text(weight: "bold", fill: white)[Statutory Due Date]], [#text(weight: "bold", fill: white)[Statutory Scope & Legal Purpose]],
-  [GSTR-1], [11th of subsequent month], [Statement of Outward Supplies (B2B, B2C, Exports, HSN Summary). Populates buyer GSTR-2B.],
+  [GSTR-1], [11th of subsequent month], [Statement of Outward Supplies (B2B, B2C, Exports, HSN Summary). Populates buyer #ul-green[GSTR-2B].],
   [GSTR-3B], [20th of subsequent month], [Monthly self-assessed summary return, payment of tax liability, and claiming eligible ITC.],
   [GSTR-2B], [14th of subsequent month], [Static auto-generated ITC statement. 100% of claimed ITC must be reflected here.],
   [GSTR-4], [30th April following FY], [Annual return for Composition Scheme dealers (opted under Section 10).],
   [GSTR-7], [10th of subsequent month], [Return for authorities deducting TDS under GST Section 51 (2% deduction).],
   [GSTR-8], [10th of subsequent month], [Statement for E-Commerce operators collecting TCS under GST Section 52 (0.5% or 1%).],
   [GSTR-9], [31st December following FY], [Annual comprehensive reconciliation return for all regular registered taxpayers.],
-  [GSTR-9C], [31st December following FY], [Statutory reconciliation statement certified by CA/CMA for turnover exceeding ₹5 Crores.]
+  [#ul-green[GSTR-9]C], [31st December following FY], [Statutory reconciliation statement certified by CA/CMA for turnover exceeding ₹5 Crores.]
 )
 
 #v(6pt)
@@ -721,37 +721,37 @@ Under Indian GST compliance, regular taxpayers must adhere to a strict statutory
    (A) IGST only #h(10pt) (B) CGST and SGST #h(10pt) (C) UTGST only #h(10pt) (D) Customs Duty\\
    *Answer: (B)* | *Explanation:* An intrastate sale within Gujarat attracts both CGST and SGST equally.
 
-3. *Under Section 194J, what is the standard TDS rate on professional consultancy fees?*\\
+3. *Under #ul-orange[Section 194J], what is the standard TDS rate on professional consultancy fees?*\\
    (A) 1% #h(10pt) (B) 2% #h(10pt) (C) 5% #h(10pt) (D) 10%\\
-   *Answer: (D)* | *Explanation:* Section 194J mandates 10% TDS on professional fees exceeding ₹30,000.
+   *Answer: (D)* | *Explanation:* #ul-orange[Section 194J] mandates #hl-orange[10% TDS] on professional fees exceeding ₹30,000.
 
-4. *What is the statutory threshold limit for deduction of TDS on commercial building rent under Section 194I?*\\
+4. *What is the statutory threshold limit for deduction of TDS on commercial building rent under #ul-orange[Section 194I]?*\\
    (A) ₹30,000 #h(10pt) (B) ₹1,00,000 #h(10pt) (C) ₹2,40,000 #h(10pt) (D) ₹5,00,000\\
-   *Answer: (C)* | *Explanation:* Section 194I applies when rent paid to a landlord exceeds ₹2,40,000 per financial year.
+   *Answer: (C)* | *Explanation:* #ul-orange[Section 194I] applies when rent paid to a landlord exceeds ₹2,40,000 per financial year.
 
-5. *What is the monthly statutory due date for depositing TDS into the government account via Challan 281?*\\
+5. *What is the monthly statutory due date for depositing TDS into the government account via #ul-green[Challan 281]?*\\
    (A) 1st of next month #h(10pt) (B) 7th of next month #h(10pt) (C) 20th of next month #h(10pt) (D) Last day of quarter\\
    *Answer: (B)* | *Explanation:* TDS must be deposited by the 7th of the month following the month of deduction.
 
 6. *Which quarterly return form is filed for non-salary TDS deductions?*\\
-   (A) Form 24Q #h(10pt) (B) Form 26Q #h(10pt) (C) Form 16A #h(10pt) (D) Form 3B\\
-   *Answer: (B)* | *Explanation:* Form 26Q is the quarterly statement of non-salary TDS under Sections 194C/J/I/H.
+   (A) Form 24Q #h(10pt) (B) #ul-green[Form 26Q] #h(10pt) (C) Form 16A #h(10pt) (D) Form 3B\\
+   *Answer: (B)* | *Explanation:* #ul-green[Form 26Q] is the quarterly statement of non-salary TDS under Sections 194C/J/I/H.
 
 7. *Which of the following commodities falls under the 0% (Exempt) GST slab?*\\
    (A) Branded packaged rice #h(10pt) (B) Unpackaged agricultural Jeera Seed #h(10pt) (C) Air conditioner #h(10pt) (D) Laptop\\
    *Answer: (B)* | *Explanation:* Unbranded agricultural produce and seeds are zero-rated / exempt under GST.
 
 8. *What challan number is used to deposit corporate TDS into the RBI / authorized bank treasury?*\\
-   (A) ITNS 280 #h(10pt) (B) ITNS 281 #h(10pt) (C) PMT-06 #h(10pt) (D) GSTR-3B\\
+   (A) ITNS 280 #h(10pt) (B) ITNS 281 #h(10pt) (C) PMT-06 #h(10pt) (D) #ul-green[GSTR-3B]\\
    *Answer: (B)* | *Explanation:* Challan ITNS 281 is specifically designated for depositing TDS and TCS.
 
 9. *What is the turnover threshold for a trader supplying goods exclusively within Gujarat to register under GST?*\\
    (A) ₹10 Lakhs #h(10pt) (B) ₹20 Lakhs #h(10pt) (C) ₹40 Lakhs #h(10pt) (D) ₹1 Crore\\
    *Answer: (C)* | *Explanation:* The threshold for exclusive suppliers of goods in standard states like Gujarat is ₹40 Lakhs.
 
-10. *Under Section 194C, what is the TDS rate when payment is made to an Individual / HUF transport contractor?*\\
+10. *Under #ul-orange[Section 194C], what is the TDS rate when payment is made to an Individual / HUF transport contractor?*\\
     (A) 1% #h(10pt) (B) 2% #h(10pt) (C) 5% #h(10pt) (D) 10%\\
-    *Answer: (A)* | *Explanation:* Section 194C mandates 1% TDS for Individual/HUF contractors and 2% for corporate contractors.
+    *Answer: (A)* | *Explanation:* #ul-orange[Section 194C] mandates 1% TDS for Individual/HUF contractors and 2% for corporate contractors.
 
 #v(6pt)
 
@@ -787,12 +787,12 @@ Every double-entry transaction maintains mathematical equilibrium across the bal
 
 $ "Assets" = "Liabilities" + "Capital" $
 
-When the proprietor introduces capital, Cash (Asset) increases, and Capital (Owner's Equity) increases equally. When goods are bought on credit, Stock (Asset) increases, and Sundry Creditors (Liability) increases. Every debit entry is matched by an equal credit entry, ensuring the Trial Balance maintains perfect balance!
+When the proprietor introduces capital, Cash (Asset) increases, and Capital (Owner's Equity) increases equally. When goods are bought on credit, Stock (Asset) increases, and Sundry Creditors (Liability) increases. Every debit entry is matched by an equal credit entry, ensuring the #ul-green[Trial Balance] maintains perfect balance!
 
 #v(6pt)
 
 == 4.3 The Three Fundamental Classes of Accounts & The 3 Golden Rules
-Modern accounting traces its foundation to the Italian mathematician *Fra Luca Pacioli* (1494), who formalized the Double Entry System. All commercial transactions are classified into three universal classes of accounts, each governed by its inviolable *Golden Rule*:
+Modern accounting traces its foundation to the Italian mathematician *Fra #ul-yellow[Luca Pacioli]* (1494), who formalized the Double Entry System. All commercial transactions are classified into three universal classes of accounts, each governed by its inviolable *Golden Rule*:
 
 #table(
   columns: (1.2fr, 1.4fr, 1.3fr, 2.1fr),
@@ -836,10 +836,10 @@ To master ledger creation, an accountant must analyze which two accounts are aff
   [18], [Received commission ₹12,000 by cheque deposited in HDFC], [HDFC Bank A/c\\ Commission Income A/c], [Personal\\ Nominal], [Dr. HDFC Bank (Receiver)\\ Cr. Commission (Income)],
   [19], [HDFC Bank deducted bank charges ₹590 from account], [Bank Charges A/c\\ HDFC Bank A/c], [Nominal\\ Personal], [Dr. Bank Charges (Expense)\\ Cr. HDFC Bank (Giver)],
   [20], [Charged 10% depreciation on office furniture ₹2,500], [Depreciation Expense A/c\\ Furniture Asset A/c], [Nominal\\ Real], [Dr. Depreciation (Loss)\\ Cr. Furniture (Value decreases)],
-  [21], [Purchased trading goods ₹1,00,000 with 18% GST (CGST 9% + SGST 9%)], [Purchase A/c, Input CGST, Input SGST\\ Vendor A/c], [Nominal, Current Asset\\ Personal], [Dr. Purchase 1L, Dr. CGST 9k, Dr. SGST 9k\\ Cr. Vendor 1.18L],
-  [22], [Sold goods ₹1,50,000 with 18% GST to client on credit], [Debtor A/c\\ Sales A/c, Output CGST, Output SGST], [Personal\\ Nominal, Liability], [Dr. Debtor 1.77L\\ Cr. Sales 1.5L, Cr. CGST 13.5k, Cr. SGST 13.5k],
-  [23], [Booked professional audit fee ₹50,000 deducting 10% TDS (194J)], [Audit Fee A/c\\ CA Firm A/c, TDS Payable], [Nominal\\ Personal, Liability], [Dr. Audit Fee 50k\\ Cr. CA Firm 45k, Cr. TDS 5k],
-  [24], [Deposited TDS of ₹5,000 via Challan 281 through HDFC Bank], [TDS Payable A/c\\ HDFC Bank A/c], [Liability\\ Personal], [Dr. TDS Payable 5k\\ Cr. HDFC Bank 5k],
+  [21], [Purchased trading goods ₹1,00,000 with #hl-orange[18% GST] (CGST 9% + SGST 9%)], [Purchase A/c, Input CGST, Input SGST\\ Vendor A/c], [Nominal, Current Asset\\ Personal], [Dr. Purchase 1L, Dr. CGST 9k, Dr. SGST 9k\\ Cr. Vendor 1.18L],
+  [22], [Sold goods ₹1,50,000 with #hl-orange[18% GST] to client on credit], [Debtor A/c\\ Sales A/c, Output CGST, Output SGST], [Personal\\ Nominal, Liability], [Dr. Debtor 1.77L\\ Cr. Sales 1.5L, Cr. CGST 13.5k, Cr. SGST 13.5k],
+  [23], [Booked professional audit fee ₹50,000 deducting #hl-orange[10% TDS] (194J)], [Audit Fee A/c\\ CA Firm A/c, TDS Payable], [Nominal\\ Personal, Liability], [Dr. Audit Fee 50k\\ Cr. CA Firm 45k, Cr. TDS 5k],
+  [24], [Deposited TDS of ₹5,000 via #ul-green[Challan 281] through HDFC Bank], [TDS Payable A/c\\ HDFC Bank A/c], [Liability\\ Personal], [Dr. TDS Payable 5k\\ Cr. HDFC Bank 5k],
   [25], [Customer bad debt written off as irrecoverable ₹8,000], [Bad Debts Expense A/c\\ Debtor A/c], [Nominal\\ Personal], [Dr. Bad Debts (Loss)\\ Cr. Debtor (Asset reduced)],
   [26], [Recovered ₹4,000 cash from previously written-off debtor], [Cash A/c\\ Bad Debts Recovered A/c], [Real\\ Nominal], [Dr. Cash (Comes in)\\ Cr. Bad Debts Recovered (Income)],
   [27], [Paid fire insurance premium ₹12,000 for 12 months by cheque], [Prepaid Insurance A/c\\ HDFC Bank A/c], [Asset\\ Personal], [Dr. Prepaid Insurance (Asset)\\ Cr. HDFC Bank (Giver)],
@@ -973,7 +973,7 @@ From Rahul Sir's Fundamental Tally Notes (Page 18), here are 20 additional pract
    *Answer: (B)* | *Explanation:* Tally Prime creates Cash and Profit & Loss accounts by default in every company.
 
 2. *What is the Golden Rule for a Personal Account?*\\
-   (A) Debit what comes in, Credit what goes out #h(10pt) (B) Debit the Receiver, Credit the Giver\\
+   (A) #ul-yellow[Debit what comes in, Credit what goes out] #h(10pt) (B) Debit the Receiver, Credit the Giver\\
    (C) Debit all expenses, Credit all incomes #h(10pt) (D) Debit assets, Credit liabilities\\
    *Answer: (B)* | *Explanation:* Personal accounts represent entities; the receiver is debited and the giver is credited.
 
@@ -994,14 +994,14 @@ From Rahul Sir's Fundamental Tally Notes (Page 18), here are 20 additional pract
    *Answer: (C)* | *Explanation:* Drawings represents the individual proprietor/owner, hence it is a Personal Account.
 
 7. *Who formalized the modern Double Entry Bookkeeping system in 1494?*\\
-   (A) Adam Smith #h(10pt) (B) Fra Luca Pacioli #h(10pt) (C) John Maynard Keynes #h(10pt) (D) Bharat Goenka\\
-   *Answer: (B)* | *Explanation:* Fra Luca Pacioli published the foundational principles of double-entry bookkeeping in Venice.
+   (A) Adam Smith #h(10pt) (B) Fra #ul-yellow[Luca Pacioli] #h(10pt) (C) John Maynard Keynes #h(10pt) (D) #hl-yellow[Bharat Goenka]\\
+   *Answer: (B)* | *Explanation:* Fra #ul-yellow[Luca Pacioli] published the foundational principles of double-entry bookkeeping in Venice.
 
 8. *If a business receives ₹50,000 commission by cheque, which account is debited?*\\
    (A) Commission Income A/c #h(10pt) (B) Bank A/c #h(10pt) (C) Cash A/c #h(10pt) (D) Capital A/c\\
    *Answer: (B)* | *Explanation:* The receiving bank account is debited as the receiver of the funds.
 
-9. *In the fundamental accounting equation (Assets = Liabilities + Capital), if assets increase by ₹50,000 without liability change, what happens to Capital?*\\
+9. *In the fundamental accounting equation (#ul-yellow[Assets = Liabilities + Capital]), if assets increase by ₹50,000 without liability change, what happens to Capital?*\\
    (A) Decreases by ₹50,000 #h(10pt) (B) Increases by ₹50,000 #h(10pt) (C) Remains unchanged #h(10pt) (D) Doubled\\
    *Answer: (B)* | *Explanation:* By equation equilibrium, an increase in assets directly increases owner's capital.
 

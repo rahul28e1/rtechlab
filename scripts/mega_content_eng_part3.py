@@ -22,7 +22,7 @@ In modern commercial accounting, commercial enterprises are fundamentally classi
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Business Model]], [#text(weight: "bold", fill: white)[Operational Lifecycle & Value Chain]], [#text(weight: "bold", fill: white)[Tally Prime Accounting Architecture]],
   [1. Trading Concerns], [Procures finished goods from wholesalers or manufacturers and resells them directly to retailers or end-consumers without physical transformation.], [Tracks Stock Items, Units of Measure (Pcs, Box), Purchase & Sales Vouchers (F9/F8) in *Item Invoice* mode. Gross profit is derived from trade margins.],
-  [2. Manufacturing Units], [Procures raw materials and components, utilizes labour, power, and machinery to convert them into finished goods via an assembly process.], [Requires *Bill of Materials (BOM)*, Godown management, and *Stock Journal* (Alt+F7) manufacturing vouchers to track conversion costs.],
+  [2. Manufacturing Units], [Procures raw materials and components, utilizes labour, power, and machinery to convert them into finished goods via an assembly process.], [Requires *#hl-green[Bill of Materials (BOM)]*, Godown management, and *Stock Journal* (Alt+F7) manufacturing vouchers to track conversion costs.],
   [3. Service Providers], [Delivers intangible professional, technical, artistic, or operational expertise (IT consulting, audit, healthcare, logistics) without physical stock.], [Operates in *Accounting Invoice* mode (Ctrl+H). Relies on SAC (Services Accounting Code), Direct/Indirect Expense ledgers, and TDS withholding under Sec 194J/194C.]
 )
 
@@ -34,7 +34,7 @@ In modern commercial accounting, commercial enterprises are fundamentally classi
 - *Commercial Terms:*
   - Professional Consultancy Fee: ₹60,000 (SAC: `998314` — IT Consulting Services).
   - GST Rate: 18% Intrastate (CGST 9% = ₹5,400 | SGST 9% = ₹5,400). Total Invoice Value = ₹70,800.
-  - Statutory TDS: Jaimin Corporation is a registered corporate client and deducts *10% TDS under Section 194J* on basic fee: [₹60,000 × 10% = ₹6,000].
+  - Statutory TDS: Jaimin Corporation is a registered corporate client and deducts *#hl-orange[10% TDS] under #ul-orange[Section 194J]* on basic fee: [₹60,000 × 10% = ₹6,000].
 - *Step-by-Step Tally Prime Journal Posting:*
   1. *Sales Voucher (F8) in Accounting Invoice Mode (Ctrl+H):*
      - Debit: *Jaimin Corporation (Sundry Debtors)* ₹70,800
@@ -69,7 +69,7 @@ In modern commercial accounting, commercial enterprises are fundamentally classi
 
 == 8.4 Corporate Case Study 3: Manufacturing Firm (Morbi Ceramic Tiles with BOM)
 *Enterprise Profile:* Morbi Tiles & Sanitaryware Pvt Ltd (Morbi, Gujarat).
-- *Bill of Materials (BOM) Setup in Tally Prime:*
+- *#hl-green[Bill of Materials (BOM)] Setup in Tally Prime:*
   - Finished Product: *Super Polish Ceramic Floor Tile 600x600mm* (Unit: Box, 1 Box = 4 Tiles).
   - Raw Material Requirements per 100 Boxes:
     1. Clay / Kaolin: 1,800 kg @ ₹4/kg = ₹7,200
@@ -82,8 +82,8 @@ In modern commercial accounting, commercial enterprises are fundamentally classi
   - Select *Manufacturing Journal* voucher type.
   - Target Finished Goods: Ceramic Floor Tile (100 Boxes).
   - Tally Prime automatically pulls raw material quantities from the pre-configured BOM and deducts inventory from the Raw Material Godown while simultaneously adding 100 Boxes to the Finished Goods Godown!
-- *Commercial Sale with 18% GST:*
-  - Sold 500 Boxes to Ahmedabad Realty Corp @ ₹380/box = ₹1,90,000 + 18% GST (CGST ₹17,100 + SGST ₹17,100) = ₹2,24,200.
+- *Commercial Sale with #hl-orange[18% GST]:*
+  - Sold 500 Boxes to Ahmedabad Realty Corp @ ₹380/box = ₹1,90,000 + #hl-orange[18% GST] (CGST ₹17,100 + SGST ₹17,100) = ₹2,24,200.
 
 #v(6pt)
 
@@ -97,15 +97,15 @@ Practice recording the 12-month commercial transaction lifecycle:
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Month]], [#text(weight: "bold", fill: white)[Transaction Cycle]], [#text(weight: "bold", fill: white)[Key Practical Accounting Operation]],
   [Month 01 (Apr)], [Establishment & Capital], [Introduce ₹10 Lakhs capital, open HDFC Current A/c, pay office deposit ₹1.5 Lakhs.],
-  [Month 02 (May)], [Capex & Assets], [Procure office computers ₹80,000 + 18% GST, furniture ₹45,000, printer ₹15,000.],
-  [Month 03 (Jun)], [Raw Material Sourcing], [Procure 1,000 units merchandise on credit from Avni Pvt Ltd (Inv \#801) + 18% GST.],
+  [Month 02 (May)], [Capex & Assets], [Procure office computers ₹80,000 + #hl-orange[18% GST], furniture ₹45,000, printer ₹15,000.],
+  [Month 03 (Jun)], [Raw Material Sourcing], [Procure 1,000 units merchandise on credit from Avni Pvt Ltd (Inv \#801) + #hl-orange[18% GST].],
   [Month 04 (Jul)], [Domestic Sales], [Sell 600 units to Ravi Enterprises @ 40% margin, collect payment via RTGS.],
   [Month 05 (Aug)], [Statutory GST Payment], [Offset Input Tax Credit against Output GST liability and pay net cash via PMT-06 challan.],
   [Month 06 (Sep)], [Interstate Trading], [Procure goods from Vishnu Pvt Ltd (Karnataka) with IGST and supply to Mumbai Tech Hub.],
   [Month 07 (Oct)], [Festival Bonus & Advance], [Disburse Diwali staff advances and record festive advertising campaigns.],
   [Month 08 (Nov)], [Service Billing & TDS], [Raise consulting invoices with SAC codes, verify TDS withholding under Sec 194J.],
   [Month 09 (Dec)], [Credit & Debit Notes], [Record customer returns for damaged items, issue credit notes, debit suppliers.],
-  [Month 10 (Jan)], [Q3 TDS Return Filing], [Reconcile TDS ledgers against quarterly Form 26Q statement, pay Challan 281.],
+  [Month 10 (Jan)], [Q3 TDS Return Filing], [Reconcile TDS ledgers against quarterly #ul-green[Form 26Q] statement, pay #ul-green[Challan 281].],
   [Month 11 (Feb)], [Annual BRS Audit], [Perform comprehensive Bank Reconciliation Statement across all 12 months bank records.],
   [Month 12 (Mar)], [Year-End Closing], [Depreciation write-offs, physical stock verification, closing stock valuation, split data.]
 )
@@ -126,7 +126,7 @@ In manufacturing accounting, the production cost lifecycle follows a rigorous mu
 
 == 8.7 Corporate Case Study 4: E-Commerce Marketplace Vendor (TCS Sec 52)
 *Enterprise Profile:* Palanpur Handicrafts & Textiles selling via Amazon / Flipkart.
-- *Commercial Mechanism:* Goods sold to customers nationwide. E-commerce operator collects customer funds, deducts *TCS (Tax Collected at Source) @ 1% under GST Section 52*, deducts marketplace commission @ 15% + 18% GST, and remits net funds.
+- *Commercial Mechanism:* Goods sold to customers nationwide. E-commerce operator collects customer funds, deducts *TCS (Tax Collected at Source) @ 1% under GST Section 52*, deducts marketplace commission @ 15% + #hl-orange[18% GST], and remits net funds.
 - *Tally Prime Accounting Workflow:*
   1. Record Sales Voucher (F8) to customer with Interstate IGST or Intrastate CGST/SGST.
   2. Debit *TCS Receivable under GST A/c* (Current Asset) for 1% withheld by Amazon.
@@ -152,7 +152,7 @@ Medium and large commercial enterprises store physical merchandise across multip
 #v(6pt)
 
 == 8.8 Summary & Key Revision Takeaways
-- *Business Architecture:* Trading businesses operate on trade margins; Service providers bill on time/expertise and manage TDS; Manufacturers utilize Bill of Materials (BOM) to track production cost per unit.
+- *Business Architecture:* Trading businesses operate on trade margins; Service providers bill on time/expertise and manage TDS; Manufacturers utilize #hl-green[Bill of Materials (BOM)] to track production cost per unit.
 - *BOM Automation:* In Tally Prime, configuring a BOM allows one-click conversion of multi-item raw materials into finished stock via the Stock Journal.
 - *Statutory Nexus:* Every business type must balance GST Output liabilities with Input Tax Credits and enforce TDS withholding where applicable.
 
@@ -178,8 +178,8 @@ Medium and large commercial enterprises store physical merchandise across multip
   (A) Item Invoice (B) Accounting Invoice (C) As Voucher (D) Memo], [*Correct: (B) Accounting Invoice (Ctrl+H)*\\
   Service firms sell intangible services without physical stock quantities.],
   [04], [Under which section of Income Tax is TDS deducted on professional fees?\\
-  (A) 194C (B) 194J (C) 194I (D) 194H], [*Correct: (B) Section 194J*\\
-  Section 194J governs fees for professional and technical services at 10% / 2%.],
+  (A) 194C (B) 194J (C) 194I (D) 194H], [*Correct: (B) #ul-orange[Section 194J]*\\
+  #ul-orange[Section 194J] governs fees for professional and technical services at 10% / 2%.],
   [05], [What is the GST rate on fresh unbranded cumin seeds (Jeera) sold by farmers?\\
   (A) 0% (Nil Rated / Exempt) (B) 5% (C) 12% (D) 18%], [*Correct: (A) 0% (Nil Rated / Exempt)*\\
   Fresh, unbranded agricultural produce direct from farmers is fully exempt under GST.],
@@ -195,7 +195,7 @@ Medium and large commercial enterprises store physical merchandise across multip
   (A) Ratio Analysis (B) Stock Summary & Production Report\\
   (C) Day Book (D) Balance Sheet], [*Correct: (B) Stock Summary & Production Report*\\
   Displays physical stock movements, inward procurement, and consumption.],
-  [09], [When an IT consulting firm receives payment net of 10% TDS, how is the TDS treated?\\
+  [09], [When an IT consulting firm receives payment net of #hl-orange[10% TDS], how is the TDS treated?\\
   (A) Business expense (B) Current Asset (TDS Receivable)\\
   (C) Current Liability (D) Fixed Asset], [*Correct: (B) Current Asset (TDS Receivable)*\\
   TDS deducted by clients is an advance tax asset claimed in the corporate ITR.],
@@ -208,7 +208,7 @@ Medium and large commercial enterprises store physical merchandise across multip
 #v(6pt)
 
 == 8.10 Practical Viva Questions & Hands-On Lab Task
-- *Viva Q1:* Why is a Bill of Materials (BOM) essential in manufacturing accounting?\\
+- *Viva Q1:* Why is a #hl-green[Bill of Materials (BOM)] essential in manufacturing accounting?\\
   *Model Answer:* Without a BOM, an accountant would have to manually calculate and pass hundreds of individual consumption entries every time goods are produced. A BOM automates inventory reduction of components in exact technical proportions and accurately computes the per-unit finished manufacturing cost.
 - *Viva Q2:* How does the accounting workflow differ when billing goods vs billing services?\\
   *Model Answer:* Billing goods requires *Item Invoice* mode, stock items, units of measure, HSN codes, and godown selection. Billing services requires *Accounting Invoice* mode, service ledgers, SAC codes, and TDS withholding considerations without inventory tracking.
@@ -224,7 +224,7 @@ Medium and large commercial enterprises store physical merchandise across multip
 = Topic 09: Practical Commercial Invoices (Item Mode vs Accounting Mode)
 
 == 9.1 Statutory Anatomy of a GST Tax Invoice (CGST Rule 46)
-Under Section 31 of the CGST Act, 2017 read with *Rule 46 of the CGST Rules*, every registered taxable person supplying taxable goods or services must issue a valid *Tax Invoice*. 
+Under Section 31 of the CGST Act, 2017 read with *#ul-orange[Rule 46] of the CGST Rules*, every registered taxable person supplying taxable goods or services must issue a valid *Tax Invoice*. 
 
 A legally valid commercial tax invoice must mandatorily contain the following statutory particulars:
 1. *Supplier Identity:* Name, registered corporate address, and 15-digit GSTIN of the supplier.
@@ -440,7 +440,7 @@ Below are 6 authentic, production-grade commercial invoices formatted according 
 1. *Select Voucher Type:* Press #key-pill("F9") for Purchases or #key-pill("F8") for Sales.
 2. *Set Correct Invoice Date:* Press #key-pill("F2") and specify the exact transaction date.
 3. *Set Voucher Mode:* Press #key-pill("Ctrl + H") and choose *Item Invoice* for physical merchandise or *Accounting Invoice* for professional services.
-4. *Enter Supplier Invoice Number & Date:* Mandatory in Purchase vouchers to enable GSTR-2B automated matching.
+4. *Enter Supplier Invoice Number & Date:* Mandatory in Purchase vouchers to enable #ul-green[GSTR-2B] automated matching.
 5. *Select Party Account Name:* Choose the supplier or customer ledger. Tally auto-loads address, state, and GSTIN.
 6. *Select Stock Items & Quantities:* Enter quantities and agreed commercial rates.
 7. *Attach GST Ledgers:* Select *CGST* and *SGST* for local supplies or *IGST* for interstate supplies.
@@ -461,8 +461,8 @@ In commercial invoicing, statutory tax calculations frequently yield fractional 
 
 == 9.5 Practical Lab Dataset: 10 Student Invoicing Exercises
 Enter the following 10 commercial invoicing scenarios into Tally Prime, verifying automated GST calculation and tax splits:
-1. *Local Purchase 5% GST:* Procured 50 bags Cattle Feed @ ₹800 from Banas Dairy Co-op (HSN `2309`, CGST 2.5%, SGST 2.5%).
-2. *Local Sales 5% GST:* Sold 20 bags Cattle Feed @ ₹1,100 to Palanpur Dairy Farm (Inv \#SAL-010).
+1. *Local Purchase #hl-orange[5% GST]:* Procured 50 bags Cattle Feed @ ₹800 from Banas Dairy Co-op (HSN `2309`, CGST 2.5%, SGST 2.5%).
+2. *Local Sales #hl-orange[5% GST]:* Sold 20 bags Cattle Feed @ ₹1,100 to Palanpur Dairy Farm (Inv \#SAL-010).
 3. *Interstate Purchase 12% GST:* Procured 10 units Computer Printers @ ₹14,000 from Pune Hardware Ltd (Maharashtra, HSN `8443`, IGST 12%).
 4. *Interstate Sales 12% GST:* Sold 4 units Computer Printers @ ₹19,500 to Mount Abu Resort (Rajasthan, IGST 12%).
 5. *Local Purchase 28% GST:* Procured 2 units Daikin 1.5 Ton Split AC @ ₹38,000 from Ahmedabad Distributors (HSN `8415`, CGST 14%, SGST 14%).
@@ -475,7 +475,7 @@ Enter the following 10 commercial invoicing scenarios into Tally Prime, verifyin
 #v(6pt)
 
 == 9.6 Summary & Key Revision Takeaways
-- *Statutory Rule 46 Compliance:* A valid GST invoice requires supplier/buyer GSTINs, sequential invoice number, HSN/SAC codes, and explicit CGST/SGST/IGST tax splits.
+- *Statutory #ul-orange[Rule 46] Compliance:* A valid GST invoice requires supplier/buyer GSTINs, sequential invoice number, HSN/SAC codes, and explicit CGST/SGST/IGST tax splits.
 - *Mode Selection:* Use *Item Invoice* for trading stock and *Accounting Invoice* for professional consulting and services.
 - *Tax Analysis Audit:* Always press #key-pill("Ctrl + O") > *Tax Analysis* before saving any invoice to guarantee that Tally has calculated taxes accurately without rounding errors.
 
@@ -490,8 +490,8 @@ Enter the following 10 commercial invoicing scenarios into Tally Prime, verifyin
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [Under which CGST Rule are the mandatory particulars of a Tax Invoice specified?\\
-  (A) Rule 12 (B) Rule 36 (C) Rule 46 (D) Rule 89], [*Correct: (C) Rule 46*\\
-  Rule 46 defines the 16 statutory elements required on every legal tax invoice.],
+  (A) Rule 12 (B) Rule 36 (C) #ul-orange[Rule 46] (D) Rule 89], [*Correct: (C) #ul-orange[Rule 46]*\\
+  #ul-orange[Rule 46] defines the 16 statutory elements required on every legal tax invoice.],
   [02], [What is the maximum character limit for an invoice serial number under GST?\\
   (A) 10 Characters (B) 12 Characters (C) 16 Characters (D) 20 Characters], [*Correct: (C) 16 Characters*\\
   GST law restricts invoice numbers to 16 alphanumeric characters unique per FY.],
@@ -508,9 +508,9 @@ Enter the following 10 commercial invoicing scenarios into Tally Prime, verifyin
   (A) Tax Invoice (B) Bill of Supply (C) Delivery Challan (D) Debit Note], [*Correct: (B) Bill of Supply*\\
   Under Section 31(3)(c), exempt supplies require a Bill of Supply, not a Tax Invoice.],
   [07], [What happens if a supplier fails to upload an invoice to the GST Portal?\\
-  (A) Buyer loses Input Tax Credit (ITC) (B) Supplier is jailed immediately\\
-  (C) Invoice becomes exempt (D) Bank account frozen], [*Correct: (A) Buyer loses Input Tax Credit (ITC)*\\
-  Under Section 16(2)(aa), ITC is strictly allowed only if invoice appears in GSTR-2B.],
+  (A) Buyer loses #hl-green[Input Tax Credit (ITC)] (B) Supplier is jailed immediately\\
+  (C) Invoice becomes exempt (D) Bank account frozen], [*Correct: (A) Buyer loses #hl-green[Input Tax Credit (ITC)]*\\
+  Under #ul-orange[Section 16(2)(aa)], ITC is strictly allowed only if invoice appears in #ul-green[GSTR-2B].],
   [08], [Which key toggles between Party Details and Item Details in Tally Prime?\\
   (A) Spacebar (B) Enter (C) Tab (D) Esc], [*Correct: (B) Enter*\\
   Pressing Enter navigates sequentially through all active fields in the invoice.],
@@ -527,12 +527,12 @@ Enter the following 10 commercial invoicing scenarios into Tally Prime, verifyin
 
 == 9.8 Practical Viva Questions & Hands-On Lab Task
 - *Viva Q1:* What is the statutory difference between a *Tax Invoice* and a *Bill of Supply*?\\
-  *Model Answer:* A *Tax Invoice* is issued by a regular registered dealer for taxable supplies where GST is charged explicitly, allowing the recipient to claim Input Tax Credit (ITC). A *Bill of Supply* is issued for exempt supplies or by Composition scheme dealers where no tax is charged, and no ITC can be claimed.
+  *Model Answer:* A *Tax Invoice* is issued by a regular registered dealer for taxable supplies where GST is charged explicitly, allowing the recipient to claim #hl-green[Input Tax Credit (ITC)]. A *Bill of Supply* is issued for exempt supplies or by Composition scheme dealers where no tax is charged, and no ITC can be claimed.
 - *Viva Q2:* Why must an accountant verify the *Tax Analysis* screen before saving an invoice?\\
   *Model Answer:* Verifying the Tax Analysis screen (#key-pill("Ctrl + O") > *Tax Analysis*) ensures that Tally has successfully recognized the HSN/SAC codes, applied the correct tax percentage (e.g., 18% vs 12%), and split the tax correctly between CGST/SGST or IGST without leaving tax fields zero due to ledger configuration errors.
-- *Viva Q3:* Explain the statutory mandate of *Section 16(2)(aa)* of the CGST Act regarding input tax credit.\\
-  *Model Answer:* Section 16(2)(aa) mandates that a buyer can claim Input Tax Credit (ITC) on an invoice only if the supplier has filed their GSTR-1 and the invoice is reflected in the buyer's auto-generated GSTR-2B statement. If missing from GSTR-2B, no ITC is permitted.
-- *Hands-On Lab Task:* In Tally Prime, create Party Ledger *Avni Private Limited* (Sundry Creditors, Gujarat, GSTIN: `24AABCA5544P1Z3`), create Stock Items *Samsung LED Monitor* (HSN `847160`, 18% GST), and record Invoice 02 in Purchase Voucher (F9). Verify the Tax Analysis screen and save.
+- *Viva Q3:* Explain the statutory mandate of *#ul-orange[Section 16(2)(aa)]* of the CGST Act regarding input tax credit.\\
+  *Model Answer:* #ul-orange[Section 16(2)(aa)] mandates that a buyer can claim #hl-green[Input Tax Credit (ITC)] on an invoice only if the supplier has filed their #ul-green[GSTR-1] and the invoice is reflected in the buyer's auto-generated #ul-green[GSTR-2B] statement. If missing from #ul-green[GSTR-2B], no ITC is permitted.
+- *Hands-On Lab Task:* In Tally Prime, create Party Ledger *Avni Private Limited* (Sundry Creditors, Gujarat, GSTIN: `24AABCA5544P1Z3`), create Stock Items *Samsung LED Monitor* (HSN `847160`, #hl-orange[18% GST]), and record Invoice 02 in Purchase Voucher (F9). Verify the Tax Analysis screen and save.
 """
 
     # =========================================================================
@@ -680,7 +680,7 @@ During statutory CA audits, senior accountants rely on specialized audit shortcu
 
 == 10.6 The Master 30-Second Speed Run for Corporate Accounts Executives
 Senior corporate accountants complete routine workflows in seconds by combining sequential shortcuts:
-1. *5-Second Trial Balance Audit:* Press #key-pill("Alt + G") > type "Trial" > press #key-pill("Enter") > press #key-pill("Alt + F1") to expand all groups.
+1. *5-Second #ul-green[Trial Balance] Audit:* Press #key-pill("Alt + G") > type "Trial" > press #key-pill("Enter") > press #key-pill("Alt + F1") to expand all groups.
 2. *10-Second Customer Outstanding Statement:* Press #key-pill("Alt + G") > type "Ledger Out" > select customer > press #key-pill("Alt + P") > press #key-pill("I") for instant print preview.
 3. *8-Second Duplicate Invoice Recording:* Open recurring monthly invoice in Day Book > press #key-pill("Alt + 2") > press #key-pill("F2") to change date > press #key-pill("Ctrl + A") to save!
 4. *7-Second Cash Flow Analysis:* Press #key-pill("Alt + G") > type "Cash Flow" > press #key-pill("Alt + F2") for date range > press #key-pill("Ctrl + H") for quarterly summary.
@@ -754,7 +754,7 @@ Senior corporate accountants complete routine workflows in seconds by combining 
 = Topic 11: Corporate Bridge Highlights (BRS, Cost Centres, Data Splitting & GST)
 
 == 11.1 Bank Reconciliation Statement (BRS) Architecture
-In corporate bookkeeping, a *Bank Reconciliation Statement (BRS)* is an indispensable internal audit instrument that explains and harmonizes the discrepancy between the cash book bank balance (maintained by the company's accountant in Tally Prime) and the passbook bank balance (maintained by the commercial bank).
+In corporate bookkeeping, a *#hl-green[Bank Reconciliation Statement (BRS)]* is an indispensable internal audit instrument that explains and harmonizes the discrepancy between the cash book bank balance (maintained by the company's accountant in Tally Prime) and the passbook bank balance (maintained by the commercial bank).
 
 Discrepancies arise primarily due to *timing differences* and *unrecorded bank entries*:
 1. *Cheques Issued but Not Yet Presented for Payment:* The accountant credits the bank ledger immediately upon writing the cheque, but the vendor presents it 4 days later.
@@ -859,9 +859,9 @@ Professional accountants must master the tripartite GST portal reconciliation fr
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[GST Return]], [#text(weight: "bold", fill: white)[Filing Frequency]], [#text(weight: "bold", fill: white)[Corporate Purpose & Matching Rule]],
-  [GSTR-1], [Monthly / QRMP (11th of month)], [Statement of Outward Supplies. Contains all B2B sales invoices, interstate B2C sales exceeding ₹2.5 Lakhs, exports, debit/credit notes, and HSN summary. Directly populates buyers' GSTR-2B!],
-  [GSTR-3B], [Monthly (20th of month)], [Self-assessed monthly summary return. Declares total taxable sales, outward tax liability, eligible Input Tax Credit (ITC), and executes net tax payment via Electronic Cash Ledger challan PMT-06.],
-  [GSTR-2B], [Static auto-drafted (14th of month)], [Auto-generated read-only ITC statement generated by the GST Portal based on suppliers' filed GSTR-1 returns. Under Section 16(2)(aa), 100% of claimed ITC must match GSTR-2B!]
+  [GSTR-1], [Monthly / QRMP (11th of month)], [Statement of Outward Supplies. Contains all B2B sales invoices, interstate B2C sales exceeding ₹2.5 Lakhs, exports, debit/credit notes, and HSN summary. Directly populates buyers' #ul-green[GSTR-2B]!],
+  [GSTR-3B], [Monthly (20th of month)], [Self-assessed monthly summary return. Declares total taxable sales, outward tax liability, eligible #hl-green[Input Tax Credit (ITC)], and executes net tax payment via Electronic Cash Ledger challan PMT-06.],
+  [GSTR-2B], [Static auto-drafted (14th of month)], [Auto-generated read-only ITC statement generated by the GST Portal based on suppliers' filed #ul-green[GSTR-1] returns. Under #ul-orange[Section 16(2)(aa)], 100% of claimed ITC must match GSTR-2B!]
 )
 
 #v(6pt)
@@ -869,8 +869,8 @@ Professional accountants must master the tripartite GST portal reconciliation fr
 
 == 11.6 Comprehensive GST Annual Return (GSTR-9) & Reconciliation (GSTR-9C)
 At the end of each financial year, regular registered corporate taxpayers must perform annual statutory reconciliation:
-1. *GSTR-9 (Annual Return):* Aggregates outward supplies, inward procurement, taxes paid, and ITC claimed across all 12 monthly GSTR-3B and GSTR-1 returns filed during the financial year.
-2. *GSTR-9C (Reconciliation Statement):* A statutory reconciliation between the audited commercial financial statements (Balance Sheet & P&L certified by a Chartered Accountant) and the GST Portal returns.
+1. *#ul-green[GSTR-9] (Annual Return):* Aggregates outward supplies, inward procurement, taxes paid, and ITC claimed across all 12 monthly #ul-green[GSTR-3B] and #ul-green[GSTR-1] returns filed during the financial year.
+2. *#ul-green[GSTR-9]C (Reconciliation Statement):* A statutory reconciliation between the audited commercial financial statements (Balance Sheet & P&L certified by a Chartered Accountant) and the GST Portal returns.
 3. *Section 16(4) Statutory Deadline:* ITC pertaining to any invoice of a financial year must be claimed on or before 30th November following the end of the financial year. Any unclaimed ITC lapses permanently after this cutoff date!
 
 #v(6pt)
@@ -878,8 +878,8 @@ At the end of each financial year, regular registered corporate taxpayers must p
 
 == 11.7 Corporate GST Audit & Litigation Defense Protocol
 In modern corporate practice, tax authorities issue automated electronic notices (Form ASMT-10) for discrepancies between returns:
-1. *GSTR-3B vs GSTR-1 Discrepancy:* Outward tax declared in 3B is less than sales reported in GSTR-1. Reconcile monthly using Tally Prime's *GST Return Analysis*.
-2. *GSTR-3B vs GSTR-2B Discrepancy:* ITC claimed in 3B exceeds eligible ITC reflected in GSTR-2B. Under Section 16(2)(aa), excess ITC must be reversed in Table 4(B)(2) with 18% penal interest under Section 50.
+1. *#ul-green[GSTR-3B] vs #ul-green[GSTR-1] Discrepancy:* Outward tax declared in 3B is less than sales reported in #ul-green[GSTR-1]. Reconcile monthly using Tally Prime's *GST Return Analysis*.
+2. *#ul-green[GSTR-3B] vs #ul-green[GSTR-2B] Discrepancy:* ITC claimed in 3B exceeds eligible ITC reflected in #ul-green[GSTR-2B]. Under #ul-orange[Section 16(2)(aa)], excess ITC must be reversed in Table 4(B)(2) with 18% penal interest under Section 50.
 3. *DRC-03 Voluntary Settlement:* Any tax shortfall or interest liability is voluntarily settled on the GST Portal using Form DRC-03 and recorded in Tally Prime via Payment Voucher (F5) with GST Payment type *Voluntary*.
 
 #v(6pt)
@@ -893,7 +893,7 @@ Before closing corporate financial books on 31st March, corporate accountants mu
 4. *Prepaid & Accrued Expenses:* Reclassify unexpired insurance premiums into *Prepaid Expenses* (Current Assets) and unpaid salaries into *Provisions*.
 5. *Debtor & Creditor Ledger Confirmations:* Dispatch balance confirmation statements to major suppliers and customers; reconcile differences.
 6. *Bad Debts Write-Off:* Identify irrecoverable debts and write off to *Bad Debts A/c* via Journal Voucher.
-7. *GST Portal Reconciliation:* Reconcile outward turnover in GSTR-1 against GSTR-3B and books. Verify that 100% of claimed ITC is reflected in GSTR-2B.
+7. *GST Portal Reconciliation:* Reconcile outward turnover in #ul-green[GSTR-1] against #ul-green[GSTR-3B] and books. Verify that 100% of claimed ITC is reflected in #ul-green[GSTR-2B].
 8. *TDS Reconciliation:* Match TDS deducted against Form 26AS / AIS on the Income Tax portal.
 9. *Foreign Exchange Revaluation:* Revalue unhedged foreign currency debtors/creditors at closing exchange rates as per AS-11.
 10. *Closing Stock Valuation:* Value closing stock at *Cost or Net Realizable Value (NRV), whichever is lower*.
@@ -906,7 +906,7 @@ Before closing corporate financial books on 31st March, corporate accountants mu
 - *BRS Equilibrium:* Bank reconciliation resolves timing differences between company books and bank records. Always reconcile monthly.
 - *Cost Centres for Management Accounting:* Cost centres enable granular departmental cost analysis without creating hundreds of redundant ledgers.
 - *Data Splitting Safety:* Always run *Verify Data* and execute a complete *Backup* before splitting multi-year databases.
-- *Section 16(2)(aa) Statutory Rigour:* Match purchase invoices against GSTR-2B every month to avoid ITC reversal notices with 18% penal interest.
+- *#ul-orange[Section 16(2)(aa)] Statutory Rigour:* Match purchase invoices against #ul-green[GSTR-2B] every month to avoid ITC reversal notices with 18% penal interest.
 
 #v(6pt)
 
@@ -925,15 +925,15 @@ Before closing corporate financial books on 31st March, corporate accountants mu
   [02], [Which shortcut accesses the Data menu to execute Company Data Splitting?\\
   (A) Alt+K (B) Alt+Y (C) Alt+Z (D) Ctrl+Y], [*Correct: (B) Alt+Y (Data Menu)*\\
   Alt+Y provides access to Backup, Restore, Split Data, and Data Path options.],
-  [03], [Which GST return contains the auto-drafted static Input Tax Credit (ITC) statement?\\
-  (A) GSTR-1 (B) GSTR-3B (C) GSTR-2B (D) GSTR-9], [*Correct: (C) GSTR-2B*\\
-  GSTR-2B is generated on the 14th of every month reflecting eligible ITC.],
-  [04], [Which statutory section mandates that ITC is allowed only if reflected in GSTR-2B?\\
-  (A) Section 10 (B) Section 16(2)(aa) (C) Section 22 (D) Section 54], [*Correct: (B) Section 16(2)(aa)*\\
+  [03], [Which GST return contains the auto-drafted static #hl-green[Input Tax Credit (ITC)] statement?\\
+  (A) #ul-green[GSTR-1] (B) #ul-green[GSTR-3B] (C) #ul-green[GSTR-2B] (D) #ul-green[GSTR-9]], [*Correct: (C) #ul-green[GSTR-2B]*\\
+  #ul-green[GSTR-2B] is generated on the 14th of every month reflecting eligible ITC.],
+  [04], [Which statutory section mandates that ITC is allowed only if reflected in #ul-green[GSTR-2B]?\\
+  (A) Section 10 (B) #ul-orange[Section 16(2)(aa)] (C) Section 22 (D) Section 54], [*Correct: (B) #ul-orange[Section 16(2)(aa)]*\\
   Introduced to eliminate fake invoicing and restrict ITC to verified portal records.],
   [05], [How are departmental branch costs tracked in Tally without creating duplicate ledgers?\\
   (A) Multiple Companies (B) Cost Centres & Cost Categories\\
-  (C) Journal Vouchers (D) Tally Vault], [*Correct: (B) Cost Centres & Cost Categories*\\
+  (C) Journal Vouchers (D) #hl-green[Tally Vault]], [*Correct: (B) Cost Centres & Cost Categories*\\
   Enables multi-dimensional expense allocation to departments, branches, and projects.],
   [06], [What feature must be run immediately prior to splitting company data in Tally Prime?\\
   (A) Year-End Closing (B) Verify Data and Backup\\
@@ -943,12 +943,12 @@ Before closing corporate financial books on 31st March, corporate accountants mu
   (A) Voucher is deleted (B) Bank Date is entered\\
   (C) CGST is reversed (D) Cheque number altered], [*Correct: (B) Bank Date is entered*\\
   Entering the clearing date reconciles the transaction with the bank statement.],
-  [08], [What is the monthly filing deadline for GSTR-1 for regular taxpayers?\\
+  [08], [What is the monthly filing deadline for #ul-green[GSTR-1] for regular taxpayers?\\
   (A) 7th of the month (B) 11th of the month (C) 20th of the month (D) Last day], [*Correct: (B) 11th of the month*\\
-  GSTR-1 must be filed by the 11th of the subsequent month.],
-  [09], [What is the standard monthly filing deadline for GSTR-3B?\\
+  #ul-green[GSTR-1] must be filed by the 11th of the subsequent month.],
+  [09], [What is the standard monthly filing deadline for #ul-green[GSTR-3B]?\\
   (A) 11th of the month (B) 15th of the month (C) 20th of the month (D) 31st of the month], [*Correct: (C) 20th of the month*\\
-  GSTR-3B summary return and tax payment deadline is the 20th of the month.],
+  #ul-green[GSTR-3B] summary return and tax payment deadline is the 20th of the month.],
   [10], [Can a company's split database be merged back together automatically in Tally Prime?\\
   (A) Yes, with one click (B) No, splitting is a one-way database division\\
   (C) Only with CA password (D) Only in Gold version], [*Correct: (B) No, splitting is a one-way database division*\\
@@ -958,7 +958,7 @@ Before closing corporate financial books on 31st March, corporate accountants mu
 #v(6pt)
 
 == 11.10 Practical Viva Questions & Hands-On Lab Task
-- *Viva Q1:* Explain the corporate importance of conducting a monthly Bank Reconciliation Statement (BRS).\\
+- *Viva Q1:* Explain the corporate importance of conducting a monthly #hl-green[Bank Reconciliation Statement (BRS)].\\
   *Model Answer:* Monthly BRS ensures that no fraudulent transactions, unauthorized bank charges, or bounced cheques go undetected. It confirms that the company's liquid cash position reported on the Balance Sheet represents real, verified funds available in the bank account.
 - *Viva Q2:* How does *Auto-BRS* in Tally Prime function when importing a bank statement file?\\
   *Model Answer:* Tally Prime parses the electronic bank statement (CSV/Excel/XML) and compares the instrument numbers (cheque numbers), transaction dates, and amounts against un-cleared bank vouchers in the company books. It automatically matches matching entries and populates the *Bank Date* column instantly.

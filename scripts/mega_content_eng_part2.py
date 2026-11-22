@@ -78,7 +78,7 @@ Every professional corporate accountant must memorize the full registry of Tally
   [12], [Receipt Note], [#key-pill("Alt + F9")], [Goods Inward Note (GRN) recording physical delivery of goods from suppliers.],
   [13], [Rejections Out], [#key-pill("Alt + F5")], [Returning rejected defective items to vendor before invoice generation.],
   [14], [Rejections In], [#key-pill("Ctrl + F5")], [Accepting rejected goods returned by clients prior to final credit note.],
-  [15], [Stock Journal], [#key-pill("Alt + F7")], [Inter-godown transfers (Source to Destination) and Manufacturing Bill of Materials (BOM).],
+  [15], [Stock Journal], [#key-pill("Alt + F7")], [Inter-godown transfers (Source to Destination) and Manufacturing #hl-green[Bill of Materials (BOM)].],
   [16], [Physical Stock], [#key-pill("Ctrl + F7")], [Physical inventory audit count to align system stock with actual warehouse count.],
   [17], [Material In], [#key-pill("Ctrl + F7")], [Tracking raw materials received from job-workers under GST job-work rules.],
   [18], [Material Out], [#key-pill("Alt + F7")], [Tracking dispatch of semi-finished goods sent to external job-workers.],
@@ -135,7 +135,7 @@ One of the most revolutionary innovations of Tally Prime is the *Change Mode* fe
 
 === 5. Sales Voucher (F8) — Revenue & Invoicing Engine
 *Rule:* Customer (Sundry Debtor) or Cash is Debited (*Dr.*), Sales A/c is Credited (*Cr.*), and Output Tax ledgers are Credited (*Cr.*).
-- *Scenario:* Sold 10 Pcs Samsung Monitors @ ₹8,000 each to Maheshwari Traders (Palanpur) + 18% GST (CGST 9% + SGST 9%).
+- *Scenario:* Sold 10 Pcs Samsung Monitors @ ₹8,000 each to Maheshwari Traders (Palanpur) + #hl-orange[18% GST] (CGST 9% + SGST 9%).
 - *Entry:*
   - Debit: *Maheshwari Traders* (Sundry Debtors) ₹94,400
   - Credit: *Sales GST 18% A/c* ₹80,000
@@ -144,7 +144,7 @@ One of the most revolutionary innovations of Tally Prime is the *Change Mode* fe
 
 === 6. Purchase Voucher (F9) — Inward Procurement & ITC
 *Rule:* Purchase A/c is Debited (*Dr.*), Input Tax ledgers are Debited (*Dr.*), and Supplier (Sundry Creditor) is Credited (*Cr.*).
-- *Scenario:* Purchased 5 Pcs HP Laser Printers @ ₹12,000 from Avni Pvt Ltd + 18% GST.
+- *Scenario:* Purchased 5 Pcs HP Laser Printers @ ₹12,000 from Avni Pvt Ltd + #hl-orange[18% GST].
 - *Entry:*
   - Debit: *Purchase GST 18% A/c* ₹60,000
   - Debit: *Input CGST 9% A/c* ₹5,400
@@ -193,7 +193,7 @@ Enter the following 25 commercial transactions into Tally Prime, ensuring exact 
 
 
 == 5.7 The 10 Golden Rules of Voucher Alteration & Audit Trail (Edit Log)
-Under statutory corporate governance rules mandated by the Ministry of Corporate Affairs (MCA), Indian companies must maintain computerized accounting software equipped with an inviolable *Audit Trail (Edit Log)* feature:
+Under statutory corporate governance rules mandated by the Ministry of Corporate Affairs (MCA), Indian companies must maintain computerized accounting software equipped with an inviolable *#hl-green[Audit Trail (Edit Log)]* feature:
 1. *Immutable Audit Trail:* Tally Prime Edit Log records every voucher creation, modification, and deletion with user identity, timestamp, and field-level change history.
 2. *Zero Disablement:* Once enabled, the Edit Log cannot be disabled or tampered with by any administrator.
 3. *Voucher Class Automation:* To eliminate data entry errors, accountants configure *Voucher Classes* in Sales and Purchase vouchers. A Voucher Class pre-defines the Sales Ledger, Input/Output Tax Ledgers, and automated Round-Off, allowing operators to enter only stock items while Tally calculates statutory taxes automatically!
@@ -203,7 +203,7 @@ Under statutory corporate governance rules mandated by the Ministry of Corporate
 
 == 5.8 Advanced Voucher Scenarios: Compound Invoicing with Trade & Cash Discounts
 In corporate trading, transactions often combine commercial trade discounts and cash discounts:
-- *Commercial Scenario:* Sold 20 Pcs Samsung Monitors @ ₹6,500 = ₹1,30,000. Allowed 5% Trade Discount on invoice face (Taxable Value = ₹1,23,500). Charged 18% GST (CGST ₹11,115 + SGST ₹11,115 = ₹1,45,730). Offered 2% Cash Discount if paid within 7 days.
+- *Commercial Scenario:* Sold 20 Pcs Samsung Monitors @ ₹6,500 = ₹1,30,000. Allowed 5% Trade Discount on invoice face (Taxable Value = ₹1,23,500). Charged #hl-orange[18% GST] (CGST ₹11,115 + SGST ₹11,115 = ₹1,45,730). Offered 2% Cash Discount if paid within 7 days.
 - *Cash Receipt within 7 Days:* Customer pays via NEFT. Cash Discount of 2% on taxable value (₹2,470) is granted via Credit Note or Journal Voucher, and net cash of ₹1,43,260 is debited in Receipt (F6).
 
 #v(6pt)
@@ -365,11 +365,11 @@ This master reference table covers the exact group assignment for all commercial
   [34], [Audit Fees Payable A/c], [Provisions], [Balance Sheet (Liab)],
   [35], [Sales GST 18% A/c], [Sales Accounts], [Profit & Loss (Credit)],
   [36], [Sales Interstate IGST 18%], [Sales Accounts], [Profit & Loss (Credit)],
-  [37], [Sales Exempt (0% GST)], [Sales Accounts], [Profit & Loss (Credit)],
+  [37], [Sales Exempt (#hl-orange[0% GST])], [Sales Accounts], [Profit & Loss (Credit)],
   [38], [Sales Returns (Inward) A/c], [Sales Accounts], [Profit & Loss (Credit -)],
   [39], [Purchase GST 18% A/c], [Purchase Accounts], [Profit & Loss (Debit)],
   [40], [Purchase Interstate IGST 18%], [Purchase Accounts], [Profit & Loss (Debit)],
-  [41], [Purchase Exempt (0% GST)], [Purchase Accounts], [Profit & Loss (Debit)],
+  [41], [Purchase Exempt (#hl-orange[0% GST])], [Purchase Accounts], [Profit & Loss (Debit)],
   [42], [Purchase Returns (Outward) A/c], [Purchase Accounts], [Profit & Loss (Debit -)],
   [43], [Factory Labour Wages], [Direct Expenses], [Trading A/c (Debit)],
   [44], [Freight / Carriage Inward], [Direct Expenses], [Trading A/c (Debit)],
@@ -448,8 +448,8 @@ Mastering these advanced group classifications guarantees success in senior corp
 
 
 == 6.9 Step-by-Step Trial Balance Audit & Discrepancy Rectification Drill
-The Trial Balance is the ultimate litmus test of mathematical and double-entry accuracy in Tally Prime. 
-- *Accessing the Trial Balance:* Navigate to *Gateway of Tally > Display More Reports > Trial Balance* (Shortcut: #key-pill("Alt + G") > type "Trial").
+The #ul-green[Trial Balance] is the ultimate litmus test of mathematical and double-entry accuracy in Tally Prime. 
+- *Accessing the #ul-green[Trial Balance]:* Navigate to *Gateway of Tally > Display More Reports > #ul-green[Trial Balance]* (Shortcut: #key-pill("Alt + G") > type "Trial").
 - *Expanding Details:* Press #key-pill("Alt + F1") or #key-pill("Alt + F5") to reveal all underlying secondary groups and ledgers.
 - *Detecting Negative Balances:* Tally Prime displays credit balances in debit accounts (or vice versa) with a negative sign or highlighted in red:
   - *Negative Cash Balance:* Indicates cash payments were recorded before capital or sales receipts were posted. Rectify by re-sequencing transaction dates or recording cash infusions.
@@ -488,7 +488,7 @@ The Trial Balance is the ultimate litmus test of mathematical and double-entry a
   [05], [Under which group is Bank Overdraft (OD) categorized?\\
   (A) Current Assets (B) Bank Accounts (C) Bank OD A/c (D) Secured Loans], [*Correct: (C) Bank OD A/c*\\
   Bank OD is a sub-group under Loans (Liability) reflecting credit limits.],
-  [06], [Which group holds a temporary account created to balance an unequal Trial Balance?\\
+  [06], [Which group holds a temporary account created to balance an unequal #ul-green[Trial Balance]?\\
   (A) Suspense A/c (B) Misc. Expenses (C) Branch/Divisions (D) Provisions], [*Correct: (A) Suspense A/c*\\
   Suspense A/c temporarily absorbs unverified ledger differences pending investigation.],
   [07], [What is the parent group of Reserves & Surplus in Tally Prime?\\
@@ -582,11 +582,11 @@ Tally Prime features two powerful independent layers of corporate data protectio
   fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4pt,
-  [#text(weight: "bold", fill: white)[Security Feature]], [#text(weight: "bold", fill: white)[Security Control (User Roles & Access)]], [#text(weight: "bold", fill: white)[Tally Vault (Database AES Encryption)]],
+  [#text(weight: "bold", fill: white)[Security Feature]], [#text(weight: "bold", fill: white)[Security Control (User Roles & Access)]], [#text(weight: "bold", fill: white)[#hl-green[Tally Vault] (Database AES Encryption)]],
   [Primary Purpose], [Internal access control and role segregation among staff members (Admin, Data Entry, Billing, Auditor).], [Total military-grade cryptographic encryption of the company database files on the hard drive.],
   [Company Visibility], [Company name remains visible in the *Select Company* list. Requires username and password to open.], [Company name is completely masked in the Select Company list as asterisks (`*****`) and given a unique folder ID.],
   [User Permissions], [Administrator can restrict data entry operators from viewing Profit & Loss, altering old vouchers, or exporting data.], [Prevents unauthorized hackers or external IT staff from copying data files or reading raw XML/DB files.],
-  [Recovery Option], [Administrator can reset passwords of sub-users and assign new roles.], [UNRECOVERABLE! If the Tally Vault password is lost, even Tally Solutions engineers cannot decrypt or restore the data!]
+  [Recovery Option], [Administrator can reset passwords of sub-users and assign new roles.], [UNRECOVERABLE! If the #hl-green[Tally Vault] password is lost, even Tally Solutions engineers cannot decrypt or restore the data!]
 )
 
 #v(6pt)
@@ -640,9 +640,9 @@ Large commercial conglomerates often manage multiple distinct legal entities (e.
 
 
 == 7.7 Tally Vault AES Encryption & Lost Password Protocol
-Tally Vault utilizes standard Advanced Encryption Standard (AES) with a 128-bit key. 
-- *Database Transformation:* When Tally Vault is enabled, company data files (`Company.900`, `Trans.900`) are encrypted at the sector level. File names are obfuscated, and the company name in the Tally directory is replaced with a unique 5-digit ID (e.g., `10008`).
-- *Security Mandate:* Because Tally Solutions maintains a zero-knowledge architecture, no master backdoors exist. If an administrator loses a Tally Vault password, the database is permanently rendered unreadable. Always document vault keys in secure corporate key-management vaults!
+#hl-green[Tally Vault] utilizes standard Advanced Encryption Standard (AES) with a 128-bit key. 
+- *Database Transformation:* When #hl-green[Tally Vault] is enabled, company data files (`Company.900`, `Trans.900`) are encrypted at the sector level. File names are obfuscated, and the company name in the Tally directory is replaced with a unique 5-digit ID (e.g., `10008`).
+- *Security Mandate:* Because Tally Solutions maintains a zero-knowledge architecture, no master backdoors exist. If an administrator loses a #hl-green[Tally Vault] password, the database is permanently rendered unreadable. Always document vault keys in secure corporate key-management vaults!
 
 #v(6pt)
 
@@ -674,7 +674,7 @@ Under notification *GSR 235(E)* issued by the Ministry of Corporate Affairs (MCA
 == 7.9 Summary & Key Revision Takeaways
 - *Creation Prerequisite:* Company creation is the gateway to Tally Prime accounting. State selection (Gujarat Code 24) is paramount for accurate GST calculations.
 - *Alteration vs Deletion:* Press #key-pill("Alt + K") > *Alter* to update details. Press #key-pill("Alt + D") on the Alteration screen to delete permanently.
-- *Security Prudence:* Use Security Control for multi-user role segregation. Use Tally Vault for cryptographic confidentiality, but never lose the password!
+- *Security Prudence:* Use Security Control for multi-user role segregation. Use #hl-green[Tally Vault] for cryptographic confidentiality, but never lose the password!
 
 #v(6pt)
 
@@ -702,19 +702,19 @@ Under notification *GSR 235(E)* issued by the Ministry of Corporate Affairs (MCA
   (A) Sets font language (B) Determines CGST/SGST vs IGST\\
   (C) Sets system clock (D) Controls backup frequency], [*Correct: (B) Determines CGST/SGST vs IGST*\\
   Tally matches the company state with the customer state to determine tax type.],
-  [06], [What happens to a company name in the Select Company list when protected by Tally Vault?\\
+  [06], [What happens to a company name in the Select Company list when protected by #hl-green[Tally Vault]?\\
   (A) Highlighted in red (B) Hidden as asterisks (\\*\\*\\*\\*\\*) with a number\\
   (C) Moved to recycle bin (D) Exported to PDF], [*Correct: (B) Hidden as asterisks (\\*\\*\\*\\*\\*) with a number*\\
-  Tally Vault conceals the company name to prevent identification by unauthorized users.],
-  [07], [What happens if an accountant forgets the Tally Vault password?\\
+  #hl-green[Tally Vault] conceals the company name to prevent identification by unauthorized users.],
+  [07], [What happens if an accountant forgets the #hl-green[Tally Vault] password?\\
   (A) OTP sent to registered mobile (B) Password reset by Admin\\
   (C) Data is permanently unrecoverable (D) Auto-unlocks after 24 hours], [*Correct: (C) Data is permanently unrecoverable*\\
-  Due to strong AES encryption, lost Tally Vault passwords cannot be recovered.],
+  Due to strong AES encryption, lost #hl-green[Tally Vault] passwords cannot be recovered.],
   [08], [Which shortcut switches between already opened companies in Tally Prime?\\
   (A) F1 (B) F2 (C) F3 (D) Alt+F3], [*Correct: (C) F3 (Select Company)*\\
   F3 allows accountants to switch between loaded companies instantaneously.],
   [09], [Which feature allows an administrator to prevent junior staff from altering back-dated vouchers?\\
-  (A) Tally Audit & Back-dated Lock (B) Tally Vault\\
+  (A) Tally Audit & Back-dated Lock (B) #hl-green[Tally Vault]\\
   (C) F11 GST (D) Data Split], [*Correct: (A) Tally Audit & Back-dated Lock*\\
   Security Control allows setting a cutoff date beyond which vouchers cannot be edited.],
   [10], [Can a company's financial year beginning date be altered once transactions are recorded?\\
