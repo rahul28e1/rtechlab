@@ -1,5 +1,5 @@
 /**
- * Dispatch Tally Prime Hindi Notes & Complete Bundle to Rahul Sir (rahuliantpln@gmail.com)
+ * Dispatch Tally Prime Hindi Notes & Complete Bundle to Rahul Sir (rahul.28e1@gmail.com)
  */
 
 const fs = require('fs');
@@ -29,7 +29,7 @@ loadEnv();
 async function sendReleaseEmail() {
   const gmailUser = process.env.GMAIL_USER || 'rahul.28e1@gmail.com';
   const gmailPass = (process.env.GMAIL_APP_PASSWORD || '').replace(/["'\s]/g, '');
-  const recipient = 'rahuliantpln@gmail.com';
+  const recipient = 'rahul.28e1@gmail.com';
 
   console.log(`[INFO] Preparing Tally Prime release dispatch to: ${recipient}`);
 
@@ -121,7 +121,7 @@ async function sendReleaseEmail() {
 
       <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; line-height: 1.5;">
         <p style="margin: 0 0 6px;"><strong>RTechLab Motto:</strong> Technology Made Practical · Learn. Practice. Innovate.</p>
-        <p style="margin: 0;"><strong>Mentorship Desk:</strong> <a href="mailto:rahuliantpln@gmail.com">rahuliantpln@gmail.com</a> · Official Platform: <a href="https://rtechlab.vercel.app">rtechlab.vercel.app</a></p>
+        <p style="margin: 0;"><strong>Mentorship Desk:</strong> <a href="mailto:rahul.28e1@gmail.com">rahul.28e1@gmail.com</a> · Official Platform: <a href="https://rtechlab.vercel.app">rtechlab.vercel.app</a></p>
       </div>
     </div>
   `;

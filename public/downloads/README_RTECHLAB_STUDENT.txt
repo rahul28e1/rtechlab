@@ -19,5 +19,5 @@ This complete suite includes:
 LIFETIME ACCESS & MENTORSHIP GUARANTEE:
 As an official RTechLab student, you receive lifetime free edition updates whenever
 the GST Council modifies tax slabs or Tally releases new major software versions.
-Direct Mentorship: rahuliantpln@gmail.com · rahul.28e1@gmail.com
+Direct Mentorship: rahul.28e1@gmail.com · rahul.28e1@gmail.com
 =============================================================================

@@ -272,6 +272,292 @@
   )
 }
 
+// -----------------------------------------------------------------------------
+// COMMERCIAL BANKING & INVOICE FORMAT COMPONENTS (PRACTICAL VISUALS)
+// -----------------------------------------------------------------------------
+
+#let cheque-format(
+  payee: "Krishi Beej Bhandar",
+  amount-words: "Rupees Two Lakh Only",
+  amount-num: "2,00,000.00",
+  date-str: "0 1 0 4 2 0 2 5",
+  bank-name: "HDFC BANK LIMITED",
+  branch: "Palanpur Main Branch, Gujarat · IFSC: HDFC0001234",
+  ac-no: "50100458921478",
+  chq-no: "145821",
+  company-name: "RAVI PRIVATE LIMITED"
+) = {
+  block(
+    width: 100%,
+    stroke: 1.5pt + rgb("#0E7490"),
+    fill: rgb("#F8FAFC"),
+    radius: 4pt,
+    inset: 8pt,
+    spacing: 5pt,
+    [
+      // Top row: Crossing & Bank Details & Date
+      #grid(
+        columns: (1fr, 2.5fr, 1.4fr),
+        align: (left + top, center + top, right + top),
+        [
+          #box(
+            stroke: (right: 1pt + rgb("#475569")),
+            inset: (right: 5pt),
+            [
+              #text(size: 6.5pt, weight: "black", fill: rgb("#0F172A"))[\/\/ A/C PAYEE ONLY \/\/]\
+              #text(size: 5.5pt, fill: rgb("#64748B"))[NOT NEGOTIABLE]
+            ]
+          )
+        ],
+        [
+          #text(size: 8.5pt, weight: "black", fill: rgb("#0E7490"))[#bank-name]\
+          #text(size: 6pt, fill: rgb("#475569"))[#branch]
+        ],
+        [
+          #text(size: 5.5pt, weight: "bold", fill: rgb("#475569"))[DATE: ]
+          #box(
+            fill: white,
+            stroke: 0.5pt + rgb("#64748B"),
+            inset: (x: 3pt, y: 1.5pt),
+            text(size: 6.5pt, weight: "bold", font: "Consolas", fill: rgb("#0F172A"))[#date-str]
+          )
+        ]
+      )
+      
+      #v(3pt)
+      #line(length: 100%, stroke: 0.5pt + rgb("#CBD5E1"))
+      #v(2pt)
+      
+      // Pay line
+      #grid(
+        columns: (auto, 1fr, auto),
+        gutter: 4pt,
+        align: (left + horizon, left + horizon, right + horizon),
+        [#text(size: 7pt, weight: "bold", fill: rgb("#0F172A"))[PAY:]],
+        [#box(width: 100%, stroke: (bottom: 0.5pt + rgb("#94A3B8")), inset: (bottom: 1.5pt))[#text(size: 7.2pt, weight: "bold", fill: rgb("#0369A1"))[#payee]]],
+        [#text(size: 6.5pt, style: "italic", fill: rgb("#64748B"))[OR BEARER]]
+      )
+      
+      #v(3pt)
+      
+      // Rupees in words line & Amount Box
+      #grid(
+        columns: (auto, 1fr, auto),
+        gutter: 4pt,
+        align: (left + horizon, left + horizon, right + horizon),
+        [#text(size: 7pt, weight: "bold", fill: rgb("#0F172A"))[RUPEES:]],
+        [#box(width: 100%, stroke: (bottom: 0.5pt + rgb("#94A3B8")), inset: (bottom: 1.5pt))[#text(size: 6.8pt, style: "italic", fill: rgb("#334155"))[#amount-words]]],
+        [
+          #box(
+            fill: rgb("#EFF6FF"),
+            stroke: 1.2pt + rgb("#1D4ED8"),
+            radius: 2pt,
+            inset: (x: 5pt, y: 3pt),
+            [#text(size: 8pt, weight: "black", fill: rgb("#1D4ED8"))[₹ #amount-num]]
+          )
+        ]
+      )
+      
+      #v(3pt)
+      
+      // A/c No and Signatory
+      #grid(
+        columns: (1fr, 1fr),
+        align: (left + bottom, right + bottom),
+        [
+          #text(size: 6.5pt, weight: "bold", fill: rgb("#475569"))[A/C NO.: ]
+          #box(fill: white, stroke: 0.5pt + rgb("#94A3B8"), inset: (x: 3pt, y: 1pt))[
+            #text(size: 7pt, weight: "bold", font: "Consolas", fill: rgb("#0F172A"))[#ac-no]
+          ]
+        ],
+        [
+          #text(size: 6.2pt, weight: "bold", fill: rgb("#475569"))[For #company-name]\
+          #v(8pt)
+          #text(size: 6pt, style: "italic", fill: rgb("#64748B"))[Authorised Signatory]
+        ]
+      )
+      
+      #v(2pt)
+      // MICR Band
+      #rect(
+        width: 100%,
+        fill: rgb("#F1F5F9"),
+        stroke: (top: 0.5pt + rgb("#CBD5E1")),
+        inset: 2pt,
+        align(center)[
+          #text(size: 6.5pt, font: "Consolas", tracking: 1.5pt, fill: rgb("#334155"))[
+            ⑈ #chq-no ⑈  385240002 ⑆  000124 ⑈  10
+          ]
+        ]
+      )
+    ]
+  )
+}
+
+#let bank-statement-format(
+  account-holder: "RAVI PRIVATE LIMITED",
+  bank-name: "HDFC BANK LIMITED",
+  account-no: "50100458921478",
+  period: "01-Apr-2025 to 30-Apr-2025",
+  rows: ()
+) = {
+  block(
+    width: 100%,
+    stroke: 1pt + rgb("#0E7490"),
+    radius: 4pt,
+    inset: 6pt,
+    spacing: 5pt,
+    [
+      #grid(
+        columns: (1.5fr, 1fr),
+        align: (left, right),
+        [
+          #text(size: 8pt, weight: "black", fill: rgb("#0E7490"))[#bank-name · STATEMENT OF ACCOUNT]\
+          #text(size: 6.8pt, weight: "bold", fill: rgb("#0F172A"))[Account Holder: #account-holder] · #text(size: 6.5pt, fill: rgb("#475569"))[A/c: #account-no]
+        ],
+        [
+          #text(size: 6.5pt, weight: "bold", fill: rgb("#475569"))[Statement Period:]\
+          #text(size: 6.5pt, fill: rgb("#0369A1"))[#period]
+        ]
+      )
+      #v(2pt)
+      #table(
+        columns: (0.7fr, 2.2fr, 0.9fr, 0.8fr, 0.8fr, 0.9fr),
+        fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+        stroke: 0.3pt + rgb("#CBD5E1"),
+        inset: 2.8pt,
+        align: (col, row) => if row == 0 { center } else if col in (3, 4, 5) { right } else { left },
+        [#text(size: 6.5pt, weight: "bold", fill: white)[Date]],
+        [#text(size: 6.5pt, weight: "bold", fill: white)[Narration / Description]],
+        [#text(size: 6.5pt, weight: "bold", fill: white)[Chq/Ref No.]],
+        [#text(size: 6.5pt, weight: "bold", fill: white)[Withdrawal (Dr)]],
+        [#text(size: 6.5pt, weight: "bold", fill: white)[Deposit (Cr)]],
+        [#text(size: 6.5pt, weight: "bold", fill: white)[Balance (₹)]],
+        ..rows
+      )
+    ]
+  )
+}
+
+#let gst-tax-invoice-format(
+  inv-no: "INV-2025-001",
+  inv-date: "01-Apr-2025",
+  seller-name: "RAVI PRIVATE LIMITED",
+  seller-gstin: "24AABCR1234A1Z5",
+  seller-address: "Near Ambaji Mandir, Main Chowk, Palanpur - 385001",
+  buyer-name: "KRISHI BEEJ BHANDAR",
+  buyer-gstin: "24ABCDE1234R1Z1",
+  buyer-address: "025, Near Small Building, Main Chowk, Palanpur - 385001",
+  items-rows: (),
+  total-taxable: "4,550.00",
+  cgst-amt: "0.00",
+  sgst-amt: "0.00",
+  igst-amt: "0.00",
+  grand-total: "4,550.00",
+  in-words: "Rupees Four Thousand Five Hundred Fifty Only"
+) = {
+  block(
+    width: 100%,
+    stroke: 1.2pt + rgb("#0E7490"),
+    radius: 4pt,
+    inset: 5pt,
+    spacing: 4pt,
+    [
+      // Invoice Heading
+      #align(center)[
+        #text(size: 8.5pt, weight: "black", fill: rgb("#0F172A"))[TAX INVOICE]\
+        #text(size: 5.5pt, style: "italic", fill: rgb("#64748B"))[(Issued under Section 31 of Central Goods and Services Tax Act, 2017)]
+      ]
+      
+      #v(2pt)
+      // Invoice Meta & Parties
+      #grid(
+        columns: (1fr, 1fr),
+        gutter: 4pt,
+        [
+          #box(
+            width: 100%,
+            stroke: 0.5pt + rgb("#CBD5E1"),
+            fill: rgb("#F8FAFC"),
+            inset: 4pt,
+            radius: 2pt,
+            [
+              #text(size: 6pt, weight: "bold", fill: rgb("#0E7490"))[SUPPLIER / SELLER DETAILS:]\
+              #text(size: 7.2pt, weight: "black", fill: rgb("#0F172A"))[#seller-name]\
+              #text(size: 5.8pt, fill: rgb("#475569"))[#seller-address]\
+              #text(size: 6.2pt, weight: "bold", fill: rgb("#0F172A"))[GSTIN: #seller-gstin] · State: Gujarat (Code 24)
+            ]
+          )
+        ],
+        [
+          #box(
+            width: 100%,
+            stroke: 0.5pt + rgb("#CBD5E1"),
+            fill: rgb("#F8FAFC"),
+            inset: 4pt,
+            radius: 2pt,
+            [
+              #text(size: 6pt, weight: "bold", fill: rgb("#0E7490"))[INVOICE & BUYER DETAILS:]\
+              #text(size: 6.5pt, weight: "bold", fill: rgb("#0F172A"))[Invoice No: #inv-no] · #text(size: 6.5pt)[Date: #inv-date]\
+              #text(size: 6.8pt, weight: "bold", fill: rgb("#0F172A"))[Billed To: #buyer-name]\
+              #text(size: 5.8pt, fill: rgb("#475569"))[#buyer-address]\
+              #text(size: 6.2pt, weight: "bold", fill: rgb("#0F172A"))[GSTIN: #buyer-gstin] · Place of Supply: Gujarat (24)
+            ]
+          )
+        ]
+      )
+      
+      #v(2pt)
+      
+      // Items Table
+      #table(
+        columns: (0.4fr, 2.2fr, 0.7fr, 0.6fr, 0.8fr, 0.9fr, 0.7fr, 0.7fr, 0.9fr),
+        fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+        stroke: 0.3pt + rgb("#CBD5E1"),
+        inset: 2.5pt,
+        align: (col, row) => if row == 0 { center } else if col in (3, 4, 5, 6, 7, 8) { right } else { left },
+        [#text(size: 5.8pt, weight: "bold", fill: white)[Sl.]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[Description of Goods / Services]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[HSN/SAC]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[Qty]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[Rate (₹)]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[Taxable Val]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[CGST]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[SGST]],
+        [#text(size: 5.8pt, weight: "bold", fill: white)[Total (₹)]],
+        ..items-rows
+      )
+      
+      #v(2pt)
+      
+      // Bottom Row: Words & Totals
+      #grid(
+        columns: (1.5fr, 1fr),
+        gutter: 4pt,
+        [
+          #text(size: 5.8pt, weight: "bold", fill: rgb("#475569"))[Amount Chargeable in Words:]\
+          #text(size: 6.5pt, style: "italic", weight: "bold", fill: rgb("#0F172A"))[#in-words]\
+          #v(3pt)
+          #text(size: 5.5pt, fill: rgb("#64748B"))[Declaration: We declare that this invoice shows actual price of the goods described and that all particulars are true and correct.]
+        ],
+        [
+          #table(
+            columns: (1.2fr, 1fr),
+            stroke: 0.3pt + rgb("#CBD5E1"),
+            fill: (col, row) => if row == 3 { rgb("#EFF6FF") } else { white },
+            inset: 2pt,
+            align: (left, right),
+            [#text(size: 5.8pt)[Total Taxable Value]], [#text(size: 5.8pt, weight: "bold")[₹ #total-taxable]],
+            [#text(size: 5.8pt)[Add: CGST]], [#text(size: 5.8pt)[₹ #cgst-amt]],
+            [#text(size: 5.8pt)[Add: SGST / IGST]], [#text(size: 5.8pt)[₹ #{if igst-amt != "0.00" { igst-amt } else { sgst-amt }}]],
+            [#text(size: 6.2pt, weight: "black", fill: rgb("#1D4ED8"))[Invoice Total]], [#text(size: 6.5pt, weight: "black", fill: rgb("#1D4ED8"))[₹ #grand-total]]
+          )
+        ]
+      )
+    ]
+  )
+}
+
 // =============================================================================
 // AUTHOR MOTTO, VISION, CONGRATULATIONS & BEST OF LUCK FINAL PAGE
 // Strictly Light Mode (Pure White, Soft Border, Author Photo, Both Mottos)
@@ -442,7 +728,7 @@
           ]\\
           #v(2pt)
           #text(size: 7.5pt, fill: rgb("#334155"))[
-            Direct Email: *rahuliantpln\@gmail.com* · Official Platform: *rtechlab.vercel.app* · IANT Palanpur Hub
+            Direct Email: *rahul.28e1\@gmail.com* · Official Platform: *rtechlab.vercel.app* · IANT Palanpur Hub
           ]
         ],
         [

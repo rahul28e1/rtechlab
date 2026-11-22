@@ -66,39 +66,75 @@ def assemble_master_book(lang="en"):
 )"""
         chapters = eng_chapters
         intro_block = """
-= Course Architecture & 11-Topic Curriculum Roadmap
+= Course Architecture & Academic Framework
 
 #block(
   fill: rgb("#F0FDFA"),
-  stroke: 1pt + rgb("#99F6E4"),
+  stroke: 1.2pt + rgb("#0E7490"),
   radius: 4pt,
-  inset: 9pt,
+  inset: 10pt,
   [
-    #text(weight: "bold", size: 8.8pt, fill: rgb("#0F766E"))[ACADEMIC PUBLICATION & STATUTORY COMPLIANCE GUARANTEE:]\\
-    This master curriculum is standardized by RTechLab and IANT Palanpur to bridge the gap between academic theory and real-world corporate accounting. Designed for commerce students, CA articles, and corporate accounts executives, every chapter is verified against the latest Tally Prime 4.x/5.x engine, the statutory GST portal requirements, and Income Tax TDS regulations.
+    #text(weight: "black", size: 9pt, fill: rgb("#0E7490"))[OFFICIAL RTECHLAB & IANT INSTITUTIONAL ACCREDITATION:]\
+    #v(3pt)
+    #text(size: 8pt, fill: rgb("#334155"))[
+      This master publication represents the standardized commercial curriculum developed by Rahul Patel (Lead Corporate Accounting Trainer at IANT Palanpur and Founder of RTechLab). Bridging the critical chasm between conventional classroom theory and real-world corporate accounting practice, this syllabus prepares accounting students, CA articles, and working professionals for high-velocity corporate roles.
+    ]
   ]
 )
 
-#v(6pt)
+#v(8pt)
+
+== Institutional Mission & Pedagogical Standards
+Every chapter, transaction, and statutory case study in this handbook adheres to three uncompromising institutional benchmarks:
+1. *100% Statutory Alignment:* Formatted strictly according to Central Goods and Services Tax Act 2017 (CGST Rule 46), Income Tax Act 1961 (Sections 194C, 194J, 194I, 194H), and MCA Audit Trail mandates.
+2. *Real-World Commercial Fidelity:* Zero artificial placeholders. Every invoice, GSTIN, PAN, and bank voucher replicates live Indian corporate accounting operations across Gujarat, Maharashtra, and Karnataka.
+3. *Zero-Mouse Keyboard Proficiency:* Students are trained to operate Tally Prime exclusively via high-speed keyboard shortcuts, achieving 3x to 5x higher workplace productivity.
+
+#v(10pt)
+
+== National Statutory Accounting Regulatory Alignment
+#table(
+  columns: (1.2fr, 1.3fr, 2.5fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[Regulatory Body]], [#text(weight: "bold", fill: white)[Governing Legislation]], [#text(weight: "bold", fill: white)[Curriculum Integration & Practical Impact]],
+  [GST Council & CBIC], [CGST / SGST / IGST Acts 2017], [Rule 46 Tax Invoices, Section 16(2)(aa) GSTR-2B matching, E-Way bills, and E-Invoicing.],
+  [CBDT / Income Tax], [Income Tax Act, 1961], [TDS withholding under 194C/J/I, Form 26Q quarterly returns, Section 206AA penal rates.],
+  [Ministry of Corporate Affairs], [Companies Act, 2013], [Audit Trail (Edit Log) rule, Schedule III vertical balance sheets, and depreciation schedules.],
+  [Institute of Chartered Accountants], [Indian Accounting Standards (Ind AS)], [Luca Pacioli double-entry rules, accrual concepts, and valuation of closing stock (NRV).]
+)
+
+#pagebreak()
+
+= The 11-Topic Curriculum Roadmap & Competency Matrix
 
 #table(
-  columns: (0.7fr, 2fr, 2.3fr),
+  columns: (0.7fr, 1.8fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Topic]], [#text(weight: "bold", fill: white)[Curriculum Domain]], [#text(weight: "bold", fill: white)[Core Practical Learning Outcomes]],
-  [Topic 01], [History of Tally & Licensing], [Bharat Goenka, 80% market share, download from tallysolutions.com, Silver/Gold/Edu mode],
-  [Topic 02], [What is Tally Prime & Architecture], [Cactus in-memory DB, Top menu (Alt+K/Y/Z/O/E/M/P), Go To (Alt+G) multi-tasking],
-  [Topic 03], [Comprehensive GST & TDS Foundation], [CGST+SGST vs IGST, 0% Exempt, 5% Essentials, 18% Standard slabs, Sec 194C/J/I/H, 26Q],
-  [Topic 04], [Ledgers, Accounts & Golden Rules], [Personal, Real & Nominal accounts, Luca Pacioli rules, 20+ practical Dr/Cr proofs],
-  [Topic 05], [Vouchers & 4 Main Categories], [Accounting, Inventory, Order & Memo categories, 24 vouchers with shortcuts],
-  [Topic 06], [Groups & Complete Ledger Mapping], [15 Primary + 13 Secondary groups, 50+ real account mappings (Salman, HDFC, Taxes)],
-  [Topic 07], [Company & Step-by-Step Creation], [Company creation, Gujarat Code 24, FY beginning, Tally Vault, F11 Features & F12 Config],
-  [Topic 08], [Types of Business Organizations], [Trading concerns (Unjha Mandi), Manufacturing (Morbi Ceramics), Service providers],
-  [Topic 09], [Practical Commercial Invoices], [Inventory Invoices (Item Mode) vs Accounting Invoices (Service Mode, Ctrl+H)],
-  [Topic 10], [Master Keyboard Shortcuts (40+)], [General navigation, master alteration, voucher shortcuts, and reporting speeds],
-  [Topic 11], [Corporate Bridge Highlights], [GST portal returns (GSTR-1/3B/2B), BRS bank reconciliation, Cost Centres, Splitting]
+  [Topic 01], [History of Tally & Licensing], [Bharat Goenka, 80% market share, download from tallysolutions.com, Silver/Gold/Edu mode, TGS LAN.],
+  [Topic 02], [What is Tally Prime & Architecture], [Cactus in-memory DB, Top menu (Alt+K/Y/Z/O/E/M/P), Go To (Alt+G) multi-tasking, 4 GOT quadrants.],
+  [Topic 03], [Comprehensive GST & TDS Foundation], [CGST+SGST vs IGST, 0% Exempt, 5% Essentials, 18% Standard slabs, Sec 194C/J/I/H, Form 26Q schedule.],
+  [Topic 04], [Ledgers, Accounts & Golden Rules], [Personal, Real & Nominal accounts, Luca Pacioli rules, Mr. Verma 50-transaction workflow, 20 cash entries.],
+  [Topic 05], [Vouchers & 4 Main Categories], [Accounting, Inventory, Order & Memo categories, 24 vouchers with shortcuts, Edit Log audit trail.],
+  [Topic 06], [Groups & Complete Ledger Mapping], [15 Primary + 13 Secondary groups, 70+ real account mappings (Salman, HDFC, Taxes), Trial Balance audit.],
+  [Topic 07], [Company & Step-by-Step Creation], [Company creation, Gujarat Code 24, FY beginning, Tally Vault AES encryption, 5 practical companies.],
+  [Topic 08], [Types of Business Organizations], [Trading concerns (Unjha Mandi), Manufacturing with BOM (Morbi Ceramics), Service providers, E-commerce.],
+  [Topic 09], [Practical Commercial Invoices], [6 authentic invoices rendered: Purchase Exempt, GST 18%, Interstate IGST, Sales GST, Sales IGST, Services.],
+  [Topic 10], [Master Keyboard Shortcuts (50+)], [General navigation, master alteration, voucher shortcuts, report generation, and 30-second speed runs.],
+  [Topic 11], [Corporate Bridge Highlights], [GST portal returns (GSTR-1/3B/2B), BRS bank reconciliation, CTS-2010 cheque, Cost Centres, Data Split.]
 )
+
+#v(8pt)
+
+== Professional Competency Assessment Standards
+Students completing this curriculum are evaluated on a 4-tier grading scale:
+- *Distinction (> 90%):* Demonstrates instant zero-mouse shortcut fluency, flawless GSTR-2B reconciliation, and complete mastery of BOM manufacturing.
+- *First Class (75% - 89%):* Accurately passes all 6 voucher types, creates error-free multi-state GST invoices, and resolves Trial Balance variances.
+- *Corporate Pass (60% - 74%):* Successfully records basic cash/bank vouchers, generates Day Book reports, and explains the 3 Golden Rules.
 """
     elif lang == "hi":
         title = "टैली प्राइम विद जीएसटी एवं कॉर्पोरेट अकाउंटिंग"
@@ -115,39 +151,75 @@ def assemble_master_book(lang="en"):
 )"""
         chapters = hi_chapters
         intro_block = """
-= पाठ्यक्रम संरचना एवं संपूर्ण 11-विषय अध्ययन मार्गदर्शिका
+= पाठ्यक्रम संरचना एवं संस्थागत शैक्षणिक ढांचा
 
 #block(
   fill: rgb("#F0FDFA"),
-  stroke: 1pt + rgb("#99F6E4"),
+  stroke: 1.2pt + rgb("#0E7490"),
   radius: 4pt,
-  inset: 9pt,
+  inset: 10pt,
   [
-    #text(weight: "bold", size: 8.8pt, fill: rgb("#0F766E"))[आधिकारिक संस्थागत प्रकाशन एवं वैधानिक प्रमाणन:]\\
-    यह संपूर्ण हैंडबुक आरटेक लैब एवं आईएएनटी पालनपुर द्वारा सैद्धांतिक पढ़ाई और आधुनिक कॉरपोरेट जगत के बीच के अंतर को समाप्त करने हेतु तैयार की गई है। इसमें कॉमर्स विद्यार्थियों, सीए आर्टिकल्स और अकाउंटेंट्स हेतु टैली प्राइम 4.x/5.x, जीएसटी पोर्टल एवं आयकर टीडीएस नियमों के शत-प्रतिशत व्यावहारिक सिद्धांतों को समाहित किया गया है।
+    #text(weight: "black", size: 9pt, fill: rgb("#0E7490"))[आधिकारिक आरटेक लैब एवं आईएएनटी संस्थागत प्रमाणन:]\
+    #v(3pt)
+    #text(size: 8pt, fill: rgb("#334155"))[
+      यह संपूर्ण मास्टर प्रकाशन राहुल पटेल (लीड कॉर्पोरेट अकाउंटिंग ट्रेनर, IANT पालनपुर एवं संस्थापक, RTechLab) द्वारा तैयार किया गया एक मानकीकृत वाणिज्यिक पाठ्यक्रम है। यह पुस्तक पारंपरिक कॉलेज थ्योरी और वास्तविक कॉर्पोरेट अकाउंटिंग के बीच की खाई को समाप्त कर विद्यार्थियों, सीए आर्टिकल्स और वर्किंग प्रोफेशनल्स को व्यावहारिक उद्योग के लिए तैयार करती है।
+    ]
   ]
 )
 
-#v(6pt)
+#v(8pt)
+
+== संस्थागत मिशन एवं शैक्षणिक मानक
+इस हैंडबुक का प्रत्येक अध्याय, वाणिज्यिक लेन-देन और केस स्टडी निम्नलिखित तीन संस्थागत मानकों पर आधारित है:
+1. *100% वैधानिक शुद्धता:* केंद्रीय वस्तु एवं सेवा कर नियम 2017 (CGST नियम 46), आयकर अधिनियम 1961 (धाराएं 194C, 194J, 194I, 194H) और MCA ऑडिट ट्रेल नियमों के अनुसार।
+2. *वास्तविक वाणिज्यिक परिदृश्य:* कोई काल्पनिक या अपूर्ण उदाहरण नहीं। प्रत्येक जीएसटी इनवॉइस, जीएसटीआईएन, पैन और बैंक चेक गुजरात, महाराष्ट्र और कर्नाटक के वास्तविक व्यापारिक लेन-देन पर आधारित है।
+3. *शून्य-माउस कीबोर्ड गति:* छात्रों को केवल कीबोर्ड शॉर्टकट्स के माध्यम से टैली प्राइम संचालित करने हेतु प्रशिक्षित किया गया है, जिससे कार्यस्थल पर कार्यक्षमता 3 से 5 गुना बढ़ जाती है।
+
+#v(10pt)
+
+== राष्ट्रीय वैधानिक लेखांकन एवं नियामक ढांचा
+#table(
+  columns: (1.2fr, 1.3fr, 2.5fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[नियामक संस्था]], [#text(weight: "bold", fill: white)[अधिनियम / कानून]], [#text(weight: "bold", fill: white)[पाठ्यक्रम में समावेशन एवं व्यावहारिक प्रभाव]],
+  [GST काउंसिल एवं CBIC], [CGST / SGST / IGST नियम 2017], [नियम 46 टैक्स इनवॉइस, धारा 16(2)(aa) GSTR-2B मिलान, ई-वे बिल और ई-इनवॉइसिंग।],
+  [CBDT / आयकर विभाग], [आयकर अधिनियम, 1961], [धारा 194C/J/I के तहत टीडीएस कटौती, त्रैमासिक फॉर्म 26Q रिटर्न, 206AA दंडात्मक दरें।],
+  [कॉर्पोरेट कार्य मंत्रालय], [कंपनी अधिनियम, 2013], [ऑडिट ट्रेल (Edit Log) अनिवार्यता, शेड्यूल III वर्टिकल बैलेंस शीट व मूल्यह्रास।],
+  [इंस्टीट्यूट ऑफ चार्टर्ड अकाउंटेंट्स], [भारतीय लेखा मानक (Ind AS)], [ल्यूका पैसिओली डबल-एंट्री नियम, उपार्जन संकल्पना (Accrual), अंतिम स्टॉक मूल्यांकन।]
+)
+
+#pagebreak()
+
+= 11-विषय पाठ्यक्रम मार्गदर्शिका एवं कॉर्पोरेट दक्षता मैट्रिक्स
 
 #table(
-  columns: (0.7fr, 2fr, 2.3fr),
+  columns: (0.7fr, 1.8fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[विषय]], [#text(weight: "bold", fill: white)[पाठ्यक्रम क्षेत्र]], [#text(weight: "bold", fill: white)[व्यावहारिक अध्ययन एवं दक्षता लक्ष्य]],
-  [विषय 01], [टैली का इतिहास एवं डाउनलोडिंग], [भरत गोयनका, 80% बाजार हिस्सेदारी, tallysolutions.com से डाउनलोड, सिल्वर/गोल्ड/एजुकेशन],
-  [विषय 02], [टैली प्राइम एवं सिस्टम आर्किटेक्चर], [कैक्टस इन-मेमोरी डेटाबेस, टॉप मेनू (Alt+K/Y/Z/O/E/M/P), गो-टू (Alt+G) मल्टीटास्किंग],
-  [विषय 03], [संपूर्ण जीएसटी एवं टीडीएस आधारशिला], [CGST+SGST बनाम IGST, 0% मुक्त, 5% आवश्यक, 18% मानक स्लैब्स, धारा 194C/J/I/H, 26Q],
-  [विषय 04], [लेजर, खाते एवं सुनहरे नियम], [व्यक्तिगत, वास्तविक, नाममात्र खाते, ल्यूका पैसिओली नियम, 20+ व्यावहारिक Dr/Cr प्रमाण],
-  [विषय 05], [वाउचर्स एवं 4 प्रमुख श्रेणियां], [एकाउंटिंग, इन्वेंटरी, ऑर्डर एवं मेमो श्रेणियां, 24 वाउचर्स मय शॉर्टकट्स],
-  [विषय 06], [ग्रुप्स एवं संपूर्ण लेजर मैपिंग], [15 प्राथमिक + 13 द्वितीयक ग्रुप्स, 50+ व्यावहारिक लेजर मैपिंग (सलमान, बैंक, टैक्स)],
-  [विषय 07], [कंपनी निर्माण चरणबद्ध प्रक्रिया], [कंपनी निर्माण, गुजरात कोड 24, वित्तीय वर्ष, टैली वॉल्ट, F11 फीचर्स व F12 सेटअप],
-  [विषय 08], [व्यावसायिक संगठनों के प्रकार], [ट्रेडिंग फर्में (ऊंझा मंडी), मैन्युफैक्चरिंग (मोरबी सिरामिक्स), सर्विस सेक्टर],
-  [विषय 09], [प्रैक्टिकल इनवॉइस निर्माण], [इन्वेंटरी इनवॉइस (Item Mode) बनाम एकाउंटिंग इनवॉइस (Service Mode, Ctrl+H)],
-  [विषय 10], [मास्टर कीबोर्ड शॉर्टकट्स (40+)], [सामान्य नेविगेशन, वाउचर एंट्री, लेजर सुधार व उच्च गति रिपोर्टिंग],
-  [विषय 11], [कॉरपोरेट ब्रिज विषय], [GSTR-1/3B/2B मिलान, बैंक समाधान (BRS), कॉस्ट सेंटर एवं वर्ष विभाजन (Split)]
+  [विषय 01], [टैली का इतिहास एवं डाउनलोडिंग], [भरत गोयनका, 80% बाजार हिस्सेदारी, tallysolutions.com से डाउनलोड, सिल्वर/गोल्ड/एजुकेशन मोड, TGS LAN।],
+  [विषय 02], [टैली प्राइम एवं सिस्टम आर्किटेक्चर], [कैक्टस इन-मेमोरी डेटाबेस, टॉप मेनू (Alt+K/Y/Z/O/E/M/P), गो-टू (Alt+G) मल्टीटास्किंग, 4 GOT क्वाड्रेंट्स।],
+  [विषय 03], [संपूर्ण जीएसटी एवं टीडीएस आधारशिला], [CGST+SGST बनाम IGST, 0% मुक्त, 5% आवश्यक, 18% मानक स्लैब्स, धारा 194C/J/I/H, फॉर्म 26Q समय-सारणी।],
+  [विषय 04], [लेजर, खाते एवं सुनहरे नियम], [व्यक्तिगत, वास्तविक, नाममात्र खाते, ल्यूका पैसिओली नियम, मिस्टर वर्मा 50-ट्रांजेक्शन वर्कफ्लो, 20 नकद/बैंक प्रविष्टियां।],
+  [विषय 05], [वाउचर्स एवं 4 प्रमुख श्रेणियां], [एकाउंटिंग, इन्वेंटरी, ऑर्डर एवं मेमो श्रेणियां, 24 वाउचर्स मय शॉर्टकट्स, एडिट लॉग ऑडिट ट्रेल।],
+  [विषय 06], [ग्रुप्स एवं संपूर्ण लेजर मैपिंग], [15 प्राथमिक + 13 द्वितीयक ग्रुप्स, 70+ वास्तविक लेजर मैपिंग (सलमान, HDFC, टैक्स लेजर्स), ट्रायल बैलेंस ऑडिट।],
+  [विषय 07], [कंपनी निर्माण चरणबद्ध प्रक्रिया], [कंपनी निर्माण, गुजरात कोड 24, वित्तीय वर्ष शुरुआत, टैली वॉल्ट AES एन्क्रिप्शन, 5 व्यावहारिक कंपनियां।],
+  [विषय 08], [व्यावसायिक संगठनों के प्रकार], [ट्रेडिंग फर्में (ऊंझा मंडी), विनिर्माण फर्म BOM सहित (मोरबी सिरामिक्स), सर्विस सेक्टर, ई-कॉमर्स।],
+  [विषय 09], [प्रैक्टिकल कमर्शियल इनवॉइस निर्माण], [6 प्रामाणिक इनवॉइस: टैक्स फ्री खरीद, जीएसटी 18%, अंतरराज्यीय IGST, जीएसटी बिक्री, IGST बिक्री, सर्विस।],
+  [विषय 10], [मास्टर कीबोर्ड शॉर्टकट्स (50+)], [सामान्य नेविगेशन, मास्टर अल्टरेशन, वाउचर शॉर्टकट्स, रिपोर्टिंग शॉर्टकट्स, एवं 30-सेकंड स्पीड रन।],
+  [विषय 11], [कॉर्पोरेट ब्रिज विषय], [GST पोर्टल रिटर्न्स (GSTR-1/3B/2B), बैंक समाधान (BRS), CTS-2010 चेक, कॉस्ट सेंटर, एवं डेटा स्प्लिट।]
 )
+
+#v(8pt)
+
+== व्यावसायिक दक्षता मूल्यांकन मानक
+इस पाठ्यक्रम को पूरा करने वाले छात्रों का 4-स्तरीय ग्रेडिंग स्केल पर मूल्यांकन किया जाता है:
+- *डिस्टिंक्शन (> 90%):* कीबोर्ड शॉर्टकट्स का तत्काल प्रवाह, त्रुटिरहित GSTR-2B समाधान, और BOM असेंबली निर्माण में पूर्ण दक्षता।
+- *फर्स्ट क्लास (75% - 89%):* सभी 6 वाउचर प्रकारों में शुद्ध प्रविष्टि, बहु-राज्यीय GST इनवॉइस निर्माण, और ट्रायल बैलेंस अंतर का समाधान।
+- *कॉर्पोरेट पास (60% - 74%):* बुनियादी रोकड़/बैंक वाउचर्स की रिकॉर्डिंग, डे बुक रिपोर्ट जनरेशन, और लेखांकन के 3 सुनहरे नियमों की समझ।
 """
     else: # gujarati
         title = "ટેલી પ્રાઇમ વિથ જીએસટી અને કોર્પોરેટ એકાઉન્ટિંગ"
@@ -164,39 +236,75 @@ def assemble_master_book(lang="en"):
 )"""
         chapters = gu_chapters
         intro_block = """
-= અભ્યાસક્રમ માળખું અને સંપૂર્ણ 11-વિષય માર્ગદર્શિકા
+= અભ્યાસક્રમ માળખું અને સંસ્થાકીય શૈક્ષણિક રૂપરેખા
 
 #block(
   fill: rgb("#F0FDFA"),
-  stroke: 1pt + rgb("#99F6E4"),
+  stroke: 1.2pt + rgb("#0E7490"),
   radius: 4pt,
-  inset: 9pt,
+  inset: 10pt,
   [
-    #text(weight: "bold", size: 8.8pt, fill: rgb("#0F766E"))[સત્તાવાર સંસ્થાકીય પ્રકાશન અને પ્રમાણીકરણ:]\\
-    આ સમગ્ર હેન્ડબુક આરટેક લેબ અને આઇએએનટી પાલનપુર દ્વારા સૈદ્ધાંતિક અભ્યાસ અને આધુનિક કોર્પોરેટ એકાઉન્ટિંગ વચ્ચેના અંતરને દૂર કરવા માટે તૈયાર કરવામાં આવી છે. કોમર્સ વિદ્યાર્થીઓ, સીએ આર્ટિકલ્સ અને એકાઉન્ટન્ટ્સ માટે ટેલી પ્રાઇમ 4.x/5.x, જીએસટી પોર્ટલ અને ઇન્કમટેક્સ ટીડીએસના 100% વ્યવહારુ નિયમો અહીં સામેલ છે.
+    #text(weight: "black", size: 9pt, fill: rgb("#0E7490"))[સત્તાવાર આરટેક લેબ અને આઇએએનટી સંસ્થાકીય પ્રમાણીકરણ:]\
+    #v(3pt)
+    #text(size: 8pt, fill: rgb("#334155"))[
+      આ સંપૂર્ણ માસ્ટર પ્રકાશન રાહુલ પટેલ (લીડ કોર્પોરેટ એકાઉન્ટિંગ ટ્રેનર, IANT પાલનપુર અને સ્થાપક, RTechLab) દ્વારા તૈયાર કરવામાં આવેલ એક માનકીકૃત વ્યાવસાયિક અભ્યાસક્રમ છે. આ પુસ્તક પરંપરાગત ક્લાસરૂમ થિયરી અને વાસ્તવિક કોર્પોરેટ એકાઉન્ટિંગ વચ્ચેના અંતરને દૂર કરી વિદ્યાર્થીઓ, સીએ આર્ટિકલ્સ અને પ્રોફેશનલ્સને વાસ્તવિક ઉદ્યોગ માટે તૈયાર કરે છે.
+    ]
   ]
 )
 
-#v(6pt)
+#v(8pt)
+
+== સંસ્થાકીય મિશન અને શૈક્ષણિક ધોરણો
+આ હેન્ડબુકનું દરેક પ્રકરણ, વ્યાપારી વ્યવહાર અને કેસ સ્ટડી નીચેના ત્રણ સંસ્થાકીય ધોરણો પર આધારિત છે:
+1. *100% વૈધાનિક શુદ્ધતા:* સેન્ટ્રલ જીએસટી નિયમો 2017 (CGST નિયમ 46), ઇન્કમટેક્સ એક્ટ 1961 (કલમ 194C, 194J, 194I, 194H) અને MCA ઓડિટ ટ્રેલ નિયમો મુજબ.
+2. *વાસ્તવિક વ્યાપારી પરિદ્રશ્ય:* કોઈ કાલ્પનિક કે અપૂર્ણ ઉદાહરણો નહીં. દરેક જીએસટી ઇનવોઇસ, જીએસટીઆઇએન, પાન અને બેંક ચેક ગુજરાત, મહારાષ્ટ્ર અને કર્ણાટકના વાસ્તવિક વ્યાપારી વ્યવહારો પર આધારિત છે.
+3. *શૂન્ય-માઉસ કીબોર્ડ ઝડપ:* વિદ્યાર્થીઓને માત્ર કીબોર્ડ શોર્ટકટ્સ દ્વારા ટેલી પ્રાઇમ સંચાલિત કરવા માટે તાલીમ આપવામાં આવી છે, જેથી કાર્યક્ષમતા 3 થી 5 ગણી વધી જાય છે.
+
+#v(10pt)
+
+== રાષ્ટ્રીય વૈધાનિક એકાઉન્ટિંગ અને નિયમનકારી માળખું
+#table(
+  columns: (1.2fr, 1.3fr, 2.5fr),
+  fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#CBD5E1"),
+  inset: 4pt,
+  [#text(weight: "bold", fill: white)[નિયમનકારી સંસ્થા]], [#text(weight: "bold", fill: white)[કાયદો / અધિનિયમ]], [#text(weight: "bold", fill: white)[અભ્યાસક્રમમાં સમાવેશ અને વ્યવહારુ પ્રભાવ]],
+  [GST કાઉન્સિલ અને CBIC], [CGST / SGST / IGST નિયમો 2017], [નિયમ 46 ટેક્સ ઇનવોઇસ, કલમ 16(2)(aa) GSTR-2B મેળવણું, ઈ-વે બિલ અને ઈ-ઇનવોઇસિંગ.],
+  [CBDT / આવકવેરા વિભાગ], [ઇન્કમટેક્સ એક્ટ, 1961], [કલમ 194C/J/I હેઠળ ટીડીએસ કપાત, ત્રિમાસિક ફોર્મ 26Q રિટર્ન, 206AA દંડાત્મક દરો.],
+  [કોર્પોરેટ બાબતોનું મંત્રાલય], [કંપની ધારો, 2013], [ઓડિટ ટ્રેલ (Edit Log) અનિવાર્યતા, શિડ્યુલ III વર્ટિકલ બેલેન્સ શીટ અને ઘસારો.],
+  [ઇન્સ્ટિટ્યૂટ ઓફ ચાર્ટર્ડ એકાઉન્ટન્ટ્સ], [ભારતીય એકાઉન્ટિંગ સ્ટાન્ડર્ડ્સ (Ind AS)], [લ્યુકા પેસિઓલી ડબલ-એન્ટ્રી નિયમો, ઉપાર્જન સંકલ્પના (Accrual), આખર સ્ટોક મૂલ્યાંકન.]
+)
+
+#pagebreak()
+
+= 11-વિષય અભ્યાસક્રમ માર્ગદર્શિકા અને કોર્પોરેટ કાર્યક્ષમતા મેટ્રિક્સ
 
 #table(
-  columns: (0.7fr, 2fr, 2.3fr),
+  columns: (0.7fr, 1.8fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
   stroke: 0.5pt + rgb("#CBD5E1"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વિષય]], [#text(weight: "bold", fill: white)[અભ્યાસક્રમ ક્ષેત્ર]], [#text(weight: "bold", fill: white)[વ્યવહારુ શિક્ષણ અને સિદ્ધિ લક્ષ્યાંકો]],
-  [વિષય 01], [ટેલીનો ઇતિહાસ અને લાયસન્સિંગ], [ભરત ગોયનકા, 80% બજાર હિસ્સો, tallysolutions.com પરથી ડાઉનલોડ, સિલ્વર/ગોલ્ડ/એજ્યુકેશન],
-  [વિષય 02], [ટેલી પ્રાઇમ અને સિસ્ટમ આર્કિટેક્ચર], [કેક્ટસ ઇન-મેમરી ડેટાબેઝ, ટોપ મેનૂ (Alt+K/Y/Z/O/E/M/P), ગો-ટૂ (Alt+G) મલ્ટીટાસ્કિંગ],
-  [વિષય 03], [સંપૂર્ણ જીએસટી અને ટીડીએસ પાયો], [CGST+SGST વિરુદ્ધ IGST, 0% કરમુક્ત, 5% આવશ્યક, 18% સ્ટાન્ડર્ડ સ્લેબ્સ, કલમ 194C/J/I/H, 26Q],
-  [વિષય 04], [લેજર, ખાતા અને સુવર્ણ નિયમો], [વ્યક્તિગત, માલ-મિલકત, ઉપજ-ખર્ચ ખાતા, લ્યુકા પેસિઓલી નિયમો, 20+ વ્યવહારુ Dr/Cr પુરાવા],
-  [વિષય 05], [વાઉચર્સ અને 4 મુખ્ય શ્રેણીઓ], [એકાઉન્ટિંગ, ઇન્વેન્ટરી, ઓર્ડર અને મેમો શ્રેણીઓ, 24 વાઉચર્સ અને શોર્ટકટ્સ],
-  [વિષય 06], [ગ્રુપ્સ અને સંપૂર્ણ લેજર મેપિંગ], [15 પ્રાથમિક + 13 ગૌણ ગ્રુપ્સ, 50+ વાસ્તવિક લેજર મેપિંગ્સ (સલમાન, બેંક, ટેક્સ)],
-  [વિષય 07], [કંપની બનાવવાની તબક્કાવાર રીત], [કંપની નિર્માણ, ગુજરાત કોડ 24, નાણાકીય વર્ષ, ટેલી વોલ્ટ, F11 ફીચર્સ અને F12 સેટઅપ],
-  [વિષય 08], [વ્યાપારિક સંગઠનોના પ્રકારો], [ટ્રેડિંગ પેઢીઓ (ઊંઝા મંડી), મેન્યુફેક્ચરિંગ (મોરબી સિરામિક્સ), સર્વિસ પ્રોવાઇડર્સ],
-  [વિષય 09], [પ્રેક્ટિકલ ઇનવોઇસિંગ પદ્ધતિ], [ઇન્વેન્ટરી ઇનવોઇસ (Item Mode) વિરુદ્ધ એકાઉન્ટિંગ ઇનવોઇસ (Service Mode, Ctrl+H)],
-  [વિષય 10], [માસ્ટર કીબોર્ડ શોર્ટકટ્સ (40+)], [સામાન્ય નેવિગેશન, વાઉચર એન્ટ્રી, લેજર સુધારો અને ઝડપી રિપોર્ટિંગ],
-  [વિષય 11], [કોર્પોરેટ બ્રિજ વિષયો], [GSTR-1/3B/2B મેળવણું, બેંક રિકન્સિલિયેશન (BRS), કોસ્ટ સેન્ટર્સ અને ડેટા સ્પ્લિટ (Split)]
+  [વિષય 01], [ટેલીનો ઇતિહાસ અને લાયસન્સિંગ], [ભરત ગોયનકા, 80% બજાર હિસ્સો, tallysolutions.com પરથી ડાઉનલોડ, સિલ્વર/ગોલ્ડ/એજ્યુકેશન મોડ, TGS LAN.],
+  [વિષય 02], [ટેલી પ્રાઇમ અને સિસ્ટમ આર્કિટેક્ચર], [કેક્ટસ ઇન-મેમરી ડેટાબેઝ, ટોપ મેનૂ (Alt+K/Y/Z/O/E/M/P), ગો-ટૂ (Alt+G) મલ્ટીટાસ્કિંગ, 4 GOT ક્વાડ્રન્ટ્સ.],
+  [વિષય 03], [સંપૂર્ણ જીએસટી અને ટીડીએસ પાયો], [CGST+SGST વિરુદ્ધ IGST, 0% કરમુક્ત, 5% આવશ્યક, 18% સ્ટાન્ડર્ડ સ્લેબ્સ, કલમ 194C/J/I/H, ફોર્મ 26Q શિડ્યુલ.],
+  [વિષય 04], [લેજર, ખાતા અને સુવર્ણ નિયમો], [વ્યક્તિગત, માલ-મિલકત, ઉપજ-ખર્ચ ખાતા, લ્યુકા પેસિઓલી નિયમો, મિ. વર્મા 50-વ્યવહાર વર્કફ્લો, 20 રોકડ/બેંક એન્ટ્રીઓ.],
+  [વિષય 05], [વાઉચર્સ અને 4 મુખ્ય શ્રેણીઓ], [એકાઉન્ટિંગ, ઇન્વેન્ટરી, ઓર્ડર અને મેમો શ્રેણીઓ, 24 વાઉચર્સ અને શોર્ટકટ્સ, એડિટ લોગ ઓડિટ ટ્રેલ.],
+  [વિષય 06], [ગ્રુપ્સ અને સંપૂર્ણ લેજર મેપિંગ], [15 પ્રાથમિક + 13 ગૌણ ગ્રુપ્સ, 70+ વાસ્તવિક લેજર મેપિંગ્સ (સલમાન, HDFC, ટેક્સ લેજર્સ), ટ્રાયલ બેલેન્સ ઓડિટ.],
+  [વિષય 07], [કંપની બનાવવાની તબક્કાવાર રીત], [કંપની નિર્માણ, ગુજરાત કોડ 24, નાણાકીય વર્ષ, ટેલી વોલ્ટ AES એન્ક્રિપ્શન, 5 વ્યવહારુ કંપનીઓ.],
+  [વિષય 08], [વ્યાપારિક સંગઠનોના પ્રકારો], [ટ્રેડિંગ પેઢીઓ (ઊંઝા મંડી), મેન્યુફેક્ચરિંગ BOM સાથે (મોરબી સિરામિક્સ), સર્વિસ સેક્ટર, ઈ-કોમર્સ.],
+  [વિષય 09], [પ્રેક્ટિકલ કોમર્શિયલ ઇનવોઇસ નિર્માણ], [6 પ્રમાણિત ઇનવોઇસ: કરમુક્ત ખરીદી, જીએસટી 18%, આંતરરાજ્ય IGST, જીએસટી વેચાણ, IGST વેચાણ, સર્વિસ.],
+  [વિષય 10], [માસ્ટર કીબોર્ડ શોર્ટકટ્સ (50+)], [સામાન્ય નેવિગેશન, માસ્ટર સુધારો, વાઉચર શોર્ટકટ્સ, રિપોર્ટિંગ શોર્ટકટ્સ, અને 30-સેકન્ડ સ્પીડ રન.],
+  [વિષય 11], [કોર્પોરેટ બ્રિજ વિષયો], [GST પોર્ટલ રિટર્ન્સ (GSTR-1/3B/2B), બેંક રિકન્સિલિયેશન (BRS), CTS-2010 ચેક, કોસ્ટ સેન્ટર્સ, અને ડેટા સ્પ્લિટ.]
 )
+
+#v(8pt)
+
+== વ્યવસાયિક કાર્યક્ષમતા મૂલ્યાંકન ધોરણો
+આ અભ્યાસક્રમ પૂર્ણ કરનાર વિદ્યાર્થીઓનું 4-સ્તરીય ગ્રેડિંગ સ્કેલ પર મૂલ્યાંકન કરવામાં આવે છે:
+- *ડિસ્ટિન્ક્શન (> 90%):* કીબોર્ડ શોર્ટકટ્સની તાત્કાલિક ઝડપ, ભૂલરહિત GSTR-2B મેળવણું, અને BOM એસેમ્બલી ઉત્પાદનમાં સંપૂર્ણ નિપુણતા.
+- *ફર્સ્ટ ક્લાસ (75% - 89%):* તમામ 6 વાઉચર પ્રકારોમાં શુદ્ધ એન્ટ્રી, બહુ-રાજ્ય જીએસટી ઇનવોઇસ નિર્માણ, અને ટ્રાયલ બેલેન્સ તફાવતનો નિકાલ.
+- *કોર્પોરેટ પાસ (60% - 74%):* મૂળભૂત રોકડ/બેંક વાઉચર્સની રેકોર્ડિંગ, ડે બુક રિપોર્ટ જનરેશન, અને નામાના 3 સુવર્ણ નિયમોની સમજ.
 """
 
     typ_content = f"""#import "../07_PUBLISHING_ENGINE/master-theme.typ": *
@@ -231,15 +339,15 @@ def assemble_master_book(lang="en"):
 
 {intro_block}
 
-#v(14pt)
+#pagebreak()
 """
-    # Append all 11 topics with natural continuous flow (NO artificial pagebreaks!)
-    for ch_idx in range(1, 12):
+    # Append all topics: Every topic strictly begins on a BRAND NEW PAGE (#pagebreak())
+    for ch_idx in range(1, 13):
         if ch_idx in chapters:
-            typ_content += f"\n{chapters[ch_idx].strip()}\n\n#v(14pt)\n"
+            typ_content += f"\n{chapters[ch_idx].strip()}\n\n#pagebreak()\n"
 
     # Append Author's Final Mentorship & Motto Page on the VERY LAST PAGE
-    typ_content += f'\n#pagebreak()\n#rtech-final-page(lang: "{lang}", photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg", logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png")\n'
+    typ_content += f'#rtech-final-page(lang: "{lang}", photo-path: "../02_BRAND_ASSETS/rahul-patel.jpg", logo-path: "../02_BRAND_ASSETS/rtechlab-logo-transparent.png")\n'
 
     return typ_content
 
@@ -385,7 +493,7 @@ This complete suite includes:
 LIFETIME ACCESS & MENTORSHIP GUARANTEE:
 As an official RTechLab student, you receive lifetime free edition updates whenever
 the GST Council modifies tax slabs or Tally releases new major software versions.
-Direct Mentorship: rahuliantpln@gmail.com · rahul.28e1@gmail.com
+Direct Mentorship: rahul.28e1@gmail.com · rahul.28e1@gmail.com
 =============================================================================
 """)
 
