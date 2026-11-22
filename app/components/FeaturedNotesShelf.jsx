@@ -6,7 +6,7 @@ const FEATURED_BOOKS = [
     id: 'tally',
     title: 'Tally Prime with GST & Corporate Accounting',
     subtitle: 'Golden Rules, 28 Groups, 24 Vouchers, Modern GST (0%/5%/18%) & TDS',
-    pages: '120 Pages',
+    pages: '51 Pages',
     tag: 'Commerce & Accounting',
     badge: '📊 Gujarat #1 Vocational Track',
     previewUrl: '/downloads/Tally-Prime-Hindi-Edition-1-5Page-Preview.pdf',

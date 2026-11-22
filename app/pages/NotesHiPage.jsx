@@ -105,6 +105,43 @@ const SUBJECTS_HI = [
     ],
   },
   {
+    id: 'tally',
+    title: 'टैली प्राइम विद जीएसटी एवं कॉर्पोरेट अकाउंटिंग',
+    subtitle: 'सुनहरे नियम, 28 ग्रुप्स, 24 वाउचर्स, आधुनिक जीएसटी (0%/5%/18%) व टीडीएस',
+    desc: 'लेखांकन के 3 सुनहरे नियमों से लेकर 28 पूर्व-निर्धारित ग्रुप्स, 24 वाउचर प्रकार, आधुनिक जीएसटी स्लैब्स (0%, 5%, 18%), टीडीएस कटौतियां (धारा 194C, 194J, 194I) और 50+ वास्तविक वाणिज्यिक इनवॉइस सेट्स (ऊंझा मंडी, मोरबी सिरामिक्स, अंतरराज्यीय IGST)।',
+    pages: '51 पेजेस मास्टर गाइड',
+    bundlePages: '80+ पेजेस सम्पूर्ण करियर सूट',
+    tag: 'टैली प्राइम 2027 · एडिशन 1',
+    accent: 'amber',
+    badge: '📊 गुजरात #1 वोकेशनल ट्रैक',
+    badgeSub: 'कॉर्पोरेट अकाउंटेंट ट्रैक (₹2.5L–₹7.5L)',
+    previewPdfEn: '/downloads/Tally-Prime-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/Tally-Prime-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Tally-Prime-Gujarati-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/Tally-Prime-English-Edition-1.pdf',
+    fullPdfHi: '/downloads/Tally-Prime-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/Tally-Prime-Gujarati-Edition-1.pdf',
+    bundleZip: '/downloads/Tally-Prime-Career-Accelerator-Bundle.zip',
+    bundleZipSize: '11.4 MB',
+    bundleItems: [
+      { name: 'टैली प्राइम विद जीएसटी कोर मास्टर गाइड (हिंदी)', pages: '51 पेजेस', file: 'Tally-Prime-Hindi-Edition-1.pdf', badge: 'मुख्य हिंदी गाइड' },
+      { name: 'टैली प्राइम विद जीएसटी कोर मास्टर गाइड (English)', pages: '51 पेजेस', file: 'Tally-Prime-English-Edition-1.pdf', badge: 'English Edition' },
+      { name: 'टैली प्राइम विद जीएसटी कोर मास्टर गाइड (ગુજરાતી)', pages: '51 पेजेस', file: 'Tally-Prime-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
+      { name: '50-इनवॉइस कमर्शियल प्रैक्टिस वर्कबुक व APMC डेटासेट्स', pages: '16 पेजेस', file: 'Tally-50-Invoice-Commercial-Workbook.pdf', badge: 'प्रैक्टिस वर्कबुक' },
+      { name: 'एडवांस्ड टीडीएस व फॉर्म 26Q लाइव प्रैक्टिस सेट', pages: '4 पेजेस', file: 'Tally-TDS-and-Form-26Q-Practice-Workbook.pdf', badge: 'टीडीएस वर्कबुक' },
+      { name: 'शीर्ष 50 कॉर्पोरेट अकाउंटेंट व जीएसटी इंटरव्यू वॉल्ट (English)', pages: '6 पेजेस', file: 'Tally-Top-50-Accountant-Interview-Vault.pdf', badge: 'इंटरव्यू वॉल्ट' },
+      { name: 'कॉर्पोरेट अकाउंटेंट करियर रोडमैप व सैलरी ब्लूप्रिंट', pages: '2 पेजेस', file: 'Tally-Accountant-Career-Salary-Blueprint-Edition-1.pdf', badge: 'सैलरी ब्लूप्रिंट' },
+      { name: '1-क्लिक मास्टर ZIP ऑफलाइन बंडल', pages: 'सभी 7 PDFs', file: 'Tally-Prime-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+    ],
+    topics: [
+      'अध्याय 01-03: टैली इतिहास (भरत गोयनका), सिस्टम आर्किटेक्चर, 3 सुनहरे नियम व मिस्टर वर्मा 50-एंट्री वर्कफ़्लो',
+      'अध्याय 04-06: 28 पूर्व-निर्धारित ग्रुप्स, 24 वाउचर प्रकार व कंपनी निर्माण लैब्स (पालनपुर/अहमदाबाद)',
+      'अध्याय 07-08: आधुनिक जीएसटी ढांचा (0%, 5%, 18% स्लैब्स व F11 SOP) व टीडीएस कटौतियां (194C, 194J, 194I)',
+      'अध्याय 09-10: 50+ इनवॉइस (ऊंझा जीरा/ईसबगोल, इलेक्ट्रॉनिक्स, अंतरराज्यीय IGST, डेबिट/क्रेडिट नोट्स)',
+      'अध्याय 11-12: बैंक समाधान (BRS), CTS-2010 चेक, कॉस्ट सेंटर्स, एवं कैपस्टोन प्रोजेक्ट (सिद्धि विनायक ट्रेडर्स)',
+    ],
+  },
+  {
     id: 'ccna',
     title: 'सिस्को CCNA 200-301 मास्टर सूट',
     subtitle: 'एंटरप्राइज स्विचिंग, OSPF रूटिंग, IPv6 और सिस्को IOS TAC स्टैंडर्ड',
@@ -168,8 +205,8 @@ export function NotesHiPage() {
           </p>
         </div>
 
-        {/* 4 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14">
+        {/* 5 Official Tracks */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 mb-14">
           {SUBJECTS_HI.map((sub, index) => (
             <div
               key={sub.id}
