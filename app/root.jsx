@@ -11,6 +11,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { SearchModal } from './components/SearchModal';
 import { MobileBottomNav } from './components/MobileBottomNav';
+import { WhatsAppHelplineButton } from './components/WhatsAppHelplineButton';
 import { LanguageProvider } from '../src/context/LanguageProvider';
 import '../src/index.css';
 
@@ -72,6 +73,7 @@ export default function App() {
         </main>
         <Footer />
         <MobileBottomNav />
+        <WhatsAppHelplineButton />
         <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       </div>
     </LanguageProvider>

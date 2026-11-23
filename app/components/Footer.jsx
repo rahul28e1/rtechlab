@@ -61,16 +61,28 @@ export function Footer() {
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link to="/disclaimer" className="hover:text-white transition-colors">Legal Disclaimer</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Support</Link></li>
-              <li className="pt-2 text-white/40 border-t border-white/[0.06]">Official Channels:</li>
+              <li className="pt-2 text-white/40 border-t border-white/[0.06]">Official Channels &amp; Help:</li>
+              <li>
+                <a
+                  href="https://wa.me/917646892094?text=Hi%20RTechLab%2C%20I%20have%20a%20question%20regarding%20digital%20notes%20and%20handbooks."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-300 transition-colors inline-flex items-center gap-1 font-semibold text-emerald-400"
+                  title="Official Student WhatsApp Helpline (Chat Only · No Calls)"
+                >
+                  <span>🟢 WhatsApp Helpline (+91 76468 92094)</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+              </li>
               <li>
                 <a
                   href="https://whatsapp.com/channel/0029VbETSEpBvvsaksASaJ0i"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-1 font-semibold text-emerald-400"
+                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-1 text-[#86868B]"
                   title="Join RTechLab Official WhatsApp Channel"
                 >
-                  <span>💬 WhatsApp Channel (Free Tech Updates)</span>
+                  <span>💬 WhatsApp Channel (Tech Updates)</span>
                   <span className="text-[10px]">↗</span>
                 </a>
               </li>

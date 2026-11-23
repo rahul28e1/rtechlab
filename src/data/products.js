@@ -2,7 +2,7 @@
 export const UPI = {
   vpa: import.meta.env.VITE_UPI_VPA || 'rtechlab@upi',
   name: import.meta.env.VITE_UPI_NAME || 'RTechLab',
-  whatsapp: import.meta.env.VITE_WHATSAPP || '919000000000',
+  whatsapp: import.meta.env.VITE_WHATSAPP || '917646892094',
   configured: Boolean(import.meta.env.VITE_UPI_VPA),
 };
 

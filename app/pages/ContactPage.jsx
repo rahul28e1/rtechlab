@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router';
-import { Mail, MessageSquare, Send, CheckCircle2, Globe, Clock, MapPin, Sparkles, HelpCircle } from 'lucide-react';
+import { Mail, MessageSquare, Send, CheckCircle2, Globe, Clock, MapPin, Sparkles, HelpCircle, PhoneOff } from 'lucide-react';
 
 export function ContactPage() {
   const [formName, setFormName] = useState('');
@@ -62,6 +62,48 @@ export function ContactPage() {
           {/* Left Column: Direct Contact Info (2 cols) */}
           <div className="lg:col-span-2 space-y-5">
             
+            {/* Dedicated WhatsApp Student Helpline Card */}
+            <div className="p-6 rounded-2xl bg-[#0D0D10] border border-emerald-500/30 relative overflow-hidden shadow-lg shadow-emerald-950/20">
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <MessageSquare className="w-5 h-5 text-emerald-400" />
+                </div>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[10px] font-mono text-emerald-300 font-semibold">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Active Chat Support
+                </span>
+              </div>
+              <div className="text-xs font-mono text-emerald-400 uppercase font-bold mb-1">
+                Student WhatsApp Helpline
+              </div>
+              <a
+                href="https://wa.me/917646892094?text=Hi%20Rahul%20Sir%2C%20I%20have%20a%20question%20regarding%20RTechLab%20digital%20notes%20and%20study%20handbooks."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-black text-white hover:text-emerald-400 transition-colors inline-flex items-center gap-2 font-mono group"
+              >
+                <span>+91 76468 92094</span>
+                <span className="text-[11px] font-sans px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 group-hover:bg-emerald-500/30 transition-colors">
+                  Chat Now ↗
+                </span>
+              </a>
+
+              {/* Strict No Calls Notice */}
+              <div className="mt-3.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/25 text-[11px] text-amber-200/90 space-y-1">
+                <div className="flex items-center gap-1.5 font-bold text-amber-300">
+                  <PhoneOff className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <span>Strictly WhatsApp Chat Only</span>
+                </div>
+                <p className="text-[11px] leading-relaxed text-amber-200/80">
+                  Voice calls and video calls are disabled. Please send a text message or screenshot and our academic team will reply directly.
+                </p>
+              </div>
+
+              <p className="text-xs text-[#86868B] mt-3 leading-relaxed">
+                Fastest support channel for payment verification, PDF access links, and technical doubts.
+              </p>
+            </div>
+
             {/* Primary Email Card */}
             <div className="p-6 rounded-2xl bg-[#0D0D10] border border-white/[0.08]">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3">

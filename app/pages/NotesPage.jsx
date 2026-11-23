@@ -2258,8 +2258,19 @@ export default function NotesPage() {
                     </div>
 
                     {paymentError && (
-                      <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-[11px] text-red-400 font-mono leading-relaxed">
-                        ⚠️ {paymentError}
+                      <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-[11px] text-red-400 font-mono leading-relaxed space-y-1.5">
+                        <div>⚠️ {paymentError}</div>
+                        <div className="pt-1 border-t border-red-500/20 text-[10px]">
+                          Need immediate help?{' '}
+                          <a
+                            href="https://wa.me/917646892094?text=Hi%20Rahul%20Sir%2C%20I%20am%20facing%20a%20payment%2Fcheckout%20issue%20on%20RTechLab."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-emerald-400 hover:text-emerald-300 font-bold underline"
+                          >
+                            Chat on WhatsApp Helpline (+91 76468 92094) ↗
+                          </a>
+                        </div>
                       </div>
                     )}
 
