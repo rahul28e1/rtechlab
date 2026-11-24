@@ -33,8 +33,8 @@ $ y = f(arrow(w) dot arrow(x) + b) = f(sum_(i=1)^n w_i x_i + b), quad f(z) = cas
 
 #table(
   columns: (1fr, 1.2fr, 1.6fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*लॉजिक गेट*], [*सत्यता सारणी (Inputs -> Output)*], [*लीनियर सेपरेबिलिटी*], [*पर्सेप्ट्रॉन की क्षमता एवं गणितीय सीमा*]),
   [AND गेट], [(0,0)->0, (0,1)->0, (1,0)->0, (1,1)->1], [हाँ (Linearly Separable)], [सफल: $w_1=1, w_2=1, b=-1.5$ से एक सीधी रेखा द्वारा विभाजित।],

@@ -19,8 +19,8 @@ Syntax: =TEXTJOIN( delimiter , ignore_empty , text1 , [text2]... )
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function / Operator*], [*Operational Mechanics*], [*Enterprise Behavior & Advantages*]),
   [`TEXTJOIN`], [Merges ranges with a universal delimiter; skips blanks automatically.], [Merges entire column `=TEXTJOIN(", ", TRUE, A2:A50)` in 1 step!],
@@ -50,8 +50,8 @@ Slicing fixed or variable character tokens from structured product SKUs or emplo
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function Syntax*], [*Operational Action*], [*Enterprise Specimen (Target: "RTL-SRV-2027")*]),
   [`=LEFT(text, [num_chars])`], [Extracts characters starting from far left.], [`=LEFT(A2, 3)` returns `"RTL"` (Company prefix).],
@@ -73,8 +73,8 @@ To extract variable-length substrings (such as extracting a first name when name
 
 #table(
   columns: (1fr, 1.3fr, 2.7fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function*], [*Case Sensitivity*], [*Matching Characteristics*], [*Wildcard Support*]),
   [`FIND`], [Case-Sensitive], [Exact match: `=FIND("P", "Rahul Patel")` returns 7. `=FIND("p", "Rahul Patel")` throws `#VALUE!`.], [No],

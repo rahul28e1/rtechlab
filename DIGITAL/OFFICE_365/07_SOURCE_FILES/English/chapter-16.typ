@@ -50,8 +50,8 @@ For decades, `VLOOKUP` was the staple of spreadsheet data querying. However, in 
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*VLOOKUP Vulnerability*], [*Technical Root Cause*], [*XLOOKUP Modern Superiority*]),
   [Hardcoded Column Index], [Requires hardcoded integer (e.g. `col_index = 4`). Inserting a new column corrupts the formula silently!], [Uses vector ranges (`return_array`). Inserting columns shifts references automatically.],
@@ -76,8 +76,8 @@ Syntax:
 
 #table(
   columns: (1.2fr, 1.2fr, 3.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Parameter*], [*Mandatory?*], [*Operational Engineering Mechanics & Options*]),
   [`lookup_value`], [Yes], [The search key (e.g. Employee ID, Stock SKU, Customer Name).],
@@ -129,8 +129,8 @@ Modern Excel 365 includes a native database querying and array manipulation suit
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function*], [*Syntax*], [*Enterprise Operational Capabilities*]),
   [`FILTER`], [`=FILTER(array, include, [if_empty])`], [Live dynamic query extraction. Extracts all records matching multi-condition criteria without SQL or macros!],

@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Attribute*], [*Regression Models (Continuous Target $y in RR$)*], [*Classification Models (Discrete Target $y in {0, 1, dots, K}$)*]),
   [Canonical Algorithms], [Linear Regression, Ridge/Lasso, Support Vector Regressor], [Logistic Regression, Random Forest, XGBoost, LightGBM],
@@ -35,8 +35,8 @@ For structured tabular business data, ensemble tree models outperform deep neura
 
 #table(
   columns: (1.3fr, 2.5fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Architecture*], [*Ensemble Splitting Mechanism*], [*Production Strength*]),
   [Single Decision Tree], [Splits features maximizing Information Gain (Entropy) or Gini Impurity.], [Highly interpretable, but prone to high variance and deep overfitting.],
@@ -57,8 +57,8 @@ $ "Expected Error" = "Bias"^2 + "Variance" + "Irreducible Noise" sigma^2 $
 
 #table(
   columns: (1.2fr, 1.8fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Technique*], [*Penalty Formulation*], [*Geometric Behavior*], [*Best Used When*]),
   [L1 (Lasso)], [$lambda sum |w_i|$], [Diamond corner solutions; drives weights to exact 0.], [Feature selection / sparse data.],

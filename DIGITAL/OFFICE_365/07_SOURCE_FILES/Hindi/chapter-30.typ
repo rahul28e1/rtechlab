@@ -24,8 +24,8 @@
 
 #table(
   columns: (1fr, 2.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*एप्लिकेशन*], [*कोपायलट क्षमता मैट्रिक्स*], [*वास्तविक कॉर्पोरेट प्रॉम्प्ट उदाहरण*]),
   [Word 365], [शुरुआत से अनुबंध लिखना, 50-पृष्ठ रिपोर्ट का सारांश, लहजा बदलना (औपचारिक, संक्षिप्त)।], [\"/MasterAgreement.docx के आधार पर 2-पृष्ठ का वेंडर अनुबंध लिखें, जिसमें 99.95% अपटाइम गारंटी तथा देरी पर 2% प्रति घंटा जुर्माना हो।\"],
@@ -71,8 +71,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*चरण*], [*उपयुक्त सॉफ्टवेयर*], [*निष्पादित कोपायलट कार्य एवं परिणाम*]),
   [चरण 1], [Microsoft Teams / Outlook], [कोपायलट 12 क्लाइंट मीटिंग्स और ईमेल चैट्स का 1-पेज एक्शन सारांश तैयार करता है।],

@@ -30,8 +30,8 @@ RFC 4291 mandates two rules to simplify long IPv6 strings:
 Unlike IPv4, #hl[IPv6 has no broadcast addresses]. All broadcast functionality is replaced by targeted Multicast:
 #table(
   columns: (1.4fr, 1.3fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Address Type*], [*Prefix / Range*], [*Scope & Operational Characteristics*]),
   [Global Unicast (GUA)], [`2000::/3`], [Globally routable public Internet addresses assigned by RIRs. Standard format: /48 Global Routing Prefix + /16 Subnet ID + /64 Interface ID.],

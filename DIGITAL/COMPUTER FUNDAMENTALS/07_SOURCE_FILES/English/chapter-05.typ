@@ -14,8 +14,8 @@ Digital computers represent all software opcodes, floating-point coordinates, an
 $ N = sum_(i=-m)^(n-1) d_i dot r^i $
 #table(
   columns: (1fr, 0.8fr, 1.8fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Number System*], [*Radix (r)*], [*Permissible Digit Symbols*], [*Positional Weight Multipliers & Real-World Use*]),
   [Binary], [2], [`0, 1`], [Powers of 2 ($2^0=1, 2^1=2, 2^2=4, 2^3=8$); native silicon transistor states.],
@@ -52,8 +52,8 @@ For an 8-bit byte ($n=8$), the valid range is precisely #hl[$-128$ to $+127$]. 2
 == 5.4 Fundamental Digital Logic Gates & Truth Tables
 #table(
   columns: (1.1fr, 0.9fr, 1.3fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.8pt,
   table.header([*Logic Gate*], [*Symbol*], [*Boolean Expression*], [*Truth Table Behavior & Functional Output*]),
   [AND Gate], [Two-input AND], [$Y = A dot B$], [Output is HIGH (1) if and only if both inputs $A$ and $B$ are HIGH. Models series switches.],
@@ -78,8 +78,8 @@ A logic family is classified as *Universal* if any arbitrary Boolean function (A
 == 5.6 Axiomatic Boolean Algebra & De Morgan's Laws
 #table(
   columns: (1.5fr, 1.8fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Boolean Law Name*], [*AND Form (Conjunction)*], [*OR Form (Disjunction)*]),
   [Identity Law], [$A dot 1 = A$], [$A + 0 = A$],

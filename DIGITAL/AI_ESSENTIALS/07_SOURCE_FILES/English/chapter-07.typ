@@ -19,8 +19,8 @@
 
 #table(
   columns: (1fr, 1.4fr, 2.2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.2pt, y: 1.8pt),
   table.header([*Paradigm*], [*Data Characteristics*], [*Core Mathematical Objective*], [*Enterprise Use Case*]),
   [Supervised Learning], [Labeled pairs $(arrow(x)_i, y_i)$], [Learn mapping function $f: X arrow Y$ minimizing empirical loss $sum L(f(x_i), y_i)$], [Credit Risk, Fraud Detection, Cancer Screening],

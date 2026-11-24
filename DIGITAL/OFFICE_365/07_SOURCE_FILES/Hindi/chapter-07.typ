@@ -26,8 +26,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*कंट्रोल स्विच*], [*आर्किटेक्चरल कार्यप्रणाली*], [*कॉर्पोरेट प्रकाशन में भूमिका*]),
   [Different First Page], [सेक्शन के पहले पेज पर हेडर व फुटर को छिपाता है।], [कवर पेज और अध्याय के मुख्य शीर्षक पेज को स्वच्छ रखना।],

@@ -15,8 +15,8 @@ Word 365 categorizes styles into 5 programmatic types, each controlling distinct
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Style Type*], [*Scope of Application & Behavior*], [*Built-in System Examples*]),
   [Paragraph Style], [Controls font, line spacing, indents, borders, and tabs for full blocks.], [`Normal`, `Heading 1`, `Heading 2`, `List Bullet`],
@@ -67,8 +67,8 @@ While basic search (`Ctrl + F`) locates words, enterprise data sanitization reli
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Wildcard*], [*Syntax Pattern*], [*Matching Scope & Behavior*], [*Enterprise Data Clean Example*]),
   [Any Character], [`?`], [Matches exactly one single character.], [`c?t` matches cat, cot, cut],

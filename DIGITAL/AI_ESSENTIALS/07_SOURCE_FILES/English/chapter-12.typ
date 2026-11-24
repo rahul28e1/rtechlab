@@ -15,8 +15,8 @@ The fundamental building block is the 2D discrete cross-correlation operation be
 
 #table(
   columns: (1.2fr, 2.8fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Hyperparameter*], [*Mathematical Output Dimension Formula*], [*Physical Visual Effect*]),
   [Kernel Size ($K$)], [Typical $3 times 3$ or $5 times 5$ spatial receptive filter], [Small $3 times 3$ filters stack to form deep non-linear fields],
@@ -37,8 +37,8 @@ As networks grew deeper than 20 layers, training error worsened (the *Degradatio
 
 #table(
   columns: (1.3fr, 2.5fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Architecture Layer*], [*Mathematical Formulation*], [*Gradient Flow Advantage*]),
   [Standard Layer], [Learns target mapping $H(x)$ directly from layer inputs], [Gradients vanish exponentially through backprop chain],
@@ -67,8 +67,8 @@ $ y = cal(F)(x, {W_i}) + x $
 
 #table(
   columns: (1.2fr, 2fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Feature*], [*Vision Transformers (ViT)*], [*Modern CNNs (ConvNeXt)*]),
   [Inductive Bias], [Minimal; learns spatial relations from data.], [High; translation invariance & locality built-in.],

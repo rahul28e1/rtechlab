@@ -15,8 +15,8 @@ Pioneered by Edward Feigenbaum at Stanford University (the "Father of Expert Sys
 
 #table(
   columns: (1.3fr, 2.7fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Subsystem*], [*Operational Responsibility*], [*Technical Implementation*]),
   [Knowledge Base], [Houses thousands of production rules: `IF <condition> THEN <action>`], [Declarative rules extracted from human domain experts],
@@ -39,8 +39,8 @@ To run memory-hungry LISP environments, dedicated hardware companies formed: *Sy
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*System Model*], [*Proprietary Hardware Innovations*], [*Downfall Catalyst (1987)*]),
   [Symbolics 3600 (1983)], [36-bit tagged memory, hardware garbage collection, Zmacs.], [Surpassed by Sun Microsystems SPARC & Intel 386/486.],

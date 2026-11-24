@@ -62,8 +62,8 @@ In a *CAM Table Overflow Attack*, an attacker floods the switch with tens of tho
 == 7.4 Switchport Port Security Complete CLI Implementation
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Violation Mode*], [*Frame Forwarding*], [*Violation Counter*], [*Syslog / SNMP Trap & Status*]),
   [`Protect`], [Drops unauthorized frames], [Does not increment], [No alerts generated. Port remains UP.],

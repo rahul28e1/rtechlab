@@ -65,8 +65,8 @@ Router(config-subif)# ip address 192.168.99.1 255.255.255.0
 बड़े कॉर्पोरेट नेटवर्क्स में ROAS बाधा बन जाता है क्योंकि सारा ट्रैफिक एक ही केबल से आता-जाता है। #hl[मल्टीलेयर स्विचेस (MLS)] स्विच वर्चुअल इंटरफेसेस (SVIs) के माध्यम से आंतरिक सिलिकॉन हार्डवेयर में वायर-स्पीड पर रूटिंग करते हैं:
 #table(
   columns: (1.5fr, 2.2fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*फ़ीचर / पैमाना*], [*राउटर-ऑन-अ-स्टिक (ROAS)*], [*लेयर 3 स्विच SVI रूटिंग*]),
   [थ्रूपुट एवं स्पीड], [एकल 1G केबल पर बाधा उत्पन्न होती है], [हार्डवेयर ASIC द्वारा वायर-स्पीड रूटिंग (10G/40G)],

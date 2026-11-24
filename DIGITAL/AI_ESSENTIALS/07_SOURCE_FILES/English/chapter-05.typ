@@ -13,8 +13,8 @@
 
 #table(
   columns: (0.8fr, 1.5fr, 1.4fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.2pt, y: 1.8pt),
   table.header([*Era*], [*Paradigm*], [*Flagship Milestone*], [*Core Technical Mechanism*]),
   [1950], [Turing Test], [Mind Paper], [Operational imitation test bypassing consciousness debate.],
@@ -42,8 +42,8 @@ While classical Moore's Law (CPU transistor doubling every 24 months) has hit qu
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Metric*], [*Classical CPU Scaling (Moore)*], [*Modern GPU Scaling (Huang)*]),
   [Scaling Rate], [2x compute performance every 24 months], [*Over 1,000x compute performance in 8 years* (2016-2024)],

@@ -19,8 +19,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*हायरार्किकल लेयर*], [*प्राथमिक उद्देश्य एवं भूमिका*], [*हार्डवेयर फॉर्म फैक्टर्स एवं प्रोटोकॉल्स*]),
   [कोर लेयर (Core)], [बिना पैकेट इंस्पेक्शन के अत्यधिक तीव्र हाई-स्पीड ट्रांसपोर्ट बैकबोन], [Cisco Catalyst 9500/9600, Nexus 9300, 100G QSFP28, OSPF/IS-IS],

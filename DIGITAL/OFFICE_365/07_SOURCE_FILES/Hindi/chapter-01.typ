@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*UI घटक*], [*कार्यात्मक भूमिका एवं तकनीकी उपयोग*], [*एंटरप्राइज प्रोडक्टिविटी शॉर्टकट*]),
   [क्विक एक्सेस टूलबार (QAT)], [अक्सर उपयोग होने वाले कमांड्स (Save, Undo, Redo) की कस्टमाइजेबल स्ट्रिप।], [कस्टमाइजेबल (`Alt + 1`, `Alt + 2`, आदि)],
@@ -64,8 +64,8 @@
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*व्यू मोड*], [*आर्किटेक्चरल विशेषताएं*], [*सर्वश्रेष्ठ कॉर्पोरेट उपयोग*]),
   [Print Layout], [डिफ़ॉल्ट मोड; वास्तविक हेडर, फुटर, मार्जिन और पेज ब्रेक दिखाता है।], [अंतिम दस्तावेज़ लेआउट, कानूनी अनुबंध, मुद्रण तैयारी।],

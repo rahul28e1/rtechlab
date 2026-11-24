@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 2.2fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*प्रोजेक्ट*], [*सिस्टम वास्तुकला*], [*उन्नत इंजीनियरिंग विशेषताएं*], [*इंटरव्यू प्रभाव*]),
   [1. मल्टी-टेनेंट RAG प्लेटफॉर्म], [FastAPI + ChromaDB + Cohere Rerank + LangChain + Streamlit], [हाइब्रिड BM25 + वेक्टर सर्च, रोल-बेस्ड एक्सेस कंट्रोल (RBAC), और ऑटोमैटिक सिटेशन लिंकिंग।], [दिखाता है कि आप वास्तविक एंटरप्राइज डेटा सिक्योरिटी समझते हैं।],

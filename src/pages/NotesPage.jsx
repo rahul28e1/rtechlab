@@ -11,21 +11,21 @@ import { buildUpiUri, buildWhatsAppLink, buildOrderMessage, formatINR } from '..
 import { useQrDataUrl } from '../utils/useQr';
 
 export function NotesPage() {
-  const [selectedSubjectId, setSelectedSubjectId] = useState('ai');
+  const [selectedSubjectId, setSelectedSubjectId] = useState('server2025');
   const [selectedTierId, setSelectedTierId] = useState('single');
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [previewPage, setPreviewPage] = useState(0);
-  const [lang, setLang] = useState('en'); // 'en' | 'hi'
+  const [lang, setLang] = useState('en'); // 'en' | 'hi' | 'gu'
 
   // Form state for checkout
   const [form, setForm] = useState({ name: '', email: '', utr: '' });
   const [copiedVpa, setCopiedVpa] = useState(false);
   const [formError, setFormError] = useState('');
   const [checkoutItem, setCheckoutItem] = useState({
-    title: 'Artificial Intelligence Essentials Master Guide',
+    title: 'Microsoft Windows Server 2025 & Active Directory Administration',
     amount: 49,
-    code: 'RTL-2027-AI',
+    code: 'RTL-2027-WINSRV',
   });
 
   const selectedSubject = useMemo(() => {
@@ -38,7 +38,17 @@ export function NotesPage() {
 
   const previewImages = useMemo(() => {
     const isHi = lang === 'hi';
-    if (selectedSubject.id === 'ai') {
+    const isGu = lang === 'gu';
+    if (selectedSubject.id === 'server2025') {
+      const prefix = isGu ? 'preview-gu-' : isHi ? 'preview-hi-' : 'preview-';
+      return [
+        { num: 1, title: isGu ? 'માસ્ટર કવર પેજ' : isHi ? 'मास्टर कवर पेज' : 'Master Cover Page', src: `/previews/server2025/${prefix}1.png` },
+        { num: 2, title: isGu ? 'અનુક્રમણિકા ભાગ 1 (Ch 1-7)' : isHi ? 'इंडेक्स भाग 1 (अध्याय 1-7)' : 'TOC Part 1 (Ch 01-07)', src: `/previews/server2025/${prefix}2.png` },
+        { num: 3, title: isGu ? 'અનુક્રમણિકા ભાગ 2 (Ch 8-14)' : isHi ? 'इंडेक्स भाग 2 (अध्याय 8-14)' : 'TOC Part 2 (Ch 08-14)', src: `/previews/server2025/${prefix}3.png` },
+        { num: 4, title: isGu ? 'સર્વર આર્કિટેક્ચર અને પ્રકારો' : isHi ? 'सर्वर आर्किटेक्चर एवं प्रकार' : 'Server Architecture & 8 Roles', src: `/previews/server2025/${prefix}4.png` },
+        { num: 5, title: isGu ? 'ક્લાયન્ટ vs સર્વર ઇન્ફોગ્રાફિક' : isHi ? 'क्लाइंट vs सर्वर इंफोग्राफिक' : 'Client vs Server Infographic', src: `/previews/server2025/${prefix}5.png` },
+      ];
+    } else if (selectedSubject.id === 'ai') {
       return [
         { num: 1, title: isHi ? 'कवर पेज' : 'Cover Page', src: isHi ? '/previews/ai/preview-hi-1.png' : '/previews/ai/preview-1.png' },
         { num: 2, title: isHi ? '42-अध्याय ब्लूप्रिंट' : '42-Chapter Blueprint', src: isHi ? '/previews/ai/preview-hi-2.png' : '/previews/ai/preview-2.png' },
@@ -60,7 +70,19 @@ export function NotesPage() {
 
   const getTierDeliverables = (tierId) => {
     const isSingle = tierId === 'single';
-    if (selectedSubject.id === 'ai') {
+    if (selectedSubject.id === 'server2025') {
+      return [
+        { name: '60-Page Core Master Guide (Complete PDF)', ok: true },
+        { name: 'Triple Editions: Pure English + Hindi + Gujarati', ok: true },
+        { name: 'Enterprise Topology Diagrams & Step-by-Step Architecture', ok: true },
+        { name: 'Chapter Review Questions, MCQs & Corporate Tips', ok: true },
+        { name: 'Instant Interactive Clickable Table of Contents', ok: true },
+        { name: 'Top 50 MNC Systems Administrator Interview Vault (10 Pages)', ok: !isSingle },
+        { name: '12 Hands-On Enterprise Labs & PowerShell Scripts Workbook (7 Pages)', ok: !isSingle },
+        { name: 'SysAdmin to Cloud Architect Career & Salary Blueprint (3 Pages)', ok: !isSingle },
+        { name: 'All-In-One ZIP Archive Download (17.2 MB)', ok: !isSingle },
+      ];
+    } else if (selectedSubject.id === 'ai') {
       return [
         { name: '44-Page Core Master Guide (Complete PDF)', ok: true },
         { name: 'Dual Editions: Pure English + Technical Hindi', ok: true },
@@ -167,6 +189,14 @@ export function NotesPage() {
                 }`}
               >
                 हिंदी
+              </button>
+              <button
+                onClick={() => setLang('gu')}
+                className={`px-2.5 py-1 text-xs rounded-full transition-colors ${
+                  lang === 'gu' ? 'bg-[#0071E3] text-white font-medium' : 'text-[#86868b] hover:text-white'
+                }`}
+              >
+                ગુજરાતી
               </button>
             </div>
           </div>
@@ -308,13 +338,17 @@ export function NotesPage() {
                 <button
                   onClick={() =>
                     handleOpenCheckout({
-                      title: selectedSubject.id === 'ai'
+                      title: selectedSubject.id === 'server2025'
+                        ? 'Windows Server 2025 Career Accelerator Complete Bundle'
+                        : selectedSubject.id === 'ai'
                         ? 'AI Career Accelerator 4-in-1 Bundle'
                         : selectedSubject.id === 'office365' 
                         ? 'Office 365 Career Accelerator 4-in-1 Bundle' 
                         : `${selectedSubject.title} Career Accelerator Complete Bundle`,
                       amount: selectedSubject.bundlePrice || 149,
-                      code: selectedSubject.id === 'ai'
+                      code: selectedSubject.id === 'server2025'
+                        ? 'SERVER_2025_BUNDLE'
+                        : selectedSubject.id === 'ai'
                         ? 'RTL-2027-AI-BUNDLE'
                         : selectedSubject.id === 'office365'
                         ? 'RTL-2027-O365-BUNDLE'
@@ -350,6 +384,18 @@ export function NotesPage() {
                   >
                     <Download className="w-3 h-3 text-[#10B981]" />
                     <span>फ्री 5-पेज (हिंदी)</span>
+                  </a>
+                )}
+                {selectedSubject.previewPdfGu && (
+                  <a
+                    href={selectedSubject.previewPdfGu}
+                    target="_blank"
+                    rel="noreferrer"
+                    download
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[11px] text-[#a1a1a6] hover:text-white border border-white/[0.08] transition-colors"
+                  >
+                    <Download className="w-3 h-3 text-[#F59E0B]" />
+                    <span>ફ્રી 5-પેજ (ગુજરાતી)</span>
                   </a>
                 )}
               </div>
@@ -546,6 +592,8 @@ export function NotesPage() {
                         handleOpenCheckout({
                           title: tier.id === 'single'
                             ? `${selectedSubject.title} Master Notes`
+                            : selectedSubject.id === 'server2025'
+                            ? 'Windows Server 2025 Career Accelerator Complete Bundle'
                             : selectedSubject.id === 'ai'
                             ? 'AI Career Accelerator 4-in-1 Bundle'
                             : selectedSubject.id === 'office365'
@@ -554,6 +602,8 @@ export function NotesPage() {
                           amount: tier.price,
                           code: tier.id === 'single'
                             ? selectedSubject.code
+                            : selectedSubject.id === 'server2025'
+                            ? 'SERVER_2025_BUNDLE'
                             : selectedSubject.id === 'ai'
                             ? 'RTL-2027-AI-BUNDLE'
                             : selectedSubject.id === 'office365'

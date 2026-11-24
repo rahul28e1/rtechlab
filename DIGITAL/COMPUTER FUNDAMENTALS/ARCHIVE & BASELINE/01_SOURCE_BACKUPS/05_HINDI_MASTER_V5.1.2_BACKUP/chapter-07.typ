@@ -22,7 +22,7 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*भौगोलिक पैमाना*], [*कवरेज दायरा*], [*विशिष्ट ट्रांसमिशन मीडिया*], [*विशिष्ट अनुप्रयोग क्षेत्र*]),
@@ -37,7 +37,7 @@
 == 7.2 प्रमुख नेटवर्क टोपोलॉजी: दोष सहिष्णुता एवं लागत
 #table(
   columns: (1fr, 1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*टोपोलॉजी*], [*भौतिक लेआउट*], [*दोष सहिष्णुता (Fault Tolerance)*], [*केबलिंग लागत व एकल विफलता बिंदु (SPOF)*]),
@@ -69,7 +69,7 @@
 
 #table(
   columns: (0.7fr, 1.2fr, 1fr, 1.3fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*लेयर*], [*OSI परत का नाम*], [*PDU नाम*], [*प्रमुख प्रोटोकॉल्स*], [*प्राथमिक इंजीनियरिंग कार्य एवं हार्डवेयर*]),
@@ -87,7 +87,7 @@
 == 7.4 ट्रांसपोर्ट लेयर: TCP 3-वे हैंडशेक बनाम UDP
 #table(
   columns: (1.1fr, 1.4fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*मापदंड*], [*TCP (Transmission Control Protocol)*], [*UDP (User Datagram Protocol)*]),
@@ -119,7 +119,7 @@
 
 #table(
   columns: (1fr, 1.2fr, 1fr, 1fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*CIDR प्रिफिक्स*], [*सबनेट मास्क*], [*होस्ट बिट्स (h)*], [*कुल IP पते*], [*उपयोगी होस्ट्स सूत्र ($2^h - 2$)*]),
@@ -152,7 +152,7 @@
 == 7.7 आधुनिक वायरलेस क्रांति: Wi-Fi 7 (802.11be)
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*Wi-Fi 7 फीचर*], [*तकनीकी विशिष्टता*], [*इंजीनियरिंग प्रभाव एवं लाभ*]),

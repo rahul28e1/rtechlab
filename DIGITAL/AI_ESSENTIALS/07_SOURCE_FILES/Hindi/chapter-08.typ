@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*लॉस फंक्शन*], [*गणितीय सूत्र (Mathematical Formula)*], [*प्रमुख विशेषता एवं व्यवहार*], [*उत्पादन उपयोग*]),
   [Mean Squared Error (MSE / L2)], [$cal(L) = 1/N sum_(i=1)^N (y_i - hat(y)_i)^2$], [बड़ी त्रुटियों पर अत्यधिक पेनल्टी; आउटलायर्स के प्रति अत्यधिक संवेदनशील।], [हाउसिंग प्राइस, वेतन अनुमान],
@@ -51,8 +51,8 @@ $ "Expected Error" = "Bias"^2 + "Variance" + "Irreducible Noise" sigma^2 $
 $ "Expected Error" = "Bias"^2 + "Variance" + "Irreducible Noise" sigma^2 $
 #table(
   columns: (1.2fr, 1.8fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*तकनीक*], [*पेनल्टी सूत्र*], [*ज्यामितीय व्यवहार*], [*कब उपयोग करें*]),
   [L1 (Lasso)], [$lambda sum |w_i|$], [डायमंड कॉर्नर; भारों को सीधा 0 करता है।], [फीचर सिलेक्शन / स्पार्स डेटा।],

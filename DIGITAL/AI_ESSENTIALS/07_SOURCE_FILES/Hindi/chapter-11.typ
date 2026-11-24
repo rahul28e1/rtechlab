@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 2.2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*एक्टिवेशन*], [*गणितीय सूत्र*], [*डेरिवेटिव एवं ग्रेडिएंट व्यवहार*], [*आधुनिक उत्पादन स्थिति*]),
   [Sigmoid], [$sigma(z) = 1 / (1 + e^(-z))$], [डेरिवेटिव अधिकतम $0.25$; डीप लेयर्स में वैनिशिंग ग्रेडिएंट का कारण।], [केवल बाइनरी आउटपुट लेयर],

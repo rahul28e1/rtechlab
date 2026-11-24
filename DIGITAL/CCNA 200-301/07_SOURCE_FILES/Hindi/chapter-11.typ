@@ -21,8 +21,8 @@
 एडमिनिस्ट्रेटिव डिस्टेंस रूटिंग स्रोत की #hl[विश्वसनीयता (Trustworthiness)] को परिभाषित करता है (कम मान = अधिक विश्वसनीय):
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*रूटिंग प्रोटोकॉल / स्रोत*], [*डिफ़ॉल्ट AD*], [*आर्किटेक्चरल विश्वसनीयता एवं उपयोग*]),
   [सीधे जुड़ा हुआ इंटरफ़ेस (Connected)], [0], [भौतिक लिंक UP और IP कॉन्फ़िगर। पूर्ण विश्वास।],

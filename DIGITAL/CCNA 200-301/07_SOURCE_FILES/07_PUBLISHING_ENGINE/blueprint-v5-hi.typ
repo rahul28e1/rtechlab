@@ -15,8 +15,8 @@
 
 #table(
   columns: (0.7fr, 2.3fr, 0.7fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 2.5pt, y: 1.8pt),
   table.header(
     [*मॉड्यूल*],

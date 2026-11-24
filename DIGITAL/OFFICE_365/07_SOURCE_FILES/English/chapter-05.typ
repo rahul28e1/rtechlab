@@ -15,8 +15,8 @@ Word 365 natively handles both raster bitmaps (JPEG, PNG, TIFF) and infinite-res
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Asset Category*], [*Native File Formats & Levers*], [*Enterprise Application & Performance*]),
   [Scalable Vectors], [SVG (`.svg`), EMF (`.emf`)], [Infinite zoom without pixelation; colors can be converted to editable shapes.],
@@ -36,8 +36,8 @@ By default, inserted images behave as *In Line with Text*, acting like giant typ
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Wrap Mode*], [*Geometric Behavior & Text Spatial Flow*], [*Recommended Workplace Usage*]),
   [In Line with Text], [Bound strictly to paragraph baseline; moves with preceding text.], [Small inline icons, mathematical equation symbols.],
@@ -74,8 +74,8 @@ SmartArt transforms boring bulleted lists into visual communication frameworks. 
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Category*], [*Visual Communication Purpose*], [*Standard Enterprise Use Case*]),
   [List], [Displays non-sequential groups of related information.], [Service offerings, core company values, feature matrices.],

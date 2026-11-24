@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*TOC प्रारूप*], [*संरचनात्मक विशेषताएं*], [*कॉर्पोरेट उपयोग*]),
   [Automatic Table 1], [शीर्षक "Contents"; हेडिंग 1-3 को जोड़ता है; डॉटेड लीडर लाइन बनाता है।], [मानक कॉर्पोरेट रिपोर्ट्स, व्यावसायिक प्रस्ताव।],
@@ -48,8 +48,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*नोट प्रकार*], [*शॉर्टकट*], [*स्थान एवं संख्या मानक*], [*कॉर्पोरेट उपयोग*]),
   [Footnote], [`Alt + Ctrl + F`], [उसी भौतिक पेज के निचले भाग पर; संख्या 1, 2, 3...], [कठिन शब्दों के अर्थ, कानूनी स्पष्टीकरण, स्रोत संदर्भ।],

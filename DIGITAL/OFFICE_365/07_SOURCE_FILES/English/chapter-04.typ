@@ -15,8 +15,8 @@ Word 365 provides 5 distinct methods to instantiate data matrices under `Insert 
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Creation Method*], [*Operational Characteristics & Flexibility*], [*Enterprise Context*]),
   [Interactive Grid], [Hover up to 10 columns by 8 rows directly on drop-down palette.], [Rapid prototyping of small summary matrices.],
@@ -67,8 +67,8 @@ Word tables incorporate an internal calculation engine accessible via `Table Lay
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function Syntax*], [*Positional Argument*], [*Computational Result & Enterprise Application*]),
   [`=SUM(ABOVE)`], [Positional (`ABOVE`)], [Sums all numeric values continuously above current cell in column.],
@@ -90,8 +90,8 @@ Below is an authentic specimen of a corporate procurement quotation table constr
 
 #table(
   columns: (0.8fr, 2.5fr, 0.9fr, 1.1fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Item*], [*Description of Hardware Equipment*], [*Qty*], [*Unit Price*], [*Total Amount*]),
   [01], [Dell PowerEdge R760 Rack Server (2U, Dual Xeon)], [02], [₹ 4,50,000], [₹ 9,00,000],

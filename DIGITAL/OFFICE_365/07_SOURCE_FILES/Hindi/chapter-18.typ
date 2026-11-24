@@ -37,8 +37,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*फॉर्मूला*], [*सिंटैक्स एवं कार्यप्रणाली*], [*कॉर्पोरेट उपयोगिता*]),
   [`=DATE(Y, M, D)`], [पूर्णांकों से सुरक्षित सीरियल दिनांक बनाता है।], [मानकीकृत अनुबंध आरंभ तिथियां बनाना।],
@@ -59,8 +59,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*इकाई (Unit)*], [*मापी गई अवधि*], [*परिणाम का विवरण*], [*व्यावहारिक उदाहरण*]),
   [`"Y"`], [पूर्ण वर्ष], [दो तिथियों के बीच बीते हुए कुल पूर्ण वर्ष।], [कर्मचारी की कुल सेवा अवधि।],
@@ -109,8 +109,8 @@
 
 #table(
   columns: (1fr, 1.5fr, 1.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*अवधि*], [*प्रोजेक्ट कैश फ्लो*], [*10% पर डिस्काउंटेड*], [*संचयी स्थिति*]),
   [वर्ष 0], [-₹10,00,000 (पूंजीगत खर्च)], [-₹10,00,000], [-₹10,00,000 (प्रारंभिक निवेश)],

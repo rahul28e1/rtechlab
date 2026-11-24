@@ -26,8 +26,8 @@
 == 8.2 आधुनिक मैलवेयर वर्गीकरण (Malware Taxonomy)
 #table(
   columns: (1fr, 1.3fr, 1.4fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*मैलवेयर वर्ग*], [*संक्रमण एवं फैलाव तंत्र*], [*विनाशकारी पेलोड एवं क्षति*], [*रक्षात्मक न्यूनीकरण रणनीति*]),
   [रैनसमवेयर (Ransomware)], [फ़िशिंग ईमेल, असुरक्षित RDP, शून्य-दिवसीय भेद्यताएं], [#hl[पीड़ित की सभी फाइलों को असिमेट्रिक RSA-4096 द्वारा एन्क्रिप्ट कर देना] और फिरौती मांगना।], [3-2-1 एयर-गैप्ड ऑफलाइन बैकअप, अनऑथराइज्ड फाइल मॉडिफिकेशन ब्लॉकर।],
@@ -52,8 +52,8 @@
 == 8.3 आधुनिक क्रिप्टोग्राफी: सिमेट्रिक बनाम असिमेट्रिक सिफर्स
 #table(
   columns: (1.1fr, 1.4fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*इंजीनियरिंग गुण*], [*सिमेट्रिक क्रिप्टोग्राफी (Symmetric)*], [*असिमेट्रिक क्रिप्टोग्राफी (Asymmetric / Public Key)*]),
   [कुंजी संरचना], [#hl[एक ही साझा गुप्त कुंजी (Secret Key)] एन्क्रिप्शन और डिक्रिप्शन दोनों हेतु प्रयुक्त], [#hl[गणितीय रूप से जुड़ी दो कुंजियाँ]: पब्लिक की (सार्वजनिक) + प्राइवेट की (गोपनीय)],
@@ -85,13 +85,13 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[1. स्पष्ट सत्यापन (Verify Explicitly):]\
       #text(size: 7.5pt, fill: rtech-text)[प्रत्येक एक्सेस अनुरोध पर उपयोगकर्ता की पहचान, डिवाइस स्वास्थ्य, भौगोलिक स्थान और फर्मवेयर अखंडता का निरंतर बहु-कारक सत्यापन किया जाता है।]
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[2. न्यूनतम विशेषाधिकार (Least Privilege):]\
       #text(size: 7.5pt, fill: rtech-text)[उपयोगकर्ता को केवल वर्तमान कार्य के लिए आवश्यक न्यूनतम अनुमतियाँ दी जाती हैं (Just-In-Time और Just-Enough-Access), जिससे हैकर पूरे नेटवर्क में न फैल सके।]
     ]
@@ -111,8 +111,8 @@
 
 #table(
   columns: (1.1fr, 1.3fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*NIST FIPS मानक*], [*एल्गोरिदम का नाम*], [*गणितीय आधार*], [*प्रतिस्थापित होने वाली पुरानी तकनीक*]),
   [NIST FIPS 203], [#hl[ML-KEM (पूर्व में CRYSTALS-Kyber)]], [Module Learning with Errors (Lattice Math)], [RSA की-एक्सचेंज एवं Diffie-Hellman को पूर्णतः प्रतिस्थापित करता है।],
@@ -125,8 +125,8 @@
 == 8.7 आधुनिक ऑपरेटिंग सिस्टम हार्डवेयर सुरक्षा परतें
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*सुरक्षा परत*], [*हार्डवेयर / फर्मवेयर मैकेनिज्म*], [*हमलों से रक्षा एवं प्रभाव*]),
   [UEFI सिक्योर बूट (Secure Boot)], [Microsoft OEM क्रिप्टोग्राफिक पब्लिक कीज], [बूटलोडर के डिजिटल सिग्नेचर की पुष्टि करता है; अनधिकृत रूटकिट्स को OS से पहले लोड होने से रोकता है।],

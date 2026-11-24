@@ -27,7 +27,7 @@ Modern computer architecture resolves the fundamental physical contradiction bet
 == 3.2 Primary Memory: SRAM vs DRAM & Generational Evolution
 #table(
   columns: (1.2fr, 1.9fr, 1.9fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 2.8pt,
   table.header([*Architectural Parameter*], [*Static RAM (SRAM)*], [*Dynamic RAM (DRAM)*]),
@@ -99,7 +99,7 @@ SSD technology eliminates mechanical heads, platters, and rotational delays thro
 == 3.5 Storage Interfaces, Bus Fabrics & Data Capacity Mathematics
 #table(
   columns: (1.2fr, 1.1fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 2.8pt,
   table.header([*Storage Interface*], [*Host Protocol*], [*Bus Interface & Lanes*], [*Theoretical Maximum Bandwidth*]),

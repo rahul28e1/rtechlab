@@ -13,8 +13,8 @@
 
 #table(
   columns: (0.9fr, 1.4fr, 2.5fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Timeline*], [*Curriculum Phase*], [*Core Technical Topics & Mathematical Concepts*], [*Milestone Production Deliverable*]),
   [Weeks 1–4], [Phase 1: Math & Python for AI], [Linear Algebra (Matrices, Eigenvalues), Calculus (Partial derivatives), NumPy vectorized coding, Pandas, Matplotlib.], [Vectorized linear regression engine written from scratch in NumPy.],
@@ -48,8 +48,8 @@ To successfully master artificial intelligence alongside full-time work or colle
 
 #table(
   columns: (1fr, 1.8fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 1.8pt),
   table.header([*Month*], [*Core Focus*], [*Tangible Proof of Work*]),
   [Month 1], [Math, PyTorch & Linear Algebra], [Build custom multi-head attention from scratch in PyTorch.],

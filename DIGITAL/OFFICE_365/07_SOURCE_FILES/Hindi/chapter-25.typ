@@ -31,8 +31,8 @@
 
 #table(
   columns: (1.2fr, 2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*बूलियन टूल*], [*गणितीय कार्य*], [*व्यावहारिक स्लाइड डिजाइन उपयोग*]),
   [यूनियन], [आकृतियों का योग (A ∪ B)], [कस्टम क्लाउड आइकन या सर्वर क्लस्टर डायग्राम बनाना।],
@@ -97,8 +97,8 @@
 
 #table(
   columns: (1.2fr, 1.2fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else { rgb("#F8FAFC") },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else { rgb("#F8FAFC") },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 4pt),
   table.header([*चरण 1: खोज एवं ऑडिट*], [*चरण 2: आर्किटेक्चर*], [*चरण 3: स्प्रिंट विकास*], [*चरण 4: डिप्लॉयमेंट*]),
   [

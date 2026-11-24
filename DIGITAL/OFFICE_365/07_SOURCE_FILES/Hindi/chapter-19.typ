@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*वैलिडेशन प्रकार*], [*गणितीय नियम*], [*कॉर्पोरेट उपयोग*]),
   [Whole Number], [केवल निश्चित न्यूनतम व अधिकतम के बीच पूर्णांक संख्याएं।], [वेयरहाउस ऑर्डर मात्रा (उदा. 1 से 500 नग)।],
@@ -116,8 +116,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 2.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फील्ड का नाम*], [*इनपुट सेल*], [*लागू वैलिडेशन आर्किटेक्चर*], [*प्रवर्तन व्यवहार*]),
   [PO नंबर], [सेल B2], [Custom: `=COUNTIF($B:$B, B2)<=1`], [Stop Alert: "डुप्लिकेट PO नंबर पहचाना गया!"],

@@ -51,8 +51,8 @@ STP एक लूप-मुक्त ट्री संरचना की ग�
 == 9.3 802.1D STP बनाम 802.1w Rapid STP (RSTP)
 #table(
   columns: (1.5fr, 1.8fr, 1.8fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*परिचालन पैमाना*], [*पारंपरिक STP (802.1D)*], [*Rapid STP (802.1w)*], [*परफॉर्मेंस लाभ*]),
   [कन्वर्जेंस स्पीड], [30 से 50 सेकंड (टाइमर-आधारित)], [1 सेकंड से भी कम (हैंडशेक-आधारित)], [पलक झपकते ही फेलओवर],

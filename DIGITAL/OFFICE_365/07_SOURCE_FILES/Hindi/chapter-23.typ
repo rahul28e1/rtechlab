@@ -30,8 +30,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*डिजाइन आयाम*], [*नौसिखिया प्रस्तुति की गलती*], [*2027 कार्यकारी प्रस्तुति मानक*]),
   [सूचना घनत्व], [पूरी स्लाइड पर 15 लंबे बुलेट पॉइंट्स भरना।], [1 मुख्य शीर्षक, 3 संरचित वित्तीय मेट्रिक कार्ड।],
@@ -104,8 +104,8 @@
 
 #table(
   columns: (1.5fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else { rgb("#F8FAFC") },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else { rgb("#F8FAFC") },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 4pt),
   table.header([*मेट्रिक कार्ड 01*], [*मेट्रिक कार्ड 02*], [*मेट्रिक कार्ड 03*]),
   [

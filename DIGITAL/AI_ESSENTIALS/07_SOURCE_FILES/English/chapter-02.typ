@@ -15,8 +15,8 @@ In 1957, American psychologist Frank Rosenblatt constructed the *Perceptron* at 
 
 #table(
   columns: (1.2fr, 2.8fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Component*], [*Mathematical Formula / Operation*], [*Physical Hardware Mechanism*]),
   [Input Vector ($x_i$)], [Binary photocell activations $x_1, x_2, dots, x_n in {0, 1}$], [20x20 grid of optical sensors in camera box],
@@ -37,8 +37,8 @@ In 1969, Marvin Minsky and Seymour Papert published their book *Perceptrons: An 
 
 #table(
   columns: (1fr, 1.2fr, 1.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Input $x_1$*], [*Input $x_2$*], [*Target $y$ (XOR)*], [*Geometric Impossibility with Single Line*]),
   [$0$], [$0$], [$0$], [Point $(0,0)$ requires output $0$],

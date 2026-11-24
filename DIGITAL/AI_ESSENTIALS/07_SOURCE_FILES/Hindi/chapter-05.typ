@@ -11,8 +11,8 @@
 
 #table(
   columns: (0.7fr, 1.5fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 2pt, y: 0.8pt),
   table.header([*वर्ष*], [*युगांतकारी माइलस्टोन*], [*तकनीकी महत्व एवं वास्तुकला नवाचार*], [*प्रमुख अन्वेषक / संस्था*]),
   [1950], [ट्यूरिंग टेस्ट], [मशीनी बुद्धिमत्ता की पहली ऑपरेशनल परिभाषा (The Imitation Game)], [Alan Turing],

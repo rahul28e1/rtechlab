@@ -15,8 +15,8 @@ In October 1950, British mathematician Alan Mathison Turing published his landma
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Turing Component*], [*Operational Engineering Specification*], [*Modern 2027 Equivalent*]),
   [Interrogator (Judge)], [Human evaluator isolated in a separate terminal room.], [LLM Evaluation / LMSYS Chatbot Arena],
@@ -47,8 +47,8 @@ The sole working software demonstrated at Dartmouth was *The Logic Theorist*, au
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Milestone*], [*Key Pioneer & Lab*], [*Architectural Significance*]),
   [Logic Theorist (1956)], [Newell, Shaw & Simon (RAND)], [First heuristic search program proving symbolic mathematical proofs.],

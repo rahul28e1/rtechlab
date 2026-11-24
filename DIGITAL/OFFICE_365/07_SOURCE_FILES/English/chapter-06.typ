@@ -15,8 +15,8 @@ Under `Layout > Page Setup`, Word allows micro-calibration of the physical canva
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Layout Parameter*], [*Standard Enterprise Values*], [*Operational Mechanics & Considerations*]),
   [Margins], [Normal (1"), Narrow (0.5"), Moderate, Mirrored], [Mirrored margins enforce "Inside / Outside" gutters for bound books.],
@@ -49,8 +49,8 @@ Word 365 provides 4 distinct Section Break types under `Layout > Page Setup > Br
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Section Break Type*], [*Internal Pagination Behavior*], [*Corporate Implementation Scenario*]),
   [Next Page], [Spawns a new section and simultaneously forces cursor to top of next physical page.], [Switching Chapter 2 from Portrait to Landscape for a wide financial table.],

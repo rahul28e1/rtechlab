@@ -19,8 +19,8 @@
 == 2.2 ईथरनेट कॉपर मानक एवं बैंडविड्थ रेटिंग्स
 #table(
   columns: (1fr, 1.2fr, 1.1fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*मानक (Standard)*], [*अधिकतम स्पीड*], [*फ्रीक्वेंसी बैंडविड्थ*], [*एंटरप्राइज अनुप्रयोग एवं विशेषताएं*]),
   [Cat5e], [1,000 Mbps (1 Gbps)], [100 MHz], [1000BASE-T एक्सेस लेयर मानक। 4 वायर पेयर्स का उपयोग करता है।],
@@ -68,8 +68,8 @@
 == 2.5 ऑप्टिकल ट्रांससीवर मॉड्यूल्स एवं फॉर्म फैक्टर्स
 #table(
   columns: (1fr, 1.2fr, 1.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*ट्रांससीवर*], [*अधिकतम थ्रूपुट*], [*कनेक्टर प्रकार*], [*डिप्लॉयमेंट वातावरण*]),
   [SFP (Mini-GBIC)], [1 Gbps], [डुप्लेक्स LC], [कैंपस एग्रीगेशन एवं 1G फाइबर अपलिंक्स।],

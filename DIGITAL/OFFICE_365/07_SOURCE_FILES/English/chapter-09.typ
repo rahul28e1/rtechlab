@@ -38,8 +38,8 @@ Word 365 streamlines bulk generation through the *Mailings Tab* or the *Step-by-
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Pipeline Stage*], [*Operational Action on Mailings Tab*], [*Enterprise Quality Assurance Rule*]),
   [1. Select Document Type], [`Start Mail Merge > Letters / Envelopes / Labels / Directory`], [Letters for appointment orders; Envelopes for postage delivery.],

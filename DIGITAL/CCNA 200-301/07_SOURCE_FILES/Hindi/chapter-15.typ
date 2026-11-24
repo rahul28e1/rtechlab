@@ -61,8 +61,8 @@
 == 15.3 आवश्यक प्रोडक्शन ट्रबलशूटिंग कमांड्स मैट्रिक्स
 #table(
   columns: (1.5fr, 4.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*निरीक्षण उद्देश्य*], [*प्राथमिक सिस्को IOS सत्यापन कमांड*]),
   [इंटरफ़ेस IP एवं भौतिक लिंक स्थिति], [`Router# show ip interface brief`],

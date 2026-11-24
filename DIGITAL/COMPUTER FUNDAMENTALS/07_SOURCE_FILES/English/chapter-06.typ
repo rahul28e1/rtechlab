@@ -38,8 +38,8 @@ The Operating System (OS) is the master supervisory program governing hardware r
 == 6.3 Kernel Architectures: Monolithic vs Microkernel Designs
 #table(
   columns: (1fr, 1.4fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Kernel Paradigm*], [*Execution Model*], [*Architectural Tradeoffs & Industry Examples*]),
   [Monolithic Kernel], [All OS subsystems (file system, network stack, device drivers) run in Ring 0.], [Maximum raw execution performance due to direct function calls. A bug or crash in a third-party driver can crash the entire OS (BSOD). Examples: Linux, Windows NT core.],
@@ -55,8 +55,8 @@ A *Process* is an executing program instance possessing private virtual address 
 - *Classic CPU Scheduling Algorithms:*
 #table(
   columns: (1.2fr, 1.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.8pt,
   table.header([*Scheduling Algorithm*], [*Preemption Type*], [*Operational Mechanics & System Behavior*]),
   [First-Come, First-Served (FCFS)], [Non-preemptive], [Processes dispatched strictly by arrival order. Suffers from the #hl[Convoy Effect] (short processes stall behind long CPU bursts).],
@@ -90,8 +90,8 @@ Virtual memory abstracts physical RAM, giving each process a private contiguous 
 == 6.7 Language Translators: Compilers, Interpreters & Assemblers
 #table(
   columns: (1fr, 1.4fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Translator Type*], [*Input Source Code*], [*Translation Process & Operational Execution*]),
   [Assembler], [Low-level Assembly (`MOV`, `ADD`)], [Converts mnemonic assembly instructions directly into raw binary machine opcodes on a 1:1 basis.],

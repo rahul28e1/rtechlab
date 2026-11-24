@@ -31,8 +31,8 @@ Mastery of corporate timing separates clumsy presentations from broadcast-qualit
 
 #table(
   columns: (1.2fr, 2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Animation Tool*], [*Technical Function*], [*Production Slide Application*]),
   [Animation Painter], [Copies entire animation stack, timings, and delays to another shape.], [Replicating entrance timing across 6 KPI metric cards in 10 seconds.],
@@ -84,8 +84,8 @@ Below is the standard Fortune 500 timing choreography for revealing 3 product fe
 
 #table(
   columns: (1.2fr, 1.5fr, 1.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Animated Element*], [*Animation Effect*], [*Start Condition*], [*Timing Parameters*]),
   [Pillar 01 (Cloud Core)], [Fade + Fly In (Up)], [Start: On Click], [Duration: `0.40s`, Smooth End: `0.20s`],

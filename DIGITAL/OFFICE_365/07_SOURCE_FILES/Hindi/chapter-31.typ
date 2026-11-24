@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
   [`Ctrl + Enter`], [संरचना], [कर्सर के स्थान पर तुरंत नया हार्ड पेज ब्रेक लगाता है।],
@@ -50,8 +50,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
   [`F4`], [फॉर्मूला], [सेल संदर्भ बदलता है (`$A$1` > `A$1` > `$A1` > `A1`)।],
@@ -92,8 +92,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
   [`Alt + E + S + V`], [पेस्ट स्पेशल], [केवल मान (Values) पेस्ट करता है, फॉर्मूला हटा देता है।],
@@ -134,8 +134,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*शॉर्टकट कुंजी*], [*कार्य क्षेत्र*], [*परिचालन क्रिया एवं परिणाम*]),
   [`Alt + F5`], [प्रेजेंटर व्यू], [प्राथमिक स्क्रीन पर प्रेजेंटर व्यू डिलीवरी मोड खोलता है।],

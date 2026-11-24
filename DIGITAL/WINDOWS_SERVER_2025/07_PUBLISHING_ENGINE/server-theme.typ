@@ -17,18 +17,22 @@
 #let rtech-border = rgb("#E2E8F0")      // Clean subtle border
 
 // Master Book Wrapper Function
+#let book-lang-state = state("book-lang", "en")
+
 #let rtech-server-book(
   title: "Windows Server 2025 & Active Directory Master Handbook",
   subtitle: "Client-Server Architecture · AD DS · GPO · DNS · DHCP · Storage Spaces · Hybrid Azure Arc · Top 50 MNC Placement Vault",
   author: "Rahul Patel",
   edition: "2027 Comprehensive Master Edition · RTechLab Publication",
   subject-code: "RTL-2027-WINSRV-ED1",
-  lang: "hi",
+  lang: "en",
   body
 ) = {
+  let doc-margin = if lang == "en" { (x: 11mm, top: 12.5mm, bottom: 11mm) } else { (x: 12mm, top: 15mm, bottom: 13mm) }
+
   set page(
     paper: "a4",
-    margin: (x: 12mm, top: 15mm, bottom: 13mm),
+    margin: doc-margin,
     fill: rtech-paper,
     
     // Light Watermark on Content Pages
@@ -58,6 +62,7 @@
     // Universal Light Header with Breadcrumb & Direct Index Link
     header: context {
       let page-num = counter(page).get().first()
+      let index-label = if lang == "gu" { "⮌ અનુક્રમણિકા (Index)" } else if lang == "hi" { "⮌ Index (विषय सूची)" } else { "⮌ Master Index" }
       if page-num > 2 {
         block(
           width: 100%,
@@ -74,7 +79,7 @@
               [
                 #link(<table-of-contents>)[
                   #text(size: 7.5pt, font: ("Segoe UI", "Nirmala UI", "Arial"), fill: rtech-blue, weight: "bold")[
-                    ⮌ Index (विषय सूची)
+                    #index-label
                   ]
                 ]
                 #text(size: 7.5pt, fill: rgb("#94A3B8"))[ · ]
@@ -118,21 +123,72 @@
   )
 
   // Document Styling
+  let body-size = if lang == "en" { 8.85pt } else { 9.5pt }
+  let body-leading = if lang == "en" { 0.72em } else { 0.82em }
+
   set text(
     font: ("Segoe UI", "Nirmala UI", "Arial"),
-    size: 9.5pt,
+    size: body-size,
     fill: rtech-text,
     spacing: 110%,
-    lang: "hi"
+    lang: lang
   )
 
   set par(
     justify: true,
-    leading: 0.65em,
+    leading: body-leading,
     first-line-indent: 0pt
   )
 
   body
+}
+
+// -----------------------------------------------------------------------------
+// PROFESSIONAL CHAPTER HEADER BANNER (Generous spacing & clean visual separation)
+// -----------------------------------------------------------------------------
+#let chapter-header(
+  chapter-num: "CHAPTER 01",
+  category: "FOUNDATION ARCHITECTURE",
+  title: "Server Architecture, Server Types & Evolution of Windows Server",
+  subtitle: "Client-Server Model · 8 Primary Server Types · Physical vs Virtual vs Azure Arc Hybrid · Complete Evolution"
+) = {
+  v(8pt)
+  block(
+    width: 100%,
+    fill: rgb("#F8FAFC"),
+    stroke: (left: 4.5pt + rtech-blue, rest: 0.8pt + rgb("#CBD5E1")),
+    radius: (right: 6pt),
+    inset: (x: 14pt, y: 12pt),
+    [
+      #grid(
+        columns: (auto, 1fr),
+        gutter: 8pt,
+        align: (horizon, horizon),
+        [
+          #box(
+            fill: rtech-blue,
+            radius: 3pt,
+            inset: (x: 8pt, y: 3.5pt),
+            text(size: 8pt, font: ("Consolas", "Courier New"), weight: "black", fill: white)[#chapter-num]
+          )
+        ],
+        [
+          #text(size: 8pt, font: ("Consolas", "Courier New"), weight: "bold", fill: rgb("#0369A1"))[#category]
+        ]
+      )
+      #v(6pt)
+      #text(size: 16.5pt, font: ("Segoe UI", "Nirmala UI", "Arial"), weight: "black", fill: rtech-navy, tracking: 0.2pt)[
+        #title
+      ]
+      #v(5pt)
+      #line(length: 100%, stroke: 0.8pt + rgb("#E2E8F0"))
+      #v(4pt)
+      #text(size: 8.5pt, font: ("Segoe UI", "Nirmala UI", "Arial"), weight: "bold", fill: rtech-muted)[
+        #subtitle
+      ]
+    ]
+  )
+  v(14pt)
 }
 
 // -----------------------------------------------------------------------------
@@ -163,7 +219,7 @@
 // CALLOUT BOXES & CARDS
 // -----------------------------------------------------------------------------
 
-#let info-box(title: "महत्वपूर्ण संकल्पना (Core Concept)", body) = {
+#let info-box(title: "Core Architecture Concept", body) = {
   block(
     width: 100%,
     fill: rgb("#F0F9FF"),
@@ -179,7 +235,7 @@
   )
 }
 
-#let warning-box(title: "चेतावनी एवं सुरक्षा नियम (Critical Warning)", body) = {
+#let warning-box(title: "Critical Warning & Security Rules", body) = {
   block(
     width: 100%,
     fill: rgb("#FFFBEB"),
@@ -211,11 +267,11 @@
   )
 }
 
-#let did-you-know(fact) = {
+#let did-you-know(fact, title: none) = {
   block(
     width: 100%,
     fill: rgb("#F8FAFC"),
-    stroke: 0.8pt + rgb("#CBD5E1"),
+    stroke: 0.5pt + rgb("#64748B"),
     radius: 5pt,
     inset: (x: 10pt, y: 8pt),
     [
@@ -227,7 +283,19 @@
           #text(size: 16pt)[💡]
         ],
         [
-          #text(size: 9.5pt, weight: "black", fill: rtech-navy)[Did You Know? (क्या आप जानते हैं?)]
+          #context {
+            let lang = book-lang-state.get()
+            let heading = if title != none {
+              title
+            } else if lang == "gu" {
+              "Did You Know? (શું તમે જાણો છો?)"
+            } else if lang == "hi" {
+              "Did You Know? (क्या आप जानते हैं?)"
+            } else {
+              "Did You Know? (Enterprise Architecture Insight)"
+            }
+            text(size: 9.5pt, weight: "black", fill: rtech-navy)[#heading]
+          }
           #v(1.5pt)
           #text(size: 8.8pt, fill: rtech-text)[#fact]
         ]
@@ -236,11 +304,11 @@
   )
 }
 
-#let mcq-item(num: "1", q: "", optA: "", optB: "", optC: "", optD: "", ans: "", exp: "") = {
+#let mcq-item(num: "1", q: "", optA: "", optB: "", optC: "", optD: "", ans: "", exp: "", ans-label: none) = {
   block(
     width: 100%,
     fill: white,
-    stroke: 0.5pt + rgb("#E2E8F0"),
+    stroke: 0.5pt + rgb("#64748B"),
     radius: 4pt,
     inset: (x: 8pt, y: 6pt),
     [
@@ -261,7 +329,19 @@
         radius: 3pt,
         width: 100%,
         [
-          #text(size: 8pt, weight: "bold", fill: rtech-emerald)[उत्तर: (#ans)]
+          #context {
+            let lang = book-lang-state.get()
+            let label = if ans-label != none {
+              ans-label
+            } else if lang == "gu" {
+              "જવાબ"
+            } else if lang == "hi" {
+              "उत्तर"
+            } else {
+              "Answer"
+            }
+            text(size: 8pt, weight: "bold", fill: rtech-emerald)[#label: (#ans)]
+          }
           #h(6pt)
           #text(size: 8pt, fill: rtech-muted)[#exp]
         ]
@@ -274,7 +354,7 @@
   block(
     width: 100%,
     fill: white,
-    stroke: 0.5pt + rgb("#E2E8F0"),
+    stroke: 0.5pt + rgb("#64748B"),
     radius: 4pt,
     inset: (x: 8pt, y: 6pt),
     [

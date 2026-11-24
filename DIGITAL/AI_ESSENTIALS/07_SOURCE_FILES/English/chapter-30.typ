@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 1.8fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Specialization*], [*Core Mission & Daily Workflow*], [*Primary Tech Stack*], [*Top Hiring Sector*]),
   [1. AI / ML Engineer], [Builds, trains, and evaluates supervised & unsupervised predictive models on structured and unstructured data.], [Python, Scikit-Learn, PyTorch, Pandas, SQL, XGBoost.], [Fintech, E-commerce, Healthcare],
@@ -35,8 +35,8 @@
 
 #table(
   columns: (1.4fr, 1.6fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Track*], [*Primary Stack*], [*Entry CTC (India)*], [*Senior CTC (India)*]),
   [Generative AI Engineer], [Python, LangChain, LlamaIndex, vLLM], [₹6.5 – ₹12 LPA], [₹28 – ₹45+ LPA],

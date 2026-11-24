@@ -21,8 +21,8 @@ Information security is architected upon three core principles known as the #hl[
 == 8.2 Malware Taxonomy & Attack Vectors
 #table(
   columns: (1fr, 1.3fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Malware Class*], [*Propagation Mechanism*], [*Payload Behavior & System Destruction Vector*]),
   [Computer Virus], [Host file attachment], [Attaches to legitimate executable binaries (`.exe`, `.dll`). Executes only when human user launches host file; corrupts local files.],
@@ -38,8 +38,8 @@ Information security is architected upon three core principles known as the #hl[
 == 8.3 Cryptographic Systems: Symmetric vs Asymmetric Algorithms
 #table(
   columns: (1.1fr, 1.4fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Cryptographic Metric*], [*Symmetric Encryption*], [*Asymmetric Cryptography (Public-Key)*]),
   [Key Architecture], [#hl[Single shared secret key] for encryption and decryption.], [#hl[Mathematically linked key pair]: Public Key (encrypts) and Private Key (decrypts).],

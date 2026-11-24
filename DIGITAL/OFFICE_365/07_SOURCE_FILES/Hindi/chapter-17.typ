@@ -19,8 +19,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फंक्शन / ऑपरेटर*], [*कार्यप्रणाली*], [*कॉर्पोरेट उपयोग एवं लाभ*]),
   [`TEXTJOIN`], [निर्दिष्ट विभाजक (Delimiter) से पूरी रेंज जोड़ता है; खाली सेल छोड़ता है।], [पूरे कॉलम को एक सेकंड में जोड़ना: `=TEXTJOIN(", ", TRUE, A2:A50)`।],
@@ -50,8 +50,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फॉर्मूला सिंटैक्स*], [*कार्यात्मक क्रिया*], [*कॉर्पोरेट उदाहरण (लक्षित मान: "RTL-SRV-2027")*]),
   [`=LEFT(text, [अक्षर_संख्या])`], [बिल्कुल बाईं ओर से अक्षर निकालता है।], [`=LEFT(A2, 3)` का उत्तर `"RTL"` (कंपनी कोड) होगा।],
@@ -73,8 +73,8 @@
 
 #table(
   columns: (1fr, 1.3fr, 2.7fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फंक्शन*], [*केस संवेदनशीलता*], [*मिलान व्यवहार*], [*वाइल्डकार्ड समर्थन*]),
   [`FIND`], [Case-Sensitive], [अक्षरशः मिलान: `=FIND("P", "Rahul Patel")` 7 देगा। `=FIND("p", ...)` एरर देगा।], [नहीं],

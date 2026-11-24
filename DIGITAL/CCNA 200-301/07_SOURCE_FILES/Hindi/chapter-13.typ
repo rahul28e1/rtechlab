@@ -64,8 +64,8 @@ Router(config-dhcp)# lease 7 0 0
 NAT सार्वजनिक IPv4 स्पेस को बचाता है और आंतरिक प्राइवेट नेटवर्क संरचना को छुपाता है:
 #table(
   columns: (1.2fr, 1.6fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*NAT प्रकार*], [*मैपिंग अनुपात*], [*प्रोडक्शन उपयोग एवं कार्यप्रणाली*]),
   [Static NAT], [एक-से-एक (1:1)], [एक प्राइवेट IP को स्थायी रूप से एक पब्लिक IP पर मैप करता है (DMZ वेब/मेल सर्वर)।],

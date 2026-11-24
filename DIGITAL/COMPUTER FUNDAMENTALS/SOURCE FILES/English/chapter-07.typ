@@ -35,8 +35,8 @@ A computer network connects autonomous computing nodes to exchange data packets:
 == 7.2 The 7-Layer OSI Model vs The 4-Layer TCP/IP Model
 #table(
   columns: (1fr, 1.2fr, 1.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.5pt,
   table.header([*OSI Layer*], [*TCP/IP Equivalent*], [*Data Protocol Unit (PDU)*], [*Primary Engineering Protocols & Function*]),
   [7. Application], [Application], [Data / Message], [HTTP, HTTPS, DNS, SSH, SMTP, FTP; user application network interfaces.],
@@ -53,8 +53,8 @@ A computer network connects autonomous computing nodes to exchange data packets:
 == 7.3 Transport Protocols: TCP 3-Way Handshake vs UDP
 #table(
   columns: (1fr, 1.6fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Engineering Attribute*], [*TCP (Transmission Control Protocol)*], [*UDP (User Datagram Protocol)*]),
   [Connection Style], [#hl[Connection-Oriented]; mandates 3-way handshake prior to data], [#hl[Connectionless]; transmits datagrams immediately without setup],

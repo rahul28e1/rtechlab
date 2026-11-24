@@ -46,7 +46,7 @@ Instruction pipelining overlaps the execution of multiple instructions across se
 - *Pipeline Hazards:* Conditions that disrupt regular instruction flow and force pipeline stalls ('bubbles'):
 #table(
   columns: (1fr, 1.4fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*Hazard Category*], [*Physical Root Cause*], [*Hardware Resolution & Mitigation Technique*]),
@@ -60,7 +60,7 @@ Instruction pipelining overlaps the execution of multiple instructions across se
 == 4.4 Processor Design Paradigms: RISC vs CISC
 #table(
   columns: (1.1fr, 1.4fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*Design Characteristic*], [*CISC (Complex Instruction Set)*], [*RISC (Reduced Instruction Set)*]),
@@ -84,7 +84,7 @@ Due to thermal power dissipation limits (the breakdown of Dennard Scaling), mode
 Modern computing has transitioned from general-purpose CPUs to specialized heterogeneous domain-specific accelerators:
 #table(
   columns: (1fr, 1.2fr, 1.3fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 2.5pt,
   table.header([*Architectural Metric*], [*Central Processing Unit (CPU)*], [*Graphics Processing Unit (GPU)*], [*Neural Processing Unit (NPU)*]),

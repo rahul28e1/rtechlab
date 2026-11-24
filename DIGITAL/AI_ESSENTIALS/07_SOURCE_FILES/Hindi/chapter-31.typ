@@ -13,8 +13,8 @@
 
 #table(
   columns: (0.8fr, 1.4fr, 2.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*माह*], [*चरण का नाम*], [*साप्ताहिक पाठ्यक्रम एवं अभ्यास लक्ष्य*], [*पोर्टफोलियो माइलस्टोन*]),
   [माह 1], [नींव एवं गणित], [हफ्ता 1-2: पायथन, NumPy, Pandas, वेक्टर्स, मैट्रिसेस।\ हफ्ता 3-4: लीनियर अल्जेब्रा, कैलकुलस, PyTorch बेसिक्स।], [NumPy में न्यूरल नेटवर्क स्क्रैच से बनाना।],

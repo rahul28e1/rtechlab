@@ -15,8 +15,8 @@ In Office 365, Microsoft introduced *Aptos* as the default sans-serif typeface, 
 
 #table(
   columns: (1.5fr, 1.5fr, 2.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Heading Typeface*], [*Body Typeface*], [*Psychological Tone & Corporate Industry*], [*Readability Metric*]),
   [Aptos Display], [Aptos], [Modern corporate, clean technical reports, SaaS documentation], [Optically optimized for 4K displays],
@@ -59,8 +59,8 @@ Paragraph geometry dictates the cognitive flow of text across printed columns:
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Alignment*], [*Shortcut*], [*Mechanics & Visual Result*], [*Enterprise Context*]),
   [Align Left], [`Ctrl + L`], [Ragged right edge; uniform natural word spacing.], [Corporate emails, standard memos, technical specs.],

@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*टेबल विशेषता*], [*आर्किटेक्चरल कार्यप्रणाली*], [*कॉर्पोरेट उत्पादकता लाभ*]),
   [डायनामिक रेंज विस्तार], [नीचे नया डेटा टाइप करते ही टेबल स्वतः बढ़कर उसे अंदर ले लेती है।], [फॉर्मूले, चार्ट्स और पिवट टेबल्स स्वतः अपडेट होते हैं।],
@@ -57,8 +57,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*सेटिंग्स*], [*कार्यप्रणाली*], [*विश्लेषणात्मक उद्देश्य*]),
   [Summarize By: SUM], [संख्याओं का मानक अंकगणितीय योग।], [कुल राजस्व अथवा कुल बिक्री संख्या।],
@@ -110,8 +110,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 1.2fr, 1.2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*क्षेत्र / उत्पाद श्रेणी*], [*हार्डवेयर*], [*सॉफ्टवेयर*], [*सेवाएं*], [*कुल राजस्व*]),
   [North (दिल्ली NCR)], [₹ 45,00,000], [₹ 18,50,000], [₹ 12,00,000], [₹ 75,50,000],

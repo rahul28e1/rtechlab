@@ -19,8 +19,8 @@
 
 #table(
   columns: (1fr, 2fr, 2.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.2pt, y: 1.8pt),
   table.header([*Pillar*], [*Strategic Mission Target*], [*Implementation Mechanism*], [*Budget Allocation*]),
   [IndiaAI Compute], [10,000+ GPUs Sovereign Compute Cluster], [Public-private partnership offering subsidized compute to startups and researchers.], [₹4,565 Crore (Largest Pillar)],

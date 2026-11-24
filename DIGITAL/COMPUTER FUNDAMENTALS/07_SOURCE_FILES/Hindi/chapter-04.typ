@@ -24,23 +24,23 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[1. अरिथमेटिक लॉजिक यूनिट (ALU):]\
       #text(size: 7.5pt, fill: rtech-text)[यह CPU का प्राथमिक गणितीय कैलकुलेटर है। यह दो प्रकार के कार्य करता है: अंकगणितीय (जोड़, घटाव, गुणा, भाग) और तार्किक (AND, OR, NOT, XOR, तुलनाएं)। आधुनिक ALUs 64-बिट पूर्णांकों पर 1 क्लॉक साइकिल में गणना करते हैं।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[2. कंट्रोल यूनिट (Control Unit - CU):]\
       #text(size: 7.5pt, fill: rtech-text)[यह CPU का 'मस्तिष्क' और ऑर्केस्ट्रेटर है। यह मेमोरी से निर्देश लाती है, माइक्रोकोड/हार्डवायर्ड लॉजिक से डिकोड करती है, और पूरे चिप पर क्लॉक सिग्नल्स व कंट्रोल बस लाइन्स द्वारा समयबद्ध टाइमिंग पल्स भेजती है।]
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[3. हाई-स्पीड सिलिकॉन रजिस्टर्स:]\
       #text(size: 7.5pt, fill: rtech-text)[CPU डाई पर सीधे स्थित अल्ट्रा-फास्ट SRAM स्टोरेज सेल्स जो 1 क्लॉक साइकिल (0.2 ns) से कम समय में डेटा पढ़ते/लिखते हैं। ये ऑपरेंड्स, इंटरमीडिएट गणनाएं और मेमोरी पते सुरक्षित रखते हैं।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[4. सिस्टम बस इंटरफेस (BIU):]\
       #text(size: 7.5pt, fill: rtech-text)[यह सब-सिस्टम CPU कोर को बाह्य दुनिया से जोड़ता है। यह L3 कैश, सिस्टम मेमोरी कंट्रोलर और हाई-स्पीड PCIe रूट कॉम्प्लेक्स से डेटा ट्रांसमिशन का समन्वय करता है।]
     ]
@@ -52,8 +52,8 @@
 == 4.2 विशेष प्रयोजन CPU रजिस्टर्स (Special-Purpose Registers)
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*रजिस्टर संक्षिप्त नाम*], [*पूर्ण तकनीकी नाम*], [*सटीक इंजीनियरिंग कार्य एवं भूमिका*]),
   [PC], [प्रोग्राम काउंटर (Program Counter)], [मेमोरी में निष्पादित होने वाले #hl[अगले निर्देश का मेमोरी एड्रेस] रखता है। प्रत्येक निर्देश के बाद स्वतः बढ़ जाता है।],
@@ -77,8 +77,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*स्टेज*], [*साइकिल चरण*], [*हार्डवेयर स्तर पर निष्पादित होने वाली आंतरिक प्रक्रिया*]),
   [स्टेज 1], [#hl[फेच (Fetch)]], [कंट्रोल यूनिट प्रोग्राम काउंटर (PC) के पते से निर्देश को L1-I कैश से लाकर निर्देश रजिस्टर (IR) में रखती है; PC अगले निर्देश पर बढ़ जाता है।],
@@ -96,8 +96,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 1fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*हजार्ड का प्रकार*], [*मूल कारण एवं प्रभाव*], [*हार्डवेयर समाधान*]),
   [स्ट्रक्चरल हजार्ड (Structural)], [एक ही समय में दो निर्देश समान हार्डवेयर संसाधन (जैसे सिंगल पोर्ट मेमोरी) की मांग करते हैं।], [हार्डवेयर डुप्लीकेशन (हार्वर्ड अलग I-कैश व D-कैश)],
@@ -127,8 +127,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.3fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*प्रोसेसर प्रकार*], [*आर्किटेक्चर दर्शन*], [*कंप्यूट कोर संरचना*], [*आदर्श कार्यक्षेत्र एवं ऊर्जा दक्षता*]),
   [CPU (सेंट्रल)], [अल्ट्रा-लो लेटेंसी, जटिल अनुक्रमिक ब्रांचिंग, एकल-थ्रेड निष्पादन], [4 से 24 बड़े, शक्तिशाली बहुउद्देशीय कोर्स (5 GHz+)], [ऑपरेटिंग सिस्टम, फाइल प्रबंधन, कंपाइलर्स, जटिल व्यावसायिक तर्क; AI हेतु कम कुशल।],
@@ -141,8 +141,8 @@
 == 4.6 AI PC मानक: TOPS मापन एवं स्थानीय इन्फरेंस
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*अवधारणा*], [*मानक मापदंड*], [*विस्तृत इंजीनियरिंग विवरण एवं महत्व*]),
   [TOPS मापन], [#hl[Trillions of Operations Per Second]], [NPU की कम्प्यूटेशनल शक्ति मापने की आधिकारिक इकाई (साधारणतः INT8 परिशुद्धता पर)।],

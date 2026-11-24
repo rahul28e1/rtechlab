@@ -15,8 +15,8 @@ Under `Home > Editing > AutoSum` (`Alt + =`), Excel injects basic aggregation ve
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function Syntax*], [*Computational Formula & Rules*], [*Enterprise Operational Behavior*]),
   [`=SUM(range)`], [Sums all numeric values in continuous or disjoint ranges.], [Ignores text strings and blank cells automatically.],
@@ -36,8 +36,8 @@ A classic interview test is distinguishing the behaviors of Excel's counting fun
 
 #table(
   columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function*], [*Evaluation Criteria*], [*Behavior on Text, Dates, Booleans & Empty Cells*]),
   [`=COUNT(A1:A10)`], [Counts NUMERIC values only.], [Counts numbers and dates. Completely ignores text strings, errors, and blank cells.],
@@ -57,8 +57,8 @@ Financial balance sheets require balancing totals to the nearest rupee or paisa.
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function Syntax*], [*Rounding Logic*], [*Computational Specimen (Input: 145.678)*]),
   [`=ROUND(num, 2)`], [Standard 5/4 arithmetic rounding.], [`=ROUND(145.678, 2)` evaluates to `145.68`. If 3rd decimal < 5, rounds down.],
@@ -96,8 +96,8 @@ Syntax: =SUBTOTAL(function_num, ref1, [ref2], ...)
 
 #table(
   columns: (1fr, 1.2fr, 1.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Operation*], [*Standard Code (Includes Hidden)*], [*100-Series Code (Ignores Hidden)*], [*Enterprise Production Behavior*]),
   [AVERAGE], [`1`], [`101`], [Calculates mean of visible filtered rows only.],
@@ -126,8 +126,8 @@ Below is a verified production marksheet model illustrating mathematical aggrega
 
 #table(
   columns: (1fr, 2.2fr, 1.1fr, 1.1fr, 1.1fr, 1.3fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Roll No*], [*Student Full Name*], [*Math (C)*], [*Sci (D)*], [*Eng (E)*], [*Total (=SUM)*], [*Rank (=RANK.EQ)*]),
   [101], [Rahul Patel], [95], [92], [88], [275], [Rank 1],

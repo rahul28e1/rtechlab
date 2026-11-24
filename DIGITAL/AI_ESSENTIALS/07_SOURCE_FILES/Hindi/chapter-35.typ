@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 1.8fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*टियर*], [*सेवा का स्वरूप*], [*क्लाइंट को व्यावसायिक लाभ*], [*मानक शुल्क सीमा*]),
   [टियर 1: वेब बॉट], [कस्टमर सपोर्ट चैटबॉट वेबसाइट विजेट और FAQ सिंक के साथ।], [60% बुनियादी कस्टमर सपोर्ट टिकट्स को समाप्त करना।], [₹35,000 – ₹50,000],
@@ -40,8 +40,8 @@
 == 35.3 एंटरप्राइज AI एजेंसी प्राइसिंग मैट्रिक्स
 #table(
   columns: (1fr, 1.8fr, 1.8fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*टियर*], [*सेवा का स्वरूप*], [*क्लाइंट को व्यावसायिक लाभ*], [*मानक शुल्क*]),
   [टियर 1: वेब बॉट], [वेबसाइट विजेट + FAQ सिंक।], [60% बेसिक टिकट्स समाप्त।], [₹35,000 – ₹50,000],

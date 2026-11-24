@@ -61,8 +61,8 @@ When enterprise networks fail, ad-hoc guessing causes prolonged downtime. The Ci
 == 15.3 Essential Production Troubleshooting Commands Matrix
 #table(
   columns: (1.5fr, 4.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Triage Objective*], [*Primary Cisco IOS Verification Command*]),
   [Interface IP & Physical Link State], [`Router# show ip interface brief`],

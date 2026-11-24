@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फॉर्मूला सिंटैक्स*], [*गणना नियम एवं व्यवहार*], [*कॉर्पोरेट उपयोग*]),
   [`=SUM(range)`], [रेंज के सभी संख्यात्मक मानों को जोड़ता है।], [टेक्स्ट और खाली सेलों को स्वतः छोड़ देता है।],
@@ -36,8 +36,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फंक्शन*], [*गणना कसौटी*], [*टेक्स्ट, दिनांक, बूलियन व खाली सेलों पर व्यवहार*]),
   [`=COUNT(A1:A10)`], [केवल NUMERIC (संख्या) मान गिनता है।], [संख्याओं और तारीखों को गिनता है। टेक्स्ट, एरर्स और खाली सेलों को छोड़ देता है।],
@@ -57,8 +57,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फॉर्मूला सिंटैक्स*], [*राउंडिंग तर्क*], [*गणना उदाहरण (इनपुट: 145.678)*]),
   [`=ROUND(num, 2)`], [मानक 5/4 गणितीय राउंडिंग।], [`=ROUND(145.678, 2)` का उत्तर `145.68` होगा। तीसरा अंक < 5 होने पर नीचे झुकेगा।],
@@ -96,8 +96,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*कार्य*], [*साधारण कोड (छिपे मान शामिल)*], [*100-सीरीज कोड (छिपे मान छोड़कर)*], [*कॉर्पोरेट उत्पादन व्यवहार*]),
   [AVERAGE], [`1`], [`101`], [केवल दृश्यमान (Visible) पंक्तियों का औसत निकालता है।],
@@ -126,8 +126,8 @@
 
 #table(
   columns: (1fr, 2.2fr, 1.1fr, 1.1fr, 1.1fr, 1.3fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*रोल नं*], [*विद्यार्थी का नाम*], [*गणित (C)*], [*विज्ञान (D)*], [*अंग्रेजी (E)*], [*कुल योग (=SUM)*], [*रैंक (=RANK.EQ)*]),
   [101], [राहुल पटेल], [95], [92], [88], [275], [रैंक 1],

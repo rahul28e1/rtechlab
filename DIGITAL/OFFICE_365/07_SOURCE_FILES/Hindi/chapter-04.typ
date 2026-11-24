@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*निर्माण विधि*], [*कार्यात्मक विशेषताएं एवं लचीलापन*], [*कॉर्पोरेट उपयोग*]),
   [Interactive Grid], [ड्रॉपडाउन पैलेट पर 10 कॉलम x 8 पंक्तियों तक माउस ड्रैग करके बनाना।], [छोटी सारांश टेबल्स का त्वरित निर्माण।],
@@ -67,8 +67,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फॉर्मूला सिंटैक्स*], [*दिशात्मक तर्क (Argument)*], [*गणना परिणाम एवं कॉर्पोरेट उपयोग*]),
   [`=SUM(ABOVE)`], [Positional (`ABOVE`)], [कॉलम में वर्तमान सेल के ठीक ऊपर के सभी numeric मानों को जोड़ना।],
@@ -90,8 +90,8 @@
 
 #table(
   columns: (0.8fr, 2.5fr, 0.9fr, 1.1fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*क्र.*], [*हार्डवेयर उपकरण विवरण*], [*मात्रा*], [*इकाई दर*], [*कुल राशि*]),
   [01], [Dell PowerEdge R760 रैक सर्वर (2U, ड्यूल Xeon)], [02], [₹ 4,50,000], [₹ 9,00,000],

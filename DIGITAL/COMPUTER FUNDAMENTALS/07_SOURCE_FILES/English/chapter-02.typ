@@ -28,8 +28,8 @@ Input devices convert human physical actions or environmental phenomena into dig
 Biometric authentication captures unique physiological structures, requiring physical sensing mechanisms:
 #table(
   columns: (1fr, 1.4fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Biometric Modality*], [*Physical Sensing Technology*], [*Engineering Implementation & Spoofing Resistance*]),
   [Optical Fingerprint], [Photodiode array with TIR prism], [Illuminates finger with bright LEDs and captures 2D shadow patterns of friction ridges. Susceptible to 2D photographic silicone spoofs.],
@@ -44,8 +44,8 @@ Biometric authentication captures unique physiological structures, requiring phy
 Computer monitors translate GPU framebuffers into visible light through electronic pixel matrices:
 #table(
   columns: (1.1fr, 1.3fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Display Technology*], [*Light Generation Method*], [*Color Accuracy, Contrast & Response Characteristics*]),
   [In-Plane Switching (IPS)], [Edge/Direct LED backlight with parallel liquid crystals], [Exceptional color consistency and wide 178° viewing angles. Moderate contrast ratio ($1000:1$); standard for professional graphic design.],
@@ -86,8 +86,8 @@ Real-world physical signals (human speech, microphone voltages, temperature) are
 Physical connector form factors must never be conflated with the underlying data transmission protocols:
 #table(
   columns: (1.2fr, 1.3fr, 1fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.8pt,
   table.header([*Bus Standard*], [*Raw Signaling Rate*], [*Payload Throughput*], [*Encoding Overhead & Operational Features*]),
   [USB 2.0 (HighSpeed)], [480 Mbps], [~40 MB/s], [NRZI encoding with bit-stuffing; half-duplex single differential pair. Standard legacy peripheral interface.],

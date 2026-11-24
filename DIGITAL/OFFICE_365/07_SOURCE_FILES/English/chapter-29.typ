@@ -32,8 +32,8 @@ When 20 analysts work simultaneously inside the same financial workbook:
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Sharing Dimension*], [*Legacy Corporate Practice*], [*2027 Microsoft 365 Cloud Standard*]),
   [File Distribution], [Emailing `Budget_Final_v2_Rahul_Edit.xlsx`.], [Single immutable cloud link with real-time live editing.],
@@ -97,8 +97,8 @@ Below is the standard cross-functional co-authoring architecture for an annual v
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Department*], [*Assigned Section*], [*Cloud Permission & Security Configuration*]),
   [Legal & Compliance], [Terms & Indemnity], [Permission: `Can Edit`, Sensitivity Label: `Confidential`, Track Changes Enforced.],

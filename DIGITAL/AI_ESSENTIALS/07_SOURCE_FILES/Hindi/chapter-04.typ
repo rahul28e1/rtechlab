@@ -31,8 +31,8 @@ $ (partial L) / (partial w_(i j)) = (partial L) / (partial hat(y)) dot (partial 
 
 #table(
   columns: (1.2fr, 1.8fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*मॉडल / वर्ष*], [*आर्किटेक्चर नवाचार*], [*इमेजनेट टॉप-5 त्रुटि*], [*हार्डवेयर एवं कम्प्यूट प्लेटफॉर्म*]),
   [पारंपरिक CV (2010)], [SIFT फीचर्स + सपोर्ट वेक्टर मशीन (SVM)], [28.2% एरर दर], [पारंपरिक इंटेल मल्टी-कोर CPUs],
@@ -58,8 +58,8 @@ $ (partial L) / (partial w_(i j)) = (partial L) / (partial hat(y)) dot (partial 
 == 4.5 AlexNet का आर्किटेक्चर एवं आधुनिक GPU ट्रेनिंग
 #table(
   columns: (1.2fr, 2fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*घटक*], [*AlexNet (2012)*], [*आधुनिक ResNet / ViT (2027)*]),
   [कनवोल्यूशन], [11x11, 5x5 बड़े कर्नल्स], [लगातार 3x3 छोटे कर्नल्स या 16x16 पैच],

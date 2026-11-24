@@ -24,8 +24,8 @@ OSPFv2 (RFC 2328) is an open-standard #hl[Link-State Dynamic Routing Protocol] w
 To form an adjacency and exchange routing information, OSPF neighbors transition through 7 states:
 #table(
   columns: (1.2fr, 4.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Neighbor State*], [*Operational Milestone & Exchange Protocol*]),
   [`Down`], [No OSPF Hello packets received from the neighbor.],
@@ -73,8 +73,8 @@ $ "Cost" = "Reference Bandwidth" / "Interface Bandwidth" = 10^8 / "Bandwidth (in
 == 12.5 The Five Primary OSPF LSA Types
 #table(
   columns: (1fr, 1.4fr, 1.3fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*LSA Type*], [*LSA Name*], [*Originating Router*], [*Flooding Boundary & Scope*]),
   [Type 1], [Router LSA], [Every internal router], [Flooded only within the originating area.],

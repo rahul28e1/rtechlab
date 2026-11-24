@@ -27,8 +27,8 @@ Financial analysts must adhere strictly to corporate accounting presentation sta
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Feature / Behavior*], [*Currency Format (`$#,##0.00`)*], [Accounting Format (`_($* #,##0.00_)*`)]),
   [Currency Symbol Placement], [Floats immediately adjacent to number (e.g., `₹540.00`)], [Flush against the far-left cell border in a neat column],
@@ -64,8 +64,8 @@ Syntax Structure:
 
 #table(
   columns: (1.2fr, 2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Enterprise Token*], [*Format Code Specimen*], [*Rendered Screen Output & Enterprise Behavior*]),
   [Indian Currency & Colors], [`[Green]₹#,##,##0;[Red](₹#,##,##0);"-";@`], [Positives in Green; Negatives in Red parentheses; Zeros as dash.],
@@ -85,8 +85,8 @@ Introduced to eliminate tedious string concatenation formulas, *Flash Fill* (`Da
 
 #table(
   columns: (1.8fr, 1.8fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Raw Input Data (Col A)*], [*Trained Target (Col B1)*], [*Flash Fill Output on Ctrl + E (Col B2:B)*]),
   [rahul.patel\@rtechlab.com], [Rahul Patel], [Extracts clean Proper Case First & Last names.],

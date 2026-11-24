@@ -22,7 +22,7 @@
 
 #table(
   columns: (1fr, 1.1fr, 1.2fr, 1.1fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*पदानुक्रम स्तर*], [*विशिष्ट तकनीक*], [*सामान्य क्षमता*], [*एक्सेस लेटेंसी*], [*प्रति GB अनुमानित लागत व कार्य*]),
@@ -40,7 +40,7 @@
 == 3.2 प्राथमिक मेमोरी सेल फिजिक्स: SRAM बनाम DRAM
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*इंजीनियरिंग विशेषता*], [*SRAM (Static RAM)*], [*DRAM (Dynamic RAM)*]),
@@ -76,7 +76,7 @@
 == 3.4 आधुनिक RAM मानक: DDR4 बनाम DDR5 बनाम LPDDR5X
 #table(
   columns: (1fr, 1.1fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*तकनीकी विनिर्देश*], [*DDR4 (परिपक्व मानक)*], [*DDR5 (मुख्यधारा 2027)*], [*LPDDR5X (अल्ट्राथिन व AI SoCs)*]),
@@ -99,7 +99,7 @@
 == 3.5 ROM (Read-Only Memory) के प्रकार एवं फर्मवेयर बूट
 #table(
   columns: (1fr, 1.3fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*ROM प्रकार*], [*प्रोग्रामिंग विधि*], [*डेटा मिटाने की तकनीक*], [*आधुनिक स्थिति एवं अनुप्रयोग*]),
@@ -122,7 +122,7 @@
 
 #table(
   columns: (1.1fr, 1.4fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*इंजीनियरिंग मापदंड*], [*मैकेनिकल हार्ड डिस्क (HDD)*], [*PCIe 5.0 M.2 NVMe SSD*]),
@@ -148,7 +148,7 @@
 == 3.7 स्टोरेज क्षमता इकाइयाँ: SI प्रिफिक्स बनाम बाइनरी IEC प्रिफिक्स
 #table(
   columns: (1fr, 1.1fr, 1fr, 1.1fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*SI मानक इकाई*], [*SI बाइट मान*], [*IEC बाइनरी इकाई*], [*IEC बाइट मान*], [*तकनीकी महत्व एवं उद्योग उपयोग*]),

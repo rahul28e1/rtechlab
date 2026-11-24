@@ -22,8 +22,8 @@
 == 14.2 स्टैंडर्ड बनाम एक्सटेंडेड ACLs एवं प्लेसमेंट नियम
 #table(
   columns: (1.3fr, 1.4fr, 1.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*ACL श्रेणी*], [*संख्यात्मक रेंज*], [*फिल्टरिंग मानदंड*], [*स्वर्ण प्लेसमेंट नियम*]),
   [स्टैंडर्ड ACL], [1 – 99 एवं 1300 – 1999], [केवल #hl[सोर्स IP एड्रेस] पर फिल्टर करता है], [#hl[गंतव्य (Destination) के निकटतम] लगाएं ताकि अन्य वैध ट्रैफिक गलती से न रुके।],

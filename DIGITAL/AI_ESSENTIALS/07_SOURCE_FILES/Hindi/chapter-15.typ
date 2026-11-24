@@ -15,8 +15,8 @@ $ "Attention"(Q, K, V) = "softmax"((Q K^T) / (sqrt(d_k))) V $
 
 #table(
   columns: (1fr, 2.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*प्रतीक*], [*मैट्रिक्स डायमेंशन*], [*वास्तुकला व्याख्या एवं भूमिका*]),
   [$Q$ (क्वेरी)], [$N times d_k$], [वर्तमान टोकन क्या खोज रहा है? इनपुट एम्बेडिंग को $W^Q$ से गुणा करके प्राप्त।],

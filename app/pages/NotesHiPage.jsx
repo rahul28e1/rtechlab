@@ -1,9 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import { WhatsAppCommunityCard } from '../components/WhatsAppCommunityCard';
 
-// ── 4 आधिकारिक RTECHLAB विषय (सटीक क्रम एवं वास्तविक पेज संख्या) ────────
+// ── 6 आधिकारिक RTECHLAB विषय (सटीक क्रम एवं वास्तविक पेज संख्या) ────────
 const SUBJECTS_HI = [
+  {
+    id: 'server2025',
+    title: 'माइक्रोसॉफ्ट विंडोज सर्वर 2025 एवं एक्टिव डायरेक्टरी प्रशासन',
+    subtitle: 'AD DS, GPO, DNS, DHCP, हॉटपैचिंग, 32KB AD DB और हाइब्रिड क्लाउड एडमिनिस्ट्रेशन',
+    desc: 'जीरो से प्रोडक्शन एंटरप्राइज प्रशासन: क्लाइंट-सर्वर आर्किटेक्चर, एक्टिव डायरेक्टरी (AD DS), ग्रुप पॉलिसी (GPO), एंटरप्राइज DNS व DHCP, IIS वेब सर्वर, FSRM रैंसमवेयर प्रोटेक्शन, सर्वर 2025 फ्लैगशिप हॉटपैचिंग व SMB over QUIC, टॉप 50 MNC सिसएडमिन इंटरव्यू वॉल्ट एवं ₹18 LPA करियर ब्लूप्रिंट।',
+    pages: '60 पेजेस मास्टर गाइड',
+    bundlePages: '140 पेजेस सम्पूर्ण करियर सूट',
+    tag: 'एंटरप्राइज फ्लैगशिप · एडिशन 1 (2027)',
+    accent: 'sky',
+    badge: '🔥 2027 फ्लैगशिप',
+    badgeSub: 'क्लाउड व सिसएडमिन ट्रैक (₹3.5L–₹18L+)',
+    previewPdfEn: '/downloads/Windows-Server-2025-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/Windows-Server-2025-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Windows-Server-2025-Gujarati-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/Windows-Server-2025-English-Master-Guide.pdf',
+    fullPdfHi: '/downloads/Windows-Server-2025-Hindi-Master-Guide.pdf',
+    fullPdfGu: '/downloads/Windows-Server-2025-Gujarati-Master-Guide.pdf',
+    bundleZip: '/downloads/Windows-Server-2025-Career-Accelerator-Bundle.zip',
+    bundleZipSize: '17.3 MB',
+    bundleItems: [
+      { name: 'विंडोज सर्वर 2025 कोर मास्टर गाइड (हिंदी)', pages: '60 पेजेस', file: 'Windows-Server-2025-Hindi-Master-Guide.pdf', badge: 'मुख्य हिंदी गाइड' },
+      { name: 'विंडोज सर्वर 2025 कोर मास्टर गाइड (English)', pages: '60 पेजेस', file: 'Windows-Server-2025-English-Master-Guide.pdf', badge: 'English Edition' },
+      { name: 'विंडोज सर्वर 2025 कोर मास्टर गाइड (ગુજરાતી)', pages: '60 पेजेस', file: 'Windows-Server-2025-Gujarati-Master-Guide.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
+      { name: 'टॉप 50 MNC सिस्टम्स एडमिनिस्ट्रेटर इंटरव्यू वॉल्ट', pages: '10 पेजेस', file: 'Windows-Server-2025-Top-50-MNC-Interview-Vault.pdf', badge: 'इंटरव्यू वॉल्ट' },
+      { name: '12 हैंड्स-ऑन एंटरप्राइज लैब्स व पॉवरशेल वर्कबुक', pages: '7 पेजेस', file: 'Windows-Server-2025-Practice-Set-and-Lab-Workbook.pdf', badge: 'लैब वर्कबुक' },
+      { name: 'सिसएडमिन से क्लाउड आर्किटेक्ट करियर व सैलरी ब्लूप्रिंट', pages: '3 पेजेस', file: 'Windows-Server-2025-System-Admin-Career-and-Salary-Blueprint.pdf', badge: 'सैलरी ब्लूप्रिंट' },
+      { name: '1-क्लिक मास्टर ZIP ऑफलाइन बंडल', pages: 'सभी 6 डिलीवरेबल्स', file: 'Windows-Server-2025-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+    ],
+    topics: [
+      'अध्याय 01-03: सर्वर आर्किटेक्चर, हार्डवेयर साइजिंग, वर्चुअलाइजेशन व सर्वर 2025 इंस्टॉलेशन',
+      'अध्याय 04-06: एक्टिव डायरेक्टरी (AD DS), फॉरेस्ट/डोमेन टोपोलॉजी, 5 FSMO रोल्स व डोमेन जॉइन',
+      'अध्याय 07-08: ग्रुप पॉलिसी (GPO) आर्किटेक्चर, USB लॉकडाउन व एंटरप्राइज DNS/DHCP',
+      'अध्याय 09-11: फाइल सर्विसेज व FSRM रैंसमवेयर प्रोटेक्शन, IIS 10.x SSL सर्वर व Hyper-V',
+      'अध्याय 12-14: सर्वर 2025 हॉटपैचिंग, SMB over QUIC, डिजास्टर रिकवरी, बैकअप व करियर रोडमैप',
+    ],
+  },
   {
     id: 'ai',
     title: 'आर्टिफिशियल इंटेलिजेंस (AI) मास्टर गाइड',
@@ -17,8 +53,10 @@ const SUBJECTS_HI = [
     badgeSub: 'हाई CTC करियर ट्रैक (₹6L–₹22L+)',
     previewPdfEn: '/downloads/AI-Essentials-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/AI-Essentials-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/AI-Essentials-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/AI-Essentials-English-Edition-1.pdf',
     fullPdfHi: '/downloads/AI-Essentials-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/AI-Essentials-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/AI-Career-Accelerator-Bundle.zip',
     bundleZipSize: '6.4 MB',
     bundleItems: [
@@ -49,18 +87,22 @@ const SUBJECTS_HI = [
     badgeSub: 'कॉर्पोरेट MIS स्टैंडर्ड (₹3.5L–₹9.5L)',
     previewPdfEn: '/downloads/Office-365-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/Office-365-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Office-365-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/Office-365-English-Edition-1.pdf',
     fullPdfHi: '/downloads/Office-365-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/Office-365-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/Office-365-Career-Accelerator-Bundle.zip',
-    bundleZipSize: '13.7 MB',
+    bundleZipSize: '16.7 MB',
     bundleItems: [
       { name: 'ऑफिस 365 एंटरप्राइज मास्टर गाइड (हिंदी)', pages: '113 पेजेस', file: 'Office-365-Hindi-Edition-1.pdf', badge: 'मुख्य हिंदी गाइड' },
       { name: 'ऑफिस 365 एंटरप्राइज मास्टर गाइड (अंग्रेज़ी)', pages: '113 पेजेस', file: 'Office-365-English-Edition-1.pdf', badge: 'English Edition' },
+      { name: 'ऑफिस 365 एंटरप्राइज मास्टर गाइड (ગુજરાતી)', pages: '113 पेजेस', file: 'Office-365-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
       { name: 'शीर्ष 100 शॉर्टकट्स व 50 MIS इंटरव्यू वॉल्ट (हिंदी)', pages: '9 पेजेस', file: 'Office-365-Top-100-Shortcuts-and-50-MIS-Interview-Vault-Hindi.pdf', badge: 'हिंदी वॉल्ट' },
       { name: 'शीर्ष 100 शॉर्टकट्स व 50 MIS इंटरव्यू वॉल्ट (अंग्रेज़ी)', pages: '9 पेजेस', file: 'Office-365-Top-100-Shortcuts-and-50-MIS-Interview-Vault-English.pdf', badge: 'English Vault' },
       { name: 'प्रैक्टिकल एक्सेल टेम्पलेट्स व फॉर्मूला वर्कबुक', pages: '16 पेजेस', file: 'Office-365-Practical-Excel-Templates-Workbook-Guide.pdf', badge: 'प्रैक्टिकल लैब्स' },
+      { name: 'वर्ड व एक्सेल हैंड्स-ऑन प्रैक्टिस टेम्पलेट्स (.docx व .xlsx)', pages: '6 रेडी फाइल्स', file: 'Office-365-Practice-Templates-and-Lab-Files.zip', badge: 'हैंड्स-ऑन फाइल्स' },
       { name: 'MIS एग्जीक्यूटिव करियर, सैलरी ब्लूप्रिंट व रोडमैप', pages: '12 पेजेस', file: 'Office-365-MIS-Career-and-Salary-Blueprint-Edition-1.pdf', badge: 'सैलरी ब्लूप्रिंट' },
-      { name: '1-क्लिक मास्टर ZIP ऑफलाइन बंडल', pages: 'सभी 6 PDFs', file: 'Office-365-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+      { name: '1-क्लिक मास्टर ZIP ऑफलाइन बंडल', pages: 'सभी PDFs + लैब फाइल्स', file: 'Office-365-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
     ],
     topics: [
       'अध्याय 01-03: वर्ड 365 कॉर्पोरेट आर्किटेक्चर, मेल मर्ज व लीगल ड्राफ्टिंग',
@@ -83,8 +125,10 @@ const SUBJECTS_HI = [
     badgeSub: 'सिलिकॉन आर्किटेक्चर (₹3.2L–₹7.5L)',
     previewPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Computer-Fundamentals-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1.pdf',
     fullPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/Computer-Fundamentals-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip',
     bundleZipSize: '30 MB',
     bundleItems: [
@@ -154,8 +198,10 @@ const SUBJECTS_HI = [
     badgeSub: 'नेटवर्क इंजीनियरिंग प्रो (₹4.5L–₹14L+)',
     previewPdfEn: '/downloads/CCNA-200-301-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/CCNA-200-301-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/CCNA-200-301-English-Edition-1.pdf',
     fullPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/CCNA-200-301-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip',
     bundleZipSize: '19.8 MB',
     bundleItems: [
@@ -178,8 +224,34 @@ const SUBJECTS_HI = [
 
 export function NotesHiPage() {
   const [selectedSubject, setSelectedSubject] = useState(SUBJECTS_HI[0]);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const carouselRef = useRef(null);
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
   const [modalSelectedPlan, setModalSelectedPlan] = useState('bundle');
+
+  const scrollToSlide = (index) => {
+    setActiveSlideIndex(index);
+    if (carouselRef.current) {
+      const card = carouselRef.current.children[index];
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+  };
+
+  const handleCarouselScroll = (e) => {
+    const el = e.currentTarget;
+    if (!el || !el.children || el.children.length === 0) return;
+    const cardWidth = el.children[0].offsetWidth || 300;
+    const scrollLeft = el.scrollLeft;
+    const newIndex = Math.min(
+      SUBJECTS_HI.length - 1,
+      Math.max(0, Math.round(scrollLeft / (cardWidth + 16)))
+    );
+    if (newIndex !== activeSlideIndex) {
+      setActiveSlideIndex(newIndex);
+    }
+  };
 
   const handleOpenPurchaseModal = (sub, defaultPlan = 'bundle') => {
     setSelectedSubject(sub);
@@ -200,17 +272,88 @@ export function NotesHiPage() {
           <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-2">
             आधिकारिक मास्टर डिजिटल नोट्स
           </h1>
-          <p className="text-[#86868B] text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#86868B] text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-5">
             अनुसंधान-सत्यापित, उच्च-गुणवत्ता वाले इंजीनियरिंग हैंडबुक्स। कोर थ्योरी गाइड केवल <strong className="text-white">₹49</strong> में, या सम्पूर्ण <strong className="text-emerald-400">₹149 करियर एक्सेलेरेटर सूट</strong> (+MNC इंटरव्यू वॉल्ट, लैब्स व सैलरी ब्लूप्रिंट)।
           </p>
+
+          {/* Quick-Jump Navigation & Interactive Subject Switcher */}
+          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
+            <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">ट्रैक चुनें:</span>
+            {SUBJECTS_HI.map((s, idx) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => scrollToSlide(idx)}
+                className={`px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all active:scale-95 flex items-center gap-1.5 cursor-pointer ${
+                  activeSlideIndex === idx
+                    ? 'bg-emerald-500 text-black font-bold shadow-lg shadow-emerald-500/20'
+                    : 'bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-white/80 hover:text-white'
+                }`}
+              >
+                <span>{s.id === 'server2025' ? '⚡ सर्वर 2025' : s.id === 'ai' ? '🤖 AI मास्टर' : s.id === 'office-365' ? '📊 ऑफिस 365' : s.id === 'fundamentals' ? '💻 फंडामेंटल्स' : s.id === 'tally' ? '📈 टैली प्राइम' : '🌐 CCNA'}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* 5 Official Tracks */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 mb-14">
+        {/* Mobile Swipe Navigation & Track Counter (Visible on mobile only: md:hidden) */}
+        <div className="flex items-center justify-between px-1 mb-3.5 md:hidden">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-mono text-[#86868B]">
+              ट्रैक <strong className="text-emerald-400 font-bold">{activeSlideIndex + 1}</strong> of {SUBJECTS_HI.length}
+            </span>
+            <span className="text-[10px] font-mono text-emerald-400/80 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+              👈 स्वाइप करें 👉
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <button
+              type="button"
+              onClick={() => scrollToSlide(Math.max(0, activeSlideIndex - 1))}
+              disabled={activeSlideIndex === 0}
+              className={`w-7 h-7 rounded-lg border text-xs flex items-center justify-center transition-all ${
+                activeSlideIndex === 0 ? 'border-white/5 text-white/20' : 'border-white/15 text-white bg-white/[0.06] active:scale-95'
+              }`}
+              aria-label="Previous note"
+            >
+              ‹
+            </button>
+            <div className="flex items-center gap-1 px-1">
+              {SUBJECTS_HI.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => scrollToSlide(i)}
+                  className={`h-1.5 rounded-full transition-all ${activeSlideIndex === i ? 'w-4 bg-emerald-400' : 'w-1.5 bg-white/20'}`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => scrollToSlide(Math.min(SUBJECTS_HI.length - 1, activeSlideIndex + 1))}
+              disabled={activeSlideIndex === SUBJECTS_HI.length - 1}
+              className={`w-7 h-7 rounded-lg border text-xs flex items-center justify-center transition-all ${
+                activeSlideIndex === SUBJECTS_HI.length - 1 ? 'border-white/5 text-white/20' : 'border-white/15 text-white bg-white/[0.06] active:scale-95'
+              }`}
+              aria-label="Next note"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+
+        {/* 6 Official Tracks */}
+        <div
+          ref={carouselRef}
+          onScroll={handleCarouselScroll}
+          className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-4 md:pb-0 px-2 sm:px-0 -mx-3 sm:mx-0 touch-pan-x"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
           {SUBJECTS_HI.map((sub, index) => (
             <div
               key={sub.id}
-              className="relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-xl"
+              className="relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-xl shrink-0 w-[86vw] sm:w-[360px] md:w-auto snap-center md:snap-align-none"
             >
               <div className="absolute top-3 left-4 text-[10px] font-mono text-white/30 font-bold">
                 #{index + 1}
@@ -268,6 +411,26 @@ export function NotesHiPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Bottom Indicator & Slide Dots (md:hidden) */}
+        <div className="flex md:hidden flex-col items-center justify-center gap-2 mb-10 -mt-4">
+          <div className="flex items-center gap-1.5 bg-black/60 px-3 py-1.5 rounded-full border border-white/10 shadow-lg">
+            {SUBJECTS_HI.map((s, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => scrollToSlide(i)}
+                className={`h-2 rounded-full transition-all ${
+                  activeSlideIndex === i ? 'w-6 bg-emerald-400' : 'w-2 bg-white/20 hover:bg-white/40'
+                }`}
+                aria-label={`Go to ${s.title}`}
+              />
+            ))}
+          </div>
+          <p className="text-[10px] font-mono text-[#86868B]">
+            कार्ड्स को उंगली से बाएँ-दाएँ स्वाइप करें या ऊपर विषय चुनें
+          </p>
         </div>
 
         {/* Official WhatsApp Community Card */}

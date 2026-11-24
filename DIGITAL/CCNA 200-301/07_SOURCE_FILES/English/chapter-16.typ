@@ -23,8 +23,8 @@ Technical hiring managers at Cisco TAC, TCS, Infosys, Wipro, HCL, and global NOC
 == 16.2 Top 60 MNC Technical Screening Questions & Architect Answers
 #table(
   columns: (0.7fr, 2.3fr, 3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*No.*], [*MNC Technical Interview Question*], [*Senior Network Architect Model Answer*]),
   [Q01], [What is the difference between Collision Domain and Broadcast Domain?], [A collision domain is a physical network segment where frame collisions can occur (broken per switch port). A broadcast domain is the scope of a broadcast frame (broken by routers and VLANs).],

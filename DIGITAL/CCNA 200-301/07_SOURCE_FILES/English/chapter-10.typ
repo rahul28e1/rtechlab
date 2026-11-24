@@ -65,8 +65,8 @@ Router(config-subif)# ip address 192.168.99.1 255.255.255.0
 In enterprise campus cores, ROAS creates a bottleneck because all inter-VLAN traffic must travel up and down a single physical cable. #hl[Multilayer Switches (MLS)] route packets internally in silicon hardware via Switch Virtual Interfaces (SVIs) at wire speed:
 #table(
   columns: (1.5fr, 2.2fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Feature / Metric*], [*Router-on-a-Stick (ROAS)*], [*Layer 3 Switch SVI Routing*]),
   [Throughput & Speed], [Bottlenecked by single router link (1 Gbps)], [Hardware ASIC routing at line rate (10G/40G/100G)],

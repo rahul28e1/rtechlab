@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*नियम श्रेणी*], [*ट्रिगर करने का तार्किक नियम*], [*कॉर्पोरेट डैशबोर्ड उपयोग*]),
   [Highlight Cells Rules], [Greater Than, Less Than, Between, अथवा Equal To की जांच।], [बकाया भुगतानों अथवा 35 से कम अंक वाले छात्रों को लाल रंग से रंगना।],
@@ -114,8 +114,8 @@
 
 #table(
   columns: (1fr, 2fr, 1.2fr, 1.3fr, 1.2fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*ID*], [*कर्मचारी का नाम*], [*बिक्री लक्ष्य*], [*वास्तविक बिक्री*], [*उपलब्धि %*], [*KPI विजुअल स्थिति*]),
   [EMP-01], [राहुल पटेल], [₹ 50,00,000], [₹ 62,50,000], [125%], [हरा आइकन (लक्ष्य से अधिक)],

@@ -22,7 +22,7 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.3fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*सॉफ्टवेयर वर्ग*], [*प्राथमिक उद्देश्य*], [*विशिष्ट उदाहरण*], [*हार्डवेयर इंटरैक्शन स्तर*]),
@@ -48,7 +48,7 @@
 == 6.2 लैंग्वेज ट्रांसलेटर्स: कंपाइलर्स, इंटरप्रेटर्स एवं JIT
 #table(
   columns: (1.1fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*ट्रांसलेटर प्रकार*], [*निष्पादन रणनीति एवं कार्यप्रणाली*], [*लाभ, कमियां एवं प्रतिनिधि भाषाएँ*]),
@@ -62,7 +62,7 @@
 == 6.3 4-चरणीय C/C++ कम्पाइलेशन एवं बिल्ड पाइपलाइन
 #table(
   columns: (0.8fr, 1.2fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*स्टेज*], [*पाइपलाइन चरण*], [*कमांड / आंतरिक टूल*], [*आउटपुट फाइल एवं कार्य*]),
@@ -115,7 +115,7 @@
 
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*वर्चुअलाइजेशन स्तर*], [*संरचनात्मक आर्किटेक्चर*], [*विशिष्ट टूल्स, प्रदर्शन एवं उपयोग*]),
@@ -129,7 +129,7 @@
 == 6.6 क्लाउड सर्विस मॉडल्स: IaaS बनाम PaaS बनाम SaaS
 #table(
   columns: (1fr, 1.3fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*क्लाउड मॉडल*], [*उपभोक्ता क्या प्रबंधित करता है*], [*क्लाउड प्रदाता क्या प्रबंधित करता है*], [*विशिष्ट उद्योग उदाहरण*]),

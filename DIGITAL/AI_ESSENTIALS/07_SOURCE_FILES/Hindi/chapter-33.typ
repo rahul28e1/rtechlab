@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*डोमेन*], [*अनिवार्य कोर कीवर्ड्स (ATS ट्रिगर्स)*], [*रेज़्यूमे में व्यावहारिक वाक्य उदाहरण*]),
   [LLMs & GenAI], [LangChain, LlamaIndex, RAG, Hybrid Search, BM25, Cohere Rerank, Embeddings, Tokenizer], ["LangChain और ChromaDB से 250,000 आंतरिक फाइलों पर RAG पाइपलाइन बनाई, जिससे 99.4% सटीकता मिली।"],

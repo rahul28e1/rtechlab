@@ -27,8 +27,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*विशेषता / व्यवहार*], [*करेंसी फॉर्मेट (`$#,##0.00`)*], [अकाउंटिंग फॉर्मेट (`_($* #,##0.00_)*`)]),
   [मुद्रा चिन्ह का स्थान], [संख्या से बिल्कुल सटकर आता है (जैसे `₹540.00`)], [सेल के बिल्कुल बाएं किनारे पर एक सीध में आता है],
@@ -64,8 +64,8 @@
 
 #table(
   columns: (1.2fr, 2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*एंटरप्राइज कोड*], [*फॉर्मेट कोड उदाहरण*], [*स्क्रीन पर परिणाम एवं कॉर्पोरेट व्यवहार*]),
   [भारतीय मुद्रा व रंग], [`[Green]₹#,##,##0;[Red](₹#,##,##0);"-";@`], [धनात्मक मान हरे रंग में; ऋणात्मक लाल कोष्ठक में; शून्य डैश में।],
@@ -85,8 +85,8 @@
 
 #table(
   columns: (1.8fr, 1.8fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*कच्चा इनपुट डेटा (कॉलम A)*], [*पहला नमूना (कॉलम B1)*], [*Ctrl + E दबाने पर स्वतः परिणाम (B2:B)*]),
   [rahul.patel\@rtechlab.com], [Rahul Patel], [ईमेल से प्रथम व अंतिम नाम निकालकर प्रॉपर केस में लिखना।],

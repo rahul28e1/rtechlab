@@ -24,8 +24,8 @@
 == 5.2 राउटर के चार प्राथमिक मेमोरी प्रकार
 #table(
   columns: (1.1fr, 1.3fr, 3.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*मेमोरी प्रकार*], [*प्रकृति एवं वोलेटिलिटी*], [*प्राथमिक सामग्री एवं आर्किटेक्चरल उद्देश्य*]),
   [ROM (Read-Only Memory)], [नॉन-वोलेटाइल (स्थायी)], [फैक्ट्री माइक्रोकोड: POST डायग्नोस्टिक्स, बूटस्ट्रैप लोडर प्रोग्राम, मिनी-IOS (RxBoot), और ROMMON (इमरजेंसी मेंटेनेंस मोड)।],
@@ -82,8 +82,8 @@
 कॉन्फ़िगरेशन रजिस्टर NVRAM में स्थित 16-बिट का सॉफ्टवेयर रजिस्टर है जो राउटर के बूट व्यवहार को नियंत्रित करता है:
 #table(
   columns: (1.2fr, 1.2fr, 3.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*रजिस्टर मान*], [*बूट फील्ड बिट्स*], [*परिचालन व्यवहार एवं डायग्नोस्टिक उपयोग*]),
   [`0x2102`], [बिट 6 = 0, बिट्स 0-3 = 2], [सामान्य प्रोडक्शन परिचालन। फ्लैश से IOS लोड करता है और NVRAM से `startup-config` पढ़ता है। डिफ़ॉल्ट कंसोल 9600 बॉड।],

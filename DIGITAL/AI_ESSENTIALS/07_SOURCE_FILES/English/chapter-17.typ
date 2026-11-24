@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.7fr, 2fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Training Stage*], [*Data Volume & Compute*], [*Mathematical Objective*], [*Primary Output Model*]),
   [1. Pre-Training], [10–20 Trillion tokens; 10,000+ H100 GPUs for months (\$50M+).], [Next-token cross-entropy loss: $cal(L) = - sum log P(w_t | w_(<t))$], [Base Foundation Model (e.g. Llama-3-Base)],
@@ -36,8 +36,8 @@ $ W = W_0 + Delta W = W_0 + B times A, quad "where" quad B in RR^(d times r), A 
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Fine-Tuning Method*], [*Trainable Parameter Footprint*], [*Hardware Requirement*]),
   [Full Parameter Tuning], [100% of weights (70 Billion parameters).], [8x NVIDIA H100 80GB GPUs (\$250,000 cluster)],
@@ -52,8 +52,8 @@ Aligning models with human preferences historically required Proximal Policy Opt
 
 #table(
   columns: (1.2fr, 2.2fr, 2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Metric*], [*PPO (Reinforcement Learning)*], [*DPO (Direct Optimization)*], [*Enterprise Choice*]),
   [Reward Model], [Requires training standalone reward network.], [Implicitly formulated inside policy loss.], [DPO (Simpler)],

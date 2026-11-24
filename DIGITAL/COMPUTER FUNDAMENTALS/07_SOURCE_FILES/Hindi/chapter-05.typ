@@ -22,8 +22,8 @@
 
 #table(
   columns: (1fr, 0.9fr, 1.3fr, 1.2fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*संख्या प्रणाली*], [*रेडिक्स (आधार)*], [*प्रयुक्त प्रतीक / अंक*], [*भार सूत्र (स्थान मान)*], [*प्राथमिक कम्प्यूटेशनल उपयोग*]),
   [बाइनरी (Binary)], [आधार 2], [0, 1], [$dots, 2^3, 2^2, 2^1, 2^0$], [डिजिटल सर्किट लॉजिक, मेमोरी सेल्स, CPU रजिस्टर्स।],
@@ -39,13 +39,13 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[1. दशमलव से बाइनरी / ऑक्टल / हेक्स:]\
       #text(size: 7.5pt, fill: rtech-text)[लगातार लक्षित आधार (2, 8, या 16) से भाग दें। शेषफलों (Remainders) को नीचे से ऊपर (नीचे वाला MSB, ऊपर वाला LSB) की ओर लिखें।      *उदा:* $25 div 2 = 12$ (शेष 1), $12 div 2 = 6$ (शेष 0), $6 div 2 = 3$ (शेष 0), $3 div 2 = 1$ (शेष 1), $1 div 2 = 0$ (शेष 1) $arrow.r$ $25_10 = 11001_2$]
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[2. त्वरित बाइनरी $arrow.l.r$ हेक्स/ऑक्टल ग्रुपिंग:]\
       #text(size: 7.5pt, fill: rtech-text)[- *बाइनरी से हेक्स:* दाईं ओर से 4-4 बिट्स के समूह बनाएं ($2^4 = 16$) और सीधे 0--F में लिखें।      *उदा:* $11011010_2 = (1101)_2 (1010)_2 = D A_16$      - *बाइनरी से ऑक्टल:* दाईं ओर से 3-3 बिट्स के समूह बनाएं ($2^3 = 8$)।      *उदा:* $11011010_2 = (011)_2 (011)_2 (010)_2 = 3 3 2_8$]
     ]
@@ -57,8 +57,8 @@
 == 5.3 कैरेक्टर एन्कोडिंग मानक: ASCII बनाम Unicode UTF-8
 #table(
   columns: (1.1fr, 1.1fr, 1.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*एन्कोडिंग मानक*], [*बिट चौड़ाई*], [*कुल समर्थित वर्ण*], [*इंजीनियरिंग विशेषता एवं भाषा समर्थन*]),
   [स्टैंडर्ड ASCII], [7-बिट (1 बाइट में)], [128 प्रतीक ($2^7$)], [मूल अंग्रेजी वर्णमाला (A-Z = 65-90, a-z = 97-122), अंक (0-9 = 48-57) व नियंत्रण कोड।],
@@ -95,8 +95,8 @@
 == 5.6 चिह्नांकित पूर्णांकों की रेंज एवं ओवरफ्लो (Overflow Detection)
 #table(
   columns: (1fr, 1.4fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*बिट आकार (n)*], [*अनसाइन्ड रेंज ($0 " से " 2^n - 1$)*], [*साइन्ड 2's Complement रेंज ($-2^(n-1) " से " 2^(n-1) - 1$)*]),
   [8-बिट बाइट], [0 से 255], [-128 से +127],
@@ -124,7 +124,7 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[बूलियन बीजगणित के मूल नियम:]\
       #text(size: 7.5pt, fill: rtech-text)[
         - पहचान नियम: $A + 0 = A, quad A dot 1 = A$        - शून्यक नियम: $A + 1 = 1, quad A dot 0 = 0$        - समघात नियम: $A + A = A, quad A dot A = A$        - प्रतिलोम नियम: $A + overline(A) = 1, quad A dot overline(A) = 0$        - द्वैध इनवर्जन: $overline(overline(A)) = A$
@@ -132,7 +132,7 @@
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[डी मॉर्गन के दो सार्वभौमिक प्रमेय:]\
       #text(size: 7.5pt, fill: rtech-text)[
         - #hl[प्रथम प्रमेय (NAND = Inverted OR):]          $overline(A dot B) = overline(A) + overline(B)$          (गुणा का पूरक पूरकों के योग के बराबर होता है)        - #hl[द्वितीय प्रमेय (NOR = Inverted AND):]          $overline(A + B) = overline(A) dot overline(B)$          (योग का पूरक पूरकों के गुणन के बराबर होता है)
@@ -146,8 +146,8 @@
 == 5.8 7 प्राथमिक लॉजिक गेट्स: समीकरण एवं ट्रुथ टेबल सारांश
 #table(
   columns: (1fr, 1.1fr, 1.3fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*गेट का नाम*], [*बूलियन समीकरण*], [*ट्रुथ टेबल व्यवहार*], [*इलेक्ट्रॉनिक सर्किट व्यवहार एवं कार्य*]),
   [NOT (Inverter)], [$Y = overline(A)$], [इनपुट 0 $arrow.r$ आउटपुट 1; इनपुट 1 $arrow.r$ 0], [एकल-इनपुट गेट; इनपुट बिट को उल्टा (Invert) करता है।],

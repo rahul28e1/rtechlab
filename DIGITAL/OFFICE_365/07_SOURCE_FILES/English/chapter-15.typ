@@ -31,8 +31,8 @@ Complex business policies rarely hinge on a single metric; they require compound
 
 #table(
   columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Operator*], [*Logical Evaluation Rule*], [*Enterprise Production Formula Specimen*]),
   [`AND`], [Returns `TRUE` strictly if *ALL* arguments are true.], [`=IF(AND(Attendance>=0.85, Marks>=75), "Honors", "Standard")`],
@@ -64,8 +64,8 @@ Modern IFS Syntax:
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Marks Range*], [*Grade Award*], [*Modern IFS Formula Snippet*]),
   [90% to 100%], [Grade A+ (Distinction)], [`E2 >= 90, "A+"`],
@@ -98,8 +98,8 @@ When formulas encounter invalid operations (e.g., division by zero or unmatched 
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Error Code*], [*Root Engineering Cause*], [*Enterprise Resolution / Defensive Trap*]),
   [`#DIV/0!`], [Formula attempts division by zero or an empty cell.], [Trap via `=IFERROR(Revenue / Units, 0)`.],
@@ -129,8 +129,8 @@ Below is the computational model for corporate employee tax slab deduction utili
 
 #table(
   columns: (1.2fr, 1.8fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Taxable Income Bracket*], [*Applicable Tax Rate*], [*Slab Base Tax*], [*Production Formula Segment*]),
   [Up to ₹ 3,00,000], [0% (Nil)], [₹ 0], [`Taxable_Income <= 300000, 0`],

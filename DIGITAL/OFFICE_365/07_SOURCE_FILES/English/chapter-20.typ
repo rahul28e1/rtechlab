@@ -15,8 +15,8 @@ Located on `Home > Styles > Conditional Formatting`, Excel provides pre-configur
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Rule Category*], [*Algorithmic Trigger Logic*], [*Enterprise Dashboard Application*]),
   [Highlight Cells Rules], [Evaluates Greater Than, Less Than, Between, or Equal To.], [Flagging overdue payments or student marks below 35 in soft red.],
@@ -114,8 +114,8 @@ Below is a verified production scorecard featuring Data Bars, Traffic Icons, and
 
 #table(
   columns: (1fr, 2fr, 1.2fr, 1.3fr, 1.2fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Emp ID*], [*Employee Name*], [*Sales Target*], [*Actual Sales*], [*Achievement*], [*KPI Visual Status*]),
   [EMP-01], [Rahul Patel], [₹ 50,00,000], [₹ 62,50,000], [125%], [Green Icon (Exceeded)],

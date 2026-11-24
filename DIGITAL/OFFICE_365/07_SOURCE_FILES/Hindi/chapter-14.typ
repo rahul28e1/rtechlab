@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फंक्शन*], [*सिंटैक्स संरचना*], [*मूल्यांकन कार्यप्रणाली*]),
   [`COUNTIF`], [`=COUNTIF(रेंज, शर्त)`], [शर्त पूरी करने वाले सेलों की संख्या गिनता है (उदा. `=COUNTIF(D2:D100, ">=50")`)।],
@@ -59,8 +59,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फंक्शन*], [*कॉर्पोरेट व्यावसायिक प्रश्न*], [*उत्पादन फॉर्मूला उदाहरण*]),
   [`COUNTIFS`], [बैंगलोर से आए ₹ 50,000 से अधिक के ऑर्डर गिनना], [`=COUNTIFS(City_Col, "Bangalore", Amount_Col, ">=50000")`],
@@ -78,8 +78,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 2.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*वाइल्डकार्ड*], [*प्रतीक*], [*मिलान नियम*], [*कॉर्पोरेट उदाहरण*]),
   [Asterisk], [`*`], [शून्य अथवा अधिक किसी भी अक्षर से मेल खाता है।], [`=COUNTIF(A:A, "*Dell*")` किसी भी Dell उत्पाद को खोजेगा],
@@ -95,8 +95,8 @@
 
 #table(
   columns: (0.8fr, 1.3fr, 1.5fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*इनवॉइस*], [*क्षेत्र (Region)*], [*उत्पाद श्रेणी*], [*बिक्री नग*], [*इनवॉइस मूल्य*]),
   [INV-101], [South (Bangalore)], [सर्वर इन्फ्रास्ट्रक्चर], [12], [₹ 54,00,000],
@@ -127,8 +127,8 @@ HR पेरोल शीट्स में उपस्थिति कोड�
 
 #table(
   columns: (1fr, 2.2fr, 0.7fr, 0.7fr, 0.7fr, 0.7fr, 1fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 2.5pt, y: 2pt),
   table.header([*कर्मचारी ID*], [*कर्मचारी का नाम*], [*D1*], [*D2*], [*D3*], [*D4*], [*P संख्या*], [*वेतन देय दिवस*]),
   [EMP-01], [राहुल पटेल], [P], [P], [P], [P], [4], [4.0 दिन],

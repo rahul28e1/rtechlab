@@ -15,8 +15,8 @@ The *Table of Contents* engine (`References > Table of Contents`) scans the docu
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*TOC Variant*], [*Structural Characteristics*], [*Enterprise Implementation Scenario*]),
   [Automatic Table 1], [Labeled "Contents"; reads Headings 1-3; inserts dotted tab leaders.], [Standard corporate reports, business proposals.],
@@ -48,8 +48,8 @@ Word 365 provides two academic citation mechanisms under `References > Footnotes
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Note Type*], [*Shortcut*], [*Placement & Numbering Standard*], [*Enterprise Usage*]),
   [Footnote], [`Alt + Ctrl + F`], [Bottom of the exact same physical page; numbered 1, 2, 3...], [Immediate source clarification, legal definitions, caveats.],

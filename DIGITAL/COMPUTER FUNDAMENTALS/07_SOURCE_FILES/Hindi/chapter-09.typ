@@ -22,8 +22,8 @@
 
 #table(
   columns: (0.7fr, 1.3fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*चरण*], [*चरण का नाम*], [*इंजीनियरिंग प्रक्रिया एवं परिशुद्धता सत्यापन*]),
   [1], [केस से बाहर प्री-टेस्ट], [मदरबोर्ड को उसके कार्डबोर्ड बॉक्स पर रखें। चेसिस में लगाने से पहले CPU, कूलर, RAM लगाकर प्राथमिक POST टेस्ट करें।],
@@ -59,8 +59,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*पावर सप्लाई रेल*], [*स्वीकार्य वोल्टेज सहिष्णुता (ATX 3.1)*], [*संचालित घटक एवं विफलता के लक्षण*]),
   [+12V रेल], [+11.40 V से +12.60 V ($plus.minus 5%$)], [CPU VRM, PCIe डिस्क्रीट GPU, कूलिंग पंखे; वोल्टेज गिरने पर गेमिंग में पीसी रीस्टार्ट।],
@@ -78,8 +78,8 @@
 
 #table(
   columns: (1.1fr, 1.3fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*POST सिग्नल / बीप*], [*पहचाना गया हार्डवेयर दोष*], [*वरिष्ठ तकनीशियन निवारण चरण*]),
   [1 संक्षिप्त बीप (Normal)], [सिस्टम सामान्य; POST सफल], [सामान्य बूट प्रक्रिया; OS लोड हो रहा है।],
@@ -97,8 +97,8 @@
 == 9.4 12 आवश्यक विंडोज CLI डायग्नोस्टिक एवं रिपेयर टूल्स
 #table(
   columns: (1fr, 1.4fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*कमांड*], [*पूर्ण सिंटैक्स एवं पैरामीटर्स*], [*डायग्नोस्टिक कार्य एवं निवारण परिदृश्य*]),
   [`ping`], [`ping -t 8.8.8.8`], [पैकेट लॉस और नेटवर्क लेटेंसी का निरंतर परीक्षण; पैकेट ड्राप होने पर केबल दोष।],

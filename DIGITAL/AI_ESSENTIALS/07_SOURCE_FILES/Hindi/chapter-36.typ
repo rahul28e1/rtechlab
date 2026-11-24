@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*वर्तमान पृष्ठभूमि*], [*आपको पहले से क्या आता है*], [*CTC दोगुनी करने के लिए क्या नया सीखें*]),
   [Java / Spring Boot], [माइक्रोसर्विसेज, हाइबरनेट, मल्टी-थ्रेडिंग, डेटाबेस ट्रांजैक्शन्स।], [Python, LangChain, Spring AI, Vector DBs, vLLM माइक्रोसर्विसेज।],
@@ -38,8 +38,8 @@
 == 36.4 डेवलपर टेक स्टैक माइग्रेशन मैट्रिक्स
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*वर्तमान बैकग्राउंड*], [*आपको क्या आता है*], [*CTC दोगुनी करने के लिए क्या सीखें*]),
   [Java / Spring Boot], [माइक्रोसर्विसेज, मल्टी-थ्रेडिंग।], [Python, LangChain, Spring AI, Vector DBs, vLLM।],

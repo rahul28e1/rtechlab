@@ -22,7 +22,7 @@
 
 #table(
   columns: (0.7fr, 1.3fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*चरण*], [*चरण का नाम*], [*इंजीनियरिंग प्रक्रिया एवं परिशुद्धता सत्यापन*]),
@@ -59,7 +59,7 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*पावर सप्लाई रेल*], [*स्वीकार्य वोल्टेज सहिष्णुता (ATX 3.1)*], [*संचालित घटक एवं विफलता के लक्षण*]),
@@ -78,7 +78,7 @@
 
 #table(
   columns: (1.1fr, 1.3fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*POST सिग्नल / बीप*], [*पहचाना गया हार्डवेयर दोष*], [*वरिष्ठ तकनीशियन निवारण चरण*]),
@@ -97,7 +97,7 @@
 == 9.4 12 आवश्यक विंडोज CLI डायग्नोस्टिक एवं रिपेयर टूल्स
 #table(
   columns: (1fr, 1.4fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*कमांड*], [*पूर्ण सिंटैक्स एवं पैरामीटर्स*], [*डायग्नोस्टिक कार्य एवं निवारण परिदृश्य*]),

@@ -15,8 +15,8 @@ IBM's *Deep Blue* defeated reigning World Chess Champion Garry Kasparov in a 6-g
 
 #table(
   columns: (1.3fr, 2.7fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Architectural Layer*], [*Hardware & Software Implementation*], [*Engineering Significance*]),
   [Compute Cluster], [30-node IBM RS/6000 SP supercomputer with 480 custom VLSI chess chips.], [Parallelized evaluation across multiple server nodes.],
@@ -37,8 +37,8 @@ In 2009, Stanford Professor *Fei-Fei Li* recognized that AI models failed becaus
 
 #table(
   columns: (0.8fr, 1.3fr, 1.7fr, 1.2fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Year*], [*Winning Model*], [*Primary Innovator*], [*Architecture*], [*Top-5 Error*]),
   [2010], [NEC-UIUC], [Lin et al.], [Handcrafted SIFT + SVM], [28.2%],

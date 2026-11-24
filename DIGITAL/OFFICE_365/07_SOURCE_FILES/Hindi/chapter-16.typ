@@ -50,8 +50,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*VLOOKUP की कमजोरी*], [*तकनीकी कारण*], [*XLOOKUP की आधुनिक श्रेष्ठता*]),
   [कॉलम संख्या हार्डकोड होना], [कॉलम संख्या (उदा. 4) हाथ से लिखनी पड़ती थी। नया कॉलम जोड़ने पर पूरा फॉर्मूला गलत हो जाता था!], [वेक्टर रेंज का प्रयोग करता है। कॉलम जोड़ने पर भी सही काम करता है।],
@@ -76,8 +76,8 @@
 
 #table(
   columns: (1.2fr, 1.2fr, 3.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*पैरामीटर*], [*अनिवार्य?*], [*कार्यप्रणाली एवं विकल्प*]),
   [`खोज_कुंजी (lookup_value)`], [हाँ], [वह मान जिसे खोजना है (कर्मचारी ID, उत्पाद कोड, नाम)।],
@@ -129,8 +129,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*फंक्शन*], [*सिंटैक्स*], [*कॉर्पोरेट क्षमताएं*]),
   [`FILTER`], [`=FILTER(array, include, [if_empty])`], [बिना किसी SQL अथवा मैक्रो के बहु-शर्तों के आधार पर डेटा का लाइव निष्कर्षण।],

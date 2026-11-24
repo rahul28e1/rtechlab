@@ -24,8 +24,8 @@ When you submit a prompt inside Word, Excel, or PowerPoint:
 
 #table(
   columns: (1fr, 2.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Application*], [*Copilot Capability Matrix*], [*Real-World Production Prompt Specimen*]),
   [Word 365], [Drafting from scratch, summarizing lengthy contracts, rewriting tone (Professional, Casual, Concise).], [\"Draft a 2-page vendor SLA based on /MasterAgreement.docx, setting uptime guarantee to 99.95% and penalties at 2% per hour.\"],
@@ -71,8 +71,8 @@ Step-by-step workflow transforming a 50-page raw tender into an executive briefi
 
 #table(
   columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Phase*], [*Application Used*], [*Executed Copilot Automation & Output Artifact*]),
   [Phase 1], [Microsoft Teams / Outlook], [Copilot summarizes 12 client negotiation emails and meeting transcripts into a 1-page action item brief.],

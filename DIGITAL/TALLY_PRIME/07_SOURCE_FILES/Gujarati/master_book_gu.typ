@@ -67,7 +67,7 @@
 #table(
   columns: (1.2fr, 1.3fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[નિયમનકારી સંસ્થા]], [#text(weight: "bold", fill: white)[કાયદો / અધિનિયમ]], [#text(weight: "bold", fill: white)[અભ્યાસક્રમમાં સમાવેશ અને વ્યવહારુ પ્રભાવ]],
   [GST કાઉન્સિલ અને CBIC], [CGST / SGST / IGST નિયમો 2017], [નિયમ 46 ટેક્સ ઇનવોઇસ, કલમ 16(2)(aa) GSTR-2B મેળવણું, ઈ-વે બિલ અને ઈ-ઇનવોઇસિંગ.],
@@ -83,7 +83,7 @@
 #table(
   columns: (0.7fr, 1.8fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વિષય]], [#text(weight: "bold", fill: white)[અભ્યાસક્રમ ક્ષેત્ર]], [#text(weight: "bold", fill: white)[વ્યવહારુ શિક્ષણ અને સિદ્ધિ લક્ષ્યાંકો]],
   [વિષય 01], [ટેલીનો ઇતિહાસ અને લાયસન્સિંગ], [ભરત ગોયનકા, 80% બજાર હિસ્સો, tallysolutions.com પરથી ડાઉનલોડ, સિલ્વર/ગોલ્ડ/એજ્યુકેશન મોડ, TGS LAN.],
@@ -172,7 +172,7 @@
 #table(
   columns: (1fr, 0.8fr, 1.2fr, 2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[સંસ્કરણ]], [#text(weight: "bold", fill: white)[વર્ષ]], [#text(weight: "bold", fill: white)[ઑપરેટિંગ સિસ્ટમ]], [#text(weight: "bold", fill: white)[પ્રમુખ તકનીકી ઉપલબ્ધિયાં અને વ્યાવસાયિક વિશેષતાએં]],
   [દ એકાઉંટેંટ], [1986], [MS-DOS 3.3], [#hl-yellow[ભરત ગોયનકા] દ્વારા વિકસિત પહલા કોડલેસ એકાઉંટિંગ સૉફ્ટવેયર૤],
@@ -195,8 +195,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 1.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વિશ્લેષણ આયામ]], [#text(weight: "bold", fill: white)[ટૈલી.ઈઆરપી 9 (પારંપરિક)]], [#text(weight: "bold", fill: white)[ટૈલી પ્રાઇમ (આધુનિક 4.x / 5.x)]],
   [યૂજર ઇંટરફેસ], [ક્લાસિક હરા-પીલા બૈકગ્રાઉંડ, જટિલ સાઇડ-બટન બાર૤], [સફેદ-નીલા આધુનિક લેઆઉટ, આંખોં કે લિએ સહજ૤],
@@ -225,7 +225,7 @@
 #table(
   columns: (1fr, 1.2fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[લાઇસેંસ મોડ]], [#text(weight: "bold", fill: white)[ઉપયોગકર્તા પ્રકાર]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક ઉપયોગ અને તકનીકી સીમાએં]],
   [સિલ્વર (Silver Edition)], [સિંગલ યૂજર (1 PC)], [એક કંપ્યૂટર પર એકલ એકાઉંટેંટ હેતુ સ્ટૈંડઅલોન લાઇસેંસ૤ છોટે વ્યાપારિયોં અને એકલ કાર્યાલયોં હેતુ સર્વોત્તમ૤],
@@ -242,7 +242,7 @@
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4.5pt,
   [#text(weight: "bold", fill: white)[ટિયર સ્તર]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક દાયરા]], [#text(weight: "bold", fill: white)[હાર્ડવેયર વિનિર્દેશ (Specs)]], [#text(weight: "bold", fill: white)[ડેટા બૈકઅપ અને રિકવરી]],
   [સ્ટૈંડઅલોન ક્લાઇંટ], [છોટા ખુદરા વ્યાપાર (1 ઉપયોગકર્તા)], [Intel Core i3/i5, 8 GB RAM, 256 GB SSD, Windows 11 64-bit], [બાહરી USB ડ્રાઇવ પર સ્વચાલિત દૈનિક બૈકઅપ (#key-pill("Alt+Y > Backup"))૤],
@@ -256,7 +256,7 @@
 #table(
   columns: (1fr, 0.8fr, 1.2fr, 2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ટૈલી સંસ્કરણ]], [#text(weight: "bold", fill: white)[રિલીજ઼ વર્ષ]], [#text(weight: "bold", fill: white)[ઑપરેટિંગ સિસ્ટમ]], [#text(weight: "bold", fill: white)[મહત્વપૂર્ણ મીલ કે પત્થર અને ક્ષમતાએં]],
   [The Accountant], [1986], [MS-DOS 3.3], [#hl-yellow[ભરત ગોયનકા] દ્વારા બૈંગલોર મેં વિકસિત પહલા બિના કોડ વાલા લેખા સૉફ્ટવેયર૤],
@@ -286,7 +286,7 @@
 #table(
   columns: (1.2fr, 1.2fr, 1.2fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[પૈરામીટર]], [#text(weight: "bold", fill: white)[ટૈલી સિલ્વર (Single)]], [#text(weight: "bold", fill: white)[ટૈલી ગોલ્ડ (Multi)]], [#text(weight: "bold", fill: white)[ટૈલી પ્રાઇમ સર્વર (Enterprise)]],
   [સક્રિય ઉપયોગકર્તા], [1 સિસ્ટમ], [અસીમિત (LAN નેટવર્ક પર)], [સૈકડ઼ોં સમવર્તી (Concurrent) ઉપયોગકર્તા],
@@ -415,7 +415,7 @@
 #table(
   columns: (1.2fr, 1.2fr, 2.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ચતુર્થાંશ (Quadrant)]], [#text(weight: "bold", fill: white)[મેનૂ વિકલ્પ]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક કાર્યપ્રણાલી અને પરિચાલન]],
   [1. માસ્ટર્સ (Masters)], [Create, Alter, Chart of Accounts], [આધારભૂત ખાતોં (Ledgers, Groups), ઇન્વેંટરી આઇટમ્સ (Stock Items, Units, Godowns) અને કર દરોં કા નિર્માણ વ સંશોધન૤],
@@ -458,7 +458,7 @@
 #table(
   columns: (1.2fr, 1.2fr, 2.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ચતુર્થાંશ (Quadrant)]], [#text(weight: "bold", fill: white)[મેનૂ વિકલ્પ]], [#text(weight: "bold", fill: white)[પરિચાલન ક્ષમતાએં અને વ્યાવસાયિક કાર્ય]],
   [1. Masters (માસ્ટર્સ)], [Create, Alter, Chart of Accounts], [લેખાંકન ખાતાઓ (લેજર, ગ્રુપ), ઇન્વેંટરી આઇટમ (સ્ટૉક આઇટમ, યૂનિટ, ગોદામ), વૈધાનિક કર દરેં અને પેરોલ માસ્ટર્સ કા નિર્માણ અને સંશોધન૤],
@@ -504,7 +504,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[શૉર્ટકટ]], [#text(weight: "bold", fill: white)[મેનૂ કમાંડ]], [#text(weight: "bold", fill: white)[પરિચાલન કાર્ય અને વ્યાવસાયિક ઉપયોગ]],
   [Alt + K], [Company Menu], [કંપની બનાના, બંદ કરના, બદલના, ડેટા પાસવર્ડ અને સુરક્ષા વિન્યાસ૤],
@@ -535,7 +535,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[તુલના કા આધાર]], [#text(weight: "bold", fill: white)[F11: કંપની ફીચર્સ (Company Level)]], [#text(weight: "bold", fill: white)[F12: સ્ક્રીન કૉન્ફ઼િગરેશન (Screen Level)]],
   [લાગૂ હોને કા દાયરા], [પૂરી કંપની કે સભી વાઉચર્સ અને માસ્ટર્સ પર૤], [કેવલ વર્તમાન મેં ખુલી હુઈ વિશિષ્ટ સ્ક્રીન પર૤],
@@ -556,8 +556,8 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[પૈરામીટર]], [#text(weight: "bold", fill: white)[ડિફ઼ૉલ્ટ માન]], [#text(weight: "bold", fill: white)[કૉર્પોરેટ સર્વોત્તમ અભ્યાસ અને પ્રભાવ]],
   [ડેટા ડાયરેક્ટરી], [C:\\TallyPrime\\Data], [D:\\Corporate_Data\\2025-26 પર સ્થાનાંતરિત કરેં (OS ક્રૈશ સે બચાવ)૤],
@@ -585,7 +585,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (1.4fr, 1.3fr, 1.3fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4.5pt,
   [#text(weight: "bold", fill: white)[દૈનિક એકાઉંટિંગ કાર્ય]], [#text(weight: "bold", fill: white)[માઉસ દ્વારા સમય]], [#text(weight: "bold", fill: white)[કીબોર્ડ શૉર્ટકટ સમય]], [#text(weight: "bold", fill: white)[દક્ષતા વૃદ્ધિ]],
   [નયા વાઉચર ખોલના], [8 સે 10 સેકંડ (ક્લિક-ક્લિક)], [1 સેકંડ (#key-pill("F8") યા #key-pill("F9"))], [800% તેજ],
@@ -705,7 +705,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (0.8fr, 1.2fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[કર સ્લૈબ]], [#text(weight: "bold", fill: white)[વસ્તુ / સેવા શ્રેણી]], [#text(weight: "bold", fill: white)[વ્યાવહારિક ઉદાહરણ અને એચએસએન વિવરણ]],
   [0% (છૂટ પ્રાપ્ત)], [અતિ-આવશ્યક ખાદ્ય અને કૃષિ ઉત્પાદ], [ખુલે અનાજ, તાજા દૂધ, સબ્જિયાં, ફલ, પ્રાકૃતિક બીજ (HSN 1209), નમક, અનબ્રાંડેડ આટા૤],
@@ -722,8 +722,8 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[અંક સ્થિતિ]], [#text(weight: "bold", fill: white)[ઉદાહરણાત્મક માન]], [#text(weight: "bold", fill: white)[વૈધાનિક અર્થ અને સંરચનાત્મક મહત્વ]],
   [પ્રથમ 2 અંક], [`24`], [રાજ્ય કોડ (State Code) - 24 ગુજરાત કા, 27 મહારાષ્ટ્ર કા, 29 કર્નાટક કા કોડ છે૤],
@@ -744,7 +744,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (0.9fr, 1.8fr, 1fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ધારા (Sec)]], [#text(weight: "bold", fill: white)[ભુગતાન કી પ્રકૃતિ]], [#text(weight: "bold", fill: white)[વાર્ષિક સીમા]], [#text(weight: "bold", fill: white)[ટીડીએસ દર]],
   [194C], [ઠેકેદાર અને ઉપ-ઠેકેદાર ભુગતાન (વર્ક કૉન્ટ્રૈક્ટ)], [₹30,000 એકલ / ₹1,00,000 કુલ], [1% (વ્યક્તિ) / 2% (કંપની)],
@@ -763,7 +763,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વ્યાપાર કા પ્રકાર]], [#text(weight: "bold", fill: white)[સામાન્ય રાજ્ય (ગુજરાત/મહા.)]], [#text(weight: "bold", fill: white)[વિશેષ શ્રેણી રાજ્ય]], [#text(weight: "bold", fill: white)[કર વ્યવસ્થા પ્રકાર]],
   [માલ કે વિશેષ આપૂર્તિકર્તા], [વાર્ષિક ટર્નઓવર ₹40 લાખ સે અધિક], [વાર્ષિક ટર્નઓવર ₹20 લાખ સે અધિક], [નિયમિત (Regular GST)],
@@ -781,8 +781,8 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 
 #table(
   columns: (1.2fr, 2.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[#ul-orange[ધારા 17(5)] બ્લૉક ITC મદ]], [#text(weight: "bold", fill: white)[વૈધાનિક પ્રતિબંધ અને વ્યાખ્યા]],
   [મોટર વાહન અને કન્વેયંસ], [13 સે કમ યાત્રિયોં કી બૈઠક ક્ષમતા વાલે યાત્રી વાહનોં પર ITC પૂરી તરહ પ્રતિબંધિત છે (વ્યાવસાયિક વેચાણ યા ડ્રાઇવિંગ સ્કૂલ કો છોડ઼કર)૤],
@@ -803,7 +803,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (1fr, 1.2fr, 1fr, 2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[રિટર્ન ફૉર્મ]], [#text(weight: "bold", fill: white)[વિવરણ]], [#text(weight: "bold", fill: white)[નિયત તિથિ (Due Date)]], [#text(weight: "bold", fill: white)[વૈધાનિક સામગ્રી અને ઉદ્દેશ્ય]],
   [GSTR-1], [બાહરી આપૂર્તિ વિવરણ], [માસિક 11 તારીખ], [સભી B2B ઇનવૉઇસ, B2C વેચાણ, ક્રેડિટ/ડેબિટ નોટ, અને HSN સારાંશ કી રિપોર્ટિંગ૤],
@@ -818,8 +818,8 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 == 3.9 આયકર અધિનિયમ 1961 કે તહત ટીડીએસ (TDS) કટૌતી કી માસ્ટર દર તાલિકા
 #table(
   columns: (0.8fr, 1.8fr, 1.2fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ધારા]], [#text(weight: "bold", fill: white)[ભુગતાન કી પ્રકૃતિ]], [#text(weight: "bold", fill: white)[વાર્ષિક છૂટ સીમા]], [#text(weight: "bold", fill: white)[વૈધાનિક ટીડીએસ દર]],
   [194C], [ઠેકેદાર અને ઉપ-ઠેકેદાર ભુગતાન (Single / Aggregate)], [₹30,000 / ₹1,00,000], [1% (Ind/HUF) / 2% (Others)],
@@ -837,8 +837,8 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 == 3.10 ધારા 17(5) બ્લૉક ઇનપુટ ટૈક્સ ક્રેડિટ: 8 વાસ્તવિક કૉર્પોરેટ કેસ સ્ટડીજ
 #table(
   columns: (0.4fr, 2.2fr, 1.2fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[કેસ]], [#text(weight: "bold", fill: white)[કૉર્પોરેટ લેન-દેન અને ઇનવૉઇસ વિવરણ]], [#text(weight: "bold", fill: white)[ITC સ્થિતિ]], [#text(weight: "bold", fill: white)[વૈધાનિક ધારા / કારણ]],
   [1], [કંપની ડાયરેક્ટર કે આધિકારિક ઉપયોગ હેતુ ₹15 લાખ કી 5-સીટર કાર ખરીદીી], [અમાન્ય (Blocked)], [#ul-orange[ધારા 17(5)(a)] - યાત્રી વાહન],
@@ -858,7 +858,7 @@ F11 અને F12 કે બીચ કા અંતર સમઝના એક �
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[તુલના કા આધાર]], [#text(weight: "bold", fill: white)[નિયમિત યોજના (Regular Scheme)]], [#text(weight: "bold", fill: white)[કંપોજિશન યોજના (Composition Scheme)]],
   [ટર્નઓવર પાત્રતા સીમા], [કોઈ ઊપરી સીમા નહીં (સભી વ્યવસાયોં હેતુ)], [માલ હેતુ ₹1.5 કરોડ઼ તક (સેવા હેતુ ₹50 લાખ તક)],
@@ -993,7 +993,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ખાતાઓ કા પ્રકાર]], [#text(weight: "bold", fill: white)[સુનહરા નિયમ (Golden Rule)]], [#text(weight: "bold", fill: white)[વ્યાવહારિક અર્થ અને ઉદાહરણ]],
   [1. વ્યક્તિગત ખાતું (Personal A/c)], [પાને વાલે કો ડેબિટ કરો (Debit the Receiver)\\
@@ -1011,8 +1011,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 
 #table(
   columns: (0.4fr, 2.5fr, 1.3fr, 0.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[લેનદેન કા પૂર્ણ વિવરણ (હિંદી નોટ્સ આધારિત)]], [#text(weight: "bold", fill: white)[ડેબિટ / ક્રેડિટ પ્રવિષ્ટિ]], [#text(weight: "bold", fill: white)[રકમ (₹)]],
   [01], [Mr. Verma ને SBI બૈંક સે ₹2,00,000 કા લોન ચેક દ્વારા પ્રાપ્ત કિયા૤], [Dr. SBI Bank / Cr. SBI Loan A/c], [₹2,00,000],
@@ -1076,7 +1076,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 2.3fr, 1.2fr, 1.1fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[વાણિજ્યિક લેન-દેન]], [#text(weight: "bold", fill: white)[પ્રભાવિત ખાતાઓ]], [#text(weight: "bold", fill: white)[ખાતાઓ કા પ્રકાર]], [#text(weight: "bold", fill: white)[ડેબિટ / ક્રેડિટ]],
   [1], [માલિક ને ₹5,00,000 નકદ સે વ્યાપાર પ્રારંભ કિયા], [રોકડ ખાતું\\ મૂડી ખાતું], [વાસ્તવિક\\ વ્યક્તિગત], [Dr. રોકડ (આતી છે)\\ Cr. મૂડી (દેને વાલા)],
@@ -1117,7 +1117,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 2.3fr, 1.2fr, 1.1fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[વાણિજ્યિક લેન-દેન]], [#text(weight: "bold", fill: white)[પ્રભાવિત ખાતાઓ]], [#text(weight: "bold", fill: white)[ખાતાઓ કા પ્રકાર]], [#text(weight: "bold", fill: white)[ડેબિટ / ક્રેડિટ]],
   [16], [સુરેશ ટ્રેડર્સ સે ₹30,000 કા માલ ઉધાર ખરીદીા], [ખરીદી ખાતું\\ સુરેશ ટ્રેડર્સ], [નામમાત્ર\\ વ્યક્તિગત], [Dr. ખરીદી\\ Cr. સુરેશ],
@@ -1144,7 +1144,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.8fr, 2.2fr, 1.5fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[સમૂહ]], [#text(weight: "bold", fill: white)[લેન-દેન કા પ્રકાર]], [#text(weight: "bold", fill: white)[ડેબિટ અને ક્રેડિટ લેજર]], [#text(weight: "bold", fill: white)[વાઉચર પ્રકાર]],
   [મૂડી અને બૈંક], [પ્રારંભિક મૂડી ₹10,00,000 ચેક સે પ્રાપ્ત], [Dr. HDFC બૈંક ખાતું / Cr. વર્મા મૂડી], [Receipt (F6)],
@@ -1163,7 +1163,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 2fr, 1.3fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[લેજર ખાતાઓ કા નામ]], [#text(weight: "bold", fill: white)[ડેબિટ શેષ (₹)]], [#text(weight: "bold", fill: white)[ક્રેડિટ શેષ (₹)]],
   [01], [શ્રી વર્મા મૂડી ખાતું (Capital A/c)], [], [10,00,000.00],
@@ -1304,8 +1304,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 
 #table(
   columns: (0.4fr, 1.4fr, 1fr, 2.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[વાઉચર કા નામ]], [#text(weight: "bold", fill: white)[શૉર્ટકટ]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક ઉપયોગ અને વિત્તીય પ્રભાવ]],
   [1], [Contra (કૉન્ટ્રા)], [#key-pill("F4")], [કેવલ કૈશ સે બૈંક, બૈંક સે કૈશ યા બૈંક સે બૈંક ટ્રાંસફર૤ કોઈ તીસરા ખાતું નહીં૤],
@@ -1407,7 +1407,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 1.8fr, 1fr, 1.2fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[ગ્રાહક નામ અને મદ]], [#text(weight: "bold", fill: white)[સકલ મૂલ્ય (Gross)]], [#text(weight: "bold", fill: white)[વ્યાપારિક છૂટ / GST]], [#text(weight: "bold", fill: white)[શુદ્ધ ઇનવૉઇસ રકમ]],
   [1], [અમ્બે ઇલેક્ટ્રૉનિક્સ (10 ટીવી)], [₹3,00,000], [10% છૂટ = ₹2,70,000 + #hl-orange[18% GST]], [₹3,18,600],
@@ -1561,7 +1561,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1.2fr, 1fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[શ્રેણી]], [#text(weight: "bold", fill: white)[સંખ્યા]], [#text(weight: "bold", fill: white)[શામિલ પૂર્વ-નિર્ધારિત ગ્રુપ્સ]],
   [પ્રાથમિક (બૈલેંસ શીટ)], [9 ગ્રુપ્સ], [Capital Account, Loans (Liability), Current Liabilities, Fixed Assets, Investments, Current Assets, Branch / Divisions, Misc. Expenses (Asset), Suspense A/c૤],
@@ -1584,7 +1584,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 1.8fr, 1.6fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[લેજર ખાતાઓ કા નામ]], [#text(weight: "bold", fill: white)[ટૈલી પ્રાઇમ કા સહી ગ્રુપ]], [#text(weight: "bold", fill: white)[વિત્તીય વિવરણ]],
   [01], [Salman's Capital A/c], [Capital Account], [Balance Sheet (Liab)],
@@ -1667,7 +1667,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ગ્રુપ કા નામ]], [#text(weight: "bold", fill: white)[મૂલ પ્રકૃતિ]], [#text(weight: "bold", fill: white)[વિત્તીય રિપોર્ટ]], [#text(weight: "bold", fill: white)[સામાન્ય શેષ (Debit/Credit)]],
   [Capital Account], [સ્વામિયોં કી મૂડી / શેયર કૈપિટલ], [બૈલેંસ શીટ (દાયિત્વ)], [Credit (ધનાત્મક)],
@@ -1697,7 +1697,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 1.8fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[લેજર કા નામ]], [#text(weight: "bold", fill: white)[સહી મૂલ ગ્રુપ (Group)]], [#text(weight: "bold", fill: white)[રિપોર્ટિંગ પ્રભાવ]],
   [1], [સલમાન કી મૂડી ખાતું], [Capital Account], [બૈલેંસ શીટ (દાયિત્વ)],
@@ -1718,8 +1718,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 == 6.9 ટ્રાયલ બૈલેંસ ઑડિટ: 10 સામાન્ય ગલતિયાં અને સુધાર કી ચરણબદ્ધ પ્રક્રિયા
 #table(
   columns: (0.4fr, 2fr, 1.8fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[અકાઉંટિંગ ગલતી કા સ્વરૂપ]], [#text(weight: "bold", fill: white)[#ul-green[ટ્રાયલ બૈલેંસ] અને ખાતોં પર પ્રભાવ]], [#text(weight: "bold", fill: white)[ટૈલી મેં સુધાર કી વિધિ]],
   [1], [ફર્નીચર ખરીદી કો ગલતી સે પરચેજ ખાતાઓ મેં ડાલ દિયા], [સકલ લાભ કમ દિખેગા, ફિક્સ્ડ એસેટ્સ કમ દિખેંગી૤], [જર્નલ વાઉચર: Dr. ફર્નીચર / Cr. પરચેજ],
@@ -1827,7 +1827,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[સ્ક્રીન ફીલ્ડ]], [#text(weight: "bold", fill: white)[અનુશંસિત માન]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક મહત્વ અને વૈધાનિક નિયમ]],
   [Company Data Path], [`C:\TallyPrime\Data`], [હાર્ડ ડિસ્ક કા વહ ફોલ્ડર જહાં કંપની કા ડેટાબેસ સુરક્ષિત રખા જાએગા૤],
@@ -1860,8 +1860,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 
 #table(
   columns: (1fr, 1.8fr, 1.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[સુરક્ષા સ્તર]], [#text(weight: "bold", fill: white)[સિક્યોરિટી કંટ્રોલ (Security Control)]], [#text(weight: "bold", fill: white)[#hl-green[ટૈલી વૉલ્ટ] (Tally Vault)]],
   [મૂલ ઉદ્દેશ્ય], [કર્મચારિયોં હેતુ યૂજરનેમ વ પાસવર્ડ બનાના અને ઉનકી ભૂમિકાએં સીમિત કરના૤], [ડેટા ફાઇલ્સ કા મિલિટ્રી-ગ્રેડ 128-બિટ એઈએસ (AES) એન્ક્રિપ્શન૤],
@@ -1877,7 +1877,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 1.6fr, 1.5fr, 1.1fr, 0.9fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[કંપની કા નામ]], [#text(weight: "bold", fill: white)[પંજીકૃત પતા]], [#text(weight: "bold", fill: white)[સંપર્ક સૂત્ર]], [#text(weight: "bold", fill: white)[પિન વ વિત્તીય વર્ષ]],
   [01], [Ravi Private Limited], [Near Ambaji Mandir, Main Chowk, Palanpur], [Ph: 252-534234 · Mob: 7046015165 · ravi\@gmail.com], [385001 · 01-Apr-25],
@@ -2079,7 +2079,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1fr, 1.8fr, 1.8fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વ્યાવસાયિક મૉડલ]], [#text(weight: "bold", fill: white)[કાર્યપ્રણાલી અને મૂલ્ય સંવર્ધન]], [#text(weight: "bold", fill: white)[ટૈલી પ્રાઇમ મેં એકાઉંટિંગ આર્કિટેક્ચર]],
   [1. ટ્રેડિંગ ફર્મેં (Trading)], [નિર્માતાઓં યા થોક વ્યાપારિયોં સે તૈયાર માલ ખરીદીકર સીધે ખુદરા ગ્રાહકોં કો બિના રૂપ બદલે બેચના૤], [સ્ટૉક આઇટમ, માત્રા, દર, ખરીદી વ વેચાણ વાઉચર્સ (F9/F8) *Item Invoice* મોડ મેં૤ લાભ વ્યાપારિક માર્જિન પર આધારિત હોતા છે૤],
@@ -2121,7 +2121,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.8fr, 1.2fr, 2.2fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[માહ]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક ગતિવિધિ]], [#text(weight: "bold", fill: white)[પ્રમુખ વાણિજ્યિક સંચાલન અને વાઉચર પ્રકાર]], [#text(weight: "bold", fill: white)[અપેક્ષિત ઑડિટ પરિણામ]],
   [અપ્રૈલ], [કંપની સ્થાપના], [શેયર મૂડી પ્રાપ્તિ, બૈંક ખાતું ખોલના, કાર્યાલય ભાડું ડિપૉજિટ ભુગતાન૤], [ઓપનિંગ બૈલેંસ શીટ સંતુલન],
@@ -2162,8 +2162,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 == 8.9 મોરબી સિરામિક્સ વિનિર્માણ ઇકાઈ કા વાસ્તવિક ઉત્પાદન લાગત વિશ્લેષણ
 #table(
   columns: (2fr, 1.2fr, 1.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[લાગત ઘટક (Cost Component)]], [#text(weight: "bold", fill: white)[રકમ (પ્રતિ 100 બૉક્સ)]], [#text(weight: "bold", fill: white)[લેખાંકન વર્ગીકરણ]],
   [કચ્ચી સફેદ મિટ્ટી અને રસાયન], [₹18,000], [પ્રત્યક્ષ સામગ્રી (Direct Material)],
@@ -2195,7 +2195,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 1.4fr, 2fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[ઉદ્યોગ કા પ્રકાર]], [#text(weight: "bold", fill: white)[BOM ઘટક સામગ્રી (Raw Components)]], [#text(weight: "bold", fill: white)[તૈયાર ઉત્પાદ (Output)]],
   [1], [કંપ્યૂટર હાર્ડવેયર], [1 CPU + 1 મદરબોર્ડ + 2 RAM + 1 SSD + 1 SMPS + 1 કૈબિનેટ], [1 Workstation PC],
@@ -2470,7 +2470,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.6fr, 1.2fr, 2fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[અભ્યાસ \#]], [#text(weight: "bold", fill: white)[ઇનવૉઇસ પ્રકાર]], [#text(weight: "bold", fill: white)[ગ્રાહક / લેન-દેન વિવરણ]], [#text(weight: "bold", fill: white)[કર અને શર્તેં]],
   [Ex-01], [બી2બી સ્થાનીય વેચાણ], [અહમદાબાદ કે વ્યાપારી કો 10 કંપ્યૂટર બેચે (Item Invoice Mode)], [CGST 9% + SGST 9%],
@@ -2628,7 +2628,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[કુંજી]], [#text(weight: "bold", fill: white)[કમાંડ કા નામ]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક ઉપયોગ અને પ્રભાવ]],
   [#key-pill("Esc")], [બાહર નિકલના (Back / Exit)], [વર્તમાન સ્ક્રીન બંદ કરના યા મેનૂ મેં એક સ્તર પીછે આના૤],
@@ -2649,8 +2649,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 === શ્રેણી 2: માસ્ટર નિર્માણ અને સંપાદન શૉર્ટકટ્સ
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[કુંજી]], [#text(weight: "bold", fill: white)[કમાંડ]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક ઉપયોગ]],
   [#key-pill("Alt + C")], [Create Master (ઑન દ ફ્લાઈ)], [વાઉચર એંટ્રી કે બીચ મેં હી નયા લેજર યા સ્ટૉક આઇટમ બનાના૤],
@@ -2667,7 +2667,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[કુંજી]], [#text(weight: "bold", fill: white)[કમાંડ]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક ઉપયોગ]],
   [#key-pill("F2")], [Change Date], [વર્તમાન વાઉચર યા રિપોર્ટ કી લેનદેન તારીખ બદલના૤],
@@ -2705,8 +2705,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 == 10.4 વરિષ્ઠ કૉર્પોરેટ અકાઉંટેંટ કે 10 સીક્રેટ પાવર શૉર્ટકટ્સ
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[શૉર્ટકટ કી]], [#text(weight: "bold", fill: white)[કમાંડ નામ]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક પ્રભાવ અને સમય બચત]],
   [Ctrl + A], [Accept / Save Screen], [બિના બાર-બાર Enter દબાએ પૂરી સ્ક્રીન કો એક સેકંડ મેં સહેજેં૤],
@@ -2730,7 +2730,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[શૉર્ટકટ]], [#text(weight: "bold", fill: white)[ઑડિટ ક્રિયા]], [#text(weight: "bold", fill: white)[વ્યાવસાયિક પ્રભાવ અને ઉપયોગ]],
   [Alt + F12], [Range / Value Filter], [હજારોં પ્રવિષ્ટિયોં મેં સે કિસી વિશેષ રકમ યા ઇનવૉઇસ નંબર કો 1 સેકંડ મેં ખોજના૤],
@@ -2936,8 +2936,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 == 11.9 ત્રિપક્ષીય જીએસટી સમાધાન (GSTR-1 બનામ 3B બનામ 2B) ઑડિટ મૈટ્રિક્સ
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[ઑડિટ પૈરામીટર]], [#text(weight: "bold", fill: white)[આંતરિક બુક્સ (Tally)]], [#text(weight: "bold", fill: white)[સરકારી પોર્ટલ (GSTN)]], [#text(weight: "bold", fill: white)[ઑડિટ સ્થિતિ]],
   [કુલ બાહ્ય આપૂર્તિ (Turnover)], [#ul-green[GSTR-1] બુક્સ રિપોર્ટ], [પોર્ટલ #ul-green[GSTR-1] ટેબલ 4 સે 11], [શત-પ્રતિશત મિલાન અનિવાર્ય],
@@ -3075,7 +3075,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 1.8fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[લેજર ખાતું નામ]], [#text(weight: "bold", fill: white)[મૂલ ગ્રુપ (Parent Group)]], [#text(weight: "bold", fill: white)[વૈધાનિક / બિલ-વાઇજ સેટઅપ]],
   [01], [ઇક્વિટી શેયર કૈપિટલ ખાતું], [Capital Account], [લાગૂ નહીં],
@@ -3126,8 +3126,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 
 #table(
   columns: (0.4fr, 1.8fr, 0.8fr, 0.8fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[સ્ટૉક આઇટમ કા વિવરણ]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[GST દર]], [#text(weight: "bold", fill: white)[માનક લાગત / વિક્રય મૂલ્ય]],
   [01], [Intel Core i7 14th Gen Processor], [847150], [18%], [લાગત: ₹24,000 · વિક્રય: ₹31,000],
@@ -3150,7 +3150,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.4fr, 0.7fr, 2.5fr, 0.8fr, 0.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ક્રમ]], [#text(weight: "bold", fill: white)[તિથિ]], [#text(weight: "bold", fill: white)[વાણિજ્યિક લેન-દેન કા વિવરણ]], [#text(weight: "bold", fill: white)[વાઉચર પ્રકાર]], [#text(weight: "bold", fill: white)[રકમ (₹)]],
   [01], [01-Apr], [પ્રવર્તકોં ને ₹10,00,000 ઇક્વિટી શેયર મૂડી HDFC બૈંક મેં ચેક દ્વારા જમા કી], [Receipt (F6)], [10,00,000],
@@ -3201,8 +3201,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 === 1. 31-મઈ-2025 કો સમાપ્ત અવધિ હેતુ નિર્માણ અને વ્યાપાર ખાતું (Trading Account)
 #table(
   columns: (2fr, 1fr, 2fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વિવરણ (ડેબિટ પક્ષ)]], [#text(weight: "bold", fill: white)[રકમ (₹)]], [#text(weight: "bold", fill: white)[વિવરણ (ક્રેડિટ પક્ષ)]], [#text(weight: "bold", fill: white)[રકમ (₹)]],
   [પ્રારંભિક સ્ટૉક (Opening Stock)], [0.00], [વેચાણ ખાતું (શુદ્ધ વિક્રય)], [7,24,000.00],
@@ -3218,7 +3218,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (2fr, 1fr, 2fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વિવરણ (ડેબિટ પક્ષ)]], [#text(weight: "bold", fill: white)[રકમ (₹)]], [#text(weight: "bold", fill: white)[વિવરણ (ક્રેડિટ પક્ષ)]], [#text(weight: "bold", fill: white)[રકમ (₹)]],
   [ઑફિસ સ્ટાફ પગાર વ્યય], [65,000.00], [સકલ લાભ પીછે સે લાયા ગયા (GP b/d)], [2,79,300.00],
@@ -3235,8 +3235,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 === 3. 31-મઈ-2025 કો ઑડિટેડ કૉર્પોરેટ બૈલેંસ શીટ (Audited Corporate Balance Sheet)
 #table(
   columns: (2fr, 1fr, 2fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[મૂડી અને દેવાદારિયાં (Liabilities)]], [#text(weight: "bold", fill: white)[રકમ (₹)]], [#text(weight: "bold", fill: white)[સંપત્તિયાં અને પરિસંપત્તિયાં (Assets)]], [#text(weight: "bold", fill: white)[રકમ (₹)]],
   [ઇક્વિટી શેયર મૂડી (Share Capital)], [10,00,000.00], [સ્થિર સંપત્તિયાં (મૂલ્યહ્રાસ ઘટાકર)], [1,82,500.00],
@@ -3257,7 +3257,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (0.5fr, 1fr, 1.3fr, 1fr, 1fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[ઇનવૉઇસ \#]], [#text(weight: "bold", fill: white)[તિથિ વ પ્રકાર]], [#text(weight: "bold", fill: white)[પાર્ટી નામ અને GSTIN]], [#text(weight: "bold", fill: white)[કર યોગ્ય મૂલ્ય]], [#text(weight: "bold", fill: white)[GST કર]], [#text(weight: "bold", fill: white)[કુલ રકમ (₹)]],
   [PUR-01], [04-Apr · ખરીદી], [અવની પ્રા. લિ. (24AABCA5544P1Z3)], [₹8,00,000], [CGST+SGST 18%], [₹9,44,000],
@@ -3279,8 +3279,8 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[સમાધાન ક્ષેત્ર / મદ]], [#text(weight: "bold", fill: white)[ટૈલી પ્રાઇમ બુક્સ અનુસાર]], [#text(weight: "bold", fill: white)[GST પોર્ટલ અનુસાર (1/3B/2B)]], [#text(weight: "bold", fill: white)[ઑડિટ અંતર]],
   [કુલ બાહ્ય કર યોગ્ય આપૂર્તિ (Outward)], [₹6,79,000.00], [₹6,79,000.00 (#ul-green[GSTR-1])], [₹0.00 (શત-પ્રતિશત મિલાન)],
@@ -3333,7 +3333,7 @@ $ "સંપત્તિયાં (Assets)" = "દાયિત્વ (Liabilitie
 #table(
   columns: (1.2fr, 1.4fr, 0.8fr, 1.8fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[વિત્તીય અનુપાત (Ratio)]], [#text(weight: "bold", fill: white)[ગણિતીય સૂત્ર (Formula)]], [#text(weight: "bold", fill: white)[પરિણામ]], [#text(weight: "bold", fill: white)[કૉર્પોરેટ વિત્તીય સ્વાસ્થ્ય વ્યાખ્યા]],
   [કરંટ રેશિયો (Current Ratio)], [Current Assets / Current Liab], [4.12 : 1], [અસાધારણ વિત્તીય તરલતા૤ માનક 2:1 કૉર્પોરેટ બેંચમાર્ક સે કહીં અધિક મજબૂત૤],

@@ -32,8 +32,8 @@ Normally, Morph only transforms identical objects. If you want a square on Slide
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Morph Application*], [*Slide 1 Setup*], [*Slide 2 Setup & Animated Outcome*]),
   [Seamless Data Zoom], [High-level world map showing 5 data centers.], [Zoomed-in map focused exclusively on Singapore DC with telemetry cards.],
@@ -94,8 +94,8 @@ Step-by-step choreography for a multi-slide Morph product showcase:
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Sequence Stage*], [*Visual Architecture Setup*], [*Morph Transition Parameters*]),
   [Slide 01: Hero Intro], [Large 3D cloud server vector centered at `100%` scale, Title: "Next-Gen Cloud Architecture".], [Standard 0.50s Fade transition from introductory agenda.],

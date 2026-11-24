@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 2.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*मॉडल / स्टार्टअप*], [*संस्थापक / संस्थान*], [*वास्तुकला एवं भाषाई विशेषताएं*], [*व्यावसायिक प्रभाव*]),
   [Sarvam-2B / Bulbul], [सर्वम AI (विवेक राघवन, प्रत्यूष कुमार)], [भारतीय भाषाओं के लिए कस्टम टोकनाइज़र; 4x कम टोकन लागत और उच्च लेटेंसी प्रदर्शन।], [भारत सरकार के ई-गवर्नेंस और एंटरप्राइज वॉइस AI का मानक।],

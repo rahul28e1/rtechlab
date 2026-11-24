@@ -24,8 +24,8 @@ OSPFv2 (RFC 2328) एंटरप्राइज नेटवर्क्स म
 नेबरहुड बनाने और रूटिंग डेटा साझा करने हेतु OSPF राउटर्स 7 अवस्थाओं से गुजरते हैं:
 #table(
   columns: (1.2fr, 4.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*नेबर स्थिति*], [*परिचालन मील का पत्थर एवं एक्सचेंज प्रोटोकॉल*]),
   [`Down`], [पड़ोसी राउटर से कोई Hello पैकेट प्राप्त नहीं हुआ है।],
@@ -73,8 +73,8 @@ $ "Cost" = "Reference Bandwidth" / "Interface Bandwidth" = 10^8 / "Bandwidth (in
 == 12.5 पांच प्राथमिक OSPF LSA प्रकार
 #table(
   columns: (1fr, 1.4fr, 1.3fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*LSA प्रकार*], [*LSA नाम*], [*उत्पन्नकर्ता राउटर*], [*प्रसार (Flooding) की सीमा*]),
   [Type 1], [Router LSA], [एरिया का प्रत्येक आंतरिक राउटर], [केवल अपने एरिया के भीतर ही फैलता है।],

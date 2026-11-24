@@ -30,7 +30,7 @@
           columns: (1fr, auto),
           align: (left, right),
           [#text(size: 6.8pt, fill: rgb("#64748B"))[#text(fill: rgb("#059669"))[●] Sections 194C, 194J, 194I, 194H, 194Q · Challan ITNS 281 & Form 26Q]],
-          [#box(fill: rgb("#F1F5F9"), stroke: 0.5pt + rgb("#CBD5E1"), radius: 3pt, inset: (x: 6pt, y: 2pt), text(size: 7pt, weight: "bold", fill: rgb("#0F172A"))[Page #p])]
+          [#box(fill: rgb("#F1F5F9"), stroke: 0.5pt + rgb("#64748B"), radius: 3pt, inset: (x: 6pt, y: 2pt), text(size: 7pt, weight: "bold", fill: rgb("#0F172A"))[Page #p])]
         )
       ]
     }
@@ -63,7 +63,7 @@
 #table(
   columns: (1fr, 2fr, 1.4fr, 1.4fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4.5pt,
   [#text(weight: "bold", fill: white)[Section]], [#text(weight: "bold", fill: white)[Nature of Commercial Payment]], [#text(weight: "bold", fill: white)[Threshold Limit]], [#text(weight: "bold", fill: white)[Individual / HUF]], [#text(weight: "bold", fill: white)[Company / Firm]],
   [Section 194C], [Contractors & Transport Sub-contractors], [₹30,000 (Single) / ₹1,00,000 (FY)], [1.00%], [2.00%],

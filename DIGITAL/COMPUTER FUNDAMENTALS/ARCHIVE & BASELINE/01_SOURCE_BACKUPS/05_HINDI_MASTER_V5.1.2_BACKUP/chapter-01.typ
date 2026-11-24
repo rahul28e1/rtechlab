@@ -58,7 +58,7 @@
 == 1.3 मानव शरीर बनाम कम्प्यूटर सिस्टम: तुलनात्मक एनालॉजी
 #table(
   columns: (1fr, 1.2fr, 1.2fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*मानव अंग*], [*कम्प्यूटर घटक*], [*प्रणाली वर्गीकरण*], [*कार्यात्मक एवं तकनीकी तुलना*]),
@@ -117,7 +117,7 @@
 
 #table(
   columns: (1fr, 1.1fr, 1fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*बस का नाम*], [*विद्युत दिशा*], [*बिट चौड़ाई (साधारण)*], [*इंजीनियरिंग कार्य एवं सिग्नल का प्रकार*]),
@@ -139,7 +139,7 @@
 == 1.6 कम्प्यूटरों का पीढ़ीगत विकास: प्रथम से पंचम पीढ़ी (1940 से 2027+)
 #table(
   columns: (0.9fr, 1.1fr, 1.1fr, 1.1fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*पीढ़ी व काल*], [*कोर स्विचिंग हार्डवेयर*], [*प्राथमिक मेमोरी*], [*प्रोसेसिंग गति*], [*प्रतिनिधि कम्प्यूटर व मानक*]),
@@ -164,7 +164,7 @@
 == 1.7 आधुनिक कम्प्यूटर वर्गीकरण: माइक्रो से सुपरकम्प्यूटर
 #table(
   columns: (1fr, 1.2fr, 1.4fr, 1fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*कम्प्यूटर वर्ग*], [*आर्किटेक्चर पैमाना*], [*विशिष्ट अनुप्रयोग क्षेत्र*], [*प्रदर्शन मापदंड*]),

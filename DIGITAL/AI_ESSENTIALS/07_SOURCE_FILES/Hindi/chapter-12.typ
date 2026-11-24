@@ -27,8 +27,8 @@ $ y = cal(F)(x, {W_i}) + x $
 
 #table(
   columns: (1.2fr, 2.3fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*घटक*], [*पारंपरिक प्लेन नेटवर्क*], [*रेजिड्यूअल नेटवर्क (ResNet)*]),
   [सीखने का उद्देश्य], [सीधे मैपिंग फलन $cal(H)(x)$ को सीखना।], [रेजिड्यूअल त्रुटि $cal(F)(x) = cal(H)(x) - x$ को शून्य की ओर ले जाना।],
@@ -41,8 +41,8 @@ $ y = cal(F)(x, {W_i}) + x $
 
 #table(
   columns: (1.2fr, 2fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*विशेषता*], [*विज़न ट्रांसफॉर्मर (ViT)*], [*मॉडर्न CNN (ConvNeXt)*]),
   [इंडक्टिव बायस], [न्यूनतम; डेटा से स्थानिक संबंध सीखता है।], [उच्च; ट्रांसलेशन इनवेरिएंस पहले से इनबिल्ट।],

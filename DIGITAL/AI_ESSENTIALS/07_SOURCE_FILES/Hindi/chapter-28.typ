@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*इनफरेंस फ्रेमवर्क*], [*कोर ऑप्टिमाइज़ेशन तकनीक*], [*थ्रूपुट एवं लेटेंसी लाभ*], [*कहाँ उपयोग करें*]),
   [vLLM (UC Berkeley)], [*PagedAttention*: KV कैश को वर्चुअल मेमोरी पेजों में बांटकर VRAM का अपव्यय 4% से कम करता है; कंटीन्यूअस बैचिंग।], [Hugging Face की तुलना में *24 गुना अधिक थ्रूपुट*।], [ओपन-सोर्स मॉडल्स (Llama-3, Mistral) सर्व करने का वैश्विक मानक।],

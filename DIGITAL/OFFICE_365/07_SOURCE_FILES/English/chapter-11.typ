@@ -15,8 +15,8 @@ An Excel worksheet is an immense two-dimensional computational matrix comprising
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Grid Component*], [*Structural Dimension & Boundaries*], [*Enterprise Navigation Shortcut*]),
   [Rows], [1 to 1,048,576 rows (Numbered vertically)], [`Ctrl + Down Arrow` (Jump to row 1,048,576)],
@@ -37,8 +37,8 @@ The foundation of spreadsheet modeling is understanding how cell addresses trans
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Reference Type*], [*Syntax*], [*Behavior When Copied / Filled*], [*Enterprise Production Use Case*]),
   [Relative], [`A1`], [Both column and row shift dynamically based on distance.], [Multiplying Item Qty by Unit Price in adjacent rows.],
@@ -98,8 +98,8 @@ Below is the mathematical architecture of a two-way sensitivity pricing matrix u
 
 #table(
   columns: (1.5fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if x == 0 { rgb("#F1F5F9") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if x == 0 { rgb("#F1F5F9") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Units / Discount*], [*0% Discount (`C$4`)*], [*5% Discount (`D$4`)*], [*10% Discount (`E$4`)*], [*15% Discount (`F$4`)*]),
   [*100 Units (`$B5`)*], [₹ 50,000], [₹ 47,500], [₹ 45,000], [₹ 42,500],

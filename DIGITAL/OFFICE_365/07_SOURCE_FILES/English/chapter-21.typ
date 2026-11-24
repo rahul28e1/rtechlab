@@ -15,8 +15,8 @@ Never leave corporate data in a raw unformatted grid. Convert datasets to offici
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Table Feature*], [*Architectural Mechanism*], [*Enterprise Productivity Advantage*]),
   [Dynamic Range Growth], [Table automatically expands when new rows/columns are typed.], [Formulas, Pivot Tables, and charts auto-update seamlessly.],
@@ -57,8 +57,8 @@ Mastering Pivot Tables requires distinguishing between the aggregation function 
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Display Setting*], [*Operational Mechanics*], [*Enterprise Analytical Objective*]),
   [Summarize By: SUM], [Standard arithmetic addition of values.], [Total revenue or total units shipped.],
@@ -110,8 +110,8 @@ Below is an authentic specimen of an enterprise sales cross-tabulation matrix:
 
 #table(
   columns: (1.5fr, 1.2fr, 1.2fr, 1.2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if y == 4 { rgb("#FEF3C7") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Region / Product Category*], [*Hardware*], [*Software*], [*Services*], [*Total Revenue*]),
   [North (Delhi NCR)], [₹ 45,00,000], [₹ 18,50,000], [₹ 12,00,000], [₹ 75,50,000],

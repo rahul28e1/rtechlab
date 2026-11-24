@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 1.8fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*सर्टिफिकेशन*], [*प्रदाता संस्था*], [*पाठ्यक्रम एवं मुख्य फोकस*], [*उद्योग मूल्य एवं सैलरी प्रभाव*]),
   [AWS Certified AI Practitioner], [Amazon Web Services (AWS)], [फाउंडेशन मॉडल्स, Bedrock, SageMaker JumpStart, प्रॉम्प्ट इंजीनियरिंग, सुरक्षा।], [क्लाउड आर्किटेक्चर भूमिकाओं के लिए वैश्विक मानक।],
@@ -40,8 +40,8 @@
 == 34.3 30-दिवसीय सर्टिफिकेशन स्टडी टाइमटेबल
 #table(
   columns: (1.2fr, 2.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 1.8pt),
   table.header([*चरण*], [*दैनिक अध्ययन लक्ष्य*], [*माइलस्टोन*]),
   [दिन 1–10], [आधिकारिक क्लाउड लैब्स और स्किल बैज पूरे करें।], [4 स्किल बैज।],

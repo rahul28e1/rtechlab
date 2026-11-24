@@ -57,8 +57,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == 2. Industry Hiring Demand Across Indian Tech Hubs (2027 Projections)
 #table(
   columns: (1.5fr, 1.3fr, 1.8fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Enterprise Sector*], [*Major Indian Hubs*], [*Dominant Hiring Roles*], [*Core Technical Competencies Required*]),
   [Banking & Financial Services (BFSI)], [Mumbai, Bengaluru, Gurgaon], [Financial Analyst, Credit MIS, Risk Reporting Lead], [Financial Modeling (DCF/NPV), XLOOKUP, Data Validation, Pivot Timelines.],
@@ -87,8 +87,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == 1. Compensation by Experience Level & Corporate Role (India CTC in INR)
 #table(
   columns: (1.4fr, 1fr, 1.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Target Professional Role*], [*Experience*], [*Annual CTC Range (INR)*], [*Core Technical Responsibility & Deliverables*]),
   [Junior MIS Executive / Data Specialist], [0–2 Years], [₹3.8L – ₹5.8L], [Daily transactional reporting, data cleaning, basic pivot tables, standard Word formatting.],
@@ -111,8 +111,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == 3. Typical Compensation Structure Breakdown (₹10,00,000 CTC Baseline)
 #table(
   columns: (1.8fr, 1.2fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Component*], [*Annual Amount*], [*Statutory Rule & Tax Implication*]),
   [Basic Salary], [₹4,00,000 (40%)], [Fully taxable; forms statutory base for PF and Gratuity calculations.],
@@ -136,8 +136,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == The 5-Stage Corporate Career Ladder
 #table(
   columns: (0.7fr, 1.5fr, 1.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Stage*], [*Job Designation*], [*Typical Tenure*], [*Required Skill Evolution & Primary Deliverables*]),
   [Tier 1], [Junior MIS Specialist / Data Associate], [1–2 Years], [Flawless data entry, keyboard shortcuts mastery, table structuring, cleaning messy text data.],
@@ -174,8 +174,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == 1. Enterprise Hiring Landscapes by Industry Vertical
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Industry Vertical*], [*Target Fortune 500 & MNC Employers*], [*What Hiring Panels Test in Technical Interviews*]),
   [Big 4 Advisory & Consulting], [Deloitte, PwC, Ernst & Young (EY), KPMG, Grant Thornton, BDO], [3-statement financial modeling, DCF valuation, flawless corporate PowerPoint deck structuring, APA-formatted Word proposals.],
@@ -205,8 +205,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == Comprehensive Skill Assessment Matrix
 #table(
   columns: (1fr, 2fr, 2.5fr, 0.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.8pt),
   table.header([*Technology*], [*Basic Operator (Low Pay)*], [*Modern Enterprise MIS Pro (High Pay)*], [*Impact*]),
   [Excel Formulas], [SUM, AVERAGE, basic VLOOKUP with static column index numbers.], [XLOOKUP with two-way search, FILTER, UNIQUE, SORT, LET, LAMBDA.], [Critical],
@@ -319,8 +319,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == Week-by-Week Intensive Sprint
 #table(
   columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Timeline*], [*Core Focus Module*], [*Mandatory Hands-On Daily Deliverables & Practice Targets*]),
   [Week 1: Days 1–7], [Formulas, Dynamic Arrays & Text Mechanics], [Master relative vs absolute references (\$A\$1). Build 20 complex XLOOKUP scenarios (two-way, wildcard, exact/next). Master dynamic spill formulas: FILTER, UNIQUE, SORT, SEQUENCE. Practice text parsing: TEXTJOIN, TEXT, LEFT, MID, TRIM.],
@@ -382,8 +382,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == 1. The Microsoft Office Specialist (MOS) & Analytics Credentials
 #table(
   columns: (1fr, 1.6fr, 1.2fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Exam Code*], [*Official Certification Title*], [*Difficulty Level*], [*Target Enterprise Competencies Validated*]),
   [MO-100], [Microsoft Word (Microsoft 365 Apps)], [Associate], [Document creation, styles, tables, mail merge, section breaks, collaboration.],
@@ -485,8 +485,8 @@ The transition from legacy Office 2016/2019 to modern Microsoft 365 Enterprise h
 == RTechLab Lifetime Ecosystem & Direct Support Channels
 #table(
   columns: (1.5fr, 2fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Resource Channel*], [*Access URL / Coordinate*], [*Community Deliverables & Engagement*]),
   [Official Web Platform], [https://rtechlab.vercel.app], [Access latest digital releases, course updates & downloadable workbooks.],

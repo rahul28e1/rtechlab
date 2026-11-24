@@ -46,8 +46,8 @@ Instruction pipelining overlaps the execution of multiple instructions across se
 - *Pipeline Hazards:* Conditions that disrupt regular instruction flow and force pipeline stalls ('bubbles'):
 #table(
   columns: (1fr, 1.4fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Hazard Category*], [*Physical Root Cause*], [*Hardware Resolution & Mitigation Technique*]),
   [Structural Hazard], [Hardware resource conflict (two instructions demand the same memory port or ALU simultaneously).], [Replicate execution resources; split L1 into independent L1 Instruction and L1 Data caches (Modified Harvard architecture).],
@@ -60,8 +60,8 @@ Instruction pipelining overlaps the execution of multiple instructions across se
 == 4.4 Processor Design Paradigms: RISC vs CISC
 #table(
   columns: (1.1fr, 1.4fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Design Characteristic*], [*CISC (Complex Instruction Set)*], [*RISC (Reduced Instruction Set)*]),
   [Instruction Length], [Variable length (1 to 15 bytes in x86-64).], [#hl[Fixed length] (strictly 32-bit in standard ARM / RISC-V).],
@@ -84,8 +84,8 @@ Due to thermal power dissipation limits (the breakdown of Dennard Scaling), mode
 Modern computing has transitioned from general-purpose CPUs to specialized heterogeneous domain-specific accelerators:
 #table(
   columns: (1fr, 1.2fr, 1.3fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.5pt,
   table.header([*Architectural Metric*], [*Central Processing Unit (CPU)*], [*Graphics Processing Unit (GPU)*], [*Neural Processing Unit (NPU)*]),
   [Compute Paradigm], [Latency-optimized scalar processing.], [Throughput-optimized SIMD vector processing.], [#hl[Matrix multiplication (GEMM) systolic arrays].],

@@ -109,7 +109,7 @@
               #block(
                 width: 100%,
                 fill: rgb("#F8FAFC"),
-                stroke: 0.5pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 3pt,
                 inset: 5pt,
                 [
@@ -123,7 +123,7 @@
               #block(
                 width: 100%,
                 fill: rgb("#F8FAFC"),
-                stroke: 0.5pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 3pt,
                 inset: 5pt,
                 [
@@ -137,7 +137,7 @@
               #block(
                 width: 100%,
                 fill: rgb("#F8FAFC"),
-                stroke: 0.5pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 3pt,
                 inset: 5pt,
                 [
@@ -151,7 +151,7 @@
               #block(
                 width: 100%,
                 fill: rgb("#F8FAFC"),
-                stroke: 0.5pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 3pt,
                 inset: 5pt,
                 [

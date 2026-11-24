@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*फ्रेमवर्क*], [*कार्यप्रणाली एवं मुख्य निर्देश*], [*कहाँ उपयोग करें*]),
   [Zero-Shot CoT], [प्रॉम्प्ट के अंत में `"Let's think step by step"` जोड़ना।], [जटिल अंकगणितीय और तार्किक पहेलियों में एक्यूरेसी 40% तक बढ़ाना।],

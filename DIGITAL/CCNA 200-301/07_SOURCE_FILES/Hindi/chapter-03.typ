@@ -43,8 +43,8 @@ RFC 791 ने क्लासलेस इंटर-डोमेन रूट�
 == 3.4 इंस्टेंट /24 से /30 त्वरित संदर्भ चार्ट (Subnet Cheat Sheet)
 #table(
   columns: (1fr, 1.8fr, 1.1fr, 1.4fr, 1.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   table.header([*CIDR*], [*सबनेट मास्क*], [*ब्लॉक साइज*], [*उपयोगी होस्ट्स*], [*प्राथमिक प्रोडक्शन अनुप्रयोग*]),
   [/24], [255.255.255.0], [256], [254 होस्ट्स], [मानक शाखा कार्यालय LAN / यूजर एक्सेस सेगमेंट],

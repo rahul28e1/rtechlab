@@ -2,7 +2,8 @@
 export const UPI = {
   vpa: import.meta.env.VITE_UPI_VPA || 'rtechlab@upi',
   name: import.meta.env.VITE_UPI_NAME || 'RTechLab',
-  whatsapp: import.meta.env.VITE_WHATSAPP || '917646892094',
+  whatsapp: import.meta.env.VITE_WHATSAPP_LINK || 'https://wa.me/message/FUIEEQDZLUKVK1',
+  whatsappNumber: import.meta.env.VITE_WHATSAPP || '917646892094',
   configured: Boolean(import.meta.env.VITE_UPI_VPA),
 };
 
@@ -105,6 +106,26 @@ export const BUNDLE = {
     { label: '30-day study roadmap (printable)', labelHi: '30-दिन स्टडी रोडमैप (प्रिंट करने लायक)', value: 'included' },
     { label: 'Job & internship roadmap for freshers', labelHi: 'फ्रेशर के लिए जॉब और इंटर्नशिप रोडमैप', value: 'included' },
     { label: 'Lifetime access + free updates', labelHi: 'लाइफटाइम एक्सेस + फ्री अपडेट', value: 'included' },
+  ],
+};
+
+export const SERVER_2025_BUNDLE = {
+  code: 'server2025-bundle',
+  price: 149,
+  compareAt: 299,
+  title: 'Windows Server 2025 Complete Career Accelerator Bundle',
+  titleHi: 'विंडोज सर्वर 2025 कम्प्लीट करियर एक्सेलरेटर बंडल',
+  tagline: 'Dual Master Guides + Lab Workbook + Top 50 MNC Interview Vault + Salary Blueprint',
+  taglineHi: 'ड्यूल मास्टर गाइड्स + 12 लैब वर्कबुक + टॉप 50 MNC इंटरव्यू वॉल्ट + 2027 सैलरी ब्लूप्रिंट',
+  includes: [
+    { label: 'English Master Guide (60 pages)', labelHi: 'इंग्लिश मास्टर गाइड (60 पेज)', value: '₹99 value' },
+    { label: 'Hindi Master Guide (60 pages)', labelHi: 'हिंदी मास्टर गाइड (60 पेज)', value: '₹99 value' },
+    { label: 'Gujarati Master Guide (60 pages)', labelHi: 'ગુજરાતી માસ્ટર ગાઇડ (60 પેજ)', value: '₹99 value' },
+    { label: '12 Hands-On Enterprise Labs Workbook (7 pages)', labelHi: '12 प्रैक्टिकल लैब वर्कबुक (7 पेज)', value: '₹49 value' },
+    { label: 'Top 50 MNC Interview Vault (10 pages)', labelHi: 'टॉप 50 MNC इंटरव्यू वॉल्ट (10 पेज)', value: '₹49 value' },
+    { label: '2027 System Admin Salary & Career Blueprint (3 pages)', labelHi: '2027 सैलरी एवं करियर ब्लूप्रिंट (3 पेज)', value: '₹49 value' },
+    { label: 'All-in-One ZIP Archive Download (16.4 MB)', labelHi: 'ऑल-इन-वन ज़िप आर्काइવ डाउनलोड', value: 'included' },
+    { label: '24x7 WhatsApp Student Mentorship Helpline', labelHi: '24x7 व्हाट्सएप छात्र मेंटरशिप हेल्पलाइन', value: 'included' },
   ],
 };
 

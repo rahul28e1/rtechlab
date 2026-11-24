@@ -19,8 +19,8 @@ A computer is an #hl[electronic, programmable data-processing machine] engineere
 == 1.2 The 4-Stage Operational Cycle: The IPOS Architecture Model
 #table(
   columns: (1.1fr, 1.3fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*IPOS Stage*], [*Primary Subsystems*], [*Engineering Mechanism & Data Flow*]),
   [1. Input], [Keyboards, Sensors, ADC, PCIe, NIC], [Captures digital inputs (e.g., keyboard switch matrix scanning via microcontroller encoders) or continuous analog physical phenomena (via Analog-to-Digital Converters / ADCs for audio/sensors) and translates them into binary words.],
@@ -54,8 +54,8 @@ In 1945, mathematician John von Neumann formulated the *Stored-Program Concept*,
 == 1.5 The System Bus Architecture & Signal Routing
 #table(
   columns: (1fr, 1.2fr, 1.1fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Bus Subsystem*], [*Directionality*], [*Physical Width*], [*Engineering Function & Bus Variations*]),
   [Data Bus], [#hl[Bidirectional]], [64-bit (modern x86/ARM)], [Carries actual opcodes, memory operands, and numerical values. Widened internally to 128/256/512-bit across cache interconnects (AVX-512).],
@@ -86,8 +86,8 @@ Computers are categorized by physical scale, compute throughput, and deployment 
 == 1.7 The Five Computing Generations & Silicon Evolution
 #table(
   columns: (0.7fr, 1.1fr, 1.2fr, 1.2fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.5pt,
   table.header([*Gen*], [*Era*], [*Active Hardware*], [*Memory Tech*], [*Milestones & Critical Constraints*]),
   [1st], [1940–1956], [Vacuum Tubes (Thermionic)], [Delay Lines, Williams Tubes], [ENIAC, UNIVAC I; thousands of burning filaments, massive heat dissipation, MTBF measured in hours. Machine code only.],

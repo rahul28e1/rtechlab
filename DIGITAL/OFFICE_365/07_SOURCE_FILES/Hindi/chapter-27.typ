@@ -31,8 +31,8 @@
 
 #table(
   columns: (1.2fr, 2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*एनिमेशन टूल*], [*तकनीकी कार्य*], [*व्यावहारिक कॉर्पोरेट उपयोग*]),
   [एनिमेशन पेंटर], [किसी वस्तु के सभी एनिमेशन व टाइमिंग दूसरी वस्तु पर कॉपी करता है।], [10 सेकंड में 6 अलग-अलग केपीआई कार्ड्स पर एक जैसा एनिमेशन लगाना।],
@@ -84,8 +84,8 @@
 
 #table(
   columns: (1.2fr, 1.5fr, 1.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*एनिमेटेड घटक*], [*एनिमेशन प्रभाव*], [*आरंभ शर्त (Start)*], [*समय निर्धारण (Timing)*]),
   [स्तंभ 01 (क्लाउड कोर)], [Fade + Fly In (Up)], [Start: On Click], [अवधि: `0.40s`, स्मूथ एंड: `0.20s`],

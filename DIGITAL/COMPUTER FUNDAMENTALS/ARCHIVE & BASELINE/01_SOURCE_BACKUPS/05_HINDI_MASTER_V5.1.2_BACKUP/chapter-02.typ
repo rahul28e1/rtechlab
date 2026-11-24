@@ -69,7 +69,7 @@
 
 #table(
   columns: (1.1fr, 1.3fr, 1.3fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*पैनल तकनीक*], [*कार्य प्रणाली एवं प्रकाश स्रोत*], [*कॉन्ट्रास्ट व ब्लैक लेवल*], [*प्रतिक्रिया समय व अनुप्रयोग*]),
@@ -83,7 +83,7 @@
 == 2.3 प्रिंटिंग तकनीक: लेजर ज़ेरोग्राफी एवं थर्मल मैकेनिज्म
 #table(
   columns: (1fr, 1.3fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*प्रिंटर प्रकार*], [*इमेजिंग प्रक्रिया*], [*रेजोल्यूशन व गति*], [*लागत व आदर्श उपयोग क्षेत्र*]),
@@ -105,7 +105,7 @@
 
 #table(
   columns: (1fr, 1fr, 1.2fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*इंटरफेस मानक*], [*अधिकतम थ्रूपुट*], [*कनेक्टर फॉर्म-फैक्टर*], [*प्रमुख तकनीकी क्षमताएं एवं अनुप्रयोग*]),

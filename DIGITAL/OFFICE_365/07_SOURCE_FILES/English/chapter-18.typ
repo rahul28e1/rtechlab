@@ -37,8 +37,8 @@ Underneath all user formatting, Excel treats dates strictly as sequential positi
 
 #table(
   columns: (1.2fr, 2.5fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Function*], [*Operational Syntax & Behavior*], [*Production Financial Use Case*]),
   [`=DATE(Y, M, D)`], [Constructs a serial date safely from integer tokens.], [Generating standardized contract start dates.],
@@ -59,8 +59,8 @@ Syntax: =DATEDIF( start_date , end_date , "unit" )
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Unit*], [*Interval Measured*], [*Operational Output Description*], [*Production Specimen*]),
   [`"Y"`], [Complete Years], [Total elapsed full years between dates.], [Employee completed service tenure.],
@@ -109,8 +109,8 @@ When evaluating corporate capital projects, investments, or corporate acquisitio
 
 #table(
   columns: (1fr, 1.5fr, 1.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Period*], [*Project Alpha Cash Flow*], [*Discounted @ 10%*], [*Cumulative Position*]),
   [Year 0], [-₹10,00,000 (Capex)], [-₹10,00,000], [-₹10,00,000 (Initial Outlay)],

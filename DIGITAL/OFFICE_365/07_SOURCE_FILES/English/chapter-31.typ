@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
   [`Ctrl + Enter`], [Structural], [Inserts an instant Hard Page Break at current cursor position.],
@@ -50,8 +50,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
   [`F4`], [Formulas], [Cycles absolute/relative reference modes (`$A$1` > `A$1` > `$A1` > `A1`).],
@@ -92,8 +92,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
   [`Alt + E + S + V`], [Paste Special], [Pastes Values only, stripping all formulas and formatting.],
@@ -134,8 +134,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Shortcut Key*], [*Target Scope*], [*Operational Action & Behavioral Mechanics*]),
   [`Alt + F5`], [Presenter View], [Forces Presenter View delivery mode on primary monitor.],

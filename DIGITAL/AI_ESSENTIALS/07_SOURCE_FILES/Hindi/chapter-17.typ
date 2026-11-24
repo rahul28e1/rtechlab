@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 2.2fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*चरण*], [*डेटा का प्रकार एवं पैमाना*], [*उद्देश्य एवं कम्प्यूट लागत*], [*परिणामी मॉडल*]),
   [1. प्री-ट्रेनिंग], [15 ट्रिलियन+ अनस्ट्रक्चर्ड वेब टोकन्स (Common Crawl, GitHub, Books)], [विश्व ज्ञान और भाषाई व्याकरण सीखना; 80%–90% कुल कंप्यूट लागत (हज़ारों H100 GPUs)।], [Base Foundation Model (Llama-3-Base)],
@@ -32,8 +32,8 @@ $ cal(L)_"DPO"(pi_theta; pi_"ref") = - EE_((x, y_w, y_l)) [log sigma(beta log (p
 
 #table(
   columns: (1.2fr, 2.2fr, 2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*पैमाना*], [*PPO (Reinforcement Learning)*], [*DPO (Direct Optimization)*], [*एंटरप्राइज चयन*]),
   [रिवॉर्ड मॉडल], [अलग से रिवॉर्ड नेटवर्क ट्रेन करना अनिवार्य।], [पॉलिसी लॉस के अंदर ही गणितीय रूप से अंतर्निहित।], [DPO (सरल)],
@@ -52,8 +52,8 @@ $ cal(L)_"DPO"(pi_theta; pi_"ref") = - EE_((x, y_w, y_l)) [log sigma(beta log (p
 == 17.3 डायरेक्ट प्रेफरेंस ऑप्टिमाइज़ेशन (DPO) बनाम PPO
 #table(
   columns: (1.2fr, 2.2fr, 2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*पैमाना*], [*PPO (Reinforcement Learning)*], [*DPO (Direct Optimization)*], [*एंटरप्राइज चयन*]),
   [रिवॉर्ड मॉडल], [अलग रिवॉर्ड नेटवर्क अनिवार्य।], [पॉलिसी लॉस में अंतर्निहित।], [DPO (सरल)],

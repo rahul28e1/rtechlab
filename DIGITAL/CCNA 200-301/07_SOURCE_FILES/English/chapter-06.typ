@@ -100,8 +100,8 @@ Edge-RTR# reload
 Production disaster recovery requires central off-box backups of configurations and operating system images:
 #table(
   columns: (1.5fr, 4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Disaster Recovery Task*], [*Production Cisco IOS CLI Command*]),
   [Backup Running Config to TFTP], [`Edge-RTR# copy running-config tftp://192.168.1.50/Edge-RTR-cfg-backup`],

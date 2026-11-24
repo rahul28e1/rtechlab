@@ -33,8 +33,8 @@ $ h_t = tanh(W_(h h) h_(t-1) + W_(x h) x_t + b_h), quad y_t = "softmax"(W_(h y) 
 
 #table(
   columns: (1.2fr, 2fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*पैमाना*], [*LSTM (Hochreiter 1997)*], [*GRU (Cho et al. 2014)*]),
   [गेट्स की संख्या], [3 गेट्स: फॉरगेट, इनपुट, आउटपुट।], [2 गेट्स: रिसेट गेट ($r$) एवं अपडेट गेट ($z$)।],

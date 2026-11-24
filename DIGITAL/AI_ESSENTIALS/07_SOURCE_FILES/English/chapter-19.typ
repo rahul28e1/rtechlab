@@ -19,8 +19,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 2.2fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.2pt, y: 1.8pt),
   table.header([*RAG Stage*], [*Operational Responsibility*], [*Technical Implementation & Algorithms*], [*Enterprise Metric*]),
   [1. Ingestion & Chunking], [Splits raw PDFs/SQL into semantically coherent segments.], [Recursive Character Splitting (512 tokens with 10% overlap).], [Chunk Boundary Quality],

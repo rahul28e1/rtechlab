@@ -15,8 +15,8 @@ Transform passive task descriptions into metric-driven commercial achievements u
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Domain*], [*Weak / Rejected Bullet (Passive)*], [*Winning ATS Bullet (Quantified Impact)*]),
   [RAG Systems], ["Worked on a RAG application using LangChain and OpenAI to read company policy PDFs."], ["Engineered an enterprise RAG assistant across 15,000 internal PDFs, cutting employee query resolution time by 75% using LangChain, ChromaDB, and hybrid search."],

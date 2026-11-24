@@ -21,8 +21,8 @@ A router is a Layer 3 device that makes forwarding decisions based on destinatio
 Administrative Distance defines the #hl[trustworthiness of the routing information source] (lower is more trustworthy):
 #table(
   columns: (1.5fr, 1.2fr, 3.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Routing Protocol / Source*], [*Default AD*], [*Architectural Trust & Usage*]),
   [Directly Connected Interface], [0], [Physical link up with IP address assigned. Absolute trust.],

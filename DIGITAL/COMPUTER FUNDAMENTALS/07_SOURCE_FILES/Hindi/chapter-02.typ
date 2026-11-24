@@ -24,23 +24,23 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[1. मैकेनिकल कीबोर्ड स्विच मेकैनिक्स:]\
       #text(size: 7.5pt, fill: rtech-text)[रबर डोम के विपरीत, मैकेनिकल कीबोर्ड प्रत्येक कुंजी के नीचे एक स्वतंत्र स्विच (जैसे Cherry MX) का उपयोग करते हैं। क्रॉस-पॉइंट गोल्ड कॉन्टैक्ट्स 2.0mm पर एक्टिवेट होते हैं, जो 100 मिलियन कीस्ट्रोक्स का जीवनकाल और एन-की रोलओवर (NKRO) प्रदान करते हैं।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[2. ऑप्टिकल माउस सेंसर (DSP इमेजिंग):]\
       #text(size: 7.5pt, fill: rtech-text)[इन्फ्रारेड LED/लेजर सतह को प्रति सेकंड 12,000+ बार स्कैन करता है। एक एकीकृत DSP (डिजिटल सिग्नल प्रोसेसर) ऑप्टिकल फ्लो एल्गोरिदम से सतह के सूक्ष्म अंतरों की गणना कर 26,000+ CPI (काउंट्स पर इंच) तक की सटीक ट्रैकिंग देता है।]
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[3. कैपेसिटिव टचस्क्रीन ग्रिड:]\
       #text(size: 7.5pt, fill: rtech-text)[कांच की सतह पर इंडियम टिन ऑक्साइड (ITO) की सूक्ष्म इलेक्ट्रोस्टैटिक ग्रिड होती है। मानव अंगुली छूने पर कैपेसिटेंस में सूक्ष्म बदलाव आता है जिसे कंट्रोलर X-Y कोऑर्डिनेट्स के रूप में मल्टी-टच जेस्चर के साथ तुरंत डिकोड करता है।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[4. बायोमेट्रिक फिंगरप्रिंट व फेस स्कैनर:]\
       #text(size: 7.5pt, fill: rtech-text)[अल्ट्रासोनिक पल्स उंगली की त्वचा की 3D लकीरों (Ridges) को मापती है। 3D इन्फ्रारेड डॉट प्रोजेक्टर्स चेहरे पर 30,000 सूक्ष्म बिंदु डालकर बायोमेट्रिक डेटा को TPM क्रिप्टोग्राफिक मॉड्यूल में सुरक्षित सत्यापित करते हैं।]
     ]
@@ -69,8 +69,8 @@
 
 #table(
   columns: (1.1fr, 1.3fr, 1.3fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*पैनल तकनीक*], [*कार्य प्रणाली एवं प्रकाश स्रोत*], [*कॉन्ट्रास्ट व ब्लैक लेवल*], [*प्रतिक्रिया समय व अनुप्रयोग*]),
   [IPS LCD], [सफेद LED बैकलाइट, लिक्विड क्रिस्टल्स 90° घूमकर प्रकाश ध्रुवीकृत करते हैं], [1,000:1 से 2,000:1 (गहरा ग्रे, बैकलाइट ब्लीड संभव)], [1-4ms GtG; रंग सटीकता (sRGB/DCI-P3 100%), फोटो/वीडियो संपादन],
@@ -83,8 +83,8 @@
 == 2.3 प्रिंटिंग तकनीक: लेजर ज़ेरोग्राफी एवं थर्मल मैकेनिज्म
 #table(
   columns: (1fr, 1.3fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*प्रिंटर प्रकार*], [*इमेजिंग प्रक्रिया*], [*रेजोल्यूशन व गति*], [*लागत व आदर्श उपयोग क्षेत्र*]),
   [लेजर प्रिंटर], [#hl[इलेक्ट्रोस्टैटिक ज़ेरोग्राफी]: लेजर बीम फोटोसेंसिटिव ड्रम को डिस्चार्ज करता है, टोनर आकर्षित होता है, फ्यूज़र 200°C पर पिघलाता है], [600-2400 DPI; 25-60 PPM उच्च गति], [कम लागत प्रति पृष्ठ (0.50-1.50 रु); टेक्स्ट दस्तावेज़, बैंक, विश्वविद्यालय],
@@ -105,8 +105,8 @@
 
 #table(
   columns: (1fr, 1fr, 1.2fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*इंटरफेस मानक*], [*अधिकतम थ्रूपुट*], [*कनेक्टर फॉर्म-फैक्टर*], [*प्रमुख तकनीकी क्षमताएं एवं अनुप्रयोग*]),
   [USB 3.2 Gen 2x2], [20 Gbps], [USB Type-C (2 लेन)], [डुअल-लेन सुपरस्पीड ट्रांसमिशन, हाई-स्पीड एक्सटर्नल SSDs।],

@@ -31,8 +31,8 @@ Modern 2027 slide decks use Scalable Vector Graphics (SVG) instead of rasterized
 
 #table(
   columns: (1.2fr, 2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Boolean Tool*], [*Mathematical Action*], [*Real-World Slide Design Application*]),
   [Union], [Path addition (A ∪ B)], [Creating custom multi-prong cloud or server cluster icons.],
@@ -97,8 +97,8 @@ Below is a custom-engineered pipeline diagram created via Boolean Fragment and c
 
 #table(
   columns: (1.2fr, 1.2fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else { rgb("#F8FAFC") },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else { rgb("#F8FAFC") },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 4pt),
   table.header([*STAGE 1: DISCOVERY*], [*STAGE 2: ARCHITECTURE*], [*STAGE 3: SPRINT DEV*], [*STAGE 4: DEPLOYMENT*]),
   [

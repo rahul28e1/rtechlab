@@ -15,8 +15,8 @@ Modern models (GPT-4, Llama-3, Claude) use Byte-Pair Encoding (BPE) or WordPiece
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Tokenization Concept*], [*Operational Engineering Specification*], [*Production Rule / Metric*]),
   [Vocabulary Size ($|V|)$], [Fixed lookup table of byte sequences and character clusters.], [tiktoken cl100k_base has 100,277 tokens],
@@ -44,8 +44,8 @@ As context windows expand from 4k tokens (GPT-3) to 128k (GPT-4o) and 2 Million 
 
 #table(
   columns: (1fr, 1.8fr, 2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Parameter*], [*Mathematical Formula*], [*Behavioral Output Effect*], [*Recommended Setting*]),
   [Temperature ($T$)], [$P(w_i) = e^(z_i / T) / (sum e^(z_j / T))$], [$T arrow 0$ makes outputs deterministic; $T > 1$ increases creative variety.], [Code/Math: $0.0$; Creative: $0.7$],

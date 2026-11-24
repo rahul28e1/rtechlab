@@ -15,8 +15,8 @@ The Word 365 interface is organized into a hierarchy of contextual ribbons, tool
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*UI Element*], [*Enterprise Operational Scope*], [*Productivity Command / Shortcut*]),
   [Quick Access Toolbar (QAT)], [Persistent 1-click execution strip pinned above/below ribbon.], [Customizable (`Alt + 1`, `Alt + 2`, `Alt + 3`)],
@@ -64,8 +64,8 @@ Word 365 provides 5 distinct rendering engines tailored to different phases of t
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*View Mode*], [*Architectural Characteristics*], [*Best Enterprise Use Case*]),
   [Print Layout], [Default mode; displays exact headers, footers, margins, and page breaks.], [Final layout formatting, legal agreements, publishing preparation.],

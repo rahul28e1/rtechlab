@@ -28,7 +28,7 @@ Servicing desktop workstations and enterprise servers requires strict electrical
 == 9.2 The Professional 8-Stage PC Assembly Workflow
 #table(
   columns: (0.8fr, 1.3fr, 2.9fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 2.8pt,
   table.header([*Stage*], [*Operation Name*], [*Engineering Procedure & Critical Precaution*]),
@@ -78,7 +78,7 @@ Servicing desktop workstations and enterprise servers requires strict electrical
 Emptying the Recycle Bin or performing an operating system `quick format` does *not* erase data; file tables are cleared while underlying raw data clusters remain intact and easily recoverable using forensic software:
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*Sanitization Level*], [*Applicable Media*], [*Technical Implementation Standard*]),
@@ -93,7 +93,7 @@ Emptying the Recycle Bin or performing an operating system `quick format` does *
 Upon pressing the chassis power button, the motherboard power supply supervisory chip asserts the `Power Good` (+5V) signal once DC voltages stabilize. The CPU then reads its first instruction from the BIOS/UEFI ROM reset vector (`0xFFFFFFF0` on x86) and begins POST execution.
 #table(
   columns: (1fr, 1.3fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 2.8pt,
   table.header([*Diagnostic Interface*], [*Display Method*], [*Diagnostic Interpretation & Troubleshooting Action*]),
@@ -107,7 +107,7 @@ Upon pressing the chassis power button, the motherboard power supply supervisory
 == 9.6 Systematic Hardware Triage Flowchart
 #table(
   columns: (1fr, 1.8fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 2.8pt,
   table.header([*Symptom Profile*], [*Probable Root Causes*], [*Systematic Isolation & Rectification Steps*]),

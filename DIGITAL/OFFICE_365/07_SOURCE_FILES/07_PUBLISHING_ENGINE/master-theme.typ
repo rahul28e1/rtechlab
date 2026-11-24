@@ -351,7 +351,7 @@
 #let mcq(num: 1, q: "", a: "", b: "", c: "", d: "", ans: "", expl: "") = {
   block(
     width: 100%,
-    stroke: 0.3pt + rtech-border,
+    stroke: 0.5pt + rgb("#64748B"),
     fill: white,
     radius: 3pt,
     inset: (x: 4pt, y: 2.5pt),
@@ -397,7 +397,7 @@
 #let viva-qa(num: 1, q: "", a: "") = {
   block(
     width: 100%,
-    stroke: 0.3pt + rtech-border,
+    stroke: 0.5pt + rgb("#64748B"),
     fill: white,
     radius: 2pt,
     inset: (x: 4pt, y: 2pt),
@@ -413,7 +413,7 @@
 #let practice-lab-placeholder(lang: "en") = {
   block(
     width: 100%,
-    stroke: 0.5pt + rgb("#CBD5E1"),
+    stroke: 0.5pt + rgb("#64748B"),
     fill: white,
     radius: 3pt,
     inset: 4pt,
@@ -500,7 +500,7 @@
 #let ribbon-specimen(path: "", command: "", shortcut: "") = {
   block(
     width: 100%,
-    stroke: 0.5pt + rgb("#CBD5E1"),
+    stroke: 0.5pt + rgb("#64748B"),
     fill: rgb("#F1F5F9"),
     radius: 3pt,
     inset: (x: 5pt, y: 3pt),

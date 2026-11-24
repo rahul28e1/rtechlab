@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Chokepoint*], [*Monopoly Entity*], [*Technological Monopoly Scope*], [*Global Dependency*]),
   [Photolithography], [ASML (Veldhoven, Netherlands)], [Exclusive manufacturer of Extreme Ultraviolet (EUV) machines (\$350M each, 13.5nm wavelength).], [100% of advanced sub-5nm chips],

@@ -51,8 +51,8 @@ STP eliminates loops by calculating a loop-free tree topology and placing redund
 == 9.3 802.1D STP vs 802.1w Rapid STP (RSTP)
 #table(
   columns: (1.5fr, 1.8fr, 1.8fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Operational Metric*], [*Legacy STP (802.1D)*], [*Rapid STP (802.1w)*], [*Performance Gain*]),
   [Convergence Speed], [30 to 50 seconds (timer-based)], [Under 1 second (handshake-based)], [Sub-second failover],

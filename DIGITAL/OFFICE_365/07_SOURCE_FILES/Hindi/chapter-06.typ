@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*लेआउट पैरामीटर*], [*मानक कॉर्पोरेट मान*], [*कार्यप्रणाली एवं सावधानियां*]),
   [Margins], [Normal (1"), Narrow (0.5"), Moderate, Mirrored], [Mirrored मार्जिन किताबों के लिए अंदर/बाहर का अनुपात सेट करता है।],
@@ -49,8 +49,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*सेक्शन ब्रेक प्रकार*], [*पेजिनेशन व्यवहार*], [*कॉर्पोरेट उपयोग परिदृश्य*]),
   [Next Page], [नया सेक्शन बनाकर कर्सर को अगले भौतिक पेज के शीर्ष पर भेजता है।], [चौड़ी वित्तीय टेबल हेतु पेज 2 को पोर्ट्रेट से लैंडस्केप करना।],

@@ -64,8 +64,8 @@ Routers drop broadcast packets at Layer 3. If the corporate DHCP server resides 
 NAT preserves public IPv4 space and conceals internal private network addressing:
 #table(
   columns: (1.2fr, 1.6fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*NAT Type*], [*Mapping Ratio*], [*Production Use Case & Operation*]),
   [Static NAT], [One-to-One (1:1)], [Maps one private IP permanently to one public IP. Used for inbound DMZ servers (Web/Mail).],

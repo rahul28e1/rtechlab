@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*ट्रैकिंग टूल*], [*कार्यप्रणाली एवं दायरा*], [*कॉर्पोरेट समीक्षा में भूमिका*]),
   [Track Changes (`Ctrl + Shift + E`)], [दस्तावेज़ में जोड़े गए, हटाए गए अथवा फॉर्मेट किए गए प्रत्येक अक्षर को रिकॉर्ड करता है।], [दो कंपनियों की कानूनी टीमों के बीच अनुबंध की शर्तों पर विचार-विमर्श।],

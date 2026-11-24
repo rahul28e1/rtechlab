@@ -22,8 +22,8 @@
 
 #table(
   columns: (1.2fr, 2.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*रणनीतिक मोर्चा*], [*अमेरिकी प्रतिबंध (BIS Rules)*], [*चीन की रणनीतिक प्रतिक्रिया*]),
   [GPU निर्यात सीमा], [चीन को H100/B200 बेचना प्रतिबंधित; इंटरकनेक्ट बैंडविड्थ और कुल कंप्यूट डेंसिटी पर कड़े प्रतिबंध।], [हुआवेई Ascend 910B/910C चिप्स का विकास; सरकारी संस्थानों में अमेरिकी चिप्स पर पूर्ण प्रतिबंध।],

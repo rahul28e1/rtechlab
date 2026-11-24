@@ -24,8 +24,8 @@ A Cisco router is a specialized computing system engineered for high-throughput 
 == 5.2 The Four Router Memory Types
 #table(
   columns: (1.1fr, 1.3fr, 3.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Memory Type*], [*Volatility & Nature*], [*Primary Contents & Architectural Purpose*]),
   [ROM (Read-Only Memory)], [Non-Volatile (Permanent)], [Contains factory microcode: POST diagnostics, Bootstrap loader program, Mini-IOS (RxBoot), and ROMMON (ROM Monitor emergency maintenance mode).],
@@ -82,8 +82,8 @@ When a Cisco router is powered on, it executes a rigorous five-stage startup rou
 The Configuration Register is a 16-bit software register stored in NVRAM that dictates router boot behavior:
 #table(
   columns: (1.2fr, 1.2fr, 3.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Register Value*], [*Boot Field Bits*], [*Operational Behavior & Diagnostic Application*]),
   [`0x2102`], [Bit 6 = 0, Bits 0-3 = 2], [Normal enterprise operation. Loads IOS from Flash and reads `startup-config` from NVRAM. Default console 9600 baud.],

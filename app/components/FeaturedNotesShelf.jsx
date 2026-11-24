@@ -3,6 +3,18 @@ import { Link } from 'react-router';
 
 const FEATURED_BOOKS = [
   {
+    id: 'server2025',
+    title: 'Microsoft Windows Server 2025 & Active Directory Administration',
+    subtitle: 'AD DS, GPO, DNS, DHCP, Hotpatching, 32KB AD DB & Hybrid Cloud Admin',
+    pages: '60 Pages',
+    tag: 'Cloud & Infrastructure',
+    badge: '🔥 2027 Flagship',
+    previewUrl: '/downloads/Windows-Server-2025-Hindi-Edition-1-5Page-Preview.pdf',
+    price: 49,
+    accent: 'sky',
+    highlights: ['Active Directory & 5 FSMO Roles', 'Zero-Reboot Hotpatching & SMB over QUIC', 'Top 50 MNC SysAdmin Placement Vault'],
+  },
+  {
     id: 'tally',
     title: 'Tally Prime with GST & Corporate Accounting',
     subtitle: 'Golden Rules, 28 Groups, 24 Vouchers, Modern GST (0%/5%/18%) & TDS',
@@ -89,8 +101,8 @@ export function FeaturedNotesShelf() {
         </Link>
       </div>
 
-      {/* 5 Clean Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+      {/* 6 Clean Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {FEATURED_BOOKS.map((book) => (
           <div
             key={book.id}

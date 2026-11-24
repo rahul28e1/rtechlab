@@ -289,7 +289,7 @@
 Mastery of computer fundamentals unlocks multiple high-growth technical career paths across global technology industries:
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3.5pt,
   table.header([*Professional Domain*], [*Primary Industry Roles*], [*Core Technical Competencies & Essential Certifications*]),

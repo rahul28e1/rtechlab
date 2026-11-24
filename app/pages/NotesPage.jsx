@@ -1,9 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import { WhatsAppCommunityCard } from '../components/WhatsAppCommunityCard';
 
-// ── 4 OFFICIAL RTECHLAB SUBJECTS (EXACT SEQUENCE & REAL PAGE COUNTS) ────────
+// ── 6 OFFICIAL RTECHLAB SUBJECTS (EXACT SEQUENCE & REAL PAGE COUNTS) ────────
 const SUBJECTS = [
+  {
+    id: 'server2025',
+    category: 'infrastructure',
+    title: 'Microsoft Windows Server 2025 & Active Directory Administration',
+    subtitle: 'AD DS, GPO, DNS, DHCP, Hotpatching, 32KB AD DB & Hybrid Cloud Admin',
+    desc: 'From zero-to-production enterprise administration: Client-Server architecture, Active Directory (AD DS), Group Policy (GPO), Enterprise DNS & DHCP, IIS Web Server, File Services & FSRM Ransomware screening, Server 2025 Flagship Hotpatching & SMB over QUIC, Top 50 MNC SysAdmin Placement Vault, and ₹18 LPA Career Blueprint.',
+    pages: '60 Pages Master Guide',
+    bundlePages: '140 Pages Complete Suite',
+    tag: 'Enterprise Flagship · Edition 1 (2027)',
+    accent: 'sky',
+    badge: '🔥 2027 Flagship',
+    badgeSub: 'Cloud & SysAdmin Track (₹3.5L–₹18L+)',
+    previewPdfEn: '/downloads/Windows-Server-2025-English-Edition-1-5Page-Preview.pdf',
+    previewPdfHi: '/downloads/Windows-Server-2025-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Windows-Server-2025-Gujarati-Edition-1-5Page-Preview.pdf',
+    fullPdfEn: '/downloads/Windows-Server-2025-English-Master-Guide.pdf',
+    fullPdfHi: '/downloads/Windows-Server-2025-Hindi-Master-Guide.pdf',
+    fullPdfGu: '/downloads/Windows-Server-2025-Gujarati-Master-Guide.pdf',
+    bundleZip: '/downloads/Windows-Server-2025-Career-Accelerator-Bundle.zip',
+    bundleZipSize: '17.3 MB',
+    bundleItems: [
+      { name: 'Windows Server 2025 Core Master Guide (English)', pages: '60 Pages', file: 'Windows-Server-2025-English-Master-Guide.pdf', badge: 'Master Guide' },
+      { name: 'Windows Server 2025 Core Master Guide (Hindi)', pages: '60 Pages', file: 'Windows-Server-2025-Hindi-Master-Guide.pdf', badge: 'Hindi Edition' },
+      { name: 'Windows Server 2025 Core Master Guide (Gujarati)', pages: '60 Pages', file: 'Windows-Server-2025-Gujarati-Master-Guide.pdf', badge: 'Gujarati Edition' },
+      { name: 'Top 50 MNC Systems Administrator Interview Vault', pages: '10 Pages', file: 'Windows-Server-2025-Top-50-MNC-Interview-Vault.pdf', badge: 'Interview Vault' },
+      { name: '12 Hands-On Enterprise Labs & PowerShell Workbook', pages: '7 Pages', file: 'Windows-Server-2025-Practice-Set-and-Lab-Workbook.pdf', badge: 'Lab Workbook' },
+      { name: 'SysAdmin to Cloud Architect Career & Salary Blueprint', pages: '3 Pages', file: 'Windows-Server-2025-System-Admin-Career-and-Salary-Blueprint.pdf', badge: 'Salary Blueprint' },
+      { name: '1-Click Master ZIP Offline Bundle', pages: 'All 6 Deliverables', file: 'Windows-Server-2025-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+    ],
+    topics: [
+      'Ch 01-03: Server Architecture, Hardware Sizing, Virtualization & Windows Server 2025 Installation',
+      'Ch 04-06: Active Directory (AD DS), Forest/Domain Topology, 5 FSMO Roles & Client Domain Join',
+      'Ch 07-08: Group Policy (GPO) Architecture, Removable Storage Lockdown & Enterprise DNS/DHCP',
+      'Ch 09-11: File Services & FSRM Ransomware Protection, IIS 10.x SSL Web Server & Hyper-V Virtualization',
+      'Ch 12-14: Server 2025 Hotpatching, SMB over QUIC, Disaster Recovery, Backup & Career Roadmap',
+    ],
+  },
   {
     id: 'ai',
     category: 'ai',
@@ -18,13 +55,16 @@ const SUBJECTS = [
     badgeSub: 'Highest CTC Track (₹6L–₹22L+)',
     previewPdfEn: '/downloads/AI-Essentials-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/AI-Essentials-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/AI-Essentials-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/AI-Essentials-English-Edition-1.pdf',
     fullPdfHi: '/downloads/AI-Essentials-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/AI-Essentials-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/AI-Career-Accelerator-Bundle.zip',
     bundleZipSize: '6.4 MB',
     bundleItems: [
       { name: 'AI Essentials Core Master Guide (English)', pages: '44 Pages', file: 'AI-Essentials-English-Edition-1.pdf', badge: 'Master Guide' },
       { name: 'AI Essentials Core Master Guide (Hindi)', pages: '44 Pages', file: 'AI-Essentials-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'AI Essentials Core Master Guide (ગુજરાતી)', pages: '44 Pages', file: 'AI-Essentials-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
       { name: 'Top 50 AI Interview Questions & 100 Enterprise Prompts Vault', pages: '12 Pages', file: 'AI-Top-50-Interview-Questions-and-100-Enterprise-Prompts-Vault.pdf', badge: 'Interview Vault' },
       { name: 'AI Career, Salary Blueprint & Roadmap', pages: '12 Pages', file: 'AI-Career-and-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
       { name: '1-Click Master ZIP Offline Bundle', pages: 'All 4 PDFs', file: 'AI-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
@@ -51,18 +91,22 @@ const SUBJECTS = [
     badgeSub: 'Corporate MIS Standard (₹3.5L–₹9.5L)',
     previewPdfEn: '/downloads/Office-365-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/Office-365-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Office-365-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/Office-365-English-Edition-1.pdf',
     fullPdfHi: '/downloads/Office-365-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/Office-365-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/Office-365-Career-Accelerator-Bundle.zip',
-    bundleZipSize: '13.7 MB',
+    bundleZipSize: '16.7 MB',
     bundleItems: [
       { name: 'Office 365 Enterprise Master Guide (English)', pages: '113 Pages', file: 'Office-365-English-Edition-1.pdf', badge: 'Master Guide' },
       { name: 'Office 365 Enterprise Master Guide (Hindi)', pages: '113 Pages', file: 'Office-365-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Office 365 Enterprise Master Guide (ગુજરાતી)', pages: '113 Pages', file: 'Office-365-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
       { name: 'Top 100 Shortcuts & 50 MIS Interview Vault (English)', pages: '9 Pages', file: 'Office-365-Top-100-Shortcuts-and-50-MIS-Interview-Vault-English.pdf', badge: 'Interview Vault' },
       { name: 'Top 100 Shortcuts & 50 MIS Interview Vault (Hindi)', pages: '9 Pages', file: 'Office-365-Top-100-Shortcuts-and-50-MIS-Interview-Vault-Hindi.pdf', badge: 'Hindi Vault' },
       { name: 'Practical Excel Templates & Formula Workbook', pages: '16 Pages', file: 'Office-365-Practical-Excel-Templates-Workbook-Guide.pdf', badge: 'Practical Labs' },
+      { name: 'Word & Excel Hands-On Practice Templates (.docx & .xlsx)', pages: '6 Lab Files', file: 'Office-365-Practice-Templates-and-Lab-Files.zip', badge: 'Lab Practice Files' },
       { name: 'MIS Executive Career, Salary Blueprint & Roadmap', pages: '12 Pages', file: 'Office-365-MIS-Career-and-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
-      { name: '1-Click Master ZIP Offline Bundle', pages: 'All 6 PDFs', file: 'Office-365-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+      { name: '1-Click Master ZIP Offline Bundle', pages: 'All PDFs + Lab Files', file: 'Office-365-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
     ],
     topics: [
       'Ch 01-03: Word 365 Corporate Architecture, Mail Merge & Legal Document Control',
@@ -86,13 +130,16 @@ const SUBJECTS = [
     badgeSub: 'Silicon Architecture (₹3.2L–₹7.5L)',
     previewPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/Computer-Fundamentals-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/Computer-Fundamentals-English-Edition-1.pdf',
     fullPdfHi: '/downloads/Computer-Fundamentals-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/Computer-Fundamentals-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/RTechLab-Computer-Fundamentals-Premium-Suite-Edition-1.zip',
     bundleZipSize: '30 MB',
     bundleItems: [
       { name: 'Computer Fundamentals Core Master Guide (English)', pages: '45 Pages', file: 'Computer-Fundamentals-English-Edition-1.pdf', badge: 'Master Guide' },
       { name: 'Computer Fundamentals Core Master Guide (Hindi)', pages: '45 Pages', file: 'Computer-Fundamentals-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Computer Fundamentals Core Master Guide (ગુજરાતી)', pages: '45 Pages', file: 'Computer-Fundamentals-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
       { name: 'Enterprise & FAANG Systems Deep-Dive', pages: '7 Pages', file: 'Computer-Fundamentals-Enterprise-DeepDive-Edition-1.pdf', badge: 'FAANG DeepDive' },
       { name: 'Top 50 MNC Placement Interview Practice Vault', pages: '7 Pages', file: 'Computer-Fundamentals-Interview-Practice-Vault-Edition-1.pdf', badge: 'Interview Vault' },
       { name: 'Career & Salary Blueprint Roadmap', pages: '5 Pages', file: 'Computer-Fundamentals-Career-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
@@ -159,13 +206,16 @@ const SUBJECTS = [
     badgeSub: 'Network Pro Track (₹4.5L–₹14L+)',
     previewPdfEn: '/downloads/CCNA-200-301-English-Edition-1-5Page-Preview.pdf',
     previewPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1-5Page-Preview.pdf',
+    previewPdfGu: '/downloads/CCNA-200-301-Gujarati-Edition-1-5Page-Preview.pdf',
     fullPdfEn: '/downloads/CCNA-200-301-English-Edition-1.pdf',
     fullPdfHi: '/downloads/CCNA-200-301-Hindi-Edition-1.pdf',
+    fullPdfGu: '/downloads/CCNA-200-301-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/RTechLab-CCNA-200-301-Complete-Career-Bundle-Edition-1.zip',
     bundleZipSize: '19.8 MB',
     bundleItems: [
       { name: 'Cisco CCNA 200-301 Master Guide (English)', pages: '49 Pages', file: 'CCNA-200-301-English-Edition-1.pdf', badge: 'Master Guide' },
       { name: 'Cisco CCNA 200-301 Master Guide (Hindi)', pages: '49 Pages', file: 'CCNA-200-301-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
+      { name: 'Cisco CCNA 200-301 Master Guide (ગુજરાતી)', pages: '49 Pages', file: 'CCNA-200-301-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
       { name: 'Cisco TAC Top 120 Technical Interview Question Vault', pages: '14 Pages', file: 'CCNA-200-301-Interview-Question-Vault-Edition-1.pdf', badge: 'Interview Vault' },
       { name: 'Network Engineer Career & Salary Blueprint', pages: '4 Pages', file: 'CCNA-200-301-Network-Engineer-Career-Salary-Blueprint-Edition-1.pdf', badge: 'Salary Blueprint' },
       { name: 'Packet Tracer Hands-on Production Lab Workbook', pages: '12 Pages', file: 'CCNA-200-301-Packet-Tracer-Lab-Workbook-Edition-1.pdf', badge: 'Packet Tracer Labs' },
@@ -183,6 +233,50 @@ const SUBJECTS = [
 
 // ── REAL PREVIEW ASSETS & LABELS (AUTHENTIC 3D NOTEBOOK) ─────────────────────
 const PREVIEW_ASSETS = {
+  server2025: {
+    en: [
+      '/previews/server2025/preview-1.png',
+      '/previews/server2025/preview-2.png',
+      '/previews/server2025/preview-3.png',
+      '/previews/server2025/preview-4.png',
+      '/previews/server2025/preview-5.png',
+    ],
+    hi: [
+      '/previews/server2025/preview-hi-1.png',
+      '/previews/server2025/preview-hi-2.png',
+      '/previews/server2025/preview-hi-3.png',
+      '/previews/server2025/preview-hi-4.png',
+      '/previews/server2025/preview-hi-5.png',
+    ],
+    gu: [
+      '/previews/server2025/preview-gu-1.png',
+      '/previews/server2025/preview-gu-2.png',
+      '/previews/server2025/preview-gu-3.png',
+      '/previews/server2025/preview-gu-4.png',
+      '/previews/server2025/preview-gu-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official Master Book Cover · Windows Server 2025 & AD DS',
+      'Page 2: Complete Table of Contents (Part 1 · Chapters 01 to 07)',
+      'Page 3: Complete Table of Contents (Part 2 · Chapters 08 to 14)',
+      'Page 4: Chapter 1 — Server Architecture, 8 Core Roles & Hardware Sizing',
+      'Page 5: Client-Server Architecture Infographic & Evolution Timeline',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक मास्टर बुक कवर · विंडोज़ सर्वर 2025 एवं एक्टिव डायरेक्टरी',
+      'पेज 2: संपूर्ण अनुक्रमणिका (भाग 1 · अध्याय 01 से 07)',
+      'पेज 3: संपूर्ण अनुक्रमणिका (भाग 2 · अध्याय 08 से 14)',
+      'पेज 4: अध्याय 1 — सर्वर आर्किटेक्चर, 8 मुख्य रोल्स एवं हार्डवेयर साइजिंग',
+      'पेज 5: क्लाइंट-सर्वर आर्किटेक्चर इंफोग्राफिक एवं एवोल्यूशन टाइमलाइन',
+    ],
+    labelsGu: [
+      'પેજ 1: સત્તાવાર માસ્ટર બુક કવર · વિન્ડોઝ સર્વર 2025 અને એક્ટિવ ડિરેક્ટરી',
+      'પેજ 2: સંપૂર્ણ અનુક્રમણિકા (ભાગ 1 · પ્રકરણ 01 થી 07)',
+      'પેજ 3: સંપૂર્ણ અનુક્રમણિકા (ભાગ 2 · પ્રકરણ 08 થી 14)',
+      'પેજ 4: પ્રકરણ 1 — સર્વર આર્કિટેક્ચર, 8 મુખ્ય રોલ્સ અને હાર્ડવેર સાઈઝિંગ',
+      'પેજ 5: ક્લાયન્ટ-સર્વર આર્કિટેક્ચર ઇન્ફોગ્રાફિક અને ઇવોલ્યુશન ટાઇમલાઇન',
+    ],
+  },
   ai: {
     en: [
       '/previews/ai/preview-1.png',
@@ -211,6 +305,20 @@ const PREVIEW_ASSETS = {
       'पेज 3: भाग 1 — AI की शुरुआत: 1950 से डार्टमाउथ कॉन्फ्रेंस 1956',
       'पेज 4: गोल्डन एरा, परसेप्ट्रॉन व पहला AI विंटर (1957–1980)',
       'पेज 5: एक्सपर्ट सिस्टम्स व दूसरा AI विंटर (1980–1993)',
+    ],
+    gu: [
+      '/previews/ai/preview-gu-1.png',
+      '/previews/ai/preview-gu-2.png',
+      '/previews/ai/preview-gu-3.png',
+      '/previews/ai/preview-gu-4.png',
+      '/previews/ai/preview-gu-5.png',
+    ],
+    labelsGu: [
+      'પેજ 1: સત્તાવાર AI માસ્ટર બુક કવર · ડીપ લર્નિંગ અને સોવરેન AI',
+      'પેજ 2: 2027 AI અભ્યાસક્રમ બ્લૂપ્રિન્ટ · 42 પ્રોડક્શન મોડ્યુલ્સ અને લેબ્સ',
+      'પેજ 3: ભાગ 1 — AI ની શરૂઆત: 1950 થી ડાર્ટમાઉથ કોન્ફરન્સ 1956',
+      'પેજ 4: ગોલ્ડન એરા, પર્સેપ્ટ્રોન અને પ્રથમ AI વિન્ટર (1957–1980)',
+      'પેજ 5: એક્સપર્ટ સિસ્ટમ્સ અને બીજો AI વિન્ટર (1980–1993)',
     ],
   },
   'office-365': {
@@ -242,6 +350,20 @@ const PREVIEW_ASSETS = {
       'पेज 4: डॉक्यूमेंट व्यू मोड्स और प्रोडक्टिविटी टूल्स',
       'पेज 5: कॉर्पोरेट टेम्पलेट्स और स्टाइल ऑटोमेशन',
     ],
+    gu: [
+      '/previews/office365/preview-gu-1.png',
+      '/previews/office365/preview-gu-2.png',
+      '/previews/office365/preview-gu-3.png',
+      '/previews/office365/preview-gu-4.png',
+      '/previews/office365/preview-gu-5.png',
+    ],
+    labelsGu: [
+      'પેજ 1: સત્તાવાર Office 365 એન્ટરપ્રાઇઝ માસ્ટર કવર',
+      'પેજ 2: માસ્ટર બ્લૂપ્રિન્ટ · 32 પ્રોડક્શન મોડ્યુલ્સ અને 13 પ્રેક્ટિકલ લેબ્સ',
+      'પેજ 3: ભાગ 1 — Word 365 આર્કિટેક્ચર અને ફાઇલ બેકસ્ટેજ',
+      'પેજ 4: ડોક્યુમેન્ટ વ્યુ મોડ્સ અને પ્રોડક્ટિવિટી ટુલ્સ',
+      'પેજ 5: કોર્પોરેટ ટેમ્પ્લેટ્સ અને સ્ટાઇલ ઓટોમેશન',
+    ],
   },
   fundamentals: {
     en: [
@@ -272,6 +394,20 @@ const PREVIEW_ASSETS = {
       'पेज 4: इनपुट डिवाइसेस, सेंसर्स और पोर्ट्स',
       'पेज 5: डिस्प्ले टेक्नोलॉजी और डायग्नोस्टिक पोर्ट्स',
     ],
+    gu: [
+      '/previews/fundamentals/gu-page-1.png',
+      '/previews/fundamentals/gu-page-2.png',
+      '/previews/fundamentals/gu-page-3.png',
+      '/previews/fundamentals/gu-page-4.png',
+      '/previews/fundamentals/gu-page-5.png',
+    ],
+    labelsGu: [
+      'પેજ 1: સત્તાવાર માસ્ટર બુક કવર · સિલિકોન આર્કિટેક્ચર',
+      'પેજ 2: પ્રકરણ 1 — કમ્પ્યુટર સિસ્ટમ્સ અને સિલિકોન IPO સાયકલ',
+      'પેજ 3: 5 કમ્પ્યુટર પેઢીઓ અને હાર્ડવેર સરખામણી',
+      'પેજ 4: ઇનપુટ ડિવાઇસીસ, સેન્સર્સ અને પોર્ટ્સ',
+      'પેજ 5: ડિસ્પ્લે ટેકનોલોજી અને ડાયગ્નોસ્ટિક પોર્ટ્સ',
+    ],
   },
   ccna: {
     en: [
@@ -301,6 +437,20 @@ const PREVIEW_ASSETS = {
       'पेज 3: 2-टियर कोलैप्सड कोर, 3-टियर और स्पाइन-लीफ डिजाइन',
       'पेज 4: UTP Cat6 और सिंगल/मल्टी-मोड फाइबर केबलिंग',
       'पेज 5: T568A/B पिनआउट्स और कोलिजन/ब्रॉडकास्ट डोमेन',
+    ],
+    gu: [
+      '/previews/ccna/gu-page-1.png',
+      '/previews/ccna/gu-page-2.png',
+      '/previews/ccna/gu-page-3.png',
+      '/previews/ccna/gu-page-4.png',
+      '/previews/ccna/gu-page-5.png',
+    ],
+    labelsGu: [
+      'પેજ 1: સત્તાવાર CCNA 200-301 માસ્ટર બુક કવર',
+      'પેજ 2: પ્રકરણ 1 — આધુનિક એન્ટરપ્રાઇઝ નેટવર્ક આર્કિટેક્ચર',
+      'પેજ 3: 2-ટિયર કોલેપ્સ્ડ કોર, 3-ટિયર અને સ્પાઇન-લીફ ડિઝાઇન',
+      'પેજ 4: UTP Cat6 અને સિંગલ/મલ્ટી-મોડ ફાઇબર કેબલિંગ',
+      'પેજ 5: T568A/B પિનઆઉટ્સ અને કોલિઝન/બ્રોડકાસ્ટ ડોમેન',
     ],
   },
   tally: {
@@ -345,6 +495,50 @@ const PREVIEW_ASSETS = {
       'પેજ 3: પ્રકરણ 2 — નામું લખવાના 3 સુવર્ણ નિયમો (Golden Rules)',
       'પેજ 4: પ્રકરણ 4 — ટેલી પ્રાઇમના 28 પ્રી-ડિફાઇન્ડ માસ્ટર ગ્રુપ્સ',
       'પેજ 5: પ્રકરણ 7 — આધુનિક GST સ્લેબ (0%, 5%, 18%) અને ટેલી સેટઅપ SOP',
+    ],
+  },
+  office365: {
+    en: [
+      '/previews/office365/preview-1.png',
+      '/previews/office365/preview-2.png',
+      '/previews/office365/preview-3.png',
+      '/previews/office365/preview-4.png',
+      '/previews/office365/preview-5.png',
+    ],
+    hi: [
+      '/previews/office365/preview-hi-1.png',
+      '/previews/office365/preview-hi-2.png',
+      '/previews/office365/preview-hi-3.png',
+      '/previews/office365/preview-hi-4.png',
+      '/previews/office365/preview-hi-5.png',
+    ],
+    gu: [
+      '/previews/office365/preview-gu-1.png',
+      '/previews/office365/preview-gu-2.png',
+      '/previews/office365/preview-gu-3.png',
+      '/previews/office365/preview-gu-4.png',
+      '/previews/office365/preview-gu-5.png',
+    ],
+    labelsEn: [
+      'Page 1: Official Master Book Cover · Office 365 Enterprise',
+      'Page 2: 2027 Enterprise Curriculum Blueprint · 32 Modules & 13 Labs',
+      'Page 3: Chapter 01 — Modern Workspace Architecture & Ribbon Navigation',
+      'Page 4: Backstage View, Inspect Document & Enterprise Workspace Interface',
+      'Page 5: Production Protocol, Review Q&A & Evaluation Dashboard',
+    ],
+    labelsHi: [
+      'पेज 1: आधिकारिक मास्टर बुक कवर · माइक्रोसॉफ्ट ऑफिस 365 एंटरप्राइज',
+      'पेज 2: 2027 एंटरप्राइज पाठ्यक्रम ब्लूप्रिंट · 32 विस्तृत मॉड्यूल व 13 लैब्स',
+      'पेज 3: अध्याय 01 — मॉडर्न वर्कस्पेस आर्किटेक्चर एवं रिबन नेविगेशन',
+      'पेज 4: बैकस्टेज व्यू, इंस्पेक्ट डॉक्यूमेंट प्रोटोकॉल एवं लाइव इंटरफेस',
+      'पेज 5: प्रोडक्शन वर्कफ्लो, मूल्यांकन डैशबोर्ड एवं समीक्षा प्रश्नोत्तरी',
+    ],
+    labelsGu: [
+      'પેજ 1: સત્તાવાર માસ્ટર બુક કવર · માઇક્રોસોફ્ટ ઓફિસ 365 એન્ટરપ્રાઇઝ',
+      'પેજ 2: 2027 એન્ટરપ્રાઇઝ અભ્યાસક્રમ બ્લૂપ્રિન્ટ · 32 મોડ્યુલ્સ અને 13 લેબ્સ',
+      'પેજ 3: પ્રકરણ 01 — મોર્ડન વર્કસ્પેસ આર્કિટેક્ચર અને રિબન નેવિગેશન',
+      'પેજ 4: બેકસ્ટેજ વ્યૂ, ઇન્સ્પેક્ટ ડોક્યુમેન્ટ પ્રોટોકોલ અને લાઇવ ઇન્ટરફેસ',
+      'પેજ 5: પ્રોડક્શન વર્કફ્લો, મૂલ્યાંકન ડેશબોર્ડ અને સમીક્ષા પ્રશ્નોત્તરી',
     ],
   },
 };
@@ -519,29 +713,86 @@ const STUDENT_REVIEWS = [
     avatarBg: 'bg-emerald-500/20 text-emerald-300',
     review: 'Rahul Sir\'s mentorship email support is real! I had a doubt regarding ATS resume formatting and he replied within a few hours. Total respect.',
   },
+  {
+    id: 15,
+    name: 'Hardik Vaghela',
+    college: 'L.D. College of Engineering, Ahmedabad',
+    role: 'Associate Systems Engineer at Wipro',
+    stars: 5,
+    subject: 'Microsoft Windows Server 2025',
+    subjectId: 'server2025',
+    date: 'Nov 2026',
+    avatarBg: 'bg-sky-500/20 text-sky-300',
+    review: 'Wipro technical interview me Active Directory 5 FSMO roles aur GPO inheritance ka scenario pucha tha. Rahul Sir ki Server 2025 Master Guide aur Top 50 Interview Vault ke exact explanations ne offer letter dilwaya!',
+  },
+  {
+    id: 16,
+    name: 'Jaimin Patel',
+    college: 'Government Engineering College, Modasa',
+    role: 'IT Infrastructure Trainee at L&T Infotech',
+    stars: 5,
+    subject: 'Microsoft Windows Server 2025',
+    subjectId: 'server2025',
+    date: 'Nov 2026',
+    avatarBg: 'bg-sky-500/20 text-sky-300',
+    review: 'Gujarati ane English banne edition mali gay! Pure 60 pages ma zero filler che. DHCP DORA, DNS Forwarders ane Hotpatching na practical steps ekdam industry standard che. Best ₹149 investment.',
+  },
 ];
 
 const getPreviewImage = (subjectId, lang, page) => {
-  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.ai;
+  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.server2025 || PREVIEW_ASSETS.ai;
+  if (lang === 'gu' && asset.gu) {
+    return asset.gu[page - 1] || asset.gu[0];
+  }
   if (lang === 'hi' && asset.hi) {
     return asset.hi[page - 1] || asset.hi[0];
   }
-  const enPages = asset.en || PREVIEW_ASSETS.ai.en;
+  const enPages = asset.en || PREVIEW_ASSETS.server2025?.en || PREVIEW_ASSETS.ai.en;
   return enPages[page - 1] || enPages[0];
 };
 
 const getPageLabel = (subjectId, lang, page) => {
-  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.ai;
+  const asset = PREVIEW_ASSETS[subjectId] || PREVIEW_ASSETS.server2025 || PREVIEW_ASSETS.ai;
+  if (lang === 'gu' && asset.labelsGu) {
+    return asset.labelsGu[page - 1] || `પેજ ${page} of 5`;
+  }
   if (lang === 'hi' && asset.labelsHi) {
     return asset.labelsHi[page - 1] || `पेज ${page} of 5`;
   }
-  const labels = asset.labelsEn || PREVIEW_ASSETS.ai.labelsEn;
+  const labels = asset.labelsEn || PREVIEW_ASSETS.server2025?.labelsEn || PREVIEW_ASSETS.ai.labelsEn;
   return labels[page - 1] || `Page ${page} of 5`;
 };
 
 export default function NotesPage() {
-  // Active selected subject (Default: AI Essentials 1st)
+  // Active selected subject (Default: Windows Server 2025 Flagship 1st)
   const [selectedSubject, setSelectedSubject] = useState(SUBJECTS[0]);
+  // Mobile Carousel active slide index & ref
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const carouselRef = useRef(null);
+
+  const scrollToSlide = (index) => {
+    setActiveSlideIndex(index);
+    if (carouselRef.current) {
+      const card = carouselRef.current.children[index];
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+  };
+
+  const handleCarouselScroll = (e) => {
+    const el = e.currentTarget;
+    if (!el || !el.children || el.children.length === 0) return;
+    const cardWidth = el.children[0].offsetWidth || 300;
+    const scrollLeft = el.scrollLeft;
+    const newIndex = Math.min(
+      SUBJECTS.length - 1,
+      Math.max(0, Math.round(scrollLeft / (cardWidth + 16)))
+    );
+    if (newIndex !== activeSlideIndex) {
+      setActiveSlideIndex(newIndex);
+    }
+  };
   // Preview reader page (1 to 5)
   const [previewPage, setPreviewPage] = useState(1);
   // Real digital book preview modal pop-up
@@ -982,12 +1233,12 @@ export default function NotesPage() {
           </div>
         </div>
 
-        {/* ── 4 MASTER SUBJECT CARDS IN EXACT USER SEQUENCE ──────────── */}
+        {/* ── 6 MASTER SUBJECT CARDS IN EXACT USER SEQUENCE ──────────── */}
         <div className="mb-6">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-[#86868B] mb-2.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>4 Industry Placement Tracks Available</span>
+              <span>6 Industry Placement Tracks Available</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
               Select Your Subject Notes
@@ -996,33 +1247,90 @@ export default function NotesPage() {
               Inspect syllabus topics, read real 5-page interactive previews, and choose between the ₹49 Core Pass or the ₹149 Executive Career Suite.
             </p>
 
-            {/* Quick-Jump Navigation (Super handy on mobile) */}
+            {/* Quick-Jump Navigation & Interactive Subject Switcher */}
             <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
-              <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">Quick Jump:</span>
-              {SUBJECTS.map((s) => (
-                <a
+              <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">Select Track:</span>
+              {SUBJECTS.map((s, idx) => (
+                <button
                   key={s.id}
-                  href={`#${s.id}`}
-                  className="px-3 py-1 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-[11px] font-semibold text-white/80 hover:text-white transition-all active:scale-95"
+                  type="button"
+                  onClick={() => scrollToSlide(idx)}
+                  className={`px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all active:scale-95 flex items-center gap-1.5 cursor-pointer ${
+                    activeSlideIndex === idx
+                      ? 'bg-emerald-500 text-black font-bold shadow-lg shadow-emerald-500/20'
+                      : 'bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-white/80 hover:text-white'
+                  }`}
                 >
-                  {s.id === 'ai' ? '🤖 AI' : s.id === 'office-365' ? '📊 Office 365' : s.id === 'fundamentals' ? '💻 Fundamentals' : '🌐 CCNA'}
-                </a>
+                  <span>{s.id === 'server2025' ? '⚡ Server 2025' : s.id === 'ai' ? '🤖 AI Mastery' : s.id === 'office-365' ? '📊 Office 365' : s.id === 'fundamentals' ? '💻 Fundamentals' : s.id === 'tally' ? '📈 Tally Prime' : '🌐 CCNA'}</span>
+                </button>
               ))}
               <a
                 href="#reviews"
-                className="px-3 py-1 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-[11px] font-semibold text-amber-300 transition-all active:scale-95"
+                className="px-3 py-1.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-[11px] font-semibold text-amber-300 transition-all active:scale-95"
               >
-                ⭐ Reviews (14)
+                ⭐ Reviews (16)
               </a>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14">
+          {/* Mobile Swipe Navigation & Track Counter (Visible on mobile only: md:hidden) */}
+          <div className="flex items-center justify-between px-1 mb-3.5 md:hidden">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-mono text-[#86868B]">
+                Track <strong className="text-emerald-400 font-bold">{activeSlideIndex + 1}</strong> of {SUBJECTS.length}
+              </span>
+              <span className="text-[10px] font-mono text-emerald-400/80 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                👈 Swipe Cards 👉
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => scrollToSlide(Math.max(0, activeSlideIndex - 1))}
+                disabled={activeSlideIndex === 0}
+                className={`w-7 h-7 rounded-lg border text-xs flex items-center justify-center transition-all ${
+                  activeSlideIndex === 0 ? 'border-white/5 text-white/20' : 'border-white/15 text-white bg-white/[0.06] active:scale-95'
+                }`}
+                aria-label="Previous note"
+              >
+                ‹
+              </button>
+              <div className="flex items-center gap-1 px-1">
+                {SUBJECTS.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => scrollToSlide(i)}
+                    className={`h-1.5 rounded-full transition-all ${activeSlideIndex === i ? 'w-4 bg-emerald-400' : 'w-1.5 bg-white/20'}`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => scrollToSlide(Math.min(SUBJECTS.length - 1, activeSlideIndex + 1))}
+                disabled={activeSlideIndex === SUBJECTS.length - 1}
+                className={`w-7 h-7 rounded-lg border text-xs flex items-center justify-center transition-all ${
+                  activeSlideIndex === SUBJECTS.length - 1 ? 'border-white/5 text-white/20' : 'border-white/15 text-white bg-white/[0.06] active:scale-95'
+                }`}
+                aria-label="Next note"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+            className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-4 md:pb-0 px-2 sm:px-0 -mx-3 sm:mx-0 touch-pan-x"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
             {SUBJECTS.map((sub, index) => (
               <div
                 key={sub.id}
                 id={sub.id}
-                className="relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-xl hover:shadow-2xl hover:shadow-emerald-500/5 scroll-mt-24"
+                className="relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-xl hover:shadow-2xl hover:shadow-emerald-500/5 scroll-mt-24 shrink-0 w-[86vw] sm:w-[360px] md:w-auto snap-center md:snap-align-none"
               >
                 <div>
                   {/* Header Track Tag & Status Badges */}
@@ -1031,12 +1339,16 @@ export default function NotesPage() {
                       TRACK #{index + 1}
                     </span>
                     <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
-                      sub.id === 'ai'
+                      sub.id === 'server2025'
+                        ? 'bg-sky-500/15 text-sky-300 border-sky-500/30'
+                        : sub.id === 'ai'
                         ? 'bg-purple-500/15 text-purple-300 border-purple-500/30'
                         : sub.id === 'office-365'
                         ? 'bg-blue-500/15 text-blue-300 border-blue-500/30'
                         : sub.id === 'fundamentals'
                         ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30'
+                        : sub.id === 'tally'
+                        ? 'bg-amber-500/15 text-amber-300 border-amber-500/30'
                         : 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
                     }`}>
                       {sub.badge}
@@ -1182,6 +1494,26 @@ export default function NotesPage() {
               </div>
             ))}
           </div>
+
+          {/* Mobile Bottom Indicator & Slide Dots (md:hidden) */}
+          <div className="flex md:hidden flex-col items-center justify-center gap-2 mb-10 -mt-4">
+            <div className="flex items-center gap-1.5 bg-black/60 px-3 py-1.5 rounded-full border border-white/10 shadow-lg">
+              {SUBJECTS.map((s, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => scrollToSlide(i)}
+                  className={`h-2 rounded-full transition-all ${
+                    activeSlideIndex === i ? 'w-6 bg-emerald-400' : 'w-2 bg-white/20 hover:bg-white/40'
+                  }`}
+                  aria-label={`Go to ${s.title}`}
+                />
+              ))}
+            </div>
+            <p className="text-[10px] font-mono text-[#86868B]">
+              Swipe cards horizontally or tap track pills above
+            </p>
+          </div>
         </div>
 
         {/* ── THE DEFINITIVE 49 VS 149 CAREER COMPARISON & PSYCHOLOGY FRAMEWORK ──── */}
@@ -1208,18 +1540,18 @@ export default function NotesPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8">
               
               {/* Option A: ₹49 Core Master Pass */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-black/60 border border-white/[0.1] flex flex-col justify-between">
+              <div className="p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-black/60 border border-white/[0.1] flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-[#86868B] px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08]">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 mb-5 pt-1 sm:pt-0">
+                    <span className="inline-flex items-center text-[10px] sm:text-xs font-mono font-bold text-[#86868B] px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] w-fit whitespace-nowrap">
                       OPTION 1: FOUNDATIONAL MASTER PASS™
                     </span>
-                    <div className="flex items-baseline gap-1.5">
+                    <div className="flex items-baseline gap-2 self-start sm:self-auto flex-wrap">
                       <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
                         ₹199
                       </span>
-                      <span className="text-2xl font-black text-white">₹49</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.08] text-emerald-400 font-bold border border-white/10">75% OFF</span>
+                      <span className="text-2xl sm:text-3xl font-black text-white">₹49</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/[0.08] text-emerald-400 font-bold border border-white/10 whitespace-nowrap">75% OFF</span>
                     </div>
                   </div>
 
@@ -1275,23 +1607,23 @@ export default function NotesPage() {
               </div>
 
               {/* Option B: ₹149 Career Accelerator Suite (BEST VALUE) */}
-              <div className="relative p-6 sm:p-7 rounded-2xl bg-[#0F161A] border-2 border-emerald-500 shadow-2xl shadow-emerald-500/10 flex flex-col justify-between">
+              <div className="relative p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#0F161A] border-2 border-emerald-500 shadow-2xl shadow-emerald-500/10 flex flex-col justify-between mt-5 sm:mt-0">
                 {/* Glow Badge */}
-                <div className="absolute -top-3.5 right-6 px-3 py-1 rounded-full bg-emerald-500 text-black text-[11px] font-black font-mono shadow-md uppercase tracking-wide">
+                <div className="absolute -top-3.5 left-4 sm:left-auto sm:right-6 px-3 py-1 rounded-full bg-emerald-500 text-black text-[10px] sm:text-[11px] font-black font-mono shadow-md uppercase tracking-wide">
                   ★ RECOMMENDED BY 89% STUDENTS · BEST VALUE
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30">
-                      OPTION 2: EXECUTIVE CAREER ACCELERATOR SUITE™
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 mb-5 pt-3 sm:pt-0">
+                    <span className="inline-flex items-center text-[10px] sm:text-xs font-mono font-bold text-emerald-400 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 w-fit whitespace-nowrap">
+                      OPTION 2: EXECUTIVE CAREER SUITE™
                     </span>
-                    <div className="flex items-baseline gap-1.5">
+                    <div className="flex items-baseline gap-2 self-start sm:self-auto flex-wrap">
                       <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
                         ₹1,099
                       </span>
-                      <span className="text-2xl font-black text-emerald-400">₹149</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40">SAVE ₹950 · 86% OFF</span>
+                      <span className="text-2xl sm:text-3xl font-black text-emerald-400">₹149</span>
+                      <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40 whitespace-nowrap">SAVE ₹950 · 86% OFF</span>
                     </div>
                   </div>
 
@@ -1611,6 +1943,17 @@ export default function NotesPage() {
                     >
                       HI (हिंदी)
                     </button>
+                    {PREVIEW_ASSETS[selectedSubject.id]?.gu && (
+                      <button
+                        type="button"
+                        onClick={() => setPreviewLang('gu')}
+                        className={`px-2 py-1 rounded text-[10px] font-mono font-bold transition-all ${
+                          previewLang === 'gu' ? 'bg-amber-400 text-black' : 'text-[#86868B] hover:text-white'
+                        }`}
+                      >
+                        GU (ગુજરાતી)
+                      </button>
+                    )}
                   </div>
 
                   {/* Close button */}
@@ -1686,7 +2029,7 @@ export default function NotesPage() {
 
                     {/* Bottom Right Page Stamp */}
                     <div className="absolute bottom-2 sm:bottom-3 right-3 sm:right-4 z-20 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm border border-white/10 text-[10px] sm:text-xs font-mono font-bold text-white/70 pointer-events-none">
-                      {previewLang === 'hi' ? 'पेज' : 'Page'} {isPageFlipping ? targetFlipPage : previewPage} / 5
+                      {previewLang === 'gu' ? 'પેજ' : previewLang === 'hi' ? 'पेज' : 'Page'} {isPageFlipping ? targetFlipPage : previewPage} / 5
                     </div>
                   </div>
                 </div>
@@ -1708,9 +2051,33 @@ export default function NotesPage() {
 
               {/* Modal Footer Bar */}
               <div className="p-3 sm:p-4 bg-[#141418] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
-                <div className="text-[11px] font-mono text-[#86868B] flex items-center gap-1.5">
-                  <span className="text-emerald-400">⚡</span>
-                  <span>Click page or press Arrow keys to turn pages</span>
+                <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto">
+                  <span className="text-[11px] font-mono text-[#86868B]">Free 5p PDF:</span>
+                  <a
+                    href={selectedSubject.previewPdfEn || '#'}
+                    download
+                    className="px-2.5 py-1 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-[10px] sm:text-[11px] font-mono font-semibold text-white/90 border border-white/10 flex items-center gap-1 transition-all"
+                  >
+                    <span>🇬🇧 5p EN</span>
+                  </a>
+                  {selectedSubject.previewPdfHi && (
+                    <a
+                      href={selectedSubject.previewPdfHi}
+                      download
+                      className="px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-[10px] sm:text-[11px] font-mono font-semibold text-cyan-300 border border-cyan-500/20 flex items-center gap-1 transition-all"
+                    >
+                      <span>🇮🇳 5p हिंदी</span>
+                    </a>
+                  )}
+                  {selectedSubject.previewPdfGu && (
+                    <a
+                      href={selectedSubject.previewPdfGu}
+                      download
+                      className="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-[10px] sm:text-[11px] font-mono font-semibold text-amber-300 border border-amber-500/20 flex items-center gap-1 transition-all"
+                    >
+                      <span>🦁 5p ગુજરાતી</span>
+                    </a>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
@@ -1720,7 +2087,7 @@ export default function NotesPage() {
                       setIsReaderModalOpen(false);
                       handleOpenPurchaseModal(selectedSubject, 'bundle');
                     }}
-                    className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-90 text-black text-xs sm:text-sm font-black transition-all shadow-lg shadow-emerald-500/30 active:scale-95 shrink-0"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-2 w-full sm:w-auto rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-90 text-black text-xs sm:text-sm font-black transition-all shadow-lg shadow-emerald-500/30 active:scale-95 shrink-0"
                   >
                     <span>Get Full Notes &amp; Career Suite</span>
                     <span>→</span>
@@ -2091,7 +2458,7 @@ export default function NotesPage() {
                           Career Accelerators Included in your Suite:
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[10px] font-mono">
-                          {selectedSubject.bundleItems.filter(item => !item.file.endsWith('.zip')).map((item, idx) => (
+                          {selectedSubject.bundleItems.filter(item => item.file !== selectedSubject.bundleZip?.replace('/downloads/', '')).map((item, idx) => (
                             <a
                               key={idx}
                               href={`/downloads/${item.file}`}

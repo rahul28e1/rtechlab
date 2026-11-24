@@ -19,8 +19,8 @@ Copper cabling remains the backbone of enterprise campus access layers. Unshield
 == 2.2 Ethernet Copper Standards & Bandwidth Ratings
 #table(
   columns: (1fr, 1.2fr, 1.1fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Standard*], [*Maximum Speed*], [*Frequency Bandwidth*], [*Enterprise Application & Characteristics*]),
   [Cat5e], [1,000 Mbps (1 Gbps)], [100 MHz], [1000BASE-T access layer standard. Uses all 4 wire pairs for full-duplex transmission.],
@@ -68,8 +68,8 @@ When transmission distances exceed 100 meters or enterprise noise levels are sev
 == 2.5 Optical Transceiver Modules & Form Factors
 #table(
   columns: (1fr, 1.2fr, 1.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Transceiver*], [*Max Throughput*], [*Connector Type*], [*Deployment Environment*]),
   [SFP (Mini-GBIC)], [1 Gbps], [Duplex LC], [Legacy 1000BASE-SX/LX campus aggregation links.],

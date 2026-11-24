@@ -24,7 +24,7 @@
     // MODULE 1
     #block(
       width: 100%,
-      stroke: 0.5pt + rgb("#CBD5E1"),
+      stroke: 0.5pt + rgb("#64748B"),
       radius: 4pt,
       fill: white,
       inset: (x: 6pt, y: 5pt),
@@ -50,7 +50,7 @@
     // MODULE 2
     #block(
       width: 100%,
-      stroke: 0.5pt + rgb("#CBD5E1"),
+      stroke: 0.5pt + rgb("#64748B"),
       radius: 4pt,
       fill: white,
       inset: (x: 6pt, y: 5pt),
@@ -78,7 +78,7 @@
     // MODULE 3
     #block(
       width: 100%,
-      stroke: 0.5pt + rgb("#CBD5E1"),
+      stroke: 0.5pt + rgb("#64748B"),
       radius: 4pt,
       fill: white,
       inset: (x: 6pt, y: 5pt),
@@ -105,7 +105,7 @@
     // MODULE 4
     #block(
       width: 100%,
-      stroke: 0.5pt + rgb("#CBD5E1"),
+      stroke: 0.5pt + rgb("#64748B"),
       radius: 4pt,
       fill: white,
       inset: (x: 6pt, y: 5pt),
@@ -131,7 +131,7 @@
     // MODULE 5
     #block(
       width: 100%,
-      stroke: 0.5pt + rgb("#CBD5E1"),
+      stroke: 0.5pt + rgb("#64748B"),
       radius: 4pt,
       fill: white,
       inset: (x: 6pt, y: 5pt),
@@ -159,7 +159,7 @@
     // MODULE 6
     #block(
       width: 100%,
-      stroke: 0.5pt + rgb("#CBD5E1"),
+      stroke: 0.5pt + rgb("#64748B"),
       radius: 4pt,
       fill: white,
       inset: (x: 6pt, y: 5pt),
@@ -186,7 +186,7 @@
 #align(center)[
   #block(
     fill: rgb("#F1F5F9"),
-    stroke: 0.5pt + rgb("#CBD5E1"),
+    stroke: 0.5pt + rgb("#64748B"),
     inset: (x: 8pt, y: 3.5pt),
     radius: 3pt,
     [

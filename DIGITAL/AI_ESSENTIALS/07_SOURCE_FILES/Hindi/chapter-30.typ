@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 1.8fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*विशेषज्ञता ट्रैक*], [*कोर टेक्नोलॉजी स्टैक*], [*प्राथमिक जिम्मेदारियां*], [*भारत CTC सीमा*]),
   [1. जनरेटिव AI इंजीनियर], [LangChain, LlamaIndex, ChromaDB, FastAPI, vLLM], [एंटरप्राइज RAG, चैटबॉट्स, सिमेंटिक सर्च और ऑटोमेशन वर्कफ़्लोज़ का निर्माण।], [₹8 – ₹28 LPA],
@@ -44,8 +44,8 @@
 == 30.3 हाई-यील्ड विशेषज्ञता चयन रणनीति
 #table(
   columns: (1.4fr, 1.6fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*ट्रैक*], [*कोर टेक्नोलॉजी स्टैक*], [*प्रारंभिक CTC (भारत)*], [*सीनियर CTC (भारत)*]),
   [जनरेटिव AI इंजीनियर], [Python, LangChain, LlamaIndex, vLLM], [₹6.5 – ₹12 LPA], [₹28 – ₹45+ LPA],

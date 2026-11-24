@@ -99,8 +99,8 @@ Edge-RTR# reload
 == 6.4 TFTP सर्वर बैकअप एवं डिजास्टर रिकवरी
 #table(
   columns: (1.5fr, 4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*डिजास्टर रिकवरी कार्य*], [*प्रोडक्शन सिस्को IOS CLI कमांड*]),
   [रनिंग कॉन्फ़िगरेशन का TFTP बैकअप], [`Edge-RTR# copy running-config tftp://192.168.1.50/Edge-RTR-cfg-backup`],

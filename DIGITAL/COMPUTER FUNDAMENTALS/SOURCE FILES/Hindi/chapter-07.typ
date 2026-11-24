@@ -22,8 +22,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*भौगोलिक पैमाना*], [*कवरेज दायरा*], [*विशिष्ट ट्रांसमिशन मीडिया*], [*विशिष्ट अनुप्रयोग क्षेत्र*]),
   [PAN (Personal)], [1 से 10 मीटर], [ब्लूटूथ 5.4, UWB, NFC, Zigbee], [वायरलेस हेडफ़ोन, स्मार्टवॉच, स्मार्टफोन सिंक।],
@@ -37,8 +37,8 @@
 == 7.2 प्रमुख नेटवर्क टोपोलॉजी: दोष सहिष्णुता एवं लागत
 #table(
   columns: (1fr, 1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*टोपोलॉजी*], [*भौतिक लेआउट*], [*दोष सहिष्णुता (Fault Tolerance)*], [*केबलिंग लागत व एकल विफलता बिंदु (SPOF)*]),
   [स्टार (Star)], [प्रत्येक नोड एक केंद्रीय स्विच/हब से समर्पित केबल द्वारा जुड़ा होता है।], [उत्कृष्ट; एक केबल कटने पर केवल वही एक पीसी प्रभावित होता है।], [मध्यम लागत; केंद्रीय स्विच ही इसका एकल विफलता बिंदु (SPOF) है।],
@@ -69,8 +69,8 @@
 
 #table(
   columns: (0.7fr, 1.2fr, 1fr, 1.3fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*लेयर*], [*OSI परत का नाम*], [*PDU नाम*], [*प्रमुख प्रोटोकॉल्स*], [*प्राथमिक इंजीनियरिंग कार्य एवं हार्डवेयर*]),
   [7], [एप्लीकेशन (Application)], [डेटा], [HTTP/3, HTTPS, DNS, SSH, SMTP], [उपयोगकर्ता सॉफ्टवेयर को नेटवर्क सेवाएं प्रदान करना।],
@@ -87,8 +87,8 @@
 == 7.4 ट्रांसपोर्ट लेयर: TCP 3-वे हैंडशेक बनाम UDP
 #table(
   columns: (1.1fr, 1.4fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*मापदंड*], [*TCP (Transmission Control Protocol)*], [*UDP (User Datagram Protocol)*]),
   [कनेक्शन प्रकार], [#hl[कनेक्शन-उन्मुख (Connection-Oriented)]; 3-वे हैंडशेक अनिवार्य], [#hl[कनेक्शन-रहित (Connectionless)]; सीधे डेटा भेजना],
@@ -119,8 +119,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 1fr, 1fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*CIDR प्रिफिक्स*], [*सबनेट मास्क*], [*होस्ट बिट्स (h)*], [*कुल IP पते*], [*उपयोगी होस्ट्स सूत्र ($2^h - 2$)*]),
   [`/24`], [255.255.255.0], [8], [256], [$2^8 - 2 = 254$ उपयोगी होस्ट्स],
@@ -152,8 +152,8 @@
 == 7.7 आधुनिक वायरलेस क्रांति: Wi-Fi 7 (802.11be)
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Wi-Fi 7 फीचर*], [*तकनीकी विशिष्टता*], [*इंजीनियरिंग प्रभाव एवं लाभ*]),
   [मल्टी-लिंक ऑपरेशन (MLO)], [#hl[2.4 GHz, 5 GHz, 6 GHz एक साथ]], [क्लाइंट एक साथ कई फ्रीक्वेंसी बैंड्स पर डेटा भेज/प्राप्त कर सकता है; लेटेंसी 90% तक घट जाती है!],

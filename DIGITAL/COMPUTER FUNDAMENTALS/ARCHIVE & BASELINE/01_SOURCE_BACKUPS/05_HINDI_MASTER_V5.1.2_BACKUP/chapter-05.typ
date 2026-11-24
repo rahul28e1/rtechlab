@@ -22,7 +22,7 @@
 
 #table(
   columns: (1fr, 0.9fr, 1.3fr, 1.2fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*संख्या प्रणाली*], [*रेडिक्स (आधार)*], [*प्रयुक्त प्रतीक / अंक*], [*भार सूत्र (स्थान मान)*], [*प्राथमिक कम्प्यूटेशनल उपयोग*]),
@@ -57,7 +57,7 @@
 == 5.3 कैरेक्टर एन्कोडिंग मानक: ASCII बनाम Unicode UTF-8
 #table(
   columns: (1.1fr, 1.1fr, 1.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*एन्कोडिंग मानक*], [*बिट चौड़ाई*], [*कुल समर्थित वर्ण*], [*इंजीनियरिंग विशेषता एवं भाषा समर्थन*]),
@@ -95,7 +95,7 @@
 == 5.6 चिह्नांकित पूर्णांकों की रेंज एवं ओवरफ्लो (Overflow Detection)
 #table(
   columns: (1fr, 1.4fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*बिट आकार (n)*], [*अनसाइन्ड रेंज ($0 " से " 2^n - 1$)*], [*साइन्ड 2's Complement रेंज ($-2^(n-1) " से " 2^(n-1) - 1$)*]),
@@ -146,7 +146,7 @@
 == 5.8 7 प्राथमिक लॉजिक गेट्स: समीकरण एवं ट्रुथ टेबल सारांश
 #table(
   columns: (1fr, 1.1fr, 1.3fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*गेट का नाम*], [*बूलियन समीकरण*], [*ट्रुथ टेबल व्यवहार*], [*इलेक्ट्रॉनिक सर्किट व्यवहार एवं कार्य*]),

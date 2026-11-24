@@ -32,8 +32,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*मॉर्फ अनुप्रयोग*], [*स्लाइड 1 सेटअप*], [*स्लाइड 2 सेटअप एवं परिणाम*]),
   [सीमलेस डेटा ज़ूम], [5 डेटा सेंटर्स दर्शाने वाला विश्व मानचित्र।], [सिंगापुर डेटा सेंटर पर ज़ूम-इन होकर विस्तृत टेलीमेट्री कार्ड्स दिखाना।],
@@ -94,8 +94,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*क्रम का चरण*], [*विजुअल लेआउट सेटअप*], [*मॉर्फ ट्रांजिशन पैरामीटर्स*]),
   [स्लाइड 01: मुख्य अनावरण], [केंद्र में बड़ा 3D क्लाउड सर्वर (100% आकार), शीर्षक: "नेक्स्ट-जेन क्लाउड आर्किटेक्चर"।], [एजेंडा से 0.50 सेकंड का शालीन फेड (Fade) ट्रांजिशन।],

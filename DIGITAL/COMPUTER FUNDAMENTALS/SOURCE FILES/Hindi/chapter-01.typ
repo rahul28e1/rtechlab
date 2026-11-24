@@ -25,28 +25,28 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[1. उच्च गति (Speed & MIPS Metric):]\
       #text(size: 7.5pt, fill: rtech-text)[क्लॉक स्पीड (GHz) दोलन गति है। निर्देश क्षमता सूत्र: $"MIPS" = "Freq (GHz)" times "IPC" times 1000$। 3.0 GHz व 4 IPC पर CPU 12,000 MIPS (12 बिलियन IPS) निष्पादित करता है।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[2. डिटर्मिनिस्टिक निष्पादन व विश्वसनीयता (Deterministic Execution & GIGO):]\
       #text(size: 7.5pt, fill: rtech-text)[कम्प्यूटर बिना मानसिक विचलन के डिटर्मिनिस्टिक कार्य करता है। GIGO सिद्धांत अनुसार त्रुटियां अमान्य इनपुट या सॉफ्टवेयर बग से आती हैं; हार्डवेयर में कॉस्मिक बिट-फ्लिप (SEU) या थर्मल त्रुटियां भी संभव हैं।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[3. अथक परिश्रम (Diligence):]\
       #text(size: 7.5pt, fill: rtech-text)[मानव के विपरीत, कम्प्यूटर कभी शारीरिक थकान, ऊब या एकाग्रता की कमी महसूस नहीं करता। यह 24/7 समान गति और सटीकता से निरंतर कार्य कर सकता है।]
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[4. बहुमुखी प्रतिभा (Versatility):]\
       #text(size: 7.5pt, fill: rtech-text)[एक ही भौतिक हार्डवेयर प्लेटफॉर्म वित्तीय गणना, 3D सिमुलेशन, वीडियो एन्कोडिंग और मशीन लर्निंग केवल सॉफ्टवेयर बाइनरी बदलकर निष्पादित कर सकता है।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[5. विशाल भंडारण क्षमता (Storage Capacity):]\
       #text(size: 7.5pt, fill: rtech-text)[यह नॉन-वोलेटाइल सॉलिड-स्टेट ड्राइव्स और मैग्नेटिक मीडिया में पेटाबाइट्स डेटा सुरक्षित रखता है, जिसे माइक्रोसेकंड्स में पुनः प्राप्त किया जा सकता है।]
     ]
@@ -58,8 +58,8 @@
 == 1.3 मानव शरीर बनाम कम्प्यूटर सिस्टम: तुलनात्मक एनालॉजी
 #table(
   columns: (1fr, 1.2fr, 1.2fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*मानव अंग*], [*कम्प्यूटर घटक*], [*प्रणाली वर्गीकरण*], [*कार्यात्मक एवं तकनीकी तुलना*]),
   [आँख, कान, त्वचा], [कीबोर्ड, माउस, सेंसर], [इनपुट यूनिट (Input)], [पर्यावरण से कच्चा डेटा व संकेत ग्रहण कर तंत्रिका/सिस्टम को भेजना।],
@@ -85,23 +85,23 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[स्टेज 1: इनपुट चरण (Input Stage)]\
       #text(size: 7.5pt, fill: rtech-text)[कीबोर्ड कीस्ट्रोक्स, ऑप्टिकल माउस मोशन, कैमरा फ्रेम आदि को ADC (एनालॉग-टू-डिजिटल कनवर्टर) द्वारा बाइनरी बिट्स (0 और 1) में बदला जाता है।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[स्टेज 2: प्रोसेसिंग चरण (Processing Stage)]\
       #text(size: 7.5pt, fill: rtech-text)[CPU की कंट्रोल यूनिट मेमोरी से निर्देश लाती है (Fetch), डिकोड करती है, और ALU अंकगणितीय व तार्किक निर्णय निष्पादित करता है।]
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[स्टेज 3: आउटपुट चरण (Output Stage)]\
       #text(size: 7.5pt, fill: rtech-text)[बाइनरी डेटा को DAC द्वारा पिक्सेल वोल्टेज में बदलकर डिस्प्ले पैनल (HDMI/DisplayPort) या प्रिंटर द्वारा मानव-पठनीय रूप में प्रस्तुत किया जाता है।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[स्टेज 4: स्टोरेज चरण (Storage Stage)]\
       #text(size: 7.5pt, fill: rtech-text)[प्रोसेस्ड डेटा को नॉन-वोलेटाइल NAND फ्लैश (M.2 NVMe SSD) या मैग्नेटिक डिस्क में फाइल सिस्टम संरचना (NTFS/ext4) में स्थायी रूप से लिखा जाता है।]
     ]
@@ -117,8 +117,8 @@
 
 #table(
   columns: (1fr, 1.1fr, 1fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*बस का नाम*], [*विद्युत दिशा*], [*बिट चौड़ाई (साधारण)*], [*इंजीनियरिंग कार्य एवं सिग्नल का प्रकार*]),
   [डेटा बस (Data Bus)], [#hl[द्वि-दिशात्मक (Bidirectional)]], [64-बिट (आधुनिक x86-64)], [CPU, मेमोरी और पेरिफेरल्स के मध्य वास्तविक डेटा और ऑपरेंड्स का संचरण करना।],
@@ -139,8 +139,8 @@
 == 1.6 कम्प्यूटरों का पीढ़ीगत विकास: प्रथम से पंचम पीढ़ी (1940 से 2027+)
 #table(
   columns: (0.9fr, 1.1fr, 1.1fr, 1.1fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*पीढ़ी व काल*], [*कोर स्विचिंग हार्डवेयर*], [*प्राथमिक मेमोरी*], [*क्लॉक चक्र / परिचालन गति*], [*प्रतिनिधि कम्प्यूटर व मानक*]),
   [प्रथम (1940--56)], [#hl[वैक्यूम ट्यूब्स (Thermionic)]], [मैग्नेटिक ड्रम, डिले लाइन], [मिलीसेकंड चक्र ($10^{-3}$ s, kHz)], [ENIAC, EDVAC, UNIVAC I],
@@ -164,8 +164,8 @@
 == 1.7 आधुनिक कम्प्यूटर वर्गीकरण: माइक्रो से सुपरकम्प्यूटर
 #table(
   columns: (1fr, 1.2fr, 1.4fr, 1fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*कम्प्यूटर वर्ग*], [*आर्किटेक्चर पैमाना*], [*विशिष्ट अनुप्रयोग क्षेत्र*], [*प्रदर्शन मापदंड*]),
   [माइक्रो-कम्प्यूटर], [सिंगल-चिप CPU (डेस्कटॉप, लैपटॉप)], [छात्र शिक्षा, कार्यालय कार्य, वेब नेविगेशन], [MIPS / GFLOPS],

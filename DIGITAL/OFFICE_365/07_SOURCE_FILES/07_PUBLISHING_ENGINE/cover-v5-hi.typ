@@ -162,7 +162,7 @@
           #v(7pt)
 
           // --- Bottom Meta Bar ---
-          #line(length: 100%, stroke: 0.5pt + rgb("#E2E8F0"))
+          #line(length: 100%, stroke: 0.5pt + rgb("#64748B"))
           #v(4pt)
           #grid(
             columns: (1fr, 1fr),

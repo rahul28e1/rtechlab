@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 2.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*उद्योग*], [*एंटरप्राइज क्लाइंट*], [*वास्तुकला एवं तकनीकी स्टैक*], [*मापने योग्य ROI*]),
   [बैंकिंग एवं फिनटेक], [HDFC / SBI डिजिटल], [कस्टम फाइन-ट्यून्ड Llama-3-70B + ऑन-प्रिमाइसेस ChromaDB; 10,000 लोन पॉलिसी दस्तावेजों पर सिमेंटिक सर्च।], [क्रेडिट अंडरराइटिंग का समय 4 दिन से घटकर *18 मिनट*; शून्य डेटा लीक।],
@@ -29,8 +29,8 @@
 
 #table(
   columns: (1.5fr, 1.8fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 1.8pt),
   table.header([*पैमाना*], [*प्रोप्राइटरी क्लाउड API*], [*सेल्फ-होस्टेड vLLM (4x H100)*]),
   [मासिक टोकन वॉल्यूम], [5 करोड़ (50M) टोकन प्रति माह], [5 करोड़ (50M) टोकन प्रति माह],
@@ -48,8 +48,8 @@
 == 27.3 एंटरप्राइज AI ROI मेट्रिक्स
 #table(
   columns: (1.5fr, 1.8fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 1.8pt),
   table.header([*पैमाना*], [*प्रोप्राइटरी क्लाउड API*], [*सेल्फ-होस्टेड vLLM (4x H100)*]),
   [मासिक टोकन वॉल्यूम], [5 करोड़ (50M) टोकन], [5 करोड़ (50M) टोकन],

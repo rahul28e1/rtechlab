@@ -289,8 +289,8 @@
 Mastery of computer fundamentals unlocks multiple high-growth technical career paths across global technology industries:
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   table.header([*Professional Domain*], [*Primary Industry Roles*], [*Core Technical Competencies & Essential Certifications*]),
   [Hardware & Systems Engineering], [Computer Hardware Engineer, Datacenter Infrastructure Architect, Board Bring-Up Engineer], [Computer architecture, PCB signal integrity, PCIe/DDR bus protocols, thermal management, oscilloscope/multimeter diagnostics. Certifications: CompTIA A+, Cisco CCNA, BICSI Datacenter.],

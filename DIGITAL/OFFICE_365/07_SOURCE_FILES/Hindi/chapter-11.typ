@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*ग्रिड घटक*], [*संरचनात्मक सीमाएं एवं आयाम*], [*एंटरप्राइज नेविगेशन शॉर्टकट*]),
   [पंक्तियां (Rows)], [1 से 1,048,576 पंक्तियां (ऊर्ध्वाधर रूप से क्रमांकित)], [`Ctrl + Down Arrow` (अंतिम पंक्ति 1048576 पर जाना)],
@@ -37,8 +37,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*रेफरेंस प्रकार*], [*सिंटैक्स*], [*कॉपी/ड्रैग करने पर व्यवहार*], [*कॉर्पोरेट उपयोग परिदृश्य*]),
   [Relative], [`A1`], [दूरी अनुसार कॉलम और रो दोनों स्वतः बदलते हैं।], [मात्रा और दर का गुणा करके कुल मूल्य निकालना।],
@@ -98,8 +98,8 @@
 
 #table(
   columns: (1.5fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if x == 0 { rgb("#F1F5F9") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if x == 0 { rgb("#F1F5F9") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*मात्रा / छूट*], [*0% छूट (`C$4`)*], [*5% छूट (`D$4`)*], [*10% छूट (`E$4`)*], [*15% छूट (`F$4`)*]),
   [*100 नग (`$B5`)*], [₹ 50,000], [₹ 47,500], [₹ 45,000], [₹ 42,500],

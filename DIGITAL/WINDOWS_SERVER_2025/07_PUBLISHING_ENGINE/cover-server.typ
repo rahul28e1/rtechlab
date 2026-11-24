@@ -78,7 +78,7 @@
             [
               #block(
                 fill: rgb("#F8FAFC"),
-                stroke: 0.8pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 4pt,
                 inset: 8pt,
                 [
@@ -93,7 +93,7 @@
             [
               #block(
                 fill: rgb("#F8FAFC"),
-                stroke: 0.8pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 4pt,
                 inset: 8pt,
                 [
@@ -108,7 +108,7 @@
             [
               #block(
                 fill: rgb("#F8FAFC"),
-                stroke: 0.8pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 4pt,
                 inset: 8pt,
                 [
@@ -123,7 +123,7 @@
             [
               #block(
                 fill: rgb("#F8FAFC"),
-                stroke: 0.8pt + rgb("#CBD5E1"),
+                stroke: 0.5pt + rgb("#64748B"),
                 radius: 4pt,
                 inset: 8pt,
                 [
@@ -142,7 +142,7 @@
           // Center Graphic Frame
           #align(center)[
             #block(
-              stroke: 0.8pt + rgb("#CBD5E1"),
+              stroke: 0.5pt + rgb("#64748B"),
               radius: 4pt,
               fill: rgb("#F8FAFC"),
               inset: 4pt,

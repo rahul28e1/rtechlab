@@ -13,8 +13,8 @@
 
 #table(
   columns: (1.2fr, 2.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Consulting Offering*], [*System Scope & Architecture*], [*Typical Pricing / Retainer Model*]),
   [Custom Enterprise Document RAG], [Connects company policies, SOPs, and past proposals to a private local AI chat portal.], [₹75,000 – ₹2,50,000 setup fee ($1,500 – $4,000)],
@@ -37,8 +37,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 1.8fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Tier*], [*Deliverable Scope*], [*Client Business Value*], [*Standard Fee*]),
   [Tier 1: Web Chatbot], [Fine-tuned customer support bot with website widget & FAQ sync.], [Eliminates 60% of basic support tickets.], [₹35,000 – ₹50,000],

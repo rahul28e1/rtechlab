@@ -30,8 +30,8 @@ Amateurs insert regular text boxes on master slides; professionals insert dynami
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Placeholder Type*], [*Operational Behavior on Live Slide*], [*Enterprise Production Utility*]),
   [Content], [Multi-purpose prompt allowing text, table, chart, SmartArt, picture, or video.], [Universal body slides.],
@@ -81,8 +81,8 @@ Complex enterprise decks frequently combine dark-themed section divider slides w
 
 #table(
   columns: (1.5fr, 1.8fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*Master Component*], [*Design Parameter*], [*Production Configuration Detail*]),
   [Header Title Placeholder], [40pt Bold, Segoe UI], [Color: `#0F172A`, Margin: Top 0.8 in, Left 0.8 in, Auto-fit disabled.],

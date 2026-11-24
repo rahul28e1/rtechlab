@@ -15,8 +15,8 @@ An RNN processes sequences $x_1, x_2, dots, x_T$ step-by-step, maintaining an in
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Computation Step*], [*Mathematical Formula*], [*Temporal Engineering Scope*]),
   [Hidden State Update], [$h_t = tanh(W_(h h) h_(t-1) + W_(x h) x_t + b_h)$], [Integrates current input $x_t$ with previous memory $h_(t-1)$],
@@ -36,8 +36,8 @@ LSTMs solve vanishing gradients by introducing a dedicated *Cell State ($C_t$)* 
 
 #table(
   columns: (1fr, 1.8fr, 1.8fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Gate Subsystem*], [*Mathematical Equation*], [*Operational Responsibility*], [*Gating Action*]),
   [Forget Gate ($f_t$)], [$f_t = sigma(W_f [h_(t-1), x_t] + b_f)$], [Decides what information to discard from cell state], [$0 = "wipe memory"$, $1 = "retain"$],

@@ -49,8 +49,8 @@
 == 1. Master Enterprise Workbooks Directory
 #table(
   columns: (0.7fr, 2.2fr, 2.1fr, 2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Tmpl No.*], [*Enterprise Template Name*], [*Core Formulas & Functions*], [*Corporate Target Deployment*]),
   [TMP-01], [Loan Amortization & Debt EMI Schedule], [PMT, IPMT, PPMT, ROUND, CUMIPMT], [Retail Banking, Corporate Debt Schedules],
@@ -116,8 +116,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Corporate Loan Amortization Schedule (₹10,00,000 @ 9.5% for 5 Years)
 #table(
   columns: (0.8fr, 1.3fr, 1.2fr, 1.3fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Month*], [*Opening Principal*], [*Monthly EMI*], [*Interest (IPMT)*], [*Principal (PPMT)*], [*Closing Principal*]),
   [Month 01], [₹10,00,000.00], [₹21,001.91], [₹7,916.67], [₹13,085.24], [₹9,86,914.76],
@@ -146,8 +146,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Production Auditing Checklist & Troubleshooting Traps
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Audit Stage*], [*Operational Quality Control Check*], [*Shortcut / Function*]),
   [Input Integrity], [Validate `Annual_Rate` > 0% and `Tenure` > 0 with Data Validation dialog], [`Alt + A + V + V`],
@@ -192,8 +192,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Warehouse Inventory Snapshot (Gurugram & Bhiwandi Hubs)
 #table(
   columns: (0.9fr, 1.8fr, 0.9fr, 0.9fr, 0.9fr, 1fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*SKU Code*], [*Item Description*], [*Avg Daily*], [*Lead Time*], [*Current*], [*Reorder Lvl*], [*Status Trigger*]),
   [SKU-101], [CAT6 Solid Copper Roll 305m], [18 Rolls], [4 Days], [140 Rolls], [98 Rolls], [✓ OPTIMAL],
@@ -218,8 +218,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Supply Chain Control & Edge-Case Mitigation
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Risk Dimension*], [*Operational Mitigation Procedure*], [*Excel Mechanism*]),
   [Stockout Protection], [Establish 95% cycle-service level safety stock using normal distribution], [`NORM.S.INV(0.95)`],
@@ -264,8 +264,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Enterprise Payroll Master Register Specimen
 #table(
   columns: (0.8fr, 1.5fr, 1.1fr, 1.1fr, 1fr, 0.8fr, 0.9fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Emp ID*], [*Employee Name*], [*Basic + DA*], [*HRA + Allow*], [*Gross Wage*], [*EPF (12%)*], [*PT / TDS*], [*Net Payable*]),
   [RTL-001], [Rahul Patel], [₹85,000.00], [₹65,000.00], [₹1,50,000.00], [₹1,800.00], [₹14,200.00], [₹1,34,000.00],
@@ -290,8 +290,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Statutory Compliance & Edge-Case Architecture
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Statutory Norm*], [*Payroll Rule Enforcement in Excel*], [*Validation Function*]),
   [ESI Wage Threshold], [Apply 0.75% ESI only if Gross Wage <= ₹21,000/month; otherwise ₹0], [`=IF(Gross<=21000, 0.75%, 0)`],
@@ -336,8 +336,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Production Sales Commission Matrix (Q1 2027 Corporate Performance)
 #table(
   columns: (1.1fr, 1.6fr, 1.3fr, 1.3fr, 1.2fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Sales Rep*], [*Territory*], [*Quarterly Sales*], [*Target Quota*], [*Attainment %*], [*Commission Payout*]),
   [Rajesh Khanna], [North Enterprise], [₹84,50,000.00], [₹60,00,000.00], [140.8%], [₹4,87,250.00],
@@ -362,8 +362,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Sales Governance & Audit Prevention Controls
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Commission Risk*], [*Corporate Policy Rule*], [*Excel Implementation*]),
   [Negative Sales Clawbacks], [Cap minimum commission payout at ₹0 to prevent negative pay checks], [`=MAX(0, Commission)`],
@@ -408,8 +408,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Capital Investment DCF Cash Flow Model (₹5.0 Crore Project)
 #table(
   columns: (1.2fr, 1.4fr, 1.3fr, 1.4fr, 1.4fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Period*], [*Calendar Year*], [*Gross Inflow*], [*Operating Opex*], [*Net Cash Flow*], [*Discounted CF*]),
   [Year 0 (CAPEX)], [FY 2026-27], [₹0.00], [₹5,00,00,000.00], [-₹5,00,00,000.00], [-₹5,00,00,000.00],
@@ -434,8 +434,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. M&A Sensitivity & Capital Rationing Safeguards
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Valuation Metric*], [*Corporate Decision Benchmark*], [*Excel Analytical Function*]),
   [NPV Hurdle], [Must be strictly positive (> ₹0) at 12% WACC discount rate], [`=IF(NPV > 0, "GO", "NO")`],
@@ -480,8 +480,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Enterprise Gratuity Liability Register Specimen
 #table(
   columns: (0.8fr, 1.5fr, 1.1fr, 1.1fr, 1fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Emp ID*], [*Employee Name*], [*Joining Date*], [*Exit Date*], [*Statutory Tenure*], [*Gratuity Liability*]),
   [EMP-101], [Siddharth Sengupta], [15-Jul-2012], [28-Feb-2027], [15 Years], [₹6,92,308.00],
@@ -506,8 +506,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Statutory Compliance & Audit Verification Controls
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Statutory Parameter*], [*Compliance Requirement*], [*Excel Formula Implementation*]),
   [5-Year Vesting Rule], [No gratuity payable for tenure < 5 years (except death/disablement)], [`=IF(Tenure_Yrs >= 5, ..., 0)`],
@@ -552,8 +552,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Executive KPI Summary Snapshot
 #table(
   columns: (1.5fr, 1.4fr, 1.4fr, 1.2fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Strategic Metric*], [*FY27 Target*], [*Actual YTD*], [*Variance %*], [*Health Status*]),
   [Total Revenue], [₹45,00,00,000], [₹48,20,00,000], [+7.1%], [✓ TARGET BEATEN],
@@ -578,8 +578,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Boardroom Dashboard Presentation Hygiene
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Dashboard Element*], [*Executive Best Practice Standard*], [*Excel Setup Shortcut*]),
   [Gridline Elimination], [Hide background gridlines on final dashboard tab for clean app appearance], [`Alt + W + V + G`],
@@ -624,8 +624,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Bank vs General Ledger Reconciliation Specimen
 #table(
   columns: (1fr, 1.4fr, 1.4fr, 1.3fr, 1.3fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*UTR / Ref*], [*Internal GL Entity*], [*Bank Description*], [*GL Ledger Amt*], [*Bank Cleared Amt*], [*Variance Status*]),
   [UTR-8901], [Apex Logistics Ltd], [CMS/NEFT/APEX-LOG], [₹4,50,000.00], [₹4,50,000.00], [✓ RECONCILED],
@@ -650,8 +650,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Reconciliation Exception Protocols & Audit Trail
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Discrepancy Class*], [*Root Cause Analysis*], [*Accounting Action*]),
   [Left Anti-Join Discrepancy], [Cheque issued to vendor but not yet presented at bank for clearing], [Record in Timing Differences schedule],
@@ -696,8 +696,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Commercial B2B Invoice Line Item Register Specimen
 #table(
   columns: (0.8fr, 1.8fr, 0.9fr, 0.7fr, 1fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Item No.*], [*Product Description*], [*HSN / SAC*], [*Qty*], [*Unit Rate*], [*Taxable Amount*]),
   [Line 01], [Enterprise Server Rack Cabinet 42U], [8537], [2 Nos], [₹42,000.00], [₹84,000.00],
@@ -726,8 +726,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Indian GST Compliance & Verification Safeguards
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Statutory Field*], [*Statutory Validation Rule*], [*Excel Formula Implementation*]),
   [GSTIN Format Check], [Must be exactly 15 alphanumeric characters (`2 State + 10 PAN + 1 Entity + 1 Z + 1 Check`)], [`=AND(LEN(B4)=15, ISNUMBER(VALUE(LEFT(B4,2))))`],
@@ -772,8 +772,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Cloud Infrastructure Migration Project Timeline Specimen
 #table(
   columns: (0.7fr, 2.2fr, 1.1fr, 0.9fr, 1.1fr, 0.9fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Task No.*], [*Project Milestone / Phase*], [*Start Date*], [*Duration*], [*End Date*], [*% Done*]),
   [TSK-01], [Enterprise Cloud Readiness Audit], [05-Jan-2027], [10 Days], [18-Jan-2027], [100%],
@@ -802,8 +802,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Project Management Controls & Slippage Alerts
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Project Risk*], [*Operational Milestone Alert*], [*Excel Formula Mechanism*]),
   [Schedule Slippage Alert], [Flag task in Red if `TODAY() > End_Date` and `% Done < 100%`], [`=IF(AND(TODAY()>E4, F4<1), "DELAY", "ON-TRACK")`],
@@ -848,8 +848,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Precision CNC Machining Quality Sample Register
 #table(
   columns: (1fr, 1.4fr, 1.4fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Sample No.*], [*Observed Value*], [*Mean Target*], [*UCL (+3σ)*], [*Defect Status*]),
   [SMP-001], [25.042 mm], [25.000 mm], [25.075 mm], [✓ IN SPECIFICATION],
@@ -879,8 +879,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Six Sigma Process Capability Standards & Western Electric Rules
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Capability Tier*], [*Process Performance Benchmark*], [*Statistical Interpretation*]),
   [Cpk < 1.00], [Incapable Process - High scrap rate and non-compliance], [Process width exceeds spec limits],
@@ -925,8 +925,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Live Predictive Financial Regression Output Specimen
 #table(
   columns: (1fr, 1.4fr, 1.4fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Fiscal Period*], [*Marketing Spend*], [*Reported Revenue*], [*Predicted Revenue*], [*Residual Variance*]),
   [Month 01], [₹4,50,000.00], [₹38,20,000.00], [₹37,85,000.00], [+₹35,000.00],
@@ -952,8 +952,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 4. Python in Excel Enterprise Security & Governance
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Security Guardrail*], [*Microsoft Cloud Architecture*], [*Governance Policy*]),
   [Isolated Container Sandbox], [Code executes in hypervisor-isolated Microsoft Azure container], [Zero access to local file system or network],
@@ -981,8 +981,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 1. Universal Financial Modeling Color Conventions
 #table(
   columns: (1.2fr, 1.2fr, 1.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Cell Element*], [*Font Color*], [*Fill Pattern*], [*Corporate Auditing Meaning*]),
   [User Input Cells], [Pure Blue (`#0000FF`)], [Unfilled / White], [Constants and variables that users are authorized to modify.],
@@ -997,8 +997,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 == 2. Formula Auditing & Error Diagnostic Accelerators
 #table(
   columns: (1.2fr, 2.5fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*Auditing Function*], [*Diagnostic Capability*], [*Keyboard Shortcut*]),
   [Trace Precedents], [Draws blue tracer arrows to all cells feeding the active formula], [`Ctrl + [`],
@@ -1015,8 +1015,8 @@ All workbooks strictly enforce standard corporate financial modeling color conve
 Before submitting any financial model or workbook to management or external auditors, execute this 5-point verification checklist:
 #table(
   columns: (0.8fr, 2fr, 3.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Check No.*], [*Verification Dimension*], [*Mandatory Operational Action Required*]),
   [CHK-01], [Hardcoded Numbers in Formulas], [Press `Ctrl + ~` and verify no numbers are hardcoded inside formulas (e.g., `=A1*1.18`). All constants must reside in dedicated input cells.],
@@ -1046,8 +1046,8 @@ Before submitting any financial model or workbook to management or external audi
 Your RTechLab Career Accelerator purchase unlocks lifetime access to the entire 4-deliverable suite:
 #table(
   columns: (0.8fr, 2.8fr, 1.2fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Asset No.*], [*Deliverable Title*], [*Format & Scope*], [*Target Career Stage*]),
   [AST-01], [Microsoft Office 365 Master Guide (English Edition)], [112-Page Master PDF], [Complete Foundational to Advanced Mastery],
@@ -1062,8 +1062,8 @@ Your RTechLab Career Accelerator purchase unlocks lifetime access to the entire 
 == 2. Candidate Honour Pledge & Verification Code
 #table(
   columns: (1.5fr, 3.5fr),
-  fill: (x, y) => if y == 0 { rgb("#1E293B") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 5pt, y: 3pt),
   table.header([*Certification Dimension*], [*Official Candidate Record*]),
   [Candidate Registered Name:], [STUDENT / PROFESSIONAL NAME: ............................................................],

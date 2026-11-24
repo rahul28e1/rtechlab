@@ -62,8 +62,8 @@ Total Mac Addresses for this module: 2
 == 7.4 स्विचपोर्ट पोर्ट सिक्योरिटी CLI कार्यान्वयन
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*उल्लंघन मोड*], [*फ्रेम फॉरवर्डिंग*], [*उल्लंघन काउंटर*], [*Syslog / SNMP अलर्ट एवं पोर्ट स्थिति*]),
   [`Protect`], [अनधिकृत फ्रेम्स ड्रॉप करता है], [बढ़ता नहीं है], [कोई अलर्ट नहीं। पोर्ट UP रहता है।],

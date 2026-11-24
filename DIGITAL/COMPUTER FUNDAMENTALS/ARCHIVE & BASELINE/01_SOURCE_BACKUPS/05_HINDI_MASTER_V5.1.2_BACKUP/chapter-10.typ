@@ -292,7 +292,7 @@
 कम्प्यूटर फंडामेंटल्स की गहरी समझ वैश्विक प्रौद्योगिकी उद्योग में अनेक उच्च-वेतनभोगी करियर मार्गों के द्वार खोलती है:
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3.5pt,
   table.header([*व्यावसायिक क्षेत्र*], [*उद्योग पद एवं भूमिकाएं*], [*मुख्य तकनीकी क्षमताएं एवं आवश्यक प्रमाणपत्र*]),

@@ -22,8 +22,8 @@ Access Control Lists (ACLs) are ordered series of permit and deny statements app
 == 14.2 Standard vs Extended ACLs & Placement Rules
 #table(
   columns: (1.3fr, 1.4fr, 1.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*ACL Category*], [*Numbered Range*], [*Filtering Criteria*], [*Gold Standard Placement Rule*]),
   [Standard ACL], [1 – 99 & 1300 – 1999], [Filters strictly on #hl[Source IP Address] only], [Place #hl[closest to the destination] to prevent blocking legitimate traffic elsewhere.],

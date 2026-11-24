@@ -52,7 +52,7 @@
 == 4.2 विशेष प्रयोजन CPU रजिस्टर्स (Special-Purpose Registers)
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*रजिस्टर संक्षिप्त नाम*], [*पूर्ण तकनीकी नाम*], [*सटीक इंजीनियरिंग कार्य एवं भूमिका*]),
@@ -77,7 +77,7 @@
 
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*स्टेज*], [*साइकिल चरण*], [*हार्डवेयर स्तर पर निष्पादित होने वाली आंतरिक प्रक्रिया*]),
@@ -96,7 +96,7 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 1fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*हजार्ड का प्रकार*], [*मूल कारण एवं प्रभाव*], [*हार्डवेयर समाधान*]),
@@ -127,7 +127,7 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.3fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*प्रोसेसर प्रकार*], [*आर्किटेक्चर दर्शन*], [*कंप्यूट कोर संरचना*], [*आदर्श कार्यक्षेत्र एवं ऊर्जा दक्षता*]),
@@ -141,7 +141,7 @@
 == 4.6 AI PC मानक: TOPS मापन एवं स्थानीय इन्फरेंस
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*अवधारणा*], [*मानक मापदंड*], [*विस्तृत इंजीनियरिंग विवरण एवं महत्व*]),

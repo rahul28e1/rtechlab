@@ -30,8 +30,8 @@ Engineered for startup founders seeking ₹10 Crore to ₹50 Crore investment ro
 
 #table(
   columns: (1fr, 1.8fr, 3.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Slide No.*], [*Slide Objective*], [*Visual Architecture & Master Layout Configuration*]),
   [Slide 01], [Vision Title], [Dark Navy `#0F172A` background, 44pt title, tagline, logo emblem.],

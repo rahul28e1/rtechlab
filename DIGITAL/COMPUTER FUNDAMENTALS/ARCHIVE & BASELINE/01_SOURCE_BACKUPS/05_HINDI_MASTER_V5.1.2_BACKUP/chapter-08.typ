@@ -26,7 +26,7 @@
 == 8.2 आधुनिक मैलवेयर वर्गीकरण (Malware Taxonomy)
 #table(
   columns: (1fr, 1.3fr, 1.4fr, 1.3fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*मैलवेयर वर्ग*], [*संक्रमण एवं फैलाव तंत्र*], [*विनाशकारी पेलोड एवं क्षति*], [*रक्षात्मक न्यूनीकरण रणनीति*]),
@@ -52,7 +52,7 @@
 == 8.3 आधुनिक क्रिप्टोग्राफी: सिमेट्रिक बनाम असिमेट्रिक सिफर्स
 #table(
   columns: (1.1fr, 1.4fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*इंजीनियरिंग गुण*], [*सिमेट्रिक क्रिप्टोग्राफी (Symmetric)*], [*असिमेट्रिक क्रिप्टोग्राफी (Asymmetric / Public Key)*]),
@@ -111,7 +111,7 @@
 
 #table(
   columns: (1.1fr, 1.3fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*NIST FIPS मानक*], [*एल्गोरिदम का नाम*], [*गणितीय आधार*], [*प्रतिस्थापित होने वाली पुरानी तकनीक*]),
@@ -125,7 +125,7 @@
 == 8.7 आधुनिक ऑपरेटिंग सिस्टम हार्डवेयर सुरक्षा परतें
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*सुरक्षा परत*], [*हार्डवेयर / फर्मवेयर मैकेनिज्म*], [*हमलों से रक्षा एवं प्रभाव*]),

@@ -37,8 +37,8 @@ QLoRA मॉडल के बेस वेट्स को 4-बिट प्र
 #v(2pt)
 #table(
   columns: (1.2fr, 1.5fr, 1.5fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*फाइन-ट्यूनिंग विधि*], [*ट्रेनेबल पैरामीटर्स*], [*VRAM आवश्यकता (70B)*], [*हार्डवेयर लागत*]),
   [Full Fine-Tuning], [100% (70B)], [> 750 GB VRAM], [16x H100 GPUs (क्लस्टर)],

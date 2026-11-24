@@ -21,8 +21,8 @@ Pioneered by Yao et al. (Princeton & Google, 2022), the ReAct framework interlea
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Loop Stage*], [*Operational Action*], [*System Execution State*]),
   [Thought], [Model generates internal chain-of-thought planning next step.], [`"Thought: I need to query the SQL database for Q3 revenue."`],

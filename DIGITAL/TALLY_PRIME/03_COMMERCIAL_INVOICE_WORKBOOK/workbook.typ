@@ -30,7 +30,7 @@
           columns: (1fr, auto),
           align: (left, right),
           [#text(size: 6.8pt, fill: rgb("#64748B"))[#text(fill: rgb("#059669"))[●] Real Commercial Tax Invoices · APMC Mandi, Electronics B2B, Interstate IGST & TDS]],
-          [#box(fill: rgb("#F1F5F9"), stroke: 0.5pt + rgb("#CBD5E1"), radius: 3pt, inset: (x: 6pt, y: 2pt), text(size: 7pt, weight: "bold", fill: rgb("#0F172A"))[Page #p])]
+          [#box(fill: rgb("#F1F5F9"), stroke: 0.5pt + rgb("#64748B"), radius: 3pt, inset: (x: 6pt, y: 2pt), text(size: 7pt, weight: "bold", fill: rgb("#0F172A"))[Page #p])]
         )
       ]
     }
@@ -79,7 +79,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -99,7 +99,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Unbranded Machine Cleaned Jeera (Cumin)], [1209], [50 Bags], [4,200.00], [2,10,000.00], [0%], [2,10,000.00],
@@ -118,7 +118,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -138,7 +138,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Raw Natural Isabgol Seeds (Grade A)], [1211], [100 Bags], [2,800.00], [2,80,000.00], [0%], [2,80,000.00],
@@ -157,7 +157,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -177,7 +177,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Fennel Seeds (Variyali Machine Cleaned)], [0909], [80 Bags], [3,500.00], [2,80,000.00], [0%], [2,80,000.00],
@@ -196,7 +196,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -216,7 +216,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Castor Seeds (Divela Bold)], [1207], [60 Bags], [4,000.00], [2,40,000.00], [0%], [2,40,000.00],
@@ -235,7 +235,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -255,7 +255,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Sesame Seeds (Til White Natural)], [1207], [40 Bags], [6,500.00], [2,60,000.00], [0%], [2,60,000.00],
@@ -274,7 +274,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -294,7 +294,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Fenugreek Seeds (Methi Dana)], [0910], [70 Bags], [2,500.00], [1,75,000.00], [0%], [1,75,000.00],
@@ -313,7 +313,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -333,7 +333,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Desi Chana (Whole Brown Gram)], [0713], [120 Bags], [4,000.00], [4,80,000.00], [0%], [4,80,000.00],
@@ -352,7 +352,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -372,7 +372,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Wheat Tukdi (Grade 1 Sharbati)], [1001], [200 Bags], [2,600.00], [5,20,000.00], [0%], [5,20,000.00],
@@ -391,7 +391,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -411,7 +411,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Green Millet (Hybrid Bajra Seeds)], [1008], [150 Bags], [2,200.00], [3,30,000.00], [0%], [3,30,000.00],
@@ -430,7 +430,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -450,7 +450,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 0.8fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[GST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Groundnut in Pods (HPS Bold)], [1202], [90 Bags], [4,500.00], [4,05,000.00], [0%], [4,05,000.00],
@@ -472,7 +472,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -492,7 +492,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Vivo Y200e 5G Smartphone], [8517], [10 Nos], [16,000.00], [1,60,000.00], [14,400.00], [14,400.00], [1,88,800.00],
@@ -510,7 +510,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -530,7 +530,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Samsung 43-Inch 4K Smart LED TV], [8528], [5 Nos], [28,000.00], [1,40,000.00], [12,600.00], [12,600.00], [1,65,200.00],
@@ -548,7 +548,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -568,7 +568,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [HP 15s Intel Core i5 Laptop], [8471], [8 Nos], [44,000.00], [3,52,000.00], [31,680.00], [31,680.00], [4,15,360.00],
@@ -586,7 +586,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -606,7 +606,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Lenovo ThinkCentre Desktop PC], [8471], [4 Nos], [32,000.00], [1,28,000.00], [11,520.00], [11,520.00], [1,51,040.00],
@@ -624,7 +624,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -644,7 +644,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Seagate 2TB External USB 3.0 HDD], [8471], [25 Nos], [4,200.00], [1,05,000.00], [9,450.00], [9,450.00], [1,23,900.00],
@@ -662,7 +662,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -682,7 +682,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Dell 24-Inch IPS Borderless Monitor], [8528], [12 Nos], [9,500.00], [1,14,000.00], [10,260.00], [10,260.00], [1,34,520.00],
@@ -700,7 +700,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -720,7 +720,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [D-Link 16-Port Gigabit Switch], [8517], [15 Nos], [3,800.00], [57,000.00], [5,130.00], [5,130.00], [67,260.00],
@@ -738,7 +738,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -758,7 +758,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Canon imageCLASS Laser Printer], [8443], [6 Nos], [14,500.00], [87,000.00], [7,830.00], [7,830.00], [1,02,660.00],
@@ -776,7 +776,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -796,7 +796,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Microtek 1000VA Line Interactive UPS], [8504], [20 Nos], [2,900.00], [58,000.00], [5,220.00], [5,220.00], [68,440.00],
@@ -814,7 +814,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -834,7 +834,7 @@
 #table(
   columns: (0.4fr, 2.4fr, 0.8fr, 0.6fr, 1fr, 1.2fr, 1fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[CGST 9%]], [#text(weight: "bold", fill: white)[SGST 9%]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Apple iPhone 15 (128GB Black)], [8517], [3 Nos], [65,000.00], [1,95,000.00], [17,550.00], [17,550.00], [2,30,100.00],
@@ -855,7 +855,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -875,7 +875,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Marine Grade Plywood (18mm 8x4)], [4412], [50 Sheets], [2,400.00], [1,20,000.00], [21,600.00], [1,41,600.00],
@@ -894,7 +894,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -914,7 +914,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Cisco Catalyst 24-Port Switch], [8517], [4 Nos], [28,000.00], [1,12,000.00], [20,160.00], [1,32,160.00],
@@ -933,7 +933,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -953,7 +953,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Polished Kota Blue Stone Slabs], [6802], [1,000 SqFt], [45.00], [45,000.00], [2,250.00], [47,250.00],
@@ -972,7 +972,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -992,7 +992,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Industrial Edge Computing Gateways], [8471], [10 Nos], [18,500.00], [1,85,000.00], [33,300.00], [2,18,300.00],
@@ -1011,7 +1011,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -1031,7 +1031,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Combed Cotton Knitting Yarn (30s)], [5205], [1,500 Kgs], [260.00], [3,90,000.00], [19,500.00], [4,09,500.00],
@@ -1050,7 +1050,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -1070,7 +1070,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Stainless Steel Seed Sorting Sieves], [8437], [8 Units], [22,000.00], [1,76,000.00], [31,680.00], [2,07,680.00],
@@ -1089,7 +1089,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -1109,7 +1109,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Commercial Interactive Touch Kiosks], [8528], [4 Nos], [55,000.00], [2,20,000.00], [39,600.00], [2,59,600.00],
@@ -1128,7 +1128,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -1148,7 +1148,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Diamond Polishing Abrasive Bricks], [6804], [500 Pcs], [180.00], [90,000.00], [16,200.00], [1,06,200.00],
@@ -1167,7 +1167,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -1187,7 +1187,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Aluminium Blister Packaging Foil], [7607], [400 Kgs], [340.00], [1,36,000.00], [24,480.00], [1,60,480.00],
@@ -1206,7 +1206,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Party / Supplier:*\
@@ -1226,7 +1226,7 @@
 #table(
   columns: (0.4fr, 2.6fr, 0.8fr, 0.8fr, 1fr, 1.2fr, 1fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sr.]], [#text(weight: "bold", fill: white)[Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[Qty]], [#text(weight: "bold", fill: white)[Rate (₹)]], [#text(weight: "bold", fill: white)[Taxable (₹)]], [#text(weight: "bold", fill: white)[IGST]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [1], [Heavy Duty Corrugated Shipping Cartons], [4819], [2,000 Nos], [45.00], [90,000.00], [10,800.00], [1,00,800.00],
@@ -1248,7 +1248,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1265,7 +1265,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1280,7 +1280,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1297,7 +1297,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1312,7 +1312,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1329,7 +1329,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1344,7 +1344,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1361,7 +1361,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1376,7 +1376,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1393,7 +1393,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1408,7 +1408,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1425,7 +1425,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1440,7 +1440,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1457,7 +1457,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1472,7 +1472,7 @@
 #table(
   columns: (1fr, 1fr),
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [
     *Customer / Buyer:*\
@@ -1489,7 +1489,7 @@
 
 #block(
   fill: rgb("#F8FAFC"),
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 6pt,
   radius: 3pt,
   [
@@ -1525,7 +1525,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Service Component]], [#text(weight: "bold", fill: white)[Gross Fee (₹)]], [#text(weight: "bold", fill: white)[TDS Deducted (₹)]], [#text(weight: "bold", fill: white)[Net Payable (₹)]],
   [Statutory Audit & GST Annual Audit Fees], [₹1,00,000.00], [₹10,000.00 (10%)], [₹90,000.00],
@@ -1555,7 +1555,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Service Component]], [#text(weight: "bold", fill: white)[Gross Fee (₹)]], [#text(weight: "bold", fill: white)[TDS Deducted (₹)]], [#text(weight: "bold", fill: white)[Net Payable (₹)]],
   [Commercial Office Building Rent (Palanpur)], [₹40,000.00], [₹4,000.00 (10%)], [₹36,000.00],
@@ -1585,7 +1585,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Service Component]], [#text(weight: "bold", fill: white)[Gross Fee (₹)]], [#text(weight: "bold", fill: white)[TDS Deducted (₹)]], [#text(weight: "bold", fill: white)[Net Payable (₹)]],
   [Heavy Transport Container Freight Charges], [₹65,000.00], [₹1,300.00 (2%)], [₹63,700.00],
@@ -1615,7 +1615,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Service Component]], [#text(weight: "bold", fill: white)[Gross Fee (₹)]], [#text(weight: "bold", fill: white)[TDS Deducted (₹)]], [#text(weight: "bold", fill: white)[Net Payable (₹)]],
   [Hoarding & Digital Billboard Media Production], [₹85,000.00], [₹1,700.00 (2%)], [₹83,300.00],
@@ -1645,7 +1645,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Service Component]], [#text(weight: "bold", fill: white)[Gross Fee (₹)]], [#text(weight: "bold", fill: white)[TDS Deducted (₹)]], [#text(weight: "bold", fill: white)[Net Payable (₹)]],
   [APMC Commodity Broking & Mandi Commission], [₹25,000.00], [₹1,250.00 (5%)], [₹23,750.00],
@@ -1675,7 +1675,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Service Component]], [#text(weight: "bold", fill: white)[Gross Fee (₹)]], [#text(weight: "bold", fill: white)[TDS Deducted (₹)]], [#text(weight: "bold", fill: white)[Net Payable (₹)]],
   [Enterprise ERP & Cloud Software Maintenance], [₹1,20,000.00], [₹2,400.00 (2%)], [₹1,17,600.00],
@@ -1704,7 +1704,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Reason for Adjustment]], [#text(weight: "bold", fill: white)[Taxable Value (₹)]], [#text(weight: "bold", fill: white)[GST Reversed (₹)]], [#text(weight: "bold", fill: white)[Total Adjustment (₹)]],
   [1 No Vivo Y200e Smartphone (Defective)], [₹16,000.00], [₹2,880.00], [₹18,880.00],
@@ -1733,7 +1733,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Reason for Adjustment]], [#text(weight: "bold", fill: white)[Taxable Value (₹)]], [#text(weight: "bold", fill: white)[GST Reversed (₹)]], [#text(weight: "bold", fill: white)[Total Adjustment (₹)]],
   [Post-sale Volume Turnover Rebate], [₹10,000.00], [₹1,800.00], [₹11,800.00],
@@ -1762,7 +1762,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Reason for Adjustment]], [#text(weight: "bold", fill: white)[Taxable Value (₹)]], [#text(weight: "bold", fill: white)[GST Reversed (₹)]], [#text(weight: "bold", fill: white)[Total Adjustment (₹)]],
   [5 Bags Isabgol Seeds (Torn Packaging)], [₹14,000.00], [₹0.00], [₹14,000.00],
@@ -1791,7 +1791,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Reason for Adjustment]], [#text(weight: "bold", fill: white)[Taxable Value (₹)]], [#text(weight: "bold", fill: white)[GST Reversed (₹)]], [#text(weight: "bold", fill: white)[Total Adjustment (₹)]],
   [1 No Lenovo Desktop PC (Motherboard issue)], [₹32,000.00], [₹5,760.00], [₹37,760.00],
@@ -1820,7 +1820,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Reason for Adjustment]], [#text(weight: "bold", fill: white)[Taxable Value (₹)]], [#text(weight: "bold", fill: white)[GST Reversed (₹)]], [#text(weight: "bold", fill: white)[Total Adjustment (₹)]],
   [1 No Vivo Y200e returned to vendor], [₹16,000.00], [₹2,880.00], [₹18,880.00],
@@ -1849,7 +1849,7 @@
 #table(
   columns: (2.5fr, 1.2fr, 1.2fr, 1.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Reason for Adjustment]], [#text(weight: "bold", fill: white)[Taxable Value (₹)]], [#text(weight: "bold", fill: white)[GST Reversed (₹)]], [#text(weight: "bold", fill: white)[Total Adjustment (₹)]],
   [5 Sheets Plywood Damaged in Transit], [₹12,000.00], [₹2,160.00], [₹14,160.00],

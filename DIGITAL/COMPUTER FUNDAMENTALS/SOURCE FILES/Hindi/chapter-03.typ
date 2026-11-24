@@ -22,8 +22,8 @@
 
 #table(
   columns: (1fr, 1.1fr, 1.2fr, 1.1fr, 1.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*पदानुक्रम स्तर*], [*विशिष्ट तकनीक*], [*सामान्य क्षमता*], [*एक्सेस लेटेंसी*], [*प्रति GB अनुमानित लागत व कार्य*]),
   [स्तर 0: रजिस्टर्स], [CPU इंटरनल फ्लिप-फ्लॉप], [1 KB से 2 KB], [< 0.5 ns], [अत्यधिक उच्च; सीधे ALU ऑपरेंड्स को थामना।],
@@ -40,8 +40,8 @@
 == 3.2 प्राथमिक मेमोरी सेल फिजिक्स: SRAM बनाम DRAM
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*इंजीनियरिंग विशेषता*], [*SRAM (Static RAM)*], [*DRAM (Dynamic RAM)*]),
   [सेल सर्किट संरचना], [#hl[6 ट्रांजिस्टर (6T)] cross-coupled इनवर्टर], [#hl[1 ट्रांजिस्टर + 1 कैपेसिटर (1T1C)] सेल],
@@ -76,8 +76,8 @@
 == 3.4 आधुनिक RAM मानक: DDR4 बनाम DDR5 बनाम LPDDR5X
 #table(
   columns: (1fr, 1.1fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*तकनीकी विनिर्देश*], [*DDR4 (परिपक्व मानक)*], [*DDR5 (मुख्यधारा 2027)*], [*LPDDR5X (अल्ट्राथिन व AI SoCs)*]),
   [डेटा ट्रांसफर दर], [2133 - 3200 MT/s], [#hl[4800 - 8400+ MT/s]], [#hl[6400 - 9600 MT/s]],
@@ -99,8 +99,8 @@
 == 3.5 ROM (Read-Only Memory) के प्रकार एवं फर्मवेयर बूट
 #table(
   columns: (1fr, 1.3fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*ROM प्रकार*], [*प्रोग्रामिंग विधि*], [*डेटा मिटाने की तकनीक*], [*आधुनिक स्थिति एवं अनुप्रयोग*]),
   [Mask ROM], [फ़ैक्टरी निर्माण के समय हार्ड-वायर्ड], [मिटाया नहीं जा सकता], [अप्रचलित; अत्यंत सुरक्षित माइक्रोकोड स्टोरेज],
@@ -122,8 +122,8 @@
 
 #table(
   columns: (1.1fr, 1.4fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*इंजीनियरिंग मापदंड*], [*मैकेनिकल हार्ड डिस्क (HDD)*], [*PCIe 5.0 M.2 NVMe SSD*]),
   [भौतिक संरचना], [घूमते चुंबकीय प्लैटर्स (5400-7200 RPM), मैकेनिकल रीड/राइट हेड], [शून्य गतिशील पुर्जे; 3D TLC/QLC NAND फ्लैश + ASIC कंट्रोलर],
@@ -148,8 +148,8 @@
 == 3.7 स्टोरेज क्षमता इकाइयाँ: SI प्रिफिक्स बनाम बाइनरी IEC प्रिफिक्स
 #table(
   columns: (1fr, 1.1fr, 1fr, 1.1fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*SI मानक इकाई*], [*SI बाइट मान*], [*IEC बाइनरी इकाई*], [*IEC बाइट मान*], [*तकनीकी महत्व एवं उद्योग उपयोग*]),
   [Kilobyte (KB)], [$10^3 = 1,000$ Bytes], [Kibibyte (KiB)], [$2^{10} = 1,024$ Bytes], [हार्ड डिस्क निर्माता SI ($10^3$) में क्षमता बेचते हैं; OS बाइनरी ($2^{10}$) में मापता है।],

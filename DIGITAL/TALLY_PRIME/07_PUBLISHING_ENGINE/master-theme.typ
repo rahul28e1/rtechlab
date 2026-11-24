@@ -102,7 +102,7 @@
               [
                 #box(
                   fill: rgb("#F1F5F9"),
-                  stroke: 0.5pt + rgb("#CBD5E1"),
+                  stroke: 0.5pt + rgb("#64748B"),
                   radius: 3pt,
                   inset: (x: 6pt, y: 2pt),
                   text(size: 7pt, weight: "bold", fill: rtech-navy)[Page #page-num]
@@ -264,7 +264,7 @@
 #let key-pill(key) = {
   box(
     fill: rgb("#F1F5F9"),
-    stroke: 0.5pt + rgb("#CBD5E1"),
+    stroke: 0.5pt + rgb("#64748B"),
     radius: 2pt,
     inset: (x: 4pt, y: 1.5pt),
     baseline: 0pt,
@@ -356,7 +356,7 @@
       )
       
       #v(3pt)
-      #line(length: 100%, stroke: 0.5pt + rgb("#CBD5E1"))
+      #line(length: 100%, stroke: 0.5pt + rgb("#64748B"))
       #v(2pt)
       
       // Pay line
@@ -508,7 +508,7 @@
         [
           #box(
             width: 100%,
-            stroke: 0.5pt + rgb("#CBD5E1"),
+            stroke: 0.5pt + rgb("#64748B"),
             fill: rgb("#F8FAFC"),
             inset: 4pt,
             radius: 2pt,
@@ -523,7 +523,7 @@
         [
           #box(
             width: 100%,
-            stroke: 0.5pt + rgb("#CBD5E1"),
+            stroke: 0.5pt + rgb("#64748B"),
             fill: rgb("#F8FAFC"),
             inset: 4pt,
             radius: 2pt,

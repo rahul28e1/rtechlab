@@ -33,8 +33,8 @@ $ Q(S_t, A_t) <- Q(S_t, A_t) + alpha [underbracket(R_(t+1) + gamma max_a Q(S_(t+
 
 #table(
   columns: (1.2fr, 2.2fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*कलन / विधि*], [*मुख्य वास्तुकला सिद्धांत*], [*ऐतिहासिक ब्रेकथ्रू एवं उद्योग प्रभाव*]),
   [Deep Q-Networks (DQN - 2015)], [Q-टेबल की जगह डीप CNN का उपयोग; एक्सपीरियंस रिप्ले और टारगेट नेटवर्क।], [Atari 2600 गेम्स में मानव विशेषज्ञों को पीछे छोड़ा (DeepMind)।],

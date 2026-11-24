@@ -83,3 +83,6 @@ logic-gates-view.png
 
 .vercel
 .env*
+
+READY_FOR_GOOGLE_DRIVE/
+scripts/*.png

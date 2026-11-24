@@ -34,8 +34,8 @@ PCA हाई-डायमेंशनल डेटा को अधिकतम
 
 #table(
   columns: (1.2fr, 2fr, 2fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*कलन*], [*गणितीय दृष्टिकोण*], [*संरचना संरक्षण*], [*कम्प्यूटेशनल गति*]),
   [PCA], [लीनियर प्रोजेक्शन (SVD / Eigenvalues)], [केवल ग्लोबल वेरिएंस सुरक्षित रखता है।], [अत्यधिक तेज़ ($cal(O)(d^3)$)],

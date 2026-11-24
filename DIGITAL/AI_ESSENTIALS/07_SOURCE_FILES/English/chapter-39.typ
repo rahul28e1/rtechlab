@@ -11,8 +11,8 @@
 
 #table(
   columns: (0.6fr, 2.4fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.2pt, y: 1.8pt),
   table.header([*No.*], [*Technical Interview Question*], [*Definitive Production Engineering Answer*]),
   [Q27], [How does Retrieval-Augmented Generation (RAG) eliminate hallucinations?], [Grounds the LLM by retrieving factual context from an external vector database, forcing the model to generate answers strictly conditioned on verified reference text via system prompt constraints.],

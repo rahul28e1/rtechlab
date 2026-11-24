@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.8fr, 2.2fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.2pt),
   table.header([*जोखिम स्तर*], [*सिस्टम के प्रकार*], [*कानूनी आवश्यकताएं एवं अनुपालन*], [*जुर्माना*]),
   [अस्वीकार्य जोखिम (Unacceptable)], [सामाजिक स्कोरिंग (Social Scoring), अवचेतन हेरफेर, सार्वजनिक बायोमेट्रिक निगरानी।], [यूरोपीय संघ में *पूर्ण प्रतिबंध*।], [€35M या वैश्विक टर्नओवर का 7%],
@@ -42,8 +42,8 @@
 == 41.4 वैश्विक AI विनियामक ढांचे की तुलना
 #table(
   columns: (1.2fr, 1.8fr, 2fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*अधिकार क्षेत्र*], [*मुख्य कानून*], [*प्राथमिक फोकस*], [*दृष्टिकोण*]),
   [यूरोपीय संघ], [EU AI Act (2024)], [सख्त जोखिम वर्गीकरण; 7% टर्नओवर जुर्माना।], [कठोर / पूर्व-सावधानी],

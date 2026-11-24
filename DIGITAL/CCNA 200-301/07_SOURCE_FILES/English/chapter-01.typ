@@ -19,8 +19,8 @@ Modern corporate networks require high availability, deterministic latency, and 
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Hierarchical Layer*], [*Primary Mission & Role*], [*Hardware Form Factors & Protocols*]),
   [Core Layer], [High-speed transport backbone without packet inspection], [Cisco Catalyst 9500/9600, Nexus 9300, 100G QSFP28, OSPF/IS-IS],

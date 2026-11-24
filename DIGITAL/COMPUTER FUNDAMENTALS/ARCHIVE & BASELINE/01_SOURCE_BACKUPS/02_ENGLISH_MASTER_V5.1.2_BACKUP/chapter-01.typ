@@ -19,7 +19,7 @@ A computer is an #hl[electronic, programmable data-processing machine] engineere
 == 1.2 The 4-Stage Operational Cycle: The IPOS Architecture Model
 #table(
   columns: (1.1fr, 1.3fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*IPOS Stage*], [*Primary Subsystems*], [*Engineering Mechanism & Data Flow*]),
@@ -54,7 +54,7 @@ In 1945, mathematician John von Neumann formulated the *Stored-Program Concept*,
 == 1.5 The System Bus Architecture & Signal Routing
 #table(
   columns: (1fr, 1.2fr, 1.1fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 3pt,
   table.header([*Bus Subsystem*], [*Directionality*], [*Physical Width*], [*Engineering Function & Bus Variations*]),
@@ -86,7 +86,7 @@ Computers are categorized by physical scale, compute throughput, and deployment 
 == 1.7 The Five Computing Generations & Silicon Evolution
 #table(
   columns: (0.7fr, 1.1fr, 1.2fr, 1.2fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
   stroke: 0.3pt + rtech-border,
   inset: 2.5pt,
   table.header([*Gen*], [*Era*], [*Active Hardware*], [*Memory Tech*], [*Milestones & Critical Constraints*]),

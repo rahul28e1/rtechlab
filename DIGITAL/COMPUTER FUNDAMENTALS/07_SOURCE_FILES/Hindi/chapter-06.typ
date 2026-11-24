@@ -22,8 +22,8 @@
 
 #table(
   columns: (1fr, 1.2fr, 1.3fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*सॉफ्टवेयर वर्ग*], [*प्राथमिक उद्देश्य*], [*विशिष्ट उदाहरण*], [*हार्डवेयर इंटरैक्शन स्तर*]),
   [सिस्टम सॉफ्टवेयर], [हार्डवेयर का प्रबंधन एवं एप्लीकेशन हेतु रनटाइम वातावरण प्रदान करना], [विंडोज 11, लिनक्स (Ubuntu/RHEL), macOS, डिवाइस ड्राइवर्स], [सीधे बेयर-मेटल हार्डवेयर और CPU प्रिविलेज्ड मोड्स पर।],
@@ -48,8 +48,8 @@
 == 6.2 लैंग्वेज ट्रांसलेटर्स: कंपाइलर्स, इंटरप्रेटर्स एवं JIT
 #table(
   columns: (1.1fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*ट्रांसलेटर प्रकार*], [*निष्पादन रणनीति एवं कार्यप्रणाली*], [*लाभ, कमियां एवं प्रतिनिधि भाषाएँ*]),
   [कंपाइलर (Compiler)], [पूरे सोर्स कोड को एक साथ विश्लेषण कर सीधे मशीन कोड (`.exe` / बाइनरी) में बदलता है।], [#hl[अत्यधिक तीव्र निष्पादन]; लंबा कंपाइलेशन समय; प्लेटफॉर्म-विशिष्ट (C, C++, Rust, Go)।],
@@ -62,8 +62,8 @@
 == 6.3 4-चरणीय C/C++ कम्पाइलेशन एवं बिल्ड पाइपलाइन
 #table(
   columns: (0.8fr, 1.2fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*स्टेज*], [*पाइपलाइन चरण*], [*कमांड / आंतरिक टूल*], [*आउटपुट फाइल एवं कार्य*]),
   [1], [प्री-प्रोसेसिंग (Preprocessing)], [`gcc -E main.c -o main.i`], [हेडर फाइल्स (`#include`) का विस्तार, मैक्रोज़ (`#define`) का प्रतिस्थापन, टिप्पणियां हटाना।],
@@ -79,23 +79,23 @@
   columns: (1fr, 1fr),
   gutter: 6pt,
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[1. प्रोसेस प्रबंधन एवं 5-स्टेट मॉडल:]\
       #text(size: 7.5pt, fill: rtech-text)[प्रोसेस 5 अवस्थाओं से गुजरती है: *New $arrow.r$ Ready $arrow.r$ Running $arrow.r$ Blocked/Waiting $arrow.r$ Terminated*। CPU शेड्यूलर (जैसे Round Robin, Linux CFS) मल्टीटास्किंग सुनिश्चित करता है।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[2. मेमोरी प्रबंधन एवं वर्चुअल मेमोरी:]\
       #text(size: 7.5pt, fill: rtech-text)[RAM कम पड़ने पर OS डिस्क पर स्वैप फाइल (Paging) बनाता है। MMU (मेमोरी मैनेजमेंट यूनिट) वर्चुअल एड्रेस को भौतिक एड्रेस में बदलता है। यदि पेज RAM में न हो, तो *Page Fault* इंटरप्ट उत्पन्न होता है।]
     ]
   ],
   [
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[3. फाइल सिस्टम आर्किटेक्चर:]\
       #text(size: 7.5pt, fill: rtech-text)[फाइलों को डायरेक्टरी पदानुक्रम में व्यवस्थित करना। *NTFS* (विंडोज जर्नलिंग, ACL अनुमतियां), *ext4* (लिनक्स उच्च प्रदर्शन), तथा *APFS* (Apple कॉपी-ऑन-राइट स्टोरेज)।]
     ]
     #v(3pt)
-    #block(stroke: 0.3pt + rtech-border, fill: white, inset: 5pt, radius: 4pt)[
+    #block(stroke: 0.5pt + rgb("#64748B"), fill: white, inset: 5pt, radius: 4pt)[
       #text(weight: "bold", size: 8pt, fill: rtech-navy)[4. डिवाइस एवं I/O ड्राइवर प्रबंधन:]\
       #text(size: 7.5pt, fill: rtech-text)[कर्नेल मोड डिवाइस ड्राइवर्स हार्डवेयर रजिस्टर्स और इंटरप्ट्स का प्रबंधन करते हैं ताकि एप्लीकेशन सॉफ्टवेयर को हार्डवेयर की जटिलता का सामना न करना पड़े।]
     ]
@@ -115,8 +115,8 @@
 
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*वर्चुअलाइजेशन स्तर*], [*संरचनात्मक आर्किटेक्चर*], [*विशिष्ट टूल्स, प्रदर्शन एवं उपयोग*]),
   [Type 1 बेयर-मेटल हाइपरवाइजर], [#hl[सीधे भौतिक सर्वर हार्डवेयर पर चलता है]; बीच में कोई होस्ट OS नहीं होता।], [VMware ESXi, Proxmox VE, KVM, Microsoft Hyper-V; #hl[न्यूनतम ओवरहेड, अधिकतम प्रदर्शन]; एंटरप्राइज डेटा सेंटर्स।],
@@ -129,8 +129,8 @@
 == 6.6 क्लाउड सर्विस मॉडल्स: IaaS बनाम PaaS बनाम SaaS
 #table(
   columns: (1fr, 1.3fr, 1.3fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*क्लाउड मॉडल*], [*उपभोक्ता क्या प्रबंधित करता है*], [*क्लाउड प्रदाता क्या प्रबंधित करता है*], [*विशिष्ट उद्योग उदाहरण*]),
   [IaaS (Infrastructure)], [OS, रनटाइम, मिडिलवेयर, डेटा, एप्लीकेशन], [भौतिक सर्वर, स्टोरेज, नेटवर्किंग, वर्चुअलाइजेशन], [Amazon EC2, Azure VMs, Google Compute Engine],

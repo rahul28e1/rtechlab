@@ -15,8 +15,8 @@ The *EU AI Act (2024–2026)* is the global benchmark for AI regulation (analogo
 
 #table(
   columns: (1fr, 1.6fr, 2.4fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Risk Tier*], [*System Category*], [*Mandatory Compliance Obligations*], [*Legal Penalty*]),
   [Unacceptable Risk], [Cognitive behavioral manipulation, social scoring, biometric mass surveillance.], [*Strictly Prohibited*. Illegal to develop or deploy within the EU.], [Fines up to €35M or 7% global turnover],
@@ -47,8 +47,8 @@ To combat malicious deepfakes, global standards enforce cryptographically verifi
 #v(2pt)
 #table(
   columns: (1.2fr, 1.8fr, 2fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Jurisdiction*], [*Primary Legislative Act*], [*Key Governance Mandate*], [*Stance on Innovation*]),
   [European Union], [EU AI Act (2024)], [Strict risk classification (Unacceptable to Minimal); heavy fines up to 7% turnover.], [Precautionary / Restrictive],

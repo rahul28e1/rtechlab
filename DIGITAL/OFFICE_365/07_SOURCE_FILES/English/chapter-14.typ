@@ -15,8 +15,8 @@ Single-condition functions evaluate an explicit logical criterion across a desig
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function*], [*Syntax Structure*], [*Computational Evaluation Mechanics*]),
   [`COUNTIF`], [`=COUNTIF(range, criteria)`], [Counts cells satisfying condition (e.g. `=COUNTIF(D2:D100, ">=50")`).],
@@ -59,8 +59,8 @@ The multi-criteria suite evaluates simultaneous logical `AND` conditions across 
 
 #table(
   columns: (1.2fr, 2.2fr, 2.6fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Function*], [*Enterprise Business Query*], [*Production Formula Specimen*]),
   [`COUNTIFS`], [Count orders from "Bangalore" over ₹ 50,000], [`=COUNTIFS(City_Col, "Bangalore", Amount_Col, ">=50000")`],
@@ -78,8 +78,8 @@ When querying unstructured string databases, conditional aggregation functions s
 
 #table(
   columns: (1fr, 1.2fr, 2.4fr, 1.4fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Wildcard*], [*Character*], [*Matching Behavioral Rule*], [*Enterprise Specimen*]),
   [Asterisk], [`*`], [Matches any sequence of zero or more characters.], [`=COUNTIF(A:A, "*Dell*")` finds any Dell product],
@@ -95,8 +95,8 @@ Below is an authentic corporate sales ledger evaluated using dynamic `SUMIFS` an
 
 #table(
   columns: (0.8fr, 1.3fr, 1.5fr, 1.2fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*Invoice*], [*Region*], [*Product Category*], [*Sales Units*], [*Invoice Value*]),
   [INV-101], [South (Bangalore)], [Server Infrastructure], [12], [₹ 54,00,000],
@@ -127,8 +127,8 @@ In monthly HR payroll sheets, attendance codes are tallied using conditional agg
 
 #table(
   columns: (1fr, 2.2fr, 0.7fr, 0.7fr, 0.7fr, 0.7fr, 1fr, 1.2fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 2.5pt, y: 2pt),
   table.header([*Emp ID*], [*Employee Name*], [*D1*], [*D2*], [*D3*], [*D4*], [*P Count*], [*Payable Days*]),
   [EMP-01], [Rahul Patel], [P], [P], [P], [P], [4], [4.0 Days],

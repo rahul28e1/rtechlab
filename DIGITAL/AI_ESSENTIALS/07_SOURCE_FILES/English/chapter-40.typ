@@ -11,8 +11,8 @@
 
 #table(
   columns: (0.6fr, 2.4fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.2pt, y: 1.8pt),
   table.header([*No.*], [*System Design / Scenario Question*], [*Production Architecture Solution*]),
   [Q39], [Design an Enterprise Document RAG system for 10 Million PDF pages.], [Decoupled pipeline: Ingestion via OCR + PyMuPDF; hierarchical chunking (parent-child); Milvus cluster with HNSW; hybrid search with BM25; Cohere reranker; vLLM Llama-3 serving; Redis semantic caching.],

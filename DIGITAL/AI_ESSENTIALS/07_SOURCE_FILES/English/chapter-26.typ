@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 1.6fr, 2.4fr, 1fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Indic AI Venture*], [*Founding Entity*], [*Core Innovation & Technical Architecture*], [*Language Coverage*]),
   [Sarvam AI (Sarvam-1)], [Pratyush Kumar & Vivek Raghavan], [Highly efficient 2B/7B parameter models pre-trained on diverse Indic tokens. Voice-first audio models.], [10+ Indian Languages (Hindi, Tamil, Telugu, etc.)],

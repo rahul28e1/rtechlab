@@ -67,7 +67,7 @@ Every chapter, transaction, and statutory case study in this handbook adheres to
 #table(
   columns: (1.2fr, 1.3fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Regulatory Body]], [#text(weight: "bold", fill: white)[Governing Legislation]], [#text(weight: "bold", fill: white)[Curriculum Integration & Practical Impact]],
   [GST Council & CBIC], [CGST / SGST / IGST Acts 2017], [Rule 46 Tax Invoices, Section 16(2)(aa) GSTR-2B matching, E-Way bills, and E-Invoicing.],
@@ -83,7 +83,7 @@ Every chapter, transaction, and statutory case study in this handbook adheres to
 #table(
   columns: (0.7fr, 1.8fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Topic]], [#text(weight: "bold", fill: white)[Curriculum Domain]], [#text(weight: "bold", fill: white)[Core Practical Learning Outcomes]],
   [Topic 01], [History of Tally & Licensing], [Bharat Goenka, 80% market share, download from tallysolutions.com, Silver/Gold/Edu mode, TGS LAN.],
@@ -172,7 +172,7 @@ Tally's technological journey spans nearly four decades of continuous architectu
 #table(
   columns: (1.2fr, 1fr, 2.8fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[Release Version]], [#text(weight: "bold", fill: white)[Year Launched]], [#text(weight: "bold", fill: white)[Key Technical Capabilities & Milestones]],
   [Peutronics (The Accountant)], [1986], [Initial DOS-based accounting software operating strictly via keyboard keystrokes.],
@@ -189,7 +189,7 @@ Tally's technological journey spans nearly four decades of continuous architectu
 #v(6pt)
 
 #align(center)[
-  #box(stroke: 0.5pt + rgb("#CBD5E1"), radius: 4pt, fill: white, inset: 6pt)[
+  #box(stroke: 0.5pt + rgb("#64748B"), radius: 4pt, fill: white, inset: 6pt)[
     #image("../../02_BRAND_ASSETS/tally_classic_logo.png", width: 50mm)
   ]
 ]
@@ -202,7 +202,7 @@ Understanding the technological evolution from Tally.ERP 9 to Tally Prime is a f
 #table(
   columns: (1.3fr, 1.8fr, 1.9fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[Architectural Dimension]], [#text(weight: "bold", fill: white)[Legacy Tally.ERP 9 (2009 - 2020)]], [#text(weight: "bold", fill: white)[Modern Tally Prime (2020 - 2027)]],
   [User Interface & Theme], [Dual-color pane (Green/Yellow), heavy text layout, crowded sidebars.], [Clean, minimalist light theme with optimized visual hierarchy and modern typography.],
@@ -236,7 +236,7 @@ When deploying Tally Prime in corporate accounts departments, Chartered Accounta
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4.5pt,
   [#text(weight: "bold", fill: white)[Tier Level]], [#text(weight: "bold", fill: white)[Business Scope]], [#text(weight: "bold", fill: white)[Hardware Specifications]], [#text(weight: "bold", fill: white)[Backup & Disaster Recovery]],
   [Standalone Client], [Small Retail / Freelance (1 User)], [Intel Core i3/i5, 8 GB RAM, 256 GB SSD, Windows 11 64-bit], [Daily automated backup to external USB drive (#key-pill("Alt+Y > Backup")).],
@@ -252,7 +252,7 @@ Upon first launch, Tally Prime presents the Welcome Screen with four distinct op
 #table(
   columns: (1.2fr, 1.2fr, 2.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[License Edition]], [#text(weight: "bold", fill: white)[User Access Limit]], [#text(weight: "bold", fill: white)[Operational Scope & Features]],
   [Silver Edition (Single User)], [1 Active Computer], [Commercial standalone license activated via Tally.NET ID. Best for retail shops, single-accountant offices, and freelancers.],
@@ -293,7 +293,7 @@ Upon first launch, Tally Prime presents the Welcome Screen with four distinct op
 #table(
   columns: (1fr, 0.8fr, 1.2fr, 2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Tally Edition]], [#text(weight: "bold", fill: white)[Release Year]], [#text(weight: "bold", fill: white)[Operating System]], [#text(weight: "bold", fill: white)[Milestone Capabilities & Architectural Leaps]],
   [The Accountant], [1986], [MS-DOS 3.3], [First codeless accounting software developed by #hl-yellow[Bharat Goenka] in Bangalore.],
@@ -327,7 +327,7 @@ Corporate organizations choose their licensing tier based on network concurrency
 #table(
   columns: (1fr, 1.3fr, 1.3fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Capability]], [#text(weight: "bold", fill: white)[Tally Silver (Single User)]], [#text(weight: "bold", fill: white)[Tally Gold (Multi User)]], [#text(weight: "bold", fill: white)[Tally Prime Server]],
   [Concurrent Users], [1 User on 1 Machine], [Unlimited Users across LAN], [Dozens of high-speed concurrent users with dedicated server thread.],
@@ -426,7 +426,7 @@ The *Gateway of Tally* is the nerve center and command dashboard of Tally Prime.
 #table(
   columns: (1.2fr, 1.4fr, 2.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[GOT Section]], [#text(weight: "bold", fill: white)[Menu Options]], [#text(weight: "bold", fill: white)[Operational Purpose & Commercial Role]],
   [1. Masters], [Create, Alter, Chart of Accounts], [Build and maintain master records: Ledgers, Groups, Stock Items, Units, Godowns, and Tax Categories.],
@@ -453,7 +453,7 @@ Tally Prime replaces cluttered legacy menus with an elegant, streamlined top men
 #table(
   columns: (1.2fr, 1.1fr, 2.7fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[Top Menu Element]], [#text(weight: "bold", fill: white)[Keyboard Shortcut]], [#text(weight: "bold", fill: white)[Operational Purpose & Capabilities]],
   [Company Menu], [#key-pill("Alt + K")], [Create, alter, select, shut companies, and manage security/user access permissions.],
@@ -507,7 +507,7 @@ The #hl-yellow[Gateway of Tally (GOT)] is the central command console of Tally P
 #table(
   columns: (1.2fr, 1.2fr, 2.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Quadrant]], [#text(weight: "bold", fill: white)[Menu Options]], [#text(weight: "bold", fill: white)[Operational Capabilities & Business Function]],
   [1. Masters], [Create, Alter, Chart of Accounts], [Create and modify foundational accounting accounts (Ledgers, Groups), inventory items (Stock Items, Units, Godowns, Categories), statutory tax rates, and payroll heads.],
@@ -629,7 +629,7 @@ Under federal constitutional provisions, both the Central Government and State G
 #table(
   columns: (1.3fr, 1.2fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[Supply Classification]], [#text(weight: "bold", fill: white)[Statutory Tax Component]], [#text(weight: "bold", fill: white)[Practical Tax Calculation Example (18% Rate)]],
   [Intrastate (Within Gujarat)], [CGST (9%) + SGST (9%)], [On taxable goods of ₹10,000: CGST = ₹900, SGST = ₹900. Total Bill = ₹11,800.],
@@ -644,7 +644,7 @@ Under Section 22 of the CGST Act, business enterprises must obtain GST registrat
 #table(
   columns: (1.3fr, 1.4fr, 1.3fr, 2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[Taxpayer Category]], [#text(weight: "bold", fill: white)[Standard States (e.g. Gujarat)]], [#text(weight: "bold", fill: white)[Special Category States]], [#text(weight: "bold", fill: white)[Compliance Trigger & Rules]],
   [Exclusive Supply of Goods], [₹40 Lakhs Aggregate Turnover], [₹20 Lakhs Turnover], [Mandatory registration upon crossing ₹40 Lakhs; inter-state sales require registration regardless of turnover!],
@@ -660,7 +660,7 @@ Goods and services are categorized into four primary statutory rate slabs based 
 #table(
   columns: (1fr, 1.4fr, 2.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[GST Slab]], [#text(weight: "bold", fill: white)[Category Nature]], [#text(weight: "bold", fill: white)[Practical Real-World Commodities & Services]],
   [0% (Exempt)], [Zero-Rated / Basic Necessities], [Unpackaged food grains, fresh vegetables, fresh fruits, unbranded milk, curd, salt, agricultural seeds (Jeera Seed, Taramira Oil seed), hand tools, educational and health services.],
@@ -688,7 +688,7 @@ Every registered business entity is assigned a 15-character Goods and Services T
 #table(
   columns: (1fr, 1.4fr, 1.2fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[Section]], [#text(weight: "bold", fill: white)[Nature of Payment]], [#text(weight: "bold", fill: white)[Statutory TDS Rate]], [#text(weight: "bold", fill: white)[Exemption Threshold Limit]],
   [Sec 194C], [Contractor / Sub-Contractor Works], [1% (Indiv/HUF) / 2% (Co.)], [₹30,000 (single) or ₹1,00,000 (aggregate p.a.)],
@@ -705,7 +705,7 @@ Corporate accountants must master the exact deduction, threshold, and booking en
 #table(
   columns: (0.4fr, 1.8fr, 1.2fr, 1.2fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Case]], [#text(weight: "bold", fill: white)[Transaction Description]], [#text(weight: "bold", fill: white)[Gross Billing]], [#text(weight: "bold", fill: white)[TDS Deducted]], [#text(weight: "bold", fill: white)[Net Cheque Paid]],
   [01], [Adv. Sharma (Legal Consulting under Sec 194J @ 10%)], [₹60,000.00], [₹6,000.00 (10%)], [₹54,000.00],
@@ -761,8 +761,8 @@ Corporate accountants must master the exact deduction, threshold, and booking en
 
 #table(
   columns: (1.2fr, 2.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Statutory Dimension]], [#text(weight: "bold", fill: white)[Legal Precondition under CGST Act, 2017]],
   [Possession of Tax Invoice], [The buyer must possess a valid legal Tax Invoice, Debit Note, or Bill of Entry issued by an approved registered supplier under #ul-orange[Rule 46].],
@@ -787,7 +787,7 @@ Under Indian GST compliance, regular taxpayers must adhere to a strict statutory
 #table(
   columns: (0.9fr, 1.3fr, 1.8fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Return Form]], [#text(weight: "bold", fill: white)[Statutory Due Date]], [#text(weight: "bold", fill: white)[Statutory Scope & Legal Purpose]],
   [GSTR-1], [11th of subsequent month], [Statement of Outward Supplies (B2B, B2C, Exports, HSN Summary). Populates buyer #ul-green[GSTR-2B].],
@@ -885,7 +885,7 @@ Modern accounting traces its foundation to the Italian mathematician *Fra #ul-ye
 #table(
   columns: (1.2fr, 1.4fr, 1.3fr, 2.1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 5pt,
   [#text(weight: "bold", fill: white)[Account Class]], [#text(weight: "bold", fill: white)[Definition & Coverage]], [#text(weight: "bold", fill: white)[Inviolable Golden Rule]], [#text(weight: "bold", fill: white)[Corporate Examples]],
   [1. Personal Account], [Relates to legal persons, individuals, corporate firms, banks, and institutions.], [*Debit the Receiver*\ *Credit the Giver*], [Ravi Private Ltd, Ram & Co., HDFC Bank, SBI Bank, Salman's Capital, Drawings A/c.],
@@ -901,7 +901,7 @@ To master ledger creation, an accountant must analyze which two accounts are aff
 #table(
   columns: (0.4fr, 2.3fr, 1.2fr, 1.1fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Commercial Transaction]], [#text(weight: "bold", fill: white)[Accounts Affected]], [#text(weight: "bold", fill: white)[Account Class]], [#text(weight: "bold", fill: white)[Debit / Credit]],
   [1], [Proprietor started business with cash ₹5,00,000], [Cash A/c\ Capital A/c], [Real\ Personal], [Dr. Cash (Comes in)\ Cr. Capital (Giver)],
@@ -944,7 +944,7 @@ To build real industry confidence, every trainee must record the complete, authe
 #table(
   columns: (0.4fr, 3fr, 1.2fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Practical Business Transaction Description]], [#text(weight: "bold", fill: white)[Amount (₹)]], [#text(weight: "bold", fill: white)[Target Voucher]],
   [01], [Mr. Verma opened a current account in HDFC Bank depositing cash], [1,00,000.00], [F4 Contra],
@@ -1007,7 +1007,7 @@ From Rahul Sir's Fundamental Tally Notes (Page 18), here are 20 additional pract
 #table(
   columns: (0.4fr, 3.2fr, 1.2fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Practical Business Event]], [#text(weight: "bold", fill: white)[Amount (₹)]], [#text(weight: "bold", fill: white)[Voucher Type]],
   [51], [Deposited ₹10,000 cash into HDFC Bank account], [10,000.00], [F4 Contra],
@@ -1143,7 +1143,7 @@ Tally Prime categorizes its 24 voucher types into 4 distinct functional operatio
 #table(
   columns: (1.2fr, 0.8fr, 2.5fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Voucher Category]], [#text(weight: "bold", fill: white)[Key Vouchers]], [#text(weight: "bold", fill: white)[Operational Purpose & Business Application]],
   [1. Accounting Vouchers], [F4 to F9], [Handles core double-entry monetary transactions: Cash/Bank fund transfers (Contra), Vendor payments, Customer receipts, Non-cash adjustments (Journal), Sales, and Purchases.],
@@ -1159,8 +1159,8 @@ Every professional corporate accountant must memorize the full registry of Tally
 
 #table(
   columns: (0.4fr, 1.3fr, 0.9fr, 2.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Voucher Name]], [#text(weight: "bold", fill: white)[Shortcut]], [#text(weight: "bold", fill: white)[Accounting & Commercial Impact]],
   [1], [Contra], [#key-pill("F4")], [Pure Cash-to-Bank, Bank-to-Cash, or Bank-to-Bank transfers. Zero third-party involvement.],
@@ -1197,7 +1197,7 @@ One of the most revolutionary innovations of Tally Prime is the *Change Mode* fe
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Voucher Mode]], [#text(weight: "bold", fill: white)[Keyboard Key]], [#text(weight: "bold", fill: white)[When to Use in Corporate Practice]],
   [Item Invoice], [#key-pill("Ctrl + H") > Item], [Standard trading and manufacturing mode. Requires selecting *Stock Items*, Quantity, Units of Measure (Pcs, Kgs), and Rates. Essential for GST invoices with HSN summary.],
@@ -1257,8 +1257,8 @@ Enter the following 25 commercial transactions into Tally Prime, ensuring exact 
 
 #table(
   columns: (0.4fr, 2.5fr, 0.8fr, 0.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Commercial Transaction Narrative]], [#text(weight: "bold", fill: white)[Voucher]], [#text(weight: "bold", fill: white)[Amount (₹)]],
   [01], [Proprietor introduced additional capital via cheque into HDFC Bank], [Receipt (F6)], [₹2,50,000],
@@ -1319,7 +1319,7 @@ In corporate trading, transactions often combine commercial trade discounts and 
 #table(
   columns: (0.4fr, 2.5fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [Which keyboard shortcut opens the Contra Voucher in Tally Prime?\
@@ -1390,7 +1390,7 @@ The 28 predefined groups are structured into a 2-tier hierarchy:
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Classification]], [#text(weight: "bold", fill: white)[Group Count]], [#text(weight: "bold", fill: white)[Predefined Groups Included]],
   [Primary Groups (Balance Sheet)], [9 Primary Groups], [Capital Account, Loans (Liability), Current Liabilities, Fixed Assets, Investments, Current Assets, Branch / Divisions, Misc. Expenses (Asset), Suspense A/c.],
@@ -1405,8 +1405,8 @@ One of the most frequent errors made by junior accountants is misclassifying exp
 
 #table(
   columns: (1fr, 1.8fr, 1.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Dimension]], [#text(weight: "bold", fill: white)[Direct Expenses / Incomes]], [#text(weight: "bold", fill: white)[Indirect Expenses / Incomes]],
   [Definition], [All costs incurred *inside the factory gate* or directly connected with manufacturing, procurement, and bringing goods to sellable condition.], [All operational, administrative, selling, financial, and distribution costs incurred *after the goods are ready for sale* or in head office.],
@@ -1422,7 +1422,7 @@ This master reference table covers the exact group assignment for all commercial
 #table(
   columns: (0.4fr, 1.6fr, 1.6fr, 1.2fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Ledger Account Name]], [#text(weight: "bold", fill: white)[Correct Tally Prime Group]], [#text(weight: "bold", fill: white)[Financial Statement]],
   [01], [Salman's Capital A/c], [Capital Account], [Balance Sheet (Liab)],
@@ -1524,8 +1524,8 @@ Mastering these advanced group classifications guarantees success in senior corp
 
 #table(
   columns: (1.5fr, 1.5fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Complex Corporate Account]], [#text(weight: "bold", fill: white)[Correct Tally Prime Group]], [#text(weight: "bold", fill: white)[Statement]],
   [Capital Work-in-Progress (CWIP)], [Fixed Assets], [Balance Sheet],
@@ -1566,7 +1566,7 @@ The #ul-green[Trial Balance] is the ultimate litmus test of mathematical and dou
 #table(
   columns: (0.4fr, 2.5fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [How many predefined groups exist in a fresh company in Tally Prime?\
@@ -1630,7 +1630,7 @@ To create a new company, press #key-pill("Alt + K") (Company Menu) and select *C
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Screen Field]], [#text(weight: "bold", fill: white)[Recommended Value]], [#text(weight: "bold", fill: white)[Commercial Significance & Statutory Rule]],
   [Company Data Path], [`C:\TallyPrime\Data`], [Physical disk location where company records and encrypted transaction files are stored.],
@@ -1672,8 +1672,8 @@ Tally Prime features two powerful independent layers of corporate data protectio
 
 #table(
   columns: (1fr, 1.8fr, 1.8fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Security Feature]], [#text(weight: "bold", fill: white)[Security Control (User Roles & Access)]], [#text(weight: "bold", fill: white)[#hl-green[Tally Vault] (Database AES Encryption)]],
   [Primary Purpose], [Internal access control and role segregation among staff members (Admin, Data Entry, Billing, Auditor).], [Total military-grade cryptographic encryption of the company database files on the hard drive.],
@@ -1690,7 +1690,7 @@ Create the following 5 complete commercial companies in Tally Prime, following t
 #table(
   columns: (0.4fr, 1.5fr, 1.5fr, 1.1fr, 0.9fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Co.]], [#text(weight: "bold", fill: white)[Legal Business Name]], [#text(weight: "bold", fill: white)[Registered Address]], [#text(weight: "bold", fill: white)[Contact Details]], [#text(weight: "bold", fill: white)[FY & PIN]],
   [01], [Ravi Private Limited], [Near Ambaji Mandir, Main Chowk, Palanpur], [Ph: 252-534234 · Mob: 7046015165 · ravi\@gmail.com], [01-Apr-25 · PIN: 385001],
@@ -1776,7 +1776,7 @@ Under notification *GSR 235(E)* issued by the Ministry of Corporate Affairs (MCA
 #table(
   columns: (0.4fr, 2.5fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [Which keyboard shortcut opens the Company Menu in Tally Prime?\
@@ -1837,7 +1837,7 @@ In modern commercial accounting, commercial enterprises are fundamentally classi
 #table(
   columns: (1fr, 1.8fr, 1.8fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Business Model]], [#text(weight: "bold", fill: white)[Operational Lifecycle & Value Chain]], [#text(weight: "bold", fill: white)[Tally Prime Accounting Architecture]],
   [1. Trading Concerns], [Procures finished goods from wholesalers or manufacturers and resells them directly to retailers or end-consumers without physical transformation.], [Tracks Stock Items, Units of Measure (Pcs, Box), Purchase & Sales Vouchers (F9/F8) in *Item Invoice* mode. Gross profit is derived from trade margins.],
@@ -1911,8 +1911,8 @@ Practice recording the 12-month commercial transaction lifecycle:
 
 #table(
   columns: (0.6fr, 1.2fr, 2.4fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Month]], [#text(weight: "bold", fill: white)[Transaction Cycle]], [#text(weight: "bold", fill: white)[Key Practical Accounting Operation]],
   [Month 01 (Apr)], [Establishment & Capital], [Introduce ₹10 Lakhs capital, open HDFC Current A/c, pay office deposit ₹1.5 Lakhs.],
@@ -1982,7 +1982,7 @@ Medium and large commercial enterprises store physical merchandise across multip
 #table(
   columns: (0.4fr, 2.5fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [What does BOM stand for in Tally Prime manufacturing?\\
@@ -2302,7 +2302,7 @@ Enter the following 10 commercial invoicing scenarios into Tally Prime, verifyin
 #table(
   columns: (0.4fr, 2.5fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [Under which CGST Rule are the mandatory particulars of a Tax Invoice specified?\\
@@ -2367,7 +2367,7 @@ Tally Prime's interface is engineered with mnemonic keyboard accelerators. Every
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Key Combination]], [#text(weight: "bold", fill: white)[Universal Command]], [#text(weight: "bold", fill: white)[Operational Purpose & Business Application]],
   [#key-pill("Esc")], [Back / Exit], [Cancels current action, closes opened window, or steps back one level in menu hierarchy.],
@@ -2388,8 +2388,8 @@ Tally Prime's interface is engineered with mnemonic keyboard accelerators. Every
 === Category 2: Master Creation & Alteration Shortcuts
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Key Combination]], [#text(weight: "bold", fill: white)[Command Name]], [#text(weight: "bold", fill: white)[Operational Purpose & Business Application]],
   [#key-pill("Alt + C")], [Create Secondary Master], [Creates a new ledger, stock item, or group on the fly inside voucher entry fields!],
@@ -2406,7 +2406,7 @@ Tally Prime's interface is engineered with mnemonic keyboard accelerators. Every
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Key Combination]], [#text(weight: "bold", fill: white)[Command Name]], [#text(weight: "bold", fill: white)[Operational Purpose & Business Application]],
   [#key-pill("F2")], [Change Date], [Changes current voucher or report transaction date.],
@@ -2436,8 +2436,8 @@ Tally Prime's interface is engineered with mnemonic keyboard accelerators. Every
 === Category 4: Report Generation & Analysis Shortcuts
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Key Combination]], [#text(weight: "bold", fill: white)[Command Name]], [#text(weight: "bold", fill: white)[Operational Purpose & Business Application]],
   [#key-pill("Alt + F1") / [#key-pill("Alt + F5")]], [Detailed / Condensed], [Expands report to show all sub-ledgers and transactions (Detailed) or collapses.],
@@ -2512,7 +2512,7 @@ Senior corporate accountants complete routine workflows in seconds by combining 
 #table(
   columns: (0.4fr, 2.5fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [Which key combination creates a new ledger directly from inside a voucher?\\
@@ -2666,7 +2666,7 @@ Professional accountants must master the tripartite GST portal reconciliation fr
 #table(
   columns: (1fr, 1.2fr, 2.3fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[GST Return]], [#text(weight: "bold", fill: white)[Filing Frequency]], [#text(weight: "bold", fill: white)[Corporate Purpose & Matching Rule]],
   [GSTR-1], [Monthly / QRMP (11th of month)], [Statement of Outward Supplies. Contains all B2B sales invoices, interstate B2C sales exceeding ₹2.5 Lakhs, exports, debit/credit notes, and HSN summary. Directly populates buyers' #ul-green[GSTR-2B]!],
@@ -2725,7 +2725,7 @@ Before closing corporate financial books on 31st March, corporate accountants mu
 #table(
   columns: (0.4fr, 2.5fr, 1.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Q\#]], [#text(weight: "bold", fill: white)[Question & Multiple Choice Options]], [#text(weight: "bold", fill: white)[Answer Key & Detailed Explanation]],
   [01], [What causes the difference between the Cash Book bank balance and Passbook balance?\\
@@ -2824,7 +2824,7 @@ Create the following 35 foundational ledgers in Tally Prime, ensuring exact grou
 #table(
   columns: (0.4fr, 1.8fr, 1.4fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Ledger Account Name]], [#text(weight: "bold", fill: white)[Parent Group]], [#text(weight: "bold", fill: white)[Statutory / Bill-wise Setup]],
   [01], [Equity Share Capital A/c], [Capital Account], [No],
@@ -2875,8 +2875,8 @@ Create the following 35 foundational ledgers in Tally Prime, ensuring exact grou
 
 #table(
   columns: (0.4fr, 1.8fr, 0.8fr, 0.8fr, 1.2fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Stock Item Description]], [#text(weight: "bold", fill: white)[HSN]], [#text(weight: "bold", fill: white)[GST Rate]], [#text(weight: "bold", fill: white)[Standard Cost / Price]],
   [01], [Intel Core i7 14th Gen Processor], [847150], [18%], [Cost: ₹24,000 · MRP: ₹31,000],
@@ -2899,7 +2899,7 @@ Execute the following 30 comprehensive corporate transactions in chronological s
 #table(
   columns: (0.4fr, 0.7fr, 2.5fr, 0.8fr, 0.6fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Sl.]], [#text(weight: "bold", fill: white)[Date]], [#text(weight: "bold", fill: white)[Commercial Transaction Particulars]], [#text(weight: "bold", fill: white)[Voucher]], [#text(weight: "bold", fill: white)[Amount (₹)]],
   [01], [01-Apr], [Promoters deposited ₹10,00,000 equity share capital into HDFC Bank], [Receipt (F6)], [10,00,000],
@@ -2950,8 +2950,8 @@ On 31-May-2025, the company's HDFC Bank Passbook balance displays ₹4,78,220, w
 === 1. Manufacturing & Trading Account for the Period Ended 31-May-2025
 #table(
   columns: (2fr, 1fr, 2fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Particulars (Debit)]], [#text(weight: "bold", fill: white)[Amount (₹)]], [#text(weight: "bold", fill: white)[Particulars (Credit)]], [#text(weight: "bold", fill: white)[Amount (₹)]],
   [To Opening Stock], [0.00], [By Sales Accounts (Net)], [7,24,000.00],
@@ -2967,7 +2967,7 @@ On 31-May-2025, the company's HDFC Bank Passbook balance displays ₹4,78,220, w
 #table(
   columns: (2fr, 1fr, 2fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Particulars (Debit)]], [#text(weight: "bold", fill: white)[Amount (₹)]], [#text(weight: "bold", fill: white)[Particulars (Credit)]], [#text(weight: "bold", fill: white)[Amount (₹)]],
   [To Office Staff Salaries], [65,000.00], [By Gross Profit b/d], [2,79,300.00],
@@ -2984,8 +2984,8 @@ On 31-May-2025, the company's HDFC Bank Passbook balance displays ₹4,78,220, w
 === 3. Audited Corporate Balance Sheet as at 31-May-2025
 #table(
   columns: (2fr, 1fr, 2fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Capital & Liabilities]], [#text(weight: "bold", fill: white)[Amount (₹)]], [#text(weight: "bold", fill: white)[Property & Assets]], [#text(weight: "bold", fill: white)[Amount (₹)]],
   [Equity Share Capital], [10,00,000.00], [Fixed Assets (Net of Dep.)], [1,82,500.00],
@@ -3007,7 +3007,7 @@ Every trainee must generate and audit the following 10 commercial invoices withi
 #table(
   columns: (0.5fr, 1fr, 1.3fr, 1fr, 1fr, 1fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   [#text(weight: "bold", fill: white)[Inv \#]], [#text(weight: "bold", fill: white)[Date & Type]], [#text(weight: "bold", fill: white)[Party Name & GSTIN]], [#text(weight: "bold", fill: white)[Taxable Val]], [#text(weight: "bold", fill: white)[GST Tax]], [#text(weight: "bold", fill: white)[Total (₹)]],
   [PUR-01], [04-Apr · Pur], [Avni Pvt Ltd (24AABCA5544P1Z3)], [₹8,00,000], [CGST+SGST 18%], [₹9,44,000],
@@ -3029,8 +3029,8 @@ In accordance with statutory corporate auditing mandates, the trainee must recon
 
 #table(
   columns: (1.2fr, 1.4fr, 1.4fr, 1fr),
-  fill: (col, row) => if row == 0 { rgb("#0F172A") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  fill: (col, row) => if row == 0 { rgb("#E2E8F0") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Reconciliation Field]], [#text(weight: "bold", fill: white)[As per Tally Prime Books]], [#text(weight: "bold", fill: white)[As per Portal (1/3B/2B)]], [#text(weight: "bold", fill: white)[Audit Variance]],
   [Total Outward Taxable Value], [₹6,79,000.00], [₹6,79,000.00 (#ul-green[GSTR-1])], [₹0.00 (Matched)],
@@ -3066,7 +3066,7 @@ Corporate management and statutory auditors analyze key financial ratios to eval
 #table(
   columns: (1.4fr, 1.2fr, 1fr, 1.4fr),
   fill: (col, row) => if row == 0 { rgb("#0E7490") } else if calc.even(row) { rgb("#F8FAFC") } else { white },
-  stroke: 0.5pt + rgb("#CBD5E1"),
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 4pt,
   [#text(weight: "bold", fill: white)[Financial Ratio]], [#text(weight: "bold", fill: white)[Mathematical Formula]], [#text(weight: "bold", fill: white)[Result]], [#text(weight: "bold", fill: white)[Corporate Health Interpretation]],
   [Current Ratio], [Current Assets / Current Liab], [4.12 : 1], [Exceptional liquidity. Exceeds standard 2:1 corporate benchmark.],

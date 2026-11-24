@@ -28,8 +28,8 @@ Servicing desktop workstations and enterprise servers requires strict electrical
 == 9.2 The Professional 8-Stage PC Assembly Workflow
 #table(
   columns: (0.8fr, 1.3fr, 2.9fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.8pt,
   table.header([*Stage*], [*Operation Name*], [*Engineering Procedure & Critical Precaution*]),
   [Stage 1], [Out-of-Chassis Test], [Assemble CPU, cooler, RAM, GPU, and PSU on top of the motherboard box (never the anti-static bag, which has a conductive exterior surface) to verify POST prior to chassis mounting.],
@@ -78,8 +78,8 @@ Servicing desktop workstations and enterprise servers requires strict electrical
 Emptying the Recycle Bin or performing an operating system `quick format` does *not* erase data; file tables are cleared while underlying raw data clusters remain intact and easily recoverable using forensic software:
 #table(
   columns: (1fr, 1.2fr, 2.8fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3pt,
   table.header([*Sanitization Level*], [*Applicable Media*], [*Technical Implementation Standard*]),
   [1. Clear], [Magnetic HDDs & Flash Media], [Logical sanitization through interface commands or software overwrite. Overwrites user-accessible storage locations with fixed or pseudorandom bit patterns. Sufficient for magnetic HDDs, but not universally complete for flash SSDs due to wear-leveling and over-provisioning.],
@@ -93,8 +93,8 @@ Emptying the Recycle Bin or performing an operating system `quick format` does *
 Upon pressing the chassis power button, the motherboard power supply supervisory chip asserts the `Power Good` (+5V) signal once DC voltages stabilize. The CPU then reads its first instruction from the BIOS/UEFI ROM reset vector (`0xFFFFFFF0` on x86) and begins POST execution.
 #table(
   columns: (1fr, 1.3fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.8pt,
   table.header([*Diagnostic Interface*], [*Display Method*], [*Diagnostic Interpretation & Troubleshooting Action*]),
   [EZ-Debug 4-Stage LEDs], [CPU to DRAM to VGA to BOOT], [Sequential LEDs indicate boot milestones. If stuck on *CPU*, inspect socket pins or 8-pin EPS cable. If stuck on *DRAM*, reseat modules in A2/B2 or clean contacts. If stuck on *VGA*, verify GPU PCIe power connectors and monitor input selection. If stuck on *BOOT*, check drive detection or bootloader integrity.],
@@ -107,8 +107,8 @@ Upon pressing the chassis power button, the motherboard power supply supervisory
 == 9.6 Systematic Hardware Triage Flowchart
 #table(
   columns: (1fr, 1.8fr, 2.2fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 2.8pt,
   table.header([*Symptom Profile*], [*Probable Root Causes*], [*Systematic Isolation & Rectification Steps*]),
   [No Power (Dead System; zero fans, zero LEDs)], [Defective wall outlet, tripped PSU rocker switch, loose 24-pin ATX harness, blown PSU fuse, front-panel switch wire detached.], [Verify AC outlet using a 3-pin receptacle tester. Test PSU health using a dedicated 24-pin digital ATX power supply tester with an LCD voltage readout (never use a makeshift paperclip jump). Inspect front-panel wiring or use a dedicated momentary diagnostic switch on `PWR_SW` header pins (never bridge pins with metal screwdrivers).],

@@ -32,8 +32,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*साझाकरण आयाम*], [*पुरानी कॉर्पोरेट कार्यप्रणाली*], [*2027 माइक्रोसॉफ्ट 365 क्लाउड मानक*]),
   [फाइल वितरण], [ईमेल में अटैचमेंट भेजना (`Budget_Final_v2_Rahul.xlsx`)।], [एकल सुरक्षित क्लाउड लिंक जिसमें सभी लाइव संपादन करते हैं।],
@@ -97,8 +97,8 @@
 
 #table(
   columns: (1.2fr, 1.8fr, 3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*विभाग*], [*आवंटित सेक्शन*], [*क्लाउड अनुमति एवं सुरक्षा कॉन्फ़िगरेशन*]),
   [कानूनी विभाग (Legal)], [शर्तें एवं अनुबंध], [अनुमति: `Can Edit`, संवेदनशीलता: `Confidential`, Track Changes अनिवार्य।],

@@ -43,8 +43,8 @@ To subnet instantly in under 15 seconds during exams and production outages, use
 == 3.4 Instant /24 to /30 Quick Reference Matrix
 #table(
   columns: (1fr, 1.8fr, 1.1fr, 1.4fr, 1.7fr),
-  fill: (x, y) => if y == 0 { rtech-navy } else if calc.even(y) { rtech-paper } else { white },
-  stroke: 0.3pt + rtech-border,
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rtech-paper } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: 3.5pt,
   table.header([*CIDR*], [*Subnet Mask*], [*Block Size*], [*Usable Hosts*], [*Primary Production Application*]),
   [/24], [255.255.255.0], [256], [254 hosts], [Standard branch office LAN / user access segment],

@@ -13,8 +13,8 @@
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2.2pt),
   table.header([*Domain*], [*AI Deployment & Architecture*], [*Audited Commercial / Clinical Impact*]),
   [Protein Folding (AlphaFold 2/3)], [DeepMind's Evoformer architecture predicting 3D atomic structures of 200M+ proteins.], [Accelerated drug discovery from 5 years to days; awarded 2024 Nobel Prize in Chemistry.],
@@ -35,8 +35,8 @@
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 2pt),
   table.header([*Autonomous Approach*], [*Sensor Suite & Architectural Philosophy*], [*Production Performance (2027)*]),
   [Tesla FSD (End-to-End Neural Net)], [Pure Vision (8 cameras, zero LiDAR/Radar). End-to-end neural network mapping raw photons directly to steering and acceleration controls.], [Millions of customer fleet vehicles collecting billions of real-world edge-case miles; rapid generalized scaling.],
@@ -67,8 +67,8 @@ When presenting AI initiatives to CFOs and executive leadership, frame metrics i
 #v(2pt)
 #table(
   columns: (1.5fr, 1.8fr, 1.8fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3.5pt, y: 1.8pt),
   table.header([*Scale Metric*], [*Proprietary Cloud API*], [*Self-Hosted vLLM (4x H100)*]),
   [Monthly Token Volume], [50,000,000 tokens / month], [50,000,000 tokens / month],

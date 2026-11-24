@@ -30,8 +30,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*प्लेसहोल्डर प्रकार*], [*लाइव स्लाइड पर व्यवहार*], [*कॉर्पोरेट उपयोगिता*]),
   [कंटेंट (Content)], [बहुउद्देशीय प्रॉम्प्ट: टेक्स्ट, तालिका, चार्ट, स्मार्टआर्ट, चित्र या वीडियो।], [मानक बॉडी स्लाइड्स।],
@@ -81,8 +81,8 @@
 
 #table(
   columns: (1.5fr, 1.8fr, 2.7fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 3pt),
   table.header([*मास्टर घटक*], [*डिजाइन पैरामीटर*], [*कॉन्फ़िगरेशन विवरण*]),
   [शीर्षक प्लेसहोल्डर], [40pt बोल्ड, Segoe UI], [रंग: `#0F172A`, मार्जिन: टॉप 0.8 इंच, लेफ्ट 0.8 इंच, ऑटो-फिट बंद।],

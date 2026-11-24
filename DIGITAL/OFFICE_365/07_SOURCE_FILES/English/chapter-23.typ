@@ -30,8 +30,8 @@ Executive audiences make decisions in seconds. Cognitive overload occurs when sl
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 2.5pt),
   table.header([*Design Dimension*], [*Amateur Presentation Mistake*], [*2027 Executive Presentation Standard*]),
   [Information Density], [15 bullet points filling the entire canvas.], [1 core headline, 3 structured metric cards.],
@@ -104,8 +104,8 @@ Below is the standard 3-column metric layout used in Fortune 500 board decks:
 
 #table(
   columns: (1.5fr, 1.5fr, 1.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else { rgb("#F8FAFC") },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else { rgb("#F8FAFC") },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 4pt, y: 4pt),
   table.header([*METRIC CARD 01*], [*METRIC CARD 02*], [*METRIC CARD 03*]),
   [

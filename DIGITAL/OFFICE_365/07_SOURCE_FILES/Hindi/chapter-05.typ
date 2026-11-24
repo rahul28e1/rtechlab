@@ -15,8 +15,8 @@
 
 #table(
   columns: (1.2fr, 2.3fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*ग्राफिक श्रेणी*], [*फाइल फॉर्मेट्स एवं टूल्स*], [*कॉर्पोरेट उपयोग एवं क्षमताएं*]),
   [Scalable Vectors], [SVG (`.svg`), EMF (`.emf`)], [ज़ूम करने पर कभी नहीं फटते; रंगों को बदलकर एडिटेबल शेप्स बनाया जा सकता है।],
@@ -36,8 +36,8 @@
 
 #table(
   columns: (1.2fr, 2.5fr, 2.3fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*रैपिंग मोड*], [*ज्यामितीय व्यवहार एवं टेक्स्ट का प्रवाह*], [*अनुशंसित कॉर्पोरेट उपयोग*]),
   [In Line with Text], [टेक्स्ट बेसलाइन से बंधा रहता है; टेक्स्ट के साथ आगे बढ़ता है।], [छोटे इनलाइन आइकन्स, गणितीय प्रतीक।],
@@ -74,8 +74,8 @@
 
 #table(
   columns: (1fr, 2.5fr, 2.5fr),
-  fill: (x, y) => if y == 0 { rgb("#0F172A") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
-  stroke: 0.3pt + rgb(15, 23, 42, 12%),
+  fill: (x, y) => if y == 0 { rgb("#E2E8F0") } else if calc.even(y) { rgb("#F8FAFC") } else { white },
+  stroke: 0.5pt + rgb("#64748B"),
   inset: (x: 3pt, y: 2pt),
   table.header([*श्रेणी*], [*दृश्य संचार उद्देश्य*], [*मानक कॉर्पोरेट उपयोग*]),
   [List], [अक्रमिक संबंधित सूचना समूहों को दर्शाना।], [कंपनी के मूल मूल्य, सेवाओं की सूची।],
