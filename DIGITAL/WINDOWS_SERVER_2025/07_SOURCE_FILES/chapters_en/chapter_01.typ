@@ -8,7 +8,7 @@
   chapter-num: "CHAPTER 01",
   category: "PART 1: Foundation Theory & Architecture",
   title: "Server Architecture, Server Types & 32-Year Evolution of Windows Server",
-  subtitle: "Client-Server Model · 8 Primary Server Types · Physical vs Virtual vs Azure Arc Hybrid · Complete Evolution from 1993 to 2025"
+  subtitle: "Client-Server Model · 8 Primary Server Types · Physical vs Virtual vs #hl-green[Azure Arc] Hybrid · Complete Evolution from 1993 to 2025"
 )
 
 #v(1.5pt)
@@ -53,7 +53,7 @@ The distinction between an everyday personal computer and an enterprise server i
 === 1.2 The 8 Primary Server Roles Deployed in Corporate Networks
 In any multinational corporation (MNC) or financial institution, no single machine handles every service. Enterprise workloads are segmented across specialized server roles:
 
-1. #text(weight: "bold", fill: rtech-navy)[Domain Controller (AD DS):] Serves as the central identity authority of the entire enterprise. User credentials, password policies, computer trust accounts, and security baselines are authenticated here. #hl-green[Ports: 88 (Kerberos), 389 (LDAP)].
+1. #text(weight: "bold", fill: rtech-navy)[Domain Controller (AD DS):] Serves as the central identity authority of the entire enterprise. User credentials, password policies, computer trust accounts, and security baselines are authenticated here. #hl-green[Ports: 88 (#hl-orange[Kerberos]), 389 (LDAP)].
 2. #text(weight: "bold", fill: rtech-navy)[File & Storage Server:] Centralizes enterprise data storage. Compartmentalized access permissions for departments (HR, Finance, Engineering) are enforced via NTFS and SMB shares. #hl-green[Port: 445 (SMB)].
 3. #text(weight: "bold", fill: rtech-navy)[Web Server (IIS / Apache):] Hosts internal corporate intranets, public web portals, REST APIs, and enterprise web applications. #hl-green[Ports: 80 (HTTP), 443 (HTTPS)].
 4. #text(weight: "bold", fill: rtech-navy)[Database Server (MS SQL / Oracle):] Processes relational databases, banking ledgers, customer records (CRM), and transactional ERP datasets. #hl-green[Port: 1433 (SQL Server)].
@@ -99,7 +99,7 @@ Modern enterprise infrastructure utilizes three primary paradigms for server ope
 
 - #text(weight: "bold", fill: rtech-navy)[1. Physical Server (On-Premises Bare-Metal):] The operating system is deployed directly on physical enterprise hardware (such as Dell PowerEdge or HPE ProLiant rack servers). Ideal for ultra-heavy monolithic databases, but results in severe hardware underutilization and high power footprints.
 - #text(weight: "bold", fill: rtech-navy)[2. Virtual Machines (Hyper-V / VMware ESXi):] A Type-1 bare-metal hypervisor divides physical compute resources into 10 to 30 independent virtual machines, ensuring over 85% hardware resource efficiency and instant snapshot rollbacks.
-- #text(weight: "bold", fill: rtech-navy)[3. Microsoft Azure & Hybrid Cloud (Azure Arc):] #mark-green[The defining breakthrough of Windows Server 2025 is native Azure Arc onboarding.] On-premises physical and virtual servers can be managed through Azure Resource Manager, enabling centralized compliance policies and #hl-yellow[Hotpatching] (applying security updates directly in memory without rebooting the server)!
+- #text(weight: "bold", fill: rtech-navy)[3. Microsoft Azure & Hybrid Cloud (#hl-green[Azure Arc]):] #mark-green[The defining breakthrough of Windows Server 2025 is native #hl-green[Azure Arc] onboarding.] On-premises physical and virtual servers can be managed through Azure Resource Manager, enabling centralized compliance policies and #hl-yellow[Hotpatching] (applying security updates directly in memory without rebooting the server)!
 
 #v(1.5pt)
 
@@ -130,13 +130,13 @@ Microsoft launched its first 32-bit server operating system in 1993 under the na
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[Key Historical Milestones:]\
     - #text(weight: "bold", fill: rtech-blue)[Windows NT 4.0 (1996):] First introduced the familiar Windows 95 graphical user interface, PDC/BDC domain trust architecture, and WINS naming services.
-    - #text(weight: "bold", fill: rtech-emerald)[Windows 2000 Server (2000):] #hl-yellow[The watershed year!] Debut of Active Directory (AD DS), dynamic DNS integration, Kerberos authentication, and Group Policy Objects (GPO).
+    - #text(weight: "bold", fill: rtech-emerald)[Windows 2000 Server (2000):] #hl-yellow[The watershed year!] Debut of Active Directory (AD DS), dynamic DNS integration, #hl-orange[Kerberos] authentication, and Group Policy Objects (GPO).
     - #text(weight: "bold", fill: rtech-navy)[Windows Server 2008 / R2 (2008):] Launched the modern virtualization era with #hl-green[Microsoft Hyper-V], PowerShell scripting, and the minimal-footprint #hl-orange[Server Core] edition.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2012 / R2 (2012):] Introduced the modern Server Manager dashboard, Storage Spaces, and high-performance SMB 3.0 protocol enhancements.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2016 (2016):] Debut of Windows Containers (Docker support), Nano Server, and hyper-converged Storage Spaces Direct (S2D).
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2012 / R2 (2012):] Introduced the modern #hl-yellow[Server Manager] dashboard, Storage Spaces, and high-performance SMB 3.0 protocol enhancements.
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2016 (2016):] Debut of Windows Containers (Docker support), Nano Server, and hyper-converged #hl-yellow[Storage Spaces Direct] (S2D).
     - #text(weight: "bold", fill: rtech-navy)[Windows Server 2019 (2019):] Web-based Windows Admin Center (WAC), System Insights predictive analytics, and hybrid cloud integration.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2022 (2022):] Secured-Core Server hardware security, default TLS 1.3 encryption, and SMB over QUIC for boundaryless remote access.
-    - #text(weight: "bold", fill: rtech-blue)[Windows Server 2025 (Latest Flagship):] #hl-yellow[Hotpatching for All] (zero-reboot servicing), #hl-yellow[32KB Active Directory database page size] (first major AD query performance leap in 25 years), next-gen Storage Spaces Direct deduplication and compression, and native Wi-Fi support.
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2022 (2022):] Secured-Core Server hardware security, default TLS 1.3 encryption, and #hl-orange[SMB over QUIC] for boundaryless remote access.
+    - #text(weight: "bold", fill: rtech-blue)[Windows Server 2025 (Latest Flagship):] #hl-yellow[Hotpatching for All] (zero-reboot servicing), #hl-yellow[32KB Active Directory database page size] (first major AD query performance leap in 25 years), next-gen #hl-yellow[Storage Spaces Direct] deduplication and compression, and native Wi-Fi support.
   ]
 )
 
@@ -171,7 +171,7 @@ At the architectural kernel level, substantial internal differences distinguish 
 === 1.6 The 3 Core Editions of Windows Server 2025 (Editions Comparison)
 1. #text(weight: "bold", fill: rtech-navy)[Essentials Edition:] Built for small offices with up to 25 users and 50 devices. Does not require user-based Client Access Licenses (CALs).
 2. #text(weight: "bold", fill: rtech-navy)[Standard Edition:] Designed for physical environments or lightly virtualized infrastructure. Utilizes core-based licensing and allows up to #hl-green[2 Virtual Machines (VMs)] per fully licensed host.
-3. #text(weight: "bold", fill: rtech-navy)[Datacenter Edition:] Engineered for enterprise datacenters, private cloud deployments, and hyper-converged infrastructure (HCI). Includes #mark-green[unlimited virtual machines], Storage Spaces Direct (S2D), and Shielded Virtual Machines.
+3. #text(weight: "bold", fill: rtech-navy)[Datacenter Edition:] Engineered for enterprise datacenters, private cloud deployments, and hyper-converged infrastructure (HCI). Includes #mark-green[unlimited virtual machines], #hl-yellow[Storage Spaces Direct] (S2D), and Shielded Virtual Machines.
 
 #v(1pt)
 
@@ -189,13 +189,13 @@ At the architectural kernel level, substantial internal differences distinguish 
 
 #mcq-item(
   num: "1",
-  q: "In which Windows Server edition were Active Directory Domain Services (AD DS) and Group Policy first introduced?",
+  q: "In which Windows Server edition were #hl-yellow[Active Directory Domain Services] (AD DS) and Group Policy first introduced?",
   optA: "Windows NT 4.0",
   optB: "Windows 2000 Server",
   optC: "Windows Server 2003",
   optD: "Windows Server 2008",
   ans: "B",
-  exp: "Active Directory Domain Services and Group Policy debuted in the year 2000 with the landmark release of Windows 2000 Server."
+  exp: "#hl-yellow[Active Directory Domain Services] and Group Policy debuted in the year 2000 with the landmark release of Windows 2000 Server."
 )
 
 #v(1.5pt)
@@ -216,12 +216,12 @@ At the architectural kernel level, substantial internal differences distinguish 
 #mcq-item(
   num: "3",
   q: "Which breakthrough feature of Windows Server 2025 enables security updates to be applied in volatile memory without rebooting the server?",
-  optA: "Storage Spaces Direct",
-  optB: "Hotpatching",
+  optA: "#hl-yellow[Storage Spaces Direct]",
+  optB: "#hl-yellow[Hotpatching]",
   optC: "Hyper-V Live Migration",
   optD: "DirectAccess",
   ans: "B",
-  exp: "Hotpatching patches binaries in active memory, eliminating reboot downtime for monthly cumulative security servicing."
+  exp: "#hl-yellow[Hotpatching] patches binaries in active memory, eliminating reboot downtime for monthly cumulative security servicing."
 )
 
 #v(1.5pt)
@@ -276,7 +276,7 @@ At the architectural kernel level, substantial internal differences distinguish 
 #interview-item(
   num: "3",
   q: "Interviewer: 'What direct enterprise performance advantage does the new 32KB AD DS database page size provide in Windows Server 2025?'",
-  a: "Answer: For 25 years, the ntds.dit database used an 8 KB page size. The 32 KB page size in Windows Server 2025 allows up to four times more directory data to be loaded in a single disk I/O operation. In large enterprise forests with thousands of accounts, this reduces disk thrashing and improves Kerberos authentication and LDAP query throughput by up to 300%.",
+  a: "Answer: For 25 years, the ntds.dit database used an 8 KB page size. The 32 KB page size in Windows Server 2025 allows up to four times more directory data to be loaded in a single disk I/O operation. In large enterprise forests with thousands of accounts, this reduces disk thrashing and improves #hl-orange[Kerberos] authentication and LDAP query throughput by up to 300%.",
   tip: "Demonstrating knowledge of 32KB AD architecture instantly establishes your elite technical credentials in L2/L3 MNC interviews."
 )
 
@@ -284,8 +284,8 @@ At the architectural kernel level, substantial internal differences distinguish 
 
 #interview-item(
   num: "4",
-  q: "Interviewer: 'What is Azure Arc and how does it bridge on-premises Windows Servers into the Microsoft cloud?'",
-  a: "Answer: Azure Arc acts as an enterprise bridge that registers physical and virtual servers hosted in on-premises datacenters or branch offices directly with Azure Resource Manager. This allows administrators to manage on-premises Windows Servers as native Azure resources, governing them with unified Azure Policy, Defender for Cloud, Log Analytics, and Hotpatching without requiring data migration.",
+  q: "Interviewer: 'What is #hl-green[Azure Arc] and how does it bridge on-premises Windows Servers into the Microsoft cloud?'",
+  a: "Answer: #hl-green[Azure Arc] acts as an enterprise bridge that registers physical and virtual servers hosted in on-premises datacenters or branch offices directly with Azure Resource Manager. This allows administrators to manage on-premises Windows Servers as native Azure resources, governing them with unified Azure Policy, Defender for Cloud, Log Analytics, and #hl-yellow[Hotpatching] without requiring data migration.",
   tip: "Extremely relevant for hybrid cloud administrator roles at TCS, Accenture, and Cognizant."
 )
 
@@ -301,8 +301,8 @@ At the architectural kernel level, substantial internal differences distinguish 
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 Chapter 01 Key Corporate Takeaways:]\
     #text(size: 7.5pt, fill: rtech-text)[
       - Enterprise servers are architected and optimized to process 24/7/365 background services and high-concurrency client requests.
-      - Active Directory was born in Windows 2000 Server; Windows Server 2025 represents its most advanced iteration with 32KB pages and Hotpatching.
-      - Production enterprise deployments favor Server Core for its reduced attack surface, while Desktop Experience is preferred in learning labs.
+      - Active Directory was born in Windows 2000 Server; Windows Server 2025 represents its most advanced iteration with 32KB pages and #hl-yellow[Hotpatching].
+      - Production enterprise deployments favor #hl-yellow[Server Core] for its reduced attack surface, while Desktop Experience is preferred in learning labs.
     ]
   ]
 )

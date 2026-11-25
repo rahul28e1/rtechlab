@@ -32,7 +32,7 @@ Every multinational enterprise (MNC) hosts internal corporate intranet portals, 
 #v(1pt)
 
 *IIS 10.x Installation Steps:*
-1. Open Server Manager -> Navigate to #hl-green[Add Roles and Features].
+1. Open #hl-yellow[Server Manager] -> Navigate to #hl-green[Add Roles and Features].
 2. Under Server Roles -> Check the box for #mark-yellow[Web Server (IIS)].
 3. In 'Role Services', verify that #hl-green[Default Document], #hl-green[Directory Browsing], #hl-green[HTTP Errors], #hl-green[HTTP Redirection], and #hl-green[FTP Server] are selected.
 4. Click 'Install'. After installation completes, navigating to `http://localhost/` in a web browser displays the iconic blue official IIS welcome splash page.
@@ -49,8 +49,8 @@ Every multinational enterprise (MNC) hosts internal corporate intranet portals, 
 
 #v(1.5pt)
 
-=== 11.3 SSL/TLS HTTPS Certificate Binding (Port 443)
-In production enterprise environments, no web portal should ever run unencrypted over cleartext HTTP Port 80:
+=== 11.3 SSL/TLS HTTPS Certificate Binding (#hl-green[Port 443])
+In production enterprise environments, no web portal should ever run unencrypted over cleartext HTTP #hl-green[Port 80]:
 - Open Server Certificates in IIS Manager and generate or import a certificate from an Enterprise Certificate Authority (AD CS) or a trusted public CA.
 - Open Site Bindings for the website -> Click #hl-green[Add...] -> Set Type: #mark-yellow[https], Port: #hl-green[443], and select the SSL certificate: `RTechLab-SSL-Cert`, then click 'OK'.
 - The website is now served securely over #hl-green[`https://portal.corp.rtechlab.local`] fortified with 256-bit TLS cryptographic encryption.
@@ -77,7 +77,7 @@ When an enterprise supports thousands of distributed remote employees working fr
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[The 5 Core Architectural Roles of RDS (MNC Interview Goldmine):]\
     - #text(weight: "bold", fill: rtech-blue)[1. RD Web Access:] The web portal interface allowing remote workers to authenticate and launch published corporate RemoteApps and virtual desktops from any browser.
-    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] Encapsulates external inbound RDP traffic inside secure #hl-orange[HTTPS (Port 443)], allowing seamless traversal through external corporate firewalls without requiring a full-tunnel VPN.
+    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] Encapsulates external inbound RDP traffic inside secure #hl-orange[HTTPS (#hl-green[Port 443])], allowing seamless traversal through external corporate firewalls without requiring a full-tunnel VPN.
     - #text(weight: "bold", fill: rtech-amber)[3. RD Connection Broker:] Reconnects users to their existing disconnected sessions upon network interruptions and distributes incoming session workloads evenly across farm servers.
     - #text(weight: "bold", fill: rtech-emerald)[4. RD Session Host (RDSH):] The multi-session powerhouse server running concurrent hosted desktop sessions and published business applications for 50 to 100+ active users.
     - #text(weight: "bold", fill: rtech-navy)[5. RD Licensing Server:] Tracks, issues, and validates Client Access Licenses (CALs — Per-User or Per-Device) for all connecting endpoints.
@@ -114,25 +114,25 @@ When an enterprise supports thousands of distributed remote employees working fr
 #mcq-item(
   num: "2",
   q: "Which official IANA port number is used in IIS Web Server for hosting secure SSL/TLS encrypted HTTPS websites?",
-  optA: "Port 80",
-  optB: "Port 443",
-  optC: "Port 3389",
-  optD: "Port 8080",
+  optA: "#hl-green[Port 80]",
+  optB: "#hl-green[Port 443]",
+  optC: "#hl-green[Port 3389]",
+  optD: "#hl-green[Port 80]80",
   ans: "B",
-  exp: "HTTP operates over Port 80, whereas secure SSL/TLS encrypted HTTPS traffic runs over Port 443."
+  exp: "HTTP operates over #hl-green[Port 80], whereas secure SSL/TLS encrypted HTTPS traffic runs over #hl-green[Port 443]."
 )
 
 #v(1pt)
 
 #mcq-item(
   num: "3",
-  q: "In Remote Desktop Services (RDS), which role encapsulates RDP traffic inside HTTPS (Port 443) to enable secure Internet connectivity without VPN?",
+  q: "In Remote Desktop Services (RDS), which role encapsulates RDP traffic inside HTTPS (#hl-green[Port 443]) to enable secure Internet connectivity without VPN?",
   optA: "RD Session Host",
   optB: "RD Gateway",
   optC: "RD Connection Broker",
   optD: "RD Licensing",
   ans: "B",
-  exp: "RD Gateway builds an encrypted RDP-over-HTTPS (Port 443) tunnel across corporate firewalls."
+  exp: "RD Gateway builds an encrypted RDP-over-HTTPS (#hl-green[Port 443]) tunnel across corporate firewalls."
 )
 
 #v(1pt)
@@ -186,8 +186,8 @@ When an enterprise supports thousands of distributed remote employees working fr
 
 #interview-item(
   num: "3",
-  q: "Interviewer: 'How can you host 5 distinct websites on a single IIS server using a single IP address and Port 80?'",
-  a: "Answer: Through 'Host Headers' (Hostname Bindings). In IIS, all five websites share IP 192.168.1.10 and Port 80, but each is assigned a distinct Host Name (e.g., site1.corp.local, site2.corp.local). When a client sends an HTTP GET request, IIS inspects the 'Host:' header in the incoming HTTP request packet and routes traffic to the matching website binding seamlessly.",
+  q: "Interviewer: 'How can you host 5 distinct websites on a single IIS server using a single IP address and #hl-green[Port 80]?'",
+  a: "Answer: Through 'Host Headers' (Hostname Bindings). In IIS, all five websites share IP 192.168.1.10 and #hl-green[Port 80], but each is assigned a distinct Host Name (e.g., site1.corp.local, site2.corp.local). When a client sends an HTTP GET request, IIS inspects the 'Host:' header in the incoming HTTP request packet and routes traffic to the matching website binding seamlessly.",
   tip: "A classic fundamental interview question evaluating web hosting and server consolidation proficiency."
 )
 

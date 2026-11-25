@@ -51,7 +51,7 @@ The IP lease allocation lifecycle between a client and a DHCP server is known as
 #v(6pt)
 
 === 8.2 DHCP Server Role Installation & Active Directory Authorization
-1. In Server Manager -> navigate to #hl-green[Manage -> Add Roles and Features].
+1. In #hl-yellow[Server Manager] -> navigate to #hl-green[Manage -> Add Roles and Features].
 2. Under Server Roles, check #mark-yellow[DHCP Server].
 3. Include 'Add Features' (DHCP RSAT Management Tools) and proceed through 'Next' -> 'Next' -> 'Install'.
 4. Once installation finishes, click the yellow notification flag -> select #hl-yellow['Complete DHCP Configuration'].
@@ -66,7 +66,7 @@ The IP lease allocation lifecycle between a client and a DHCP server is known as
 === 8.3 Configuring an IPv4 Scope
 A Scope defines the valid contiguous range of IP addresses that a DHCP server leases to clients on a subnet:
 
-1. In Server Manager -> Tools -> launch the #hl-yellow[DHCP] console (or enter #mark-green[`dhcpmgmt.msc`] in Run).
+1. In #hl-yellow[Server Manager] -> Tools -> launch the #hl-yellow[DHCP] console (or enter #mark-green[`dhcpmgmt.msc`] in Run).
 2. Expand server node `SRV-2025-DC01` -> right-click #text(weight: "bold")[IPv4] -> select #hl-green[New Scope...].
 3. Scope Name: #hl-yellow[`RTechLab-LAN-Scope`].
 4. #text(weight: "bold")[IP Address Range (IP Pool):]
@@ -141,10 +141,10 @@ If a single DHCP server crashes, client leases will expire and network connectiv
 #mcq-item(
   num: "2",
   q: "Which UDP port number is used by client computers when transmitting DHCPDISCOVER broadcast packets?",
-  optA: "UDP Port 53",
+  optA: "#hl-green[UDP Port 53]",
   optB: "UDP Port 67",
-  optC: "UDP Port 80",
-  optD: "UDP Port 445",
+  optC: "UDP #hl-green[Port 80]",
+  optD: "UDP #hl-green[Port 445]",
   ans: "B",
   exp: "DHCP servers listen on UDP Port 67, while DHCP clients receive server responses on UDP Port 68."
 )

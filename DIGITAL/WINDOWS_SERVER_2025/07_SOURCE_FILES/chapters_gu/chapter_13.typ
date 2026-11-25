@@ -7,8 +7,8 @@
 #chapter-header(
   chapter-num: "CHAPTER 13",
   category: "ભાગ 13 : ડિઝાસ્ટર રિકવરી અને ડેટા સંરક્ષણ (Disaster Recovery & Backup)",
-  title: "સર્વર બેકઅપ, ડિઝાસ્ટર રિકવરી અને એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન",
-  subtitle: "3-2-1 એન્ટરપ્રાઇઝ બેકઅપ વ્યૂહરચના · Windows Server Backup · ફુલ vs સિસ્ટમ સ્ટેટ બેકઅપ · AD રિસાઇકલ બિન સક્ષમ કરવું · ડિલીટેડ યુઝરની 1-ક્લિક રિકવરી · wbadmin ઓટોમેશન"
+  title: "સર્વર બેકઅપ, ડિઝાસ્ટર રિકવરી અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિન",
+  subtitle: "3-2-1 એન્ટરપ્રાઇઝ બેકઅપ વ્યૂહરચના · #hl-yellow[Windows Server Backup] · ફુલ vs સિસ્ટમ સ્ટેટ બેકઅપ · AD રિસાઇકલ બિન સક્ષમ કરવું · ડિલીટેડ યુઝરની 1-ક્લિક રિકવરી · wbadmin ઓટોમેશન"
 )
 
 === 13.1 એન્ટરપ્રાઇઝ બેકઅપ વ્યૂહરચના: 3-2-1 નો સુવર્ણ સિદ્ધાંત
@@ -24,7 +24,7 @@
       #image("../02_BRAND_ASSETS/screenshots/backup_disaster_recovery_flow.png", width: 78%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 13.1: 3-2-1 એન્ટરપ્રાઇઝ બેકઅપ આર્કિટેક્ચર અને એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન 1-ક્લિક લાઇવ રિકવરી]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 13.1: 3-2-1 એન્ટરપ્રાઇઝ બેકઅપ આર્કિટેક્ચર અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિન 1-ક્લિક લાઇવ રિકવરી]
 ]
 
 #v(4pt)
@@ -45,19 +45,19 @@
 
 #v(6pt)
 
-=== 13.2 Windows Server Backup ફીચર ઇન્સ્ટોલેશન
+=== 13.2 #hl-yellow[Windows Server Backup] ફીચર ઇન્સ્ટોલેશન
 માઇક્રોસોફ્ટ વિન્ડોઝ સર્વરમાં એક ઇન-બિલ્ટ બેકઅપ સોલ્યુશન પૂરું પાડે છે:
 
-1. Server Manager -> #hl-green[Add Roles and Features] માં જાઓ.
+1. #hl-yellow[Server Manager] -> #hl-green[Add Roles and Features] માં જાઓ.
 2. Features સ્ક્રીન સુધી 'Next' દબાવો.
 3. યાદીમાં શોધો: #mark-yellow[Windows Server Backup] ચેકબોક્સ પર ટિક કરો.
 4. 'Install' પર ક્લિક કરો. આ ટૂલ GUI કન્સોલ (`wbadmin.msc`) અને પાવરફુલ કમાન્ડ-લાઇન યુટિલિટી (`wbadmin.exe`) બંને પ્રદાન કરે છે.
 
 #v(6pt)
 
-=== 13.3 ફુલ સર્વર બેકઅપ વિરુદ્ધ સિસ્ટમ સ્ટેટ બેકઅપ (System State Backup)
-- #text(weight: "bold", fill: rtech-navy)[બેયર મેટલ રિકવરી (Bare Metal Recovery - BMR):] આખા સર્વર (C: ડ્રાઇવ, સિસ્ટમ પાર્ટીશન્સ, એપ્લિકેશન્સ અને ડેટા) નો સંપૂર્ણ બેકઅપ. જો ફિઝિકલ સર્વર હાર્ડવેર સંપૂર્ણપણે બળી જાય કે નિષ્ફળ જાય, તો નવા ખાલી સર્વર પર બૂટ ડિસ્ક લગાવીને હૂબહૂ એ જ સર્વર પાછું રીસ્ટોર કરી શકાય છે.
-- #text(weight: "bold", fill: rtech-blue)[સિસ્ટમ સ્ટેટ બેકઅપ (System State Backup):] એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલર માટે આ સૌથી મહત્વપૂર્ણ બેકઅપ છે. આમાં માત્ર એ જ ઘટકો સામેલ હોય છે જે ડિરેક્ટરીને જીવંત રાખવા માટે અનિવાર્ય છે:
+=== 13.3 ફુલ સર્વર બેકઅપ વિરુદ્ધ સિસ્ટમ સ્ટેટ બેકઅપ (#hl-yellow[System State Backup])
+- #text(weight: "bold", fill: rtech-navy)[બેયર મેટલ રિકવરી (#hl-orange[Bare Metal Recovery] - BMR):] આખા સર્વર (C: ડ્રાઇવ, સિસ્ટમ પાર્ટીશન્સ, એપ્લિકેશન્સ અને ડેટા) નો સંપૂર્ણ બેકઅપ. જો ફિઝિકલ સર્વર હાર્ડવેર સંપૂર્ણપણે બળી જાય કે નિષ્ફળ જાય, તો નવા ખાલી સર્વર પર બૂટ ડિસ્ક લગાવીને હૂબહૂ એ જ સર્વર પાછું રીસ્ટોર કરી શકાય છે.
+- #text(weight: "bold", fill: rtech-blue)[સિસ્ટમ સ્ટેટ બેકઅપ (#hl-yellow[System State Backup]):] #hl-yellow[એક્ટિવ ડિરેક્ટરી] #hl-yellow[ડોમેન કંટ્રોલર] માટે આ સૌથી મહત્વપૂર્ણ બેકઅપ છે. આમાં માત્ર એ જ ઘટકો સામેલ હોય છે જે ડિરેક્ટરીને જીવંત રાખવા માટે અનિવાર્ય છે:
   1. #hl-yellow[Active Directory Database (`ntds.dit`)]
   2. #hl-green[SYSVOL શેર્ડ ફોલ્ડર (તમામ GPOs અને સ્ક્રિપ્ટ્સ)]
   3. #hl-orange[વિન્ડોઝ સિસ્ટમ રજિસ્ટ્રી (System Registry)]
@@ -71,8 +71,8 @@ wbadmin start systemstatebackup -backupTarget:E: -quiet
 
 #v(6pt)
 
-=== 13.4 એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન (AD Recycle Bin) સક્ષમ કરવું
-જૂના વિન્ડોઝ સર્વર (2003/2008) માં જો કોઈ યુઝર કે OU ભૂલથી ડિલીટ થઈ જાય, તો તેને પાછું મેળવવા માટે ડોમેન કંટ્રોલરને રીસ્ટાર્ટ કરીને #hl-orange[DSRM મોડ (Directory Services Restore Mode)] માં લઈ જવું પડતું હતું, નેટવર્ક ડાઉન કરવું પડતું હતું, અને `ntdsutil` થી 'Authoritative Restore' કરવું પડતું હતું (ઓછામાં ઓછો 2 થી 3 કલાકનો ડાઉનટાઇમ).
+=== 13.4 #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિન (AD Recycle Bin) સક્ષમ કરવું
+જૂના વિન્ડોઝ સર્વર (2003/2008) માં જો કોઈ યુઝર કે OU ભૂલથી ડિલીટ થઈ જાય, તો તેને પાછું મેળવવા માટે #hl-yellow[ડોમેન કંટ્રોલર]ને રીસ્ટાર્ટ કરીને #hl-orange[DSRM મોડ (#hl-orange[Directory Services Restore Mode])] માં લઈ જવું પડતું હતું, નેટવર્ક ડાઉન કરવું પડતું હતું, અને `ntdsutil` થી 'Authoritative Restore' કરવું પડતું હતું (ઓછામાં ઓછો 2 થી 3 કલાકનો ડાઉનટાઇમ).
 
 #mark-yellow[એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન (AD Recycle Bin) એ એક અભૂતપૂર્વ વરદાન છે જે આકસ્મિક રીતે ડિલીટ થયેલા ઓબ્જેક્ટ્સને સર્વર રીબૂટ કર્યા વગર, કોઈપણ ડાઉનટાઇમ વગર, માત્ર 1 ક્લિકમાં લાઇવ રીસ્ટોર કરવાની સુવિધા આપે છે!]
 
@@ -82,7 +82,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
   -Scope ForestOrConfigurationSet -Target "corp.rtechlab.local"
 ```
 #warning-box(title: "એકતરફી પ્રક્રિયા (Permanent Activation)")[
-  એક વાર જ્યારે તમે એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિનને સક્ષમ કરી દો છો, ત્યારે તેને ફરી ક્યારેય ડિસેબલ (અક્ષમ) કરી શકાતું નથી. આ એક કાયમી અને અત્યંત સુરક્ષિત અપગ્રેડ છે.
+  એક વાર જ્યારે તમે #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિનને સક્ષમ કરી દો છો, ત્યારે તેને ફરી ક્યારેય ડિસેબલ (અક્ષમ) કરી શકાતું નથી. આ એક કાયમી અને અત્યંત સુરક્ષિત અપગ્રેડ છે.
 ]
 
 #v(6pt)
@@ -90,7 +90,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
 === 13.5 આકસ્મિક રીતે ડિલીટ થયેલા યુઝર અને OU નું 1-ક્લિકમાં લાઇવ રીસ્ટોરેશન
 રિસાઇકલ બિન સક્ષમ થયા પછી જ્યારે પણ કોઈ યુઝર ડિલીટ થાય છે, ત્યારે તેનો ડેટા નાશ પામતો નથી પરંતુ તે #hl-yellow[`Deleted Objects`] કન્ટેનરમાં જતો રહે છે (ડિફોલ્ટ જીવનકાળ: #hl-green[180 દિવસ]):
 
-1. Server Manager -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dsac.exe`]).
+1. #hl-yellow[Server Manager] -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dsac.exe`]).
 2. ડાબી બાજુ તમારા ડોમેન `#text(weight: "bold")[corp (local)]` પર ક્લિક કરો.
 3. સ્ક્રીન પર #mark-yellow[Deleted Objects] નામનું નવું ફોલ્ડર દેખાશે. તેના પર ડબલ-ક્લિક કરો.
 4. તમને તે ડિલીટ થયેલો યુઝર દેખાશે (દા.ત. `Rahul Patel`).
@@ -115,7 +115,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 // CHAPTER 13 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  જ્યારે એક્ટિવ ડિરેક્ટરીમાં કોઈ ઓબ્જેક્ટ ડિલીટ થાય છે અને રિસાઇકલ બિન ઓન ન હોય, ત્યારે તે સંપૂર્ણપણે ભૂંસાતો નથી પરંતુ એક અર્ધ-જીવંત અવસ્થામાં જાય છે જેને #hl-yellow['Tombstone'] (કબરનો પથ્થર) કહેવામાં આવે છે. ટોમ્બસ્ટોનનો ડિફોલ્ટ જીવનકાળ 180 દિવસ હોય છે, પરંતુ તેમાં ઓબ્જેક્ટના મોટાભાગના એટ્રિબ્યુટ્સ (જેમ કે પાસવર્ડ, ગ્રુપ મેમ્બરશિપ, ફોન નંબર) સ્ટ્રિપ (દૂર) કરી દેવામાં આવે છે. AD Recycle Bin આ જ સમસ્યાનો ઉકેલ લાવીને 100% એટ્રિબ્યુટ્સને સુરક્ષિત રાખે છે!
+  જ્યારે #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં કોઈ ઓબ્જેક્ટ ડિલીટ થાય છે અને રિસાઇકલ બિન ઓન ન હોય, ત્યારે તે સંપૂર્ણપણે ભૂંસાતો નથી પરંતુ એક અર્ધ-જીવંત અવસ્થામાં જાય છે જેને #hl-yellow['Tombstone'] (કબરનો પથ્થર) કહેવામાં આવે છે. ટોમ્બસ્ટોનનો ડિફોલ્ટ જીવનકાળ 180 દિવસ હોય છે, પરંતુ તેમાં ઓબ્જેક્ટના મોટાભાગના એટ્રિબ્યુટ્સ (જેમ કે પાસવર્ડ, ગ્રુપ મેમ્બરશિપ, ફોન નંબર) સ્ટ્રિપ (દૂર) કરી દેવામાં આવે છે. AD Recycle Bin આ જ સમસ્યાનો ઉકેલ લાવીને 100% એટ્રિબ્યુટ્સને સુરક્ષિત રાખે છે!
 ]
 
 #v(6pt)
@@ -138,7 +138,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #mcq-item(
   num: "2",
-  q: "એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલરના 'System State Backup' માં નીચેનામાંથી કયો ઘટક સામેલ હોતો નથી?",
+  q: "એક્ટિવ ડિરેક્ટરી #hl-yellow[ડોમેન કંટ્રોલર]ના '#hl-yellow[System State Backup]' માં નીચેનામાંથી કયો ઘટક સામેલ હોતો નથી?",
   optA: "Active Directory ડેટાબેઝ (ntds.dit)",
   optB: "SYSVOL ફોલ્ડર",
   optC: "સિસ્ટમ રજિસ્ટ્રી (Registry)",
@@ -178,12 +178,12 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #mcq-item(
   num: "5",
   q: "ડિલીટ થયેલા યુઝરને એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન દ્વારા 1 ક્લિકમાં રીસ્ટોર કરવા માટે કયા ગ્રાફિકલ ટૂલનો ઉપયોગ થાય છે?",
-  optA: "Active Directory Users and Computers (dsa.msc)",
-  optB: "Active Directory Administrative Center (dsac.exe)",
-  optC: "Group Policy Management Console (gpmc.msc)",
+  optA: "#hl-yellow[Active Directory Users and Computers] (dsa.msc)",
+  optB: "#hl-yellow[Active Directory Administrative Center] (dsac.exe)",
+  optC: "#hl-yellow[Group Policy Management Console] (gpmc.msc)",
   optD: "Disk Management (diskmgmt.msc)",
   ans: "B",
-  exp: "Active Directory Administrative Center (ADAC - dsac.exe) ની અંદર 'Deleted Objects' કન્ટેનર ઉપલબ્ધ હોય છે."
+  exp: "#hl-yellow[Active Directory Administrative Center] (ADAC - dsac.exe) ની અંદર 'Deleted Objects' કન્ટેનર ઉપલબ્ધ હોય છે."
 )
 
 #v(6pt)
@@ -194,7 +194,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "1",
   q: "ઇન્ટરવ્યુઅર: 'Authoritative Restore અને Non-Authoritative Restore વચ્ચે શું તફાવત હોય છે?'",
-  a: "ઉત્તર: જ્યારે આપણે કોઈ બેકઅપમાંથી ડોમેન કંટ્રોલરને રીસ્ટોર કરીએ છીએ, ત્યારે ડિફોલ્ટ રીતે તે 'Non-Authoritative' હોય છે — એટલે કે રીસ્ટોર થયા પછી તે નેટવર્કના અન્ય DCs નો સંપર્ક કરે છે અને તેમની પાસે રહેલા નવીનતમ ડેટાબેઝથી પોતાની જાતને અપડેટ કરી લે છે. પરંતુ જો કોઈએ સમગ્ર ડોમેનમાંથી ભૂલથી કોઈ મહત્વપૂર્ણ OU ડિલીટ કરી નાખ્યું હોય, તો બેકઅપમાંથી તે OU ને 'Authoritative' માર્ક કરવામાં આવે છે (ntdsutil દ્વારા USN નંબર વધારીને). આનાથી અન્ય તમામ DCs તે રીસ્ટોર થયેલા ઓબ્જેક્ટને સૌથી નવો માનીને પોતાનામાં સ્વીકારી લે છે.",
+  a: "ઉત્તર: જ્યારે આપણે કોઈ બેકઅપમાંથી #hl-yellow[ડોમેન કંટ્રોલર]ને રીસ્ટોર કરીએ છીએ, ત્યારે ડિફોલ્ટ રીતે તે 'Non-Authoritative' હોય છે — એટલે કે રીસ્ટોર થયા પછી તે નેટવર્કના અન્ય DCs નો સંપર્ક કરે છે અને તેમની પાસે રહેલા નવીનતમ ડેટાબેઝથી પોતાની જાતને અપડેટ કરી લે છે. પરંતુ જો કોઈએ સમગ્ર ડોમેનમાંથી ભૂલથી કોઈ મહત્વપૂર્ણ OU ડિલીટ કરી નાખ્યું હોય, તો બેકઅપમાંથી તે OU ને 'Authoritative' માર્ક કરવામાં આવે છે (ntdsutil દ્વારા USN નંબર વધારીને). આનાથી અન્ય તમામ DCs તે રીસ્ટોર થયેલા ઓબ્જેક્ટને સૌથી નવો માનીને પોતાનામાં સ્વીકારી લે છે.",
   tip: "HCL, Infosys અને TCS ના L2/L3 ડિરેક્ટરી સર્વિસિસ ઇન્ટરવ્યુનો આ સૌથી નિર્ણાયક પ્રશ્ન છે."
 )
 
@@ -202,7 +202,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #interview-item(
   num: "2",
-  q: "ઇન્ટરવ્યુઅર: 'Active Directory Recycle Bin ને સક્ષમ કર્યા પછી શું કોઈ ડિલીટ થયેલા યુઝરનો પાસવર્ડ રીસેટ કરવો પડે છે?'",
+  q: "ઇન્ટરવ્યુઅર: '#hl-yellow[Active Directory Recycle Bin] ને સક્ષમ કર્યા પછી શું કોઈ ડિલીટ થયેલા યુઝરનો પાસવર્ડ રીસેટ કરવો પડે છે?'",
   a: "ઉત્તર: બિલકુલ નહીં! આ જ AD Recycle Bin ની સૌથી મોટી તાકાત છે. જ્યારે યુઝરને રીસ્ટોર કરવામાં આવે છે, ત્યારે તેનો પાસવર્ડ હેશ, તેનો મૂળ SID (Security Identifier), તેની તમામ સિક્યોરિટી ગ્રુપ્સની સદસ્યતા અને તેના તમામ 150+ એટ્રિબ્યુટ્સ 100% મૂળ સ્થિતિમાં પાછા આવે છે. કર્મચારી પાસવર્ડ બદલ્યા વગર તરત જ લોગઇન કરી શકે છે.",
   tip: "આ ઉત્તર સાબિત કરે છે કે તમને ટૂલના વ્યવહારુ લાભોની ઊંડી સમજ છે."
 )
@@ -221,7 +221,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "4",
   q: "ઇન્ટરવ્યુઅર: 'શું આપણે એક્ટિવ ડિરેક્ટરી બેકઅપને એ જ ડ્રાઇવ પર સેવ કરી શકીએ છીએ જેના પર C: વિન્ડોઝ ઇન્સ્ટોલ હોય?'",
-  a: "ઉત્તર: ના, Windows Server Backup ક્યારેય સિસ્ટમ સ્ટેટ બેકઅપને એ જ વોલ્યુમ (C:) પર સ્ટોર કરવાની પરવાનગી આપતું નથી જેના પર ઓપરેટિંગ સિસ્ટમ પોતે ચાલી રહી હોય. આ માટે એક અલગ સમર્પિત ભૌતિક/વર્ચ્યુઅલ ડિસ્ક (દા.ત. E: ડ્રાઇવ અથવા નેટવર્ક શેર) હોવી અનિવાર્ય છે.",
+  a: "ઉત્તર: ના, #hl-yellow[Windows Server Backup] ક્યારેય સિસ્ટમ સ્ટેટ બેકઅપને એ જ વોલ્યુમ (C:) પર સ્ટોર કરવાની પરવાનગી આપતું નથી જેના પર ઓપરેટિંગ સિસ્ટમ પોતે ચાલી રહી હોય. આ માટે એક અલગ સમર્પિત ભૌતિક/વર્ચ્યુઅલ ડિસ્ક (દા.ત. E: ડ્રાઇવ અથવા નેટવર્ક શેર) હોવી અનિવાર્ય છે.",
   tip: "પ્રેક્ટિકલ અમલીકરણ અને લેબ અનુભવ તપાસતો આ સચોટ પ્રશ્ન છે."
 )
 
@@ -229,7 +229,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #interview-item(
   num: "5",
-  q: "ઇન્ટરવ્યુઅર: 'જો Active Directory Recycle Bin ફીચરને એક વાર સક્ષમ કરી દેવામાં આવે, તો શું તેને પાછળથી બંધ કરી શકાય?'",
+  q: "ઇન્ટરવ્યુઅર: 'જો #hl-yellow[Active Directory Recycle Bin] ફીચરને એક વાર સક્ષમ કરી દેવામાં આવે, તો શું તેને પાછળથી બંધ કરી શકાય?'",
   a: "ઉત્તર: ના, માઇક્રોસોફ્ટના સત્તાવાર નિયમો અનુસાર Recycle Bin ફીચરનું એક્ટિવેશન એક 'એકતરફી કાયમી પ્રક્રિયા' (Irreversible Process) છે. એક વાર ફોરેસ્ટમાં સક્ષમ થયા પછી તેને ક્યારેય ડિસેબલ કરી શકાતું નથી.",
   tip: "માઇક્રોસોફ્ટ સર્ટિફિકેશન અને ટેકનિકલ ઇન્ટરવ્યુ માટેનો આ પ્રમાણભૂત પ્રશ્ન છે."
 )
@@ -247,8 +247,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #v(3pt)
     #text(size: 7.5pt, fill: rtech-text)[
       - #text(weight: "bold", fill: rtech-rose)[ભૂલ 1: 'The backup target volume is invalid':] વિન્ડોઝ સર્વર ક્યારેય એ જ C: ડ્રાઇવ પર બેકઅપની મંજૂરી આપતું નથી જેના પર OS હોય; બેકઅપ માટે હંમેશા સમર્પિત E: ડ્રાઇવ અથવા નેટવર્ક શેરનો ઉપયોગ કરો.
-      - #text(weight: "bold", fill: rtech-amber)[ભૂલ 2: 'VSS Writer timed out (Event ID 8229)':] વોલ્યુમ શેડો કોપી સર્વિસમાં અન્ય બેકઅપ એજન્ટના સંઘર્ષને કારણે થાય છે; `vssadmin list writers` ચલાવીને સ્થિતિ તપાસો.
-      - #text(weight: "bold", fill: rtech-emerald)[ભૂલ 3: 'Recycle Bin Deleted Objects ફોલ્ડર દેખાતું નથી':] Active Directory Administrative Center (ADAC) ને બંધ કરીને ફરી ખોલો અથવા F5 દબાવીને રિફ્રેશ કરો.
+      - #text(weight: "bold", fill: rtech-amber)[ભૂલ 2: '#hl-green[VSS] Writer timed out (Event ID 8229)':] વોલ્યુમ શેડો કોપી સર્વિસમાં અન્ય બેકઅપ એજન્ટના સંઘર્ષને કારણે થાય છે; `vssadmin list writers` ચલાવીને સ્થિતિ તપાસો.
+      - #text(weight: "bold", fill: rtech-emerald)[ભૂલ 3: 'Recycle Bin Deleted Objects ફોલ્ડર દેખાતું નથી':] #hl-yellow[Active Directory Administrative Center] (ADAC) ને બંધ કરીને ફરી ખોલો અથવા F5 દબાવીને રિફ્રેશ કરો.
     ]
   ]
 )
@@ -264,8 +264,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ પ્રકરણ 13 ચકાસણી ચેકલિસ્ટ (Disaster Recovery Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Windows Server Backup ફીચર અને PowerShell મોડ્યુલ સફળતાપૂર્વક ઇન્સ્ટોલ કરેલા છે.
-      - [ ] Active Directory Recycle Bin ફીચર સમગ્ર ફોરેસ્ટમાં કાયમી ધોરણે સક્ષમ કરેલ છે.
+      - [ ] #hl-yellow[Windows Server Backup] ફીચર અને PowerShell મોડ્યુલ સફળતાપૂર્વક ઇન્સ્ટોલ કરેલા છે.
+      - [ ] #hl-yellow[Active Directory Recycle Bin] ફીચર સમગ્ર ફોરેસ્ટમાં કાયમી ધોરણે સક્ષમ કરેલ છે.
       - [ ] ટેસ્ટ યુઝરને ડિલીટ કરીને ADAC ના 'Deleted Objects' માંથી 1 ક્લિકમાં લાઇવ રીસ્ટોર ચકાસાયેલ છે.
     ]
   ]
@@ -283,8 +283,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 13 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
       - 3-2-1 બેકઅપ સિદ્ધાંત એન્ટરપ્રાઇઝ ડેટા સુરક્ષાનો આંતરરાષ્ટ્રીય પાયો છે.
-      - System State Backup ડોમેન કંટ્રોલરના મુખ્ય ઘટકો (`ntds.dit`, `SYSVOL`, Registry) ને સુરક્ષિત રાખે છે.
-      - Active Directory Recycle Bin આકસ્મિક ડિલીટ થવા પર સર્વર રીબૂટ વગર 1-ક્લિક લાઇવ રિકવરી પ્રદાન કરે છે.
+      - #hl-yellow[System State Backup] #hl-yellow[ડોમેન કંટ્રોલર]ના મુખ્ય ઘટકો (`ntds.dit`, `SYSVOL`, Registry) ને સુરક્ષિત રાખે છે.
+      - #hl-yellow[Active Directory Recycle Bin] આકસ્મિક ડિલીટ થવા પર સર્વર રીબૂટ વગર 1-ક્લિક લાઇવ રિકવરી પ્રદાન કરે છે.
     ]
   ]
 )

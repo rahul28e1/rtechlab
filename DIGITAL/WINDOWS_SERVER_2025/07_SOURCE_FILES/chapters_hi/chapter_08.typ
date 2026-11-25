@@ -51,7 +51,7 @@
 #v(6pt)
 
 === 8.2 DHCP सर्वर रोल इंस्टॉलेशन एवं एक्टिव डायरेक्टरी ऑथराइजेशन
-1. Server Manager -> #hl-green[Manage -> Add Roles and Features] में जाएं।
+1. #hl-yellow[Server Manager] -> #hl-green[Manage -> Add Roles and Features] में जाएं।
 2. Server Roles में #mark-yellow[DHCP Server] चेकबॉक्स पर टिक करें।
 3. 'Add Features' (DHCP RSAT टूल्स) शामिल करके 'Next' -> 'Next' -> 'Install' करें।
 4. इंस्टॉलेशन पूर्ण होने पर पीले झंडे (Notification) पर क्लिक करें -> #hl-yellow['Complete DHCP Configuration']।
@@ -66,7 +66,7 @@
 === 8.3 नया IPv4 स्कोप बनाना (Configuring an IPv4 Scope)
 एक स्कोप (Scope) IP पतों की वह वैध सीमा होती है जिसे सर्वर क्लाइंट्स को बांटता है:
 
-1. Server Manager -> Tools -> #hl-yellow[DHCP] कंसोल खोलें (या रन में टाइप करें: #mark-green[`dhcpmgmt.msc`])।
+1. #hl-yellow[Server Manager] -> Tools -> #hl-yellow[DHCP] कंसोल खोलें (या रन में टाइप करें: #mark-green[`dhcpmgmt.msc`])।
 2. सर्वर नाम `SRV-2025-DC01` का विस्तार करें -> #text(weight: "bold")[IPv4] पर राइट-क्लिक करें -> #hl-green[New Scope...] चुनें।
 3. Scope Name: #hl-yellow[`RTechLab-LAN-Scope`]।
 4. #text(weight: "bold")[IP Address Range (आईपी पूल):]

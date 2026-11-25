@@ -38,12 +38,12 @@
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[દૈનિક L1/L2 કાર્યભાર અને SLA મેનેજમેન્ટ (Typical Daily Workflow):]\
     - #text(weight: "bold", fill: rtech-blue)[ઇન્સિડન્ટ મેનેજમેન્ટ (P1 થી P4 ટિકિટો):]
-      - P1 (Critical - 15 Min SLA): આખો ડોમેન કંટ્રોલર ડાઉન, અથવા ફાઇલ સર્વર અનરીચેબલ.
+      - P1 (Critical - 15 Min SLA): આખો #hl-yellow[ડોમેન કંટ્રોલર] ડાઉન, અથવા ફાઇલ સર્વર અનરીચેબલ.
       - P2 (High - 1 Hr SLA): કોઈ આખા વિભાગ (Finance OU) નું ઇન્ટરનેટ કે શેર ડ્રાઇવ કામ ન કરવું.
       - P3 (Medium - 4 Hr SLA): કોઈ ચોક્કસ યુઝરનું એકાઉન્ટ લોક થવું અથવા GPO ડ્રાઇવ મેપ ન થવી.
       - P4 (Low - 24 Hr SLA): નવા કર્મચારીનું AD એકાઉન્ટ ઓનબોર્ડિંગ અથવા ડિસ્ટ્રિબ્યુશન લિસ્ટમાં ઉમેરવું.
     - #text(weight: "bold", fill: rtech-emerald)[દૈનિક મોર્નિંગ ચેકલિસ્ટ (Morning Health Run):]
-      - સવારે 9:00 વાગ્યે Server Manager ડેશબોર્ડ ખોલીને તમામ સર્વર્સનું ગ્રીન હેલ્થ સ્ટેટસ તપાસવું.
+      - સવારે 9:00 વાગ્યે #hl-yellow[Server Manager] ડેશબોર્ડ ખોલીને તમામ સર્વર્સનું ગ્રીન હેલ્થ સ્ટેટસ તપાસવું.
       - Event Viewer માં Directory Service, DNS Server, અને System Logs માં રેડ એરર્સ (Error 1085, 1129) જોવા.
       - રાત્રિના સિસ્ટમ સ્ટેટ બેકઅપના સફળ સ્ટેટસ (`wbadmin` / Veeam) ની પુષ્ટિ કરવી.
   ]
@@ -55,13 +55,13 @@
 ઇન્ટરવ્યુઅર ક્યારેય માત્ર વ્યાખ્યાઓ પૂછતા નથી, તેઓ વાસ્તવિક મુશ્કેલી નિવારણ દ્રશ્યો (Troubleshooting Scenarios) આપે છે:
 
 1. #text(weight: "bold", fill: rtech-navy)[દ્રશ્ય 1: "સવારે 10 વાગ્યે એક સાથે 40 કર્મચારીઓના એકાઉન્ટ લોક થઈ ગયા. શું આ બ્રૂટ-ફોર્સ હુમલો છે અને તમે તેને કેવી રીતે ડાયગ્નોઝ કરશો?"]
-   - *મોડેલ ઉત્તર:* "હું તરત જ PDC Emulator ડોમેન કંટ્રોલર પર Event Viewer ખોલીશ અને 'Security Log' માં Event ID #hl-orange[4740] (A user account was locked out) ફિલ્ટર કરીશ. આ ઇવેન્ટની વિગતોમાં 'Caller Computer Name' જોવામાં આવે છે. 90% કેસોમાં આ કોઈ મોબાઈલ ફોન કે આઇપેડ પર જૂનો સેવ થયેલો પાસવર્ડ (Cached Exchange/Wi-Fi credentials) હોય છે જે વારંવાર ખોટો પાસવર્ડ મોકલીને એકાઉન્ટ લોક કરી દે છે. તે ડિવાઇસમાંથી ક્રેડેન્શિયલ્સ અપડેટ કરાવીને સમસ્યાનો ઉકેલ આવી જાય છે."
+   - *મોડેલ ઉત્તર:* "હું તરત જ PDC Emulator #hl-yellow[ડોમેન કંટ્રોલર] પર Event Viewer ખોલીશ અને 'Security Log' માં Event ID #hl-orange[4740] (A user account was locked out) ફિલ્ટર કરીશ. આ ઇવેન્ટની વિગતોમાં 'Caller Computer Name' જોવામાં આવે છે. 90% કેસોમાં આ કોઈ મોબાઈલ ફોન કે આઇપેડ પર જૂનો સેવ થયેલો પાસવર્ડ (Cached Exchange/Wi-Fi credentials) હોય છે જે વારંવાર ખોટો પાસવર્ડ મોકલીને એકાઉન્ટ લોક કરી દે છે. તે ડિવાઇસમાંથી ક્રેડેન્શિયલ્સ અપડેટ કરાવીને સમસ્યાનો ઉકેલ આવી જાય છે."
 
 2. #text(weight: "bold", fill: rtech-navy)[દ્રશ્ય 2: "એક કર્મચારીની બદલી HR માંથી Finance વિભાગમાં થઈ છે. તેનો HR નો એક્સેસ તરત બંધ અને Finance નો એક્સેસ ચાલુ કેવી રીતે કરશો?"]
-   - *મોડેલ ઉત્તર:* "અમે સીધા ફોલ્ડર પર નથી જતા. ADUC માં જઈને તે યુઝરને `GG_HR_Staff` ગ્લોબલ ગ્રુપમાંથી દૂર કરીને `GG_Finance_Staff` માં ઉમેરી દઈશું. અમારા AGDLP મોડેલના કારણે યુઝરને Finance ના તમામ જરૂરી રાઇટ્સ આપોઆપ મળી જશે અને HR ના તમામ રાઇટ્સ આપોઆપ રદ થઈ જશે."
+   - *મોડેલ ઉત્તર:* "અમે સીધા ફોલ્ડર પર નથી જતા. ADUC માં જઈને તે યુઝરને `GG_HR_Staff` ગ્લોબલ ગ્રુપમાંથી દૂર કરીને `GG_Finance_Staff` માં ઉમેરી દઈશું. અમારા #hl-orange[AGDLP] મોડેલના કારણે યુઝરને Finance ના તમામ જરૂરી રાઇટ્સ આપોઆપ મળી જશે અને HR ના તમામ રાઇટ્સ આપોઆપ રદ થઈ જશે."
 
 3. #text(weight: "bold", fill: rtech-navy)[દ્રશ્ય 3: "DNS સર્વર ચાલુ છે, પરંતુ ઇન્ટરનેટની બહારની વેબસાઇટ્સ (google.com) નથી ખુલતી, માત્ર આંતરિક સાઇટ્સ ખુલે છે?"]
-   - *મોડેલ ઉત્તર:* "આ સંકેત આપે છે કે આંતરિક Forward Lookup Zone બરાબર છે, પરંતુ DNS સર્વરના #hl-yellow[Forwarders] (જેમ કે 1.1.1.1 અથવા ISP IP) ડાઉન છે અથવા ફાયરવોલ દ્વારા સર્વરથી બહાર જતો UDP પોર્ટ 53 બ્લોક છે. DNS Manager માં Forwarders ટેબ પર જઈને ટેસ્ટ ચલાવીશું."
+   - *મોડેલ ઉત્તર:* "આ સંકેત આપે છે કે આંતરિક #hl-yellow[Forward Lookup Zone] બરાબર છે, પરંતુ DNS સર્વરના #hl-yellow[Forwarders] (જેમ કે 1.1.1.1 અથવા ISP IP) ડાઉન છે અથવા ફાયરવોલ દ્વારા સર્વરથી બહાર જતો UDP પોર્ટ 53 બ્લોક છે. DNS Manager માં Forwarders ટેબ પર જઈને ટેસ્ટ ચલાવીશું."
 
 #v(1.5pt)
 
@@ -70,7 +70,7 @@
    - તમારા રિઝ્યુમેમાં માત્ર 'Knowledge of Windows Server' ન લખો. તેના બદલે લખો:
      #box(fill: rgb("#F1F5F9"), radius: 3pt, inset: 4pt)[
        #text(size: 7.8pt, font: ("Consolas", "Courier New"))[
-         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented AGDLP RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
+         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented #hl-orange[AGDLP] RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
        ]
      ]
 2. #text(weight: "bold", fill: rtech-navy)[સેલરી એક્સપેક્ટેશન (CTC Expectations):]
@@ -107,7 +107,7 @@
 
 #mcq-item(
   num: "2",
-  q: "ITIL ફ્રેમવર્ક હેઠળ જો કોઈ ડોમેન કંટ્રોલર સંપૂર્ણપણે ડાઉન થઈ જાય અને સેંકડો કર્મચારીઓ લોગઇન ન કરી શકે, તો આ ટિકિટને કઈ પ્રાથમિકતા (Priority) માં વર્ગીકૃત કરવામાં આવે છે?",
+  q: "ITIL ફ્રેમવર્ક હેઠળ જો કોઈ #hl-yellow[ડોમેન કંટ્રોલર] સંપૂર્ણપણે ડાઉન થઈ જાય અને સેંકડો કર્મચારીઓ લોગઇન ન કરી શકે, તો આ ટિકિટને કઈ પ્રાથમિકતા (Priority) માં વર્ગીકૃત કરવામાં આવે છે?",
   optA: "Priority 4 (Low)",
   optB: "Priority 3 (Medium)",
   optC: "Priority 2 (High)",
@@ -171,8 +171,8 @@
 
 #interview-item(
   num: "2",
-  q: "ઇન્ટરવ્યુઅર: 'Kerberos ટિકિટની ડિફોલ્ટ જીવન અવધિ (Ticket Granting Ticket - TGT Lifetime) કેટલી હોય છે?'",
-  a: "ઉત્તર: ડિફોલ્ટ રીતે Kerberos TGT ની જીવન અવધિ 10 કલાક હોય છે, અને તેને પાસવર્ડ ફરી દાખલ કર્યા વગર વધુમાં વધુ 7 દિવસ સુધી રિન્યુ કરી શકાય છે. આ પોલિસી Default Domain Policy માં Kerberos Policies હેઠળ કન્ફિગર થાય છે.",
+  q: "ઇન્ટરવ્યુઅર: '#hl-orange[Kerberos] ટિકિટની ડિફોલ્ટ જીવન અવધિ (Ticket Granting Ticket - TGT Lifetime) કેટલી હોય છે?'",
+  a: "ઉત્તર: ડિફોલ્ટ રીતે #hl-orange[Kerberos] TGT ની જીવન અવધિ 10 કલાક હોય છે, અને તેને પાસવર્ડ ફરી દાખલ કર્યા વગર વધુમાં વધુ 7 દિવસ સુધી રિન્યુ કરી શકાય છે. આ પોલિસી Default Domain Policy માં #hl-orange[Kerberos] Policies હેઠળ કન્ફિગર થાય છે.",
   tip: "આ ડીપ ઓથેન્ટિકેશન આર્કિટેક્ચરનો ઉચ્ચ સ્તરનો સવાલ છે."
 )
 
@@ -199,7 +199,7 @@
 #interview-item(
   num: "5",
   q: "ઇન્ટરવ્યુઅર: 'તમે અમારી સંસ્થા માટે એક ઉત્કૃષ્ટ સિસ્ટમ એડમિનિસ્ટ્રેટર કેમ સાબિત થશો?'",
-  a: "ઉત્તર: કારણ કે મારી પાસે માત્ર પુસ્તકીય થિયરી નથી, પરંતુ મેં પોતાના હાથે Windows Server 2025 ની સંપૂર્ણ એન્ટરપ્રાઇઝ લેબ તૈયાર કરી છે. હું Active Directory, GPO, DNS, DHCP, FSRM અને હાઇબ્રિડ આર્કિટેક્ચરના ઊંડાણને સમજું છું, PowerShell દ્વારા ઓટોમેશન કરી શકું છું, અને ITIL ધોરણો અનુસાર સમયસર ટિકિટો ઉકેલવા માટે પ્રતિબદ્ધ છું.",
+  a: "ઉત્તર: કારણ કે મારી પાસે માત્ર પુસ્તકીય થિયરી નથી, પરંતુ મેં પોતાના હાથે Windows Server 2025 ની સંપૂર્ણ એન્ટરપ્રાઇઝ લેબ તૈયાર કરી છે. હું Active Directory, GPO, DNS, DHCP, #hl-orange[FSRM] અને હાઇબ્રિડ આર્કિટેક્ચરના ઊંડાણને સમજું છું, PowerShell દ્વારા ઓટોમેશન કરી શકું છું, અને ITIL ધોરણો અનુસાર સમયસર ટિકિટો ઉકેલવા માટે પ્રતિબદ્ધ છું.",
   tip: "આ આત્મવિશ્વાસપૂર્ણ ઉત્તર તમારી પસંદગીને સુનિશ્ચિત કરે છે."
 )
 
@@ -282,7 +282,7 @@
 #v(10pt)
 
 #info-box(title: "RTechLab માસ્ટર હેન્ડબુકની 5 અનન્ય પ્રતિબદ્ધતાઓ (Why This Book Guarantees Success)")[
-  - #text(weight: "bold")[1. 100% ઓરિજિનલ 2025 સ્ક્રીનશૉટ્સ:] વાસ્તવિક સર્વર મેનેજર, એક્ટિવ ડિરેક્ટરી, GPO અને DNS આર્કિટેક્ચર ફ્લો.
+  - #text(weight: "bold")[1. 100% ઓરિજિનલ 2025 સ્ક્રીનશૉટ્સ:] વાસ્તવિક #hl-yellow[સર્વર મેનેજર], #hl-yellow[એક્ટિવ ડિરેક્ટરી], GPO અને DNS આર્કિટેક્ચર ફ્લો.
   - #text(weight: "bold")[2. 3-કલર સ્ટડી હાઇલાઇટર સિસ્ટમ:] #hl-yellow[પીળો (મુખ્ય સિદ્ધાંતો)], #hl-orange[નારંગી (સુરક્ષા નિયમો અને ચેતવણીઓ)], અને #hl-green[લીલો (કમાન્ડ્સ અને ક્લિક સ્ટેપ્સ)].
   - #text(weight: "bold")[3. 1-ક્લિક ઇન્ટરેક્ટિવ નેવિગેશન:] ઇન્ડેક્સના કોઈપણ પ્રકરણ પર ટેપ કરીને સીધા તે પેજ પર પહોંચો, અને હેડર પરથી 1 ટેપમાં પાછા ફરો.
   - #text(weight: "bold")[4. દરેક પ્રકરણના અંતે Did You Know અને MCQs:] સેમેસ્ટર પરીક્ષા, પ્રમાણપત્ર અને કોર્પોરેટ મૂલ્યાંકન કસોટીઓની 100% તૈયારી.

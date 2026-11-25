@@ -8,14 +8,14 @@
   chapter-num: "CHAPTER 05",
   category: "भाग 5 : डायरेक्टरी ऑब्जेक्ट्स एवं एक्सेस कंट्रोल (Directory Objects & RBAC)",
   title: "ADUC कंसोल: OUs, डोमेन यूजर्स एवं सिक्योरिटी ग्रुप्स का प्रबंधन",
-  subtitle: "ADUC (dsa.msc) · एंटरप्राइज OU पदानुक्रम · नए डोमेन यूजर अकाउंट्स · पासवर्ड व लॉकआउट नीतियां · सिक्योरिटी vs डिस्ट्रीब्यूशन ग्रुप्स · AGDLP मॉडल · PowerShell बल्क क्रिएशन"
+  subtitle: "ADUC (dsa.msc) · एंटरप्राइज OU पदानुक्रम · नए डोमेन यूजर अकाउंट्स · पासवर्ड व लॉकआउट नीतियां · सिक्योरिटी vs डिस्ट्रीब्यूशन ग्रुप्स · #hl-orange[AGDLP] मॉडल · PowerShell बल्क क्रिएशन"
 )
 
-=== 5.1 Active Directory Users and Computers (`dsa.msc`) इंटरफ़ेस
+=== 5.1 #hl-yellow[Active Directory Users and Computers] (`dsa.msc`) इंटरफ़ेस
 डोमेन कंट्रोलर प्रमोट होने के बाद, एक्टिव डायरेक्टरी के सभी ऑब्जेक्ट्स (Users, Computers, Groups, OUs) को प्रबंधित करने का प्राथमिक ग्राफिकल टूल #hl-yellow[Active Directory Users and Computers (ADUC)] है।
 
 *ADUC कंसोल खोलने के 2 त्वरित तरीके:*
-1. Server Manager -> शीर्ष दाईं ओर #hl-green[Tools] मेनू -> #hl-yellow[Active Directory Users and Computers] पर क्लिक करें।
+1. #hl-yellow[Server Manager] -> शीर्ष दाईं ओर #hl-green[Tools] मेनू -> #hl-yellow[Active Directory Users and Computers] पर क्लिक करें।
 2. रन डायलॉग (`Win + R`) में शॉर्टकट कमांड टाइप करें: #mark-green[`dsa.msc`] और Enter दबाएं।
 
 कंसोल के बाईं ओर आपका डोमेन `#text(weight: "bold")[corp.rtechlab.local]` दिखेगा। इसके नीचे कुछ डिफ़ॉल्ट कंटेनर्स पहले से बने होते हैं:
@@ -43,7 +43,7 @@
       #image("../02_BRAND_ASSETS/screenshots/ou_hierarchy_agdlp.png", width: 92%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[चित्र 5.1: एंटरप्राइज OU संरचना एवं AGDLP रोल-बेस्ड एक्सेस कंट्रोल (RBAC) नेस्टिंग फ्रेमवर्क]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[चित्र 5.1: एंटरप्राइज OU संरचना एवं #hl-orange[AGDLP] रोल-बेस्ड एक्सेस कंट्रोल (RBAC) नेस्टिंग फ्रेमवर्क]
 ]
 
 #v(4pt)
@@ -89,7 +89,7 @@
 
 #v(6pt)
 
-=== 5.6 ग्रुप स्कोप्स एवं AGDLP बेस्ट प्रैक्टिस (The AGDLP Standard)
+=== 5.6 ग्रुप स्कोप्स एवं #hl-orange[AGDLP] बेस्ट प्रैक्टिस (The #hl-orange[AGDLP] Standard)
 माइक्रोसॉफ्ट एंटरप्राइज में रोल्स और परमिशंस प्रबंधित करने के लिए #hl-yellow[AGDLP मॉडल] की सिफारिश करता है:
 
 #block(
@@ -144,7 +144,7 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "1",
-  q: "Active Directory Users and Computers ग्राफिकल कंसोल को सीधे खोलने का आधिकारिक रन कमांड क्या है?",
+  q: "#hl-yellow[Active Directory Users and Computers] ग्राफिकल कंसोल को सीधे खोलने का आधिकारिक रन कमांड क्या है?",
   optA: "gpmc.msc",
   optB: "dsa.msc",
   optC: "dnsmgmt.msc",
@@ -170,13 +170,13 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "3",
-  q: "माइक्रोसॉफ्ट के अनुशंसित AGDLP एक्सेस कंट्रोल मॉडल में 'DL' अक्षर का क्या तात्पर्य है?",
+  q: "माइक्रोसॉफ्ट के अनुशंसित #hl-orange[AGDLP] एक्सेस कंट्रोल मॉडल में 'DL' अक्षर का क्या तात्पर्य है?",
   optA: "Distribution List",
   optB: "Domain Local Group",
   optC: "Dynamic Link",
   optD: "Data Lock",
   ans: "B",
-  exp: "AGDLP का पूर्ण रूप है: Accounts -> Global Groups -> Domain Local Groups -> Permissions।"
+  exp: "#hl-orange[AGDLP] का पूर्ण रूप है: Accounts -> Global Groups -> Domain Local Groups -> Permissions।"
 )
 
 #v(3pt)

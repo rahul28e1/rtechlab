@@ -7,11 +7,11 @@
 #chapter-header(
   chapter-num: "CHAPTER 04",
   category: "ભાગ 4 : કેન્દ્રીય ઓળખ અને ડિરેક્ટરી સર્વિસિસ (Identity & Directory Services)",
-  title: "એક્ટિવ ડિરેક્ટરી ડોમેન સર્વિસિસ (AD DS) અને ડોમેન કંટ્રોલર પ્રમોશન",
-  subtitle: "AD DS કોર આર્કિટેક્ચર · લોજિકલ (Forest, Domain, OU) અને ફિઝિકલ (Sites) સંરચના · Add Roles વિઝાર્ડ · રૂટ DC (corp.rtechlab.local) · DSRM પાસવર્ડ · 5 FSMO રોલ્સ"
+  title: "#hl-yellow[એક્ટિવ ડિરેક્ટરી] ડોમેન સર્વિસિસ (AD DS) અને #hl-yellow[ડોમેન કંટ્રોલર] પ્રમોશન",
+  subtitle: "AD DS કોર આર્કિટેક્ચર · લોજિકલ (Forest, Domain, OU) અને ફિઝિકલ (Sites) સંરચના · Add Roles વિઝાર્ડ · રૂટ DC (corp.rtechlab.local) · #hl-orange[DSRM] પાસવર્ડ · 5 FSMO રોલ્સ"
 )
 
-=== 4.1 એક્ટિવ ડિરેક્ટરી શું છે? (What is Active Directory Domain Services?)
+=== 4.1 #hl-yellow[એક્ટિવ ડિરેક્ટરી] શું છે? (What is #hl-yellow[Active Directory Domain Services]?)
 એક સામાન્ય વર્કગ્રુપ નેટવર્કમાં (Workgroup) દરેક કમ્પ્યુટરનો પોતાનો અલગ સ્થાનિક યુઝર ડેટાબેઝ હોય છે (SAM - Security Accounts Manager). જો કોઈ કંપનીમાં 500 કમ્પ્યુટર્સ હોય અને કોઈ નવો કર્મચારી જોડાય, તો એડમિનિસ્ટ્રેટરે તમામ 500 કમ્પ્યુટર્સ પર જઈને અલગ-અલગ યુઝર એકાઉન્ટ બનાવવું પડે!
 
 #mark-yellow[એક્ટિવ ડિરેક્ટરી ડોમેન સર્વિસિસ (AD DS) એ માઇક્રોસોફ્ટની એક કેન્દ્રીયકૃત ડિરેક્ટરી સેવા (Centralized Directory Service) છે જે સમગ્ર સંસ્થાના તમામ યુઝર્સ, કમ્પ્યુટર્સ, ગ્રુપ્સ અને નેટવર્ક સંસાધનોની માહિતીને એક જ સુરક્ષિત ડેટાબેઝમાં સંગ્રહિત તેમજ સંચાલિત કરે છે.]
@@ -26,7 +26,7 @@
   ],
   [
     #info-box(title: "ગ્લોબલ કેટલોગ (Global Catalog - GC)")[
-      ગ્લોબલ કેટલોગ એક વિશિષ્ટ ડોમેન કંટ્રોલર છે જે સમગ્ર ફોરેસ્ટના તમામ ડોમેનના તમામ ઓબ્જેક્ટ્સના સૌથી આવશ્યક એટ્રિબ્યુટ્સ (આંશિક નકલ - Partial Replica) સંગ્રહિત કરે છે. આ મલ્ટી-ડોમેન નેટવર્કમાં ઝડપી સર્ચિંગ સક્ષમ બનાવે છે. #hl-green[પોર્ટ: 3268 (LDAP GC)].
+      ગ્લોબલ કેટલોગ એક વિશિષ્ટ #hl-yellow[ડોમેન કંટ્રોલર] છે જે સમગ્ર ફોરેસ્ટના તમામ ડોમેનના તમામ ઓબ્જેક્ટ્સના સૌથી આવશ્યક એટ્રિબ્યુટ્સ (આંશિક નકલ - Partial Replica) સંગ્રહિત કરે છે. આ મલ્ટી-ડોમેન નેટવર્કમાં ઝડપી સર્ચિંગ સક્ષમ બનાવે છે. #hl-green[પોર્ટ: 3268 (LDAP GC)].
     ]
   ]
 )
@@ -34,7 +34,7 @@
 #v(4pt)
 
 === 4.2 AD લોજિકલ આર્કિટેક્ચર: ફોરેસ્ટ, ટ્રી, ડોમેન અને OUs
-એક્ટિવ ડિરેક્ટરીની લોજિકલ સંરચના એ નક્કી કરે છે કે નેટવર્ક સંસાધનોને વહીવટી રીતે કેવી રીતે ગોઠવવામાં આવે છે:
+#hl-yellow[એક્ટિવ ડિરેક્ટરી]ની લોજિકલ સંરચના એ નક્કી કરે છે કે નેટવર્ક સંસાધનોને વહીવટી રીતે કેવી રીતે ગોઠવવામાં આવે છે:
 
 #align(center)[
   #block(
@@ -46,22 +46,22 @@
       #image("../02_BRAND_ASSETS/screenshots/ad_hierarchy_architecture.png", width: 92%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 4.1: એક્ટિવ ડિરેક્ટરી લોજિકલ વંશવેલો — ફોરેસ્ટ રૂટ, ચાઇલ્ડ ડોમેન, ટ્રી અને ઓર્ગેનાઇઝેશનલ યુનિટ્સ (OUs)]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 4.1: #hl-yellow[એક્ટિવ ડિરેક્ટરી] લોજિકલ વંશવેલો — ફોરેસ્ટ રૂટ, ચાઇલ્ડ ડોમેન, ટ્રી અને ઓર્ગેનાઇઝેશનલ યુનિટ્સ (OUs)]
 ]
 
 #v(4pt)
 
-1. #text(weight: "bold", fill: rtech-navy)[ફોરેસ્ટ (Forest):] એક્ટિવ ડિરેક્ટરીની સર્વોચ્ચ સુરક્ષા સીમા (Ultimate Security Boundary). એક ફોરેસ્ટ અંતર્ગત આવતા તમામ ડોમેન એક સમાન સ્કીમા, એક સામાન્ય ગ્લોબલ કેટલોગ અને એક સમાન કન્ફિગરેશન શેર કરે છે.
+1. #text(weight: "bold", fill: rtech-navy)[ફોરેસ્ટ (Forest):] #hl-yellow[એક્ટિવ ડિરેક્ટરી]ની સર્વોચ્ચ સુરક્ષા સીમા (Ultimate Security Boundary). એક ફોરેસ્ટ અંતર્ગત આવતા તમામ ડોમેન એક સમાન સ્કીમા, એક સામાન્ય ગ્લોબલ કેટલોગ અને એક સમાન કન્ફિગરેશન શેર કરે છે.
 2. #text(weight: "bold", fill: rtech-navy)[ટ્રી (Tree):] એક અથવા એકથી વધુ ડોમેન્સનો વંશવેલો જે સતત DNS નેમસ્પેસ (Contiguous Namespace) શેર કરે છે (દા.ત. `rtechlab.local` અને `delhi.rtechlab.local`).
 3. #text(weight: "bold", fill: rtech-navy)[ડોમેન (Domain):] સુરક્ષા અને વહીવટી નીતિઓની (Administrative Boundary) મુખ્ય એકમ. આપણી લેબનું ડોમેન #hl-yellow[`corp.rtechlab.local`] રહેશે.
 4. #text(weight: "bold", fill: rtech-navy)[ઓર્ગેનાઇઝેશનલ યુનિટ (OU):] ડોમેનની અંદર બનાવવામાં આવતો વહીવટી કન્ટેનર (Container). આની અંદર યુઝર્સ અને કમ્પ્યુટર્સને વિભાગ અનુસાર રાખવામાં આવે છે જેથી તેમના પર ગ્રુપ પોલિસી (GPO) લાગુ કરી શકાય.
 
 #v(6pt)
 
-=== 4.3 AD ફિઝિકલ આર્કિટેક્ચર: ડોમેન કંટ્રોલર્સ, સાઇટ્સ અને સબનેટ્સ
+=== 4.3 AD ફિઝિકલ આર્કિટેક્ચર: #hl-yellow[ડોમેન કંટ્રોલર]્સ, સાઇટ્સ અને સબનેટ્સ
 લોજિકલ સંરચના એ નક્કી કરે છે કે ઓબ્જેક્ટ્સને *કેવી રીતે જોવામાં આવે*, જ્યારે ફિઝિકલ સંરચના એ નક્કી કરે છે કે ડિરેક્ટરીનો ડેટા *નેટવર્ક વાયરો અને હાર્ડવેર પર કેવી રીતે રેપ્લિકેટ (Replicate) થાય*:
 
-- #text(weight: "bold", fill: rtech-blue)[ડોમેન કંટ્રોલર (Domain Controller / DC):] તે ફિઝિકલ અથવા વર્ચ્યુઅલ સર્વર જેના પર AD DS રોલ ઇન્સ્ટોલ હોય છે અને જે એક્ટિવ ડિરેક્ટરીના મુખ્ય ડેટાબેઝની (#hl-yellow[`ntds.dit`]) સંપૂર્ણ નકલ રાખે છે.
+- #text(weight: "bold", fill: rtech-blue)[ડોમેન કંટ્રોલર (Domain Controller / DC):] તે ફિઝિકલ અથવા વર્ચ્યુઅલ સર્વર જેના પર AD DS રોલ ઇન્સ્ટોલ હોય છે અને જે #hl-yellow[એક્ટિવ ડિરેક્ટરી]ના મુખ્ય ડેટાબેઝની (#hl-yellow[`ntds.dit`]) સંપૂર્ણ નકલ રાખે છે.
 - #text(weight: "bold", fill: rtech-navy)[એક્ટિવ ડિરેક્ટરી સાઇટ્સ (Sites):] એક અથવા વધુ સુવ્યવસ્થિત, હાઇ-સ્પીડ TCP/IP સબનેટ્સનો સમૂહ (જેમ કે 'Mumbai-HO Site' અને 'Bangalore-Branch Site'). સાઇટ્સનો ઉપયોગ WAN લિંક પર બિનજરૂરી રેપ્લિકેશન ટ્રાફિકને નિયંત્રિત કરવા અને ક્લાયન્ટને સૌથી નજીકના DC થી ઓથેન્ટિકેટ કરાવવા માટે થાય છે.
 
 #v(6pt)
@@ -69,40 +69,40 @@
 === 4.4 પ્રેક્ટિકલ લેબ: Add Roles and Features વિઝાર્ડ દ્વારા AD DS રોલ ઇન્સ્ટોલેશન
 હવે આપણે આપણી વર્ચ્યુઅલ મશીન `SRV-2025-DC01` પર એક્ટિવ ડિરેક્ટરી રોલ સ્થાપિત કરીશું:
 
-1. Server Manager ખોલો અને ઉપર જમણી બાજુ આપેલ #hl-green['Manage'] મેનૂ પર ક્લિક કરીને #hl-yellow['Add Roles and Features'] પસંદ કરો.
+1. #hl-yellow[Server Manager] ખોલો અને ઉપર જમણી બાજુ આપેલ #hl-green['Manage'] મેનૂ પર ક્લિક કરીને #hl-yellow['Add Roles and Features'] પસંદ કરો.
 2. 'Before You Begin' સ્ક્રીન પર 'Next' દબાવો.
 3. Installation Type માં #hl-yellow['Role-based or feature-based installation'] પસંદ કરીને 'Next' દબાવો.
 4. Server Selection માં ખાતરી કરો કે પૂલમાં તમારી મશીન #hl-green[`SRV-2025-DC01 (192.168.1.10)`] પસંદ કરેલ છે. 'Next' દબાવો.
 5. Server Roles ની યાદીમાં #mark-yellow[Active Directory Domain Services] ચેકબોક્સ પર ટિક કરો.
-6. એક પોપ-અપ વિંડો ખુલશે: 'Add Features that are required for Active Directory Domain Services' (RSAT ટૂલ્સ સામેલ). #hl-green['Add Features'] પર ક્લિક કરો અને 'Next' દબાવો.
+6. એક પોપ-અપ વિંડો ખુલશે: 'Add Features that are required for #hl-yellow[Active Directory Domain Services]' (RSAT ટૂલ્સ સામેલ). #hl-green['Add Features'] પર ક્લિક કરો અને 'Next' દબાવો.
 7. Features સ્ક્રીન પર ડિફોલ્ટ પસંદગી રહેવા દો અને 'Next' દબાવો.
 8. Confirmation સ્ક્રીન પર 'Restart the destination server automatically if required' ને અનચેક રહેવા દો અને #hl-green['Install'] પર ક્લિક કરો.
 9. 2 થી 3 મિનિટમાં રોલ ઇન્સ્ટોલેશન પૂર્ણ થશે. 'Close' પર ક્લિક કરો.
 
 #v(6pt)
 
-=== 4.5 પ્રેક્ટિકલ લેબ: સર્વરને રૂટ ડોમેન કંટ્રોલર પ્રમોટ કરવું (DC Promotion)
+=== 4.5 પ્રેક્ટિકલ લેબ: સર્વરને રૂટ #hl-yellow[ડોમેન કંટ્રોલર] પ્રમોટ કરવું (DC Promotion)
 રોલ ઇન્સ્ટોલ થયા પછી સર્વર આપમેળે DC બનતું નથી. તેને પ્રમોટ કરવું પડે છે:
 
-1. Server Manager ની ટોચ પર આપેલ પીળા રંગના ચેતવણી ધ્વજ (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] ની ટોચ પર આપેલ પીળા રંગના ચેતવણી ધ્વજ (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) પર ક્લિક કરો.
 2. વાદળી રંગની લિંક પર ક્લિક કરો: #mark-green[Promote this server to a domain controller].
 3. #text(weight: "bold")[Deployment Configuration:] આપણે પહેલી વાર નવું ડોમેન બનાવી રહ્યા છીએ, તેથી ત્રીજો વિકલ્પ પસંદ કરો: #hl-yellow['Add a new forest'].
    - Root domain name માં લખો: #hl-green[`corp.rtechlab.local`]. 'Next' દબાવો.
 4. #text(weight: "bold")[Domain Controller Options:]
    - Forest & Domain functional level: #hl-green[Windows Server 2025] (નવીનતમ સુરક્ષા સુવિધાઓ માટે).
    - 'Domain Name System (DNS) server' અને 'Global Catalog (GC)' ને ચેક રહેવા દો.
-   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (DSRM) Password:] આ આપત્તિ સમયે AD ડેટાબેઝ રિસ્ટોર કરવા માટેનો માસ્ટર રિકવરી પાસવર્ડ છે. એક મજબૂત પાસવર્ડ દાખલ કરો (દા.ત. #hl-green[`Dsrm@2025!`]). 'Next' દબાવો.
+   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (#hl-orange[DSRM]) Password:] આ આપત્તિ સમયે AD ડેટાબેઝ રિસ્ટોર કરવા માટેનો માસ્ટર રિકવરી પાસવર્ડ છે. એક મજબૂત પાસવર્ડ દાખલ કરો (દા.ત. #hl-green[`Dsrm@2025!`]). 'Next' દબાવો.
 5. #text(weight: "bold")[DNS Options:] 'A delegation for this DNS server cannot be created...' ની સામાન્ય પીળી ચેતવણી આવશે, તેને અવગણીને સીધા જ 'Next' દબાવો.
 6. #text(weight: "bold")[Additional Options:] વિઝાર્ડ આપમેળે NetBIOS નામ જનરેટ કરશે: #hl-yellow[`CORP`]. 'Next' દબાવો.
 7. #text(weight: "bold")[Paths:] ડેટાબેઝ, લોગ અને SYSVOL ના ડિફોલ્ટ પાથ રહેવા દો (`C:\Windows\NTDS` અને `C:\Windows\SYSVOL`). 'Next' દબાવો.
 8. #text(weight: "bold")[Prerequisites Check:] સિસ્ટમ તમામ પૂર્વ-આવશ્યકતાઓની ચકાસણી કરશે. ટોચ પર લીલો ટિક દેખાશે: #hl-green['All prerequisite checks passed successfully'].
 9. નીચે આપેલ #mark-green[Install] બટન પર ક્લિક કરો!
-10. સર્વર AD DS કન્ફિગર કરશે અને આપમેળે રીબૂટ થશે. રીબૂટ પછી લોગિન સ્ક્રીન પર તમને દેખાશે: #hl-yellow[`CORP\Administrator`]. અભિનંદન, તમારું ડોમેન કંટ્રોલર હવે લાઈવ છે!
+10. સર્વર AD DS કન્ફિગર કરશે અને આપમેળે રીબૂટ થશે. રીબૂટ પછી લોગિન સ્ક્રીન પર તમને દેખાશે: #hl-yellow[`CORP\Administrator`]. અભિનંદન, તમારું #hl-yellow[ડોમેન કંટ્રોલર] હવે લાઈવ છે!
 
 #v(6pt)
 
 === 4.6 FSMO ના 5 વિશિષ્ટ રોલ્સની કાર્યપ્રણાલી (5 FSMO Master Roles)
-જો કે એક્ટિવ ડિરેક્ટરી મલ્ટી-માસ્ટર રેપ્લિકેશન મોડેલ પર કાર્ય કરે છે (જ્યાં કોઈપણ DC પર યુઝર બનાવી શકાય છે), પરંતુ ડેટા ટકરાવ (Conflicts) રોકવા માટે 5 એવા મહત્વપૂર્ણ કાર્યો છે જે એક સમયે સમગ્ર નેટવર્કમાં માત્ર *એક જ વિશિષ્ટ ડોમેન કંટ્રોલર* દ્વારા કરી શકાય છે. આમને #hl-yellow[FSMO (Flexible Single Master Operations)] રોલ્સ કહેવામાં આવે છે:
+જો કે એક્ટિવ ડિરેક્ટરી મલ્ટી-માસ્ટર રેપ્લિકેશન મોડેલ પર કાર્ય કરે છે (જ્યાં કોઈપણ DC પર યુઝર બનાવી શકાય છે), પરંતુ ડેટા ટકરાવ (Conflicts) રોકવા માટે 5 એવા મહત્વપૂર્ણ કાર્યો છે જે એક સમયે સમગ્ર નેટવર્કમાં માત્ર *એક જ વિશિષ્ટ #hl-yellow[ડોમેન કંટ્રોલર]* દ્વારા કરી શકાય છે. આમને #hl-yellow[FSMO (Flexible Single Master Operations)] રોલ્સ કહેવામાં આવે છે:
 
 #align(center)[
   #block(
@@ -131,7 +131,7 @@
       1. #text(weight: "bold")[Schema Master:] સમગ્ર ફોરેસ્ટમાં AD ના સ્કીમા (ક્લાસ અને એટ્રિબ્યુટ્સ) માં થતા ફેરફારોને નિયંત્રિત કરે છે (જેમ કે Exchange સર્વર ઇન્સ્ટોલ કરતી વખતે).
       2. #text(weight: "bold")[Domain Naming Master:] ફોરેસ્ટમાં નવા ડોમેનને જોડવા અથવા જૂના ડોમેનને હટાવવાનો વિશેષ અધિકાર ધરાવે છે.
     - #text(weight: "bold", fill: rtech-emerald)[ડોમેન-વાઇડ રોલ્સ (ફોરેસ્ટના દરેક ડોમેનમાં 1-1 DC પર):]
-      3. #text(weight: "bold")[PDC Emulator (સર્વોચ્ચ મહત્વપૂર્ણ રોલ):] Kerberos પાસવર્ડ ફેરફારોનું તાત્કાલિક પ્રોસેસિંગ, ટાઇમ સિન્ક્રોનાઇઝેશન (NTP Master), ગ્રુપ પોલિસી એડિટિંગ અને એકાઉન્ટ લોકઆઉટ સંભાળે છે.
+      3. #text(weight: "bold")[PDC Emulator (સર્વોચ્ચ મહત્વપૂર્ણ રોલ):] #hl-orange[Kerberos] પાસવર્ડ ફેરફારોનું તાત્કાલિક પ્રોસેસિંગ, ટાઇમ સિન્ક્રોનાઇઝેશન (NTP Master), ગ્રુપ પોલિસી એડિટિંગ અને એકાઉન્ટ લોકઆઉટ સંભાળે છે.
       4. #text(weight: "bold")[RID Master (Relative ID Master):] જ્યારે પણ નવો યુઝર કે ગ્રુપ બને છે, તેને એક યુનિક SID મળે છે. RID Master દરેક DC ને 500 RIDs નો એક પૂલ ફાળવે છે જેથી SIDs ડુપ્લિકેટ ન થાય.
       5. #text(weight: "bold")[Infrastructure Master:] મલ્ટી-ડોમેન એન્વાયર્નમેન્ટમાં અન્ય ડોમેનના ગ્રુપ્સમાં સામેલ યુઝર્સના ક્રોસ-ડોમેન રેફરન્સ (GUID અને SID મેપિંગ) અપડેટ રાખે છે.
   ]
@@ -251,8 +251,8 @@
 
 #interview-item(
   num: "3",
-  q: "ઇન્ટરવ્યુઅર: 'DSRM (Directory Services Restore Mode) પાસવર્ડ શું છે, અને તે સામાન્ય ડોમેન એડમિન પાસવર્ડથી કેવી રીતે અલગ છે?'",
-  a: "જવાબ: ડોમેન એડમિનનો પાસવર્ડ એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (ntds.dit) ની અંદર સ્ટોર થાય છે. જો AD ડેટાબેઝ કરપ્ટ થઈ જાય અથવા સર્વર Safe Mode (DSRM) માં બૂટ થાય જ્યાં AD સર્વિસિસ બંધ હોય છે, તો ડોમેન એડમિન લોગિન કામ કરશે નહીં. આવી કટોકટીમાં સર્વરના લોકલ SAM ડેટાબેઝમાં માત્ર DSRM પાસવર્ડ જ કામ કરે છે જેના દ્વારા ડેટાબેઝ રિસ્ટોર કરવામાં આવે છે.",
+  q: "ઇન્ટરવ્યુઅર: '#hl-orange[DSRM] (#hl-orange[Directory Services Restore Mode]) પાસવર્ડ શું છે, અને તે સામાન્ય ડોમેન એડમિન પાસવર્ડથી કેવી રીતે અલગ છે?'",
+  a: "જવાબ: ડોમેન એડમિનનો પાસવર્ડ એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (ntds.dit) ની અંદર સ્ટોર થાય છે. જો AD ડેટાબેઝ કરપ્ટ થઈ જાય અથવા સર્વર Safe Mode (#hl-orange[DSRM]) માં બૂટ થાય જ્યાં AD સર્વિસિસ બંધ હોય છે, તો ડોમેન એડમિન લોગિન કામ કરશે નહીં. આવી કટોકટીમાં સર્વરના લોકલ SAM ડેટાબેઝમાં માત્ર #hl-orange[DSRM] પાસવર્ડ જ કામ કરે છે જેના દ્વારા ડેટાબેઝ રિસ્ટોર કરવામાં આવે છે.",
   tip: "આ ઉત્તર સાબિત કરે છે કે તમે માત્ર ટૂલ્સ નથી ચલાવતા, પરંતુ ઇન્ટરનલ રિકવરી આર્કિટેક્ચરને સમજો છો."
 )
 

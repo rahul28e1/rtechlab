@@ -8,14 +8,14 @@
   chapter-num: "CHAPTER 05",
   category: "Part 5: Directory Objects & Access Control (Directory Objects & RBAC)",
   title: "ADUC Console: Managing OUs, Domain Users & Security Groups",
-  subtitle: "ADUC (dsa.msc) · Enterprise OU Hierarchy · Domain User Accounts · Password & Lockout Policies · Security vs. Distribution Groups · AGDLP Model · Bulk PowerShell"
+  subtitle: "ADUC (dsa.msc) · Enterprise OU Hierarchy · Domain User Accounts · Password & Lockout Policies · Security vs. Distribution Groups · #hl-orange[AGDLP] Model · Bulk PowerShell"
 )
 
-=== 5.1 Active Directory Users and Computers (`dsa.msc`) Interface
+=== 5.1 #hl-yellow[Active Directory Users and Computers] (`dsa.msc`) Interface
 Following the promotion of a Domain Controller, the primary graphical administrative tool used to manage all Active Directory objects (Users, Computers, Groups, and OUs) is #hl-yellow[Active Directory Users and Computers (ADUC)].
 
 *Two Quick Ways to Open the ADUC Console:*
-1. In Server Manager -> click the #hl-green[Tools] menu in the top-right corner -> select #hl-yellow[Active Directory Users and Computers].
+1. In #hl-yellow[Server Manager] -> click the #hl-green[Tools] menu in the top-right corner -> select #hl-yellow[Active Directory Users and Computers].
 2. In the Run dialog (`Win + R`), enter the shortcut command: #mark-green[`dsa.msc`] and press Enter.
 
 In the left navigation tree, your domain `#text(weight: "bold")[corp.rtechlab.local]` is displayed. Underneath it, several default containers exist out-of-the-box:
@@ -43,7 +43,7 @@ A well-structured OU layout streamlines corporate administration, delegation, an
       #image("../02_BRAND_ASSETS/screenshots/ou_hierarchy_agdlp.png", width: 65%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 5.1: Enterprise OU Structure and AGDLP Role-Based Access Control (RBAC) Nesting Framework]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 5.1: Enterprise OU Structure and #hl-orange[AGDLP] Role-Based Access Control (RBAC) Nesting Framework]
 ]
 
 #v(2pt)
@@ -89,7 +89,7 @@ Active Directory supports two functional group types:
 
 #v(1.5pt)
 
-=== 5.6 Group Scopes and the AGDLP Best Practice
+=== 5.6 Group Scopes and the #hl-orange[AGDLP] Best Practice
 Microsoft strongly recommends adhering to the industry-standard #hl-yellow[AGDLP Model] for managing role-based permissions:
 
 #block(
@@ -99,7 +99,7 @@ Microsoft strongly recommends adhering to the industry-standard #hl-yellow[AGDLP
   radius: 4pt,
   inset: (x: 6pt, y: 4pt),
   [
-    #text(size: 8.5pt, weight: "bold", fill: rtech-emerald)[The AGDLP Formula (Core MNC Architecture & Interview Principle):]\
+    #text(size: 8.5pt, weight: "bold", fill: rtech-emerald)[The #hl-orange[AGDLP] Formula (Core MNC Architecture & Interview Principle):]\
     - #text(weight: "bold", fill: rtech-blue)[A (Accounts):] User accounts (e.g., `rpatel`, `ajain`).
     - #text(weight: "bold", fill: rtech-blue)[G (Global Groups):] Aggregate user accounts into Global Groups representing business roles or departments (e.g., `GG_HR_Staff`).
     - #text(weight: "bold", fill: rtech-amber)[DL (Domain Local Groups):] Create Domain Local Groups defining specific resource access entitlements, and nest Global Groups into them (e.g., `DL_HR_Payroll_Read`).
@@ -144,7 +144,7 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "1",
-  q: "What is the official Run shortcut command used to launch the Active Directory Users and Computers console directly?",
+  q: "What is the official Run shortcut command used to launch the #hl-yellow[Active Directory Users and Computers] console directly?",
   optA: "gpmc.msc",
   optB: "dsa.msc",
   optC: "dnsmgmt.msc",
@@ -170,13 +170,13 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "3",
-  q: "What does the acronym 'DL' represent in Microsoft's recommended AGDLP access control framework?",
+  q: "What does the acronym 'DL' represent in Microsoft's recommended #hl-orange[AGDLP] access control framework?",
   optA: "Distribution List",
   optB: "Domain Local Group",
   optC: "Dynamic Link",
   optD: "Data Lock",
   ans: "B",
-  exp: "The AGDLP architecture represents: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
+  exp: "The #hl-orange[AGDLP] architecture represents: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
 )
 
 #v(1.5pt)

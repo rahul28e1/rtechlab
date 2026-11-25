@@ -8,10 +8,10 @@
   chapter-num: "CHAPTER 03",
   category: "PART 3: Server Baseline & Hardening",
   title: "Post-Installation Baseline Configuration & Server Hardening",
-  subtitle: "Server Manager Dashboard Navigation · Computer Renaming (SRV-2025-DC01) · Static IPv4 & DNS · Remote Desktop (RDP) & NLA Security · Firewall Ports · NTP Clock Synchronization"
+  subtitle: "#hl-yellow[Server Manager] Dashboard Navigation · Computer Renaming (SRV-2025-DC01) · Static IPv4 & DNS · Remote Desktop (RDP) & NLA Security · Firewall Ports · NTP Clock Synchronization"
 )
 
-=== 3.1 Server Manager Dashboard Navigation
+=== 3.1 #hl-yellow[Server Manager] Dashboard Navigation
 Immediately upon logging into Windows Server, #hl-yellow[Server Manager] launches automatically. This is Microsoft's primary centralized management console, empowering administrators to oversee, provision, and configure local server resources and remote servers across the network from a single pane of glass.
 
 The left-hand navigation pane provides core administrative views:
@@ -41,7 +41,7 @@ The left-hand navigation pane provides core administrative views:
 By default, the Windows Server installation wizard assigns an arbitrary, randomly generated alphanumeric NetBIOS name (e.g., `WIN-7K9A3B58Z1`). In production enterprise datacenters, a server must never retain an unmanaged default name, particularly when designated to operate as a Domain Controller.
 
 #warning-box(title: "The Golden Rule: Rename the Server BEFORE Domain Controller Promotion")[
-  Once an operating system is promoted to an Active Directory Domain Controller, renaming the computer object becomes substantially more complex and error-prone because Kerberos Service Principal Names (SPNs), DNS SRV resource records, and directory database metadata bind directly to the original hostname. Therefore, #hl-orange[always assign the permanent production hostname prior to initiating DC promotion].
+  Once an operating system is promoted to an Active Directory Domain Controller, renaming the computer object becomes substantially more complex and error-prone because #hl-orange[Kerberos] Service Principal Names (SPNs), DNS SRV resource records, and directory database metadata bind directly to the original hostname. Therefore, #hl-orange[always assign the permanent production hostname prior to initiating DC promotion].
 ]
 
 #block(
@@ -61,7 +61,7 @@ By default, the Windows Server installation wizard assigns an arbitrary, randoml
 
 #v(1pt)
 *Step-by-Step Server Renaming Procedure:*
-1. Open Server Manager and click #hl-yellow[Local Server] in the left navigation pane.
+1. Open #hl-yellow[Server Manager] and click #hl-yellow[Local Server] in the left navigation pane.
 2. Click the randomly assigned name link next to #text(weight: "bold")[Computer name] (e.g., `WIN-XXXXX`).
 3. In the System Properties dialog, click the #hl-green['Change...'] button.
 4. In the Computer name field, enter the standardized enterprise hostname: #hl-yellow[`SRV-2025-DC01`].
@@ -86,7 +86,7 @@ An enterprise server is an architectural service provider. If a server receives 
   ],
   [
     #warning-box(title: "The Mandatory DNS Loopback Rule")[
-      Because this server will host the authoritative Active Directory integrated DNS zone, Preferred DNS must point to #hl-orange[`127.0.0.1`] (or the server's own static IP). If you configure a public DNS server such as `8.8.8.8` (Google DNS), Active Directory domain join and Kerberos service locator lookups will completely fail!
+      Because this server will host the authoritative Active Directory integrated DNS zone, Preferred DNS must point to #hl-orange[`127.0.0.1`] (or the server's own static IP). If you configure a public DNS server such as `8.8.8.8` (Google DNS), Active Directory domain join and #hl-orange[Kerberos] service locator lookups will completely fail!
     ]
   ]
 )
@@ -101,11 +101,11 @@ An enterprise server is an architectural service provider. If a server receives 
 
 #v(1.5pt)
 
-=== 3.4 Remote Desktop (RDP - Port 3389) & NLA Security
+=== 3.4 Remote Desktop (RDP - #hl-green[Port 3389]) & NLA Security
 In enterprise datacenters, physical servers reside securely inside climate-controlled, restricted-access server rooms. Systems administrators never sit physically in front of individual server consoles; all administrative workflows are conducted over #hl-yellow[Remote Desktop Protocol (RDP)].
 
 *Enabling and Securing RDP:*
-1. Navigate to Server Manager -> #hl-yellow[Local Server].
+1. Navigate to #hl-yellow[Server Manager] -> #hl-yellow[Local Server].
 2. Click the 'Disabled' status link adjacent to #text(weight: "bold")[Remote Desktop].
 3. In the Remote tab of System Properties, select #hl-green['Allow remote connections to this computer'].
 4. Verify that the checkbox #mark-orange['Allow connections only from computers running Remote Desktop with Network Level Authentication (recommended)'] remains strictly checked.
@@ -127,11 +127,11 @@ By default, the Windows Defender Firewall profile strictly blocks all inbound IC
 
 #v(1.5pt)
 
-=== 3.6 Time Zone & NTP Clock Synchronization (Kerberos Time Skew Rule)
-The entire security architecture of Active Directory Domain Services relies on the #hl-yellow[Kerberos v5] authentication protocol. Kerberos embeds precise timestamps within authentication tickets (TGT / TGS) to defeat credential replay attacks across the network.
+=== 3.6 Time Zone & NTP Clock Synchronization (#hl-orange[Kerberos] Time Skew Rule)
+The entire security architecture of #hl-yellow[Active Directory Domain Services] relies on the #hl-yellow[Kerberos v5] authentication protocol. #hl-orange[Kerberos] embeds precise timestamps within authentication tickets (TGT / TGS) to defeat credential replay attacks across the network.
 
-#warning-box(title: "The 5-Minute Kerberos Clock Skew (Classic Interview Trap)")[
-  If the internal clock difference between a Domain Controller and a joining workstation exceeds #hl-orange[5 minutes (Clock Skew)], Kerberos authentication tickets are instantly rejected, completely locking users out of domain logons and shared enterprise resources!
+#warning-box(title: "The 5-Minute #hl-orange[Kerberos] Clock Skew (Classic Interview Trap)")[
+  If the internal clock difference between a Domain Controller and a joining workstation exceeds #hl-orange[5 minutes (Clock Skew)], #hl-orange[Kerberos] authentication tickets are instantly rejected, completely locking users out of domain logons and shared enterprise resources!
 ]
 
 *NTP Diagnostic & Configuration Commands:*
@@ -173,12 +173,12 @@ w32tm /resync
 #mcq-item(
   num: "2",
   q: "On which default IANA port does the Remote Desktop Protocol (RDP) listen for incoming administrative connections?",
-  optA: "TCP Port 80",
-  optB: "TCP Port 443",
-  optC: "TCP Port 3389",
-  optD: "UDP Port 53",
+  optA: "TCP #hl-green[Port 80]",
+  optB: "TCP #hl-green[Port 443]",
+  optC: "TCP #hl-green[Port 3389]",
+  optD: "#hl-green[UDP Port 53]",
   ans: "C",
-  exp: "TCP Port 3389 is the official IANA port assigned to Microsoft Terminal Services and Remote Desktop Protocol."
+  exp: "TCP #hl-green[Port 3389] is the official IANA port assigned to Microsoft Terminal Services and Remote Desktop Protocol."
 )
 
 #v(1.5pt)
@@ -264,7 +264,7 @@ w32tm /resync
 #interview-item(
   num: "5",
   q: "Interviewer: 'What is the operational definition of Server Hardening, and what four baseline tasks does it encompass?'",
-  a: "Answer: Server Hardening is the systematic practice of securing an operating system by eliminating vulnerabilities and reducing the overall attack surface. The four foundational tasks include: 1. Disabling or renaming default accounts and enforcing complex passwords, 2. Disabling unneeded services and ports, 3. Tightening inbound/outbound firewall rules, and 4. Enforcing continuous patch management and Hotpatching.",
+  a: "Answer: Server Hardening is the systematic practice of securing an operating system by eliminating vulnerabilities and reducing the overall attack surface. The four foundational tasks include: 1. Disabling or renaming default accounts and enforcing complex passwords, 2. Disabling unneeded services and ports, 3. Tightening inbound/outbound firewall rules, and 4. Enforcing continuous patch management and #hl-yellow[Hotpatching].",
   tip: "A cornerstone architectural question in infrastructure compliance and security interviews."
 )
 

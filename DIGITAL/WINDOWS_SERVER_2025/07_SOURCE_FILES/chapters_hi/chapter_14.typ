@@ -43,9 +43,9 @@
       - P3 (Medium - 4 Hr SLA): किसी विशिष्ट यूजर का खाता लॉक होना या GPO ड्राइव मैप न होना।
       - P4 (Low - 24 Hr SLA): नए कर्मचारी का AD अकाउंट ऑनबोर्डिंग या डिस्ट्रीब्यूशन लिस्ट में जोड़ना।
     - #text(weight: "bold", fill: rtech-emerald)[दैनिक मॉर्निंग चेकलिस्ट (Morning Health Run):]
-      - प्रातः 9:00 बजे Server Manager डैशबोर्ड खोलकर सभी सर्वर्स की ग्रीन हेल्थ जांचना।
+      - प्रातः 9:00 बजे #hl-yellow[Server Manager] डैशबोर्ड खोलकर सभी सर्वर्स की ग्रीन हेल्थ जांचना।
       - Event Viewer में Directory Service, DNS Server, और System Logs में रेड एरर्स (Error 1085, 1129) देखना।
-      - रात के सिस्टम स्टेट बैकअप के सफल स्टेटस (`wbadmin` / Veeam) की पुष्टि करना।
+      - रात के #hl-yellow[सिस्टम स्टेट बैकअप] के सफल स्टेटस (`wbadmin` / Veeam) की पुष्टि करना।
   ]
 )
 
@@ -58,10 +58,10 @@
    - *मॉडल उत्तर:* "मैं तुरंत PDC Emulator डोमेन कंट्रोलर पर Event Viewer खोलूँगा और 'Security Log' में Event ID #hl-orange[4740] (A user account was locked out) फ़िल्टर करूँगा। इस इवेंट के विवरण में 'Caller Computer Name' देखा जाता है। 90% मामलों में यह किसी मोबाइल फोन या आईपैड पर पुराना सेव पासवर्ड (Cached Exchange/Wi-Fi credentials) होता है जो बार-बार गलत पासवर्ड भेजकर अकाउंट लॉक कर देता है। उस डिवाइस से क्रेडेंशियल्स अपडेट कराकर समस्या हल हो जाती है।"
 
 2. #text(weight: "bold", fill: rtech-navy)[परिदृश्य 2: "एक कर्मचारी का ट्रांसफर HR से Finance विभाग में हुआ है। उसे HR का एक्सेस तुरंत बंद और Finance का एक्सेस चालू कैसे करेंगे?"]
-   - *मॉडल उत्तर:* "हम सीधे फोल्डर पर नहीं जाते। ADUC में जाकर उस यूजर को `GG_HR_Staff` ग्लोबल ग्रुप से हटाकर `GG_Finance_Staff` में जोड़ देंगे। हमारे AGDLP मॉडल के कारण यूजर को Finance के सभी आवश्यक राइट्स स्वतः मिल जाएंगे और HR के सभी राइट्स स्वतः समाप्त हो जाएंगे।"
+   - *मॉडल उत्तर:* "हम सीधे फोल्डर पर नहीं जाते। ADUC में जाकर उस यूजर को `GG_HR_Staff` ग्लोबल ग्रुप से हटाकर `GG_Finance_Staff` में जोड़ देंगे। हमारे #hl-orange[AGDLP] मॉडल के कारण यूजर को Finance के सभी आवश्यक राइट्स स्वतः मिल जाएंगे और HR के सभी राइट्स स्वतः समाप्त हो जाएंगे।"
 
 3. #text(weight: "bold", fill: rtech-navy)[परिदृश्य 3: "DNS सर्वर चालू है, लेकिन इंटरनेट की बाहरी वेबसाइट्स (google.com) नहीं खुल रही हैं, केवल आंतरिक साइट्स खुल रही हैं?"]
-   - *मॉडल उत्तर:* "यह संकेत है कि आंतरिक Forward Lookup Zone स्वस्थ है, लेकिन DNS सर्वर के #hl-yellow[Forwarders] (जैसे 1.1.1.1 या ISP IP) डाउन हैं या फ़ायरवॉल द्वारा सर्वर से बाहर जाने वाला UDP पोर्ट 53 ब्लॉक है। DNS Manager में Forwarders टैब पर जाकर टेस्ट चलाएंगे।"
+   - *मॉडल उत्तर:* "यह संकेत है कि आंतरिक #hl-yellow[Forward Lookup Zone] स्वस्थ है, लेकिन DNS सर्वर के #hl-yellow[Forwarders] (जैसे 1.1.1.1 या ISP IP) डाउन हैं या फ़ायरवॉल द्वारा सर्वर से बाहर जाने वाला UDP पोर्ट 53 ब्लॉक है। DNS Manager में Forwarders टैब पर जाकर टेस्ट चलाएंगे।"
 
 #v(6pt)
 
@@ -70,7 +70,7 @@
    - अपने रिज्यूमे में केवल 'Knowledge of Windows Server' न लिखें। इसके बजाय लिखें:
      #box(fill: rgb("#F1F5F9"), radius: 3pt, inset: 4pt)[
        #text(size: 7.8pt, font: ("Consolas", "Courier New"))[
-         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented AGDLP RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
+         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented #hl-orange[AGDLP] RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
        ]
      ]
 2. #text(weight: "bold", fill: rtech-navy)[सैलरी एक्सपेक्टेशन (CTC Expectations):]
@@ -171,8 +171,8 @@
 
 #interview-item(
   num: "2",
-  q: "इंटरव्यूअर: 'Kerberos टिकट की डिफ़ॉल्ट जीवन अवधि (Ticket Granting Ticket - TGT Lifetime) कितनी होती है?'",
-  a: "उत्तर: डिफ़ॉल्ट रूप से Kerberos TGT की जीवन अवधि 10 घंटे होती है, और इसे अधिकतम 7 दिनों तक बिना पासवर्ड दोबारा डाले रिन्यू किया जा सकता है। यह नीति Default Domain Policy में Kerberos Policies के अंतर्गत कॉन्फ़िगर होती है।",
+  q: "इंटरव्यूअर: '#hl-orange[Kerberos] टिकट की डिफ़ॉल्ट जीवन अवधि (Ticket Granting Ticket - TGT Lifetime) कितनी होती है?'",
+  a: "उत्तर: डिफ़ॉल्ट रूप से #hl-orange[Kerberos] TGT की जीवन अवधि 10 घंटे होती है, और इसे अधिकतम 7 दिनों तक बिना पासवर्ड दोबारा डाले रिन्यू किया जा सकता है। यह नीति Default Domain Policy में #hl-orange[Kerberos] Policies के अंतर्गत कॉन्फ़िगर होती है।",
   tip: "यह डीप ऑथेंटिकेशन आर्किटेक्चर का उच्च-स्तरीय सवाल है।"
 )
 
@@ -199,7 +199,7 @@
 #interview-item(
   num: "5",
   q: "इंटरव्यूअर: 'आप हमारे संगठन के लिए एक उत्कृष्ट सिस्टम एडमिनिस्ट्रेटर क्यों साबित होंगे?'",
-  a: "उत्तर: क्योंकि मेरे पास केवल किताबी थ्योरी नहीं है, बल्कि मैंने अपने हाथों से Windows Server 2025 की संपूर्ण एंटरप्राइज लैब तैयार की है। मैं Active Directory, GPO, DNS, DHCP, FSRM और हाइब्रिड आर्किटेक्चर की गहराई को समझता हूँ, PowerShell द्वारा ऑटोमेशन कर सकता हूँ, और ITIL मानकों के अनुसार समय पर टिकट्स हल करने के लिए प्रतिबद्ध हूँ।",
+  a: "उत्तर: क्योंकि मेरे पास केवल किताबी थ्योरी नहीं है, बल्कि मैंने अपने हाथों से Windows Server 2025 की संपूर्ण एंटरप्राइज लैब तैयार की है। मैं Active Directory, GPO, DNS, DHCP, #hl-orange[FSRM] और हाइब्रिड आर्किटेक्चर की गहराई को समझता हूँ, PowerShell द्वारा ऑटोमेशन कर सकता हूँ, और ITIL मानकों के अनुसार समय पर टिकट्स हल करने के लिए प्रतिबद्ध हूँ।",
   tip: "यह आत्मविश्वास भरा उत्तर आपके चयन को सुनिश्चित करता है।"
 )
 
@@ -282,7 +282,7 @@
 #v(10pt)
 
 #info-box(title: "RTechLab मास्टर हैंडबुक की 5 अद्वितीय प्रतिबद्धताएं (Why This Book Guarantees Success)")[
-  - #text(weight: "bold")[1. 100% ओरिजिनल 2025 स्क्रीनशॉट्स:] वास्तविक सर्वर मैनेजर, एक्टिव डायरेक्टरी, GPO एवं DNS आर्किटेक्चर फ्लो।
+  - #text(weight: "bold")[1. 100% ओरिजिनल 2025 स्क्रीनशॉट्स:] वास्तविक #hl-yellow[सर्वर मैनेजर], एक्टिव डायरेक्टरी, GPO एवं DNS आर्किटेक्चर फ्लो।
   - #text(weight: "bold")[2. 3-कलर स्टडी हाइलाइटर सिस्टम:] #hl-yellow[पीला (कोर सिद्धांत)], #hl-orange[नारंगी (सुरक्षा नियम व चेतावनियां)], और #hl-green[हरा (कमांड्स व क्लिक स्टेप्स)]।
   - #text(weight: "bold")[3. 1-क्लिक इंटरैक्टिव नेविगेशन:] इंडेक्स के किसी भी अध्याय पर टैप करके सीधे उस पेज पर पहुंचें, और हेडर से 1 टैप में वापस आएं।
   - #text(weight: "bold")[4. प्रत्येक अध्याय के अंत मेंDid You Know व MCQs:] सेमेस्टर परीक्षा, प्रमाणन और कॉर्पोरेट असेसमेंट टेस्ट की 100% तैयारी।

@@ -8,10 +8,10 @@
   chapter-num: "CHAPTER 04",
   category: "भाग 4 : केंद्रीय पहचान एवं डायरेक्टरी सर्विसेज (Identity & Directory Services)",
   title: "एक्टिव डायरेक्टरी डोमेन सर्विसेज (AD DS) एवं डोमेन कंट्रोलर प्रमोशन",
-  subtitle: "AD DS कोर आर्किटेक्चर · लॉजिकल (Forest, Domain, OU) व फिजिकल (Sites) संरचना · Add Roles Wizard · रूट DC (corp.rtechlab.local) · DSRM पासवर्ड · 5 FSMO रोल्स"
+  subtitle: "AD DS कोर आर्किटेक्चर · लॉजिकल (Forest, Domain, OU) व फिजिकल (Sites) संरचना · Add Roles Wizard · रूट DC (corp.rtechlab.local) · #hl-orange[DSRM] पासवर्ड · 5 FSMO रोल्स"
 )
 
-=== 4.1 एक्टिव डायरेक्टरी क्या है? (What is Active Directory Domain Services?)
+=== 4.1 एक्टिव डायरेक्टरी क्या है? (What is #hl-yellow[Active Directory Domain Services]?)
 एक साधारण वर्कग्रुप नेटवर्क (Workgroup) में प्रत्येक कंप्यूटर का अपना अलग स्थानीय यूजर डेटाबेस होता है (SAM - Security Accounts Manager)। यदि किसी कंपनी में 500 कंप्यूटर हैं और एक नया कर्मचारी शामिल होता है, तो एडमिन को सभी 500 कंप्यूटरों पर जाकर अलग-अलग यूजर अकाउंट बनाना पड़ेगा!
 
 #mark-yellow[एक्टिव डायरेक्टरी डोमेन सर्विसेज (AD DS) माइक्रोसॉफ्ट की एक केंद्रीकृत डायरेक्टरी सेवा (Centralized Directory Service) है जो संपूर्ण संगठन के सभी यूजर्स, कंप्यूटर्स, ग्रुप्स, और नेटवर्क संसाधनों की जानकारी को एक ही सुरक्षित डेटाबेस में संग्रहीत एवं प्रबंधित करती है।]
@@ -69,12 +69,12 @@
 === 4.4 प्रैक्टिकल लैब: Add Roles and Features Wizard द्वारा AD DS रोल इंस्टॉलेशन
 अब हम अपनी वर्चुअल मशीन `SRV-2025-DC01` पर एक्टिव डायरेक्टरी रोल स्थापित करेंगे:
 
-1. Server Manager खोलें और शीर्ष दाईं ओर स्थित #hl-green['Manage'] मेनू पर क्लिक करके #hl-yellow['Add Roles and Features'] चुनें।
+1. #hl-yellow[Server Manager] खोलें और शीर्ष दाईं ओर स्थित #hl-green['Manage'] मेनू पर क्लिक करके #hl-yellow['Add Roles and Features'] चुनें।
 2. 'Before You Begin' स्क्रीन पर 'Next' दबाएं।
 3. Installation Type में #hl-yellow['Role-based or feature-based installation'] चुनकर 'Next' दबाएं।
 4. Server Selection में सुनिश्चित करें कि पूल में आपकी मशीन #hl-green[`SRV-2025-DC01 (192.168.1.10)`] चुनी हुई है। 'Next' दबाएं।
 5. Server Roles सूची में #mark-yellow[Active Directory Domain Services] चेकबॉक्स पर टिक करें।
-6. एक पॉप-अप विंडो खुलेगी: 'Add Features that are required for Active Directory Domain Services' (RSAT टूल्स शामिल)। #hl-green['Add Features'] पर क्लिक करें और 'Next' दबाएं।
+6. एक पॉप-अप विंडो खुलेगी: 'Add Features that are required for #hl-yellow[Active Directory Domain Services]' (RSAT टूल्स शामिल)। #hl-green['Add Features'] पर क्लिक करें और 'Next' दबाएं।
 7. Features स्क्रीन पर डिफ़ॉल्ट चयन रहने दें और 'Next' दबाएं।
 8. Confirmation स्क्रीन पर 'Restart the destination server automatically if required' को अनचेक रहने दें और #hl-green['Install'] पर क्लिक करें।
 9. 2 से 3 मिनट में रोल इंस्टॉलेशन पूर्ण हो जाएगा। 'Close' पर क्लिक करें।
@@ -84,14 +84,14 @@
 === 4.5 प्रैक्टिकल लैब: सर्वर को रूट डोमेन कंट्रोलर प्रमोट करना (DC Promotion)
 रोल इंस्टॉल होने के बाद सर्वर अपने आप DC नहीं बनता। उसे प्रमोट करना पड़ता है:
 
-1. Server Manager के शीर्ष पर स्थित पीले रंग के चेतावनी झंडे (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) पर क्लिक करें।
+1. #hl-yellow[Server Manager] के शीर्ष पर स्थित पीले रंग के चेतावनी झंडे (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) पर क्लिक करें।
 2. नीले रंग के लिंक पर क्लिक करें: #mark-green[Promote this server to a domain controller]।
 3. #text(weight: "bold")[Deployment Configuration:] चूंकि हम पहली बार नया डोमेन बना रहे हैं, इसलिए तीसरा विकल्प चुनें: #hl-yellow['Add a new forest']।
    - Root domain name में लिखें: #hl-green[`corp.rtechlab.local`]। 'Next' दबाएं।
 4. #text(weight: "bold")[Domain Controller Options:]
    - Forest & Domain functional level: #hl-green[Windows Server 2025] (नवीनतम सुरक्षा सुविधाओं के लिए)।
    - 'Domain Name System (DNS) server' और 'Global Catalog (GC)' को चेक रहने दें।
-   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (DSRM) Password:] यह आपदा के समय AD डेटाबेस को रिस्टोर करने का मास्टर रिकवरी पासवर्ड होता है। एक मजबूत पासवर्ड दर्ज करें (उदा. #hl-green[`Dsrm@2025!`])। 'Next' दबाएं।
+   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (#hl-orange[DSRM]) Password:] यह आपदा के समय AD डेटाबेस को रिस्टोर करने का मास्टर रिकवरी पासवर्ड होता है। एक मजबूत पासवर्ड दर्ज करें (उदा. #hl-green[`Dsrm@2025!`])। 'Next' दबाएं।
 5. #text(weight: "bold")[DNS Options:] 'A delegation for this DNS server cannot be created...' की सामान्य पीली चेतावनी आएगी, इसे अनदेखा करके सीधे 'Next' दबाएं।
 6. #text(weight: "bold")[Additional Options:] विज़ार्ड स्वतः NetBIOS नाम जनरेट करेगा: #hl-yellow[`CORP`]। 'Next' दबाएं।
 7. #text(weight: "bold")[Paths:] डेटाबेस, लॉग और SYSVOL के डिफ़ॉल्ट पाथ रहने दें (`C:\Windows\NTDS` और `C:\Windows\SYSVOL`)। 'Next' दबाएं।
@@ -131,7 +131,7 @@
       1. #text(weight: "bold")[Schema Master:] पूरे फ़ॉरेस्ट में AD के स्कीमा (क्लास और एट्रीब्यूट्स) में होने वाले बदलावों को नियंत्रित करता है (जैसे Exchange सर्वर इंस्टॉल करते समय)।
       2. #text(weight: "bold")[Domain Naming Master:] फ़ॉरेस्ट में नए डोमेन को जोड़ने या पुराने डोमेन को हटाने का विशेष अधिकार रखता है।
     - #text(weight: "bold", fill: rtech-emerald)[डोमेन-वाइड रोल्स (फ़ॉरेस्ट के प्रत्येक डोमेन में 1-1 DC पर):]
-      3. #text(weight: "bold")[PDC Emulator (सर्वोच्च महत्वपूर्ण रोल):] Kerberos पासवर्ड बदलावों की तत्काल प्रोसेसिंग, टाइम सिंक्रोनाइज़ेशन (NTP Master), ग्रुप पॉलिसी संपादन और अकाउंट लॉकआउट संभालता है।
+      3. #text(weight: "bold")[PDC Emulator (सर्वोच्च महत्वपूर्ण रोल):] #hl-orange[Kerberos] पासवर्ड बदलावों की तत्काल प्रोसेसिंग, टाइम सिंक्रोनाइज़ेशन (NTP Master), ग्रुप पॉलिसी संपादन और अकाउंट लॉकआउट संभालता है।
       4. #text(weight: "bold")[RID Master (Relative ID Master):] जब भी कोई नया यूजर/ग्रुप बनता है, उसे एक यूनिक SID मिलता है। RID Master प्रत्येक DC को 500 RIDs का एक पूल आवंटित करता है ताकि SIDs डुप्लिकेट न हों।
       5. #text(weight: "bold")[Infrastructure Master:] मल्टी-डोमेन एनवायरनमेंट में अन्य डोमेन के ग्रुप्स में शामिल यूजर्स के क्रॉस-डोमेन रेफरेंस (GUID और SID मैपिंग) को अपडेट रखता है।
   ]
@@ -251,8 +251,8 @@
 
 #interview-item(
   num: "3",
-  q: "इंटरव्यूअर: 'DSRM (Directory Services Restore Mode) पासवर्ड क्या है, और यह सामान्य डोमेन एडमिन पासवर्ड से कैसे अलग है?'",
-  a: "उत्तर: डोमेन एडमिन का पासवर्ड एक्टिव डायरेक्टरी डेटाबेस (ntds.dit) के अंदर स्टोर होता है। यदि AD डेटाबेस करप्ट हो जाए या सर्वर Safe Mode (DSRM) में बूट हो जहाँ AD सर्विसेज बंद होती हैं, तो डोमेन एडमिन लॉगिन काम नहीं करेगा। ऐसे आपातकाल में सर्वर के लोकल SAM डेटाबेस में केवल DSRM पासवर्ड ही काम करता है जिसके जरिए डेटाबेस रिस्टोर किया जाता है।",
+  q: "इंटरव्यूअर: '#hl-orange[DSRM] (#hl-orange[Directory Services Restore Mode]) पासवर्ड क्या है, और यह सामान्य डोमेन एडमिन पासवर्ड से कैसे अलग है?'",
+  a: "उत्तर: डोमेन एडमिन का पासवर्ड एक्टिव डायरेक्टरी डेटाबेस (ntds.dit) के अंदर स्टोर होता है। यदि AD डेटाबेस करप्ट हो जाए या सर्वर Safe Mode (#hl-orange[DSRM]) में बूट हो जहाँ AD सर्विसेज बंद होती हैं, तो डोमेन एडमिन लॉगिन काम नहीं करेगा। ऐसे आपातकाल में सर्वर के लोकल SAM डेटाबेस में केवल #hl-orange[DSRM] पासवर्ड ही काम करता है जिसके जरिए डेटाबेस रिस्टोर किया जाता है।",
   tip: "यह उत्तर सिद्ध करता है कि आप केवल टूल्स नहीं चलाते, बल्कि इंटरनल रिकवरी आर्किटेक्चर को समझते हैं।"
 )
 

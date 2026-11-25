@@ -61,7 +61,7 @@ Our hands-on training lab consists of two core virtual machines communicating ac
 
 #v(4pt)
 
-- #text(weight: "bold", fill: rtech-blue)[VM 1 (Primary DC - `SRV-2025-DC01`):] Our authoritative Domain Controller running Windows Server 2025 Datacenter. It hosts the Active Directory Domain Services (AD DS), DNS Server, DHCP Server, and File & Storage roles.
+- #text(weight: "bold", fill: rtech-blue)[VM 1 (Primary DC - `SRV-2025-DC01`):] Our authoritative Domain Controller running Windows Server 2025 Datacenter. It hosts the #hl-yellow[Active Directory Domain Services] (AD DS), DNS Server, DHCP Server, and File & Storage roles.
 - #text(weight: "bold", fill: rtech-emerald)[VM 2 (Client PC - `CLT-WIN11-01`):] An enterprise end-user workstation running Windows 10 or Windows 11 Pro, which will be joined to our corporate domain for directory policy testing.
 
 #v(6pt)
@@ -118,8 +118,8 @@ Microsoft provides a 180-day, full-featured evaluation license of Windows Server
 
 #v(4pt)
 
-#warning-box(title: "Avoid the Critical Pitfall: Server Core vs Desktop Experience")[
-  The OS selection dialog displays four edition options. If you accidentally choose 'Windows Server 2025 Datacenter' (without parentheses), the installer will deploy #hl-orange[Server Core (a headless environment with only a black command prompt)]—offering no graphical desktop, no Start menu, and no mouse support! Always explicitly highlight and select #mark-green[Windows Server 2025 Datacenter (Desktop Experience)], which installs the full Graphical User Interface (GUI) and Server Manager.
+#warning-box(title: "Avoid the Critical Pitfall: #hl-yellow[Server Core] vs Desktop Experience")[
+  The OS selection dialog displays four edition options. If you accidentally choose 'Windows Server 2025 Datacenter' (without parentheses), the installer will deploy #hl-orange[Server Core (a headless environment with only a black command prompt)]—offering no graphical desktop, no Start menu, and no mouse support! Always explicitly highlight and select #mark-green[Windows Server 2025 Datacenter (Desktop Experience)], which installs the full Graphical User Interface (GUI) and #hl-yellow[Server Manager].
 ]
 
 #v(6pt)
@@ -146,7 +146,7 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
 // CHAPTER 02 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  According to Microsoft engineering telemetry, over 70% of Windows Server instances running in global production enterprise datacenters are deployed in #hl-yellow[Server Core] mode without a GUI. By stripping away graphical shells, Server Core reduces RAM overhead by 60%, shrinks the disk footprint to under 10 GB, and eliminates graphical vulnerability surfaces—slashing required security reboot cycles by up to 50%!
+  According to Microsoft engineering telemetry, over 70% of Windows Server instances running in global production enterprise datacenters are deployed in #hl-yellow[Server Core] mode without a GUI. By stripping away graphical shells, #hl-yellow[Server Core] reduces RAM overhead by 60%, shrinks the disk footprint to under 10 GB, and eliminates graphical vulnerability surfaces—slashing required security reboot cycles by up to 50%!
 ]
 
 #v(6pt)
@@ -169,8 +169,8 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
 
 #mcq-item(
   num: "2",
-  q: "Which edition option must be explicitly selected during Windows Server 2025 setup to install the full graphical desktop and Server Manager?",
-  optA: "Server Core Edition",
+  q: "Which edition option must be explicitly selected during Windows Server 2025 setup to install the full graphical desktop and #hl-yellow[Server Manager]?",
+  optA: "#hl-yellow[Server Core] Edition",
   optB: "Desktop Experience",
   optC: "Nano Server Edition",
   optD: "Hyper-V Server Edition",
@@ -224,8 +224,8 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
 
 #interview-item(
   num: "1",
-  q: "Interviewer: 'When architecting production enterprise servers, do you recommend Server Core or Desktop Experience, and what is your rationale?'",
-  a: "Answer: In production environments, enterprise best practices mandate deploying 'Server Core' wherever supported. Server Core minimizes the operating system attack surface by removing GUI binaries, reduces RAM/CPU footprint, and decreases the volume of patches and reboots. Day-to-day administration is conducted remotely via RSAT, PowerShell Remoting, or Windows Admin Center.",
+  q: "Interviewer: 'When architecting production enterprise servers, do you recommend #hl-yellow[Server Core] or Desktop Experience, and what is your rationale?'",
+  a: "Answer: In production environments, enterprise best practices mandate deploying '#hl-yellow[Server Core]' wherever supported. #hl-yellow[Server Core] minimizes the operating system attack surface by removing GUI binaries, reduces RAM/CPU footprint, and decreases the volume of patches and reboots. Day-to-day administration is conducted remotely via RSAT, PowerShell Remoting, or Windows Admin Center.",
   tip: "This response demonstrates that you possess seasoned enterprise operational acumen beyond simple desktop-centric thinking."
 )
 
@@ -298,7 +298,7 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
     #text(size: 7.5pt, fill: rtech-text)[
       - [ ] Virtual machine `SRV-2025-DC01` boots and passes POST successfully.
       - [ ] Local built-in `Administrator` complex password has been securely recorded.
-      - [ ] Server Manager Dashboard opens automatically upon logon without service initialization errors.
+      - [ ] #hl-yellow[Server Manager] Dashboard opens automatically upon logon without service initialization errors.
     ]
   ]
 )

@@ -1,14 +1,14 @@
 // =============================================================================
-// CHAPTER 10: FILE SERVER RESOURCE MANAGER (FSRM), NTFS & QUOTA MANAGEMENT
+// CHAPTER 10: FILE SERVER RESOURCE MANAGER (#hl-orange[FSRM]), NTFS & QUOTA MANAGEMENT
 // =============================================================================
 
 [#metadata("ch10") <chapter-10>]
 
 #chapter-header(
   chapter-num: "CHAPTER 10",
-  category: "PART 10: STORAGE, SHARING & FILE RESOURCE MANAGEMENT (Storage & FSRM)",
-  title: "File Server Resource Manager (FSRM), NTFS Permissions & Quota Management",
-  subtitle: "Shared Folders · SMB 3.1.1 · Share vs NTFS Permissions (Effective Formula) · FSRM Role · Hard vs Soft Storage Quotas · File Screening (MP3/EXE Blocking) · Storage Reports"
+  category: "PART 10: STORAGE, SHARING & FILE RESOURCE MANAGEMENT (Storage & #hl-orange[FSRM])",
+  title: "File Server Resource Manager (#hl-orange[FSRM]), NTFS Permissions & Quota Management",
+  subtitle: "Shared Folders · SMB 3.1.1 · Share vs NTFS Permissions (Effective Formula) · #hl-orange[FSRM] Role · Hard vs Soft Storage Quotas · File Screening (MP3/EXE Blocking) · Storage Reports"
 )
 
 === 10.1 Enterprise File Sharing Architecture & SMB 3.1.1 Protocol
@@ -86,10 +86,10 @@ When a user attempts to access a shared file or folder over the network, Windows
 
 #v(6pt)
 
-=== 10.4 Installing the File Server Resource Manager (FSRM) Role
-FSRM is Microsoft's advanced storage management toolset that enables administrators to classify data, restrict storage consumption, and prevent unauthorized file types from clogging corporate volumes:
+=== 10.4 Installing the File Server Resource Manager (#hl-orange[FSRM]) Role
+#hl-orange[FSRM] is Microsoft's advanced storage management toolset that enables administrators to classify data, restrict storage consumption, and prevent unauthorized file types from clogging corporate volumes:
 
-1. Open Server Manager -> Navigate to #hl-green[Add Roles and Features].
+1. Open #hl-yellow[Server Manager] -> Navigate to #hl-green[Add Roles and Features].
 2. Under Server Roles -> Expand #text(weight: "bold")[File and Storage Services] -> Expand #text(weight: "bold")[File and iSCSI Services].
 3. Check the box for #mark-yellow[File Server Resource Manager].
 4. Select 'Add Features' to include the RSAT management tools, then click 'Install'.
@@ -136,7 +136,7 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
 // CHAPTER 10 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  Windows Server includes a powerful feature called #hl-yellow[Volume Shadow Copies (VSS / Previous Versions)]. If an employee accidentally overwrites or deletes an Excel spreadsheet after hours of work, administrators do not need to retrieve backup tapes! The user simply right-clicks the parent folder or file, selects #hl-green['Restore previous versions'], and autonomously restores the 9:00 AM snapshot without any helpdesk assistance!
+  Windows Server includes a powerful feature called #hl-yellow[Volume Shadow Copies (#hl-green[VSS] / Previous Versions)]. If an employee accidentally overwrites or deletes an Excel spreadsheet after hours of work, administrators do not need to retrieve backup tapes! The user simply right-clicks the parent folder or file, selects #hl-green['Restore previous versions'], and autonomously restores the 9:00 AM snapshot without any helpdesk assistance!
 ]
 
 #v(6pt)
@@ -199,12 +199,12 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
 #mcq-item(
   num: "5",
   q: "On which standard network port does SMB 3.1.1 file sharing operate by default in Windows Server 2025?",
-  optA: "TCP Port 80",
-  optB: "TCP Port 445",
-  optC: "TCP Port 3389",
-  optD: "UDP Port 53",
+  optA: "TCP #hl-green[Port 80]",
+  optB: "TCP #hl-green[Port 445]",
+  optC: "TCP #hl-green[Port 3389]",
+  optD: "#hl-green[UDP Port 53]",
   ans: "B",
-  exp: "SMB (Server Message Block) operates officially over TCP Port 445."
+  exp: "SMB (Server Message Block) operates officially over TCP #hl-green[Port 445]."
 )
 
 #v(6pt)
@@ -241,8 +241,8 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
 
 #interview-item(
   num: "4",
-  q: "Interviewer: 'What is Volume Shadow Copies (VSS), and how much disk space does it allocate by default?'",
-  a: "Answer: VSS captures point-in-time, block-level delta snapshots of a volume. Instead of duplicating entire files, it preserves only changed blocks within 'System Volume Information'. By default, it reserves up to 10% of the volume capacity and enables self-service user recovery via the 'Previous Versions' tab.",
+  q: "Interviewer: 'What is Volume Shadow Copies (#hl-green[VSS]), and how much disk space does it allocate by default?'",
+  a: "Answer: #hl-green[VSS] captures point-in-time, block-level delta snapshots of a volume. Instead of duplicating entire files, it preserves only changed blocks within 'System Volume Information'. By default, it reserves up to 10% of the volume capacity and enables self-service user recovery via the 'Previous Versions' tab.",
   tip: "A core interview topic for storage disaster recovery and backup administrator roles."
 )
 
@@ -268,7 +268,7 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
     #text(size: 7.5pt, fill: rtech-text)[
       - Effective permissions adhere to the 'Most Restrictive' rule; assign broad Share permissions and control security via NTFS ACLs.
       - FSRM Hard Quotas prevent volume exhaustion, while File Screening blocks unauthorized non-business media (MP3/MP4).
-      - VSS Shadow Copies and Access-Based Enumeration (ABE) dramatically enhance file server resiliency and user satisfaction.
+      - #hl-green[VSS] Shadow Copies and Access-Based Enumeration (ABE) dramatically enhance file server resiliency and user satisfaction.
     ]
   ]
 )

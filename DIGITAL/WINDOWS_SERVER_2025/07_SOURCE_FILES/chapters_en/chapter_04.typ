@@ -7,11 +7,11 @@
 #chapter-header(
   chapter-num: "CHAPTER 04",
   category: "PART 4: Centralized Identity & Directory Services",
-  title: "Active Directory Domain Services (AD DS) & Domain Controller Promotion",
-  subtitle: "AD DS Core Architecture · Logical (Forest, Domain, OU) & Physical (Sites) Hierarchy · Add Roles Wizard · Root DC (corp.rtechlab.local) · DSRM Password · 5 FSMO Roles"
+  title: "#hl-yellow[Active Directory Domain Services] (AD DS) & Domain Controller Promotion",
+  subtitle: "AD DS Core Architecture · Logical (Forest, Domain, OU) & Physical (Sites) Hierarchy · Add Roles Wizard · Root DC (corp.rtechlab.local) · #hl-orange[DSRM] Password · 5 FSMO Roles"
 )
 
-=== 4.1 What is Active Directory Domain Services? (Core Architecture)
+=== 4.1 What is #hl-yellow[Active Directory Domain Services]? (Core Architecture)
 In a legacy, unmanaged peer-to-peer Workgroup network, every computer maintains its own isolated local security database known as the SAM (Security Accounts Manager). If an organization employs 500 computers and onboards a new employee, an IT administrator would literally have to walk to all 500 machines to manually create that user account!
 
 #mark-yellow[Active Directory Domain Services (AD DS) is Microsoft's distributed, centralized directory service that stores, organizes, and secures authentication credentials and access privileges for all users, computers, groups, and peripheral resources across an entire enterprise within a single master database.]
@@ -67,14 +67,14 @@ While the logical structure governs *how resources are grouped administratively*
 #v(6pt)
 
 === 4.4 Hands-On Lab: Installing the AD DS Server Role via Wizard
-We will now install the Active Directory Domain Services role on our prepared virtual machine `SRV-2025-DC01`:
+We will now install the #hl-yellow[Active Directory Domain Services] role on our prepared virtual machine `SRV-2025-DC01`:
 
-1. Launch Server Manager, click the #hl-green['Manage'] menu at the top-right corner, and select #hl-yellow['Add Roles and Features'].
+1. Launch #hl-yellow[Server Manager], click the #hl-green['Manage'] menu at the top-right corner, and select #hl-yellow['Add Roles and Features'].
 2. On the 'Before You Begin' page, click 'Next'.
 3. For Installation Type, select #hl-yellow['Role-based or feature-based installation'] and click 'Next'.
 4. Under Server Selection, verify that your machine #hl-green[`SRV-2025-DC01 (192.168.1.10)`] is highlighted in the server pool, then click 'Next'.
 5. In the Server Roles tree, check the box for #mark-yellow[Active Directory Domain Services].
-6. In the pop-up dialog 'Add features that are required for Active Directory Domain Services' (which includes RSAT administration tools), click #hl-green['Add Features'], then click 'Next'.
+6. In the pop-up dialog 'Add features that are required for #hl-yellow[Active Directory Domain Services]' (which includes RSAT administration tools), click #hl-green['Add Features'], then click 'Next'.
 7. On the Features page, retain the default selections and click 'Next'.
 8. On the Confirmation page, leave 'Restart the destination server automatically if required' unchecked and click #hl-green['Install'].
 9. The role installation will conclude in approximately 2 to 3 minutes. Click 'Close'.
@@ -84,14 +84,14 @@ We will now install the Active Directory Domain Services role on our prepared vi
 === 4.5 Hands-On Lab: Promoting the Server to a Root Domain Controller
 Installing the role binaries does not automatically make the server a Domain Controller. It must be formally promoted:
 
-1. Click the yellow notification flag (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) at the top of Server Manager.
+1. Click the yellow notification flag (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) at the top of #hl-yellow[Server Manager].
 2. Click the highlighted blue action link: #mark-green[Promote this server to a domain controller].
 3. #text(weight: "bold")[Deployment Configuration:] Because this is our first domain, select the third radio button: #hl-yellow['Add a new forest'].
    - In the Root domain name field, type: #hl-green[`corp.rtechlab.local`]. Click 'Next'.
 4. #text(weight: "bold")[Domain Controller Options:]
    - Forest & Domain functional levels: Set to #hl-green[Windows Server 2025] (unlocking modern directory security algorithms).
    - Ensure 'Domain Name System (DNS) server' and 'Global Catalog (GC)' remain checked.
-   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (DSRM) Password:] This is the emergency master recovery password used when restoring AD databases offline. Assign a strong recovery password (e.g., #hl-green[`Dsrm@2025!`]). Click 'Next'.
+   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (#hl-orange[DSRM]) Password:] This is the emergency master recovery password used when restoring AD databases offline. Assign a strong recovery password (e.g., #hl-green[`Dsrm@2025!`]). Click 'Next'.
 5. #text(weight: "bold")[DNS Options:] A warning stating 'A delegation for this DNS server cannot be created...' will appear. This is normal in private top-level domains; ignore it and click 'Next'.
 6. #text(weight: "bold")[Additional Options:] The wizard automatically derives the legacy NetBIOS domain name: #hl-yellow[`CORP`]. Click 'Next'.
 7. #text(weight: "bold")[Paths:] Retain the default directory storage paths for the database, log files, and SYSVOL (`C:\Windows\NTDS` and `C:\Windows\SYSVOL`). Click 'Next'.
@@ -131,7 +131,7 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
       1. #text(weight: "bold")[Schema Master:] Coordinates all schema modifications, additions, and class/attribute updates across the entire forest (e.g., during Exchange or Lync schema prep).
       2. #text(weight: "bold")[Domain Naming Master:] Authorizes the creation, renaming, or decommission of domains and application directory partitions within the forest.
     - #text(weight: "bold", fill: rtech-emerald)[Domain-Wide Roles (Exactly 1 DC per Domain):]
-      3. #text(weight: "bold")[PDC Emulator (Most Critical Role):] Serves as the authoritative domain master for Kerberos password updates, immediate lockout processing, authoritative NTP time synchronization, and Group Policy editing.
+      3. #text(weight: "bold")[PDC Emulator (Most Critical Role):] Serves as the authoritative domain master for #hl-orange[Kerberos] password updates, immediate lockout processing, authoritative NTP time synchronization, and Group Policy editing.
       4. #text(weight: "bold")[RID Master (Relative ID Master):] Allocates pools of 500 Relative Identifiers (RIDs) to each Domain Controller, ensuring security principals (Users, Groups, Computers) never receive duplicate Security Identifiers (SIDs).
       5. #text(weight: "bold")[Infrastructure Master:] Updates cross-domain object references (such as inter-domain group memberships) by maintaining mappings between object GUIDs and SIDs in multi-domain environments.
   ]
@@ -218,12 +218,12 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
 #mcq-item(
   num: "5",
   q: "Which dedicated network port does the Global Catalog (GC) utilize to listen for cross-domain search queries?",
-  optA: "Port 80 (HTTP)",
-  optB: "Port 389 (Standard LDAP)",
+  optA: "#hl-green[Port 80] (HTTP)",
+  optB: "#hl-green[Port 389] (Standard LDAP)",
   optC: "Port 3268 (LDAP GC)",
-  optD: "Port 445 (SMB)",
+  optD: "#hl-green[Port 445] (SMB)",
   ans: "C",
-  exp: "Standard LDAP queries use Port 389, while Global Catalog queries across the entire forest use Port 3268 (or 3269 over SSL)."
+  exp: "Standard LDAP queries use #hl-green[Port 389], while Global Catalog queries across the entire forest use Port 3268 (or 3269 over SSL)."
 )
 
 #v(6pt)
@@ -234,7 +234,7 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
 #interview-item(
   num: "1",
   q: "Interviewer: 'What enterprise consequences occur if the Domain Controller hosting the PDC Emulator role experiences an unrecoverable crash?'",
-  a: "Answer: The domain does not immediately fail, but significant operational anomalies emerge: 1. Password modifications made by users do not replicate immediately, causing authentication failures if they hit other DCs, 2. Bad password attempt counts will not trigger instant account lockouts, 3. Domain member clocks will begin drifting (leading to Kerberos time skew failures), and 4. Editing GPOs in GPMC will warn of a missing default DC. The PDC Emulator role must be seized to an online DC immediately.",
+  a: "Answer: The domain does not immediately fail, but significant operational anomalies emerge: 1. Password modifications made by users do not replicate immediately, causing authentication failures if they hit other DCs, 2. Bad password attempt counts will not trigger instant account lockouts, 3. Domain member clocks will begin drifting (leading to #hl-orange[Kerberos] time skew failures), and 4. Editing GPOs in GPMC will warn of a missing default DC. The PDC Emulator role must be seized to an online DC immediately.",
   tip: "A signature technical interview scenario for L2 Directory Services roles at HCL, Infosys, and Tech Mahindra."
 )
 
@@ -251,8 +251,8 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
 
 #interview-item(
   num: "3",
-  q: "Interviewer: 'What is the DSRM (Directory Services Restore Mode) password, and how does it differ from the Domain Administrator password?'",
-  a: "Answer: Domain Administrator credentials reside within the Active Directory database (ntds.dit). If the AD database becomes corrupted or if the server boots into Safe Mode / DSRM where AD DS services are offline, domain authentication cannot function. The DSRM password is a local administrator credential stored in the server's local SAM registry hive, used exclusively to access the machine offline and restore AD backups.",
+  q: "Interviewer: 'What is the #hl-orange[DSRM] (#hl-orange[Directory Services Restore Mode]) password, and how does it differ from the Domain Administrator password?'",
+  a: "Answer: Domain Administrator credentials reside within the Active Directory database (ntds.dit). If the AD database becomes corrupted or if the server boots into Safe Mode / #hl-orange[DSRM] where AD DS services are offline, domain authentication cannot function. The #hl-orange[DSRM] password is a local administrator credential stored in the server's local SAM registry hive, used exclusively to access the machine offline and restore AD backups.",
   tip: "Proves you understand bare-metal disaster recovery and offline directory maintenance architecture."
 )
 

@@ -7,8 +7,8 @@
 #chapter-header(
   chapter-num: "CHAPTER 13",
   category: "PART 13: ENTERPRISE DISASTER RECOVERY & SYSTEM BACKUP",
-  title: "Enterprise Backup, Disaster Recovery & Active Directory Recycle Bin",
-  subtitle: "3-2-1 Enterprise Backup Strategy · Windows Server Backup · Full vs System State Backup · Enabling AD Recycle Bin · 1-Click Online Restore · wbadmin Scripting"
+  title: "Enterprise Backup, Disaster Recovery & #hl-yellow[Active Directory Recycle Bin]",
+  subtitle: "3-2-1 Enterprise Backup Strategy · #hl-yellow[Windows Server Backup] · Full vs #hl-yellow[System State Backup] · Enabling AD Recycle Bin · 1-Click Online Restore · wbadmin Scripting"
 )
 
 === 13.1 Enterprise Backup Strategy: The Golden 3-2-1 Rule
@@ -24,7 +24,7 @@ The true measure of a seasoned systems administrator is not how smoothly things 
       #image("../02_BRAND_ASSETS/screenshots/backup_disaster_recovery_flow.png", width: 78%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 13.1: 3-2-1 Enterprise Backup Architecture & Active Directory Recycle Bin 1-Click Live Recovery]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 13.1: 3-2-1 Enterprise Backup Architecture & #hl-yellow[Active Directory Recycle Bin] 1-Click Live Recovery]
 ]
 
 #v(4pt)
@@ -45,17 +45,17 @@ The true measure of a seasoned systems administrator is not how smoothly things 
 
 #v(6pt)
 
-=== 13.2 Installing the Windows Server Backup Feature
+=== 13.2 Installing the #hl-yellow[Windows Server Backup] Feature
 Microsoft provides a robust, native backup solution built directly into Windows Server:
 
-1. Open Server Manager -> click #hl-green[Add Roles and Features].
+1. Open #hl-yellow[Server Manager] -> click #hl-green[Add Roles and Features].
 2. Click 'Next' through the installation wizard to reach the Features screen.
 3. Scroll through the features list and check: #mark-yellow[Windows Server Backup].
 4. Click 'Install'. This feature provisions both the graphical management console (`wbadmin.msc`) and the powerful command-line utility (`wbadmin.exe`).
 
 #v(6pt)
 
-=== 13.3 Full Server Backup vs. System State Backup
+=== 13.3 Full Server Backup vs. #hl-yellow[System State Backup]
 - #text(weight: "bold", fill: rtech-navy)[Bare Metal Recovery (BMR):] A comprehensive backup encompassing the entire server operating environment (system volume C:, boot partitions, installed applications, drivers, and local state). If physical hardware suffers catastrophic failure or fire, bare metal recovery allows complete restoration onto unformatted bare hardware.
 - #text(weight: "bold", fill: rtech-blue)[System State Backup:] The most critical backup for an Active Directory Domain Controller. It captures exclusively the vital system components necessary to reconstruct directory services:
   1. #hl-yellow[Active Directory Database (`ntds.dit`)]
@@ -64,17 +64,17 @@ Microsoft provides a robust, native backup solution built directly into Windows 
   4. #hl-green[Boot Files and System Startup Binaries]
   5. #hl-green[Certificate Services Database (if AD CS is installed on the host)]
 
-*Master Command to Execute an Immediate System State Backup via CLI:*
+*Master Command to Execute an Immediate #hl-yellow[System State Backup] via CLI:*
 ```cmd
 wbadmin start systemstatebackup -backupTarget:E: -quiet
 ```
 
 #v(6pt)
 
-=== 13.4 Enabling the Active Directory Recycle Bin (AD Recycle Bin)
-In legacy Windows Server editions (2003/2008), inadvertently deleting an organizational unit (OU) or user account triggered an operational nightmare. Restoring the object required rebooting the Domain Controller into #hl-orange[Directory Services Restore Mode (DSRM)], taking services offline, and performing an 'Authoritative Restore' via `ntdsutil`—incurring 2 to 3 hours of critical enterprise downtime.
+=== 13.4 Enabling the #hl-yellow[Active Directory Recycle Bin] (AD Recycle Bin)
+In legacy Windows Server editions (2003/2008), inadvertently deleting an organizational unit (OU) or user account triggered an operational nightmare. Restoring the object required rebooting the Domain Controller into #hl-orange[Directory Services Restore Mode (#hl-orange[DSRM])], taking services offline, and performing an 'Authoritative Restore' via `ntdsutil`—incurring 2 to 3 hours of critical enterprise downtime.
 
-#mark-yellow[The Active Directory Recycle Bin is a game-changing capability that restores accidentally deleted directory objects live, in 1-click, with zero server reboots and zero service downtime!]
+#mark-yellow[The #hl-yellow[Active Directory Recycle Bin] is a game-changing capability that restores accidentally deleted directory objects live, in 1-click, with zero server reboots and zero service downtime!]
 
 *Official PowerShell Cmdlet to Enable the AD Recycle Bin:*
 ```powershell
@@ -82,7 +82,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
   -Scope ForestOrConfigurationSet -Target "corp.rtechlab.local"
 ```
 #warning-box(title: "Irreversible Action (Permanent Activation)")[
-  Once the Active Directory Recycle Bin feature is enabled across the forest, it cannot be disabled. It represents a permanent, highly secure, one-way architectural upgrade.
+  Once the #hl-yellow[Active Directory Recycle Bin] feature is enabled across the forest, it cannot be disabled. It represents a permanent, highly secure, one-way architectural upgrade.
 ]
 
 #v(6pt)
@@ -90,7 +90,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
 === 13.5 Live 1-Click Restoration of Deleted Users & OUs
 Once the AD Recycle Bin is enabled, deleted objects are not purged immediately; instead, they transition into the #hl-yellow[`Deleted Objects`] container while retaining their full attribute state (default tombstone lifetime: #hl-green[180 days]):
 
-1. Navigate to Server Manager -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] (or launch via Run: #mark-green[`dsac.exe`]).
+1. Navigate to #hl-yellow[Server Manager] -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] (or launch via Run: #mark-green[`dsac.exe`]).
 2. In the left navigation pane, select your domain `#text(weight: "bold")[corp (local)]`.
 3. In the management view, double-click the newly visible #mark-yellow[Deleted Objects] container.
 4. Locate the deleted user account (e.g., `Rahul Patel`).
@@ -105,7 +105,7 @@ Once the AD Recycle Bin is enabled, deleted objects are not purged immediately; 
 In enterprise production, administrators schedule automated daily backups at 11:00 PM via Windows Task Scheduler or administrative scripts:
 
 ```cmd
-:: Daily Unattended System State Backup Script
+:: Daily Unattended #hl-yellow[System State Backup] Script
 wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemState -include:C:
 ```
 
@@ -115,7 +115,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 // CHAPTER 13 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  When an object is deleted in Active Directory without the Recycle Bin enabled, it is not immediately purged; rather, it transitions into a stripped 'tombstone' state. While tombstones persist by default for 180 days, almost all critical object attributes—including passwords, group memberships, and contact details—are permanently stripped away. The Active Directory Recycle Bin solves this limitation by preserving 100% of an object's attributes in live, restorable form!
+  When an object is deleted in Active Directory without the Recycle Bin enabled, it is not immediately purged; rather, it transitions into a stripped 'tombstone' state. While tombstones persist by default for 180 days, almost all critical object attributes—including passwords, group memberships, and contact details—are permanently stripped away. The #hl-yellow[Active Directory Recycle Bin] solves this limitation by preserving 100% of an object's attributes in live, restorable form!
 ]
 
 #v(6pt)
@@ -138,13 +138,13 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #mcq-item(
   num: "2",
-  q: "Which of the following components is NOT included in an Active Directory Domain Controller's 'System State Backup'?",
+  q: "Which of the following components is NOT included in an Active Directory Domain Controller's '#hl-yellow[System State Backup]'?",
   optA: "Active Directory Database (ntds.dit)",
   optB: "SYSVOL Folder",
   optC: "System Registry",
   optD: "User personal video files stored on drive D:",
   ans: "D",
-  exp: "System State Backup captures operating system configuration and directory infrastructure files only, never arbitrary user data files."
+  exp: "#hl-yellow[System State Backup] captures operating system configuration and directory infrastructure files only, never arbitrary user data files."
 )
 
 #v(3pt)
@@ -178,12 +178,12 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #mcq-item(
   num: "5",
   q: "Which graphical management console provides direct access to the 'Deleted Objects' container for 1-click live recovery of deleted users?",
-  optA: "Active Directory Users and Computers (dsa.msc)",
-  optB: "Active Directory Administrative Center (dsac.exe)",
-  optC: "Group Policy Management Console (gpmc.msc)",
+  optA: "#hl-yellow[Active Directory Users and Computers] (dsa.msc)",
+  optB: "#hl-yellow[Active Directory Administrative Center] (dsac.exe)",
+  optC: "#hl-yellow[Group Policy Management Console] (gpmc.msc)",
   optD: "Disk Management (diskmgmt.msc)",
   ans: "B",
-  exp: "Active Directory Administrative Center (ADAC - dsac.exe) houses the graphical Deleted Objects container."
+  exp: "#hl-yellow[Active Directory Administrative Center] (ADAC - dsac.exe) houses the graphical Deleted Objects container."
 )
 
 #v(6pt)
@@ -221,7 +221,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "4",
   q: "Interviewer: 'Can you save a Windows Server System State Backup to the local C: volume where the operating system resides?'",
-  a: "Answer: No. Windows Server Backup explicitly prohibits storing a system state backup on the same volume (C:) that is being backed up. An administrator must target a dedicated physical or virtual disk (such as drive E:) or a remote SMB network share.",
+  a: "Answer: No. #hl-yellow[Windows Server Backup] explicitly prohibits storing a system state backup on the same volume (C:) that is being backed up. An administrator must target a dedicated physical or virtual disk (such as drive E:) or a remote SMB network share.",
   tip: "A crisp operational question that verifies real-world lab and implementation experience."
 )
 
@@ -247,8 +247,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #v(3pt)
     #text(size: 7.5pt, fill: rtech-text)[
       - #text(weight: "bold", fill: rtech-rose)[Error 1: 'The backup target volume is invalid':] Windows Server prohibits saving a backup on the active OS volume C:; always designate a dedicated secondary drive (E:) or SMB network share.
-      - #text(weight: "bold", fill: rtech-amber)[Error 2: 'VSS Writer timed out (Event ID 8229)':] Triggered by contention with third-party backup agents; verify service status using `vssadmin list writers`.
-      - #text(weight: "bold", fill: rtech-emerald)[Error 3: 'Recycle Bin Deleted Objects folder not appearing':] Close and relaunch Active Directory Administrative Center (ADAC) or press F5 to force a refresh.
+      - #text(weight: "bold", fill: rtech-amber)[Error 2: '#hl-green[VSS] Writer timed out (Event ID 8229)':] Triggered by contention with third-party backup agents; verify service status using `vssadmin list writers`.
+      - #text(weight: "bold", fill: rtech-emerald)[Error 3: 'Recycle Bin Deleted Objects folder not appearing':] Close and relaunch #hl-yellow[Active Directory Administrative Center] (ADAC) or press F5 to force a refresh.
     ]
   ]
 )
@@ -264,7 +264,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ Chapter 13 Verification Checklist (Disaster Recovery Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Windows Server Backup feature and PowerShell modules installed successfully.
+      - [ ] #hl-yellow[Windows Server Backup] feature and PowerShell modules installed successfully.
       - [ ] Active Directory Recycle Bin feature permanently enabled across the entire forest.
       - [ ] Validated 1-click live restoration of a deleted test user from ADAC's 'Deleted Objects' container.
     ]

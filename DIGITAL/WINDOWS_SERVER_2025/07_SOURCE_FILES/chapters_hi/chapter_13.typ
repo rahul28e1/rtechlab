@@ -8,7 +8,7 @@
   chapter-num: "CHAPTER 13",
   category: "भाग 13 : डिज़ास्टर रिकवरी एवं डेटा संरक्षण (Disaster Recovery & Backup)",
   title: "सर्वर बैकअप, डिज़ास्टर रिकवरी एवं एक्टिव डायरेक्टरी रीसायकल बिन",
-  subtitle: "3-2-1 एंटरप्राइज बैकअप रणनीति · Windows Server Backup · फुल vs सिस्टम स्टेट बैकअप · AD रीसायकल बिन सक्षम करना · डिलीटेड यूजर की 1-क्लिक रिकवरी · wbadmin ऑटोमेशन"
+  subtitle: "3-2-1 एंटरप्राइज बैकअप रणनीति · #hl-yellow[Windows Server Backup] · फुल vs #hl-yellow[सिस्टम स्टेट बैकअप] · AD रीसायकल बिन सक्षम करना · डिलीटेड यूजर की 1-क्लिक रिकवरी · wbadmin ऑटोमेशन"
 )
 
 === 13.1 एंटरप्राइज बैकअप रणनीति: 3-2-1 का स्वर्णिम सिद्धांत
@@ -45,26 +45,26 @@
 
 #v(6pt)
 
-=== 13.2 Windows Server Backup फीचर इंस्टॉलेशन
+=== 13.2 #hl-yellow[Windows Server Backup] फीचर इंस्टॉलेशन
 माइक्रोसॉफ्ट विंडोज सर्वर में एक इन-बिल्ट बैकअप समाधान प्रदान करता है:
 
-1. Server Manager -> #hl-green[Add Roles and Features] में जाएं।
+1. #hl-yellow[Server Manager] -> #hl-green[Add Roles and Features] में जाएं।
 2. Features स्क्रीन तक 'Next' दबाएं।
 3. सूची में खोजें: #mark-yellow[Windows Server Backup] चेकबॉक्स पर टिक करें।
 4. 'Install' पर क्लिक करें। यह टूल GUI कंसोल (`wbadmin.msc`) और पावरफुल कमांड-लाइन यूटिलिटी (`wbadmin.exe`) दोनों प्रदान करता है।
 
 #v(6pt)
 
-=== 13.3 फुल सर्वर बैकअप बनाम सिस्टम स्टेट बैकअप (System State Backup)
-- #text(weight: "bold", fill: rtech-navy)[बेयर मेटल रिकवरी (Bare Metal Recovery - BMR):] पूरे सर्वर (C: ड्राइव, सिस्टम पार्टिशन्स, एप्लीकेशंस और डेटा) का संपूर्ण बैकअप। यदि फिजिकल सर्वर हार्डवेयर पूरी तरह जल जाए, तो एक नए खाली सर्वर पर बूट डिस्क लगाकर हूबहू वही सर्वर वापस रीस्टोर किया जा सकता है।
-- #text(weight: "bold", fill: rtech-blue)[सिस्टम स्टेट बैकअप (System State Backup):] एक्टिव डायरेक्टरी डोमेन कंट्रोलर के लिए यह सबसे महत्वपूर्ण बैकअप है। इसमें केवल वे घटक शामिल होते हैं जो डायरेक्टरी को जीवित रखने के लिए अनिवार्य हैं:
+=== 13.3 फुल सर्वर बैकअप बनाम #hl-yellow[सिस्टम स्टेट बैकअप] (#hl-yellow[System State Backup])
+- #text(weight: "bold", fill: rtech-navy)[बेयर मेटल रिकवरी (#hl-orange[Bare Metal Recovery] - BMR):] पूरे सर्वर (C: ड्राइव, सिस्टम पार्टिशन्स, एप्लीकेशंस और डेटा) का संपूर्ण बैकअप। यदि फिजिकल सर्वर हार्डवेयर पूरी तरह जल जाए, तो एक नए खाली सर्वर पर बूट डिस्क लगाकर हूबहू वही सर्वर वापस रीस्टोर किया जा सकता है।
+- #text(weight: "bold", fill: rtech-blue)[सिस्टम स्टेट बैकअप (#hl-yellow[System State Backup]):] एक्टिव डायरेक्टरी डोमेन कंट्रोलर के लिए यह सबसे महत्वपूर्ण बैकअप है। इसमें केवल वे घटक शामिल होते हैं जो डायरेक्टरी को जीवित रखने के लिए अनिवार्य हैं:
   1. #hl-yellow[Active Directory Database (`ntds.dit`)]
   2. #hl-green[SYSVOL शेयर्ड फोल्डर (सभी GPOs और स्क्रिप्ट्स)]
   3. #hl-orange[विंडोज सिस्टम रजिस्ट्री (System Registry)]
   4. #hl-green[बूट फाइल्स एवं सिस्टम स्टार्टअप फाइल्स]
   5. #hl-green[Certificate Services डेटाबेस (यदि AD CS इंस्टॉल हो)]
 
-*कमांड-लाइन से सिस्टम स्टेट बैकअप लेने की मास्टर कमांड:*
+*कमांड-लाइन से #hl-yellow[सिस्टम स्टेट बैकअप] लेने की मास्टर कमांड:*
 ```cmd
 wbadmin start systemstatebackup -backupTarget:E: -quiet
 ```
@@ -72,7 +72,7 @@ wbadmin start systemstatebackup -backupTarget:E: -quiet
 #v(6pt)
 
 === 13.4 एक्टिव डायरेक्टरी रीसायकल बिन (AD Recycle Bin) को सक्षम करना
-पुराने विंडोज सर्वर (2003/2008) में यदि किसी यूजर या OU को गलती से डिलीट कर दिया जाता था, तो उसे वापस पाने के लिए डोमेन कंट्रोलर को रीस्टार्ट करके #hl-orange[DSRM मोड (Directory Services Restore Mode)] में ले जाना पड़ता था, नेटवर्क डाउन करना पड़ता था, और `ntdsutil` से 'Authoritative Restore' करना पड़ता था (कम से कम 2 से 3 घंटे का डाउनटाइम)।
+पुराने विंडोज सर्वर (2003/2008) में यदि किसी यूजर या OU को गलती से डिलीट कर दिया जाता था, तो उसे वापस पाने के लिए डोमेन कंट्रोलर को रीस्टार्ट करके #hl-orange[DSRM मोड (#hl-orange[Directory Services Restore Mode])] में ले जाना पड़ता था, नेटवर्क डाउन करना पड़ता था, और `ntdsutil` से 'Authoritative Restore' करना पड़ता था (कम से कम 2 से 3 घंटे का डाउनटाइम)।
 
 #mark-yellow[एक्टिव डायरेक्टरी रीसायकल बिन (AD Recycle Bin) एक अभूतपूर्व वरदान है जो आकस्मिक डिलीट हुए ऑब्जेक्ट्स को बिना सर्वर रीबूट किए, बिना किसी डाउनटाइम के, सिर्फ 1 क्लिक में लाइव रिस्टोर करने की सुविधा देता है!]
 
@@ -90,7 +90,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
 === 13.5 आकस्मिक डिलीट हुए यूजर एवं OU को 1-क्लिक में लाइव रिस्टोर करना
 रीसायकल बिन सक्षम होने के बाद जब भी कोई यूजर डिलीट होता है, तो उसका डेटा नष्ट नहीं होता बल्कि वह #hl-yellow[`Deleted Objects`] कंटेनर में चला जाता है (डिफ़ॉल्ट जीवनकाल: #hl-green[180 दिन]):
 
-1. Server Manager -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] खोलें (या रन में टाइप करें: #mark-green[`dsac.exe`])।
+1. #hl-yellow[Server Manager] -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] खोलें (या रन में टाइप करें: #mark-green[`dsac.exe`])।
 2. बाईं ओर अपने डोमेन `#text(weight: "bold")[corp (local)]` पर क्लिक करें।
 3. स्क्रीन पर #mark-yellow[Deleted Objects] नाम का एक नया फोल्डर दिखाई देगा। उस पर डबल-क्लिक करें।
 4. आपको वह डिलीट हुआ यूजर दिखेगा (उदा. `Rahul Patel`).
@@ -105,7 +105,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
 उत्पादन में एडमिनिस्ट्रेटर रोजाना रात 11:00 बजे स्वचालित बैकअप के लिए Windows Task Scheduler में स्क्रिप्ट लगाते हैं:
 
 ```cmd
-:: डेली अनअटेंडेड सिस्टम स्टेट बैकअप स्क्रिप्ट
+:: डेली अनअटेंडेड #hl-yellow[सिस्टम स्टेट बैकअप] स्क्रिप्ट
 wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemState -include:C:
 ```
 
@@ -138,7 +138,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #mcq-item(
   num: "2",
-  q: "एक्टिव डायरेक्टरी डोमेन कंट्रोलर के 'System State Backup' में निम्नलिखित में से कौन-सा घटक शामिल नहीं होता है?",
+  q: "एक्टिव डायरेक्टरी डोमेन कंट्रोलर के '#hl-yellow[System State Backup]' में निम्नलिखित में से कौन-सा घटक शामिल नहीं होता है?",
   optA: "Active Directory डेटाबेस (ntds.dit)",
   optB: "SYSVOL फोल्डर",
   optC: "सिस्टम रजिस्ट्री (Registry)",
@@ -164,13 +164,13 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #mcq-item(
   num: "4",
-  q: "कमांड प्रॉम्प्ट से विंडोज सर्वर का तत्काल सिस्टम स्टेट बैकअप शुरू करने के लिए किस आधिकारिक उपयोगिता का उपयोग किया जाता है?",
+  q: "कमांड प्रॉम्प्ट से विंडोज सर्वर का तत्काल #hl-yellow[सिस्टम स्टेट बैकअप] शुरू करने के लिए किस आधिकारिक उपयोगिता का उपयोग किया जाता है?",
   optA: "robocopy.exe",
   optB: "wbadmin.exe",
   optC: "ntdsutil.exe",
   optD: "dcdiag.exe",
   ans: "B",
-  exp: "wbadmin start systemstatebackup कमांड सिस्टम स्टेट बैकअप प्रारंभ करने का आधिकारिक CLI टूल है।"
+  exp: "wbadmin start systemstatebackup कमांड #hl-yellow[सिस्टम स्टेट बैकअप] प्रारंभ करने का आधिकारिक CLI टूल है।"
 )
 
 #v(3pt)
@@ -178,12 +178,12 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #mcq-item(
   num: "5",
   q: "डिलीट हुए यूजर को एक्टिव डायरेक्टरी रीसायकल बिन के जरिए 1 क्लिक में रिस्टोर करने के लिए किस ग्राफिकल टूल का उपयोग किया जाता है?",
-  optA: "Active Directory Users and Computers (dsa.msc)",
-  optB: "Active Directory Administrative Center (dsac.exe)",
-  optC: "Group Policy Management Console (gpmc.msc)",
+  optA: "#hl-yellow[Active Directory Users and Computers] (dsa.msc)",
+  optB: "#hl-yellow[Active Directory Administrative Center] (dsac.exe)",
+  optC: "#hl-yellow[Group Policy Management Console] (gpmc.msc)",
   optD: "Disk Management (diskmgmt.msc)",
   ans: "B",
-  exp: "Active Directory Administrative Center (ADAC - dsac.exe) के अंदर 'Deleted Objects' कंटेनर उपलब्ध होता है।"
+  exp: "#hl-yellow[Active Directory Administrative Center] (ADAC - dsac.exe) के अंदर 'Deleted Objects' कंटेनर उपलब्ध होता है।"
 )
 
 #v(6pt)
@@ -202,7 +202,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #interview-item(
   num: "2",
-  q: "इंटरव्यूअर: 'Active Directory Recycle Bin को सक्षम करने के बाद क्या किसी डिलीटेड यूजर का पासवर्ड रिसेट करना पड़ता है?'",
+  q: "इंटरव्यूअर: '#hl-yellow[Active Directory Recycle Bin] को सक्षम करने के बाद क्या किसी डिलीटेड यूजर का पासवर्ड रिसेट करना पड़ता है?'",
   a: "उत्तर: बिल्कुल नहीं! यही AD Recycle Bin की सबसे बड़ी ताकत है। जब यूजर को रिस्टोर किया जाता है, तो उसका पासवर्ड हैश, उसका मूल SID (Security Identifier), उसकी सभी सिक्योरिटी ग्रुप्स की सदस्यता, और उसके सभी 150+ एट्रीब्यूट्स 100% मूल स्थिति में वापस आते हैं। कर्मचारी बिना पासवर्ड बदले तुरंत लॉगिन कर सकता है।",
   tip: "यह उत्तर सिद्ध करता है कि आपको टूल के व्यावहारिक लाभ की गहन समझ है।"
 )
@@ -221,7 +221,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "4",
   q: "इंटरव्यूअर: 'क्या हम एक्टिव डायरेक्टरी बैकअप को उसी ड्राइव पर सेव कर सकते हैं जिस पर C: विंडोज इंस्टॉल है?'",
-  a: "उत्तर: नहीं, Windows Server Backup कभी भी सिस्टम स्टेट बैकअप को उसी वॉल्यूम (C:) पर स्टोर करने की अनुमति नहीं देता जिस पर ऑपरेटिंग सिस्टम खुद चल रहा हो। इसके लिए एक अलग समर्पित भौतिक/वर्चुअल डिस्क (उदा. E: ड्राइव या नेटवर्क शेयर) होना अनिवार्य है।",
+  a: "उत्तर: नहीं, #hl-yellow[Windows Server Backup] कभी भी सिस्टम स्टेट बैकअप को उसी वॉल्यूम (C:) पर स्टोर करने की अनुमति नहीं देता जिस पर ऑपरेटिंग सिस्टम खुद चल रहा हो। इसके लिए एक अलग समर्पित भौतिक/वर्चुअल डिस्क (उदा. E: ड्राइव या नेटवर्क शेयर) होना अनिवार्य है।",
   tip: "प्रैक्टिकल इंप्लीमेंटेशन और लैब एक्सपीरियंस चेक करने वाला यह सटीक प्रश्न है।"
 )
 
@@ -229,7 +229,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #interview-item(
   num: "5",
-  q: "इंटरव्यूअर: 'यदि Active Directory Recycle Bin फीचर को एक बार सक्षम कर दिया जाए, तो क्या इसे बाद में बंद किया जा सकता है?'",
+  q: "इंटरव्यूअर: 'यदि #hl-yellow[Active Directory Recycle Bin] फीचर को एक बार सक्षम कर दिया जाए, तो क्या इसे बाद में बंद किया जा सकता है?'",
   a: "उत्तर: नहीं, माइक्रोसॉफ्ट के आधिकारिक नियमों के अनुसार Recycle Bin फीचर का एक्टिवेशन एक 'एकतरफा स्थायी प्रक्रिया' (Irreversible Process) है। एक बार फ़ॉरेस्ट में सक्षम होने के बाद इसे कभी भी डिसेबल नहीं किया जा सकता।",
   tip: "माइक्रोसॉफ्ट सर्टिफिकेशन और टेक्निकल इंटरव्यूज का यह मानक बहुविकल्पीय तथ्य है।"
 )
@@ -247,8 +247,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #v(3pt)
     #text(size: 7.5pt, fill: rtech-text)[
       - #text(weight: "bold", fill: rtech-rose)[एरर 1: 'The backup target volume is invalid':] विंडोज सर्वर कभी भी उसी C: ड्राइव पर बैकअप की अनुमति नहीं देता जिस पर OS हो; बैकअप के लिए हमेशा समर्पित E: ड्राइव या नेटवर्क शेयर का उपयोग करें।
-      - #text(weight: "bold", fill: rtech-amber)[एरर 2: 'VSS Writer timed out (Event ID 8229)':] वॉल्यूम शैडो कॉपी सर्विस में किसी अन्य बैकअप एजेंट के टकराव के कारण होता है; `vssadmin list writers` चलाकर स्थिति जांचें।
-      - #text(weight: "bold", fill: rtech-emerald)[एरर 3: 'Recycle Bin Deleted Objects फोल्डर नहीं दिख रहा':] Active Directory Administrative Center (ADAC) को बंद करके दोबारा खोलें या F5 दबाकर रीफ्रेश करें।
+      - #text(weight: "bold", fill: rtech-amber)[एरर 2: '#hl-green[VSS] Writer timed out (Event ID 8229)':] वॉल्यूम शैडो कॉपी सर्विस में किसी अन्य बैकअप एजेंट के टकराव के कारण होता है; `vssadmin list writers` चलाकर स्थिति जांचें।
+      - #text(weight: "bold", fill: rtech-emerald)[एरर 3: 'Recycle Bin Deleted Objects फोल्डर नहीं दिख रहा':] #hl-yellow[Active Directory Administrative Center] (ADAC) को बंद करके दोबारा खोलें या F5 दबाकर रीफ्रेश करें।
     ]
   ]
 )
@@ -264,8 +264,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ अध्याय 13 सत्यापन चेकलिस्ट (Disaster Recovery Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Windows Server Backup फीचर और PowerShell मॉड्यूल सफलतापूर्वक इंस्टॉल हैं।
-      - [ ] Active Directory Recycle Bin फीचर पूरे फ़ॉरेस्ट में स्थायी रूप से सक्षम है।
+      - [ ] #hl-yellow[Windows Server Backup] फीचर और PowerShell मॉड्यूल सफलतापूर्वक इंस्टॉल हैं।
+      - [ ] #hl-yellow[Active Directory Recycle Bin] फीचर पूरे फ़ॉरेस्ट में स्थायी रूप से सक्षम है।
       - [ ] टेस्ट यूजर को डिलीट करके ADAC के 'Deleted Objects' से 1 क्लिक में लाइव रीस्टोर सत्यापित किया गया है।
     ]
   ]
@@ -283,8 +283,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 अध्याय 13 मुख्य कॉर्पोरेट निष्कर्ष (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
       - 3-2-1 बैकअप सिद्धांत एंटरप्राइज डेटा सुरक्षा की अंतरराष्ट्रीय आधारशिला है।
-      - System State Backup डोमेन कंट्रोलर के कोर घटकों (`ntds.dit`, `SYSVOL`, Registry) को सुरक्षित रखता है।
-      - Active Directory Recycle Bin आकस्मिक विलोपन पर बिना सर्वर रीबूट के 1-क्लिक लाइव रिकवरी प्रदान करता है।
+      - #hl-yellow[System State Backup] डोमेन कंट्रोलर के कोर घटकों (`ntds.dit`, `SYSVOL`, Registry) को सुरक्षित रखता है।
+      - #hl-yellow[Active Directory Recycle Bin] आकस्मिक विलोपन पर बिना सर्वर रीबूट के 1-क्लिक लाइव रिकवरी प्रदान करता है।
     ]
   ]
 )

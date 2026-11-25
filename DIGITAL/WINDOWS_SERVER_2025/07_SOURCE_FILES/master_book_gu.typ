@@ -268,7 +268,7 @@
       #image("../02_BRAND_ASSETS/screenshots/client_server_architecture.png", width: 72%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 1.1: એન્ટરપ્રાઇઝ ક્લાયન્ટ-સર્વર નેટવર્ક આર્કિટેક્ચર — કેન્દ્રીય એક્ટિવ ડિરેક્ટરી, સ્વિચિંગ અને ક્લાયન્ટ્સ]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 1.1: એન્ટરપ્રાઇઝ ક્લાયન્ટ-સર્વર નેટવર્ક આર્કિટેક્ચર — કેન્દ્રીય #hl-yellow[એક્ટિવ ડિરેક્ટરી], સ્વિચિંગ અને ક્લાયન્ટ્સ]
 ]
 
 #v(6pt)
@@ -276,7 +276,7 @@
 === 1.2 કોર્પોરેટ નેટવર્કમાં ઉપયોગ થતા 8 મુખ્ય સર્વર પ્રકારો (8 Major Server Types)
 કોઈપણ બહુરાષ્ટ્રીય કંપની (MNC) કે બેંકમાં એક જ સર્વર તમામ કાર્યો કરતું નથી. વિશિષ્ટ કાર્યો માટે સર્વર્સને અલગ-અલગ ભૂમિકાઓ સોંપવામાં આવે છે:
 
-1. #text(weight: "bold", fill: rtech-navy)[ડોમેન કંટ્રોલર (Domain Controller / AD DS):] સમગ્ર સંસ્થાની કેન્દ્રીય ઓળખ (Identity) સંભાળે છે. યુઝરનેમ, પાસવર્ડ, કમ્પ્યુટર એકાઉન્ટ્સ અને સુરક્ષા નીતિઓ આના પર જ સંગ્રહિત હોય છે. #hl-green[પોર્ટ્સ: 88 (Kerberos), 389 (LDAP)].
+1. #text(weight: "bold", fill: rtech-navy)[ડોમેન કંટ્રોલર (Domain Controller / AD DS):] સમગ્ર સંસ્થાની કેન્દ્રીય ઓળખ (Identity) સંભાળે છે. યુઝરનેમ, પાસવર્ડ, કમ્પ્યુટર એકાઉન્ટ્સ અને સુરક્ષા નીતિઓ આના પર જ સંગ્રહિત હોય છે. #hl-green[પોર્ટ્સ: 88 (#hl-orange[Kerberos]), 389 (LDAP)].
 2. #text(weight: "bold", fill: rtech-navy)[ફાઇલ અને સ્ટોરેજ સર્વર (File & Storage Server):] તમામ કર્મચારીઓના ડેટાને કેન્દ્રીયકૃત રીતે સંગ્રહિત કરે છે. કયા વિભાગને (HR, Sales) કયા ફોલ્ડરનો એક્સેસ મળશે, તે NTFS અને SMB દ્વારા નક્કી થાય છે. #hl-green[પોર્ટ: 445 (SMB)].
 3. #text(weight: "bold", fill: rtech-navy)[વેબ સર્વર (Web Server - IIS / Apache):] કંપનીના આંતરિક પોર્ટલ, વેબસાઇટ્સ અને વેબ એપ્લિકેશન્સ હોસ્ટ કરે છે. #hl-green[પોર્ટ્સ: 80 (HTTP), 443 (HTTPS)].
 4. #text(weight: "bold", fill: rtech-navy)[ડેટાબેઝ સર્વર (Database Server - MS SQL / Oracle):] બેંક બેલેન્સ, ગ્રાહક રેકોર્ડ્સ અને ઇ-કોમર્સ ઇનવોઇસ જેવી સંરચિત માહિતી પ્રોસેસ કરે છે. #hl-green[પોર્ટ: 1433 (SQL Server)].
@@ -322,7 +322,7 @@
 
 - #text(weight: "bold", fill: rtech-navy)[1. ફિઝિકલ સર્વર (On-Premises Bare-Metal):] જ્યારે હાર્ડવેર (Dell PowerEdge અથવા HP ProLiant રેક સર્વર) પર સીધું જ ઓપરેટિંગ સિસ્ટમ ઇન્સ્ટોલ કરવામાં આવે છે. ખૂબ જ ભારે ડેટાબેઝ માટે આદર્શ છે, પરંતુ તેમાં હાર્ડવેરનો વ્યય (ઓછો વપરાશ) વધુ થાય છે.
 - #text(weight: "bold", fill: rtech-navy)[2. વર્ચ્યુઅલ મશીન (Hyper-V / VMware ESXi):] એક જ મોટા ફિઝિકલ સર્વર પર હાઇપરવાઇઝર ચલાવીને 10 થી 20 અલગ-અલગ વર્ચ્યુઅલ સર્વર્સ બનાવવામાં આવે છે. આનાથી હાર્ડવેરનો 85% થી વધુ કાર્યક્ષમ ઉપયોગ સુનિશ્ચિત થાય છે.
-- #text(weight: "bold", fill: rtech-navy)[3. માઇક્રોસોફ્ટ અઝૂર અને હાઇબ્રિડ ક્લાઉડ (Azure Arc):] #mark-green[Windows Server 2025 નું સૌથી ક્રાંતિકારી ફીચર Azure Arc ઇન્ટિગ્રેશન છે.] તમે તમારા ઓન-પ્રિમાઇસિસ લોકલ સર્વર્સને ક્લાઉડ સાથે જોડી શકો છો, અને #hl-yellow[હોટપેચિંગ (Hotpatching)] દ્વારા સર્વરને રીબૂટ કર્યા વિના સીધા જ રેમ (RAM) માં સિક્યુરિટી અપડેટ્સ લાગુ કરી શકો છો!
+- #text(weight: "bold", fill: rtech-navy)[3. માઇક્રોસોફ્ટ અઝૂર અને હાઇબ્રિડ ક્લાઉડ (#hl-green[Azure Arc]):] #mark-green[Windows Server 2025 નું સૌથી ક્રાંતિકારી ફીચર #hl-green[Azure Arc] ઇન્ટિગ્રેશન છે.] તમે તમારા ઓન-પ્રિમાઇસિસ લોકલ સર્વર્સને ક્લાઉડ સાથે જોડી શકો છો, અને #hl-yellow[હોટપેચિંગ (#hl-yellow[Hotpatching])] દ્વારા સર્વરને રીબૂટ કર્યા વિના સીધા જ રેમ (RAM) માં સિક્યુરિટી અપડેટ્સ લાગુ કરી શકો છો!
 
 #v(6pt)
 
@@ -353,13 +353,13 @@
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[ઇતિહાસના મુખ્ય સીમાચિહ્નો (Key Historical Milestones):]\
     - #text(weight: "bold", fill: rtech-blue)[Windows NT 4.0 (1996):] પ્રથમ વખત Windows 95 જેવો ગ્રાફિકલ ઇન્ટરફેસ અને ડોમેન ટ્રસ્ટ મોડેલ રજૂ કરવામાં આવ્યું.
-    - #text(weight: "bold", fill: rtech-emerald)[Windows 2000 Server (2000):] #hl-yellow[ક્રાંતિકારી વર્ષ!] એક્ટિવ ડિરેક્ટરી (AD DS), DNS ઇન્ટિગ્રેશન અને ગ્રુપ પોલિસીનો જન્મ આ જ સંસ્કરણમાં થયો હતો.
+    - #text(weight: "bold", fill: rtech-emerald)[Windows 2000 Server (2000):] #hl-yellow[ક્રાંતિકારી વર્ષ!] #hl-yellow[એક્ટિવ ડિરેક્ટરી] (AD DS), DNS ઇન્ટિગ્રેશન અને ગ્રુપ પોલિસીનો જન્મ આ જ સંસ્કરણમાં થયો હતો.
     - #text(weight: "bold", fill: rtech-navy)[Windows Server 2008 / R2 (2008):] વર્ચ્યુઅલાઇઝેશન ક્રાંતિની શરૂઆત — #hl-green[Microsoft Hyper-V] અને GUI વગરનું #hl-orange[Server Core] પ્રથમ વખત સામેલ થયા.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2012 / R2 (2012):] આધુનિક સર્વર મેનેજર ડેશબોર્ડ, સ્ટોરેજ સ્પેસિસ (Storage Spaces) અને SMB 3.0 નો સમાવેશ થયો.
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2012 / R2 (2012):] આધુનિક #hl-yellow[સર્વર મેનેજર] ડેશબોર્ડ, સ્ટોરેજ સ્પેસિસ (Storage Spaces) અને SMB 3.0 નો સમાવેશ થયો.
     - #text(weight: "bold", fill: rtech-navy)[Windows Server 2016 (2016):] વિન્ડોઝ કન્ટેનર્સ (Docker સપોર્ટ) અને સ્ટોરેજ સ્પેસિસ ડિરેક્ટ (S2D) ની શરૂઆત.
     - #text(weight: "bold", fill: rtech-navy)[Windows Server 2019 (2019):] વિન્ડોઝ એડમિન સેન્ટર (WAC) અને હાઇબ્રિડ ક્લાઉડ ઇન્ફ્રાસ્ટ્રક્ચરનો પાયો.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2022 (2022):] સિક્યોર્ડ-કોર સર્વર (Secured-Core Server), ડિફોલ્ટ TLS 1.3 અને SMB over QUIC.
-    - #text(weight: "bold", fill: rtech-blue)[Windows Server 2025 (નવીનતમ ફ્લેગશિપ):] #hl-yellow[હોટપેચિંગ ફોર ઓલ (Hotpatching for All)] (Zero-reboot patching), #hl-yellow[32KB AD ડેટાબેઝ પેજ સાઇઝ] (25 વર્ષમાં એક્ટિવ ડિરેક્ટરીનો સૌથી મોટો સ્પીડ બૂસ્ટ), નેક્સ્ટ-જેન સ્ટોરેજ સ્પેસિસ ડિરેક્ટ ડિડ્યુપ્લિકેશન અને કોમ્પ્રેસન, તેમજ નેટિવ વાઇ-ફાઇ સપોર્ટ.
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2022 (2022):] સિક્યોર્ડ-કોર સર્વર (Secured-Core Server), ડિફોલ્ટ TLS 1.3 અને #hl-orange[SMB over QUIC].
+    - #text(weight: "bold", fill: rtech-blue)[Windows Server 2025 (નવીનતમ ફ્લેગશિપ):] #hl-yellow[હોટપેચિંગ ફોર ઓલ (#hl-yellow[Hotpatching] for All)] (Zero-reboot patching), #hl-yellow[32KB AD ડેટાબેઝ પેજ સાઇઝ] (25 વર્ષમાં #hl-yellow[એક્ટિવ ડિરેક્ટરી]નો સૌથી મોટો સ્પીડ બૂસ્ટ), નેક્સ્ટ-જેન સ્ટોરેજ સ્પેસિસ ડિરેક્ટ ડિડ્યુપ્લિકેશન અને કોમ્પ્રેસન, તેમજ નેટિવ વાઇ-ફાઇ સપોર્ટ.
   ]
 )
 
@@ -402,7 +402,7 @@
 // CHAPTER 01 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  Windows 2000 Server થી લઈને Windows Server 2022 સુધી પૂરા 25 વર્ષો સુધી Active Directory ની મુખ્ય ડેટાબેઝ ફાઇલ (#hl-yellow[`ntds.dit`]) નો આંતરિક ડેટાબેઝ પેજ સાઇઝ માત્ર #text(weight: "bold")[8 KB] રહેતો હતો. Windows Server 2025 માં માઇક્રોસોફ્ટે તેને વધારીને #text(weight: "bold")[32 KB] કરી દીધો છે, જેનાથી મોટા બહુરાષ્ટ્રીય સંગઠનોમાં એક્ટિવ ડિરેક્ટરીના ક્વેરી રિસ્પોન્સ ટાઇમમાં 300% થી વધુ ઝડપ આવી છે!
+  Windows 2000 Server થી લઈને Windows Server 2022 સુધી પૂરા 25 વર્ષો સુધી Active Directory ની મુખ્ય ડેટાબેઝ ફાઇલ (#hl-yellow[`ntds.dit`]) નો આંતરિક ડેટાબેઝ પેજ સાઇઝ માત્ર #text(weight: "bold")[8 KB] રહેતો હતો. Windows Server 2025 માં માઇક્રોસોફ્ટે તેને વધારીને #text(weight: "bold")[32 KB] કરી દીધો છે, જેનાથી મોટા બહુરાષ્ટ્રીય સંગઠનોમાં #hl-yellow[એક્ટિવ ડિરેક્ટરી]ના ક્વેરી રિસ્પોન્સ ટાઇમમાં 300% થી વધુ ઝડપ આવી છે!
 ]
 
 #v(6pt)
@@ -412,13 +412,13 @@
 
 #mcq-item(
   num: "1",
-  q: "એક્ટિવ ડિરેક્ટરી ડોમેન સર્વિસિસ (AD DS) અને ગ્રુપ પોલિસીને પ્રથમ વખત કયા વિન્ડોઝ સર્વર સંસ્કરણમાં રજૂ કરવામાં આવ્યા હતા?",
+  q: "#hl-yellow[એક્ટિવ ડિરેક્ટરી] ડોમેન સર્વિસિસ (AD DS) અને ગ્રુપ પોલિસીને પ્રથમ વખત કયા વિન્ડોઝ સર્વર સંસ્કરણમાં રજૂ કરવામાં આવ્યા હતા?",
   optA: "Windows NT 4.0",
   optB: "Windows 2000 Server",
   optC: "Windows Server 2003",
   optD: "Windows Server 2008",
   ans: "B",
-  exp: "એક્ટિવ ડિરેક્ટરી અને ગ્રુપ પોલિસીનો જન્મ વર્ષ 2000 માં Windows 2000 Server સાથે થયો હતો."
+  exp: "#hl-yellow[એક્ટિવ ડિરેક્ટરી] અને ગ્રુપ પોલિસીનો જન્મ વર્ષ 2000 માં Windows 2000 Server સાથે થયો હતો."
 )
 
 #v(3pt)
@@ -439,12 +439,12 @@
 #mcq-item(
   num: "3",
   q: "Windows Server 2025 ના કયા ક્રાંતિકારી ફીચર દ્વારા સર્વરને રીબૂટ કર્યા વિના મેમરીમાં સુરક્ષા પેચ લાગુ કરી શકાય છે?",
-  optA: "Storage Spaces Direct",
-  optB: "Hotpatching",
+  optA: "#hl-yellow[Storage Spaces Direct]",
+  optB: "#hl-yellow[Hotpatching]",
   optC: "Hyper-V Live Migration",
   optD: "DirectAccess",
   ans: "B",
-  exp: "Hotpatching દ્વારા સર્વર રીબૂટ કર્યા વિના રનિંગ પ્રોસેસિસની મેમરીમાં સિક્યુરિટી પેચ લાગુ કરવામાં આવે છે."
+  exp: "#hl-yellow[Hotpatching] દ્વારા સર્વર રીબૂટ કર્યા વિના રનિંગ પ્રોસેસિસની મેમરીમાં સિક્યુરિટી પેચ લાગુ કરવામાં આવે છે."
 )
 
 #v(3pt)
@@ -499,7 +499,7 @@
 #interview-item(
   num: "3",
   q: "ઇન્ટરવ્યુઅર: 'Windows Server 2025 માં 32KB AD DS ડેટાબેઝ પેજ સાઇઝથી એન્ટરપ્રાઇઝને કયો સીધો ફાયદો થાય છે?'",
-  a: "જવાબ: 25 વર્ષ સુધી ntds.dit નો પેજ સાઇઝ 8 KB રહ્યો હતો. 32 KB પેજ સાઇઝ હોવાથી એક જ ડિસ્ક I/O ઓપરેશનમાં ચાર ગણો વધુ ડિરેક્ટરી ડેટા મેમરીમાં લોડ થાય છે. આનાથી હજારો કર્મચારીઓ ધરાવતી એન્ટરપ્રાઇઝમાં Kerberos ઓથેન્ટિકેશન અને LDAP સર્ચ ક્વેરીઝમાં 300% થી વધુ ઝડપ પ્રાપ્ત થાય છે.",
+  a: "જવાબ: 25 વર્ષ સુધી ntds.dit નો પેજ સાઇઝ 8 KB રહ્યો હતો. 32 KB પેજ સાઇઝ હોવાથી એક જ ડિસ્ક I/O ઓપરેશનમાં ચાર ગણો વધુ ડિરેક્ટરી ડેટા મેમરીમાં લોડ થાય છે. આનાથી હજારો કર્મચારીઓ ધરાવતી એન્ટરપ્રાઇઝમાં #hl-orange[Kerberos] ઓથેન્ટિકેશન અને LDAP સર્ચ ક્વેરીઝમાં 300% થી વધુ ઝડપ પ્રાપ્ત થાય છે.",
   tip: "Server 2025 ના નવીનતમ આર્કિટેક્ચર સાથે જોડાયેલો આ પ્રશ્ન L2/L3 ઇન્ટરવ્યુમાં તમારી ઊંડી તકનીકી નિપુણતા સાબિત કરે છે."
 )
 
@@ -507,8 +507,8 @@
 
 #interview-item(
   num: "4",
-  q: "ઇન્ટરવ્યુઅર: 'Azure Arc હાઇબ્રિડ મોડેલ શું છે અને તે ઓન-પ્રિમાઇસિસ વિન્ડોઝ સર્વર્સને ક્લાઉડ સાથે કેવી રીતે જોડે છે?'",
-  a: "જવાબ: Azure Arc એક બ્રિજ તરીકે કાર્ય કરે છે જે ડેટા સેન્ટર અથવા લોકલ લેબમાં ચાલતા ફિઝિકલ કે વર્ચ્યુઅલ સર્વર્સને Azure Resource Manager સાથે જોડી દે છે. આનાથી એડમિનિસ્ટ્રેટર્સ Azure પોર્ટલ પરથી જ ઓન-પ્રિમ સર્વર્સ પર સુરક્ષા નીતિઓ, ઇનસાઇટ્સ અને Hotpatching લાગુ કરી શકે છે.",
+  q: "ઇન્ટરવ્યુઅર: '#hl-green[Azure Arc] હાઇબ્રિડ મોડેલ શું છે અને તે ઓન-પ્રિમાઇસિસ વિન્ડોઝ સર્વર્સને ક્લાઉડ સાથે કેવી રીતે જોડે છે?'",
+  a: "જવાબ: #hl-green[Azure Arc] એક બ્રિજ તરીકે કાર્ય કરે છે જે ડેટા સેન્ટર અથવા લોકલ લેબમાં ચાલતા ફિઝિકલ કે વર્ચ્યુઅલ સર્વર્સને Azure Resource Manager સાથે જોડી દે છે. આનાથી એડમિનિસ્ટ્રેટર્સ Azure પોર્ટલ પરથી જ ઓન-પ્રિમ સર્વર્સ પર સુરક્ષા નીતિઓ, ઇનસાઇટ્સ અને #hl-yellow[Hotpatching] લાગુ કરી શકે છે.",
   tip: "TCS, Accenture અને Cognizant માં હાઇબ્રિડ ક્લાઉડ પ્રોજેક્ટ્સ માટે આ સવાલ વારંવાર પૂછવામાં આવે છે."
 )
 
@@ -524,8 +524,8 @@
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 01 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
       - સર્વર્સ 24/7/365 બેકગ્રાઉન્ડ સર્વિસિસ અને ક્લાયન્ટ વિનંતીઓને પ્રોસેસ કરવા માટે ઑપ્ટિમાઇઝ્ડ હોય છે.
-      - વિન્ડોઝ સર્વર 2000 માં એક્ટિવ ડિરેક્ટરીનો જન્મ થયો હતો; 2025 સંસ્કરણ 32KB AD DB અને Hotpatching સાથે તેનું સૌથી આધુનિક સ્વરૂપ છે.
-      - પ્રોડક્શનમાં હંમેશા Server Core ને પ્રાથમિકતા આપવામાં આવે છે, જ્યારે લેબમાં શીખવા માટે Desktop Experience અનિવાર્ય છે.
+      - વિન્ડોઝ સર્વર 2000 માં એક્ટિવ ડિરેક્ટરીનો જન્મ થયો હતો; 2025 સંસ્કરણ 32KB AD DB અને #hl-yellow[Hotpatching] સાથે તેનું સૌથી આધુનિક સ્વરૂપ છે.
+      - પ્રોડક્શનમાં હંમેશા #hl-yellow[Server Core] ને પ્રાથમિકતા આપવામાં આવે છે, જ્યારે લેબમાં શીખવા માટે Desktop Experience અનિવાર્ય છે.
     ]
   ]
 )
@@ -590,12 +590,12 @@
       #image("../02_BRAND_ASSETS/screenshots/lab_topology_virtualbox.png", width: 92%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 2.1: વિદ્યાર્થી હોમ લેબ ટોપોલોજી — ફિઝિકલ હોસ્ટ, આઇસોલેટેડ વર્ચ્યુઅલ સ્વિચ, ડોમેન કંટ્રોલર અને ક્લાયન્ટ વર્કસ્ટેશન]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 2.1: વિદ્યાર્થી હોમ લેબ ટોપોલોજી — ફિઝિકલ હોસ્ટ, આઇસોલેટેડ વર્ચ્યુઅલ સ્વિચ, #hl-yellow[ડોમેન કંટ્રોલર] અને ક્લાયન્ટ વર્કસ્ટેશન]
 ]
 
 #v(4pt)
 
-- #text(weight: "bold", fill: rtech-blue)[VM 1 (Primary DC - `SRV-2025-DC01`):] આ આપણું મુખ્ય ડોમેન કંટ્રોલર મશીન હશે જેના પર Windows Server 2025 Datacenter ઇન્સ્ટોલ થશે. આમાં AD DS, DNS, DHCP અને ફાઇલ સર્વર રોલ્સ ચાલશે.
+- #text(weight: "bold", fill: rtech-blue)[VM 1 (Primary DC - `SRV-2025-DC01`):] આ આપણું મુખ્ય #hl-yellow[ડોમેન કંટ્રોલર] મશીન હશે જેના પર Windows Server 2025 Datacenter ઇન્સ્ટોલ થશે. આમાં AD DS, DNS, DHCP અને ફાઇલ સર્વર રોલ્સ ચાલશે.
 - #text(weight: "bold", fill: rtech-emerald)[VM 2 (Client PC - `CLT-WIN11-01`):] આ આપણા કર્મચારીનું વર્કસ્ટેશન મશીન હશે જેના પર Windows 10 અથવા 11 Pro ચાલશે અને જેને આપણે ડોમેન સાથે જોડીશું.
 
 #v(6pt)
@@ -652,8 +652,8 @@
 
 #v(4pt)
 
-#warning-box(title: "સૌથી ગંભીર ભૂલથી બચો: Server Core vs Desktop Experience")[
-  વિઝાર્ડમાં 4 વિકલ્પો દેખાય છે. જો તમે ભૂલથી માત્ર 'Windows Server 2025 Datacenter' પસંદ કરી લીધું (કૌંસ વગરનું નામ), તો #hl-orange[Server Core (માત્ર બ્લેક કમાન્ડ પ્રોમ્પ્ટ)] ઇન્સ્ટોલ થઈ જશે અને કોઈ ડેસ્કટોપ કે માઉસ મળશે નહીં! હંમેશા #mark-green[Windows Server 2025 Datacenter (Desktop Experience)] જ પસંદ કરો જેમાં સંપૂર્ણ ગ્રાફિકલ ઇન્ટરફેસ અને સર્વર મેનેજર સામેલ હોય છે.
+#warning-box(title: "સૌથી ગંભીર ભૂલથી બચો: #hl-yellow[Server Core] vs Desktop Experience")[
+  વિઝાર્ડમાં 4 વિકલ્પો દેખાય છે. જો તમે ભૂલથી માત્ર 'Windows Server 2025 Datacenter' પસંદ કરી લીધું (કૌંસ વગરનું નામ), તો #hl-orange[Server Core (માત્ર બ્લેક કમાન્ડ પ્રોમ્પ્ટ)] ઇન્સ્ટોલ થઈ જશે અને કોઈ ડેસ્કટોપ કે માઉસ મળશે નહીં! હંમેશા #mark-green[Windows Server 2025 Datacenter (Desktop Experience)] જ પસંદ કરો જેમાં સંપૂર્ણ ગ્રાફિકલ ઇન્ટરફેસ અને #hl-yellow[સર્વર મેનેજર] સામેલ હોય છે.
 ]
 
 #v(6pt)
@@ -680,7 +680,7 @@
 // CHAPTER 02 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  માઇક્રોસોફ્ટ અનુસાર પ્રોડક્શન વાતાવરણ (Production Datacenters) માં ચાલતા 70% થી વધુ વિન્ડોઝ સર્વર્સ કોઈપણ GUI વગર #hl-yellow[Server Core] મોડમાં ચલાવવામાં આવે છે. Server Core માં GUI ન હોવાને કારણે રેમનો વપરાશ 60% ઘટી જાય છે, ડિસ્ક સ્પેસ માત્ર 10 GB વપરાય છે, અને સૌથી મહત્વનું: એટેકર માટે કોઈ ગ્રાફિકલ એક્સપ્લોઇટ ઉપલબ્ધ રહેતું નથી જેનાથી સર્વર પર સુરક્ષા પેચ લગાવવાની આવૃત્તિ 50% ઘટી જાય છે!
+  માઇક્રોસોફ્ટ અનુસાર પ્રોડક્શન વાતાવરણ (Production Datacenters) માં ચાલતા 70% થી વધુ વિન્ડોઝ સર્વર્સ કોઈપણ GUI વગર #hl-yellow[Server Core] મોડમાં ચલાવવામાં આવે છે. #hl-yellow[Server Core] માં GUI ન હોવાને કારણે રેમનો વપરાશ 60% ઘટી જાય છે, ડિસ્ક સ્પેસ માત્ર 10 GB વપરાય છે, અને સૌથી મહત્વનું: એટેકર માટે કોઈ ગ્રાફિકલ એક્સપ્લોઇટ ઉપલબ્ધ રહેતું નથી જેનાથી સર્વર પર સુરક્ષા પેચ લગાવવાની આવૃત્તિ 50% ઘટી જાય છે!
 ]
 
 #v(6pt)
@@ -703,8 +703,8 @@
 
 #mcq-item(
   num: "2",
-  q: "Windows Server 2025 માં સંપૂર્ણ ગ્રાફિકલ ડેસ્કટોપ અને સર્વર મેનેજર મેળવવા માટે ઇન્સ્ટોલેશન સમયે કયો વિકલ્પ પસંદ કરવો અનિવાર્ય છે?",
-  optA: "Server Core Edition",
+  q: "Windows Server 2025 માં સંપૂર્ણ ગ્રાફિકલ ડેસ્કટોપ અને #hl-yellow[સર્વર મેનેજર] મેળવવા માટે ઇન્સ્ટોલેશન સમયે કયો વિકલ્પ પસંદ કરવો અનિવાર્ય છે?",
+  optA: "#hl-yellow[Server Core] Edition",
   optB: "Desktop Experience",
   optC: "Nano Server Edition",
   optD: "Hyper-V Server Edition",
@@ -758,8 +758,8 @@
 
 #interview-item(
   num: "1",
-  q: "ઇન્ટરવ્યુઅર: 'એન્ટરપ્રાઇઝ પ્રોડક્શનમાં સર્વર ડિપ્લોય કરતી વખતે Server Core અને Desktop Experience માંથી તમે કોને પ્રાથમિકતા આપશો અને શા માટે?'",
-  a: "જવાબ: પ્રોડક્શનમાં આપણે હંમેશા 'Server Core' ને પ્રાથમિકતા આપીશું કારણ કે તે સિસ્ટમનું એટેક સરફેસ (Attack Surface) ઘટાડે છે, રીબૂટની જરૂરિયાત ઘટાડે છે અને હાર્ડવેર સંસાધનોની (RAM/CPU) બચત કરે છે. મેનેજમેન્ટ માટે આપણે રિમોટ ટૂલ્સ જેવા કે RSAT, PowerShell remoting અથવા Windows Admin Center નો ઉપયોગ કરીએ છીએ.",
+  q: "ઇન્ટરવ્યુઅર: 'એન્ટરપ્રાઇઝ પ્રોડક્શનમાં સર્વર ડિપ્લોય કરતી વખતે #hl-yellow[Server Core] અને Desktop Experience માંથી તમે કોને પ્રાથમિકતા આપશો અને શા માટે?'",
+  a: "જવાબ: પ્રોડક્શનમાં આપણે હંમેશા '#hl-yellow[Server Core]' ને પ્રાથમિકતા આપીશું કારણ કે તે સિસ્ટમનું એટેક સરફેસ (Attack Surface) ઘટાડે છે, રીબૂટની જરૂરિયાત ઘટાડે છે અને હાર્ડવેર સંસાધનોની (RAM/CPU) બચત કરે છે. મેનેજમેન્ટ માટે આપણે રિમોટ ટૂલ્સ જેવા કે RSAT, PowerShell remoting અથવા Windows Admin Center નો ઉપયોગ કરીએ છીએ.",
   tip: "આ ઉત્તર દર્શાવે છે કે તમે માત્ર પુસ્તકીય જ્ઞાન ધરાવતા નથી, પરંતુ એન્ટરપ્રાઇઝ સિક્યુરિટીની ઊંડી સમજ ધરાવો છો."
 )
 
@@ -768,7 +768,7 @@
 #interview-item(
   num: "2",
   q: "ઇન્ટરવ્યુઅર: 'Windows Server 2025 ઇન્સ્ટોલેશન માટે ન્યૂનતમ ડિસ્ક સ્પેસ અને રેમની સત્તાવાર આવશ્યકતા શું છે?'",
-  a: "જવાબ: ન્યૂનતમ સત્તાવાર આવશ્યકતા 512 MB રેમ (Server Core માટે) અથવા 2 GB રેમ (Desktop Experience માટે), 1.4 GHz 64-બીટ પ્રોસેસર, અને ન્યૂનતમ 32 GB સ્ટોરેજ સ્પેસ છે. જો કે ઉત્પાદનમાં Active Directory અને રોલ્સના સરળ સંચાલન માટે ઓછામાં ઓછી 4 GB રેમ અને 60 GB SSD ભલામણ કરેલ છે.",
+  a: "જવાબ: ન્યૂનતમ સત્તાવાર આવશ્યકતા 512 MB રેમ (#hl-yellow[Server Core] માટે) અથવા 2 GB રેમ (Desktop Experience માટે), 1.4 GHz 64-બીટ પ્રોસેસર, અને ન્યૂનતમ 32 GB સ્ટોરેજ સ્પેસ છે. જો કે ઉત્પાદનમાં Active Directory અને રોલ્સના સરળ સંચાલન માટે ઓછામાં ઓછી 4 GB રેમ અને 60 GB SSD ભલામણ કરેલ છે.",
   tip: "TCS અને Cognizant ના ઇન્ફ્રાસ્ટ્રક્ચર સપોર્ટ ઇન્ટરવ્યુમાં આ બેઝિક સ્પેસિફિકેશન પૂછવામાં આવે છે."
 )
 
@@ -832,7 +832,7 @@
     #text(size: 7.5pt, fill: rtech-text)[
       - [ ] વર્ચ્યુઅલ મશીન `SRV-2025-DC01` સફળતાપૂર્વક બૂટ થઈ ચૂકી છે.
       - [ ] લોકલ `Administrator` નો જટિલ પાસવર્ડ સુરક્ષિત રીતે નોંધી લેવામાં આવ્યો છે.
-      - [ ] લોગિન પછી Server Manager Dashboard સ્ક્રીન પર કોઈપણ ભૂલ વગર દર્શાવવામાં આવી રહ્યો છે.
+      - [ ] લોગિન પછી #hl-yellow[Server Manager] Dashboard સ્ક્રીન પર કોઈપણ ભૂલ વગર દર્શાવવામાં આવી રહ્યો છે.
     ]
   ]
 )
@@ -849,10 +849,10 @@
   chapter-num: "CHAPTER 03",
   category: "ભાગ 3 : સર્વર બેસલાઇન અને સુરક્ષા (Server Baseline & Hardening)",
   title: "પોસ્ટ-ઇન્સ્ટોલેશન કન્ફિગરેશન અને સર્વર હાર્ડનિંગ (Hardening & Initial Setup)",
-  subtitle: "સર્વર મેનેજર ડેશબોર્ડ · કમ્પ્યુટર નામકરણ (SRV-2025-DC01) · સ્ટેટિક IPv4 અને DNS · રિમોટ ડેસ્કટોપ (RDP) અને NLA · ફાયરવોલ પોર્ટ્સ · NTP ક્લોક સિન્ક્રોનાઇઝેશન"
+  subtitle: "#hl-yellow[સર્વર મેનેજર] ડેશબોર્ડ · કમ્પ્યુટર નામકરણ (SRV-2025-DC01) · સ્ટેટિક IPv4 અને DNS · રિમોટ ડેસ્કટોપ (RDP) અને NLA · ફાયરવોલ પોર્ટ્સ · NTP ક્લોક સિન્ક્રોનાઇઝેશન"
 )
 
-=== 3.1 સર્વર મેનેજર ડેશબોર્ડ (Server Manager Dashboard Navigation)
+=== 3.1 #hl-yellow[સર્વર મેનેજર] ડેશબોર્ડ (#hl-yellow[Server Manager] Dashboard Navigation)
 વિન્ડોઝ સર્વરમાં લોગિન કરતાં જ સૌથી પહેલાં #hl-yellow[Server Manager] આપમેળે ખુલે છે. આ માઇક્રોસોફ્ટનું કેન્દ્રીય સંચાલન કન્સોલ છે જેના માધ્યમથી તમે સ્થાનિક સર્વર અને નેટવર્ક પર રહેલા અન્ય રિમોટ સર્વર્સને એક જ જગ્યાએથી નિયંત્રિત કરી શકો છો.
 
 ડેશબોર્ડની ડાબી બાજુ મુખ્ય નેવિગેશન પેનલ્સ હોય છે:
@@ -879,10 +879,10 @@
 #v(4pt)
 
 === 3.2 સર્વરનું કોર્પોરેટ નામકરણ (Enterprise Naming Conventions)
-ડિફોલ્ટ રૂપે વિન્ડોઝ સર્વરને એક રેન્ડમ નામ આપવામાં આવે છે (જેમ કે `WIN-7K9A3B58Z1`). પ્રોડક્શન વાતાવરણમાં કોઈપણ સર્વરને આવા નામ સાથે ક્યારેય છોડવામાં આવતું નથી, ખાસ કરીને ત્યારે જ્યારે તેને ડોમેન કંટ્રોલર બનાવવાનું હોય.
+ડિફોલ્ટ રૂપે વિન્ડોઝ સર્વરને એક રેન્ડમ નામ આપવામાં આવે છે (જેમ કે `WIN-7K9A3B58Z1`). પ્રોડક્શન વાતાવરણમાં કોઈપણ સર્વરને આવા નામ સાથે ક્યારેય છોડવામાં આવતું નથી, ખાસ કરીને ત્યારે જ્યારે તેને #hl-yellow[ડોમેન કંટ્રોલર] બનાવવાનું હોય.
 
-#warning-box(title: "સુવર્ણ નિયમ: ડોમેન કંટ્રોલર પ્રમોટ કરતાં પહેલાં કમ્પ્યુટરનું નામ બદલો")[
-  એકવાર જ્યારે તમે સર્વરને એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલર બનાવી દો છો, ત્યારે તેનું નામ બદલવું અત્યંત જટિલ અને જોખમી બની જાય છે કારણ કે Kerberos SPNs, DNS SRV રેકોર્ડ્સ અને AD ડેટાબેઝ તે જ નામ સાથે જોડાઈ જાય છે. તેથી, #hl-orange[DC પ્રમોશન પહેલાં જ સર્વરનું કાયમી નામકરણ કરો].
+#warning-box(title: "સુવર્ણ નિયમ: #hl-yellow[ડોમેન કંટ્રોલર] પ્રમોટ કરતાં પહેલાં કમ્પ્યુટરનું નામ બદલો")[
+  એકવાર જ્યારે તમે સર્વરને #hl-yellow[એક્ટિવ ડિરેક્ટરી] #hl-yellow[ડોમેન કંટ્રોલર] બનાવી દો છો, ત્યારે તેનું નામ બદલવું અત્યંત જટિલ અને જોખમી બની જાય છે કારણ કે #hl-orange[Kerberos] SPNs, DNS SRV રેકોર્ડ્સ અને AD ડેટાબેઝ તે જ નામ સાથે જોડાઈ જાય છે. તેથી, #hl-orange[DC પ્રમોશન પહેલાં જ સર્વરનું કાયમી નામકરણ કરો].
 ]
 
 #block(
@@ -902,7 +902,7 @@
 
 #v(4pt)
 *નામ બદલવાના પગલાં:*
-1. Server Manager ખોલો અને ડાબી બાજુ #hl-yellow[Local Server] પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] ખોલો અને ડાબી બાજુ #hl-yellow[Local Server] પર ક્લિક કરો.
 2. #text(weight: "bold")[Computer name] ની સામે આપેલ રેન્ડમ નામ પર (દા.ત. `WIN-XXXXX`) ક્લિક કરો.
 3. System Properties વિંડોમાં #hl-green['Change...'] બટન પર ક્લિક કરો.
 4. Computer name બોક્સમાં નવું નામ દાખલ કરો: #hl-yellow[`SRV-2025-DC01`].
@@ -927,7 +927,7 @@
   ],
   [
     #warning-box(title: "DNS લૂપબેકનો અનિવાર્ય નિયમ")[
-      આ જ મશીન આપણું પ્રાથમિક DNS સર્વર પણ બનશે, તેથી Preferred DNS માં #hl-orange[`127.0.0.1`] (અથવા સર્વરનું પોતાનું સ્ટેટિક IP) જ નાખવું જોઈએ. જો તમે અહીં `8.8.8.8` (Google DNS) નાખી દીધું, તો એક્ટિવ ડિરેક્ટરીનું ડોમેન ક્યારેય જોઈન થઈ શકશે નહીં!
+      આ જ મશીન આપણું પ્રાથમિક DNS સર્વર પણ બનશે, તેથી Preferred DNS માં #hl-orange[`127.0.0.1`] (અથવા સર્વરનું પોતાનું સ્ટેટિક IP) જ નાખવું જોઈએ. જો તમે અહીં `8.8.8.8` (Google DNS) નાખી દીધું, તો #hl-yellow[એક્ટિવ ડિરેક્ટરી]નું ડોમેન ક્યારેય જોઈન થઈ શકશે નહીં!
     ]
   ]
 )
@@ -942,11 +942,11 @@
 
 #v(6pt)
 
-=== 3.4 રિમોટ ડેસ્કટોપ (RDP - Port 3389) અને NLA સુરક્ષા
+=== 3.4 રિમોટ ડેસ્કટોપ (RDP - #hl-green[Port 3389]) અને NLA સુરક્ષા
 ડેટા સેન્ટરમાં સર્વર્સ હંમેશા સાઉન્ડપ્રૂફ સર્વર રૂમમાં રેકની અંદર બંધ રહે છે. સિસ્ટમ એડમિનિસ્ટ્રેટર ક્યારેય સર્વરની સામે બેસીને કામ કરતા નથી, પરંતુ પોતાના લેપટોપ પરથી #hl-yellow[Remote Desktop Protocol (RDP)] દ્વારા સર્વર સાથે જોડાય છે.
 
 *RDP સક્ષમ અને સુરક્ષિત કરવાના પગલાં:*
-1. Server Manager -> #hl-yellow[Local Server] પર જાઓ.
+1. #hl-yellow[Server Manager] -> #hl-yellow[Local Server] પર જાઓ.
 2. #text(weight: "bold")[Remote Desktop] વિકલ્પ સામે આપેલ 'Disabled' પર ક્લિક કરો.
 3. System Properties માં #hl-green['Allow remote connections to this computer'] પસંદ કરો.
 4. #mark-orange['Allow connections only from computers running Remote Desktop with Network Level Authentication (recommended)'] ચેકબોક્સને અનિવાર્યપણે ટિક રાખો.
@@ -968,11 +968,11 @@
 
 #v(6pt)
 
-=== 3.6 ટાઇમ ઝોન અને NTP ક્લોક સિન્ક્રોનાઇઝેશન (Kerberos Time Skew Rule)
-એક્ટિવ ડિરેક્ટરીનું સંપૂર્ણ સુરક્ષા માળખું #hl-yellow[Kerberos v5] ઓથેન્ટિકેશન પ્રોટોકોલ પર નિર્ભર કરે છે. Kerberos રિપ્લે એટેક્સ (Replay Attacks) રોકવા માટે ટાઇમસ્ટેમ્પ્સનો ઉપયોગ કરે છે.
+=== 3.6 ટાઇમ ઝોન અને NTP ક્લોક સિન્ક્રોનાઇઝેશન (#hl-orange[Kerberos] Time Skew Rule)
+#hl-yellow[એક્ટિવ ડિરેક્ટરી]નું સંપૂર્ણ સુરક્ષા માળખું #hl-yellow[Kerberos v5] ઓથેન્ટિકેશન પ્રોટોકોલ પર નિર્ભર કરે છે. #hl-orange[Kerberos] રિપ્લે એટેક્સ (Replay Attacks) રોકવા માટે ટાઇમસ્ટેમ્પ્સનો ઉપયોગ કરે છે.
 
-#warning-box(title: "5-મિનિટ Kerberos ક્લોક સ્ક્યુ (ઇન્ટરવ્યુનો ક્લાસિક પ્રશ્ન)")[
-  જો ડોમેન કંટ્રોલર અને ક્લાયન્ટ મશીનની ઘડિયાળ વચ્ચે #hl-orange[5 મિનિટથી વધુનો સમય તફાવત (Clock Skew)] થઈ જાય, તો Kerberos ઓથેન્ટિકેશન ટિકિટ નકારી (Reject) કાઢશે અને યુઝર ડોમેનમાં લોગિન કરી શકશે નહીં!
+#warning-box(title: "5-મિનિટ #hl-orange[Kerberos] ક્લોક સ્ક્યુ (ઇન્ટરવ્યુનો ક્લાસિક પ્રશ્ન)")[
+  જો #hl-yellow[ડોમેન કંટ્રોલર] અને ક્લાયન્ટ મશીનની ઘડિયાળ વચ્ચે #hl-orange[5 મિનિટથી વધુનો સમય તફાવત (Clock Skew)] થઈ જાય, તો #hl-orange[Kerberos] ઓથેન્ટિકેશન ટિકિટ નકારી (Reject) કાઢશે અને યુઝર ડોમેનમાં લોગિન કરી શકશે નહીં!
 ]
 
 *NTP કન્ફિગરેશન કમાન્ડ્સ:*
@@ -1000,7 +1000,7 @@ w32tm /resync
 
 #mcq-item(
   num: "1",
-  q: "માઇક્રોસોફ્ટ અનુસાર કોઈપણ સર્વરને એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલર પ્રમોટ કરતાં પહેલાં કયું કાર્ય કરવું અનિવાર્ય છે?",
+  q: "માઇક્રોસોફ્ટ અનુસાર કોઈપણ સર્વરને #hl-yellow[એક્ટિવ ડિરેક્ટરી] #hl-yellow[ડોમેન કંટ્રોલર] પ્રમોટ કરતાં પહેલાં કયું કાર્ય કરવું અનિવાર્ય છે?",
   optA: "IIS વેબ સર્વર ઇન્સ્ટોલ કરવું",
   optB: "સર્વરનું કાયમી કમ્પ્યુટર નામ અને સ્ટેટિક IP સેટ કરવું",
   optC: "વિન્ડોઝ ડિફેન્ડર ફાયરવોલને કાયમ માટે બંધ કરવી",
@@ -1026,7 +1026,7 @@ w32tm /resync
 
 #mcq-item(
   num: "3",
-  q: "એક્ટિવ ડિરેક્ટરીના Kerberos ઓથેન્ટિકેશનમાં ડોમેન કંટ્રોલર અને ક્લાયન્ટ વચ્ચે મહત્તમ કેટલો સમય તફાવત (Clock Skew) સ્વીકાર્ય હોય છે?",
+  q: "#hl-yellow[એક્ટિવ ડિરેક્ટરી]ના #hl-orange[Kerberos] ઓથેન્ટિકેશનમાં #hl-yellow[ડોમેન કંટ્રોલર] અને ક્લાયન્ટ વચ્ચે મહત્તમ કેટલો સમય તફાવત (Clock Skew) સ્વીકાર્ય હોય છે?",
   optA: "1 મિનિટ",
   optB: "5 મિનિટ",
   optC: "15 મિનિટ",
@@ -1069,7 +1069,7 @@ w32tm /resync
 #interview-item(
   num: "1",
   q: "ઇન્ટરવ્યુઅર: 'જો કોઈ ડોમેન કંટ્રોલરના Preferred DNS માં 8.8.8.8 (Google DNS) નાખી દેવામાં આવે, તો શું થશે?'",
-  a: "જવાબ: જો DC પોતાના DNS તરીકે Google DNS ને જોશે, તો તે પોતાના સ્થાનિક એક્ટિવ ડિરેક્ટરી SRV રેકોર્ડ્સ (_ldap, _kerberos) ને ઇન્ટરનેટ પર શોધશે જ્યાં તે ઉપલબ્ધ નથી. પરિણામે ડોમેન કંટ્રોલર પોતાની જાતને ઓળખી શકશે નહીં, ક્લાયન્ટ્સ ડોમેન જોઈન કરી શકશે નહીં અને ડિરેક્ટરી રેપ્લિકેશન સંપૂર્ણપણે નિષ્ફળ જશે. DC ના DNS માં હંમેશા 127.0.0.1 (Loopback) અથવા સ્થાનિક AD DNS નું IP હોવું જોઈએ.",
+  a: "જવાબ: જો DC પોતાના DNS તરીકે Google DNS ને જોશે, તો તે પોતાના સ્થાનિક #hl-yellow[એક્ટિવ ડિરેક્ટરી] SRV રેકોર્ડ્સ (_ldap, _kerberos) ને ઇન્ટરનેટ પર શોધશે જ્યાં તે ઉપલબ્ધ નથી. પરિણામે ડોમેન કંટ્રોલર પોતાની જાતને ઓળખી શકશે નહીં, ક્લાયન્ટ્સ ડોમેન જોઈન કરી શકશે નહીં અને ડિરેક્ટરી રેપ્લિકેશન સંપૂર્ણપણે નિષ્ફળ જશે. DC ના DNS માં હંમેશા 127.0.0.1 (Loopback) અથવા સ્થાનિક AD DNS નું IP હોવું જોઈએ.",
   tip: "Wipro અને TCS ના L2 SysAdmin ઇન્ટરવ્યુમાં આ સૌથી ટ્રિકી અને નિર્ણાયક પ્રશ્ન માનવામાં આવે છે."
 )
 
@@ -1138,11 +1138,11 @@ w32tm /resync
 #chapter-header(
   chapter-num: "CHAPTER 04",
   category: "ભાગ 4 : કેન્દ્રીય ઓળખ અને ડિરેક્ટરી સર્વિસિસ (Identity & Directory Services)",
-  title: "એક્ટિવ ડિરેક્ટરી ડોમેન સર્વિસિસ (AD DS) અને ડોમેન કંટ્રોલર પ્રમોશન",
-  subtitle: "AD DS કોર આર્કિટેક્ચર · લોજિકલ (Forest, Domain, OU) અને ફિઝિકલ (Sites) સંરચના · Add Roles વિઝાર્ડ · રૂટ DC (corp.rtechlab.local) · DSRM પાસવર્ડ · 5 FSMO રોલ્સ"
+  title: "#hl-yellow[એક્ટિવ ડિરેક્ટરી] ડોમેન સર્વિસિસ (AD DS) અને #hl-yellow[ડોમેન કંટ્રોલર] પ્રમોશન",
+  subtitle: "AD DS કોર આર્કિટેક્ચર · લોજિકલ (Forest, Domain, OU) અને ફિઝિકલ (Sites) સંરચના · Add Roles વિઝાર્ડ · રૂટ DC (corp.rtechlab.local) · #hl-orange[DSRM] પાસવર્ડ · 5 FSMO રોલ્સ"
 )
 
-=== 4.1 એક્ટિવ ડિરેક્ટરી શું છે? (What is Active Directory Domain Services?)
+=== 4.1 #hl-yellow[એક્ટિવ ડિરેક્ટરી] શું છે? (What is #hl-yellow[Active Directory Domain Services]?)
 એક સામાન્ય વર્કગ્રુપ નેટવર્કમાં (Workgroup) દરેક કમ્પ્યુટરનો પોતાનો અલગ સ્થાનિક યુઝર ડેટાબેઝ હોય છે (SAM - Security Accounts Manager). જો કોઈ કંપનીમાં 500 કમ્પ્યુટર્સ હોય અને કોઈ નવો કર્મચારી જોડાય, તો એડમિનિસ્ટ્રેટરે તમામ 500 કમ્પ્યુટર્સ પર જઈને અલગ-અલગ યુઝર એકાઉન્ટ બનાવવું પડે!
 
 #mark-yellow[એક્ટિવ ડિરેક્ટરી ડોમેન સર્વિસિસ (AD DS) એ માઇક્રોસોફ્ટની એક કેન્દ્રીયકૃત ડિરેક્ટરી સેવા (Centralized Directory Service) છે જે સમગ્ર સંસ્થાના તમામ યુઝર્સ, કમ્પ્યુટર્સ, ગ્રુપ્સ અને નેટવર્ક સંસાધનોની માહિતીને એક જ સુરક્ષિત ડેટાબેઝમાં સંગ્રહિત તેમજ સંચાલિત કરે છે.]
@@ -1157,7 +1157,7 @@ w32tm /resync
   ],
   [
     #info-box(title: "ગ્લોબલ કેટલોગ (Global Catalog - GC)")[
-      ગ્લોબલ કેટલોગ એક વિશિષ્ટ ડોમેન કંટ્રોલર છે જે સમગ્ર ફોરેસ્ટના તમામ ડોમેનના તમામ ઓબ્જેક્ટ્સના સૌથી આવશ્યક એટ્રિબ્યુટ્સ (આંશિક નકલ - Partial Replica) સંગ્રહિત કરે છે. આ મલ્ટી-ડોમેન નેટવર્કમાં ઝડપી સર્ચિંગ સક્ષમ બનાવે છે. #hl-green[પોર્ટ: 3268 (LDAP GC)].
+      ગ્લોબલ કેટલોગ એક વિશિષ્ટ #hl-yellow[ડોમેન કંટ્રોલર] છે જે સમગ્ર ફોરેસ્ટના તમામ ડોમેનના તમામ ઓબ્જેક્ટ્સના સૌથી આવશ્યક એટ્રિબ્યુટ્સ (આંશિક નકલ - Partial Replica) સંગ્રહિત કરે છે. આ મલ્ટી-ડોમેન નેટવર્કમાં ઝડપી સર્ચિંગ સક્ષમ બનાવે છે. #hl-green[પોર્ટ: 3268 (LDAP GC)].
     ]
   ]
 )
@@ -1165,7 +1165,7 @@ w32tm /resync
 #v(4pt)
 
 === 4.2 AD લોજિકલ આર્કિટેક્ચર: ફોરેસ્ટ, ટ્રી, ડોમેન અને OUs
-એક્ટિવ ડિરેક્ટરીની લોજિકલ સંરચના એ નક્કી કરે છે કે નેટવર્ક સંસાધનોને વહીવટી રીતે કેવી રીતે ગોઠવવામાં આવે છે:
+#hl-yellow[એક્ટિવ ડિરેક્ટરી]ની લોજિકલ સંરચના એ નક્કી કરે છે કે નેટવર્ક સંસાધનોને વહીવટી રીતે કેવી રીતે ગોઠવવામાં આવે છે:
 
 #align(center)[
   #block(
@@ -1177,22 +1177,22 @@ w32tm /resync
       #image("../02_BRAND_ASSETS/screenshots/ad_hierarchy_architecture.png", width: 92%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 4.1: એક્ટિવ ડિરેક્ટરી લોજિકલ વંશવેલો — ફોરેસ્ટ રૂટ, ચાઇલ્ડ ડોમેન, ટ્રી અને ઓર્ગેનાઇઝેશનલ યુનિટ્સ (OUs)]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 4.1: #hl-yellow[એક્ટિવ ડિરેક્ટરી] લોજિકલ વંશવેલો — ફોરેસ્ટ રૂટ, ચાઇલ્ડ ડોમેન, ટ્રી અને ઓર્ગેનાઇઝેશનલ યુનિટ્સ (OUs)]
 ]
 
 #v(4pt)
 
-1. #text(weight: "bold", fill: rtech-navy)[ફોરેસ્ટ (Forest):] એક્ટિવ ડિરેક્ટરીની સર્વોચ્ચ સુરક્ષા સીમા (Ultimate Security Boundary). એક ફોરેસ્ટ અંતર્ગત આવતા તમામ ડોમેન એક સમાન સ્કીમા, એક સામાન્ય ગ્લોબલ કેટલોગ અને એક સમાન કન્ફિગરેશન શેર કરે છે.
+1. #text(weight: "bold", fill: rtech-navy)[ફોરેસ્ટ (Forest):] #hl-yellow[એક્ટિવ ડિરેક્ટરી]ની સર્વોચ્ચ સુરક્ષા સીમા (Ultimate Security Boundary). એક ફોરેસ્ટ અંતર્ગત આવતા તમામ ડોમેન એક સમાન સ્કીમા, એક સામાન્ય ગ્લોબલ કેટલોગ અને એક સમાન કન્ફિગરેશન શેર કરે છે.
 2. #text(weight: "bold", fill: rtech-navy)[ટ્રી (Tree):] એક અથવા એકથી વધુ ડોમેન્સનો વંશવેલો જે સતત DNS નેમસ્પેસ (Contiguous Namespace) શેર કરે છે (દા.ત. `rtechlab.local` અને `delhi.rtechlab.local`).
 3. #text(weight: "bold", fill: rtech-navy)[ડોમેન (Domain):] સુરક્ષા અને વહીવટી નીતિઓની (Administrative Boundary) મુખ્ય એકમ. આપણી લેબનું ડોમેન #hl-yellow[`corp.rtechlab.local`] રહેશે.
 4. #text(weight: "bold", fill: rtech-navy)[ઓર્ગેનાઇઝેશનલ યુનિટ (OU):] ડોમેનની અંદર બનાવવામાં આવતો વહીવટી કન્ટેનર (Container). આની અંદર યુઝર્સ અને કમ્પ્યુટર્સને વિભાગ અનુસાર રાખવામાં આવે છે જેથી તેમના પર ગ્રુપ પોલિસી (GPO) લાગુ કરી શકાય.
 
 #v(6pt)
 
-=== 4.3 AD ફિઝિકલ આર્કિટેક્ચર: ડોમેન કંટ્રોલર્સ, સાઇટ્સ અને સબનેટ્સ
+=== 4.3 AD ફિઝિકલ આર્કિટેક્ચર: #hl-yellow[ડોમેન કંટ્રોલર]્સ, સાઇટ્સ અને સબનેટ્સ
 લોજિકલ સંરચના એ નક્કી કરે છે કે ઓબ્જેક્ટ્સને *કેવી રીતે જોવામાં આવે*, જ્યારે ફિઝિકલ સંરચના એ નક્કી કરે છે કે ડિરેક્ટરીનો ડેટા *નેટવર્ક વાયરો અને હાર્ડવેર પર કેવી રીતે રેપ્લિકેટ (Replicate) થાય*:
 
-- #text(weight: "bold", fill: rtech-blue)[ડોમેન કંટ્રોલર (Domain Controller / DC):] તે ફિઝિકલ અથવા વર્ચ્યુઅલ સર્વર જેના પર AD DS રોલ ઇન્સ્ટોલ હોય છે અને જે એક્ટિવ ડિરેક્ટરીના મુખ્ય ડેટાબેઝની (#hl-yellow[`ntds.dit`]) સંપૂર્ણ નકલ રાખે છે.
+- #text(weight: "bold", fill: rtech-blue)[ડોમેન કંટ્રોલર (Domain Controller / DC):] તે ફિઝિકલ અથવા વર્ચ્યુઅલ સર્વર જેના પર AD DS રોલ ઇન્સ્ટોલ હોય છે અને જે #hl-yellow[એક્ટિવ ડિરેક્ટરી]ના મુખ્ય ડેટાબેઝની (#hl-yellow[`ntds.dit`]) સંપૂર્ણ નકલ રાખે છે.
 - #text(weight: "bold", fill: rtech-navy)[એક્ટિવ ડિરેક્ટરી સાઇટ્સ (Sites):] એક અથવા વધુ સુવ્યવસ્થિત, હાઇ-સ્પીડ TCP/IP સબનેટ્સનો સમૂહ (જેમ કે 'Mumbai-HO Site' અને 'Bangalore-Branch Site'). સાઇટ્સનો ઉપયોગ WAN લિંક પર બિનજરૂરી રેપ્લિકેશન ટ્રાફિકને નિયંત્રિત કરવા અને ક્લાયન્ટને સૌથી નજીકના DC થી ઓથેન્ટિકેટ કરાવવા માટે થાય છે.
 
 #v(6pt)
@@ -1200,40 +1200,40 @@ w32tm /resync
 === 4.4 પ્રેક્ટિકલ લેબ: Add Roles and Features વિઝાર્ડ દ્વારા AD DS રોલ ઇન્સ્ટોલેશન
 હવે આપણે આપણી વર્ચ્યુઅલ મશીન `SRV-2025-DC01` પર એક્ટિવ ડિરેક્ટરી રોલ સ્થાપિત કરીશું:
 
-1. Server Manager ખોલો અને ઉપર જમણી બાજુ આપેલ #hl-green['Manage'] મેનૂ પર ક્લિક કરીને #hl-yellow['Add Roles and Features'] પસંદ કરો.
+1. #hl-yellow[Server Manager] ખોલો અને ઉપર જમણી બાજુ આપેલ #hl-green['Manage'] મેનૂ પર ક્લિક કરીને #hl-yellow['Add Roles and Features'] પસંદ કરો.
 2. 'Before You Begin' સ્ક્રીન પર 'Next' દબાવો.
 3. Installation Type માં #hl-yellow['Role-based or feature-based installation'] પસંદ કરીને 'Next' દબાવો.
 4. Server Selection માં ખાતરી કરો કે પૂલમાં તમારી મશીન #hl-green[`SRV-2025-DC01 (192.168.1.10)`] પસંદ કરેલ છે. 'Next' દબાવો.
 5. Server Roles ની યાદીમાં #mark-yellow[Active Directory Domain Services] ચેકબોક્સ પર ટિક કરો.
-6. એક પોપ-અપ વિંડો ખુલશે: 'Add Features that are required for Active Directory Domain Services' (RSAT ટૂલ્સ સામેલ). #hl-green['Add Features'] પર ક્લિક કરો અને 'Next' દબાવો.
+6. એક પોપ-અપ વિંડો ખુલશે: 'Add Features that are required for #hl-yellow[Active Directory Domain Services]' (RSAT ટૂલ્સ સામેલ). #hl-green['Add Features'] પર ક્લિક કરો અને 'Next' દબાવો.
 7. Features સ્ક્રીન પર ડિફોલ્ટ પસંદગી રહેવા દો અને 'Next' દબાવો.
 8. Confirmation સ્ક્રીન પર 'Restart the destination server automatically if required' ને અનચેક રહેવા દો અને #hl-green['Install'] પર ક્લિક કરો.
 9. 2 થી 3 મિનિટમાં રોલ ઇન્સ્ટોલેશન પૂર્ણ થશે. 'Close' પર ક્લિક કરો.
 
 #v(6pt)
 
-=== 4.5 પ્રેક્ટિકલ લેબ: સર્વરને રૂટ ડોમેન કંટ્રોલર પ્રમોટ કરવું (DC Promotion)
+=== 4.5 પ્રેક્ટિકલ લેબ: સર્વરને રૂટ #hl-yellow[ડોમેન કંટ્રોલર] પ્રમોટ કરવું (DC Promotion)
 રોલ ઇન્સ્ટોલ થયા પછી સર્વર આપમેળે DC બનતું નથી. તેને પ્રમોટ કરવું પડે છે:
 
-1. Server Manager ની ટોચ પર આપેલ પીળા રંગના ચેતવણી ધ્વજ (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] ની ટોચ પર આપેલ પીળા રંગના ચેતવણી ધ્વજ (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) પર ક્લિક કરો.
 2. વાદળી રંગની લિંક પર ક્લિક કરો: #mark-green[Promote this server to a domain controller].
 3. #text(weight: "bold")[Deployment Configuration:] આપણે પહેલી વાર નવું ડોમેન બનાવી રહ્યા છીએ, તેથી ત્રીજો વિકલ્પ પસંદ કરો: #hl-yellow['Add a new forest'].
    - Root domain name માં લખો: #hl-green[`corp.rtechlab.local`]. 'Next' દબાવો.
 4. #text(weight: "bold")[Domain Controller Options:]
    - Forest & Domain functional level: #hl-green[Windows Server 2025] (નવીનતમ સુરક્ષા સુવિધાઓ માટે).
    - 'Domain Name System (DNS) server' અને 'Global Catalog (GC)' ને ચેક રહેવા દો.
-   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (DSRM) Password:] આ આપત્તિ સમયે AD ડેટાબેઝ રિસ્ટોર કરવા માટેનો માસ્ટર રિકવરી પાસવર્ડ છે. એક મજબૂત પાસવર્ડ દાખલ કરો (દા.ત. #hl-green[`Dsrm@2025!`]). 'Next' દબાવો.
+   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (#hl-orange[DSRM]) Password:] આ આપત્તિ સમયે AD ડેટાબેઝ રિસ્ટોર કરવા માટેનો માસ્ટર રિકવરી પાસવર્ડ છે. એક મજબૂત પાસવર્ડ દાખલ કરો (દા.ત. #hl-green[`Dsrm@2025!`]). 'Next' દબાવો.
 5. #text(weight: "bold")[DNS Options:] 'A delegation for this DNS server cannot be created...' ની સામાન્ય પીળી ચેતવણી આવશે, તેને અવગણીને સીધા જ 'Next' દબાવો.
 6. #text(weight: "bold")[Additional Options:] વિઝાર્ડ આપમેળે NetBIOS નામ જનરેટ કરશે: #hl-yellow[`CORP`]. 'Next' દબાવો.
 7. #text(weight: "bold")[Paths:] ડેટાબેઝ, લોગ અને SYSVOL ના ડિફોલ્ટ પાથ રહેવા દો (`C:\Windows\NTDS` અને `C:\Windows\SYSVOL`). 'Next' દબાવો.
 8. #text(weight: "bold")[Prerequisites Check:] સિસ્ટમ તમામ પૂર્વ-આવશ્યકતાઓની ચકાસણી કરશે. ટોચ પર લીલો ટિક દેખાશે: #hl-green['All prerequisite checks passed successfully'].
 9. નીચે આપેલ #mark-green[Install] બટન પર ક્લિક કરો!
-10. સર્વર AD DS કન્ફિગર કરશે અને આપમેળે રીબૂટ થશે. રીબૂટ પછી લોગિન સ્ક્રીન પર તમને દેખાશે: #hl-yellow[`CORP\Administrator`]. અભિનંદન, તમારું ડોમેન કંટ્રોલર હવે લાઈવ છે!
+10. સર્વર AD DS કન્ફિગર કરશે અને આપમેળે રીબૂટ થશે. રીબૂટ પછી લોગિન સ્ક્રીન પર તમને દેખાશે: #hl-yellow[`CORP\Administrator`]. અભિનંદન, તમારું #hl-yellow[ડોમેન કંટ્રોલર] હવે લાઈવ છે!
 
 #v(6pt)
 
 === 4.6 FSMO ના 5 વિશિષ્ટ રોલ્સની કાર્યપ્રણાલી (5 FSMO Master Roles)
-જો કે એક્ટિવ ડિરેક્ટરી મલ્ટી-માસ્ટર રેપ્લિકેશન મોડેલ પર કાર્ય કરે છે (જ્યાં કોઈપણ DC પર યુઝર બનાવી શકાય છે), પરંતુ ડેટા ટકરાવ (Conflicts) રોકવા માટે 5 એવા મહત્વપૂર્ણ કાર્યો છે જે એક સમયે સમગ્ર નેટવર્કમાં માત્ર *એક જ વિશિષ્ટ ડોમેન કંટ્રોલર* દ્વારા કરી શકાય છે. આમને #hl-yellow[FSMO (Flexible Single Master Operations)] રોલ્સ કહેવામાં આવે છે:
+જો કે એક્ટિવ ડિરેક્ટરી મલ્ટી-માસ્ટર રેપ્લિકેશન મોડેલ પર કાર્ય કરે છે (જ્યાં કોઈપણ DC પર યુઝર બનાવી શકાય છે), પરંતુ ડેટા ટકરાવ (Conflicts) રોકવા માટે 5 એવા મહત્વપૂર્ણ કાર્યો છે જે એક સમયે સમગ્ર નેટવર્કમાં માત્ર *એક જ વિશિષ્ટ #hl-yellow[ડોમેન કંટ્રોલર]* દ્વારા કરી શકાય છે. આમને #hl-yellow[FSMO (Flexible Single Master Operations)] રોલ્સ કહેવામાં આવે છે:
 
 #align(center)[
   #block(
@@ -1262,7 +1262,7 @@ w32tm /resync
       1. #text(weight: "bold")[Schema Master:] સમગ્ર ફોરેસ્ટમાં AD ના સ્કીમા (ક્લાસ અને એટ્રિબ્યુટ્સ) માં થતા ફેરફારોને નિયંત્રિત કરે છે (જેમ કે Exchange સર્વર ઇન્સ્ટોલ કરતી વખતે).
       2. #text(weight: "bold")[Domain Naming Master:] ફોરેસ્ટમાં નવા ડોમેનને જોડવા અથવા જૂના ડોમેનને હટાવવાનો વિશેષ અધિકાર ધરાવે છે.
     - #text(weight: "bold", fill: rtech-emerald)[ડોમેન-વાઇડ રોલ્સ (ફોરેસ્ટના દરેક ડોમેનમાં 1-1 DC પર):]
-      3. #text(weight: "bold")[PDC Emulator (સર્વોચ્ચ મહત્વપૂર્ણ રોલ):] Kerberos પાસવર્ડ ફેરફારોનું તાત્કાલિક પ્રોસેસિંગ, ટાઇમ સિન્ક્રોનાઇઝેશન (NTP Master), ગ્રુપ પોલિસી એડિટિંગ અને એકાઉન્ટ લોકઆઉટ સંભાળે છે.
+      3. #text(weight: "bold")[PDC Emulator (સર્વોચ્ચ મહત્વપૂર્ણ રોલ):] #hl-orange[Kerberos] પાસવર્ડ ફેરફારોનું તાત્કાલિક પ્રોસેસિંગ, ટાઇમ સિન્ક્રોનાઇઝેશન (NTP Master), ગ્રુપ પોલિસી એડિટિંગ અને એકાઉન્ટ લોકઆઉટ સંભાળે છે.
       4. #text(weight: "bold")[RID Master (Relative ID Master):] જ્યારે પણ નવો યુઝર કે ગ્રુપ બને છે, તેને એક યુનિક SID મળે છે. RID Master દરેક DC ને 500 RIDs નો એક પૂલ ફાળવે છે જેથી SIDs ડુપ્લિકેટ ન થાય.
       5. #text(weight: "bold")[Infrastructure Master:] મલ્ટી-ડોમેન એન્વાયર્નમેન્ટમાં અન્ય ડોમેનના ગ્રુપ્સમાં સામેલ યુઝર્સના ક્રોસ-ડોમેન રેફરન્સ (GUID અને SID મેપિંગ) અપડેટ રાખે છે.
   ]
@@ -1382,8 +1382,8 @@ w32tm /resync
 
 #interview-item(
   num: "3",
-  q: "ઇન્ટરવ્યુઅર: 'DSRM (Directory Services Restore Mode) પાસવર્ડ શું છે, અને તે સામાન્ય ડોમેન એડમિન પાસવર્ડથી કેવી રીતે અલગ છે?'",
-  a: "જવાબ: ડોમેન એડમિનનો પાસવર્ડ એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (ntds.dit) ની અંદર સ્ટોર થાય છે. જો AD ડેટાબેઝ કરપ્ટ થઈ જાય અથવા સર્વર Safe Mode (DSRM) માં બૂટ થાય જ્યાં AD સર્વિસિસ બંધ હોય છે, તો ડોમેન એડમિન લોગિન કામ કરશે નહીં. આવી કટોકટીમાં સર્વરના લોકલ SAM ડેટાબેઝમાં માત્ર DSRM પાસવર્ડ જ કામ કરે છે જેના દ્વારા ડેટાબેઝ રિસ્ટોર કરવામાં આવે છે.",
+  q: "ઇન્ટરવ્યુઅર: '#hl-orange[DSRM] (#hl-orange[Directory Services Restore Mode]) પાસવર્ડ શું છે, અને તે સામાન્ય ડોમેન એડમિન પાસવર્ડથી કેવી રીતે અલગ છે?'",
+  a: "જવાબ: ડોમેન એડમિનનો પાસવર્ડ એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (ntds.dit) ની અંદર સ્ટોર થાય છે. જો AD ડેટાબેઝ કરપ્ટ થઈ જાય અથવા સર્વર Safe Mode (#hl-orange[DSRM]) માં બૂટ થાય જ્યાં AD સર્વિસિસ બંધ હોય છે, તો ડોમેન એડમિન લોગિન કામ કરશે નહીં. આવી કટોકટીમાં સર્વરના લોકલ SAM ડેટાબેઝમાં માત્ર #hl-orange[DSRM] પાસવર્ડ જ કામ કરે છે જેના દ્વારા ડેટાબેઝ રિસ્ટોર કરવામાં આવે છે.",
   tip: "આ ઉત્તર સાબિત કરે છે કે તમે માત્ર ટૂલ્સ નથી ચલાવતા, પરંતુ ઇન્ટરનલ રિકવરી આર્કિટેક્ચરને સમજો છો."
 )
 
@@ -1435,20 +1435,20 @@ w32tm /resync
   chapter-num: "CHAPTER 05",
   category: "ભાગ 5 : ડિરેક્ટરી ઓબ્જેક્ટ્સ અને એક્સેસ કંટ્રોલ (Directory Objects & RBAC)",
   title: "ADUC કન્સોલ: OUs, ડોમેન યુઝર્સ અને સિક્યુરિટી ગ્રુપ્સનું મેનેજમેન્ટ",
-  subtitle: "ADUC (dsa.msc) · એન્ટરપ્રાઇઝ OU વંશવેલો · નવા ડોમેન યુઝર એકાઉન્ટ્સ · પાસવર્ડ અને લોકઆઉટ નીતિઓ · સિક્યુરિટી vs ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ · AGDLP · PowerShell બલ્ક"
+  subtitle: "ADUC (dsa.msc) · એન્ટરપ્રાઇઝ OU વંશવેલો · નવા ડોમેન યુઝર એકાઉન્ટ્સ · પાસવર્ડ અને લોકઆઉટ નીતિઓ · સિક્યુરિટી vs ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ · #hl-orange[AGDLP] · PowerShell બલ્ક"
 )
 
-=== 5.1 Active Directory Users and Computers (`dsa.msc`) ઇન્ટરફેસ
-ડોમેન કંટ્રોલર પ્રમોટ થયા પછી, એક્ટિવ ડિરેક્ટરીના તમામ ઓબ્જેક્ટ્સ (Users, Computers, Groups, OUs) ને સંચાલિત કરવા માટેનું પ્રાથમિક ગ્રાફિકલ એડમિનિસ્ટ્રેટિવ ટૂલ #hl-yellow[Active Directory Users and Computers (ADUC)] છે.
+=== 5.1 #hl-yellow[Active Directory Users and Computers] (`dsa.msc`) ઇન્ટરફેસ
+#hl-yellow[ડોમેન કંટ્રોલર] પ્રમોટ થયા પછી, #hl-yellow[એક્ટિવ ડિરેક્ટરી]ના તમામ ઓબ્જેક્ટ્સ (Users, Computers, Groups, OUs) ને સંચાલિત કરવા માટેનું પ્રાથમિક ગ્રાફિકલ એડમિનિસ્ટ્રેટિવ ટૂલ #hl-yellow[Active Directory Users and Computers (ADUC)] છે.
 
 *ADUC કન્સોલ ખોલવાની 2 ઝડપી રીતો:*
-1. Server Manager માં -> ઉપર જમણી બાજુએ #hl-green[Tools] મેનૂ -> #hl-yellow[Active Directory Users and Computers] પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] માં -> ઉપર જમણી બાજુએ #hl-green[Tools] મેનૂ -> #hl-yellow[Active Directory Users and Computers] પર ક્લિક કરો.
 2. રન ડાયલોગ (`Win + R`) માં શોર્ટકટ કમાન્ડ ટાઇપ કરો: #mark-green[`dsa.msc`] અને Enter દબાવો.
 
 કન્સોલની ડાબી બાજુએ તમારું ડોમેન `#text(weight: "bold")[corp.rtechlab.local]` દેખાશે. તેની નીચે કેટલાક ડિફોલ્ટ કન્ટેનર્સ પહેલેથી બનેલા હોય છે:
 - #text(weight: "bold", fill: rtech-navy)[Builtin:] સિસ્ટમના ડિફોલ્ટ સુરક્ષા ગ્રુપ્સ (Administrators, Account Operators, Backup Operators વગેરે).
 - #text(weight: "bold", fill: rtech-navy)[Computers:] જ્યારે કોઈ સામાન્ય ક્લાયન્ટ કમ્પ્યુટર ડોમેન જોઈન કરે છે, ત્યારે તેનું ખાતું ડિફોલ્ટ રીતે આ જ ફોલ્ડરમાં બને છે.
-- #text(weight: "bold", fill: rtech-navy)[Domain Controllers:] આ ડોમેનના તમામ અધિકૃત ડોમેન કંટ્રોલર સર્વર્સનું સમર્પિત OU.
+- #text(weight: "bold", fill: rtech-navy)[Domain Controllers:] આ ડોમેનના તમામ અધિકૃત #hl-yellow[ડોમેન કંટ્રોલર] સર્વર્સનું સમર્પિત OU.
 - #text(weight: "bold", fill: rtech-navy)[Users:] ડિફોલ્ટ ડોમેન યુઝર્સ અને ગ્રુપ્સ (દા.ત. Administrator, Guest, Domain Admins, Domain Users).
 
 #warning-box(title: "ડિફોલ્ટ કન્ટેનર vs ઓર્ગેનાઇઝેશનલ યુનિટ (Critical Architectural Difference)")[
@@ -1470,7 +1470,7 @@ w32tm /resync
       #image("../02_BRAND_ASSETS/screenshots/ou_hierarchy_agdlp.png", width: 92%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 5.1: એન્ટરપ્રાઇઝ OU માળખું અને AGDLP રોલ-બેઝ્ડ એક્સેસ કંટ્રોલ (RBAC) નેસ્ટિંગ ફ્રેમવર્ક]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 5.1: એન્ટરપ્રાઇઝ OU માળખું અને #hl-orange[AGDLP] રોલ-બેઝ્ડ એક્સેસ કંટ્રોલ (RBAC) નેસ્ટિંગ ફ્રેમવર્ક]
 ]
 
 #v(4pt)
@@ -1503,20 +1503,20 @@ w32tm /resync
 #v(6pt)
 
 === 5.4 એકાઉન્ટ લોકઆઉટ અને ફાઇન-ગ્રેઇન્ડ પાસવર્ડ પોલિસી (Account Lockout & FGPP)
-બ્રુટ-ફોર્સ પાસવર્ડ ગેસિંગ એટેક્સ અટકાવવા માટે એક્ટિવ ડિરેક્ટરીમાં ઓટોમેટેડ એકાઉન્ટ લોકઆઉટ સુરક્ષા વ્યવસ્થા હોય છે:
+બ્રુટ-ફોર્સ પાસવર્ડ ગેસિંગ એટેક્સ અટકાવવા માટે #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં ઓટોમેટેડ એકાઉન્ટ લોકઆઉટ સુરક્ષા વ્યવસ્થા હોય છે:
 - જો કોઈ કર્મચારી કે અનધિકૃત વ્યક્તિ સતત 5 વખત ખોટો પાસવર્ડ દાખલ કરે (Account lockout threshold), તો તેનું એકાઉન્ટ 30 મિનિટ માટે આપોઆપ લોક થઈ જાય છે.
 - *એકાઉન્ટ અનલોક કરવાની રીત:* ADUC માં યુઝર પર રાઇટ-ક્લિક કરો -> #hl-yellow[Properties -> Account] ટેબ પર જાઓ. નીચે આપેલા ચેકબોક્સ #hl-green['Unlock account. This account is currently locked out on this Active Directory Domain Controller'] પર ટીક લગાવો અને 'Apply' કરો.
 
 #v(6pt)
 
 === 5.5 સિક્યુરિટી ગ્રુપ્સ vs ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ (Group Types)
-એક્ટિવ ડિરેક્ટરીમાં બે અલગ પ્રકારના ગ્રુપ્સ હોય છે:
+#hl-yellow[એક્ટિવ ડિરેક્ટરી]માં બે અલગ પ્રકારના ગ્રુપ્સ હોય છે:
 1. #text(weight: "bold", fill: rtech-navy)[સિક્યુરિટી ગ્રુપ્સ (Security Groups):] આ ગ્રુપ્સનો પ્રાથમિક હેતુ નેટવર્ક રિસોર્સિસ (શેર્ડ ફોલ્ડર્સ, પ્રિન્ટર્સ, શેરપોઇન્ટ) પર પરવાનગીઓ (Permissions) આપવાનો હોય છે. તેનો ઉપયોગ ઇમેઇલ ડિલિવરી માટે પણ થઈ શકે છે.
 2. #text(weight: "bold", fill: rtech-navy)[ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ (Distribution Groups):] આ ગ્રુપ્સ માત્ર ઇમેઇલ લિસ્ટ્સ (Distribution Lists - Exchange Server/Outlook) બનાવવા માટે વપરાય છે. #hl-orange[ડિસ્ટ્રિબ્યુશન ગ્રુપ્સને ક્યારેય કોઈ ફાઇલ કે ફોલ્ડરની NTFS સુરક્ષા પરવાનગી આપી શકાતી નથી!]
 
 #v(6pt)
 
-=== 5.6 ગ્રુપ સ્કોપ્સ અને AGDLP બેસ્ટ પ્રેક્ટિસ (The AGDLP Standard)
+=== 5.6 ગ્રુપ સ્કોપ્સ અને #hl-orange[AGDLP] બેસ્ટ પ્રેક્ટિસ (The #hl-orange[AGDLP] Standard)
 માઇક્રોસોફ્ટ એન્ટરપ્રાઇઝમાં રોલ્સ અને પરમિશન્સ મેનેજ કરવા માટે #hl-yellow[AGDLP મોડેલ] નો ઉપયોગ કરવાની ભલામણ કરે છે:
 
 #block(
@@ -1561,7 +1561,7 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 // CHAPTER 05 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  એક્ટિવ ડિરેક્ટરીમાં એક ગુપ્ત સુરક્ષા પ્રક્રિયા હોય છે જેને #hl-yellow[AdminSDHolder] અને #hl-yellow[SDProp (Security Descriptor Propagator)] કહેવામાં આવે છે. દર 60 મિનિટે PDC Emulator ડોમેનના તમામ પ્રિવિલેજ્ડ ગ્રુપ્સ (Domain Admins, Enterprise Admins, Schema Admins) ના સભ્યોની સુરક્ષા પરમિશન્સને રીસેટ કરી દે છે અને ઇનહેરિટન્સ બ્લોક કરી દે છે જેથી કોઈ જુનિયર એડમિનિસ્ટ્રેટર ભૂલથી પણ મુખ્ય એડમિન એકાઉન્ટ્સના અધિકારો બદલી ન શકે!
+  #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં એક ગુપ્ત સુરક્ષા પ્રક્રિયા હોય છે જેને #hl-yellow[AdminSDHolder] અને #hl-yellow[SDProp (Security Descriptor Propagator)] કહેવામાં આવે છે. દર 60 મિનિટે PDC Emulator ડોમેનના તમામ પ્રિવિલેજ્ડ ગ્રુપ્સ (Domain Admins, Enterprise Admins, Schema Admins) ના સભ્યોની સુરક્ષા પરમિશન્સને રીસેટ કરી દે છે અને ઇનહેરિટન્સ બ્લોક કરી દે છે જેથી કોઈ જુનિયર એડમિનિસ્ટ્રેટર ભૂલથી પણ મુખ્ય એડમિન એકાઉન્ટ્સના અધિકારો બદલી ન શકે!
 ]
 
 #v(6pt)
@@ -1571,7 +1571,7 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "1",
-  q: "Active Directory Users and Computers ગ્રાફિકલ કન્સોલને સીધું ખોલવા માટેનો સત્તાવાર રન કમાન્ડ કયો છે?",
+  q: "#hl-yellow[Active Directory Users and Computers] ગ્રાફિકલ કન્સોલને સીધું ખોલવા માટેનો સત્તાવાર રન કમાન્ડ કયો છે?",
   optA: "gpmc.msc",
   optB: "dsa.msc",
   optC: "dnsmgmt.msc",
@@ -1597,13 +1597,13 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "3",
-  q: "માઇક્રોસોફ્ટના ભલામણ કરેલ AGDLP એક્સેસ કંટ્રોલ મોડેલમાં 'DL' અક્ષરનો અર્થ શું છે?",
+  q: "માઇક્રોસોફ્ટના ભલામણ કરેલ #hl-orange[AGDLP] એક્સેસ કંટ્રોલ મોડેલમાં 'DL' અક્ષરનો અર્થ શું છે?",
   optA: "Distribution List",
   optB: "Domain Local Group",
   optC: "Dynamic Link",
   optD: "Data Lock",
   ans: "B",
-  exp: "AGDLP નું સંપૂર્ણ સ્વરૂપ છે: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
+  exp: "#hl-orange[AGDLP] નું સંપૂર્ણ સ્વરૂપ છે: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
 )
 
 #v(3pt)
@@ -1623,13 +1623,13 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "5",
-  q: "PowerShell માં એક્ટિવ ડિરેક્ટરી હેઠળ નવું યુઝર એકાઉન્ટ બનાવવા માટે કયા સત્તાવાર Cmdlet નો ઉપયોગ થાય છે?",
+  q: "PowerShell માં #hl-yellow[એક્ટિવ ડિરેક્ટરી] હેઠળ નવું યુઝર એકાઉન્ટ બનાવવા માટે કયા સત્તાવાર Cmdlet નો ઉપયોગ થાય છે?",
   optA: "Add-User",
   optB: "Create-ADAccount",
   optC: "New-ADUser",
   optD: "Set-DomainUser",
   ans: "C",
-  exp: "New-ADUser એક્ટિવ ડિરેક્ટરી મોડ્યુલનો સ્ટાન્ડર્ડ સત્તાવાર Cmdlet છે."
+  exp: "New-ADUser #hl-yellow[એક્ટિવ ડિરેક્ટરી] મોડ્યુલનો સ્ટાન્ડર્ડ સત્તાવાર Cmdlet છે."
 )
 
 #v(6pt)
@@ -1714,10 +1714,10 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 )
 
 === 6.1 ક્લાયન્ટ વર્કસ્ટેશનની પૂર્વ-જરૂરિયાતો (Client Prerequisites)
-ડોમેન કંટ્રોલર અને યુઝર એકાઉન્ટ્સ તૈયાર થયા પછી, આગળનું પગલું કર્મચારીના લેપટોપ/ડેસ્કટોપને એક્ટિવ ડિરેક્ટરી ડોમેન સાથે જોડવાનું છે જેથી તેના પર કેન્દ્રીય નીતિઓ અને સુરક્ષા લાગુ કરી શકાય.
+#hl-yellow[ડોમેન કંટ્રોલર] અને યુઝર એકાઉન્ટ્સ તૈયાર થયા પછી, આગળનું પગલું કર્મચારીના લેપટોપ/ડેસ્કટોપને #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડોમેન સાથે જોડવાનું છે જેથી તેના પર કેન્દ્રીય નીતિઓ અને સુરક્ષા લાગુ કરી શકાય.
 
 #warning-box(title: "વિન્ડોઝ એડિશન પ્રતિબંધ (Windows Home Edition Trap)")[
-  Microsoft Windows 10/11 #hl-orange[Home Edition ને ક્યારેય એક્ટિવ ડિરેક્ટરી ડોમેન સાથે જોડી શકાતું નથી.] ડોમેન જોઈન કરવા માટે ક્લાયન્ટ મશીન પર #mark-green[Windows 10/11 Pro, Enterprise, અથવા Education] સંસ્કરણ હોવું ફરજિયાત છે.
+  Microsoft Windows 10/11 #hl-orange[Home Edition ને ક્યારેય #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડોમેન સાથે જોડી શકાતું નથી.] ડોમેન જોઈન કરવા માટે ક્લાયન્ટ મશીન પર #mark-green[Windows 10/11 Pro, Enterprise, અથવા Education] સંસ્કરણ હોવું ફરજિયાત છે.
 ]
 
 #v(4pt)
@@ -1728,10 +1728,10 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #v(6pt)
 
-=== 6.2 ક્લાયન્ટ પર DNS IP ને ડોમેન કંટ્રોલર પર પોઇન્ટ કરવું (The #1 Golden Rule)
+=== 6.2 ક્લાયન્ટ પર DNS IP ને #hl-yellow[ડોમેન કંટ્રોલર] પર પોઇન્ટ કરવું (The #1 Golden Rule)
 નવા વિદ્યાર્થીઓ અને જુનિયર આઇટી સપોર્ટ એન્જિનિયર્સ દ્વારા કરવામાં આવતી 99% ભૂલો અહીં થાય છે:
 
-#mark-yellow[ક્લાયન્ટ મશીન જ્યાં સુધી તેના નેટવર્ક એડેપ્ટરના 'Preferred DNS Server' માં ડોમેન કંટ્રોલરનો IP એડ્રેસ દાખલ ન કરે, ત્યાં સુધી તે એક્ટિવ ડિરેક્ટરી ડોમેનને ક્યારેય શોધી શકશે નહીં!]
+#mark-yellow[ક્લાયન્ટ મશીન જ્યાં સુધી તેના નેટવર્ક એડેપ્ટરના 'Preferred DNS Server' માં #hl-yellow[ડોમેન કંટ્રોલર]નો IP એડ્રેસ દાખલ ન કરે, ત્યાં સુધી તે #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડોમેનને ક્યારેય શોધી શકશે નહીં!]
 
 #align(center)[
   #block(
@@ -1771,7 +1771,7 @@ ping 192.168.1.10
 ```cmd
 nslookup corp.rtechlab.local
 ```
-જો જવાબોમાં Server: `SRV-2025-DC01.corp.rtechlab.local` અને Address: `192.168.1.10` દેખાય, તો તેનો અર્થ એ છે કે ક્લાયન્ટ હવે ડોમેન કંટ્રોલરને શોધવામાં સંપૂર્ણપણે સક્ષમ છે.
+જો જવાબોમાં Server: `SRV-2025-DC01.corp.rtechlab.local` અને Address: `192.168.1.10` દેખાય, તો તેનો અર્થ એ છે કે ક્લાયન્ટ હવે #hl-yellow[ડોમેન કંટ્રોલર]ને શોધવામાં સંપૂર્ણપણે સક્ષમ છે.
 
 #v(6pt)
 
@@ -1796,13 +1796,13 @@ nslookup corp.rtechlab.local
 પ્રોડક્શન અને ઇન્ટરવ્યુ બંનેમાં ડોમેન જોઈનિંગ એરર્સ ખૂબ સામાન્ય છે:
 
 1. #text(weight: "bold", fill: rtech-rose)[એરર 1: 'An Active Directory Domain Controller for the domain could not be contacted':]
-   - *કારણ:* ક્લાયન્ટના DNS માં ડોમેન કંટ્રોલરનો IP નથી (ક્લાયન્ટ સાર્વજનિક Google DNS 8.8.8.8 અથવા હોમ વાઇ-ફાઇ રાઉટરનો DNS વાપરી રહ્યો છે).
+   - *કારણ:* ક્લાયન્ટના DNS માં #hl-yellow[ડોમેન કંટ્રોલર]નો IP નથી (ક્લાયન્ટ સાર્વજનિક Google DNS 8.8.8.8 અથવા હોમ વાઇ-ફાઇ રાઉટરનો DNS વાપરી રહ્યો છે).
    - *નિવારણ:* `ncpa.cpl` માં જઈને Preferred DNS ને `192.168.1.10` પર સેટ કરો.
 2. #text(weight: "bold", fill: rtech-rose)[એરર 2: 'The network path was not found (0x80070035)':]
-   - *કારણ:* ડોમેન કંટ્રોલર પર Windows Firewall દ્વારા SMB (Port 445) અથવા RPC પોર્ટ્સ બ્લોક છે.
+   - *કારણ:* #hl-yellow[ડોમેન કંટ્રોલર] પર Windows Firewall દ્વારા SMB (#hl-green[Port 445]) અથવા RPC પોર્ટ્સ બ્લોક છે.
    - *નિવારણ:* DC પર 'File and Printer Sharing' ફાયરવોલ નિયમો સક્ષમ (Enable) કરો.
 3. #text(weight: "bold", fill: rtech-rose)[એરર 3: 'There is a time and/or date difference between the client and server':]
-   - *કારણ:* ક્લાયન્ટ અને DC ના સમય વચ્ચે 5 મિનિટ કરતાં વધુનો Kerberos ટાઇમ ડ્રિફ્ટ (Clock Skew) છે.
+   - *કારણ:* ક્લાયન્ટ અને DC ના સમય વચ્ચે 5 મિનિટ કરતાં વધુનો #hl-orange[Kerberos] ટાઇમ ડ્રિફ્ટ (Clock Skew) છે.
    - *નિવારણ:* ક્લાયન્ટની ઘડિયાળ અને ટાઇમ ઝોનને DC સાથે મેળવો અથવા `w32tm /resync` ચલાવો.
 4. #text(weight: "bold", fill: rtech-rose)[એરર 4: 'Access is denied':]
    - *કારણ:* જોઈન કરતી વખતે દાખલ કરેલા ક્રેડેન્શિયલ્સ પાસે કમ્પ્યુટર જોડવાનો અધિકાર નથી.
@@ -1831,7 +1831,7 @@ nslookup corp.rtechlab.local
 // CHAPTER 06 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  જ્યારે કોઈ કમ્પ્યુટર ડોમેન જોઈન કરે છે, ત્યારે કમ્પ્યુટરનું પોતાનું એક ગુપ્ત મશીન ખાતું (Machine Account - `CLT-WIN11-01$`) એક્ટિવ ડિરેક્ટરીમાં બને છે. શું તમે જાણો છો કે કમ્પ્યુટર અને ડોમેન કંટ્રોલર વચ્ચેનો સિક્યોર્ડ ચેનલ પાસવર્ડ દર #hl-yellow[30 દિવસમાં બેકગ્રાઉન્ડમાં આપોઆપ બદલાય છે]? જો કોઈ કમ્પ્યુટર 90 દિવસથી વધુ સમય માટે નેટવર્કથી ડિસ્કનેક્ટ રહે, તો આ ટ્રસ્ટ રિલેશનશિપ તૂટી જાય છે (Trust Relationship Failed Error)!
+  જ્યારે કોઈ કમ્પ્યુટર ડોમેન જોઈન કરે છે, ત્યારે કમ્પ્યુટરનું પોતાનું એક ગુપ્ત મશીન ખાતું (Machine Account - `CLT-WIN11-01$`) #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં બને છે. શું તમે જાણો છો કે કમ્પ્યુટર અને ડોમેન કંટ્રોલર વચ્ચેનો સિક્યોર્ડ ચેનલ પાસવર્ડ દર #hl-yellow[30 દિવસમાં બેકગ્રાઉન્ડમાં આપોઆપ બદલાય છે]? જો કોઈ કમ્પ્યુટર 90 દિવસથી વધુ સમય માટે નેટવર્કથી ડિસ્કનેક્ટ રહે, તો આ ટ્રસ્ટ રિલેશનશિપ તૂટી જાય છે (Trust Relationship Failed Error)!
 ]
 
 #v(6pt)
@@ -1841,7 +1841,7 @@ nslookup corp.rtechlab.local
 
 #mcq-item(
   num: "1",
-  q: "વિન્ડોઝની કઈ આવૃત્તિને એક્ટિવ ડિરેક્ટરી ડોમેન સાથે જોડવાની મંજૂરી હોતી નથી?",
+  q: "વિન્ડોઝની કઈ આવૃત્તિને #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડોમેન સાથે જોડવાની મંજૂરી હોતી નથી?",
   optA: "Windows 11 Enterprise",
   optB: "Windows 11 Pro",
   optC: "Windows 11 Home Edition",
@@ -1919,7 +1919,7 @@ nslookup corp.rtechlab.local
 #interview-item(
   num: "2",
   q: "ઇન્ટરવ્યુઅર: 'એક સામાન્ય ડોમેન યુઝર (Non-Admin) ડિફોલ્ટ રૂપે કેટલા કમ્પ્યુટર્સને ડોમેનમાં જોઈન કરાવી શકે છે?'",
-  a: "જવાબ: એક્ટિવ ડિરેક્ટરીમાં ડિફોલ્ટ રૂપે સામાન્ય 'Authenticated User' ને વધુમાં વધુ 10 કમ્પ્યુટર્સને ડોમેન સાથે જોડવાની (ms-DS-MachineAccountQuota) છૂટ હોય છે. જોકે પ્રોડક્શન સિક્યુરિટી માટે આપણે ADSI Edit માં જઈને આ ક્વોટાને 0 પર સેટ કરીએ છીએ અને માત્ર IT સપોર્ટ ટીમને જ ચોક્કસ OUs પર જોઈનિંગ રાઇટ્સ ડેલિગેટ કરીએ છીએ.",
+  a: "જવાબ: #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં ડિફોલ્ટ રૂપે સામાન્ય 'Authenticated User' ને વધુમાં વધુ 10 કમ્પ્યુટર્સને ડોમેન સાથે જોડવાની (ms-DS-MachineAccountQuota) છૂટ હોય છે. જોકે પ્રોડક્શન સિક્યુરિટી માટે આપણે ADSI Edit માં જઈને આ ક્વોટાને 0 પર સેટ કરીએ છીએ અને માત્ર IT સપોર્ટ ટીમને જ ચોક્કસ OUs પર જોઈનિંગ રાઇટ્સ ડેલિગેટ કરીએ છીએ.",
   tip: "આ ઊંડો આર્કિટેક્ચરલ પ્રશ્ન ઇન્ટરવ્યુઅરને તરત પ્રભાવિત કરે છે."
 )
 
@@ -1937,7 +1937,7 @@ nslookup corp.rtechlab.local
 #interview-item(
   num: "4",
   q: "ઇન્ટરવ્યુઅર: 'Domain Join પ્રક્રિયા દરમિયાન નેટવર્ક પર કયા પ્રોટોકોલ અને પોર્ટ્સ વપરાય છે?'",
-  a: "જવાબ: Domain Join દરમિયાન મુખ્ય પ્રોટોકોલ્સ કાર્ય કરે છે: 1. DNS (Port 53) DC ના SRV રેકોર્ડ્સ શોધવા માટે, 2. Kerberos (Port 88) ક્રેડેન્શિયલ ઓથેન્ટિકેશન માટે, 3. LDAP (Port 389) કમ્પ્યુટર ઓબ્જેક્ટ બનાવવા માટે, અને 4. SMB (Port 445) તથા RPC (Port 135) ડિરેક્ટરી અને પોલિસી સંચાર માટે.",
+  a: "જવાબ: Domain Join દરમિયાન મુખ્ય પ્રોટોકોલ્સ કાર્ય કરે છે: 1. DNS (Port 53) DC ના SRV રેકોર્ડ્સ શોધવા માટે, 2. #hl-orange[Kerberos] (#hl-green[Port 88]) ક્રેડેન્શિયલ ઓથેન્ટિકેશન માટે, 3. LDAP (#hl-green[Port 389]) કમ્પ્યુટર ઓબ્જેક્ટ બનાવવા માટે, અને 4. SMB (#hl-green[Port 445]) તથા RPC (Port 135) ડિરેક્ટરી અને પોલિસી સંચાર માટે.",
   tip: "નેટવર્કિંગ અને સર્વર ઇન્ફ્રાસ્ટ્રક્ચરના ક્રોસ-ડોમેન જ્ઞાનને ચકાસતો આ ક્લાસિક પ્રશ્ન છે."
 )
 
@@ -1980,7 +1980,7 @@ nslookup corp.rtechlab.local
   chapter-num: "CHAPTER 07",
   category: "ભાગ 7 : એન્ટરપ્રાઇઝ સુરક્ષા અને ગ્રુપ પોલિસીઓ (Group Policy Engine)",
   title: "ગ્રુપ પોલિસી ઓબ્જેક્ટ્સ (GPO): એન્ટરપ્રાઇઝ સુરક્ષા અને ડેસ્કટોપ નિયંત્રણ",
-  subtitle: "GPMC (gpmc.msc) · LSDOU પ્રોસેસિંગ ક્રમ · બ્લોક ઇનહેરિટન્સ અને એન્ફોર્સ્ડ · લેબ 1: પાસવર્ડ પોલિસી · લેબ 2: USB બ્લોક GPO · લેબ 3: વોલપેપર ડિપ્લોયમેન્ટ · gpupdate /force"
+  subtitle: "GPMC (gpmc.msc) · #hl-orange[LSDOU] પ્રોસેસિંગ ક્રમ · બ્લોક ઇનહેરિટન્સ અને એન્ફોર્સ્ડ · લેબ 1: પાસવર્ડ પોલિસી · લેબ 2: USB બ્લોક GPO · લેબ 3: વોલપેપર ડિપ્લોયમેન્ટ · gpupdate /force"
 )
 
 === 7.1 ગ્રુપ પોલિસી શું છે? (What is Group Policy?)
@@ -1993,7 +1993,7 @@ nslookup corp.rtechlab.local
   gutter: 10pt,
   [
     #info-box(title: "GPC (Group Policy Container)")[
-      GPC એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (`ntds.dit`) ની અંદર સંગ્રહિત થાય છે. તે GPO ના ગુણધર્મો (Attributes), વર્ઝન નંબર, સ્ટેટસ અને 128-બીટ GUID (Globally Unique Identifier) ધરાવે છે.
+      GPC #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડેટાબેઝ (`ntds.dit`) ની અંદર સંગ્રહિત થાય છે. તે GPO ના ગુણધર્મો (Attributes), વર્ઝન નંબર, સ્ટેટસ અને 128-બીટ GUID (Globally Unique Identifier) ધરાવે છે.
     ]
   ],
   [
@@ -2005,17 +2005,17 @@ nslookup corp.rtechlab.local
 
 #v(4pt)
 
-=== 7.2 Group Policy Management Console (`gpmc.msc`)
-ગ્રુપ પોલિસીનું સંચાલન કરવા માટેનું પ્રાથમિક ટૂલ #hl-yellow[GPMC (Group Policy Management Console)] છે.
+=== 7.2 #hl-yellow[Group Policy Management Console] (`gpmc.msc`)
+ગ્રુપ પોલિસીનું સંચાલન કરવા માટેનું પ્રાથમિક ટૂલ #hl-yellow[GPMC (#hl-yellow[Group Policy Management Console])] છે.
 - તેને ખોલવા માટેનો રન કમાન્ડ છે: #mark-green[`gpmc.msc`].
 
 કન્સોલ ખોલતાં જ ડોમેન હેઠળ બે ડિફોલ્ટ GPOs પહેલેથી બનેલા મળે છે:
-1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] આ સમગ્ર ડોમેન સ્તરે લિંક થયેલી હોય છે. તેનું પ્રાથમિક કાર્ય સમગ્ર ડોમેન માટે પાસવર્ડ જટિલતા, લઘુત્તમ લંબાઈ, એકાઉન્ટ લોકઆઉટ અને Kerberos ટિકિટ નીતિઓ નક્કી કરવાનું છે.
-2. #text(weight: "bold", fill: rtech-navy)[Default Domain Controllers Policy:] આ માત્ર 'Domain Controllers' OU પર લિંક થયેલી હોય છે અને ડોમેન કંટ્રોલર્સના સુરક્ષા અધિકારો (User Rights Assignment) તથા ઓડિટિંગનું સંચાલન કરે છે.
+1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] આ સમગ્ર ડોમેન સ્તરે લિંક થયેલી હોય છે. તેનું પ્રાથમિક કાર્ય સમગ્ર ડોમેન માટે પાસવર્ડ જટિલતા, લઘુત્તમ લંબાઈ, એકાઉન્ટ લોકઆઉટ અને #hl-orange[Kerberos] ટિકિટ નીતિઓ નક્કી કરવાનું છે.
+2. #text(weight: "bold", fill: rtech-navy)[Default Domain Controllers Policy:] આ માત્ર 'Domain Controllers' OU પર લિંક થયેલી હોય છે અને #hl-yellow[ડોમેન કંટ્રોલર]્સના સુરક્ષા અધિકારો (User Rights Assignment) તથા ઓડિટિંગનું સંચાલન કરે છે.
 
 #v(6pt)
 
-=== 7.3 GPO પ્રોસેસિંગનો LSDOU ક્રમ અને ઇનહેરિટન્સ (Order of Processing)
+=== 7.3 GPO પ્રોસેસિંગનો #hl-orange[LSDOU] ક્રમ અને ઇનહેરિટન્સ (Order of Processing)
 જ્યારે કોઈ ક્લાયન્ટ કમ્પ્યુટર બૂટ થાય છે અથવા યુઝર લોગિન કરે છે, ત્યારે વિન્ડોઝ એક ચોક્કસ ક્રમમાં ગ્રુપ પોલિસીઓ પ્રોસેસ કરે છે. તેને #hl-yellow[LSDOU] નિયમ કહેવામાં આવે છે:
 
 #align(center)[
@@ -2028,7 +2028,7 @@ nslookup corp.rtechlab.local
       #image("../02_BRAND_ASSETS/screenshots/gpo_inheritance_lsdou.png", width: 78%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 7.1: GPO પ્રોસેસિંગનો LSDOU વંશવેલો — Local, Site, Domain, અને Organizational Unit (The Golden Rule)]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 7.1: GPO પ્રોસેસિંગનો #hl-orange[LSDOU] વંશવેલો — Local, Site, Domain, અને Organizational Unit (The Golden Rule)]
 ]
 
 #v(4pt)
@@ -2042,7 +2042,7 @@ nslookup corp.rtechlab.local
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[LSDOU પ્રોસેસિંગ ક્રમ (The 'Last Write Wins' Rule):]\
     - #text(weight: "bold", fill: rtech-blue)[1. L (Local Policy):] ક્લાયન્ટ મશીનની સ્થાનિક નીતિ સૌથી પહેલા પ્રોસેસ થાય છે (સૌથી ઓછી પ્રાથમિકતા).
-    - #text(weight: "bold", fill: rtech-blue)[2. S (Site Policy):] એક્ટિવ ડિરેક્ટરી સાઇટ પર લિંક GPO બીજા નંબરે લાગુ થાય છે.
+    - #text(weight: "bold", fill: rtech-blue)[2. S (Site Policy):] #hl-yellow[એક્ટિવ ડિરેક્ટરી] સાઇટ પર લિંક GPO બીજા નંબરે લાગુ થાય છે.
     - #text(weight: "bold", fill: rtech-amber)[3. D (Domain Policy):] ડોમેન સ્તરે લિંક GPO ત્રીજા ક્રમે પ્રોસેસ થાય છે અને સાઇટ તથા લોકલને ઓવરરાઇડ કરે છે.
     - #text(weight: "bold", fill: rtech-emerald)[4. OU (Organizational Unit):] OU પર લિંક GPO સૌથી છેલ્લે પ્રોસેસ થાય છે. *તેથી 'Last Write Wins' નિયમ અનુસાર OU ની સેટિંગ્સ સૌથી શક્તિશાળી ગણાય છે અને તે ડોમેન સેટિંગ્સને પણ ઓવરરાઇડ કરી દે છે!*
   ]
@@ -2098,7 +2098,7 @@ nslookup corp.rtechlab.local
 #v(6pt)
 
 === 7.8 ક્લાયન્ટ-સાઇડ GPO રીફ્રેશ અને ટ્રબલશૂટિંગ (`gpupdate /force` & `gpresult`)
-ડિફોલ્ટ રૂપે ક્લાયન્ટ કમ્પ્યુટર્સ બેકગ્રાઉન્ડમાં દર #hl-yellow[90 મિનિટે (±30 મિનિટ રેન્ડમ ઓફસેટ સાથે)] ગ્રુપ પોલિસી રીફ્રેશ કરે છે. ડોમેન કંટ્રોલર્સ દર #hl-yellow[5 મિનિટે] રીફ્રેશ થાય છે.
+ડિફોલ્ટ રૂપે ક્લાયન્ટ કમ્પ્યુટર્સ બેકગ્રાઉન્ડમાં દર #hl-yellow[90 મિનિટે (±30 મિનિટ રેન્ડમ ઓફસેટ સાથે)] ગ્રુપ પોલિસી રીફ્રેશ કરે છે. #hl-yellow[ડોમેન કંટ્રોલર]્સ દર #hl-yellow[5 મિનિટે] રીફ્રેશ થાય છે.
 
 *તાત્કાલિક પોલિસી લાગુ કરવા અને તપાસવા માટેના 3 માસ્ટર કમાન્ડ્સ:*
 1. #text(weight: "bold")[તાત્કાલિક પોલિસી લાગુ કરવી:]
@@ -2137,11 +2137,11 @@ gpresult /h C:\GPO_Report.html
   num: "1",
   q: "માઇક્રોસોફ્ટ અનુસાર ગ્રુપ પોલિસી પ્રોસેસિંગનો સાચો પ્રમાણભૂત ક્રમ (Order of Precedence) કયો છે?",
   optA: "OU -> Domain -> Site -> Local",
-  optB: "Local -> Site -> Domain -> OU (LSDOU)",
+  optB: "Local -> Site -> Domain -> OU (#hl-orange[LSDOU])",
   optC: "Site -> Domain -> Local -> OU",
   optD: "Domain -> OU -> Local -> Site",
   ans: "B",
-  exp: "GPO પ્રોસેસિંગનો સ્ટાન્ડર્ડ ક્રમ LSDOU (Local, Site, Domain, OU) છે; છેલ્લે લાગુ થતી નીતિ અગાઉની પોલિસીને ઓવરરાઇડ કરે છે."
+  exp: "GPO પ્રોસેસિંગનો સ્ટાન્ડર્ડ ક્રમ #hl-orange[LSDOU] (Local, Site, Domain, OU) છે; છેલ્લે લાગુ થતી નીતિ અગાઉની પોલિસીને ઓવરરાઇડ કરે છે."
 )
 
 #v(3pt)
@@ -2167,7 +2167,7 @@ gpresult /h C:\GPO_Report.html
   optC: "net start gpo",
   optD: "dism /online /cleanup-image",
   ans: "B",
-  exp: "gpupdate /force કમાન્ડ તરત જ ડોમેન કંટ્રોલર સાથે સંપર્ક કરીને નવીનતમ પોલિસીઓ ડાઉનલોડ અને એપ્લાય કરે છે."
+  exp: "gpupdate /force કમાન્ડ તરત જ #hl-yellow[ડોમેન કંટ્રોલર] સાથે સંપર્ક કરીને નવીનતમ પોલિસીઓ ડાઉનલોડ અને એપ્લાય કરે છે."
 )
 
 #v(3pt)
@@ -2255,7 +2255,7 @@ gpresult /h C:\GPO_Report.html
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 07 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - ગ્રુપ પોલિસી (GPO) હજારો મશીનોની સુરક્ષા અને ડેસ્કટોપ નિયંત્રણનું કેન્દ્રીય એન્જિન છે (LSDOU ક્રમમાં પ્રોસેસ થાય છે).
+      - ગ્રુપ પોલિસી (GPO) હજારો મશીનોની સુરક્ષા અને ડેસ્કટોપ નિયંત્રણનું કેન્દ્રીય એન્જિન છે (#hl-orange[LSDOU] ક્રમમાં પ્રોસેસ થાય છે).
       - Enforced GPO કોઈપણ Block Inheritance ને બાયપાસ કરીને ફરજિયાત સુરક્ષા સુનિશ્ચિત કરે છે.
       - `gpupdate /force` અને `gpresult /r` (અથવા `/h`) પ્રત્યેક સિસ્ટમ એડમિનિસ્ટ્રેટરના મુખ્ય દૈનિક GPO ટૂલ્સ છે.
     ]
@@ -2316,15 +2316,15 @@ gpresult /h C:\GPO_Report.html
 
 #v(6pt)
 
-=== 8.2 DHCP સર્વર રોલ ઇન્સ્ટોલેશન અને એક્ટિવ ડિરેક્ટરી ઓથોરાઇઝેશન
-1. Server Manager -> #hl-green[Manage -> Add Roles and Features] માં જાઓ.
+=== 8.2 DHCP સર્વર રોલ ઇન્સ્ટોલેશન અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] ઓથોરાઇઝેશન
+1. #hl-yellow[Server Manager] -> #hl-green[Manage -> Add Roles and Features] માં જાઓ.
 2. Server Roles માં #mark-yellow[DHCP Server] ચેકબોક્સ પર ટીક કરો.
 3. 'Add Features' (DHCP RSAT મેનેજમેન્ટ ટૂલ્સ) સામેલ કરીને 'Next' -> 'Next' -> 'Install' કરો.
 4. ઇન્સ્ટોલેશન પૂર્ણ થતાં જ પીળા ફ્લેગ (Notification) પર ક્લિક કરો -> #hl-yellow['Complete DHCP Configuration'].
-5. વિઝાર્ડમાં #text(weight: "bold", fill: rtech-navy)[Authorization] સ્ક્રીન આવશે. 'Commit' દબાવો જેથી આપણું ડોમેન કંટ્રોલર આ DHCP સર્વરને એક્ટિવ ડિરેક્ટરીમાં અધિકૃત (Authorize) કરે.
+5. વિઝાર્ડમાં #text(weight: "bold", fill: rtech-navy)[Authorization] સ્ક્રીન આવશે. 'Commit' દબાવો જેથી આપણું #hl-yellow[ડોમેન કંટ્રોલર] આ DHCP સર્વરને #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં અધિકૃત (Authorize) કરે.
 
 #warning-box(title: "Rogue DHCP Server Prevention (એન્ટરપ્રાઇઝ સુરક્ષા વ્યવસ્થા)")[
-  જો કોઈ અનધિકૃત કર્મચારી કે યુઝર નેટવર્કમાં પોતાનું અંગત રાઉટર કે બિનઅધિકૃત DHCP સર્વર ચાલુ કરે (Rogue DHCP Server), તો વિન્ડોઝ ડોમેન કંટ્રોલર તેને તરત ડિટેક્ટ કરી લે છે. એક્ટિવ ડિરેક્ટરીમાં અનધિકૃત વિન્ડોઝ DHCP સર્વર્સની સર્વિસ આપોઆપ બંધ (Stop) થઈ જાય છે જેથી કર્મચારીઓને ખોટો IP કે ગેટવે ન મળે.
+  જો કોઈ અનધિકૃત કર્મચારી કે યુઝર નેટવર્કમાં પોતાનું અંગત રાઉટર કે બિનઅધિકૃત DHCP સર્વર ચાલુ કરે (Rogue DHCP Server), તો વિન્ડોઝ #hl-yellow[ડોમેન કંટ્રોલર] તેને તરત ડિટેક્ટ કરી લે છે. #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં અનધિકૃત વિન્ડોઝ DHCP સર્વર્સની સર્વિસ આપોઆપ બંધ (Stop) થઈ જાય છે જેથી કર્મચારીઓને ખોટો IP કે ગેટવે ન મળે.
 ]
 
 #v(6pt)
@@ -2332,7 +2332,7 @@ gpresult /h C:\GPO_Report.html
 === 8.3 નવો IPv4 સ્કોપ બનાવવો (Configuring an IPv4 Scope)
 સ્કોપ (Scope) એ IP એડ્રેસિસની તે માન્ય શ્રેણી છે જે સર્વર સબનેટ પર રહેલા ક્લાયન્ટ્સને ફાળવે છે:
 
-1. Server Manager -> Tools -> #hl-yellow[DHCP] કન્સોલ ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dhcpmgmt.msc`]).
+1. #hl-yellow[Server Manager] -> Tools -> #hl-yellow[DHCP] કન્સોલ ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dhcpmgmt.msc`]).
 2. સર્વર નોડ `SRV-2025-DC01` વિસ્તૃત કરો -> #text(weight: "bold")[IPv4] પર રાઇટ-ક્લિક કરો -> #hl-green[New Scope...] પસંદ કરો.
 3. Scope Name: #hl-yellow[`RTechLab-LAN-Scope`].
 4. #text(weight: "bold")[IP Address Range (આઇપી પૂલ):]
@@ -2535,8 +2535,8 @@ gpresult /h C:\GPO_Report.html
   subtitle: "DNS નું એન્ટરપ્રાઇઝ મહત્વ · AD-ઇન્ટિગ્રેટેડ ઝોન · ફોરવર્ડ vs રિવર્સ લુકઅપ · A, PTR, CNAME, MX અને SRV રેકોર્ડ્સ · રૂટ હિન્ટ્સ vs ફોરવર્ડર્સ · DNS સ્કેવેન્જિંગ"
 )
 
-=== 9.1 DNS નું એન્ટરપ્રાઇઝ મહત્વ અને એક્ટિવ ડિરેક્ટરી સાથે અતૂટ સંબંધ
-જો એક્ટિવ ડિરેક્ટરી (Active Directory) કોર્પોરેટ નેટવર્કનું *મગજ (Brain)* છે, તો DNS સર્વર તેનું *હૃદય (Heart)* છે. સમગ્ર વિન્ડોઝ ડોમેન એન્વાયરન્મેન્ટમાં કોઈપણ સેવા (Login, Kerberos, File Sharing, GPO) DNS વગર 1 સેકન્ડ પણ કાર્ય કરી શકતી નથી.
+=== 9.1 DNS નું એન્ટરપ્રાઇઝ મહત્વ અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] સાથે અતૂટ સંબંધ
+જો #hl-yellow[એક્ટિવ ડિરેક્ટરી] (Active Directory) કોર્પોરેટ નેટવર્કનું *મગજ (Brain)* છે, તો DNS સર્વર તેનું *હૃદય (Heart)* છે. સમગ્ર વિન્ડોઝ ડોમેન એન્વાયરન્મેન્ટમાં કોઈપણ સેવા (Login, #hl-orange[Kerberos], File Sharing, GPO) DNS વગર 1 સેકન્ડ પણ કાર્ય કરી શકતી નથી.
 
 #mark-yellow[ડોમેન નેમ સિસ્ટમ (DNS) એ એક શ્રેણીબદ્ધ અને વિતરિત ડેટાબેઝ સેવા (Hierarchical Distributed Database) છે જે મનુષ્ય દ્વારા વાંચી શકાય તેવા કમ્પ્યુટર નામોને (દા.ત. `portal.corp.rtechlab.local`) નેટવર્ક સમજી શકે તેવા IP સરનામાઓમાં (`192.168.1.50`) અનુવાદિત (Resolve) કરે છે.]
 
@@ -2549,8 +2549,8 @@ gpresult /h C:\GPO_Report.html
     ]
   ],
   [
-    #warning-box(title: "SRV રેકોર્ડ્સ: એક્ટિવ ડિરેક્ટરીનો જીવન આધાર")[
-      જ્યારે કોઈ ક્લાયન્ટ ડોમેન જોઇન અથવા લોગિન કરે છે, ત્યારે તે ડોમેન કંટ્રોલરનું નામ જાણતો નથી. તે DNS પાસેથી વિશિષ્ટ #hl-orange[SRV રેકોર્ડ્સ] માંગે છે (`_ldap._tcp.dc._msdcs`). જો DNS માં આ રેકોર્ડ્સ ન હોય, તો ડોમેન પ્રમાણીકરણ સંપૂર્ણપણે ઠપ થઈ જાય છે!
+    #warning-box(title: "SRV રેકોર્ડ્સ: #hl-yellow[એક્ટિવ ડિરેક્ટરી]નો જીવન આધાર")[
+      જ્યારે કોઈ ક્લાયન્ટ ડોમેન જોઇન અથવા લોગિન કરે છે, ત્યારે તે #hl-yellow[ડોમેન કંટ્રોલર]નું નામ જાણતો નથી. તે DNS પાસેથી વિશિષ્ટ #hl-orange[SRV રેકોર્ડ્સ] માંગે છે (`_ldap._tcp.dc._msdcs`). જો DNS માં આ રેકોર્ડ્સ ન હોય, તો ડોમેન પ્રમાણીકરણ સંપૂર્ણપણે ઠપ થઈ જાય છે!
     ]
   ]
 )
@@ -2575,10 +2575,10 @@ DNS માં ઝોન એ એવા વહીવટી ભાગને (Databa
 
 #v(4pt)
 
-1. #text(weight: "bold", fill: rtech-blue)[Active Directory-Integrated Zone (શ્રેષ્ઠ એન્ટરપ્રાઇઝ વિકલ્પ):] આ ઝોન અલગ ફાઇલમાં સંગ્રહિત થવાને બદલે સીધો એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (`ntds.dit`) માં સ્ટોર થાય છે. તેના 3 અજોડ ફાયદા છે:
+1. #text(weight: "bold", fill: rtech-blue)[Active Directory-Integrated Zone (શ્રેષ્ઠ એન્ટરપ્રાઇઝ વિકલ્પ):] આ ઝોન અલગ ફાઇલમાં સંગ્રહિત થવાને બદલે સીધો #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડેટાબેઝ (`ntds.dit`) માં સ્ટોર થાય છે. તેના 3 અજોડ ફાયદા છે:
    - #hl-green[મલ્ટી-માસ્ટર રેપ્લિકેશન (Multi-Master Replication):] કોઈપણ DC પર રેકોર્ડ બદલો, તે આપમેળે તમામ DCs પર સિંક થઈ જાય છે.
    - #hl-green[સિક્યોર ડાયનામિક અપડેટ્સ (Secure Dynamic Updates):] માત્ર ડોમેનના અધિકૃત કમ્પ્યુટર્સ જ પોતાનો IP રેકોર્ડ રજીસ્ટર કરી શકે છે (હેકર્સ કે અજાણ્યા ઉપકરણો નહીં).
-   - #hl-green[એનક્રિપ્ટેડ રેપ્લિકેશન (Encrypted Replication):] સમગ્ર DNS ડેટા Kerberos દ્વારા એનક્રિપ્ટ થઈને ટ્રાન્સફર થાય છે.
+   - #hl-green[એનક્રિપ્ટેડ રેપ્લિકેશન (Encrypted Replication):] સમગ્ર DNS ડેટા #hl-orange[Kerberos] દ્વારા એનક્રિપ્ટ થઈને ટ્રાન્સફર થાય છે.
 2. #text(weight: "bold", fill: rtech-navy)[Standard Primary Zone:] આ એક પરંપરાગત ટેક્સ્ટ ફાઇલ (`zone.dns`) માં સંગ્રહિત થાય છે. તેમાં માત્ર પ્રાઇમરી સર્વર જ રેકોર્ડ્સ લખી શકે છે (Single Master).
 3. #text(weight: "bold", fill: rtech-navy)[Standard Secondary Zone:] પ્રાઇમરી ઝોનની માત્ર રીડ-ઓન્લી (Read-Only) નકલ. બેકઅપ અને લોડ ડિસ્ટ્રિબ્યુશન માટે ઉપયોગી.
 4. #text(weight: "bold", fill: rtech-muted)[Stub Zone:] તેમાં માત્ર NS (Name Server), SOA (Start of Authority) અને ગ્લૂ A રેકોર્ડ્સ હોય છે જેથી અન્ય ડોમેનના અધિકૃત સર્વર્સને ઝડપથી શોધી શકાય.
@@ -2586,9 +2586,9 @@ DNS માં ઝોન એ એવા વહીવટી ભાગને (Databa
 #v(6pt)
 
 === 9.3 ફોરવર્ડ લુકઅપ ઝોન વિરુદ્ધ રિવર્સ લુકઅપ ઝોન (Forward vs Reverse Lookup)
-- #text(weight: "bold", fill: rtech-navy)[ફોરવર્ડ લુકઅપ ઝોન (Forward Lookup Zone):] કમ્પ્યુટર નામને IP એડ્રેસમાં ફેરવે છે (Name -> IP). જ્યારે તમે બ્રાઉઝરમાં `srv-2025-dc01.corp.rtechlab.local` ટાઇપ કરો છો, ત્યારે ફોરવર્ડ ઝોન `192.168.1.10` પરત કરે છે.
-- #text(weight: "bold", fill: rtech-navy)[રિવર્સ લુકઅપ ઝોન (Reverse Lookup Zone):] IP એડ્રેસને કમ્પ્યુટર નામામાં ફેરવે છે (IP -> Name). તે વિશિષ્ટ ઇન-એડ્રેસ આર્પા ડોમેનનો ઉપયોગ કરે છે (દા.ત. `1.168.192.in-addr.arpa`).
-  - *રિવર્સ ઝોન શા માટે અનિવાર્ય છે?* Kerberos પ્રમાણીકરણમાં SPN માન્યતા (Validation), મેઇલ સર્વર્સમાં સ્પામ બ્લોકિંગથી બચવું, અને કમાન્ડ પ્રોમ્પ્ટમાં `nslookup 192.168.1.10` ચલાવીને હોસ્ટનું સાચું FQDN નામ જાણવા માટે.
+- #text(weight: "bold", fill: rtech-navy)[ફોરવર્ડ લુકઅપ ઝોન (#hl-yellow[Forward Lookup Zone]):] કમ્પ્યુટર નામને IP એડ્રેસમાં ફેરવે છે (Name -> IP). જ્યારે તમે બ્રાઉઝરમાં `srv-2025-dc01.corp.rtechlab.local` ટાઇપ કરો છો, ત્યારે ફોરવર્ડ ઝોન `192.168.1.10` પરત કરે છે.
+- #text(weight: "bold", fill: rtech-navy)[રિવર્સ લુકઅપ ઝોન (#hl-yellow[Reverse Lookup Zone]):] IP એડ્રેસને કમ્પ્યુટર નામામાં ફેરવે છે (IP -> Name). તે વિશિષ્ટ ઇન-એડ્રેસ આર્પા ડોમેનનો ઉપયોગ કરે છે (દા.ત. `1.168.192.in-addr.arpa`).
+  - *રિવર્સ ઝોન શા માટે અનિવાર્ય છે?* #hl-orange[Kerberos] પ્રમાણીકરણમાં SPN માન્યતા (Validation), મેઇલ સર્વર્સમાં સ્પામ બ્લોકિંગથી બચવું, અને કમાન્ડ પ્રોમ્પ્ટમાં `nslookup 192.168.1.10` ચલાવીને હોસ્ટનું સાચું FQDN નામ જાણવા માટે.
 
 #v(6pt)
 
@@ -2599,7 +2599,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 2. #text(weight: "bold", fill: rtech-emerald)[Pointer (PTR રેકોર્ડ):] રિવર્સ લુકઅપ ઝોનમાં IP ને Hostname સાથે મેપ કરે છે. દા.ત. `10` -> `srv-dc01.corp.rtechlab.local`.
 3. #text(weight: "bold", fill: rtech-amber)[Alias (CNAME - Canonical Name):] એક કમ્પ્યુટર માટે વૈકલ્પિક ઉપનામ (Alias) બનાવે છે. દા.ત. કર્મચારીઓ `portal.corp.rtechlab.local` ખોલે તો તે CNAME દ્વારા બેકએન્ડ સર્વર `srv-2025-web01.corp.rtechlab.local` પર રીડાયરેક્ટ થઈ જાય.
 4. #text(weight: "bold", fill: rtech-navy)[Mail Exchanger (MX રેકોર્ડ):] ડોમેનના ઇમેઇલ સર્વર્સ (Microsoft Exchange) નો IP અને તેમની પ્રાથમિકતા (Priority/Preference નંબર) દર્શાવે છે.
-5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV રેકોર્ડ):] સમગ્ર એક્ટિવ ડિરેક્ટરીની કરોડરજ્જુ. તે જણાવે છે કે LDAP, Kerberos, અને Global Catalog જેવી સેવાઓ કયા પોર્ટ અને કયા સર્વર પર ચાલી રહી છે (દા.ત. `_ldap._tcp.dc._msdcs.corp.rtechlab.local` Port 389).
+5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV રેકોર્ડ):] સમગ્ર #hl-yellow[એક્ટિવ ડિરેક્ટરી]ની કરોડરજ્જુ. તે જણાવે છે કે LDAP, #hl-orange[Kerberos], અને Global Catalog જેવી સેવાઓ કયા પોર્ટ અને કયા સર્વર પર ચાલી રહી છે (દા.ત. `_ldap._tcp.dc._msdcs.corp.rtechlab.local` #hl-green[Port 389]).
 
 #v(6pt)
 
@@ -2627,7 +2627,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 // CHAPTER 09 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  Windows Server 2025 માં DNS માં નેટિવ #hl-yellow[DoH (DNS over HTTPS)] સપોર્ટ ઉમેરવામાં આવ્યો છે. આનો અર્થ એ છે કે સર્વરથી બહાર ઇન્ટરનેટ પર જતી તમામ DNS ક્વેરીઝ હવે સાદા ટેક્સ્ટ (Cleartext UDP 53) માં જવાને બદલે #hl-green[HTTPS (Port 443)] દ્વારા સંપૂર્ણપણે એનક્રિપ્ટ થઈને જાય છે, જેથી ISP અથવા સાયબર અટેકર્સ ક્યારેય જોઈ શકતા નથી કે કંપનીની અંદરના કર્મચારીઓ કયા ડોમેન્સ એક્સેસ કરી રહ્યા છે!
+  Windows Server 2025 માં DNS માં નેટિવ #hl-yellow[DoH (DNS over HTTPS)] સપોર્ટ ઉમેરવામાં આવ્યો છે. આનો અર્થ એ છે કે સર્વરથી બહાર ઇન્ટરનેટ પર જતી તમામ DNS ક્વેરીઝ હવે સાદા ટેક્સ્ટ (Cleartext UDP 53) માં જવાને બદલે #hl-green[HTTPS (#hl-green[Port 443])] દ્વારા સંપૂર્ણપણે એનક્રિપ્ટ થઈને જાય છે, જેથી ISP અથવા સાયબર અટેકર્સ ક્યારેય જોઈ શકતા નથી કે કંપનીની અંદરના કર્મચારીઓ કયા ડોમેન્સ એક્સેસ કરી રહ્યા છે!
 ]
 
 #v(6pt)
@@ -2637,7 +2637,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 
 #mcq-item(
   num: "1",
-  q: "એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ DNS ઝોન (AD-Integrated Zone) નો ડેટાબેઝ કઈ ફાઇલમાં સ્ટોર થાય છે?",
+  q: "#hl-yellow[એક્ટિવ ડિરેક્ટરી]-ઇન્ટિગ્રેટેડ DNS ઝોન (AD-Integrated Zone) નો ડેટાબેઝ કઈ ફાઇલમાં સ્ટોર થાય છે?",
   optA: "system32\dns\zone.dns ફાઇલમાં",
   optB: "એક્ટિવ ડિરેક્ટરી ડેટાબેઝ ntds.dit ની અંદર",
   optC: "Windows Registry માં",
@@ -2663,13 +2663,13 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 
 #mcq-item(
   num: "3",
-  q: "એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલર, Kerberos અને LDAP સેવાઓ શોધવા માટે કયા વિશિષ્ટ DNS રેકોર્ડનો ઉપયોગ થાય છે?",
+  q: "એક્ટિવ ડિરેક્ટરી #hl-yellow[ડોમેન કંટ્રોલર], #hl-orange[Kerberos] અને LDAP સેવાઓ શોધવા માટે કયા વિશિષ્ટ DNS રેકોર્ડનો ઉપયોગ થાય છે?",
   optA: "TXT Record",
   optB: "SRV (Service Location) Record",
   optC: "SOA Record",
   optD: "NS Record",
   ans: "B",
-  exp: "SRV રેકોર્ડ્સ (_ldap._tcp.dc._msdcs) દ્વારા જ ક્લાયન્ટ્સ ડોમેન કંટ્રોલરના પોર્ટ અને IP સરનામાઓ શોધી શકે છે."
+  exp: "SRV રેકોર્ડ્સ (_ldap._tcp.dc._msdcs) દ્વારા જ ક્લાયન્ટ્સ #hl-yellow[ડોમેન કંટ્રોલર]ના પોર્ટ અને IP સરનામાઓ શોધી શકે છે."
 )
 
 #v(3pt)
@@ -2691,7 +2691,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
   num: "5",
   q: "DNS ડેટાબેઝમાંથી જૂના અને બિનઉપયોગી (Stale) ડાયનામિક રેકોર્ડ્સ આપમેળે દૂર કરવાની પ્રક્રિયાને શું કહેવાય છે?",
   optA: "Zone Transfer",
-  optB: "Aging and Scavenging",
+  optB: "#hl-yellow[Aging and Scavenging]",
   optC: "DNS Forwarding",
   optD: "Dynamic Registration",
   ans: "B",
@@ -2706,7 +2706,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 #interview-item(
   num: "1",
   q: "ઇન્ટરવ્યુઅર: 'સુરક્ષા અને રેપ્લિકેશનની દ્રષ્ટિએ એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ ઝોન અને સ્ટાન્ડર્ડ પ્રાઇમરી ઝોન વચ્ચે મુખ્ય તફાવત શું છે?'",
-  a: "જવાબ: સ્ટાન્ડર્ડ પ્રાઇમરી ઝોન સિંગલ-માસ્ટર મોડેલ પર કાર્ય કરે છે જ્યાં માત્ર પ્રાઇમરી સર્વર પર જ રેકોર્ડ્સ લખી શકાય છે અને સેકન્ડરી સર્વર્સ પર થતું ઝોન ટ્રાન્સફર અન-એનક્રિપ્ટેડ હોય છે. આનાથી વિપરીત, AD-Integrated ઝોનમાં મલ્ટી-માસ્ટર રેપ્લિકેશન હોય છે (કોઈપણ DC પર રેકોર્ડ લખી શકાય છે), ડેટા Kerberos દ્વારા એનક્રિપ્ટ થઈને AD રેપ્લિકેશન સાથે વહન પામે છે, અને તે 'Secure Dynamic Updates' ને સપોર્ટ કરે છે જેથી બિન-ડોમેન મશીનો નકલી રેકોર્ડ્સ બનાવી શકતા નથી.",
+  a: "જવાબ: સ્ટાન્ડર્ડ પ્રાઇમરી ઝોન સિંગલ-માસ્ટર મોડેલ પર કાર્ય કરે છે જ્યાં માત્ર પ્રાઇમરી સર્વર પર જ રેકોર્ડ્સ લખી શકાય છે અને સેકન્ડરી સર્વર્સ પર થતું ઝોન ટ્રાન્સફર અન-એનક્રિપ્ટેડ હોય છે. આનાથી વિપરીત, AD-Integrated ઝોનમાં મલ્ટી-માસ્ટર રેપ્લિકેશન હોય છે (કોઈપણ DC પર રેકોર્ડ લખી શકાય છે), ડેટા #hl-orange[Kerberos] દ્વારા એનક્રિપ્ટ થઈને AD રેપ્લિકેશન સાથે વહન પામે છે, અને તે 'Secure Dynamic Updates' ને સપોર્ટ કરે છે જેથી બિન-ડોમેન મશીનો નકલી રેકોર્ડ્સ બનાવી શકતા નથી.",
   tip: "Wipro, Infosys અને TCS ના L2 SysAdmin ઇન્ટરવ્યુમાં આ સૌથી મહત્વપૂર્ણ તુલનાત્મક પ્રશ્ન છે."
 )
 
@@ -2724,7 +2724,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 #interview-item(
   num: "3",
   q: "ઇન્ટરવ્યુઅર: 'ક્લાયન્ટ મશીન પર 'nslookup' ચલાવતી વખતે 'Default Server: Unknown' અને IP એડ્રેસ 192.168.1.10 દેખાય છે. આને કેવી રીતે ઠીક કરશો?'",
-  a: "જવાબ: 'Default Server: Unknown' આવવાનો અર્થ એ છે કે DNS સર્વર પાસે પોતાના જ IP (192.168.1.10) માટે 'Reverse Lookup Zone' માં PTR રેકોર્ડ ઉપલબ્ધ નથી. આને સુધારવા માટે DNS કન્સોલમાં 192.168.1.x સબનેટ માટે Reverse Lookup Zone બનાવીશું અને DC નો PTR રેકોર્ડ ઉમેરીશું. ત્યાર બાદ nslookup ચલાવતાં જ તે સર્વરનું સત્તાવાર FQDN નામ પ્રદર્શિત કરશે.",
+  a: "જવાબ: 'Default Server: Unknown' આવવાનો અર્થ એ છે કે DNS સર્વર પાસે પોતાના જ IP (192.168.1.10) માટે '#hl-yellow[Reverse Lookup Zone]' માં PTR રેકોર્ડ ઉપલબ્ધ નથી. આને સુધારવા માટે DNS કન્સોલમાં 192.168.1.x સબનેટ માટે #hl-yellow[Reverse Lookup Zone] બનાવીશું અને DC નો PTR રેકોર્ડ ઉમેરીશું. ત્યાર બાદ nslookup ચલાવતાં જ તે સર્વરનું સત્તાવાર FQDN નામ પ્રદર્શિત કરશે.",
   tip: "L1/L2 હેલ્પડેસ્ક અને સિસ્ટમ એડમિન ટ્રબલશૂટિંગનો આ ક્લાસિક ઇન્ટરવ્યુ પ્રશ્ન છે."
 )
 
@@ -2733,7 +2733,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 #interview-item(
   num: "4",
   q: "ઇન્ટરવ્યુઅર: 'DNS Cache Poisoning શું છે અને તેનાથી કેવી રીતે બચી શકાય?'",
-  a: "જવાબ: જ્યારે કોઈ સાયબર હુમલાખોર (Attacker) નકલી DNS રિસ્પોન્સ ઇન્જેક્ટ કરીને DNS સર્વરના કેશમાં કોઈ લોકપ્રિય ડોમેનને (દા.ત. bank.com) પોતાના દૂષિત IP સાથે મેપ કરાવી દે છે, ત્યારે તેને Cache Poisoning કહેવામાં આવે છે. આ હુમલાથી બચવા માટે વિન્ડોઝ સર્વરમાં DNSSEC (DNS Security Extensions), Socket Pools અને Cache Locking સક્ષમ કરવામાં આવે છે.",
+  a: "જવાબ: જ્યારે કોઈ સાયબર હુમલાખોર (Attacker) નકલી DNS રિસ્પોન્સ ઇન્જેક્ટ કરીને DNS સર્વરના કેશમાં કોઈ લોકપ્રિય ડોમેનને (દા.ત. bank.com) પોતાના દૂષિત IP સાથે મેપ કરાવી દે છે, ત્યારે તેને Cache Poisoning કહેવામાં આવે છે. આ હુમલાથી બચવા માટે વિન્ડોઝ સર્વરમાં #hl-green[DNSSEC] (DNS Security Extensions), Socket Pools અને Cache Locking સક્ષમ કરવામાં આવે છે.",
   tip: "સાયબર સિક્યોરિટી અને ઇન્ફ્રાસ્ટ્રક્ચર ઓડિટ્સનો આ પસંદગીનો પ્રશ્ન છે."
 )
 
@@ -2777,8 +2777,8 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ પ્રકરણ 09 ચકાસણી ચેકલિસ્ટ (DNS Architecture Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Forward Lookup Zone `corp.rtechlab.local` એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ છે.
-      - [ ] Reverse Lookup Zone `1.168.192.in-addr.arpa` માં DC નો PTR રેકોર્ડ ઉપલબ્ધ છે.
+      - [ ] #hl-yellow[Forward Lookup Zone] `corp.rtechlab.local` એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ છે.
+      - [ ] #hl-yellow[Reverse Lookup Zone] `1.168.192.in-addr.arpa` માં DC નો PTR રેકોર્ડ ઉપલબ્ધ છે.
       - [ ] બાહ્ય ઇન્ટરનેટ રિઝોલ્યુશન માટે Forwarders માં `1.1.1.1` અને `8.8.8.8` કન્ફિગર થયેલ છે.
     ]
   ]
@@ -2795,7 +2795,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 09 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - DNS એક્ટિવ ડિરેક્ટરીનો જીવન આધાર છે; SRV રેકોર્ડ્સ ડોમેન કંટ્રોલર અને Kerberos ની ઓળખ કરાવે છે.
+      - DNS એક્ટિવ ડિરેક્ટરીનો જીવન આધાર છે; SRV રેકોર્ડ્સ #hl-yellow[ડોમેન કંટ્રોલર] અને Kerberos ની ઓળખ કરાવે છે.
       - પ્રોડક્શનમાં હંમેશાં AD-Integrated ઝોન અને 1.1.1.1 / 8.8.8.8 પર આધારિત DNS Forwarders નો ઉપયોગ કરો.
       - જૂના (Stale) રેકોર્ડ્સ દૂર કરવા માટે ઝોન અને સર્વર બંને સ્તરે Aging & Scavenging સક્ષમ કરવું ફરજિયાત છે.
     ]
@@ -2805,16 +2805,16 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 #pagebreak()
 
 // =============================================================================
-// CHAPTER 10: FILE SERVER RESOURCE MANAGER (FSRM), NTFS & QUOTA MANAGEMENT
+// CHAPTER 10: FILE SERVER RESOURCE MANAGER (#hl-orange[FSRM]), NTFS & QUOTA MANAGEMENT
 // =============================================================================
 
 [#metadata("ch10") <chapter-10>]
 
 #chapter-header(
   chapter-num: "CHAPTER 10",
-  category: "ભાગ 10 : સ્ટોરેજ, શેરિંગ અને ફાઇલ રિસોર્સ મેનેજમેન્ટ (Storage & FSRM)",
-  title: "ફાઇલ સર્વર રિસોર્સ મેનેજર (FSRM), NTFS પરવાનગીઓ અને ક્વોટા વ્યવસ્થાપન",
-  subtitle: "શેર્ડ ફોલ્ડર્સ · SMB 3.1.1 · શેર vs NTFS પરવાનગીઓ (ઇફેક્ટિવ ફોર્મ્યુલા) · FSRM રોલ · હાર્ડ vs સોફ્ટ સ્ટોરેજ ક્વોટા · ફાઇલ સ્ક્રીનિંગ (MP3/EXE બ્લોકિંગ) · સ્ટોરેજ રિપોર્ટ્સ"
+  category: "ભાગ 10 : સ્ટોરેજ, શેરિંગ અને ફાઇલ રિસોર્સ મેનેજમેન્ટ (Storage & #hl-orange[FSRM])",
+  title: "ફાઇલ સર્વર રિસોર્સ મેનેજર (#hl-orange[FSRM]), NTFS પરવાનગીઓ અને ક્વોટા વ્યવસ્થાપન",
+  subtitle: "શેર્ડ ફોલ્ડર્સ · SMB 3.1.1 · શેર vs NTFS પરવાનગીઓ (ઇફેક્ટિવ ફોર્મ્યુલા) · #hl-orange[FSRM] રોલ · હાર્ડ vs સોફ્ટ સ્ટોરેજ ક્વોટા · ફાઇલ સ્ક્રીનિંગ (MP3/EXE બ્લોકિંગ) · સ્ટોરેજ રિપોર્ટ્સ"
 )
 
 === 10.1 એન્ટરપ્રાઇઝ ફાઇલ શેરિંગ આર્કિટેક્ચર અને SMB 3.1.1 પ્રોટોકોલ
@@ -2892,10 +2892,10 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 
 #v(6pt)
 
-=== 10.4 ફાઇલ સર્વર રિસોર્સ મેનેજર (FSRM) રોલ ઇન્સ્ટોલેશન
-FSRM એ માઇક્રોસોફ્ટનું અદ્યતન સ્ટોરેજ મેનેજમેન્ટ ટૂલ છે જે વપરાશકર્તાઓ દ્વારા ડિસ્ક સ્પેસનો બગાડ અને બિનઅધિકૃત ફાઇલો સંગ્રહિત થતી અટકાવવાની સુવિધા આપે છે:
+=== 10.4 ફાઇલ સર્વર રિસોર્સ મેનેજર (#hl-orange[FSRM]) રોલ ઇન્સ્ટોલેશન
+#hl-orange[FSRM] એ માઇક્રોસોફ્ટનું અદ્યતન સ્ટોરેજ મેનેજમેન્ટ ટૂલ છે જે વપરાશકર્તાઓ દ્વારા ડિસ્ક સ્પેસનો બગાડ અને બિનઅધિકૃત ફાઇલો સંગ્રહિત થતી અટકાવવાની સુવિધા આપે છે:
 
-1. Server Manager માં જાઓ -> #hl-green[Add Roles and Features] પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] માં જાઓ -> #hl-green[Add Roles and Features] પર ક્લિક કરો.
 2. Server Roles માં -> #text(weight: "bold")[File and Storage Services] -> #text(weight: "bold")[File and iSCSI Services] વિસ્તૃત કરો.
 3. #mark-yellow[File Server Resource Manager] ચેકબોક્સ પર ટિક કરો.
 4. 'Add Features' (FSRM મેનેજમેન્ટ ટૂલ્સ) પસંદ કરીને 'Install' કરો.
@@ -2942,7 +2942,7 @@ FSRM એડમિનિસ્ટ્રેટરને સ્ટોરેજન�
 // CHAPTER 10 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  વિન્ડોઝ સર્વરમાં એક અદભુત ફીચર છે જેને #hl-yellow[Volume Shadow Copies (VSS / Previous Versions)] કહેવામાં આવે છે. જો કોઈ કર્મચારી ભૂલથી 5 કલાકની મહેનતવાળી Excel ફાઇલ ડિલીટ કરી દે અથવા ઓવરરાઇટ કરી દે, તો એડમિનિસ્ટ્રેટરને બેકઅપ ટેપ શોધવાની જરૂર પડતી નથી! કર્મચારી ફાઇલ પર રાઇટ-ક્લિક કરીને #hl-green['Restore previous versions'] પર ક્લિક કરે છે અને સવારે 9:00 વાગ્યાની સુરક્ષિત નકલ એડમિનની મદદ વિના જાતે જ રિસ્ટોર કરી લે છે!
+  વિન્ડોઝ સર્વરમાં એક અદભુત ફીચર છે જેને #hl-yellow[Volume Shadow Copies (#hl-green[VSS] / Previous Versions)] કહેવામાં આવે છે. જો કોઈ કર્મચારી ભૂલથી 5 કલાકની મહેનતવાળી Excel ફાઇલ ડિલીટ કરી દે અથવા ઓવરરાઇટ કરી દે, તો એડમિનિસ્ટ્રેટરને બેકઅપ ટેપ શોધવાની જરૂર પડતી નથી! કર્મચારી ફાઇલ પર રાઇટ-ક્લિક કરીને #hl-green['Restore previous versions'] પર ક્લિક કરે છે અને સવારે 9:00 વાગ્યાની સુરક્ષિત નકલ એડમિનની મદદ વિના જાતે જ રિસ્ટોર કરી લે છે!
 ]
 
 #v(6pt)
@@ -3047,8 +3047,8 @@ FSRM એડમિનિસ્ટ્રેટરને સ્ટોરેજન�
 
 #interview-item(
   num: "4",
-  q: "ઇન્ટરવ્યુઅર: 'Volume Shadow Copies (VSS) શું છે, અને તે ડિસ્ક પર કેટલી જગ્યા રોકે છે?'",
-  a: "જવાબ: VSS વોલ્યુમનો પોઇન્ટ-ઇન-ટાઇમ બ્લોક-લેવલ સ્નેપશોટ લે છે. તે આખી ફાઇલની નવી કૉપી બનાવતું નથી, પરંતુ માત્ર 'બદલાયેલા બ્લોક્સ' (Delta Changes) ને 'System Volume Information' માં સ્ટોર કરે છે. ડિફૉલ્ટ રૂપે તે વોલ્યુમની મહત્તમ 10% જગ્યા રોકે છે અને વપરાશકર્તાને 'Previous Versions' માંથી જાતે જ ફાઇલ રિસ્ટોર કરવાની સુવિધા આપે છે.",
+  q: "ઇન્ટરવ્યુઅર: 'Volume Shadow Copies (#hl-green[VSS]) શું છે, અને તે ડિસ્ક પર કેટલી જગ્યા રોકે છે?'",
+  a: "જવાબ: #hl-green[VSS] વોલ્યુમનો પોઇન્ટ-ઇન-ટાઇમ બ્લોક-લેવલ સ્નેપશોટ લે છે. તે આખી ફાઇલની નવી કૉપી બનાવતું નથી, પરંતુ માત્ર 'બદલાયેલા બ્લોક્સ' (Delta Changes) ને 'System Volume Information' માં સ્ટોર કરે છે. ડિફૉલ્ટ રૂપે તે વોલ્યુમની મહત્તમ 10% જગ્યા રોકે છે અને વપરાશકર્તાને 'Previous Versions' માંથી જાતે જ ફાઇલ રિસ્ટોર કરવાની સુવિધા આપે છે.",
   tip: "બેકઅપ અને ડેટા રિકવરીના ઇન્ટરવ્યુઝનો આ મુખ્ય પ્રશ્ન છે."
 )
 
@@ -3074,7 +3074,7 @@ FSRM એડમિનિસ્ટ્રેટરને સ્ટોરેજન�
     #text(size: 7.5pt, fill: rtech-text)[
       - અસરકારક પરવાનગી શેર અને NTFS નો 'મોસ્ટ રેસ્ટ્રિક્ટિવ' નિયમ પાળે છે; પરવાનગીઓ હંમેશાં NTFS ACLs દ્વારા જ આપો.
       - FSRM નો Hard Quota ડિસ્ક ભરાઈ જતી અટકાવે છે અને File Screening બિન-કોર્પોરેટ ફાઇલોને (MP3/MP4) બ્લોક કરે છે.
-      - VSS Shadow Copies અને Access-Based Enumeration (ABE) એન્ટરપ્રાઇઝ ફાઇલ સર્વરની ઉપયોગિતા અને વપરાશકર્તા સંતોષમાં વધારો કરે છે.
+      - #hl-green[VSS] Shadow Copies અને Access-Based Enumeration (ABE) એન્ટરપ્રાઇઝ ફાઇલ સર્વરની ઉપયોગિતા અને વપરાશકર્તા સંતોષમાં વધારો કરે છે.
     ]
   ]
 )
@@ -3115,7 +3115,7 @@ FSRM એડમિનિસ્ટ્રેટરને સ્ટોરેજન�
 #v(4pt)
 
 *IIS 10.x ઇન્સ્ટોલેશન સ્ટેપ્સ:*
-1. Server Manager માં જાઓ -> #hl-green[Add Roles and Features] પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] માં જાઓ -> #hl-green[Add Roles and Features] પર ક્લિક કરો.
 2. Server Roles માં #mark-yellow[Web Server (IIS)] ચેકબોક્સ પર ટિક કરો.
 3. 'Role Services' માં ખાતરી કરો કે #hl-green[Default Document], #hl-green[Directory Browsing], #hl-green[HTTP Errors], #hl-green[HTTP Redirection], અને #hl-green[FTP Server] પસંદ થયેલ છે.
 4. 'Install' પર ક્લિક કરો. ઇન્સ્ટોલેશન પછી બ્રાઉઝરમાં `http://localhost/` ખોલતાં વાદળી રંગનું સત્તાવાર IIS વેલકમ પેજ પ્રદર્શિત થશે.
@@ -3132,8 +3132,8 @@ FSRM એડમિનિસ્ટ્રેટરને સ્ટોરેજન�
 
 #v(6pt)
 
-=== 11.3 SSL/TLS HTTPS સર્ટિફિકેટ બાઇન્ડિંગ (Port 443)
-પ્રોડક્શન વાતાવરણમાં કોઈપણ વેબ પોર્ટલ એન્ક્રિપ્શન વગર (HTTP Port 80) ચલાવવામાં આવતું નથી:
+=== 11.3 SSL/TLS HTTPS સર્ટિફિકેટ બાઇન્ડિંગ (#hl-green[Port 443])
+પ્રોડક્શન વાતાવરણમાં કોઈપણ વેબ પોર્ટલ એન્ક્રિપ્શન વગર (HTTP #hl-green[Port 80]) ચલાવવામાં આવતું નથી:
 - Server Certificates વિઝાર્ડમાં જઈને એન્ટરપ્રાઇઝ CA (Certificate Authority) અથવા સેલ્ફ-સાઇન્ડ સર્ટિફિકેટ જનરેટ કરો.
 - Site Bindings માં જાઓ -> #hl-green[Add...] -> Type: #mark-yellow[https], Port: #hl-green[443], SSL certificate: `RTechLab-SSL-Cert` પસંદ કરીને 'OK' કરો.
 - હવે વેબસાઇટ #hl-green[`https://portal.corp.rtechlab.local`] પર 256-બીટ TLS એન્ક્રિપ્શન સાથે સંપૂર્ણપણે સુરક્ષિત ચાલશે.
@@ -3160,7 +3160,7 @@ FSRM એડમિનિસ્ટ્રેટરને સ્ટોરેજન�
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[RDS ના 5 મુખ્ય આર્કિટેક્ચરલ રોલ્સ (MNC Interview Goldmine):]\
     - #text(weight: "bold", fill: rtech-blue)[1. RD Web Access:] વેબ બ્રાઉઝર પોર્ટલ જેના દ્વારા કર્મચારીઓ પોતાના ઘરના કોઈપણ લેપટોપથી લોગિન કરીને કોર્પોરેટ RemoteApps અને ડેસ્કટોપ એક્સેસ કરી શકે છે.
-    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] બાહ્ય ઇન્ટરનેટ પરથી આવતા RDP ટ્રાફિકને #hl-orange[HTTPS (Port 443)] ની અંદર એન્કેપ્સ્યુલેટ કરે છે, જેથી VPN વગર પણ ફાયરવોલ પાર કરી શકાય છે.
+    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] બાહ્ય ઇન્ટરનેટ પરથી આવતા RDP ટ્રાફિકને #hl-orange[HTTPS (#hl-green[Port 443])] ની અંદર એન્કેપ્સ્યુલેટ કરે છે, જેથી VPN વગર પણ ફાયરવોલ પાર કરી શકાય છે.
     - #text(weight: "bold", fill: rtech-amber)[3. RD Connection Broker:] જ્યારે કર્મચારીનું ઇન્ટરનેટ કપાઈને ફરીથી જોડાય છે, ત્યારે તે વપરાશકર્તાને તેના જૂના સક્રિય સત્ર (Active Session) સાથે પુનઃજોડાણ કરાવે છે અને સર્વર્સ પર લોડ બેલેન્સ કરે છે.
     - #text(weight: "bold", fill: rtech-emerald)[4. RD Session Host (RDSH):] તે મુખ્ય શક્તિશાળી સર્વર જે એક સાથે 50 થી 100 વપરાશકર્તાઓના ડેસ્કટોપ સત્રો અને એપ્લિકેશન્સ ચલાવે છે.
     - #text(weight: "bold", fill: rtech-navy)[5. RD Licensing Server:] ક્લાયન્ટ એક્સેસ લાયસન્સ (CALs - Per-User અથવા Per-Device) ટ્રેક અને માન્ય કરે છે.
@@ -3322,7 +3322,7 @@ FSRM એડમિનિસ્ટ્રેટરને સ્ટોરેજન�
   chapter-num: "CHAPTER 12",
   category: "ભાગ 12 : નેક્સ્ટ-જેન ફીચર્સ અને હાઇબ્રિડ ક્લાઉડ (Server 2025 Flagship & Azure)",
   title: "Windows Server 2025 નેક્સ્ટ-જેન ફીચર્સ, સ્ટોરેજ સ્પેસિસ અને હાઇબ્રિડ એઝ્યુર આર્ક",
-  subtitle: "Server 2025 ના 5 ક્રાંતિકારી ફીચર્સ · હોટપેચિંગ (Zero-Reboot Live Patching) · 32KB AD DB પેજ સાઇઝ · ReFS ડિડુપ્લિકેશન · SMB over QUIC · Azure Arc સંકલન"
+  subtitle: "Server 2025 ના 5 ક્રાંતિકારી ફીચર્સ · હોટપેચિંગ (Zero-Reboot Live Patching) · 32KB AD DB પેજ સાઇઝ · #hl-green[ReFS] ડિડુપ્લિકેશન · #hl-orange[SMB over QUIC] · #hl-green[Azure Arc] સંકલન"
 )
 
 === 12.1 Windows Server 2025 ના 5 સૌથી મોટા ક્રાંતિકારી ફીચર્સ
@@ -3338,36 +3338,36 @@ Windows Server 2025 એ માત્ર એક સામાન્ય અપગ�
       #image("../02_BRAND_ASSETS/screenshots/server2025_azure_hotpatching.png", width: 56%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 12.1: Windows Server 2025 નેક્સ્ટ-જેન 5 ફ્લેગશિપ સ્તંભ — હોટપેચિંગ, 32KB AD, SMB over QUIC, S2D અને Azure Arc]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 12.1: Windows Server 2025 નેક્સ્ટ-જેન 5 ફ્લેગશિપ સ્તંભ — હોટપેચિંગ, 32KB AD, #hl-orange[SMB over QUIC], S2D અને Azure Arc]
 ]
 
 #v(4pt)
 
-=== 12.2 હોટપેચિંગ (Hotpatching for Everyone) — રીબૂટ વગર લાઇવ મેમરી સિક્યોરિટી પેચ
+=== 12.2 હોટપેચિંગ (#hl-yellow[Hotpatching] for Everyone) — રીબૂટ વગર લાઇવ મેમરી સિક્યોરિટી પેચ
 પરંપરાગત આઇટી (IT) વિશ્વમાં સિસ્ટમ એડમિનિસ્ટ્રેટર માટે સૌથી મોટો માથાનો દુખાવો દર મહિનાનો બીજો મંગળવાર (#hl-yellow['Patch Tuesday']) હતો. પ્રોડક્શન સર્વર્સ પર સિક્યોરિટી પેચ ઇન્સ્ટોલ કર્યા પછી સર્વરને રીબૂટ (Reboot) કરવું પડતું હતું, જેના માટે રાત્રે 2:00 વાગ્યે મેન્ટેનન્સ વિન્ડો (Maintenance Window) લેવી પડતી હતી અને બેંકિંગ કે ઇ-કોમર્સ સેવાઓ બંધ કરવી પડતી હતી.
 
-#mark-yellow[હોટપેચિંગ (Hotpatching) એ એક ક્રાંતિકારી સુરક્ષા તકનીક છે જેના દ્વારા વિન્ડોઝ સર્વર ઓપરેટિંગ સિસ્ટમના બાઈનરી કોડ અને રનિંગ પ્રોસેસ મેમરીને ઇન-પ્લેસ પેચ કરી દેવામાં આવે છે — સર્વરને એક પણ વાર રીબૂટ કર્યા વગર!]
+#mark-yellow[હોટપેચિંગ (#hl-yellow[Hotpatching]) એ એક ક્રાંતિકારી સુરક્ષા તકનીક છે જેના દ્વારા વિન્ડોઝ સર્વર ઓપરેટિંગ સિસ્ટમના બાઈનરી કોડ અને રનિંગ પ્રોસેસ મેમરીને ઇન-પ્લેસ પેચ કરી દેવામાં આવે છે — સર્વરને એક પણ વાર રીબૂટ કર્યા વગર!]
 
-- #text(weight: "bold", fill: rtech-emerald)[અભૂતપૂર્વ ઉપલબ્ધતા (99.999% Uptime):] મિશન-ક્રિટિકલ ડેટાબેઝ અને એક્ટિવ ડિરેક્ટરી સર્વર્સ આખા વર્ષ દરમિયાન એક સેકન્ડના પણ ડાઉનટાઇમ વગર સતત કાર્યરત રહે છે.
+- #text(weight: "bold", fill: rtech-emerald)[અભૂતપૂર્વ ઉપલબ્ધતા (99.999% Uptime):] મિશન-ક્રિટિકલ ડેટાબેઝ અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] સર્વર્સ આખા વર્ષ દરમિયાન એક સેકન્ડના પણ ડાઉનટાઇમ વગર સતત કાર્યરત રહે છે.
 - #text(weight: "bold", fill: rtech-blue)[હોટપેચિંગ કેવી રીતે કામ કરે છે?] માઇક્રોસોફ્ટ દર ત્રિમાસિક ગાળે (3 મહિને) એક ક્યુમ્યુલેટિવ બેઝલાઇન અપડેટ જાહેર કરે છે, અને વચ્ચેના મહિનાઓમાં નાના લાઇવ-મેમરી પેચ રિલીઝ કરે છે જે તાત્કાલિક રેમ (RAM) માં સક્રિય થઈ જાય છે.
 
 #v(6pt)
 
 === 12.3 32KB AD DS ડેટાબેઝ પેજ સાઇઝ — 25 વર્ષોમાં સૌથી મોટો સ્પીડ બૂસ્ટ
-જેમ આપણે પ્રકરણ 01 માં જોયું, Windows 2000 Server થી લઈને Server 2022 સુધી પૂરા 25 વર્ષો સુધી એક્ટિવ ડિરેક્ટરીના ડેટાબેઝ (`ntds.dit`) નો બ્લોક સાઇઝ માત્ર #hl-orange[8 KB] હતો.
+જેમ આપણે પ્રકરણ 01 માં જોયું, Windows 2000 Server થી લઈને Server 2022 સુધી પૂરા 25 વર્ષો સુધી #hl-yellow[એક્ટિવ ડિરેક્ટરી]ના ડેટાબેઝ (`ntds.dit`) નો બ્લોક સાઇઝ માત્ર #hl-orange[8 KB] હતો.
 - Windows Server 2025 માં જ્યારે ફોરેસ્ટ અને ડોમેન ફંક્શનલ લેવલ (Functional Level) ને 'Windows Server 2025' પર પ્રમોટ કરવામાં આવે છે, ત્યારે AD ડેટાબેઝ પેજ સાઇઝને #mark-green[32 KB] પર અપગ્રેડ કરવામાં આવે છે.
-- આનાથી એક જ ડિસ્ક I/O માં ચાર ગણું વધુ ડિરેક્ટરી ટ્રી લોડ થાય છે, જેના પરિણામે મોટી મલ્ટિનેશનલ સંસ્થાઓમાં LDAP સર્ચ ક્વેરીઝ અને Kerberos ટોકન જનરેશનમાં #hl-green[300% થી વધુનો વધારો] નોંધાયો છે.
+- આનાથી એક જ ડિસ્ક I/O માં ચાર ગણું વધુ ડિરેક્ટરી ટ્રી લોડ થાય છે, જેના પરિણામે મોટી મલ્ટિનેશનલ સંસ્થાઓમાં LDAP સર્ચ ક્વેરીઝ અને #hl-orange[Kerberos] ટોકન જનરેશનમાં #hl-green[300% થી વધુનો વધારો] નોંધાયો છે.
 
 #v(6pt)
 
-=== 12.4 નેક્સ્ટ-જેન સ્ટોરેજ સ્પેસિસ ડાયરેક્ટ (S2D) અને ReFS ડિડુપ્લિકેશન
+=== 12.4 નેક્સ્ટ-જેન સ્ટોરેજ સ્પેસિસ ડાયરેક્ટ (S2D) અને #hl-green[ReFS] ડિડુપ્લિકેશન
 - #text(weight: "bold", fill: rtech-navy)[NVMe નેટિવ એક્સિલરેશન:] Server 2025 હવે PCIe Gen 5 NVMe SSDs માટે નેટિવ કર્નલ ડ્રાઇવર્સ સાથે આવે છે, જેનાથી IOPS (Input/Output Operations Per Second) માં 70% સુધીનો વધારો થાય છે.
-- #text(weight: "bold", fill: rtech-emerald)[ReFS ડિડુપ્લિકેશન અને કમ્પ્રેશન:] Resilient File System (ReFS) હવે રિયલ-ટાઇમમાં સ્ટોરેજના ડુપ્લિકેટ ડેટાને ઓળખીને કમ્પ્રેસ કરે છે. જો તમારી પાસે 50 વર્ચ્યુઅલ મશીનો (VMs) હોય, તો ReFS તેમના 70% ડુપ્લિકેટ OS બ્લોક્સને એક જ વાર લખીને #hl-green[60% થી 80% સ્ટોરેજ સ્પેસની તાત્કાલિક બચત] કરે છે!
+- #text(weight: "bold", fill: rtech-emerald)[ReFS ડિડુપ્લિકેશન અને કમ્પ્રેશન:] Resilient File System (#hl-green[ReFS]) હવે રિયલ-ટાઇમમાં સ્ટોરેજના ડુપ્લિકેટ ડેટાને ઓળખીને કમ્પ્રેસ કરે છે. જો તમારી પાસે 50 વર્ચ્યુઅલ મશીનો (VMs) હોય, તો #hl-green[ReFS] તેમના 70% ડુપ્લિકેટ OS બ્લોક્સને એક જ વાર લખીને #hl-green[60% થી 80% સ્ટોરેજ સ્પેસની તાત્કાલિક બચત] કરે છે!
 
 #v(6pt)
 
-=== 12.5 SMB over QUIC — VPN વગર ઇન્ટરનેટ પર સુરક્ષિત ફાઇલ શેરિંગ
-પરંપરાગત SMB ફાઇલ શેરિંગ (Port 445) ને ઇન્ટરનેટ સર્વિસ પ્રોવાઇડર્સ (ISPs) દ્વારા બ્લોક કરવામાં આવે છે જેથી WannaCry જેવા રેન્સમવેર ન ફેલાઈ શકે. આના કારણે રિમોટ કર્મચારીઓએ ફાઇલ સર્વર એક્સેસ કરવા માટે ધીમા અને જટિલ VPN ચાલુ કરવા પડતા હતા.
+=== 12.5 #hl-orange[SMB over QUIC] — VPN વગર ઇન્ટરનેટ પર સુરક્ષિત ફાઇલ શેરિંગ
+પરંપરાગત SMB ફાઇલ શેરિંગ (#hl-green[Port 445]) ને ઇન્ટરનેટ સર્વિસ પ્રોવાઇડર્સ (ISPs) દ્વારા બ્લોક કરવામાં આવે છે જેથી WannaCry જેવા રેન્સમવેર ન ફેલાઈ શકે. આના કારણે રિમોટ કર્મચારીઓએ ફાઇલ સર્વર એક્સેસ કરવા માટે ધીમા અને જટિલ VPN ચાલુ કરવા પડતા હતા.
 
 #block(
   width: 100%,
@@ -3377,7 +3377,7 @@ Windows Server 2025 એ માત્ર એક સામાન્ય અપગ�
   inset: (x: 8pt, y: 6pt),
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-emerald)[SMB over QUIC નો જાદુ (Zero-VPN File Access):]\
-    - તે SMB ટ્રાફિકને ગૂગલ દ્વારા વિકસિત #hl-green[QUIC પ્રોટોકોલ (UDP Port 443)] ની અંદર એન્કેપ્સ્યુલેટ કરે છે.
+    - તે SMB ટ્રાફિકને ગૂગલ દ્વારા વિકસિત #hl-green[QUIC પ્રોટોકોલ (UDP #hl-green[Port 443])] ની અંદર એન્કેપ્સ્યુલેટ કરે છે.
     - કારણ કે UDP 443 (સ્ટાન્ડર્ડ વેબ ટ્રાફિક) વિશ્વના દરેક એરપોર્ટ, કાફે અને હોટેલના વાઇ-ફાઇ પર હંમેશા ખુલ્લું હોય છે, તેથી કર્મચારીઓ કોઈપણ VPN વગર સીધા જ `\\files.corp.rtechlab.local\Share` ખોલી શકે છે!
     - સમગ્ર ટ્રાફિક અત્યાધુનિક #hl-green[TLS 1.3] એન્ક્રિપ્શન અને મશીન સર્ટિફિકેટ્સ દ્વારા 100% સુરક્ષિત રહે છે.
   ]
@@ -3385,9 +3385,9 @@ Windows Server 2025 એ માત્ર એક સામાન્ય અપગ�
 
 #v(6pt)
 
-=== 12.6 હાઇબ્રિડ ક્લાઉડ સંકલન: Azure Arc કનેક્ટેડ મશીન એજન્ટ
-Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[Azure Arc] નું નેટિવ વિજેટ આપવામાં આવ્યું છે:
-- *Azure Arc શું છે?* તે એક હાઇબ્રિડ બ્રિજ (Hybrid Bridge) છે. જ્યારે તમે તમારા લોકલ ફિઝિકલ અથવા વર્ચ્યુઅલ સર્વર પર `AzureConnectedMachineAgent` રન કરો છો, ત્યારે તમારું લોકલ સર્વર Microsoft Azure પોર્ટલ પર એક અધિકૃત ક્લાઉડ રિસોર્સ તરીકે દેખાવા લાગે છે.
+=== 12.6 હાઇબ્રિડ ક્લાઉડ સંકલન: #hl-green[Azure Arc] કનેક્ટેડ મશીન એજન્ટ
+Windows Server 2025 માં #hl-yellow[Server Manager] ની અંદર જ #hl-yellow[Azure Arc] નું નેટિવ વિજેટ આપવામાં આવ્યું છે:
+- *#hl-green[Azure Arc] શું છે?* તે એક હાઇબ્રિડ બ્રિજ (Hybrid Bridge) છે. જ્યારે તમે તમારા લોકલ ફિઝિકલ અથવા વર્ચ્યુઅલ સર્વર પર `AzureConnectedMachineAgent` રન કરો છો, ત્યારે તમારું લોકલ સર્વર Microsoft Azure પોર્ટલ પર એક અધિકૃત ક્લાઉડ રિસોર્સ તરીકે દેખાવા લાગે છે.
 - *કોર્પોરેટ લાભ:* તમે એક જ Azure વેબ કન્સોલથી તમારા મુંબઈ ઓફિસના ફિઝિકલ સર્વર, એમેઝોન AWS માં ચાલતી VM, અને Azure ક્લાઉડના સર્વર્સ પર એક સાથે માઇક્રોસોફ્ટ ડિફેન્ડર પોલિસીઓ, હોટપેચિંગ અને કમ્પ્લાયન્સ ઓડિટ લાગુ કરી શકો છો.
 
 #v(8pt)
@@ -3408,18 +3408,18 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
   num: "1",
   q: "Windows Server 2025 ના કયા ક્રાંતિકારી ફીચરના કારણે રનિંગ મેમરીમાં સિક્યોરિટી પેચ લાગુ થાય છે અને સર્વરને રીબૂટ કરવું પડતું નથી?",
   optA: "Hyper-V Quick Migration",
-  optB: "Hotpatching",
+  optB: "#hl-yellow[Hotpatching]",
   optC: "BitLocker Live",
   optD: "DirectAccess",
   ans: "B",
-  exp: "Hotpatching રનિંગ પ્રોસેસ મેમરીને ઇન-પ્લેસ પેચ કરે છે જેનાથી સર્વર રીસ્ટાર્ટ કરવાની જરૂરિયાત સમાપ્ત થઈ જાય છે."
+  exp: "#hl-yellow[Hotpatching] રનિંગ પ્રોસેસ મેમરીને ઇન-પ્લેસ પેચ કરે છે જેનાથી સર્વર રીસ્ટાર્ટ કરવાની જરૂરિયાત સમાપ્ત થઈ જાય છે."
 )
 
 #v(3pt)
 
 #mcq-item(
   num: "2",
-  q: "Windows Server 2025 માં એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (ntds.dit) નો ઇન્ટરનલ પેજ સાઇઝ વધારીને કેટલો કરવામાં આવ્યો છે?",
+  q: "Windows Server 2025 માં #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડેટાબેઝ (ntds.dit) નો ઇન્ટરનલ પેજ સાઇઝ વધારીને કેટલો કરવામાં આવ્યો છે?",
   optA: "4 KB",
   optB: "8 KB",
   optC: "16 KB",
@@ -3432,13 +3432,13 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
 
 #mcq-item(
   num: "3",
-  q: "SMB over QUIC ફીચર રિમોટ યુઝર્સને કોર્પોરેટ VPN વગર કયા નેટવર્ક પોર્ટ અને પ્રોટોકોલ પર સુરક્ષિત ફાઇલ એક્સેસ પ્રદાન કરે છે?",
+  q: "#hl-orange[SMB over QUIC] ફીચર રિમોટ યુઝર્સને કોર્પોરેટ VPN વગર કયા નેટવર્ક પોર્ટ અને પ્રોટોકોલ પર સુરક્ષિત ફાઇલ એક્સેસ પ્રદાન કરે છે?",
   optA: "TCP પોર્ટ 445",
   optB: "UDP પોર્ટ 443 (TLS 1.3)",
   optC: "TCP પોર્ટ 80",
   optD: "UDP પોર્ટ 53",
   ans: "B",
-  exp: "SMB over QUIC ટ્રાફિકને UDP પોર્ટ 443 પર TLS 1.3 એન્ક્રિપ્શન સાથે ટ્રાન્સમિટ કરે છે."
+  exp: "#hl-orange[SMB over QUIC] ટ્રાફિકને UDP પોર્ટ 443 પર TLS 1.3 એન્ક્રિપ્શન સાથે ટ્રાન્સમિટ કરે છે."
 )
 
 #v(3pt)
@@ -3447,11 +3447,11 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
   num: "4",
   q: "ઓન-પ્રિમિસિસ લોકલ ડેટાસેન્ટરના વિન્ડોઝ સર્વર્સને માઇક્રોસોફ્ટ એઝ્યુર ક્લાઉડ પોર્ટલ સાથે સેન્ટ્રલી કનેક્ટ કરતા એજન્ટનું નામ શું છે?",
   optA: "Hyper-V Connect",
-  optB: "Azure Arc Connected Machine Agent",
+  optB: "#hl-green[Azure Arc] Connected Machine Agent",
   optC: "System Center CLI",
   optD: "ExpressRoute Agent",
   ans: "B",
-  exp: "Azure Arc Connected Machine Agent લોકલ સર્વર્સને Azure Resource Manager સાથે જોડે છે."
+  exp: "#hl-green[Azure Arc] Connected Machine Agent લોકલ સર્વર્સને Azure Resource Manager સાથે જોડે છે."
 )
 
 #v(3pt)
@@ -3461,10 +3461,10 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
   q: "Windows Server 2025 માં કઈ આધુનિક ફાઇલ સિસ્ટમ હેઠળ રિયલ-ટાઇમ ડિડુપ્લિકેશન અને કમ્પ્રેશન રજૂ કરવામાં આવ્યું છે?",
   optA: "FAT32",
   optB: "exFAT",
-  optC: "ReFS (Resilient File System)",
+  optC: "#hl-green[ReFS] (Resilient File System)",
   optD: "NFS v4",
   ans: "C",
-  exp: "ReFS (Resilient File System) માં નેક્સ્ટ-જેન ડિડુપ્લિકેશન અને કમ્પ્રેશન આપવામાં આવ્યું છે જે જંગી સ્ટોરેજ બચાવે છે."
+  exp: "#hl-green[ReFS] (Resilient File System) માં નેક્સ્ટ-જેન ડિડુપ્લિકેશન અને કમ્પ્રેશન આપવામાં આવ્યું છે જે જંગી સ્ટોરેજ બચાવે છે."
 )
 
 #v(6pt)
@@ -3474,7 +3474,7 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
 
 #interview-item(
   num: "1",
-  q: "ઇન્ટરવ્યુઅર: 'Hotpatching થી એન્ટરપ્રાઇઝને વ્યાવસાયિક રીતે શું લાભ મળે છે?'",
+  q: "ઇન્ટરવ્યુઅર: '#hl-yellow[Hotpatching] થી એન્ટરપ્રાઇઝને વ્યાવસાયિક રીતે શું લાભ મળે છે?'",
   a: "ઉત્તર: વ્યાવસાયિક દ્રષ્ટિએ હોટપેચિંગ ડાઉનટાઇમને 90% થી વધુ ઘટાડે છે. 24/7 કાર્યરત હોસ્પિટલો, બેંકો અને ઇ-કોમર્સ સાઇટ્સ પર મેન્ટેનન્સ વિન્ડોઝ માટે સિસ્ટમ બંધ કરવાની જરૂર રહેતી નથી, એડમિનિસ્ટ્રેટરને વીકેન્ડ પર મોડી રાત સુધી જાગીને પેચિંગ કરવું પડતું નથી, અને રીબૂટ દરમિયાન સંભવિત બૂટ ક્રેશનું જોખમ શૂન્ય થઈ જાય છે.",
   tip: "L2/L3 ઇન્ટરવ્યુમાં વ્યાવસાયિક અસર (Business ROI) સમજાવવાથી ઘણું ઉચ્ચ રેટિંગ મળે છે."
 )
@@ -3483,7 +3483,7 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
 
 #interview-item(
   num: "2",
-  q: "ઇન્ટરવ્યુઅર: 'SMB over QUIC પરંપરાગત SMB over VPN કરતાં શા માટે શ્રેષ્ઠ માનવામાં આવે છે?'",
+  q: "ઇન્ટરવ્યુઅર: '#hl-orange[SMB over QUIC] પરંપરાગત SMB over VPN કરતાં શા માટે શ્રેષ્ઠ માનવામાં આવે છે?'",
   a: "ઉત્તર: પરંપરાગત SMB (TCP 445) હાઇ લેટન્સી વાળા ઇન્ટરનેટ કનેક્શન પર ખૂબ ધીમું કામ કરે છે (Chatty Protocol) અને સમગ્ર નેટવર્કનું VPN ટનલ બનાવવું સુરક્ષા જોખમ ઊભું કરે છે. QUIC (UDP 443) પેકેટ લોસ અને લેટન્સીને અત્યંત કુશળતાથી સંભાળે છે, કનેક્શન માઇગ્રેશનને સપોર્ટ કરે છે (વાઇ-ફાઇ પરથી 4G/5G પર સ્વિચ થવા પર પણ સેશન તૂટતું નથી), અને એન્ડ-ટુ-એન્ડ TLS 1.3 એન્ક્રિપ્ટેડ રહે છે.",
   tip: "આ આધુનિક એન્ટરપ્રાઇઝ મોબિલિટી અને હાઇબ્રિડ વર્કફોર્સનો સૌથી અદ્યતન ઉત્તર છે."
 )
@@ -3501,7 +3501,7 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
 
 #interview-item(
   num: "4",
-  q: "ઇન્ટરવ્યુઅર: 'Azure Arc સક્ષમ સર્વર પર Microsoft Defender for Cloud શું સુરક્ષા લાભ આપે છે?'",
+  q: "ઇન્ટરવ્યુઅર: '#hl-green[Azure Arc] સક્ષમ સર્વર પર Microsoft Defender for Cloud શું સુરક્ષા લાભ આપે છે?'",
   a: "ઉત્તર: તે ઓન-પ્રિમિસિસ સર્વર પર લાઇવ થ્રેટ ઇન્ટેલિજન્સ, માલવેર ડિટેક્શન, વલ્નરેબિલિટી એસેસમેન્ટ અને સીઆઇએસ (CIS) સુરક્ષા ધોરણોના પાલનનો રિયલ-ટાઇમ રિપોર્ટ Azure ક્લાઉડ ડેશબોર્ડ પર આપે છે. જો લોકલ સર્વર પર કોઈ બ્રૂટ-ફોર્સ કે રેન્સમવેર પ્રવૃત્તિ થાય, તો ક્લાઉડ તાત્કાલિક સુરક્ષા એલર્ટ જારી કરે છે.",
   tip: "સિક્યોરિટી ઓપરેશન્સ (SOC) અને હાઇબ્રિડ ક્લાઉડ સપોર્ટમાં આ પ્રશ્ન પૂછવામાં આવે છે."
 )
@@ -3510,7 +3510,7 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
 
 #interview-item(
   num: "5",
-  q: "ઇન્ટરવ્યુઅર: 'Next-Gen Storage Spaces Direct (S2D) માં NVMe ડ્રાઇવ્સનો શું ઉપયોગ છે?'",
+  q: "ઇન્ટરવ્યુઅર: 'Next-Gen #hl-yellow[Storage Spaces Direct] (S2D) માં NVMe ડ્રાઇવ્સનો શું ઉપયોગ છે?'",
   a: "ઉત્તર: S2D ક્લસ્ટરમાં સર્વરના લોકલ NVMe SSDs ને એક શેર્ડ વર્ચ્યુઅલ SAN સ્ટોરેજ પૂલમાં જોડી દેવામાં આવે છે. PCIe Gen 5 બસ દ્વારા ડેટા સીધો રેમ અને સીપીયુ કેશની નજીક ટ્રાન્સફર થાય છે, જેનાથી પરંપરાગત મોંઘા SAN સ્ટોરેજ બોક્સ (Dell EMC / NetApp) ની જરૂરિયાત સમાપ્ત થઈ જાય છે અને કરોડો રૂપિયાનો હાર્ડવેર ખર્ચ બચે છે.",
   tip: "HCI (Hyper-Converged Infrastructure) અને વર્ચ્યુઅલાઇઝેશન સ્પેશિયાલિસ્ટ રાઉન્ડનો મુખ્ય પ્રશ્ન."
 )
@@ -3526,7 +3526,7 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 12 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - Hotpatching રીબૂટ વગર લાઇવ મેમરી પેચિંગ આપીને 99.999% સર્વર અપટાઇમ સુનિશ્ચિત કરે છે.
+      - #hl-yellow[Hotpatching] રીબૂટ વગર લાઇવ મેમરી પેચિંગ આપીને 99.999% સર્વર અપટાઇમ સુનિશ્ચિત કરે છે.
       - SMB over QUIC પોર્ટ 443 પર VPN વગર સુરક્ષિત રિમોટ ફાઇલ શેરિંગ સક્ષમ બનાવે છે.
       - 32KB AD DB અને Azure Arc વિન્ડોઝ સર્વર 2025 ને વિશ્વનું સૌથી ઝડપી હાઇબ્રિડ ક્લાઉડ ઓએસ બનાવે છે.
     ]
@@ -3544,8 +3544,8 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
 #chapter-header(
   chapter-num: "CHAPTER 13",
   category: "ભાગ 13 : ડિઝાસ્ટર રિકવરી અને ડેટા સંરક્ષણ (Disaster Recovery & Backup)",
-  title: "સર્વર બેકઅપ, ડિઝાસ્ટર રિકવરી અને એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન",
-  subtitle: "3-2-1 એન્ટરપ્રાઇઝ બેકઅપ વ્યૂહરચના · Windows Server Backup · ફુલ vs સિસ્ટમ સ્ટેટ બેકઅપ · AD રિસાઇકલ બિન સક્ષમ કરવું · ડિલીટેડ યુઝરની 1-ક્લિક રિકવરી · wbadmin ઓટોમેશન"
+  title: "સર્વર બેકઅપ, ડિઝાસ્ટર રિકવરી અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિન",
+  subtitle: "3-2-1 એન્ટરપ્રાઇઝ બેકઅપ વ્યૂહરચના · #hl-yellow[Windows Server Backup] · ફુલ vs સિસ્ટમ સ્ટેટ બેકઅપ · AD રિસાઇકલ બિન સક્ષમ કરવું · ડિલીટેડ યુઝરની 1-ક્લિક રિકવરી · wbadmin ઓટોમેશન"
 )
 
 === 13.1 એન્ટરપ્રાઇઝ બેકઅપ વ્યૂહરચના: 3-2-1 નો સુવર્ણ સિદ્ધાંત
@@ -3561,7 +3561,7 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
       #image("../02_BRAND_ASSETS/screenshots/backup_disaster_recovery_flow.png", width: 78%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 13.1: 3-2-1 એન્ટરપ્રાઇઝ બેકઅપ આર્કિટેક્ચર અને એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન 1-ક્લિક લાઇવ રિકવરી]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 13.1: 3-2-1 એન્ટરપ્રાઇઝ બેકઅપ આર્કિટેક્ચર અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિન 1-ક્લિક લાઇવ રિકવરી]
 ]
 
 #v(4pt)
@@ -3582,19 +3582,19 @@ Windows Server 2025 માં Server Manager ની અંદર જ #hl-yellow[
 
 #v(6pt)
 
-=== 13.2 Windows Server Backup ફીચર ઇન્સ્ટોલેશન
+=== 13.2 #hl-yellow[Windows Server Backup] ફીચર ઇન્સ્ટોલેશન
 માઇક્રોસોફ્ટ વિન્ડોઝ સર્વરમાં એક ઇન-બિલ્ટ બેકઅપ સોલ્યુશન પૂરું પાડે છે:
 
-1. Server Manager -> #hl-green[Add Roles and Features] માં જાઓ.
+1. #hl-yellow[Server Manager] -> #hl-green[Add Roles and Features] માં જાઓ.
 2. Features સ્ક્રીન સુધી 'Next' દબાવો.
 3. યાદીમાં શોધો: #mark-yellow[Windows Server Backup] ચેકબોક્સ પર ટિક કરો.
 4. 'Install' પર ક્લિક કરો. આ ટૂલ GUI કન્સોલ (`wbadmin.msc`) અને પાવરફુલ કમાન્ડ-લાઇન યુટિલિટી (`wbadmin.exe`) બંને પ્રદાન કરે છે.
 
 #v(6pt)
 
-=== 13.3 ફુલ સર્વર બેકઅપ વિરુદ્ધ સિસ્ટમ સ્ટેટ બેકઅપ (System State Backup)
-- #text(weight: "bold", fill: rtech-navy)[બેયર મેટલ રિકવરી (Bare Metal Recovery - BMR):] આખા સર્વર (C: ડ્રાઇવ, સિસ્ટમ પાર્ટીશન્સ, એપ્લિકેશન્સ અને ડેટા) નો સંપૂર્ણ બેકઅપ. જો ફિઝિકલ સર્વર હાર્ડવેર સંપૂર્ણપણે બળી જાય કે નિષ્ફળ જાય, તો નવા ખાલી સર્વર પર બૂટ ડિસ્ક લગાવીને હૂબહૂ એ જ સર્વર પાછું રીસ્ટોર કરી શકાય છે.
-- #text(weight: "bold", fill: rtech-blue)[સિસ્ટમ સ્ટેટ બેકઅપ (System State Backup):] એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલર માટે આ સૌથી મહત્વપૂર્ણ બેકઅપ છે. આમાં માત્ર એ જ ઘટકો સામેલ હોય છે જે ડિરેક્ટરીને જીવંત રાખવા માટે અનિવાર્ય છે:
+=== 13.3 ફુલ સર્વર બેકઅપ વિરુદ્ધ સિસ્ટમ સ્ટેટ બેકઅપ (#hl-yellow[System State Backup])
+- #text(weight: "bold", fill: rtech-navy)[બેયર મેટલ રિકવરી (#hl-orange[Bare Metal Recovery] - BMR):] આખા સર્વર (C: ડ્રાઇવ, સિસ્ટમ પાર્ટીશન્સ, એપ્લિકેશન્સ અને ડેટા) નો સંપૂર્ણ બેકઅપ. જો ફિઝિકલ સર્વર હાર્ડવેર સંપૂર્ણપણે બળી જાય કે નિષ્ફળ જાય, તો નવા ખાલી સર્વર પર બૂટ ડિસ્ક લગાવીને હૂબહૂ એ જ સર્વર પાછું રીસ્ટોર કરી શકાય છે.
+- #text(weight: "bold", fill: rtech-blue)[સિસ્ટમ સ્ટેટ બેકઅપ (#hl-yellow[System State Backup]):] #hl-yellow[એક્ટિવ ડિરેક્ટરી] #hl-yellow[ડોમેન કંટ્રોલર] માટે આ સૌથી મહત્વપૂર્ણ બેકઅપ છે. આમાં માત્ર એ જ ઘટકો સામેલ હોય છે જે ડિરેક્ટરીને જીવંત રાખવા માટે અનિવાર્ય છે:
   1. #hl-yellow[Active Directory Database (`ntds.dit`)]
   2. #hl-green[SYSVOL શેર્ડ ફોલ્ડર (તમામ GPOs અને સ્ક્રિપ્ટ્સ)]
   3. #hl-orange[વિન્ડોઝ સિસ્ટમ રજિસ્ટ્રી (System Registry)]
@@ -3608,8 +3608,8 @@ wbadmin start systemstatebackup -backupTarget:E: -quiet
 
 #v(6pt)
 
-=== 13.4 એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન (AD Recycle Bin) સક્ષમ કરવું
-જૂના વિન્ડોઝ સર્વર (2003/2008) માં જો કોઈ યુઝર કે OU ભૂલથી ડિલીટ થઈ જાય, તો તેને પાછું મેળવવા માટે ડોમેન કંટ્રોલરને રીસ્ટાર્ટ કરીને #hl-orange[DSRM મોડ (Directory Services Restore Mode)] માં લઈ જવું પડતું હતું, નેટવર્ક ડાઉન કરવું પડતું હતું, અને `ntdsutil` થી 'Authoritative Restore' કરવું પડતું હતું (ઓછામાં ઓછો 2 થી 3 કલાકનો ડાઉનટાઇમ).
+=== 13.4 #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિન (AD Recycle Bin) સક્ષમ કરવું
+જૂના વિન્ડોઝ સર્વર (2003/2008) માં જો કોઈ યુઝર કે OU ભૂલથી ડિલીટ થઈ જાય, તો તેને પાછું મેળવવા માટે #hl-yellow[ડોમેન કંટ્રોલર]ને રીસ્ટાર્ટ કરીને #hl-orange[DSRM મોડ (#hl-orange[Directory Services Restore Mode])] માં લઈ જવું પડતું હતું, નેટવર્ક ડાઉન કરવું પડતું હતું, અને `ntdsutil` થી 'Authoritative Restore' કરવું પડતું હતું (ઓછામાં ઓછો 2 થી 3 કલાકનો ડાઉનટાઇમ).
 
 #mark-yellow[એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન (AD Recycle Bin) એ એક અભૂતપૂર્વ વરદાન છે જે આકસ્મિક રીતે ડિલીટ થયેલા ઓબ્જેક્ટ્સને સર્વર રીબૂટ કર્યા વગર, કોઈપણ ડાઉનટાઇમ વગર, માત્ર 1 ક્લિકમાં લાઇવ રીસ્ટોર કરવાની સુવિધા આપે છે!]
 
@@ -3619,7 +3619,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
   -Scope ForestOrConfigurationSet -Target "corp.rtechlab.local"
 ```
 #warning-box(title: "એકતરફી પ્રક્રિયા (Permanent Activation)")[
-  એક વાર જ્યારે તમે એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિનને સક્ષમ કરી દો છો, ત્યારે તેને ફરી ક્યારેય ડિસેબલ (અક્ષમ) કરી શકાતું નથી. આ એક કાયમી અને અત્યંત સુરક્ષિત અપગ્રેડ છે.
+  એક વાર જ્યારે તમે #hl-yellow[એક્ટિવ ડિરેક્ટરી] રિસાઇકલ બિનને સક્ષમ કરી દો છો, ત્યારે તેને ફરી ક્યારેય ડિસેબલ (અક્ષમ) કરી શકાતું નથી. આ એક કાયમી અને અત્યંત સુરક્ષિત અપગ્રેડ છે.
 ]
 
 #v(6pt)
@@ -3627,7 +3627,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
 === 13.5 આકસ્મિક રીતે ડિલીટ થયેલા યુઝર અને OU નું 1-ક્લિકમાં લાઇવ રીસ્ટોરેશન
 રિસાઇકલ બિન સક્ષમ થયા પછી જ્યારે પણ કોઈ યુઝર ડિલીટ થાય છે, ત્યારે તેનો ડેટા નાશ પામતો નથી પરંતુ તે #hl-yellow[`Deleted Objects`] કન્ટેનરમાં જતો રહે છે (ડિફોલ્ટ જીવનકાળ: #hl-green[180 દિવસ]):
 
-1. Server Manager -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dsac.exe`]).
+1. #hl-yellow[Server Manager] -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dsac.exe`]).
 2. ડાબી બાજુ તમારા ડોમેન `#text(weight: "bold")[corp (local)]` પર ક્લિક કરો.
 3. સ્ક્રીન પર #mark-yellow[Deleted Objects] નામનું નવું ફોલ્ડર દેખાશે. તેના પર ડબલ-ક્લિક કરો.
 4. તમને તે ડિલીટ થયેલો યુઝર દેખાશે (દા.ત. `Rahul Patel`).
@@ -3652,7 +3652,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 // CHAPTER 13 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  જ્યારે એક્ટિવ ડિરેક્ટરીમાં કોઈ ઓબ્જેક્ટ ડિલીટ થાય છે અને રિસાઇકલ બિન ઓન ન હોય, ત્યારે તે સંપૂર્ણપણે ભૂંસાતો નથી પરંતુ એક અર્ધ-જીવંત અવસ્થામાં જાય છે જેને #hl-yellow['Tombstone'] (કબરનો પથ્થર) કહેવામાં આવે છે. ટોમ્બસ્ટોનનો ડિફોલ્ટ જીવનકાળ 180 દિવસ હોય છે, પરંતુ તેમાં ઓબ્જેક્ટના મોટાભાગના એટ્રિબ્યુટ્સ (જેમ કે પાસવર્ડ, ગ્રુપ મેમ્બરશિપ, ફોન નંબર) સ્ટ્રિપ (દૂર) કરી દેવામાં આવે છે. AD Recycle Bin આ જ સમસ્યાનો ઉકેલ લાવીને 100% એટ્રિબ્યુટ્સને સુરક્ષિત રાખે છે!
+  જ્યારે #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં કોઈ ઓબ્જેક્ટ ડિલીટ થાય છે અને રિસાઇકલ બિન ઓન ન હોય, ત્યારે તે સંપૂર્ણપણે ભૂંસાતો નથી પરંતુ એક અર્ધ-જીવંત અવસ્થામાં જાય છે જેને #hl-yellow['Tombstone'] (કબરનો પથ્થર) કહેવામાં આવે છે. ટોમ્બસ્ટોનનો ડિફોલ્ટ જીવનકાળ 180 દિવસ હોય છે, પરંતુ તેમાં ઓબ્જેક્ટના મોટાભાગના એટ્રિબ્યુટ્સ (જેમ કે પાસવર્ડ, ગ્રુપ મેમ્બરશિપ, ફોન નંબર) સ્ટ્રિપ (દૂર) કરી દેવામાં આવે છે. AD Recycle Bin આ જ સમસ્યાનો ઉકેલ લાવીને 100% એટ્રિબ્યુટ્સને સુરક્ષિત રાખે છે!
 ]
 
 #v(6pt)
@@ -3675,7 +3675,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #mcq-item(
   num: "2",
-  q: "એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલરના 'System State Backup' માં નીચેનામાંથી કયો ઘટક સામેલ હોતો નથી?",
+  q: "એક્ટિવ ડિરેક્ટરી #hl-yellow[ડોમેન કંટ્રોલર]ના '#hl-yellow[System State Backup]' માં નીચેનામાંથી કયો ઘટક સામેલ હોતો નથી?",
   optA: "Active Directory ડેટાબેઝ (ntds.dit)",
   optB: "SYSVOL ફોલ્ડર",
   optC: "સિસ્ટમ રજિસ્ટ્રી (Registry)",
@@ -3715,12 +3715,12 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #mcq-item(
   num: "5",
   q: "ડિલીટ થયેલા યુઝરને એક્ટિવ ડિરેક્ટરી રિસાઇકલ બિન દ્વારા 1 ક્લિકમાં રીસ્ટોર કરવા માટે કયા ગ્રાફિકલ ટૂલનો ઉપયોગ થાય છે?",
-  optA: "Active Directory Users and Computers (dsa.msc)",
-  optB: "Active Directory Administrative Center (dsac.exe)",
-  optC: "Group Policy Management Console (gpmc.msc)",
+  optA: "#hl-yellow[Active Directory Users and Computers] (dsa.msc)",
+  optB: "#hl-yellow[Active Directory Administrative Center] (dsac.exe)",
+  optC: "#hl-yellow[Group Policy Management Console] (gpmc.msc)",
   optD: "Disk Management (diskmgmt.msc)",
   ans: "B",
-  exp: "Active Directory Administrative Center (ADAC - dsac.exe) ની અંદર 'Deleted Objects' કન્ટેનર ઉપલબ્ધ હોય છે."
+  exp: "#hl-yellow[Active Directory Administrative Center] (ADAC - dsac.exe) ની અંદર 'Deleted Objects' કન્ટેનર ઉપલબ્ધ હોય છે."
 )
 
 #v(6pt)
@@ -3731,7 +3731,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "1",
   q: "ઇન્ટરવ્યુઅર: 'Authoritative Restore અને Non-Authoritative Restore વચ્ચે શું તફાવત હોય છે?'",
-  a: "ઉત્તર: જ્યારે આપણે કોઈ બેકઅપમાંથી ડોમેન કંટ્રોલરને રીસ્ટોર કરીએ છીએ, ત્યારે ડિફોલ્ટ રીતે તે 'Non-Authoritative' હોય છે — એટલે કે રીસ્ટોર થયા પછી તે નેટવર્કના અન્ય DCs નો સંપર્ક કરે છે અને તેમની પાસે રહેલા નવીનતમ ડેટાબેઝથી પોતાની જાતને અપડેટ કરી લે છે. પરંતુ જો કોઈએ સમગ્ર ડોમેનમાંથી ભૂલથી કોઈ મહત્વપૂર્ણ OU ડિલીટ કરી નાખ્યું હોય, તો બેકઅપમાંથી તે OU ને 'Authoritative' માર્ક કરવામાં આવે છે (ntdsutil દ્વારા USN નંબર વધારીને). આનાથી અન્ય તમામ DCs તે રીસ્ટોર થયેલા ઓબ્જેક્ટને સૌથી નવો માનીને પોતાનામાં સ્વીકારી લે છે.",
+  a: "ઉત્તર: જ્યારે આપણે કોઈ બેકઅપમાંથી #hl-yellow[ડોમેન કંટ્રોલર]ને રીસ્ટોર કરીએ છીએ, ત્યારે ડિફોલ્ટ રીતે તે 'Non-Authoritative' હોય છે — એટલે કે રીસ્ટોર થયા પછી તે નેટવર્કના અન્ય DCs નો સંપર્ક કરે છે અને તેમની પાસે રહેલા નવીનતમ ડેટાબેઝથી પોતાની જાતને અપડેટ કરી લે છે. પરંતુ જો કોઈએ સમગ્ર ડોમેનમાંથી ભૂલથી કોઈ મહત્વપૂર્ણ OU ડિલીટ કરી નાખ્યું હોય, તો બેકઅપમાંથી તે OU ને 'Authoritative' માર્ક કરવામાં આવે છે (ntdsutil દ્વારા USN નંબર વધારીને). આનાથી અન્ય તમામ DCs તે રીસ્ટોર થયેલા ઓબ્જેક્ટને સૌથી નવો માનીને પોતાનામાં સ્વીકારી લે છે.",
   tip: "HCL, Infosys અને TCS ના L2/L3 ડિરેક્ટરી સર્વિસિસ ઇન્ટરવ્યુનો આ સૌથી નિર્ણાયક પ્રશ્ન છે."
 )
 
@@ -3739,7 +3739,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #interview-item(
   num: "2",
-  q: "ઇન્ટરવ્યુઅર: 'Active Directory Recycle Bin ને સક્ષમ કર્યા પછી શું કોઈ ડિલીટ થયેલા યુઝરનો પાસવર્ડ રીસેટ કરવો પડે છે?'",
+  q: "ઇન્ટરવ્યુઅર: '#hl-yellow[Active Directory Recycle Bin] ને સક્ષમ કર્યા પછી શું કોઈ ડિલીટ થયેલા યુઝરનો પાસવર્ડ રીસેટ કરવો પડે છે?'",
   a: "ઉત્તર: બિલકુલ નહીં! આ જ AD Recycle Bin ની સૌથી મોટી તાકાત છે. જ્યારે યુઝરને રીસ્ટોર કરવામાં આવે છે, ત્યારે તેનો પાસવર્ડ હેશ, તેનો મૂળ SID (Security Identifier), તેની તમામ સિક્યોરિટી ગ્રુપ્સની સદસ્યતા અને તેના તમામ 150+ એટ્રિબ્યુટ્સ 100% મૂળ સ્થિતિમાં પાછા આવે છે. કર્મચારી પાસવર્ડ બદલ્યા વગર તરત જ લોગઇન કરી શકે છે.",
   tip: "આ ઉત્તર સાબિત કરે છે કે તમને ટૂલના વ્યવહારુ લાભોની ઊંડી સમજ છે."
 )
@@ -3758,7 +3758,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "4",
   q: "ઇન્ટરવ્યુઅર: 'શું આપણે એક્ટિવ ડિરેક્ટરી બેકઅપને એ જ ડ્રાઇવ પર સેવ કરી શકીએ છીએ જેના પર C: વિન્ડોઝ ઇન્સ્ટોલ હોય?'",
-  a: "ઉત્તર: ના, Windows Server Backup ક્યારેય સિસ્ટમ સ્ટેટ બેકઅપને એ જ વોલ્યુમ (C:) પર સ્ટોર કરવાની પરવાનગી આપતું નથી જેના પર ઓપરેટિંગ સિસ્ટમ પોતે ચાલી રહી હોય. આ માટે એક અલગ સમર્પિત ભૌતિક/વર્ચ્યુઅલ ડિસ્ક (દા.ત. E: ડ્રાઇવ અથવા નેટવર્ક શેર) હોવી અનિવાર્ય છે.",
+  a: "ઉત્તર: ના, #hl-yellow[Windows Server Backup] ક્યારેય સિસ્ટમ સ્ટેટ બેકઅપને એ જ વોલ્યુમ (C:) પર સ્ટોર કરવાની પરવાનગી આપતું નથી જેના પર ઓપરેટિંગ સિસ્ટમ પોતે ચાલી રહી હોય. આ માટે એક અલગ સમર્પિત ભૌતિક/વર્ચ્યુઅલ ડિસ્ક (દા.ત. E: ડ્રાઇવ અથવા નેટવર્ક શેર) હોવી અનિવાર્ય છે.",
   tip: "પ્રેક્ટિકલ અમલીકરણ અને લેબ અનુભવ તપાસતો આ સચોટ પ્રશ્ન છે."
 )
 
@@ -3766,7 +3766,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #interview-item(
   num: "5",
-  q: "ઇન્ટરવ્યુઅર: 'જો Active Directory Recycle Bin ફીચરને એક વાર સક્ષમ કરી દેવામાં આવે, તો શું તેને પાછળથી બંધ કરી શકાય?'",
+  q: "ઇન્ટરવ્યુઅર: 'જો #hl-yellow[Active Directory Recycle Bin] ફીચરને એક વાર સક્ષમ કરી દેવામાં આવે, તો શું તેને પાછળથી બંધ કરી શકાય?'",
   a: "ઉત્તર: ના, માઇક્રોસોફ્ટના સત્તાવાર નિયમો અનુસાર Recycle Bin ફીચરનું એક્ટિવેશન એક 'એકતરફી કાયમી પ્રક્રિયા' (Irreversible Process) છે. એક વાર ફોરેસ્ટમાં સક્ષમ થયા પછી તેને ક્યારેય ડિસેબલ કરી શકાતું નથી.",
   tip: "માઇક્રોસોફ્ટ સર્ટિફિકેશન અને ટેકનિકલ ઇન્ટરવ્યુ માટેનો આ પ્રમાણભૂત પ્રશ્ન છે."
 )
@@ -3784,8 +3784,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #v(3pt)
     #text(size: 7.5pt, fill: rtech-text)[
       - #text(weight: "bold", fill: rtech-rose)[ભૂલ 1: 'The backup target volume is invalid':] વિન્ડોઝ સર્વર ક્યારેય એ જ C: ડ્રાઇવ પર બેકઅપની મંજૂરી આપતું નથી જેના પર OS હોય; બેકઅપ માટે હંમેશા સમર્પિત E: ડ્રાઇવ અથવા નેટવર્ક શેરનો ઉપયોગ કરો.
-      - #text(weight: "bold", fill: rtech-amber)[ભૂલ 2: 'VSS Writer timed out (Event ID 8229)':] વોલ્યુમ શેડો કોપી સર્વિસમાં અન્ય બેકઅપ એજન્ટના સંઘર્ષને કારણે થાય છે; `vssadmin list writers` ચલાવીને સ્થિતિ તપાસો.
-      - #text(weight: "bold", fill: rtech-emerald)[ભૂલ 3: 'Recycle Bin Deleted Objects ફોલ્ડર દેખાતું નથી':] Active Directory Administrative Center (ADAC) ને બંધ કરીને ફરી ખોલો અથવા F5 દબાવીને રિફ્રેશ કરો.
+      - #text(weight: "bold", fill: rtech-amber)[ભૂલ 2: '#hl-green[VSS] Writer timed out (Event ID 8229)':] વોલ્યુમ શેડો કોપી સર્વિસમાં અન્ય બેકઅપ એજન્ટના સંઘર્ષને કારણે થાય છે; `vssadmin list writers` ચલાવીને સ્થિતિ તપાસો.
+      - #text(weight: "bold", fill: rtech-emerald)[ભૂલ 3: 'Recycle Bin Deleted Objects ફોલ્ડર દેખાતું નથી':] #hl-yellow[Active Directory Administrative Center] (ADAC) ને બંધ કરીને ફરી ખોલો અથવા F5 દબાવીને રિફ્રેશ કરો.
     ]
   ]
 )
@@ -3801,8 +3801,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ પ્રકરણ 13 ચકાસણી ચેકલિસ્ટ (Disaster Recovery Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Windows Server Backup ફીચર અને PowerShell મોડ્યુલ સફળતાપૂર્વક ઇન્સ્ટોલ કરેલા છે.
-      - [ ] Active Directory Recycle Bin ફીચર સમગ્ર ફોરેસ્ટમાં કાયમી ધોરણે સક્ષમ કરેલ છે.
+      - [ ] #hl-yellow[Windows Server Backup] ફીચર અને PowerShell મોડ્યુલ સફળતાપૂર્વક ઇન્સ્ટોલ કરેલા છે.
+      - [ ] #hl-yellow[Active Directory Recycle Bin] ફીચર સમગ્ર ફોરેસ્ટમાં કાયમી ધોરણે સક્ષમ કરેલ છે.
       - [ ] ટેસ્ટ યુઝરને ડિલીટ કરીને ADAC ના 'Deleted Objects' માંથી 1 ક્લિકમાં લાઇવ રીસ્ટોર ચકાસાયેલ છે.
     ]
   ]
@@ -3820,8 +3820,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 13 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
       - 3-2-1 બેકઅપ સિદ્ધાંત એન્ટરપ્રાઇઝ ડેટા સુરક્ષાનો આંતરરાષ્ટ્રીય પાયો છે.
-      - System State Backup ડોમેન કંટ્રોલરના મુખ્ય ઘટકો (`ntds.dit`, `SYSVOL`, Registry) ને સુરક્ષિત રાખે છે.
-      - Active Directory Recycle Bin આકસ્મિક ડિલીટ થવા પર સર્વર રીબૂટ વગર 1-ક્લિક લાઇવ રિકવરી પ્રદાન કરે છે.
+      - #hl-yellow[System State Backup] #hl-yellow[ડોમેન કંટ્રોલર]ના મુખ્ય ઘટકો (`ntds.dit`, `SYSVOL`, Registry) ને સુરક્ષિત રાખે છે.
+      - #hl-yellow[Active Directory Recycle Bin] આકસ્મિક ડિલીટ થવા પર સર્વર રીબૂટ વગર 1-ક્લિક લાઇવ રિકવરી પ્રદાન કરે છે.
     ]
   ]
 )
@@ -3868,12 +3868,12 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[દૈનિક L1/L2 કાર્યભાર અને SLA મેનેજમેન્ટ (Typical Daily Workflow):]\
     - #text(weight: "bold", fill: rtech-blue)[ઇન્સિડન્ટ મેનેજમેન્ટ (P1 થી P4 ટિકિટો):]
-      - P1 (Critical - 15 Min SLA): આખો ડોમેન કંટ્રોલર ડાઉન, અથવા ફાઇલ સર્વર અનરીચેબલ.
+      - P1 (Critical - 15 Min SLA): આખો #hl-yellow[ડોમેન કંટ્રોલર] ડાઉન, અથવા ફાઇલ સર્વર અનરીચેબલ.
       - P2 (High - 1 Hr SLA): કોઈ આખા વિભાગ (Finance OU) નું ઇન્ટરનેટ કે શેર ડ્રાઇવ કામ ન કરવું.
       - P3 (Medium - 4 Hr SLA): કોઈ ચોક્કસ યુઝરનું એકાઉન્ટ લોક થવું અથવા GPO ડ્રાઇવ મેપ ન થવી.
       - P4 (Low - 24 Hr SLA): નવા કર્મચારીનું AD એકાઉન્ટ ઓનબોર્ડિંગ અથવા ડિસ્ટ્રિબ્યુશન લિસ્ટમાં ઉમેરવું.
     - #text(weight: "bold", fill: rtech-emerald)[દૈનિક મોર્નિંગ ચેકલિસ્ટ (Morning Health Run):]
-      - સવારે 9:00 વાગ્યે Server Manager ડેશબોર્ડ ખોલીને તમામ સર્વર્સનું ગ્રીન હેલ્થ સ્ટેટસ તપાસવું.
+      - સવારે 9:00 વાગ્યે #hl-yellow[Server Manager] ડેશબોર્ડ ખોલીને તમામ સર્વર્સનું ગ્રીન હેલ્થ સ્ટેટસ તપાસવું.
       - Event Viewer માં Directory Service, DNS Server, અને System Logs માં રેડ એરર્સ (Error 1085, 1129) જોવા.
       - રાત્રિના સિસ્ટમ સ્ટેટ બેકઅપના સફળ સ્ટેટસ (`wbadmin` / Veeam) ની પુષ્ટિ કરવી.
   ]
@@ -3885,13 +3885,13 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 ઇન્ટરવ્યુઅર ક્યારેય માત્ર વ્યાખ્યાઓ પૂછતા નથી, તેઓ વાસ્તવિક મુશ્કેલી નિવારણ દ્રશ્યો (Troubleshooting Scenarios) આપે છે:
 
 1. #text(weight: "bold", fill: rtech-navy)[દ્રશ્ય 1: "સવારે 10 વાગ્યે એક સાથે 40 કર્મચારીઓના એકાઉન્ટ લોક થઈ ગયા. શું આ બ્રૂટ-ફોર્સ હુમલો છે અને તમે તેને કેવી રીતે ડાયગ્નોઝ કરશો?"]
-   - *મોડેલ ઉત્તર:* "હું તરત જ PDC Emulator ડોમેન કંટ્રોલર પર Event Viewer ખોલીશ અને 'Security Log' માં Event ID #hl-orange[4740] (A user account was locked out) ફિલ્ટર કરીશ. આ ઇવેન્ટની વિગતોમાં 'Caller Computer Name' જોવામાં આવે છે. 90% કેસોમાં આ કોઈ મોબાઈલ ફોન કે આઇપેડ પર જૂનો સેવ થયેલો પાસવર્ડ (Cached Exchange/Wi-Fi credentials) હોય છે જે વારંવાર ખોટો પાસવર્ડ મોકલીને એકાઉન્ટ લોક કરી દે છે. તે ડિવાઇસમાંથી ક્રેડેન્શિયલ્સ અપડેટ કરાવીને સમસ્યાનો ઉકેલ આવી જાય છે."
+   - *મોડેલ ઉત્તર:* "હું તરત જ PDC Emulator #hl-yellow[ડોમેન કંટ્રોલર] પર Event Viewer ખોલીશ અને 'Security Log' માં Event ID #hl-orange[4740] (A user account was locked out) ફિલ્ટર કરીશ. આ ઇવેન્ટની વિગતોમાં 'Caller Computer Name' જોવામાં આવે છે. 90% કેસોમાં આ કોઈ મોબાઈલ ફોન કે આઇપેડ પર જૂનો સેવ થયેલો પાસવર્ડ (Cached Exchange/Wi-Fi credentials) હોય છે જે વારંવાર ખોટો પાસવર્ડ મોકલીને એકાઉન્ટ લોક કરી દે છે. તે ડિવાઇસમાંથી ક્રેડેન્શિયલ્સ અપડેટ કરાવીને સમસ્યાનો ઉકેલ આવી જાય છે."
 
 2. #text(weight: "bold", fill: rtech-navy)[દ્રશ્ય 2: "એક કર્મચારીની બદલી HR માંથી Finance વિભાગમાં થઈ છે. તેનો HR નો એક્સેસ તરત બંધ અને Finance નો એક્સેસ ચાલુ કેવી રીતે કરશો?"]
-   - *મોડેલ ઉત્તર:* "અમે સીધા ફોલ્ડર પર નથી જતા. ADUC માં જઈને તે યુઝરને `GG_HR_Staff` ગ્લોબલ ગ્રુપમાંથી દૂર કરીને `GG_Finance_Staff` માં ઉમેરી દઈશું. અમારા AGDLP મોડેલના કારણે યુઝરને Finance ના તમામ જરૂરી રાઇટ્સ આપોઆપ મળી જશે અને HR ના તમામ રાઇટ્સ આપોઆપ રદ થઈ જશે."
+   - *મોડેલ ઉત્તર:* "અમે સીધા ફોલ્ડર પર નથી જતા. ADUC માં જઈને તે યુઝરને `GG_HR_Staff` ગ્લોબલ ગ્રુપમાંથી દૂર કરીને `GG_Finance_Staff` માં ઉમેરી દઈશું. અમારા #hl-orange[AGDLP] મોડેલના કારણે યુઝરને Finance ના તમામ જરૂરી રાઇટ્સ આપોઆપ મળી જશે અને HR ના તમામ રાઇટ્સ આપોઆપ રદ થઈ જશે."
 
 3. #text(weight: "bold", fill: rtech-navy)[દ્રશ્ય 3: "DNS સર્વર ચાલુ છે, પરંતુ ઇન્ટરનેટની બહારની વેબસાઇટ્સ (google.com) નથી ખુલતી, માત્ર આંતરિક સાઇટ્સ ખુલે છે?"]
-   - *મોડેલ ઉત્તર:* "આ સંકેત આપે છે કે આંતરિક Forward Lookup Zone બરાબર છે, પરંતુ DNS સર્વરના #hl-yellow[Forwarders] (જેમ કે 1.1.1.1 અથવા ISP IP) ડાઉન છે અથવા ફાયરવોલ દ્વારા સર્વરથી બહાર જતો UDP પોર્ટ 53 બ્લોક છે. DNS Manager માં Forwarders ટેબ પર જઈને ટેસ્ટ ચલાવીશું."
+   - *મોડેલ ઉત્તર:* "આ સંકેત આપે છે કે આંતરિક #hl-yellow[Forward Lookup Zone] બરાબર છે, પરંતુ DNS સર્વરના #hl-yellow[Forwarders] (જેમ કે 1.1.1.1 અથવા ISP IP) ડાઉન છે અથવા ફાયરવોલ દ્વારા સર્વરથી બહાર જતો UDP પોર્ટ 53 બ્લોક છે. DNS Manager માં Forwarders ટેબ પર જઈને ટેસ્ટ ચલાવીશું."
 
 #v(1.5pt)
 
@@ -3900,7 +3900,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
    - તમારા રિઝ્યુમેમાં માત્ર 'Knowledge of Windows Server' ન લખો. તેના બદલે લખો:
      #box(fill: rgb("#F1F5F9"), radius: 3pt, inset: 4pt)[
        #text(size: 7.8pt, font: ("Consolas", "Courier New"))[
-         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented AGDLP RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
+         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented #hl-orange[AGDLP] RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
        ]
      ]
 2. #text(weight: "bold", fill: rtech-navy)[સેલરી એક્સપેક્ટેશન (CTC Expectations):]
@@ -3937,7 +3937,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #mcq-item(
   num: "2",
-  q: "ITIL ફ્રેમવર્ક હેઠળ જો કોઈ ડોમેન કંટ્રોલર સંપૂર્ણપણે ડાઉન થઈ જાય અને સેંકડો કર્મચારીઓ લોગઇન ન કરી શકે, તો આ ટિકિટને કઈ પ્રાથમિકતા (Priority) માં વર્ગીકૃત કરવામાં આવે છે?",
+  q: "ITIL ફ્રેમવર્ક હેઠળ જો કોઈ #hl-yellow[ડોમેન કંટ્રોલર] સંપૂર્ણપણે ડાઉન થઈ જાય અને સેંકડો કર્મચારીઓ લોગઇન ન કરી શકે, તો આ ટિકિટને કઈ પ્રાથમિકતા (Priority) માં વર્ગીકૃત કરવામાં આવે છે?",
   optA: "Priority 4 (Low)",
   optB: "Priority 3 (Medium)",
   optC: "Priority 2 (High)",
@@ -4001,8 +4001,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #interview-item(
   num: "2",
-  q: "ઇન્ટરવ્યુઅર: 'Kerberos ટિકિટની ડિફોલ્ટ જીવન અવધિ (Ticket Granting Ticket - TGT Lifetime) કેટલી હોય છે?'",
-  a: "ઉત્તર: ડિફોલ્ટ રીતે Kerberos TGT ની જીવન અવધિ 10 કલાક હોય છે, અને તેને પાસવર્ડ ફરી દાખલ કર્યા વગર વધુમાં વધુ 7 દિવસ સુધી રિન્યુ કરી શકાય છે. આ પોલિસી Default Domain Policy માં Kerberos Policies હેઠળ કન્ફિગર થાય છે.",
+  q: "ઇન્ટરવ્યુઅર: '#hl-orange[Kerberos] ટિકિટની ડિફોલ્ટ જીવન અવધિ (Ticket Granting Ticket - TGT Lifetime) કેટલી હોય છે?'",
+  a: "ઉત્તર: ડિફોલ્ટ રીતે #hl-orange[Kerberos] TGT ની જીવન અવધિ 10 કલાક હોય છે, અને તેને પાસવર્ડ ફરી દાખલ કર્યા વગર વધુમાં વધુ 7 દિવસ સુધી રિન્યુ કરી શકાય છે. આ પોલિસી Default Domain Policy માં #hl-orange[Kerberos] Policies હેઠળ કન્ફિગર થાય છે.",
   tip: "આ ડીપ ઓથેન્ટિકેશન આર્કિટેક્ચરનો ઉચ્ચ સ્તરનો સવાલ છે."
 )
 
@@ -4029,7 +4029,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "5",
   q: "ઇન્ટરવ્યુઅર: 'તમે અમારી સંસ્થા માટે એક ઉત્કૃષ્ટ સિસ્ટમ એડમિનિસ્ટ્રેટર કેમ સાબિત થશો?'",
-  a: "ઉત્તર: કારણ કે મારી પાસે માત્ર પુસ્તકીય થિયરી નથી, પરંતુ મેં પોતાના હાથે Windows Server 2025 ની સંપૂર્ણ એન્ટરપ્રાઇઝ લેબ તૈયાર કરી છે. હું Active Directory, GPO, DNS, DHCP, FSRM અને હાઇબ્રિડ આર્કિટેક્ચરના ઊંડાણને સમજું છું, PowerShell દ્વારા ઓટોમેશન કરી શકું છું, અને ITIL ધોરણો અનુસાર સમયસર ટિકિટો ઉકેલવા માટે પ્રતિબદ્ધ છું.",
+  a: "ઉત્તર: કારણ કે મારી પાસે માત્ર પુસ્તકીય થિયરી નથી, પરંતુ મેં પોતાના હાથે Windows Server 2025 ની સંપૂર્ણ એન્ટરપ્રાઇઝ લેબ તૈયાર કરી છે. હું Active Directory, GPO, DNS, DHCP, #hl-orange[FSRM] અને હાઇબ્રિડ આર્કિટેક્ચરના ઊંડાણને સમજું છું, PowerShell દ્વારા ઓટોમેશન કરી શકું છું, અને ITIL ધોરણો અનુસાર સમયસર ટિકિટો ઉકેલવા માટે પ્રતિબદ્ધ છું.",
   tip: "આ આત્મવિશ્વાસપૂર્ણ ઉત્તર તમારી પસંદગીને સુનિશ્ચિત કરે છે."
 )
 
@@ -4112,7 +4112,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #v(10pt)
 
 #info-box(title: "RTechLab માસ્ટર હેન્ડબુકની 5 અનન્ય પ્રતિબદ્ધતાઓ (Why This Book Guarantees Success)")[
-  - #text(weight: "bold")[1. 100% ઓરિજિનલ 2025 સ્ક્રીનશૉટ્સ:] વાસ્તવિક સર્વર મેનેજર, એક્ટિવ ડિરેક્ટરી, GPO અને DNS આર્કિટેક્ચર ફ્લો.
+  - #text(weight: "bold")[1. 100% ઓરિજિનલ 2025 સ્ક્રીનશૉટ્સ:] વાસ્તવિક #hl-yellow[સર્વર મેનેજર], #hl-yellow[એક્ટિવ ડિરેક્ટરી], GPO અને DNS આર્કિટેક્ચર ફ્લો.
   - #text(weight: "bold")[2. 3-કલર સ્ટડી હાઇલાઇટર સિસ્ટમ:] #hl-yellow[પીળો (મુખ્ય સિદ્ધાંતો)], #hl-orange[નારંગી (સુરક્ષા નિયમો અને ચેતવણીઓ)], અને #hl-green[લીલો (કમાન્ડ્સ અને ક્લિક સ્ટેપ્સ)].
   - #text(weight: "bold")[3. 1-ક્લિક ઇન્ટરેક્ટિવ નેવિગેશન:] ઇન્ડેક્સના કોઈપણ પ્રકરણ પર ટેપ કરીને સીધા તે પેજ પર પહોંચો, અને હેડર પરથી 1 ટેપમાં પાછા ફરો.
   - #text(weight: "bold")[4. દરેક પ્રકરણના અંતે Did You Know અને MCQs:] સેમેસ્ટર પરીક્ષા, પ્રમાણપત્ર અને કોર્પોરેટ મૂલ્યાંકન કસોટીઓની 100% તૈયારી.

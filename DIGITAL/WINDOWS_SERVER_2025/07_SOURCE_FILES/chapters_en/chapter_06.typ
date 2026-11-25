@@ -97,10 +97,10 @@ Domain join errors occur frequently in both enterprise production environments a
    - *Root Cause:* The client's Preferred DNS does not point to the DC (the client is using public DNS 8.8.8.8 or home router DNS).
    - *Resolution:* Launch `ncpa.cpl` and explicitly configure Preferred DNS to `192.168.1.10`.
 2. #text(weight: "bold", fill: rtech-rose)[Error 2: 'The network path was not found (0x80070035)':]
-   - *Root Cause:* Windows Firewall on the Domain Controller is blocking SMB (Port 445) or RPC endpoint ports.
+   - *Root Cause:* Windows Firewall on the Domain Controller is blocking SMB (#hl-green[Port 445]) or RPC endpoint ports.
    - *Resolution:* Enable the 'File and Printer Sharing' firewall rules on the Domain Controller.
 3. #text(weight: "bold", fill: rtech-rose)[Error 3: 'There is a time and/or date difference between the client and server':]
-   - *Root Cause:* Kerberos clock drift exceeds the maximum 5-minute skew tolerance between the client and DC.
+   - *Root Cause:* #hl-orange[Kerberos] clock drift exceeds the maximum 5-minute skew tolerance between the client and DC.
    - *Resolution:* Synchronize system clock and time zone with the DC or run `w32tm /resync`.
 4. #text(weight: "bold", fill: rtech-rose)[Error 4: 'Access is denied':]
    - *Root Cause:* The supplied user credentials lack authorization to join computer accounts to the domain.
@@ -208,7 +208,7 @@ Following the reboot, the client workstation lock screen transitions to the ente
 #interview-item(
   num: "1",
   q: "Interviewer: 'A client workstation reports: 'The trust relationship between this workstation and the primary domain failed.' How do you resolve this without disjoining and rejoining the domain?'",
-  a: "Answer: This occurs when the workstation's local machine password diverges from the password registered in Active Directory (often caused by reverting VM snapshots or prolonged offline status exceeding 30 days). Log in with local administrator credentials and run PowerShell: 'Reset-ComputerMachinePassword -Credential (Get-Credential)' or 'Test-ComputerSecureChannel -Repair'. This repairs the Kerberos trust channel in place without requiring unjoining or rebooting.",
+  a: "Answer: This occurs when the workstation's local machine password diverges from the password registered in Active Directory (often caused by reverting VM snapshots or prolonged offline status exceeding 30 days). Log in with local administrator credentials and run PowerShell: 'Reset-ComputerMachinePassword -Credential (Get-Credential)' or 'Test-ComputerSecureChannel -Repair'. This repairs the #hl-orange[Kerberos] trust channel in place without requiring unjoining or rebooting.",
   tip: "This exact scenario is asked in virtually 100% of L2 Desktop and Enterprise Support interviews at Wipro, Infosys, and HCL."
 )
 
@@ -235,7 +235,7 @@ Following the reboot, the client workstation lock screen transitions to the ente
 #interview-item(
   num: "4",
   q: "Interviewer: 'Which network protocols and port numbers are utilized during the Domain Join process?'",
-  a: "Answer: Domain Join relies on several core protocols: 1. DNS (Port 53) to discover DC SRV locator records, 2. Kerberos (Port 88) for authentication, 3. LDAP (Port 389) to create the computer object in ADUC, and 4. SMB (Port 445) and RPC (Port 135 / dynamic RPC ports) for directory transport and policy replication.",
+  a: "Answer: Domain Join relies on several core protocols: 1. DNS (Port 53) to discover DC SRV locator records, 2. #hl-orange[Kerberos] (#hl-green[Port 88]) for authentication, 3. LDAP (#hl-green[Port 389]) to create the computer object in ADUC, and 4. SMB (#hl-green[Port 445]) and RPC (Port 135 / dynamic RPC ports) for directory transport and policy replication.",
   tip: "A classic interview question designed to evaluate cross-domain network and server infrastructure fluency."
 )
 

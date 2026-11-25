@@ -8,7 +8,7 @@
   chapter-num: "CHAPTER 07",
   category: "भाग 7 : एंटरप्राइज सुरक्षा एवं समूह नीतियां (Group Policy Engine)",
   title: "ग्रुप पॉलिसी ऑब्जेक्ट्स (GPO): एंटरप्राइज सुरक्षा एवं डेस्कटॉप नियंत्रण",
-  subtitle: "GPMC (gpmc.msc) · LSDOU प्रोसेसिंग क्रम · ब्लॉक इन्हेरिटेंस व एनफोर्स · लैब 1: पासवर्ड नीति · लैब 2: USB ब्लॉक GPO · लैब 3: वॉलपेपर डिप्लॉयमेंट · gpupdate /force"
+  subtitle: "GPMC (gpmc.msc) · #hl-orange[LSDOU] प्रोसेसिंग क्रम · ब्लॉक इन्हेरिटेंस व एनफोर्स · लैब 1: पासवर्ड नीति · लैब 2: USB ब्लॉक GPO · लैब 3: वॉलपेपर डिप्लॉयमेंट · gpupdate /force"
 )
 
 === 7.1 ग्रुप पॉलिसी क्या है? (What is Group Policy?)
@@ -33,17 +33,17 @@
 
 #v(4pt)
 
-=== 7.2 Group Policy Management Console (`gpmc.msc`)
-ग्रुप पॉलिसी को प्रबंधित करने का प्राथमिक टूल #hl-yellow[GPMC (Group Policy Management Console)] है।
+=== 7.2 #hl-yellow[Group Policy Management Console] (`gpmc.msc`)
+ग्रुप पॉलिसी को प्रबंधित करने का प्राथमिक टूल #hl-yellow[GPMC (#hl-yellow[Group Policy Management Console])] है।
 - इसे खोलने का रन कमांड है: #mark-green[`gpmc.msc`]।
 
 कंसोल खोलते ही डोमेन के अंतर्गत दो डिफ़ॉल्ट GPOs पहले से बने मिलते हैं:
-1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] यह पूरे डोमेन स्तर पर लिंक होती है। इसका प्राथमिक कार्य संपूर्ण डोमेन के लिए पासवर्ड जटिलता, न्यूनतम लंबाई, अकाउंट लॉकआउट और Kerberos टिकट नीतियां तय करना है।
+1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] यह पूरे डोमेन स्तर पर लिंक होती है। इसका प्राथमिक कार्य संपूर्ण डोमेन के लिए पासवर्ड जटिलता, न्यूनतम लंबाई, अकाउंट लॉकआउट और #hl-orange[Kerberos] टिकट नीतियां तय करना है।
 2. #text(weight: "bold", fill: rtech-navy)[Default Domain Controllers Policy:] यह केवल 'Domain Controllers' OU पर लिंक होती है और डोमेन कंट्रोलर्स के सुरक्षा अधिकारों (User Rights Assignment) को नियंत्रित करती है।
 
 #v(6pt)
 
-=== 7.3 GPO प्रोसेसिंग का LSDOU क्रम एवं इन्हेरिटेंस (Order of Processing)
+=== 7.3 GPO प्रोसेसिंग का #hl-orange[LSDOU] क्रम एवं इन्हेरिटेंस (Order of Processing)
 जब कोई क्लाइंट कंप्यूटर बूट होता है या यूजर लॉगिन करता है, तो विंडोज एक निश्चित क्रम में ग्रुप पॉलिसीज को प्रोसेस करता है। इसे #hl-yellow[LSDOU] नियम कहा जाता है:
 
 #align(center)[
@@ -56,7 +56,7 @@
       #image("../02_BRAND_ASSETS/screenshots/gpo_inheritance_lsdou.png", width: 78%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[चित्र 7.1: GPO प्रोसेसिंग का LSDOU पदानुक्रम — Local, Site, Domain, एवं Organizational Unit (The Golden Rule)]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[चित्र 7.1: GPO प्रोसेसिंग का #hl-orange[LSDOU] पदानुक्रम — Local, Site, Domain, एवं Organizational Unit (The Golden Rule)]
 ]
 
 #v(4pt)
@@ -165,11 +165,11 @@ gpresult /h C:\GPO_Report.html
   num: "1",
   q: "माइक्रोसॉफ्ट के अनुसार ग्रुप पॉलिसी प्रोसेसिंग का सही मानक पदानुक्रम (Order of Precedence) कौन-सा है?",
   optA: "OU -> Domain -> Site -> Local",
-  optB: "Local -> Site -> Domain -> OU (LSDOU)",
+  optB: "Local -> Site -> Domain -> OU (#hl-orange[LSDOU])",
   optC: "Site -> Domain -> Local -> OU",
   optD: "Domain -> OU -> Local -> Site",
   ans: "B",
-  exp: "GPO प्रोसेसिंग का मानक क्रम LSDOU (Local, Site, Domain, OU) है; अंतिम लागू होने वाली नीति पूर्ववर्ती को ओवरराइड करती है।"
+  exp: "GPO प्रोसेसिंग का मानक क्रम #hl-orange[LSDOU] (Local, Site, Domain, OU) है; अंतिम लागू होने वाली नीति पूर्ववर्ती को ओवरराइड करती है।"
 )
 
 #v(3pt)
@@ -283,7 +283,7 @@ gpresult /h C:\GPO_Report.html
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 अध्याय 07 मुख्य कॉर्पोरेट निष्कर्ष (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - ग्रुप पॉलिसी (GPO) हजारों मशीनों के सुरक्षा और डेस्कटॉप नियंत्रण का केंद्रीय इंजन है (LSDOU क्रम में प्रोसेस होती है)।
+      - ग्रुप पॉलिसी (GPO) हजारों मशीनों के सुरक्षा और डेस्कटॉप नियंत्रण का केंद्रीय इंजन है (#hl-orange[LSDOU] क्रम में प्रोसेस होती है)।
       - Enforced GPO किसी भी Block Inheritance को बाईपास करके बाध्यकारी सुरक्षा सुनिश्चित करती है।
       - `gpupdate /force` और `gpresult /r` (या `/h`) प्रत्येक सिस्टम एडमिनिस्ट्रेटर की मुख्य दैनिक जीपीओ टूल्स हैं।
     ]

@@ -8,7 +8,7 @@
   chapter-num: "CHAPTER 07",
   category: "ભાગ 7 : એન્ટરપ્રાઇઝ સુરક્ષા અને ગ્રુપ પોલિસીઓ (Group Policy Engine)",
   title: "ગ્રુપ પોલિસી ઓબ્જેક્ટ્સ (GPO): એન્ટરપ્રાઇઝ સુરક્ષા અને ડેસ્કટોપ નિયંત્રણ",
-  subtitle: "GPMC (gpmc.msc) · LSDOU પ્રોસેસિંગ ક્રમ · બ્લોક ઇનહેરિટન્સ અને એન્ફોર્સ્ડ · લેબ 1: પાસવર્ડ પોલિસી · લેબ 2: USB બ્લોક GPO · લેબ 3: વોલપેપર ડિપ્લોયમેન્ટ · gpupdate /force"
+  subtitle: "GPMC (gpmc.msc) · #hl-orange[LSDOU] પ્રોસેસિંગ ક્રમ · બ્લોક ઇનહેરિટન્સ અને એન્ફોર્સ્ડ · લેબ 1: પાસવર્ડ પોલિસી · લેબ 2: USB બ્લોક GPO · લેબ 3: વોલપેપર ડિપ્લોયમેન્ટ · gpupdate /force"
 )
 
 === 7.1 ગ્રુપ પોલિસી શું છે? (What is Group Policy?)
@@ -21,7 +21,7 @@
   gutter: 10pt,
   [
     #info-box(title: "GPC (Group Policy Container)")[
-      GPC એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (`ntds.dit`) ની અંદર સંગ્રહિત થાય છે. તે GPO ના ગુણધર્મો (Attributes), વર્ઝન નંબર, સ્ટેટસ અને 128-બીટ GUID (Globally Unique Identifier) ધરાવે છે.
+      GPC #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડેટાબેઝ (`ntds.dit`) ની અંદર સંગ્રહિત થાય છે. તે GPO ના ગુણધર્મો (Attributes), વર્ઝન નંબર, સ્ટેટસ અને 128-બીટ GUID (Globally Unique Identifier) ધરાવે છે.
     ]
   ],
   [
@@ -33,17 +33,17 @@
 
 #v(4pt)
 
-=== 7.2 Group Policy Management Console (`gpmc.msc`)
-ગ્રુપ પોલિસીનું સંચાલન કરવા માટેનું પ્રાથમિક ટૂલ #hl-yellow[GPMC (Group Policy Management Console)] છે.
+=== 7.2 #hl-yellow[Group Policy Management Console] (`gpmc.msc`)
+ગ્રુપ પોલિસીનું સંચાલન કરવા માટેનું પ્રાથમિક ટૂલ #hl-yellow[GPMC (#hl-yellow[Group Policy Management Console])] છે.
 - તેને ખોલવા માટેનો રન કમાન્ડ છે: #mark-green[`gpmc.msc`].
 
 કન્સોલ ખોલતાં જ ડોમેન હેઠળ બે ડિફોલ્ટ GPOs પહેલેથી બનેલા મળે છે:
-1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] આ સમગ્ર ડોમેન સ્તરે લિંક થયેલી હોય છે. તેનું પ્રાથમિક કાર્ય સમગ્ર ડોમેન માટે પાસવર્ડ જટિલતા, લઘુત્તમ લંબાઈ, એકાઉન્ટ લોકઆઉટ અને Kerberos ટિકિટ નીતિઓ નક્કી કરવાનું છે.
-2. #text(weight: "bold", fill: rtech-navy)[Default Domain Controllers Policy:] આ માત્ર 'Domain Controllers' OU પર લિંક થયેલી હોય છે અને ડોમેન કંટ્રોલર્સના સુરક્ષા અધિકારો (User Rights Assignment) તથા ઓડિટિંગનું સંચાલન કરે છે.
+1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] આ સમગ્ર ડોમેન સ્તરે લિંક થયેલી હોય છે. તેનું પ્રાથમિક કાર્ય સમગ્ર ડોમેન માટે પાસવર્ડ જટિલતા, લઘુત્તમ લંબાઈ, એકાઉન્ટ લોકઆઉટ અને #hl-orange[Kerberos] ટિકિટ નીતિઓ નક્કી કરવાનું છે.
+2. #text(weight: "bold", fill: rtech-navy)[Default Domain Controllers Policy:] આ માત્ર 'Domain Controllers' OU પર લિંક થયેલી હોય છે અને #hl-yellow[ડોમેન કંટ્રોલર]્સના સુરક્ષા અધિકારો (User Rights Assignment) તથા ઓડિટિંગનું સંચાલન કરે છે.
 
 #v(6pt)
 
-=== 7.3 GPO પ્રોસેસિંગનો LSDOU ક્રમ અને ઇનહેરિટન્સ (Order of Processing)
+=== 7.3 GPO પ્રોસેસિંગનો #hl-orange[LSDOU] ક્રમ અને ઇનહેરિટન્સ (Order of Processing)
 જ્યારે કોઈ ક્લાયન્ટ કમ્પ્યુટર બૂટ થાય છે અથવા યુઝર લોગિન કરે છે, ત્યારે વિન્ડોઝ એક ચોક્કસ ક્રમમાં ગ્રુપ પોલિસીઓ પ્રોસેસ કરે છે. તેને #hl-yellow[LSDOU] નિયમ કહેવામાં આવે છે:
 
 #align(center)[
@@ -56,7 +56,7 @@
       #image("../02_BRAND_ASSETS/screenshots/gpo_inheritance_lsdou.png", width: 78%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 7.1: GPO પ્રોસેસિંગનો LSDOU વંશવેલો — Local, Site, Domain, અને Organizational Unit (The Golden Rule)]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 7.1: GPO પ્રોસેસિંગનો #hl-orange[LSDOU] વંશવેલો — Local, Site, Domain, અને Organizational Unit (The Golden Rule)]
 ]
 
 #v(4pt)
@@ -70,7 +70,7 @@
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[LSDOU પ્રોસેસિંગ ક્રમ (The 'Last Write Wins' Rule):]\
     - #text(weight: "bold", fill: rtech-blue)[1. L (Local Policy):] ક્લાયન્ટ મશીનની સ્થાનિક નીતિ સૌથી પહેલા પ્રોસેસ થાય છે (સૌથી ઓછી પ્રાથમિકતા).
-    - #text(weight: "bold", fill: rtech-blue)[2. S (Site Policy):] એક્ટિવ ડિરેક્ટરી સાઇટ પર લિંક GPO બીજા નંબરે લાગુ થાય છે.
+    - #text(weight: "bold", fill: rtech-blue)[2. S (Site Policy):] #hl-yellow[એક્ટિવ ડિરેક્ટરી] સાઇટ પર લિંક GPO બીજા નંબરે લાગુ થાય છે.
     - #text(weight: "bold", fill: rtech-amber)[3. D (Domain Policy):] ડોમેન સ્તરે લિંક GPO ત્રીજા ક્રમે પ્રોસેસ થાય છે અને સાઇટ તથા લોકલને ઓવરરાઇડ કરે છે.
     - #text(weight: "bold", fill: rtech-emerald)[4. OU (Organizational Unit):] OU પર લિંક GPO સૌથી છેલ્લે પ્રોસેસ થાય છે. *તેથી 'Last Write Wins' નિયમ અનુસાર OU ની સેટિંગ્સ સૌથી શક્તિશાળી ગણાય છે અને તે ડોમેન સેટિંગ્સને પણ ઓવરરાઇડ કરી દે છે!*
   ]
@@ -126,7 +126,7 @@
 #v(6pt)
 
 === 7.8 ક્લાયન્ટ-સાઇડ GPO રીફ્રેશ અને ટ્રબલશૂટિંગ (`gpupdate /force` & `gpresult`)
-ડિફોલ્ટ રૂપે ક્લાયન્ટ કમ્પ્યુટર્સ બેકગ્રાઉન્ડમાં દર #hl-yellow[90 મિનિટે (±30 મિનિટ રેન્ડમ ઓફસેટ સાથે)] ગ્રુપ પોલિસી રીફ્રેશ કરે છે. ડોમેન કંટ્રોલર્સ દર #hl-yellow[5 મિનિટે] રીફ્રેશ થાય છે.
+ડિફોલ્ટ રૂપે ક્લાયન્ટ કમ્પ્યુટર્સ બેકગ્રાઉન્ડમાં દર #hl-yellow[90 મિનિટે (±30 મિનિટ રેન્ડમ ઓફસેટ સાથે)] ગ્રુપ પોલિસી રીફ્રેશ કરે છે. #hl-yellow[ડોમેન કંટ્રોલર]્સ દર #hl-yellow[5 મિનિટે] રીફ્રેશ થાય છે.
 
 *તાત્કાલિક પોલિસી લાગુ કરવા અને તપાસવા માટેના 3 માસ્ટર કમાન્ડ્સ:*
 1. #text(weight: "bold")[તાત્કાલિક પોલિસી લાગુ કરવી:]
@@ -165,11 +165,11 @@ gpresult /h C:\GPO_Report.html
   num: "1",
   q: "માઇક્રોસોફ્ટ અનુસાર ગ્રુપ પોલિસી પ્રોસેસિંગનો સાચો પ્રમાણભૂત ક્રમ (Order of Precedence) કયો છે?",
   optA: "OU -> Domain -> Site -> Local",
-  optB: "Local -> Site -> Domain -> OU (LSDOU)",
+  optB: "Local -> Site -> Domain -> OU (#hl-orange[LSDOU])",
   optC: "Site -> Domain -> Local -> OU",
   optD: "Domain -> OU -> Local -> Site",
   ans: "B",
-  exp: "GPO પ્રોસેસિંગનો સ્ટાન્ડર્ડ ક્રમ LSDOU (Local, Site, Domain, OU) છે; છેલ્લે લાગુ થતી નીતિ અગાઉની પોલિસીને ઓવરરાઇડ કરે છે."
+  exp: "GPO પ્રોસેસિંગનો સ્ટાન્ડર્ડ ક્રમ #hl-orange[LSDOU] (Local, Site, Domain, OU) છે; છેલ્લે લાગુ થતી નીતિ અગાઉની પોલિસીને ઓવરરાઇડ કરે છે."
 )
 
 #v(3pt)
@@ -195,7 +195,7 @@ gpresult /h C:\GPO_Report.html
   optC: "net start gpo",
   optD: "dism /online /cleanup-image",
   ans: "B",
-  exp: "gpupdate /force કમાન્ડ તરત જ ડોમેન કંટ્રોલર સાથે સંપર્ક કરીને નવીનતમ પોલિસીઓ ડાઉનલોડ અને એપ્લાય કરે છે."
+  exp: "gpupdate /force કમાન્ડ તરત જ #hl-yellow[ડોમેન કંટ્રોલર] સાથે સંપર્ક કરીને નવીનતમ પોલિસીઓ ડાઉનલોડ અને એપ્લાય કરે છે."
 )
 
 #v(3pt)
@@ -283,7 +283,7 @@ gpresult /h C:\GPO_Report.html
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 07 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - ગ્રુપ પોલિસી (GPO) હજારો મશીનોની સુરક્ષા અને ડેસ્કટોપ નિયંત્રણનું કેન્દ્રીય એન્જિન છે (LSDOU ક્રમમાં પ્રોસેસ થાય છે).
+      - ગ્રુપ પોલિસી (GPO) હજારો મશીનોની સુરક્ષા અને ડેસ્કટોપ નિયંત્રણનું કેન્દ્રીય એન્જિન છે (#hl-orange[LSDOU] ક્રમમાં પ્રોસેસ થાય છે).
       - Enforced GPO કોઈપણ Block Inheritance ને બાયપાસ કરીને ફરજિયાત સુરક્ષા સુનિશ્ચિત કરે છે.
       - `gpupdate /force` અને `gpresult /r` (અથવા `/h`) પ્રત્યેક સિસ્ટમ એડમિનિસ્ટ્રેટરના મુખ્ય દૈનિક GPO ટૂલ્સ છે.
     ]

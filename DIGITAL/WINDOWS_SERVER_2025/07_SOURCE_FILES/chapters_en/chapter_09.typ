@@ -12,7 +12,7 @@
 )
 
 === 9.1 Enterprise Significance of DNS & Inseparable Bond with Active Directory
-If Active Directory is the *brain* of a corporate network, then the DNS server is its *heart*. In an entire Windows domain environment, no service (Login, Kerberos, File Sharing, GPO) can function even for a single second without DNS.
+If Active Directory is the *brain* of a corporate network, then the DNS server is its *heart*. In an entire Windows domain environment, no service (Login, #hl-orange[Kerberos], File Sharing, GPO) can function even for a single second without DNS.
 
 #mark-yellow[The Domain Name System (DNS) is a hierarchical distributed database service that resolves human-readable computer names (e.g., `portal.corp.rtechlab.local`) into machine-routable network IP addresses (`192.168.1.50`).]
 
@@ -54,17 +54,17 @@ In DNS, a zone represents an administrative partition of the namespace for which
 1. #text(weight: "bold", fill: rtech-blue)[Active Directory-Integrated Zone (Best Enterprise Choice):] This zone is stored directly inside the Active Directory database (`ntds.dit`) rather than in a flat file on disk. It provides three distinctive enterprise advantages:
    - #hl-green[Multi-Master Replication:] Modify records on any writable Domain Controller, and changes replicate automatically to all other DCs.
    - #hl-green[Secure Dynamic Updates:] Only authenticated domain-joined computers can register or update their own DNS records (preventing rogue hijacking).
-   - #hl-green[Encrypted Replication:] All DNS zone replication traffic is encrypted and authenticated natively via Kerberos.
+   - #hl-green[Encrypted Replication:] All DNS zone replication traffic is encrypted and authenticated natively via #hl-orange[Kerberos].
 2. #text(weight: "bold", fill: rtech-navy)[Standard Primary Zone:] Stored in a traditional text file (`zone.dns`) on the local file system. Employs a single-master model where only the primary server can accept record writes.
 3. #text(weight: "bold", fill: rtech-navy)[Standard Secondary Zone:] A read-only replica of a primary zone. Used for redundancy, fault tolerance, and query load distribution.
 4. #text(weight: "bold", fill: rtech-muted)[Stub Zone:] Contains only the SOA (Start of Authority), NS (Name Server), and glue A records necessary to identify authoritative name servers for an external or delegated domain.
 
 #v(1.5pt)
 
-=== 9.3 Forward Lookup Zone vs. Reverse Lookup Zone
+=== 9.3 #hl-yellow[Forward Lookup Zone] vs. #hl-yellow[Reverse Lookup Zone]
 - #text(weight: "bold", fill: rtech-navy)[Forward Lookup Zone:] Resolves computer host names to IP addresses (Name -> IP). When you type `srv-2025-dc01.corp.rtechlab.local` into a browser, the forward zone returns `192.168.1.10`.
 - #text(weight: "bold", fill: rtech-navy)[Reverse Lookup Zone:] Resolves IP addresses back to computer host names (IP -> Name). It utilizes the special reverse DNS namespace domain (e.g., `1.168.192.in-addr.arpa` for IPv4).
-  - *Why is a Reverse Zone essential?* Required for Kerberos authentication and Service Principal Name (SPN) validation, preventing mail delivery rejection by anti-spam filters, and verifying host identities via `nslookup 192.168.1.10`.
+  - *Why is a Reverse Zone essential?* Required for #hl-orange[Kerberos] authentication and Service Principal Name (SPN) validation, preventing mail delivery rejection by anti-spam filters, and verifying host identities via `nslookup 192.168.1.10`.
 
 #v(1.5pt)
 
@@ -75,7 +75,7 @@ Within the DNS management console (`dnsmgmt.msc`), five core resource records fo
 2. #text(weight: "bold", fill: rtech-emerald)[Pointer (PTR Record):] Maps an IP address back to its FQDN hostname in a reverse lookup zone. E.g., `10` -> `srv-dc01.corp.rtechlab.local`.
 3. #text(weight: "bold", fill: rtech-amber)[Alias (CNAME - Canonical Name):] Maps an alias name to the canonical host name. E.g., when users navigate to `portal.corp.rtechlab.local`, the CNAME record redirects them seamlessly to the underlying web host `srv-2025-web01.corp.rtechlab.local`.
 4. #text(weight: "bold", fill: rtech-navy)[Mail Exchanger (MX Record):] Identifies the authoritative mail servers (such as Microsoft Exchange) for the domain and defines their routing priority/preference values.
-5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV Record):] The architectural backbone of Active Directory. Identifies the specific host and TCP/UDP port running core directory services such as LDAP, Kerberos, and Global Catalog (e.g., `_ldap._tcp.dc._msdcs.corp.rtechlab.local` on Port 389).
+5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV Record):] The architectural backbone of Active Directory. Identifies the specific host and TCP/UDP port running core directory services such as LDAP, #hl-orange[Kerberos], and Global Catalog (e.g., `_ldap._tcp.dc._msdcs.corp.rtechlab.local` on #hl-green[Port 389]).
 
 #v(1.5pt)
 
@@ -90,7 +90,7 @@ When an employee accesses an external public website (such as `google.com`) from
 
 #v(1.5pt)
 
-=== 9.6 Removing Stale Records: DNS Aging and Scavenging
+=== 9.6 Removing Stale Records: DNS #hl-yellow[Aging and Scavenging]
 As hundreds of mobile workstations connect and disconnect across dynamic corporate Wi-Fi networks, thousands of obsolete, orphaned records (stale records) accumulate in the DNS database. To purge these automatically, #hl-yellow[Aging & Scavenging] must be enabled:
 
 1. #text(weight: "bold")[No-refresh interval (default 7 days):] During this window, even if the client attempts to re-register its IP, the DNS server will not update the record's timestamp (preventing unnecessary Active Directory replication overhead).
@@ -103,7 +103,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 // CHAPTER 09 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  Windows Server 2025 introduces native support for #hl-yellow[DoH (DNS over HTTPS)]. This means that outbound DNS queries leaving the corporate server toward the Internet are no longer transmitted in plain text (cleartext UDP 53); instead, they are fully encrypted over #hl-green[HTTPS (Port 443)]. Consequently, ISPs, rogue eavesdroppers, or external attackers cannot snoop on the domain names being queried by internal enterprise clients!
+  Windows Server 2025 introduces native support for #hl-yellow[DoH (DNS over HTTPS)]. This means that outbound DNS queries leaving the corporate server toward the Internet are no longer transmitted in plain text (cleartext UDP 53); instead, they are fully encrypted over #hl-green[HTTPS (#hl-green[Port 443])]. Consequently, ISPs, rogue eavesdroppers, or external attackers cannot snoop on the domain names being queried by internal enterprise clients!
 ]
 
 #v(1.5pt)
@@ -119,14 +119,14 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
   optC: "Within the Windows Registry hive",
   optD: "Inside the SYSVOL shared folder",
   ans: "B",
-  exp: "AD-Integrated Zones store records directly within ntds.dit, enabling multi-master replication and Kerberos encryption."
+  exp: "AD-Integrated Zones store records directly within ntds.dit, enabling multi-master replication and #hl-orange[Kerberos] encryption."
 )
 
 #v(1.5pt)
 
 #mcq-item(
   num: "2",
-  q: "What is the official resource record in a Reverse Lookup Zone that maps an IP address back to its hostname?",
+  q: "What is the official resource record in a #hl-yellow[Reverse Lookup Zone] that maps an IP address back to its hostname?",
   optA: "A Record",
   optB: "CNAME Record",
   optC: "PTR Record",
@@ -139,7 +139,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 
 #mcq-item(
   num: "3",
-  q: "Which specialized DNS resource record is queried by domain clients to locate Active Directory Domain Controllers, Kerberos, and LDAP services?",
+  q: "Which specialized DNS resource record is queried by domain clients to locate Active Directory Domain Controllers, #hl-orange[Kerberos], and LDAP services?",
   optA: "TXT Record",
   optB: "SRV (Service Location) Record",
   optC: "SOA Record",
@@ -153,12 +153,12 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 #mcq-item(
   num: "4",
   q: "Which standard port and transport protocol does a DNS server use for typical name resolution queries?",
-  optA: "TCP Port 80",
-  optB: "UDP Port 53",
-  optC: "TCP Port 445",
+  optA: "TCP #hl-green[Port 80]",
+  optB: "#hl-green[UDP Port 53]",
+  optC: "TCP #hl-green[Port 445]",
   optD: "UDP Port 67",
   ans: "B",
-  exp: "Standard DNS name resolution queries operate over UDP Port 53; large zone transfers leverage TCP Port 53."
+  exp: "Standard DNS name resolution queries operate over #hl-green[UDP Port 53]; large zone transfers leverage #hl-green[TCP Port 53]."
 )
 
 #v(1.5pt)
@@ -167,11 +167,11 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
   num: "5",
   q: "What is the automated process of purging obsolete and unused (stale) dynamic records from the DNS database called?",
   optA: "Zone Transfer",
-  optB: "Aging and Scavenging",
+  optB: "#hl-yellow[Aging and Scavenging]",
   optC: "DNS Forwarding",
   optD: "Dynamic Registration",
   ans: "B",
-  exp: "Aging and Scavenging automatically purges stale dynamic records once the combined refresh expiration threshold is reached."
+  exp: "#hl-yellow[Aging and Scavenging] automatically purges stale dynamic records once the combined refresh expiration threshold is reached."
 )
 
 #v(1.5pt)
@@ -200,7 +200,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 #interview-item(
   num: "3",
   q: "Interviewer: 'When running nslookup on a domain client, it outputs 'Default Server: Unknown' with IP 192.168.1.10. How do you resolve this?'",
-  a: "Answer: The 'Default Server: Unknown' message indicates that the DNS server does not have a corresponding PTR record for its own IP (192.168.1.10) in the Reverse Lookup Zone. To resolve this, open the DNS Console (`dnsmgmt.msc`), ensure the Reverse Lookup Zone for the 192.168.1.x subnet is created, and add a PTR record pointing to the DC's FQDN. Running nslookup again will immediately display the resolved server name.",
+  a: "Answer: The 'Default Server: Unknown' message indicates that the DNS server does not have a corresponding PTR record for its own IP (192.168.1.10) in the #hl-yellow[Reverse Lookup Zone]. To resolve this, open the DNS Console (`dnsmgmt.msc`), ensure the #hl-yellow[Reverse Lookup Zone] for the 192.168.1.x subnet is created, and add a PTR record pointing to the DC's FQDN. Running nslookup again will immediately display the resolved server name.",
   tip: "A classic L1/L2 IT helpdesk troubleshooting scenario frequently tested in technical interviews."
 )
 
@@ -209,7 +209,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 #interview-item(
   num: "4",
   q: "Interviewer: 'What is DNS Cache Poisoning and how is it prevented in Windows Server?'",
-  a: "Answer: DNS Cache Poisoning (or DNS Spoofing) occurs when an attacker injects fraudulent DNS responses into a resolver cache, mapping a legitimate domain (e.g., bank.com) to a malicious IP address. In Windows Server, this is mitigated by enabling DNSSEC (DNS Security Extensions) for cryptographic validation, using DNS Socket Pools to randomize source ports, and enforcing Cache Locking.",
+  a: "Answer: DNS Cache Poisoning (or DNS Spoofing) occurs when an attacker injects fraudulent DNS responses into a resolver cache, mapping a legitimate domain (e.g., bank.com) to a malicious IP address. In Windows Server, this is mitigated by enabling #hl-green[DNSSEC] (DNS Security Extensions) for cryptographic validation, using DNS Socket Pools to randomize source ports, and enforcing Cache Locking.",
   tip: "A prominent question in enterprise cybersecurity and infrastructure compliance interviews."
 )
 
@@ -253,8 +253,8 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ Chapter 09 Verification Checklist (DNS Architecture Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Forward Lookup Zone `corp.rtechlab.local` is Active Directory-Integrated.
-      - [ ] Reverse Lookup Zone `1.168.192.in-addr.arpa` contains the Domain Controller PTR record.
+      - [ ] #hl-yellow[Forward Lookup Zone] `corp.rtechlab.local` is Active Directory-Integrated.
+      - [ ] #hl-yellow[Reverse Lookup Zone] `1.168.192.in-addr.arpa` contains the Domain Controller PTR record.
       - [ ] Forwarders are configured with `1.1.1.1` and `8.8.8.8` for reliable public Internet name resolution.
     ]
   ]
@@ -273,7 +273,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
     #text(size: 7.5pt, fill: rtech-text)[
       - DNS is the foundational lifeline of Active Directory; SRV records allow clients to discover Domain Controllers and Kerberos services.
       - In production, always utilize AD-Integrated Zones and forwarders configured to `1.1.1.1` and `8.8.8.8`.
-      - Aging and Scavenging must be enabled at both zone and server levels to eliminate stale, orphaned records automatically.
+      - #hl-yellow[Aging and Scavenging] must be enabled at both zone and server levels to eliminate stale, orphaned records automatically.
     ]
   ]
 )

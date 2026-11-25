@@ -231,7 +231,7 @@
   chapter-num: "CHAPTER 01",
   category: "PART 1: Foundation Theory & Architecture",
   title: "Server Architecture, Server Types & 32-Year Evolution of Windows Server",
-  subtitle: "Client-Server Model · 8 Primary Server Types · Physical vs Virtual vs Azure Arc Hybrid · Complete Evolution from 1993 to 2025"
+  subtitle: "Client-Server Model · 8 Primary Server Types · Physical vs Virtual vs #hl-green[Azure Arc] Hybrid · Complete Evolution from 1993 to 2025"
 )
 
 #v(1.5pt)
@@ -276,7 +276,7 @@ The distinction between an everyday personal computer and an enterprise server i
 === 1.2 The 8 Primary Server Roles Deployed in Corporate Networks
 In any multinational corporation (MNC) or financial institution, no single machine handles every service. Enterprise workloads are segmented across specialized server roles:
 
-1. #text(weight: "bold", fill: rtech-navy)[Domain Controller (AD DS):] Serves as the central identity authority of the entire enterprise. User credentials, password policies, computer trust accounts, and security baselines are authenticated here. #hl-green[Ports: 88 (Kerberos), 389 (LDAP)].
+1. #text(weight: "bold", fill: rtech-navy)[Domain Controller (AD DS):] Serves as the central identity authority of the entire enterprise. User credentials, password policies, computer trust accounts, and security baselines are authenticated here. #hl-green[Ports: 88 (#hl-orange[Kerberos]), 389 (LDAP)].
 2. #text(weight: "bold", fill: rtech-navy)[File & Storage Server:] Centralizes enterprise data storage. Compartmentalized access permissions for departments (HR, Finance, Engineering) are enforced via NTFS and SMB shares. #hl-green[Port: 445 (SMB)].
 3. #text(weight: "bold", fill: rtech-navy)[Web Server (IIS / Apache):] Hosts internal corporate intranets, public web portals, REST APIs, and enterprise web applications. #hl-green[Ports: 80 (HTTP), 443 (HTTPS)].
 4. #text(weight: "bold", fill: rtech-navy)[Database Server (MS SQL / Oracle):] Processes relational databases, banking ledgers, customer records (CRM), and transactional ERP datasets. #hl-green[Port: 1433 (SQL Server)].
@@ -322,7 +322,7 @@ Modern enterprise infrastructure utilizes three primary paradigms for server ope
 
 - #text(weight: "bold", fill: rtech-navy)[1. Physical Server (On-Premises Bare-Metal):] The operating system is deployed directly on physical enterprise hardware (such as Dell PowerEdge or HPE ProLiant rack servers). Ideal for ultra-heavy monolithic databases, but results in severe hardware underutilization and high power footprints.
 - #text(weight: "bold", fill: rtech-navy)[2. Virtual Machines (Hyper-V / VMware ESXi):] A Type-1 bare-metal hypervisor divides physical compute resources into 10 to 30 independent virtual machines, ensuring over 85% hardware resource efficiency and instant snapshot rollbacks.
-- #text(weight: "bold", fill: rtech-navy)[3. Microsoft Azure & Hybrid Cloud (Azure Arc):] #mark-green[The defining breakthrough of Windows Server 2025 is native Azure Arc onboarding.] On-premises physical and virtual servers can be managed through Azure Resource Manager, enabling centralized compliance policies and #hl-yellow[Hotpatching] (applying security updates directly in memory without rebooting the server)!
+- #text(weight: "bold", fill: rtech-navy)[3. Microsoft Azure & Hybrid Cloud (#hl-green[Azure Arc]):] #mark-green[The defining breakthrough of Windows Server 2025 is native #hl-green[Azure Arc] onboarding.] On-premises physical and virtual servers can be managed through Azure Resource Manager, enabling centralized compliance policies and #hl-yellow[Hotpatching] (applying security updates directly in memory without rebooting the server)!
 
 #v(1.5pt)
 
@@ -353,13 +353,13 @@ Microsoft launched its first 32-bit server operating system in 1993 under the na
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[Key Historical Milestones:]\
     - #text(weight: "bold", fill: rtech-blue)[Windows NT 4.0 (1996):] First introduced the familiar Windows 95 graphical user interface, PDC/BDC domain trust architecture, and WINS naming services.
-    - #text(weight: "bold", fill: rtech-emerald)[Windows 2000 Server (2000):] #hl-yellow[The watershed year!] Debut of Active Directory (AD DS), dynamic DNS integration, Kerberos authentication, and Group Policy Objects (GPO).
+    - #text(weight: "bold", fill: rtech-emerald)[Windows 2000 Server (2000):] #hl-yellow[The watershed year!] Debut of Active Directory (AD DS), dynamic DNS integration, #hl-orange[Kerberos] authentication, and Group Policy Objects (GPO).
     - #text(weight: "bold", fill: rtech-navy)[Windows Server 2008 / R2 (2008):] Launched the modern virtualization era with #hl-green[Microsoft Hyper-V], PowerShell scripting, and the minimal-footprint #hl-orange[Server Core] edition.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2012 / R2 (2012):] Introduced the modern Server Manager dashboard, Storage Spaces, and high-performance SMB 3.0 protocol enhancements.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2016 (2016):] Debut of Windows Containers (Docker support), Nano Server, and hyper-converged Storage Spaces Direct (S2D).
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2012 / R2 (2012):] Introduced the modern #hl-yellow[Server Manager] dashboard, Storage Spaces, and high-performance SMB 3.0 protocol enhancements.
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2016 (2016):] Debut of Windows Containers (Docker support), Nano Server, and hyper-converged #hl-yellow[Storage Spaces Direct] (S2D).
     - #text(weight: "bold", fill: rtech-navy)[Windows Server 2019 (2019):] Web-based Windows Admin Center (WAC), System Insights predictive analytics, and hybrid cloud integration.
-    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2022 (2022):] Secured-Core Server hardware security, default TLS 1.3 encryption, and SMB over QUIC for boundaryless remote access.
-    - #text(weight: "bold", fill: rtech-blue)[Windows Server 2025 (Latest Flagship):] #hl-yellow[Hotpatching for All] (zero-reboot servicing), #hl-yellow[32KB Active Directory database page size] (first major AD query performance leap in 25 years), next-gen Storage Spaces Direct deduplication and compression, and native Wi-Fi support.
+    - #text(weight: "bold", fill: rtech-navy)[Windows Server 2022 (2022):] Secured-Core Server hardware security, default TLS 1.3 encryption, and #hl-orange[SMB over QUIC] for boundaryless remote access.
+    - #text(weight: "bold", fill: rtech-blue)[Windows Server 2025 (Latest Flagship):] #hl-yellow[Hotpatching for All] (zero-reboot servicing), #hl-yellow[32KB Active Directory database page size] (first major AD query performance leap in 25 years), next-gen #hl-yellow[Storage Spaces Direct] deduplication and compression, and native Wi-Fi support.
   ]
 )
 
@@ -394,7 +394,7 @@ At the architectural kernel level, substantial internal differences distinguish 
 === 1.6 The 3 Core Editions of Windows Server 2025 (Editions Comparison)
 1. #text(weight: "bold", fill: rtech-navy)[Essentials Edition:] Built for small offices with up to 25 users and 50 devices. Does not require user-based Client Access Licenses (CALs).
 2. #text(weight: "bold", fill: rtech-navy)[Standard Edition:] Designed for physical environments or lightly virtualized infrastructure. Utilizes core-based licensing and allows up to #hl-green[2 Virtual Machines (VMs)] per fully licensed host.
-3. #text(weight: "bold", fill: rtech-navy)[Datacenter Edition:] Engineered for enterprise datacenters, private cloud deployments, and hyper-converged infrastructure (HCI). Includes #mark-green[unlimited virtual machines], Storage Spaces Direct (S2D), and Shielded Virtual Machines.
+3. #text(weight: "bold", fill: rtech-navy)[Datacenter Edition:] Engineered for enterprise datacenters, private cloud deployments, and hyper-converged infrastructure (HCI). Includes #mark-green[unlimited virtual machines], #hl-yellow[Storage Spaces Direct] (S2D), and Shielded Virtual Machines.
 
 #v(1pt)
 
@@ -412,13 +412,13 @@ At the architectural kernel level, substantial internal differences distinguish 
 
 #mcq-item(
   num: "1",
-  q: "In which Windows Server edition were Active Directory Domain Services (AD DS) and Group Policy first introduced?",
+  q: "In which Windows Server edition were #hl-yellow[Active Directory Domain Services] (AD DS) and Group Policy first introduced?",
   optA: "Windows NT 4.0",
   optB: "Windows 2000 Server",
   optC: "Windows Server 2003",
   optD: "Windows Server 2008",
   ans: "B",
-  exp: "Active Directory Domain Services and Group Policy debuted in the year 2000 with the landmark release of Windows 2000 Server."
+  exp: "#hl-yellow[Active Directory Domain Services] and Group Policy debuted in the year 2000 with the landmark release of Windows 2000 Server."
 )
 
 #v(1.5pt)
@@ -439,12 +439,12 @@ At the architectural kernel level, substantial internal differences distinguish 
 #mcq-item(
   num: "3",
   q: "Which breakthrough feature of Windows Server 2025 enables security updates to be applied in volatile memory without rebooting the server?",
-  optA: "Storage Spaces Direct",
-  optB: "Hotpatching",
+  optA: "#hl-yellow[Storage Spaces Direct]",
+  optB: "#hl-yellow[Hotpatching]",
   optC: "Hyper-V Live Migration",
   optD: "DirectAccess",
   ans: "B",
-  exp: "Hotpatching patches binaries in active memory, eliminating reboot downtime for monthly cumulative security servicing."
+  exp: "#hl-yellow[Hotpatching] patches binaries in active memory, eliminating reboot downtime for monthly cumulative security servicing."
 )
 
 #v(1.5pt)
@@ -499,7 +499,7 @@ At the architectural kernel level, substantial internal differences distinguish 
 #interview-item(
   num: "3",
   q: "Interviewer: 'What direct enterprise performance advantage does the new 32KB AD DS database page size provide in Windows Server 2025?'",
-  a: "Answer: For 25 years, the ntds.dit database used an 8 KB page size. The 32 KB page size in Windows Server 2025 allows up to four times more directory data to be loaded in a single disk I/O operation. In large enterprise forests with thousands of accounts, this reduces disk thrashing and improves Kerberos authentication and LDAP query throughput by up to 300%.",
+  a: "Answer: For 25 years, the ntds.dit database used an 8 KB page size. The 32 KB page size in Windows Server 2025 allows up to four times more directory data to be loaded in a single disk I/O operation. In large enterprise forests with thousands of accounts, this reduces disk thrashing and improves #hl-orange[Kerberos] authentication and LDAP query throughput by up to 300%.",
   tip: "Demonstrating knowledge of 32KB AD architecture instantly establishes your elite technical credentials in L2/L3 MNC interviews."
 )
 
@@ -507,8 +507,8 @@ At the architectural kernel level, substantial internal differences distinguish 
 
 #interview-item(
   num: "4",
-  q: "Interviewer: 'What is Azure Arc and how does it bridge on-premises Windows Servers into the Microsoft cloud?'",
-  a: "Answer: Azure Arc acts as an enterprise bridge that registers physical and virtual servers hosted in on-premises datacenters or branch offices directly with Azure Resource Manager. This allows administrators to manage on-premises Windows Servers as native Azure resources, governing them with unified Azure Policy, Defender for Cloud, Log Analytics, and Hotpatching without requiring data migration.",
+  q: "Interviewer: 'What is #hl-green[Azure Arc] and how does it bridge on-premises Windows Servers into the Microsoft cloud?'",
+  a: "Answer: #hl-green[Azure Arc] acts as an enterprise bridge that registers physical and virtual servers hosted in on-premises datacenters or branch offices directly with Azure Resource Manager. This allows administrators to manage on-premises Windows Servers as native Azure resources, governing them with unified Azure Policy, Defender for Cloud, Log Analytics, and #hl-yellow[Hotpatching] without requiring data migration.",
   tip: "Extremely relevant for hybrid cloud administrator roles at TCS, Accenture, and Cognizant."
 )
 
@@ -524,8 +524,8 @@ At the architectural kernel level, substantial internal differences distinguish 
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 Chapter 01 Key Corporate Takeaways:]\
     #text(size: 7.5pt, fill: rtech-text)[
       - Enterprise servers are architected and optimized to process 24/7/365 background services and high-concurrency client requests.
-      - Active Directory was born in Windows 2000 Server; Windows Server 2025 represents its most advanced iteration with 32KB pages and Hotpatching.
-      - Production enterprise deployments favor Server Core for its reduced attack surface, while Desktop Experience is preferred in learning labs.
+      - Active Directory was born in Windows 2000 Server; Windows Server 2025 represents its most advanced iteration with 32KB pages and #hl-yellow[Hotpatching].
+      - Production enterprise deployments favor #hl-yellow[Server Core] for its reduced attack surface, while Desktop Experience is preferred in learning labs.
     ]
   ]
 )
@@ -595,7 +595,7 @@ Our hands-on training lab consists of two core virtual machines communicating ac
 
 #v(4pt)
 
-- #text(weight: "bold", fill: rtech-blue)[VM 1 (Primary DC - `SRV-2025-DC01`):] Our authoritative Domain Controller running Windows Server 2025 Datacenter. It hosts the Active Directory Domain Services (AD DS), DNS Server, DHCP Server, and File & Storage roles.
+- #text(weight: "bold", fill: rtech-blue)[VM 1 (Primary DC - `SRV-2025-DC01`):] Our authoritative Domain Controller running Windows Server 2025 Datacenter. It hosts the #hl-yellow[Active Directory Domain Services] (AD DS), DNS Server, DHCP Server, and File & Storage roles.
 - #text(weight: "bold", fill: rtech-emerald)[VM 2 (Client PC - `CLT-WIN11-01`):] An enterprise end-user workstation running Windows 10 or Windows 11 Pro, which will be joined to our corporate domain for directory policy testing.
 
 #v(6pt)
@@ -652,8 +652,8 @@ Microsoft provides a 180-day, full-featured evaluation license of Windows Server
 
 #v(4pt)
 
-#warning-box(title: "Avoid the Critical Pitfall: Server Core vs Desktop Experience")[
-  The OS selection dialog displays four edition options. If you accidentally choose 'Windows Server 2025 Datacenter' (without parentheses), the installer will deploy #hl-orange[Server Core (a headless environment with only a black command prompt)]—offering no graphical desktop, no Start menu, and no mouse support! Always explicitly highlight and select #mark-green[Windows Server 2025 Datacenter (Desktop Experience)], which installs the full Graphical User Interface (GUI) and Server Manager.
+#warning-box(title: "Avoid the Critical Pitfall: #hl-yellow[Server Core] vs Desktop Experience")[
+  The OS selection dialog displays four edition options. If you accidentally choose 'Windows Server 2025 Datacenter' (without parentheses), the installer will deploy #hl-orange[Server Core (a headless environment with only a black command prompt)]—offering no graphical desktop, no Start menu, and no mouse support! Always explicitly highlight and select #mark-green[Windows Server 2025 Datacenter (Desktop Experience)], which installs the full Graphical User Interface (GUI) and #hl-yellow[Server Manager].
 ]
 
 #v(6pt)
@@ -680,7 +680,7 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
 // CHAPTER 02 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  According to Microsoft engineering telemetry, over 70% of Windows Server instances running in global production enterprise datacenters are deployed in #hl-yellow[Server Core] mode without a GUI. By stripping away graphical shells, Server Core reduces RAM overhead by 60%, shrinks the disk footprint to under 10 GB, and eliminates graphical vulnerability surfaces—slashing required security reboot cycles by up to 50%!
+  According to Microsoft engineering telemetry, over 70% of Windows Server instances running in global production enterprise datacenters are deployed in #hl-yellow[Server Core] mode without a GUI. By stripping away graphical shells, #hl-yellow[Server Core] reduces RAM overhead by 60%, shrinks the disk footprint to under 10 GB, and eliminates graphical vulnerability surfaces—slashing required security reboot cycles by up to 50%!
 ]
 
 #v(6pt)
@@ -703,8 +703,8 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
 
 #mcq-item(
   num: "2",
-  q: "Which edition option must be explicitly selected during Windows Server 2025 setup to install the full graphical desktop and Server Manager?",
-  optA: "Server Core Edition",
+  q: "Which edition option must be explicitly selected during Windows Server 2025 setup to install the full graphical desktop and #hl-yellow[Server Manager]?",
+  optA: "#hl-yellow[Server Core] Edition",
   optB: "Desktop Experience",
   optC: "Nano Server Edition",
   optD: "Hyper-V Server Edition",
@@ -758,8 +758,8 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
 
 #interview-item(
   num: "1",
-  q: "Interviewer: 'When architecting production enterprise servers, do you recommend Server Core or Desktop Experience, and what is your rationale?'",
-  a: "Answer: In production environments, enterprise best practices mandate deploying 'Server Core' wherever supported. Server Core minimizes the operating system attack surface by removing GUI binaries, reduces RAM/CPU footprint, and decreases the volume of patches and reboots. Day-to-day administration is conducted remotely via RSAT, PowerShell Remoting, or Windows Admin Center.",
+  q: "Interviewer: 'When architecting production enterprise servers, do you recommend #hl-yellow[Server Core] or Desktop Experience, and what is your rationale?'",
+  a: "Answer: In production environments, enterprise best practices mandate deploying '#hl-yellow[Server Core]' wherever supported. #hl-yellow[Server Core] minimizes the operating system attack surface by removing GUI binaries, reduces RAM/CPU footprint, and decreases the volume of patches and reboots. Day-to-day administration is conducted remotely via RSAT, PowerShell Remoting, or Windows Admin Center.",
   tip: "This response demonstrates that you possess seasoned enterprise operational acumen beyond simple desktop-centric thinking."
 )
 
@@ -832,7 +832,7 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
     #text(size: 7.5pt, fill: rtech-text)[
       - [ ] Virtual machine `SRV-2025-DC01` boots and passes POST successfully.
       - [ ] Local built-in `Administrator` complex password has been securely recorded.
-      - [ ] Server Manager Dashboard opens automatically upon logon without service initialization errors.
+      - [ ] #hl-yellow[Server Manager] Dashboard opens automatically upon logon without service initialization errors.
     ]
   ]
 )
@@ -849,10 +849,10 @@ Following the initial reboot, Windows Server presents the #hl-yellow['Customize 
   chapter-num: "CHAPTER 03",
   category: "PART 3: Server Baseline & Hardening",
   title: "Post-Installation Baseline Configuration & Server Hardening",
-  subtitle: "Server Manager Dashboard Navigation · Computer Renaming (SRV-2025-DC01) · Static IPv4 & DNS · Remote Desktop (RDP) & NLA Security · Firewall Ports · NTP Clock Synchronization"
+  subtitle: "#hl-yellow[Server Manager] Dashboard Navigation · Computer Renaming (SRV-2025-DC01) · Static IPv4 & DNS · Remote Desktop (RDP) & NLA Security · Firewall Ports · NTP Clock Synchronization"
 )
 
-=== 3.1 Server Manager Dashboard Navigation
+=== 3.1 #hl-yellow[Server Manager] Dashboard Navigation
 Immediately upon logging into Windows Server, #hl-yellow[Server Manager] launches automatically. This is Microsoft's primary centralized management console, empowering administrators to oversee, provision, and configure local server resources and remote servers across the network from a single pane of glass.
 
 The left-hand navigation pane provides core administrative views:
@@ -882,7 +882,7 @@ The left-hand navigation pane provides core administrative views:
 By default, the Windows Server installation wizard assigns an arbitrary, randomly generated alphanumeric NetBIOS name (e.g., `WIN-7K9A3B58Z1`). In production enterprise datacenters, a server must never retain an unmanaged default name, particularly when designated to operate as a Domain Controller.
 
 #warning-box(title: "The Golden Rule: Rename the Server BEFORE Domain Controller Promotion")[
-  Once an operating system is promoted to an Active Directory Domain Controller, renaming the computer object becomes substantially more complex and error-prone because Kerberos Service Principal Names (SPNs), DNS SRV resource records, and directory database metadata bind directly to the original hostname. Therefore, #hl-orange[always assign the permanent production hostname prior to initiating DC promotion].
+  Once an operating system is promoted to an Active Directory Domain Controller, renaming the computer object becomes substantially more complex and error-prone because #hl-orange[Kerberos] Service Principal Names (SPNs), DNS SRV resource records, and directory database metadata bind directly to the original hostname. Therefore, #hl-orange[always assign the permanent production hostname prior to initiating DC promotion].
 ]
 
 #block(
@@ -902,7 +902,7 @@ By default, the Windows Server installation wizard assigns an arbitrary, randoml
 
 #v(1pt)
 *Step-by-Step Server Renaming Procedure:*
-1. Open Server Manager and click #hl-yellow[Local Server] in the left navigation pane.
+1. Open #hl-yellow[Server Manager] and click #hl-yellow[Local Server] in the left navigation pane.
 2. Click the randomly assigned name link next to #text(weight: "bold")[Computer name] (e.g., `WIN-XXXXX`).
 3. In the System Properties dialog, click the #hl-green['Change...'] button.
 4. In the Computer name field, enter the standardized enterprise hostname: #hl-yellow[`SRV-2025-DC01`].
@@ -927,7 +927,7 @@ An enterprise server is an architectural service provider. If a server receives 
   ],
   [
     #warning-box(title: "The Mandatory DNS Loopback Rule")[
-      Because this server will host the authoritative Active Directory integrated DNS zone, Preferred DNS must point to #hl-orange[`127.0.0.1`] (or the server's own static IP). If you configure a public DNS server such as `8.8.8.8` (Google DNS), Active Directory domain join and Kerberos service locator lookups will completely fail!
+      Because this server will host the authoritative Active Directory integrated DNS zone, Preferred DNS must point to #hl-orange[`127.0.0.1`] (or the server's own static IP). If you configure a public DNS server such as `8.8.8.8` (Google DNS), Active Directory domain join and #hl-orange[Kerberos] service locator lookups will completely fail!
     ]
   ]
 )
@@ -942,11 +942,11 @@ An enterprise server is an architectural service provider. If a server receives 
 
 #v(1.5pt)
 
-=== 3.4 Remote Desktop (RDP - Port 3389) & NLA Security
+=== 3.4 Remote Desktop (RDP - #hl-green[Port 3389]) & NLA Security
 In enterprise datacenters, physical servers reside securely inside climate-controlled, restricted-access server rooms. Systems administrators never sit physically in front of individual server consoles; all administrative workflows are conducted over #hl-yellow[Remote Desktop Protocol (RDP)].
 
 *Enabling and Securing RDP:*
-1. Navigate to Server Manager -> #hl-yellow[Local Server].
+1. Navigate to #hl-yellow[Server Manager] -> #hl-yellow[Local Server].
 2. Click the 'Disabled' status link adjacent to #text(weight: "bold")[Remote Desktop].
 3. In the Remote tab of System Properties, select #hl-green['Allow remote connections to this computer'].
 4. Verify that the checkbox #mark-orange['Allow connections only from computers running Remote Desktop with Network Level Authentication (recommended)'] remains strictly checked.
@@ -968,11 +968,11 @@ By default, the Windows Defender Firewall profile strictly blocks all inbound IC
 
 #v(1.5pt)
 
-=== 3.6 Time Zone & NTP Clock Synchronization (Kerberos Time Skew Rule)
-The entire security architecture of Active Directory Domain Services relies on the #hl-yellow[Kerberos v5] authentication protocol. Kerberos embeds precise timestamps within authentication tickets (TGT / TGS) to defeat credential replay attacks across the network.
+=== 3.6 Time Zone & NTP Clock Synchronization (#hl-orange[Kerberos] Time Skew Rule)
+The entire security architecture of #hl-yellow[Active Directory Domain Services] relies on the #hl-yellow[Kerberos v5] authentication protocol. #hl-orange[Kerberos] embeds precise timestamps within authentication tickets (TGT / TGS) to defeat credential replay attacks across the network.
 
-#warning-box(title: "The 5-Minute Kerberos Clock Skew (Classic Interview Trap)")[
-  If the internal clock difference between a Domain Controller and a joining workstation exceeds #hl-orange[5 minutes (Clock Skew)], Kerberos authentication tickets are instantly rejected, completely locking users out of domain logons and shared enterprise resources!
+#warning-box(title: "The 5-Minute #hl-orange[Kerberos] Clock Skew (Classic Interview Trap)")[
+  If the internal clock difference between a Domain Controller and a joining workstation exceeds #hl-orange[5 minutes (Clock Skew)], #hl-orange[Kerberos] authentication tickets are instantly rejected, completely locking users out of domain logons and shared enterprise resources!
 ]
 
 *NTP Diagnostic & Configuration Commands:*
@@ -1014,12 +1014,12 @@ w32tm /resync
 #mcq-item(
   num: "2",
   q: "On which default IANA port does the Remote Desktop Protocol (RDP) listen for incoming administrative connections?",
-  optA: "TCP Port 80",
-  optB: "TCP Port 443",
-  optC: "TCP Port 3389",
-  optD: "UDP Port 53",
+  optA: "TCP #hl-green[Port 80]",
+  optB: "TCP #hl-green[Port 443]",
+  optC: "TCP #hl-green[Port 3389]",
+  optD: "#hl-green[UDP Port 53]",
   ans: "C",
-  exp: "TCP Port 3389 is the official IANA port assigned to Microsoft Terminal Services and Remote Desktop Protocol."
+  exp: "TCP #hl-green[Port 3389] is the official IANA port assigned to Microsoft Terminal Services and Remote Desktop Protocol."
 )
 
 #v(1.5pt)
@@ -1105,7 +1105,7 @@ w32tm /resync
 #interview-item(
   num: "5",
   q: "Interviewer: 'What is the operational definition of Server Hardening, and what four baseline tasks does it encompass?'",
-  a: "Answer: Server Hardening is the systematic practice of securing an operating system by eliminating vulnerabilities and reducing the overall attack surface. The four foundational tasks include: 1. Disabling or renaming default accounts and enforcing complex passwords, 2. Disabling unneeded services and ports, 3. Tightening inbound/outbound firewall rules, and 4. Enforcing continuous patch management and Hotpatching.",
+  a: "Answer: Server Hardening is the systematic practice of securing an operating system by eliminating vulnerabilities and reducing the overall attack surface. The four foundational tasks include: 1. Disabling or renaming default accounts and enforcing complex passwords, 2. Disabling unneeded services and ports, 3. Tightening inbound/outbound firewall rules, and 4. Enforcing continuous patch management and #hl-yellow[Hotpatching].",
   tip: "A cornerstone architectural question in infrastructure compliance and security interviews."
 )
 
@@ -1138,11 +1138,11 @@ w32tm /resync
 #chapter-header(
   chapter-num: "CHAPTER 04",
   category: "PART 4: Centralized Identity & Directory Services",
-  title: "Active Directory Domain Services (AD DS) & Domain Controller Promotion",
-  subtitle: "AD DS Core Architecture · Logical (Forest, Domain, OU) & Physical (Sites) Hierarchy · Add Roles Wizard · Root DC (corp.rtechlab.local) · DSRM Password · 5 FSMO Roles"
+  title: "#hl-yellow[Active Directory Domain Services] (AD DS) & Domain Controller Promotion",
+  subtitle: "AD DS Core Architecture · Logical (Forest, Domain, OU) & Physical (Sites) Hierarchy · Add Roles Wizard · Root DC (corp.rtechlab.local) · #hl-orange[DSRM] Password · 5 FSMO Roles"
 )
 
-=== 4.1 What is Active Directory Domain Services? (Core Architecture)
+=== 4.1 What is #hl-yellow[Active Directory Domain Services]? (Core Architecture)
 In a legacy, unmanaged peer-to-peer Workgroup network, every computer maintains its own isolated local security database known as the SAM (Security Accounts Manager). If an organization employs 500 computers and onboards a new employee, an IT administrator would literally have to walk to all 500 machines to manually create that user account!
 
 #mark-yellow[Active Directory Domain Services (AD DS) is Microsoft's distributed, centralized directory service that stores, organizes, and secures authentication credentials and access privileges for all users, computers, groups, and peripheral resources across an entire enterprise within a single master database.]
@@ -1198,14 +1198,14 @@ While the logical structure governs *how resources are grouped administratively*
 #v(6pt)
 
 === 4.4 Hands-On Lab: Installing the AD DS Server Role via Wizard
-We will now install the Active Directory Domain Services role on our prepared virtual machine `SRV-2025-DC01`:
+We will now install the #hl-yellow[Active Directory Domain Services] role on our prepared virtual machine `SRV-2025-DC01`:
 
-1. Launch Server Manager, click the #hl-green['Manage'] menu at the top-right corner, and select #hl-yellow['Add Roles and Features'].
+1. Launch #hl-yellow[Server Manager], click the #hl-green['Manage'] menu at the top-right corner, and select #hl-yellow['Add Roles and Features'].
 2. On the 'Before You Begin' page, click 'Next'.
 3. For Installation Type, select #hl-yellow['Role-based or feature-based installation'] and click 'Next'.
 4. Under Server Selection, verify that your machine #hl-green[`SRV-2025-DC01 (192.168.1.10)`] is highlighted in the server pool, then click 'Next'.
 5. In the Server Roles tree, check the box for #mark-yellow[Active Directory Domain Services].
-6. In the pop-up dialog 'Add features that are required for Active Directory Domain Services' (which includes RSAT administration tools), click #hl-green['Add Features'], then click 'Next'.
+6. In the pop-up dialog 'Add features that are required for #hl-yellow[Active Directory Domain Services]' (which includes RSAT administration tools), click #hl-green['Add Features'], then click 'Next'.
 7. On the Features page, retain the default selections and click 'Next'.
 8. On the Confirmation page, leave 'Restart the destination server automatically if required' unchecked and click #hl-green['Install'].
 9. The role installation will conclude in approximately 2 to 3 minutes. Click 'Close'.
@@ -1215,14 +1215,14 @@ We will now install the Active Directory Domain Services role on our prepared vi
 === 4.5 Hands-On Lab: Promoting the Server to a Root Domain Controller
 Installing the role binaries does not automatically make the server a Domain Controller. It must be formally promoted:
 
-1. Click the yellow notification flag (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) at the top of Server Manager.
+1. Click the yellow notification flag (#text(weight: "bold", fill: rtech-amber)[⚠️ Notification Flag]) at the top of #hl-yellow[Server Manager].
 2. Click the highlighted blue action link: #mark-green[Promote this server to a domain controller].
 3. #text(weight: "bold")[Deployment Configuration:] Because this is our first domain, select the third radio button: #hl-yellow['Add a new forest'].
    - In the Root domain name field, type: #hl-green[`corp.rtechlab.local`]. Click 'Next'.
 4. #text(weight: "bold")[Domain Controller Options:]
    - Forest & Domain functional levels: Set to #hl-green[Windows Server 2025] (unlocking modern directory security algorithms).
    - Ensure 'Domain Name System (DNS) server' and 'Global Catalog (GC)' remain checked.
-   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (DSRM) Password:] This is the emergency master recovery password used when restoring AD databases offline. Assign a strong recovery password (e.g., #hl-green[`Dsrm@2025!`]). Click 'Next'.
+   - #text(weight: "bold", fill: rtech-navy)[Directory Services Restore Mode (#hl-orange[DSRM]) Password:] This is the emergency master recovery password used when restoring AD databases offline. Assign a strong recovery password (e.g., #hl-green[`Dsrm@2025!`]). Click 'Next'.
 5. #text(weight: "bold")[DNS Options:] A warning stating 'A delegation for this DNS server cannot be created...' will appear. This is normal in private top-level domains; ignore it and click 'Next'.
 6. #text(weight: "bold")[Additional Options:] The wizard automatically derives the legacy NetBIOS domain name: #hl-yellow[`CORP`]. Click 'Next'.
 7. #text(weight: "bold")[Paths:] Retain the default directory storage paths for the database, log files, and SYSVOL (`C:\Windows\NTDS` and `C:\Windows\SYSVOL`). Click 'Next'.
@@ -1262,7 +1262,7 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
       1. #text(weight: "bold")[Schema Master:] Coordinates all schema modifications, additions, and class/attribute updates across the entire forest (e.g., during Exchange or Lync schema prep).
       2. #text(weight: "bold")[Domain Naming Master:] Authorizes the creation, renaming, or decommission of domains and application directory partitions within the forest.
     - #text(weight: "bold", fill: rtech-emerald)[Domain-Wide Roles (Exactly 1 DC per Domain):]
-      3. #text(weight: "bold")[PDC Emulator (Most Critical Role):] Serves as the authoritative domain master for Kerberos password updates, immediate lockout processing, authoritative NTP time synchronization, and Group Policy editing.
+      3. #text(weight: "bold")[PDC Emulator (Most Critical Role):] Serves as the authoritative domain master for #hl-orange[Kerberos] password updates, immediate lockout processing, authoritative NTP time synchronization, and Group Policy editing.
       4. #text(weight: "bold")[RID Master (Relative ID Master):] Allocates pools of 500 Relative Identifiers (RIDs) to each Domain Controller, ensuring security principals (Users, Groups, Computers) never receive duplicate Security Identifiers (SIDs).
       5. #text(weight: "bold")[Infrastructure Master:] Updates cross-domain object references (such as inter-domain group memberships) by maintaining mappings between object GUIDs and SIDs in multi-domain environments.
   ]
@@ -1349,12 +1349,12 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
 #mcq-item(
   num: "5",
   q: "Which dedicated network port does the Global Catalog (GC) utilize to listen for cross-domain search queries?",
-  optA: "Port 80 (HTTP)",
-  optB: "Port 389 (Standard LDAP)",
+  optA: "#hl-green[Port 80] (HTTP)",
+  optB: "#hl-green[Port 389] (Standard LDAP)",
   optC: "Port 3268 (LDAP GC)",
-  optD: "Port 445 (SMB)",
+  optD: "#hl-green[Port 445] (SMB)",
   ans: "C",
-  exp: "Standard LDAP queries use Port 389, while Global Catalog queries across the entire forest use Port 3268 (or 3269 over SSL)."
+  exp: "Standard LDAP queries use #hl-green[Port 389], while Global Catalog queries across the entire forest use Port 3268 (or 3269 over SSL)."
 )
 
 #v(6pt)
@@ -1365,7 +1365,7 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
 #interview-item(
   num: "1",
   q: "Interviewer: 'What enterprise consequences occur if the Domain Controller hosting the PDC Emulator role experiences an unrecoverable crash?'",
-  a: "Answer: The domain does not immediately fail, but significant operational anomalies emerge: 1. Password modifications made by users do not replicate immediately, causing authentication failures if they hit other DCs, 2. Bad password attempt counts will not trigger instant account lockouts, 3. Domain member clocks will begin drifting (leading to Kerberos time skew failures), and 4. Editing GPOs in GPMC will warn of a missing default DC. The PDC Emulator role must be seized to an online DC immediately.",
+  a: "Answer: The domain does not immediately fail, but significant operational anomalies emerge: 1. Password modifications made by users do not replicate immediately, causing authentication failures if they hit other DCs, 2. Bad password attempt counts will not trigger instant account lockouts, 3. Domain member clocks will begin drifting (leading to #hl-orange[Kerberos] time skew failures), and 4. Editing GPOs in GPMC will warn of a missing default DC. The PDC Emulator role must be seized to an online DC immediately.",
   tip: "A signature technical interview scenario for L2 Directory Services roles at HCL, Infosys, and Tech Mahindra."
 )
 
@@ -1382,8 +1382,8 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
 
 #interview-item(
   num: "3",
-  q: "Interviewer: 'What is the DSRM (Directory Services Restore Mode) password, and how does it differ from the Domain Administrator password?'",
-  a: "Answer: Domain Administrator credentials reside within the Active Directory database (ntds.dit). If the AD database becomes corrupted or if the server boots into Safe Mode / DSRM where AD DS services are offline, domain authentication cannot function. The DSRM password is a local administrator credential stored in the server's local SAM registry hive, used exclusively to access the machine offline and restore AD backups.",
+  q: "Interviewer: 'What is the #hl-orange[DSRM] (#hl-orange[Directory Services Restore Mode]) password, and how does it differ from the Domain Administrator password?'",
+  a: "Answer: Domain Administrator credentials reside within the Active Directory database (ntds.dit). If the AD database becomes corrupted or if the server boots into Safe Mode / #hl-orange[DSRM] where AD DS services are offline, domain authentication cannot function. The #hl-orange[DSRM] password is a local administrator credential stored in the server's local SAM registry hive, used exclusively to access the machine offline and restore AD backups.",
   tip: "Proves you understand bare-metal disaster recovery and offline directory maintenance architecture."
 )
 
@@ -1435,14 +1435,14 @@ Although Active Directory utilizes a multi-master replication model (allowing ob
   chapter-num: "CHAPTER 05",
   category: "Part 5: Directory Objects & Access Control (Directory Objects & RBAC)",
   title: "ADUC Console: Managing OUs, Domain Users & Security Groups",
-  subtitle: "ADUC (dsa.msc) · Enterprise OU Hierarchy · Domain User Accounts · Password & Lockout Policies · Security vs. Distribution Groups · AGDLP Model · Bulk PowerShell"
+  subtitle: "ADUC (dsa.msc) · Enterprise OU Hierarchy · Domain User Accounts · Password & Lockout Policies · Security vs. Distribution Groups · #hl-orange[AGDLP] Model · Bulk PowerShell"
 )
 
-=== 5.1 Active Directory Users and Computers (`dsa.msc`) Interface
+=== 5.1 #hl-yellow[Active Directory Users and Computers] (`dsa.msc`) Interface
 Following the promotion of a Domain Controller, the primary graphical administrative tool used to manage all Active Directory objects (Users, Computers, Groups, and OUs) is #hl-yellow[Active Directory Users and Computers (ADUC)].
 
 *Two Quick Ways to Open the ADUC Console:*
-1. In Server Manager -> click the #hl-green[Tools] menu in the top-right corner -> select #hl-yellow[Active Directory Users and Computers].
+1. In #hl-yellow[Server Manager] -> click the #hl-green[Tools] menu in the top-right corner -> select #hl-yellow[Active Directory Users and Computers].
 2. In the Run dialog (`Win + R`), enter the shortcut command: #mark-green[`dsa.msc`] and press Enter.
 
 In the left navigation tree, your domain `#text(weight: "bold")[corp.rtechlab.local]` is displayed. Underneath it, several default containers exist out-of-the-box:
@@ -1470,7 +1470,7 @@ A well-structured OU layout streamlines corporate administration, delegation, an
       #image("../02_BRAND_ASSETS/screenshots/ou_hierarchy_agdlp.png", width: 65%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 5.1: Enterprise OU Structure and AGDLP Role-Based Access Control (RBAC) Nesting Framework]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 5.1: Enterprise OU Structure and #hl-orange[AGDLP] Role-Based Access Control (RBAC) Nesting Framework]
 ]
 
 #v(2pt)
@@ -1516,7 +1516,7 @@ Active Directory supports two functional group types:
 
 #v(1.5pt)
 
-=== 5.6 Group Scopes and the AGDLP Best Practice
+=== 5.6 Group Scopes and the #hl-orange[AGDLP] Best Practice
 Microsoft strongly recommends adhering to the industry-standard #hl-yellow[AGDLP Model] for managing role-based permissions:
 
 #block(
@@ -1526,7 +1526,7 @@ Microsoft strongly recommends adhering to the industry-standard #hl-yellow[AGDLP
   radius: 4pt,
   inset: (x: 6pt, y: 4pt),
   [
-    #text(size: 8.5pt, weight: "bold", fill: rtech-emerald)[The AGDLP Formula (Core MNC Architecture & Interview Principle):]\
+    #text(size: 8.5pt, weight: "bold", fill: rtech-emerald)[The #hl-orange[AGDLP] Formula (Core MNC Architecture & Interview Principle):]\
     - #text(weight: "bold", fill: rtech-blue)[A (Accounts):] User accounts (e.g., `rpatel`, `ajain`).
     - #text(weight: "bold", fill: rtech-blue)[G (Global Groups):] Aggregate user accounts into Global Groups representing business roles or departments (e.g., `GG_HR_Staff`).
     - #text(weight: "bold", fill: rtech-amber)[DL (Domain Local Groups):] Create Domain Local Groups defining specific resource access entitlements, and nest Global Groups into them (e.g., `DL_HR_Payroll_Read`).
@@ -1571,7 +1571,7 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "1",
-  q: "What is the official Run shortcut command used to launch the Active Directory Users and Computers console directly?",
+  q: "What is the official Run shortcut command used to launch the #hl-yellow[Active Directory Users and Computers] console directly?",
   optA: "gpmc.msc",
   optB: "dsa.msc",
   optC: "dnsmgmt.msc",
@@ -1597,13 +1597,13 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "3",
-  q: "What does the acronym 'DL' represent in Microsoft's recommended AGDLP access control framework?",
+  q: "What does the acronym 'DL' represent in Microsoft's recommended #hl-orange[AGDLP] access control framework?",
   optA: "Distribution List",
   optB: "Domain Local Group",
   optC: "Dynamic Link",
   optD: "Data Lock",
   ans: "B",
-  exp: "The AGDLP architecture represents: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
+  exp: "The #hl-orange[AGDLP] architecture represents: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
 )
 
 #v(1.5pt)
@@ -1799,10 +1799,10 @@ Domain join errors occur frequently in both enterprise production environments a
    - *Root Cause:* The client's Preferred DNS does not point to the DC (the client is using public DNS 8.8.8.8 or home router DNS).
    - *Resolution:* Launch `ncpa.cpl` and explicitly configure Preferred DNS to `192.168.1.10`.
 2. #text(weight: "bold", fill: rtech-rose)[Error 2: 'The network path was not found (0x80070035)':]
-   - *Root Cause:* Windows Firewall on the Domain Controller is blocking SMB (Port 445) or RPC endpoint ports.
+   - *Root Cause:* Windows Firewall on the Domain Controller is blocking SMB (#hl-green[Port 445]) or RPC endpoint ports.
    - *Resolution:* Enable the 'File and Printer Sharing' firewall rules on the Domain Controller.
 3. #text(weight: "bold", fill: rtech-rose)[Error 3: 'There is a time and/or date difference between the client and server':]
-   - *Root Cause:* Kerberos clock drift exceeds the maximum 5-minute skew tolerance between the client and DC.
+   - *Root Cause:* #hl-orange[Kerberos] clock drift exceeds the maximum 5-minute skew tolerance between the client and DC.
    - *Resolution:* Synchronize system clock and time zone with the DC or run `w32tm /resync`.
 4. #text(weight: "bold", fill: rtech-rose)[Error 4: 'Access is denied':]
    - *Root Cause:* The supplied user credentials lack authorization to join computer accounts to the domain.
@@ -1910,7 +1910,7 @@ Following the reboot, the client workstation lock screen transitions to the ente
 #interview-item(
   num: "1",
   q: "Interviewer: 'A client workstation reports: 'The trust relationship between this workstation and the primary domain failed.' How do you resolve this without disjoining and rejoining the domain?'",
-  a: "Answer: This occurs when the workstation's local machine password diverges from the password registered in Active Directory (often caused by reverting VM snapshots or prolonged offline status exceeding 30 days). Log in with local administrator credentials and run PowerShell: 'Reset-ComputerMachinePassword -Credential (Get-Credential)' or 'Test-ComputerSecureChannel -Repair'. This repairs the Kerberos trust channel in place without requiring unjoining or rebooting.",
+  a: "Answer: This occurs when the workstation's local machine password diverges from the password registered in Active Directory (often caused by reverting VM snapshots or prolonged offline status exceeding 30 days). Log in with local administrator credentials and run PowerShell: 'Reset-ComputerMachinePassword -Credential (Get-Credential)' or 'Test-ComputerSecureChannel -Repair'. This repairs the #hl-orange[Kerberos] trust channel in place without requiring unjoining or rebooting.",
   tip: "This exact scenario is asked in virtually 100% of L2 Desktop and Enterprise Support interviews at Wipro, Infosys, and HCL."
 )
 
@@ -1937,7 +1937,7 @@ Following the reboot, the client workstation lock screen transitions to the ente
 #interview-item(
   num: "4",
   q: "Interviewer: 'Which network protocols and port numbers are utilized during the Domain Join process?'",
-  a: "Answer: Domain Join relies on several core protocols: 1. DNS (Port 53) to discover DC SRV locator records, 2. Kerberos (Port 88) for authentication, 3. LDAP (Port 389) to create the computer object in ADUC, and 4. SMB (Port 445) and RPC (Port 135 / dynamic RPC ports) for directory transport and policy replication.",
+  a: "Answer: Domain Join relies on several core protocols: 1. DNS (Port 53) to discover DC SRV locator records, 2. #hl-orange[Kerberos] (#hl-green[Port 88]) for authentication, 3. LDAP (#hl-green[Port 389]) to create the computer object in ADUC, and 4. SMB (#hl-green[Port 445]) and RPC (Port 135 / dynamic RPC ports) for directory transport and policy replication.",
   tip: "A classic interview question designed to evaluate cross-domain network and server infrastructure fluency."
 )
 
@@ -1980,7 +1980,7 @@ Following the reboot, the client workstation lock screen transitions to the ente
   chapter-num: "CHAPTER 07",
   category: "Part 7: Enterprise Security & Group Policies (Group Policy Engine)",
   title: "Group Policy Objects (GPO): Enterprise Security & Desktop Control",
-  subtitle: "GPMC (gpmc.msc) · LSDOU Processing Hierarchy · Block Inheritance & Enforced · Lab 1: Password Policy · Lab 2: USB Lockdown GPO · Lab 3: Wallpaper Deployment · gpupdate /force"
+  subtitle: "GPMC (gpmc.msc) · #hl-orange[LSDOU] Processing Hierarchy · Block Inheritance & Enforced · Lab 1: Password Policy · Lab 2: USB Lockdown GPO · Lab 3: Wallpaper Deployment · gpupdate /force"
 )
 
 === 7.1 What is Group Policy?
@@ -2005,12 +2005,12 @@ If an enterprise employs 2,000 workers and corporate security regulations requir
 
 #v(2pt)
 
-=== 7.2 Group Policy Management Console (`gpmc.msc`)
+=== 7.2 #hl-yellow[Group Policy Management Console] (`gpmc.msc`)
 The primary administrative tool for managing Group Policy is the #hl-yellow[Group Policy Management Console (GPMC)].
 - Launch shortcut command: #mark-green[`gpmc.msc`].
 
 Upon expanding the domain node, two built-in GPOs exist by default:
-1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] Linked at the domain root level. Its primary mandate is establishing domain-wide password complexity, minimum length, account lockout, and Kerberos ticket policies.
+1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] Linked at the domain root level. Its primary mandate is establishing domain-wide password complexity, minimum length, account lockout, and #hl-orange[Kerberos] ticket policies.
 2. #text(weight: "bold", fill: rtech-navy)[Default Domain Controllers Policy:] Linked exclusively to the 'Domain Controllers' OU, defining user rights assignments and security auditing for all domain controller nodes.
 
 #v(1.5pt)
@@ -2028,7 +2028,7 @@ When a client computer boots or a user authenticates, Windows processes Group Po
       #image("../02_BRAND_ASSETS/screenshots/gpo_inheritance_lsdou.png", width: 58%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 7.1: GPO Processing LSDOU Hierarchy — Local, Site, Domain, and Organizational Unit (The Golden Rule)]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 7.1: GPO Processing #hl-orange[LSDOU] Hierarchy — Local, Site, Domain, and Organizational Unit (The Golden Rule)]
 ]
 
 #v(2pt)
@@ -2137,11 +2137,11 @@ Generates an interactive graphical HTML report inspectable in any web browser, d
   num: "1",
   q: "What is the standard Microsoft order of precedence for Group Policy processing?",
   optA: "OU -> Domain -> Site -> Local",
-  optB: "Local -> Site -> Domain -> OU (LSDOU)",
+  optB: "Local -> Site -> Domain -> OU (#hl-orange[LSDOU])",
   optC: "Site -> Domain -> Local -> OU",
   optD: "Domain -> OU -> Local -> Site",
   ans: "B",
-  exp: "The standard order of precedence is LSDOU (Local, Site, Domain, OU); policies applied last override previous configurations."
+  exp: "The standard order of precedence is #hl-orange[LSDOU] (Local, Site, Domain, OU); policies applied last override previous configurations."
 )
 
 #v(1.5pt)
@@ -2255,7 +2255,7 @@ Generates an interactive graphical HTML report inspectable in any web browser, d
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 Chapter 07 Key Corporate Takeaways:]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - Group Policy (GPO) serves as the centralized configuration engine for enterprise fleet security, processed strictly via the LSDOU order of precedence.
+      - Group Policy (GPO) serves as the centralized configuration engine for enterprise fleet security, processed strictly via the #hl-orange[LSDOU] order of precedence.
       - Enforced GPOs override all Block Inheritance configurations, guaranteeing mandatory security baseline compliance across the enterprise.
       - `gpupdate /force` and `gpresult /r` (or `/h`) form the core daily troubleshooting toolkit for enterprise systems engineers.
     ]
@@ -2317,7 +2317,7 @@ The IP lease allocation lifecycle between a client and a DHCP server is known as
 #v(6pt)
 
 === 8.2 DHCP Server Role Installation & Active Directory Authorization
-1. In Server Manager -> navigate to #hl-green[Manage -> Add Roles and Features].
+1. In #hl-yellow[Server Manager] -> navigate to #hl-green[Manage -> Add Roles and Features].
 2. Under Server Roles, check #mark-yellow[DHCP Server].
 3. Include 'Add Features' (DHCP RSAT Management Tools) and proceed through 'Next' -> 'Next' -> 'Install'.
 4. Once installation finishes, click the yellow notification flag -> select #hl-yellow['Complete DHCP Configuration'].
@@ -2332,7 +2332,7 @@ The IP lease allocation lifecycle between a client and a DHCP server is known as
 === 8.3 Configuring an IPv4 Scope
 A Scope defines the valid contiguous range of IP addresses that a DHCP server leases to clients on a subnet:
 
-1. In Server Manager -> Tools -> launch the #hl-yellow[DHCP] console (or enter #mark-green[`dhcpmgmt.msc`] in Run).
+1. In #hl-yellow[Server Manager] -> Tools -> launch the #hl-yellow[DHCP] console (or enter #mark-green[`dhcpmgmt.msc`] in Run).
 2. Expand server node `SRV-2025-DC01` -> right-click #text(weight: "bold")[IPv4] -> select #hl-green[New Scope...].
 3. Scope Name: #hl-yellow[`RTechLab-LAN-Scope`].
 4. #text(weight: "bold")[IP Address Range (IP Pool):]
@@ -2407,10 +2407,10 @@ If a single DHCP server crashes, client leases will expire and network connectiv
 #mcq-item(
   num: "2",
   q: "Which UDP port number is used by client computers when transmitting DHCPDISCOVER broadcast packets?",
-  optA: "UDP Port 53",
+  optA: "#hl-green[UDP Port 53]",
   optB: "UDP Port 67",
-  optC: "UDP Port 80",
-  optD: "UDP Port 445",
+  optC: "UDP #hl-green[Port 80]",
+  optD: "UDP #hl-green[Port 445]",
   ans: "B",
   exp: "DHCP servers listen on UDP Port 67, while DHCP clients receive server responses on UDP Port 68."
 )
@@ -2536,7 +2536,7 @@ If a single DHCP server crashes, client leases will expire and network connectiv
 )
 
 === 9.1 Enterprise Significance of DNS & Inseparable Bond with Active Directory
-If Active Directory is the *brain* of a corporate network, then the DNS server is its *heart*. In an entire Windows domain environment, no service (Login, Kerberos, File Sharing, GPO) can function even for a single second without DNS.
+If Active Directory is the *brain* of a corporate network, then the DNS server is its *heart*. In an entire Windows domain environment, no service (Login, #hl-orange[Kerberos], File Sharing, GPO) can function even for a single second without DNS.
 
 #mark-yellow[The Domain Name System (DNS) is a hierarchical distributed database service that resolves human-readable computer names (e.g., `portal.corp.rtechlab.local`) into machine-routable network IP addresses (`192.168.1.50`).]
 
@@ -2578,17 +2578,17 @@ In DNS, a zone represents an administrative partition of the namespace for which
 1. #text(weight: "bold", fill: rtech-blue)[Active Directory-Integrated Zone (Best Enterprise Choice):] This zone is stored directly inside the Active Directory database (`ntds.dit`) rather than in a flat file on disk. It provides three distinctive enterprise advantages:
    - #hl-green[Multi-Master Replication:] Modify records on any writable Domain Controller, and changes replicate automatically to all other DCs.
    - #hl-green[Secure Dynamic Updates:] Only authenticated domain-joined computers can register or update their own DNS records (preventing rogue hijacking).
-   - #hl-green[Encrypted Replication:] All DNS zone replication traffic is encrypted and authenticated natively via Kerberos.
+   - #hl-green[Encrypted Replication:] All DNS zone replication traffic is encrypted and authenticated natively via #hl-orange[Kerberos].
 2. #text(weight: "bold", fill: rtech-navy)[Standard Primary Zone:] Stored in a traditional text file (`zone.dns`) on the local file system. Employs a single-master model where only the primary server can accept record writes.
 3. #text(weight: "bold", fill: rtech-navy)[Standard Secondary Zone:] A read-only replica of a primary zone. Used for redundancy, fault tolerance, and query load distribution.
 4. #text(weight: "bold", fill: rtech-muted)[Stub Zone:] Contains only the SOA (Start of Authority), NS (Name Server), and glue A records necessary to identify authoritative name servers for an external or delegated domain.
 
 #v(1.5pt)
 
-=== 9.3 Forward Lookup Zone vs. Reverse Lookup Zone
+=== 9.3 #hl-yellow[Forward Lookup Zone] vs. #hl-yellow[Reverse Lookup Zone]
 - #text(weight: "bold", fill: rtech-navy)[Forward Lookup Zone:] Resolves computer host names to IP addresses (Name -> IP). When you type `srv-2025-dc01.corp.rtechlab.local` into a browser, the forward zone returns `192.168.1.10`.
 - #text(weight: "bold", fill: rtech-navy)[Reverse Lookup Zone:] Resolves IP addresses back to computer host names (IP -> Name). It utilizes the special reverse DNS namespace domain (e.g., `1.168.192.in-addr.arpa` for IPv4).
-  - *Why is a Reverse Zone essential?* Required for Kerberos authentication and Service Principal Name (SPN) validation, preventing mail delivery rejection by anti-spam filters, and verifying host identities via `nslookup 192.168.1.10`.
+  - *Why is a Reverse Zone essential?* Required for #hl-orange[Kerberos] authentication and Service Principal Name (SPN) validation, preventing mail delivery rejection by anti-spam filters, and verifying host identities via `nslookup 192.168.1.10`.
 
 #v(1.5pt)
 
@@ -2599,7 +2599,7 @@ Within the DNS management console (`dnsmgmt.msc`), five core resource records fo
 2. #text(weight: "bold", fill: rtech-emerald)[Pointer (PTR Record):] Maps an IP address back to its FQDN hostname in a reverse lookup zone. E.g., `10` -> `srv-dc01.corp.rtechlab.local`.
 3. #text(weight: "bold", fill: rtech-amber)[Alias (CNAME - Canonical Name):] Maps an alias name to the canonical host name. E.g., when users navigate to `portal.corp.rtechlab.local`, the CNAME record redirects them seamlessly to the underlying web host `srv-2025-web01.corp.rtechlab.local`.
 4. #text(weight: "bold", fill: rtech-navy)[Mail Exchanger (MX Record):] Identifies the authoritative mail servers (such as Microsoft Exchange) for the domain and defines their routing priority/preference values.
-5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV Record):] The architectural backbone of Active Directory. Identifies the specific host and TCP/UDP port running core directory services such as LDAP, Kerberos, and Global Catalog (e.g., `_ldap._tcp.dc._msdcs.corp.rtechlab.local` on Port 389).
+5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV Record):] The architectural backbone of Active Directory. Identifies the specific host and TCP/UDP port running core directory services such as LDAP, #hl-orange[Kerberos], and Global Catalog (e.g., `_ldap._tcp.dc._msdcs.corp.rtechlab.local` on #hl-green[Port 389]).
 
 #v(1.5pt)
 
@@ -2614,7 +2614,7 @@ When an employee accesses an external public website (such as `google.com`) from
 
 #v(1.5pt)
 
-=== 9.6 Removing Stale Records: DNS Aging and Scavenging
+=== 9.6 Removing Stale Records: DNS #hl-yellow[Aging and Scavenging]
 As hundreds of mobile workstations connect and disconnect across dynamic corporate Wi-Fi networks, thousands of obsolete, orphaned records (stale records) accumulate in the DNS database. To purge these automatically, #hl-yellow[Aging & Scavenging] must be enabled:
 
 1. #text(weight: "bold")[No-refresh interval (default 7 days):] During this window, even if the client attempts to re-register its IP, the DNS server will not update the record's timestamp (preventing unnecessary Active Directory replication overhead).
@@ -2627,7 +2627,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 // CHAPTER 09 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  Windows Server 2025 introduces native support for #hl-yellow[DoH (DNS over HTTPS)]. This means that outbound DNS queries leaving the corporate server toward the Internet are no longer transmitted in plain text (cleartext UDP 53); instead, they are fully encrypted over #hl-green[HTTPS (Port 443)]. Consequently, ISPs, rogue eavesdroppers, or external attackers cannot snoop on the domain names being queried by internal enterprise clients!
+  Windows Server 2025 introduces native support for #hl-yellow[DoH (DNS over HTTPS)]. This means that outbound DNS queries leaving the corporate server toward the Internet are no longer transmitted in plain text (cleartext UDP 53); instead, they are fully encrypted over #hl-green[HTTPS (#hl-green[Port 443])]. Consequently, ISPs, rogue eavesdroppers, or external attackers cannot snoop on the domain names being queried by internal enterprise clients!
 ]
 
 #v(1.5pt)
@@ -2643,14 +2643,14 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
   optC: "Within the Windows Registry hive",
   optD: "Inside the SYSVOL shared folder",
   ans: "B",
-  exp: "AD-Integrated Zones store records directly within ntds.dit, enabling multi-master replication and Kerberos encryption."
+  exp: "AD-Integrated Zones store records directly within ntds.dit, enabling multi-master replication and #hl-orange[Kerberos] encryption."
 )
 
 #v(1.5pt)
 
 #mcq-item(
   num: "2",
-  q: "What is the official resource record in a Reverse Lookup Zone that maps an IP address back to its hostname?",
+  q: "What is the official resource record in a #hl-yellow[Reverse Lookup Zone] that maps an IP address back to its hostname?",
   optA: "A Record",
   optB: "CNAME Record",
   optC: "PTR Record",
@@ -2663,7 +2663,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 
 #mcq-item(
   num: "3",
-  q: "Which specialized DNS resource record is queried by domain clients to locate Active Directory Domain Controllers, Kerberos, and LDAP services?",
+  q: "Which specialized DNS resource record is queried by domain clients to locate Active Directory Domain Controllers, #hl-orange[Kerberos], and LDAP services?",
   optA: "TXT Record",
   optB: "SRV (Service Location) Record",
   optC: "SOA Record",
@@ -2677,12 +2677,12 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 #mcq-item(
   num: "4",
   q: "Which standard port and transport protocol does a DNS server use for typical name resolution queries?",
-  optA: "TCP Port 80",
-  optB: "UDP Port 53",
-  optC: "TCP Port 445",
+  optA: "TCP #hl-green[Port 80]",
+  optB: "#hl-green[UDP Port 53]",
+  optC: "TCP #hl-green[Port 445]",
   optD: "UDP Port 67",
   ans: "B",
-  exp: "Standard DNS name resolution queries operate over UDP Port 53; large zone transfers leverage TCP Port 53."
+  exp: "Standard DNS name resolution queries operate over #hl-green[UDP Port 53]; large zone transfers leverage #hl-green[TCP Port 53]."
 )
 
 #v(1.5pt)
@@ -2691,11 +2691,11 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
   num: "5",
   q: "What is the automated process of purging obsolete and unused (stale) dynamic records from the DNS database called?",
   optA: "Zone Transfer",
-  optB: "Aging and Scavenging",
+  optB: "#hl-yellow[Aging and Scavenging]",
   optC: "DNS Forwarding",
   optD: "Dynamic Registration",
   ans: "B",
-  exp: "Aging and Scavenging automatically purges stale dynamic records once the combined refresh expiration threshold is reached."
+  exp: "#hl-yellow[Aging and Scavenging] automatically purges stale dynamic records once the combined refresh expiration threshold is reached."
 )
 
 #v(1.5pt)
@@ -2724,7 +2724,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 #interview-item(
   num: "3",
   q: "Interviewer: 'When running nslookup on a domain client, it outputs 'Default Server: Unknown' with IP 192.168.1.10. How do you resolve this?'",
-  a: "Answer: The 'Default Server: Unknown' message indicates that the DNS server does not have a corresponding PTR record for its own IP (192.168.1.10) in the Reverse Lookup Zone. To resolve this, open the DNS Console (`dnsmgmt.msc`), ensure the Reverse Lookup Zone for the 192.168.1.x subnet is created, and add a PTR record pointing to the DC's FQDN. Running nslookup again will immediately display the resolved server name.",
+  a: "Answer: The 'Default Server: Unknown' message indicates that the DNS server does not have a corresponding PTR record for its own IP (192.168.1.10) in the #hl-yellow[Reverse Lookup Zone]. To resolve this, open the DNS Console (`dnsmgmt.msc`), ensure the #hl-yellow[Reverse Lookup Zone] for the 192.168.1.x subnet is created, and add a PTR record pointing to the DC's FQDN. Running nslookup again will immediately display the resolved server name.",
   tip: "A classic L1/L2 IT helpdesk troubleshooting scenario frequently tested in technical interviews."
 )
 
@@ -2733,7 +2733,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 #interview-item(
   num: "4",
   q: "Interviewer: 'What is DNS Cache Poisoning and how is it prevented in Windows Server?'",
-  a: "Answer: DNS Cache Poisoning (or DNS Spoofing) occurs when an attacker injects fraudulent DNS responses into a resolver cache, mapping a legitimate domain (e.g., bank.com) to a malicious IP address. In Windows Server, this is mitigated by enabling DNSSEC (DNS Security Extensions) for cryptographic validation, using DNS Socket Pools to randomize source ports, and enforcing Cache Locking.",
+  a: "Answer: DNS Cache Poisoning (or DNS Spoofing) occurs when an attacker injects fraudulent DNS responses into a resolver cache, mapping a legitimate domain (e.g., bank.com) to a malicious IP address. In Windows Server, this is mitigated by enabling #hl-green[DNSSEC] (DNS Security Extensions) for cryptographic validation, using DNS Socket Pools to randomize source ports, and enforcing Cache Locking.",
   tip: "A prominent question in enterprise cybersecurity and infrastructure compliance interviews."
 )
 
@@ -2777,8 +2777,8 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ Chapter 09 Verification Checklist (DNS Architecture Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Forward Lookup Zone `corp.rtechlab.local` is Active Directory-Integrated.
-      - [ ] Reverse Lookup Zone `1.168.192.in-addr.arpa` contains the Domain Controller PTR record.
+      - [ ] #hl-yellow[Forward Lookup Zone] `corp.rtechlab.local` is Active Directory-Integrated.
+      - [ ] #hl-yellow[Reverse Lookup Zone] `1.168.192.in-addr.arpa` contains the Domain Controller PTR record.
       - [ ] Forwarders are configured with `1.1.1.1` and `8.8.8.8` for reliable public Internet name resolution.
     ]
   ]
@@ -2797,7 +2797,7 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
     #text(size: 7.5pt, fill: rtech-text)[
       - DNS is the foundational lifeline of Active Directory; SRV records allow clients to discover Domain Controllers and Kerberos services.
       - In production, always utilize AD-Integrated Zones and forwarders configured to `1.1.1.1` and `8.8.8.8`.
-      - Aging and Scavenging must be enabled at both zone and server levels to eliminate stale, orphaned records automatically.
+      - #hl-yellow[Aging and Scavenging] must be enabled at both zone and server levels to eliminate stale, orphaned records automatically.
     ]
   ]
 )
@@ -2805,16 +2805,16 @@ As hundreds of mobile workstations connect and disconnect across dynamic corpora
 #pagebreak()
 
 // =============================================================================
-// CHAPTER 10: FILE SERVER RESOURCE MANAGER (FSRM), NTFS & QUOTA MANAGEMENT
+// CHAPTER 10: FILE SERVER RESOURCE MANAGER (#hl-orange[FSRM]), NTFS & QUOTA MANAGEMENT
 // =============================================================================
 
 [#metadata("ch10") <chapter-10>]
 
 #chapter-header(
   chapter-num: "CHAPTER 10",
-  category: "PART 10: STORAGE, SHARING & FILE RESOURCE MANAGEMENT (Storage & FSRM)",
-  title: "File Server Resource Manager (FSRM), NTFS Permissions & Quota Management",
-  subtitle: "Shared Folders · SMB 3.1.1 · Share vs NTFS Permissions (Effective Formula) · FSRM Role · Hard vs Soft Storage Quotas · File Screening (MP3/EXE Blocking) · Storage Reports"
+  category: "PART 10: STORAGE, SHARING & FILE RESOURCE MANAGEMENT (Storage & #hl-orange[FSRM])",
+  title: "File Server Resource Manager (#hl-orange[FSRM]), NTFS Permissions & Quota Management",
+  subtitle: "Shared Folders · SMB 3.1.1 · Share vs NTFS Permissions (Effective Formula) · #hl-orange[FSRM] Role · Hard vs Soft Storage Quotas · File Screening (MP3/EXE Blocking) · Storage Reports"
 )
 
 === 10.1 Enterprise File Sharing Architecture & SMB 3.1.1 Protocol
@@ -2892,10 +2892,10 @@ When a user attempts to access a shared file or folder over the network, Windows
 
 #v(6pt)
 
-=== 10.4 Installing the File Server Resource Manager (FSRM) Role
-FSRM is Microsoft's advanced storage management toolset that enables administrators to classify data, restrict storage consumption, and prevent unauthorized file types from clogging corporate volumes:
+=== 10.4 Installing the File Server Resource Manager (#hl-orange[FSRM]) Role
+#hl-orange[FSRM] is Microsoft's advanced storage management toolset that enables administrators to classify data, restrict storage consumption, and prevent unauthorized file types from clogging corporate volumes:
 
-1. Open Server Manager -> Navigate to #hl-green[Add Roles and Features].
+1. Open #hl-yellow[Server Manager] -> Navigate to #hl-green[Add Roles and Features].
 2. Under Server Roles -> Expand #text(weight: "bold")[File and Storage Services] -> Expand #text(weight: "bold")[File and iSCSI Services].
 3. Check the box for #mark-yellow[File Server Resource Manager].
 4. Select 'Add Features' to include the RSAT management tools, then click 'Install'.
@@ -2942,7 +2942,7 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
 // CHAPTER 10 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  Windows Server includes a powerful feature called #hl-yellow[Volume Shadow Copies (VSS / Previous Versions)]. If an employee accidentally overwrites or deletes an Excel spreadsheet after hours of work, administrators do not need to retrieve backup tapes! The user simply right-clicks the parent folder or file, selects #hl-green['Restore previous versions'], and autonomously restores the 9:00 AM snapshot without any helpdesk assistance!
+  Windows Server includes a powerful feature called #hl-yellow[Volume Shadow Copies (#hl-green[VSS] / Previous Versions)]. If an employee accidentally overwrites or deletes an Excel spreadsheet after hours of work, administrators do not need to retrieve backup tapes! The user simply right-clicks the parent folder or file, selects #hl-green['Restore previous versions'], and autonomously restores the 9:00 AM snapshot without any helpdesk assistance!
 ]
 
 #v(6pt)
@@ -3005,12 +3005,12 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
 #mcq-item(
   num: "5",
   q: "On which standard network port does SMB 3.1.1 file sharing operate by default in Windows Server 2025?",
-  optA: "TCP Port 80",
-  optB: "TCP Port 445",
-  optC: "TCP Port 3389",
-  optD: "UDP Port 53",
+  optA: "TCP #hl-green[Port 80]",
+  optB: "TCP #hl-green[Port 445]",
+  optC: "TCP #hl-green[Port 3389]",
+  optD: "#hl-green[UDP Port 53]",
   ans: "B",
-  exp: "SMB (Server Message Block) operates officially over TCP Port 445."
+  exp: "SMB (Server Message Block) operates officially over TCP #hl-green[Port 445]."
 )
 
 #v(6pt)
@@ -3047,8 +3047,8 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
 
 #interview-item(
   num: "4",
-  q: "Interviewer: 'What is Volume Shadow Copies (VSS), and how much disk space does it allocate by default?'",
-  a: "Answer: VSS captures point-in-time, block-level delta snapshots of a volume. Instead of duplicating entire files, it preserves only changed blocks within 'System Volume Information'. By default, it reserves up to 10% of the volume capacity and enables self-service user recovery via the 'Previous Versions' tab.",
+  q: "Interviewer: 'What is Volume Shadow Copies (#hl-green[VSS]), and how much disk space does it allocate by default?'",
+  a: "Answer: #hl-green[VSS] captures point-in-time, block-level delta snapshots of a volume. Instead of duplicating entire files, it preserves only changed blocks within 'System Volume Information'. By default, it reserves up to 10% of the volume capacity and enables self-service user recovery via the 'Previous Versions' tab.",
   tip: "A core interview topic for storage disaster recovery and backup administrator roles."
 )
 
@@ -3074,7 +3074,7 @@ FSRM provides automated scheduling to generate and email comprehensive storage a
     #text(size: 7.5pt, fill: rtech-text)[
       - Effective permissions adhere to the 'Most Restrictive' rule; assign broad Share permissions and control security via NTFS ACLs.
       - FSRM Hard Quotas prevent volume exhaustion, while File Screening blocks unauthorized non-business media (MP3/MP4).
-      - VSS Shadow Copies and Access-Based Enumeration (ABE) dramatically enhance file server resiliency and user satisfaction.
+      - #hl-green[VSS] Shadow Copies and Access-Based Enumeration (ABE) dramatically enhance file server resiliency and user satisfaction.
     ]
   ]
 )
@@ -3115,7 +3115,7 @@ Every multinational enterprise (MNC) hosts internal corporate intranet portals, 
 #v(1pt)
 
 *IIS 10.x Installation Steps:*
-1. Open Server Manager -> Navigate to #hl-green[Add Roles and Features].
+1. Open #hl-yellow[Server Manager] -> Navigate to #hl-green[Add Roles and Features].
 2. Under Server Roles -> Check the box for #mark-yellow[Web Server (IIS)].
 3. In 'Role Services', verify that #hl-green[Default Document], #hl-green[Directory Browsing], #hl-green[HTTP Errors], #hl-green[HTTP Redirection], and #hl-green[FTP Server] are selected.
 4. Click 'Install'. After installation completes, navigating to `http://localhost/` in a web browser displays the iconic blue official IIS welcome splash page.
@@ -3132,8 +3132,8 @@ Every multinational enterprise (MNC) hosts internal corporate intranet portals, 
 
 #v(1.5pt)
 
-=== 11.3 SSL/TLS HTTPS Certificate Binding (Port 443)
-In production enterprise environments, no web portal should ever run unencrypted over cleartext HTTP Port 80:
+=== 11.3 SSL/TLS HTTPS Certificate Binding (#hl-green[Port 443])
+In production enterprise environments, no web portal should ever run unencrypted over cleartext HTTP #hl-green[Port 80]:
 - Open Server Certificates in IIS Manager and generate or import a certificate from an Enterprise Certificate Authority (AD CS) or a trusted public CA.
 - Open Site Bindings for the website -> Click #hl-green[Add...] -> Set Type: #mark-yellow[https], Port: #hl-green[443], and select the SSL certificate: `RTechLab-SSL-Cert`, then click 'OK'.
 - The website is now served securely over #hl-green[`https://portal.corp.rtechlab.local`] fortified with 256-bit TLS cryptographic encryption.
@@ -3160,7 +3160,7 @@ When an enterprise supports thousands of distributed remote employees working fr
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[The 5 Core Architectural Roles of RDS (MNC Interview Goldmine):]\
     - #text(weight: "bold", fill: rtech-blue)[1. RD Web Access:] The web portal interface allowing remote workers to authenticate and launch published corporate RemoteApps and virtual desktops from any browser.
-    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] Encapsulates external inbound RDP traffic inside secure #hl-orange[HTTPS (Port 443)], allowing seamless traversal through external corporate firewalls without requiring a full-tunnel VPN.
+    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] Encapsulates external inbound RDP traffic inside secure #hl-orange[HTTPS (#hl-green[Port 443])], allowing seamless traversal through external corporate firewalls without requiring a full-tunnel VPN.
     - #text(weight: "bold", fill: rtech-amber)[3. RD Connection Broker:] Reconnects users to their existing disconnected sessions upon network interruptions and distributes incoming session workloads evenly across farm servers.
     - #text(weight: "bold", fill: rtech-emerald)[4. RD Session Host (RDSH):] The multi-session powerhouse server running concurrent hosted desktop sessions and published business applications for 50 to 100+ active users.
     - #text(weight: "bold", fill: rtech-navy)[5. RD Licensing Server:] Tracks, issues, and validates Client Access Licenses (CALs — Per-User or Per-Device) for all connecting endpoints.
@@ -3197,25 +3197,25 @@ When an enterprise supports thousands of distributed remote employees working fr
 #mcq-item(
   num: "2",
   q: "Which official IANA port number is used in IIS Web Server for hosting secure SSL/TLS encrypted HTTPS websites?",
-  optA: "Port 80",
-  optB: "Port 443",
-  optC: "Port 3389",
-  optD: "Port 8080",
+  optA: "#hl-green[Port 80]",
+  optB: "#hl-green[Port 443]",
+  optC: "#hl-green[Port 3389]",
+  optD: "#hl-green[Port 80]80",
   ans: "B",
-  exp: "HTTP operates over Port 80, whereas secure SSL/TLS encrypted HTTPS traffic runs over Port 443."
+  exp: "HTTP operates over #hl-green[Port 80], whereas secure SSL/TLS encrypted HTTPS traffic runs over #hl-green[Port 443]."
 )
 
 #v(1pt)
 
 #mcq-item(
   num: "3",
-  q: "In Remote Desktop Services (RDS), which role encapsulates RDP traffic inside HTTPS (Port 443) to enable secure Internet connectivity without VPN?",
+  q: "In Remote Desktop Services (RDS), which role encapsulates RDP traffic inside HTTPS (#hl-green[Port 443]) to enable secure Internet connectivity without VPN?",
   optA: "RD Session Host",
   optB: "RD Gateway",
   optC: "RD Connection Broker",
   optD: "RD Licensing",
   ans: "B",
-  exp: "RD Gateway builds an encrypted RDP-over-HTTPS (Port 443) tunnel across corporate firewalls."
+  exp: "RD Gateway builds an encrypted RDP-over-HTTPS (#hl-green[Port 443]) tunnel across corporate firewalls."
 )
 
 #v(1pt)
@@ -3269,8 +3269,8 @@ When an enterprise supports thousands of distributed remote employees working fr
 
 #interview-item(
   num: "3",
-  q: "Interviewer: 'How can you host 5 distinct websites on a single IIS server using a single IP address and Port 80?'",
-  a: "Answer: Through 'Host Headers' (Hostname Bindings). In IIS, all five websites share IP 192.168.1.10 and Port 80, but each is assigned a distinct Host Name (e.g., site1.corp.local, site2.corp.local). When a client sends an HTTP GET request, IIS inspects the 'Host:' header in the incoming HTTP request packet and routes traffic to the matching website binding seamlessly.",
+  q: "Interviewer: 'How can you host 5 distinct websites on a single IIS server using a single IP address and #hl-green[Port 80]?'",
+  a: "Answer: Through 'Host Headers' (Hostname Bindings). In IIS, all five websites share IP 192.168.1.10 and #hl-green[Port 80], but each is assigned a distinct Host Name (e.g., site1.corp.local, site2.corp.local). When a client sends an HTTP GET request, IIS inspects the 'Host:' header in the incoming HTTP request packet and routes traffic to the matching website binding seamlessly.",
   tip: "A classic fundamental interview question evaluating web hosting and server consolidation proficiency."
 )
 
@@ -3321,8 +3321,8 @@ When an enterprise supports thousands of distributed remote employees working fr
 #chapter-header(
   chapter-num: "CHAPTER 12",
   category: "PART 12: WINDOWS SERVER 2025 NEXT-GEN & HYBRID AZURE ARC",
-  title: "Windows Server 2025 Next-Gen Features, ReFS & Hybrid Azure Arc",
-  subtitle: "5 Flagship Server 2025 Features · Hotpatching (Zero-Reboot Patching) · 32KB AD DB Page Size · Next-Gen S2D & ReFS Dedup · SMB over QUIC · Azure Arc Onboarding"
+  title: "Windows Server 2025 Next-Gen Features, #hl-green[ReFS] & Hybrid #hl-green[Azure Arc]",
+  subtitle: "5 Flagship Server 2025 Features · #hl-yellow[Hotpatching] (Zero-Reboot Patching) · 32KB AD DB Page Size · Next-Gen S2D & #hl-green[ReFS] Dedup · #hl-orange[SMB over QUIC] · #hl-green[Azure Arc] Onboarding"
 )
 
 === 12.1 Windows Server 2025: Top 5 Game-Changing Enterprise Features
@@ -3338,36 +3338,36 @@ Windows Server 2025 is not merely an incremental upgrade; it represents the most
       #image("../02_BRAND_ASSETS/screenshots/server2025_azure_hotpatching.png", width: 25%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 12.1: Windows Server 2025 Next-Gen 5 Flagship Pillars — Hotpatching, 32KB AD, SMB over QUIC, S2D & Azure Arc]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 12.1: Windows Server 2025 Next-Gen 5 Flagship Pillars — #hl-yellow[Hotpatching], 32KB AD, #hl-orange[SMB over QUIC], S2D & Azure Arc]
 ]
 
 #v(1pt)
 
-=== 12.2 Hotpatching for Everyone: Zero-Reboot Live Memory Security Patching
+=== 12.2 #hl-yellow[Hotpatching] for Everyone: Zero-Reboot Live Memory Security Patching
 In the traditional IT ecosystem, a system administrator's greatest operational headache was the second Tuesday of every month (#hl-yellow['Patch Tuesday']). Applying security updates to production servers mandated an immediate reboot, requiring unsociable 2:00 AM maintenance windows and scheduled downtime for critical banking or e-commerce workloads.
 
 #mark-yellow[Hotpatching is a breakthrough security capability that patches the operating system's in-memory binaries and running process memory in-place — without requiring a single system reboot!]
 
 - #text(weight: "bold", fill: rtech-emerald)[Unprecedented Availability (99.999% Uptime):] Mission-critical database engines and Active Directory Domain Controllers run year-round without a single second of scheduled patching downtime.
-- #text(weight: "bold", fill: rtech-blue)[How Hotpatching Works:] Microsoft releases a cumulative baseline update once every quarter (every 3 months), followed by lightweight monthly in-memory hotpatches that take effect immediately in live RAM without restarting services.
+- #text(weight: "bold", fill: rtech-blue)[How #hl-yellow[Hotpatching] Works:] Microsoft releases a cumulative baseline update once every quarter (every 3 months), followed by lightweight monthly in-memory hotpatches that take effect immediately in live RAM without restarting services.
 
 #v(1.5pt)
 
 === 12.3 32KB AD DS Database Page Size: The Biggest Speed Boost in 25 Years
 As explored in Chapter 01, from Windows 2000 Server through Windows Server 2022—spanning 25 uninterrupted years—the internal Jet Blue database engine behind Active Directory (`ntds.dit`) operated on a rigid #hl-orange[8 KB] database page size. 
 - In Windows Server 2025, elevating both the Forest and Domain Functional Levels to 'Windows Server 2025' enables an upgrade of the AD database page size to #mark-green[32 KB].
-- By loading four times more directory hierarchy in a single disk I/O operation, large multinational enterprises experience a #hl-green[greater than 300% acceleration] in complex LDAP query execution and Kerberos ticket-granting workflows.
+- By loading four times more directory hierarchy in a single disk I/O operation, large multinational enterprises experience a #hl-green[greater than 300% acceleration] in complex LDAP query execution and #hl-orange[Kerberos] ticket-granting workflows.
 
 #v(1.5pt)
 
-=== 12.4 Next-Gen Storage Spaces Direct (S2D) & ReFS Deduplication
+=== 12.4 Next-Gen #hl-yellow[Storage Spaces Direct] (S2D) & #hl-green[ReFS] Deduplication
 - #text(weight: "bold", fill: rtech-navy)[Native NVMe Acceleration:] Windows Server 2025 ships with optimized native kernel drivers for PCIe Gen 5 NVMe SSDs, unleashing up to a 70% increase in IOPS (Input/Output Operations Per Second) with dramatically reduced latency.
-- #text(weight: "bold", fill: rtech-emerald)[ReFS Deduplication and Compression:] The Resilient File System (ReFS) now natively identifies duplicate storage blocks and compresses cold data in real-time. For a cluster hosting 50 virtual machines, ReFS deduplicates shared OS binaries into single-instance storage, instantly delivering #hl-green[60% to 80% raw capacity savings]!
+- #text(weight: "bold", fill: rtech-emerald)[ReFS Deduplication and Compression:] The Resilient File System (#hl-green[ReFS]) now natively identifies duplicate storage blocks and compresses cold data in real-time. For a cluster hosting 50 virtual machines, #hl-green[ReFS] deduplicates shared OS binaries into single-instance storage, instantly delivering #hl-green[60% to 80% raw capacity savings]!
 
 #v(1.5pt)
 
-=== 12.5 SMB over QUIC: Secure Internet File Sharing Without VPN
-Traditional SMB file sharing (TCP Port 445) is universally blocked by Internet Service Providers (ISPs) to prevent the traversal of lateral ransomware threats like WannaCry. Historically, remote employees were forced to establish sluggish, complex corporate VPN tunnels simply to open shared departmental drives.
+=== 12.5 #hl-orange[SMB over QUIC]: Secure Internet File Sharing Without VPN
+Traditional SMB file sharing (TCP #hl-green[Port 445]) is universally blocked by Internet Service Providers (ISPs) to prevent the traversal of lateral ransomware threats like WannaCry. Historically, remote employees were forced to establish sluggish, complex corporate VPN tunnels simply to open shared departmental drives.
 
 #block(
   width: 100%,
@@ -3376,18 +3376,18 @@ Traditional SMB file sharing (TCP Port 445) is universally blocked by Internet S
   radius: 4pt,
   inset: (x: 5pt, y: 3pt),
   [
-    #text(size: 8.5pt, weight: "bold", fill: rtech-emerald)[The Power of SMB over QUIC (Zero-VPN File Access):]\
-    - It encapsulates standard SMB traffic directly within the #hl-green[QUIC protocol (UDP Port 443)], an internet transport standard designed for low latency.
-    - Because UDP Port 443 (standard HTTPS/web traffic) is universally open across airport, hotel, and mobile public Wi-Fi networks, remote workers can directly connect to `\\files.corp.rtechlab.local\Share` without dialing into a VPN!
+    #text(size: 8.5pt, weight: "bold", fill: rtech-emerald)[The Power of #hl-orange[SMB over QUIC] (Zero-VPN File Access):]\
+    - It encapsulates standard SMB traffic directly within the #hl-green[QUIC protocol (UDP #hl-green[Port 443])], an internet transport standard designed for low latency.
+    - Because UDP #hl-green[Port 443] (standard HTTPS/web traffic) is universally open across airport, hotel, and mobile public Wi-Fi networks, remote workers can directly connect to `\\files.corp.rtechlab.local\Share` without dialing into a VPN!
     - All network traffic is protected end-to-end via cutting-edge #hl-green[TLS 1.3] encryption and cryptographic machine certificates, establishing an unbreachable secure channel.
   ]
 )
 
 #v(1.5pt)
 
-=== 12.6 Hybrid Cloud Integration: Azure Arc Connected Machine Agent
-Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setup widget embedded directly within Server Manager:
-- *What is Azure Arc?* It is an enterprise hybrid bridge. When you deploy the `AzureConnectedMachineAgent` on a local physical server or on-premises Hyper-V/VMware virtual machine, the host projects directly into the Microsoft Azure Resource Manager as a first-class cloud asset.
+=== 12.6 Hybrid Cloud Integration: #hl-green[Azure Arc] Connected Machine Agent
+Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setup widget embedded directly within #hl-yellow[Server Manager]:
+- *What is #hl-green[Azure Arc]?* It is an enterprise hybrid bridge. When you deploy the `AzureConnectedMachineAgent` on a local physical server or on-premises Hyper-V/VMware virtual machine, the host projects directly into the Microsoft Azure Resource Manager as a first-class cloud asset.
 - *Enterprise Benefits:* From a unified Azure cloud portal, administrators can enforce Microsoft Defender security baselines, orchestrate hotpatching schedules, and audit compliance across Mumbai on-premises bare-metal servers, Amazon AWS EC2 instances, and native Azure workloads simultaneously.
 
 #v(1pt)
@@ -3408,11 +3408,11 @@ Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setu
   num: "1",
   q: "Which revolutionary Windows Server 2025 feature applies security updates directly to running process memory without requiring a server reboot?",
   optA: "Hyper-V Quick Migration",
-  optB: "Hotpatching",
+  optB: "#hl-yellow[Hotpatching]",
   optC: "BitLocker Live",
   optD: "DirectAccess",
   ans: "B",
-  exp: "Hotpatching patches running process binaries in memory, completely eliminating the need to restart the operating system."
+  exp: "#hl-yellow[Hotpatching] patches running process binaries in memory, completely eliminating the need to restart the operating system."
 )
 
 #v(1.5pt)
@@ -3432,13 +3432,13 @@ Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setu
 
 #mcq-item(
   num: "3",
-  q: "Which network port and transport protocol does SMB over QUIC leverage to deliver secure remote file access without a corporate VPN?",
-  optA: "TCP Port 445",
-  optB: "UDP Port 443 (TLS 1.3)",
-  optC: "TCP Port 80",
-  optD: "UDP Port 53",
+  q: "Which network port and transport protocol does #hl-orange[SMB over QUIC] leverage to deliver secure remote file access without a corporate VPN?",
+  optA: "TCP #hl-green[Port 445]",
+  optB: "UDP #hl-green[Port 443] (TLS 1.3)",
+  optC: "TCP #hl-green[Port 80]",
+  optD: "#hl-green[UDP Port 53]",
   ans: "B",
-  exp: "SMB over QUIC encapsulates SMB traffic inside UDP Port 443 using TLS 1.3 encryption."
+  exp: "#hl-orange[SMB over QUIC] encapsulates SMB traffic inside UDP #hl-green[Port 443] using TLS 1.3 encryption."
 )
 
 #v(1.5pt)
@@ -3447,11 +3447,11 @@ Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setu
   num: "4",
   q: "Which onboard agent connects on-premises datacenter Windows Servers directly to the Microsoft Azure cloud management plane?",
   optA: "Hyper-V Connect",
-  optB: "Azure Arc Connected Machine Agent",
+  optB: "#hl-green[Azure Arc] Connected Machine Agent",
   optC: "System Center CLI",
   optD: "ExpressRoute Agent",
   ans: "B",
-  exp: "The Azure Arc Connected Machine Agent registers on-premises hosts with Azure Resource Manager."
+  exp: "The #hl-green[Azure Arc] Connected Machine Agent registers on-premises hosts with Azure Resource Manager."
 )
 
 #v(1.5pt)
@@ -3461,7 +3461,7 @@ Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setu
   q: "Which modern file system introduces next-generation real-time deduplication and compression in Windows Server 2025?",
   optA: "FAT32",
   optB: "exFAT",
-  optC: "ReFS (Resilient File System)",
+  optC: "#hl-green[ReFS] (Resilient File System)",
   optD: "NFS v4",
   ans: "C",
   exp: "ReFS (Resilient File System) introduces next-generation block-level deduplication and compression to maximize storage efficiency."
@@ -3510,7 +3510,7 @@ Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setu
 
 #interview-item(
   num: "5",
-  q: "Interviewer: 'What role do NVMe drives play in next-generation Storage Spaces Direct (S2D)?'",
+  q: "Interviewer: 'What role do NVMe drives play in next-generation #hl-yellow[Storage Spaces Direct] (S2D)?'",
   a: "Answer: In an S2D cluster, local PCIe Gen 5 NVMe SSDs across cluster nodes are aggregated into a high-performance shared virtual storage pool. By leveraging the ultra-fast PCIe bus directly to CPU cache and RAM via native kernel drivers, S2D achieves sub-millisecond latency and millions of IOPS, eliminating the need for exorbitant legacy hardware SAN storage appliances (such as Dell EMC or NetApp) and saving millions in capital expenditure.",
   tip: "A core competency topic for Hyper-Converged Infrastructure (HCI) and virtualization specialist interviews."
 )
@@ -3527,7 +3527,7 @@ Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setu
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 Chapter 12 Key Corporate Takeaways:]\
     #text(size: 7.5pt, fill: rtech-text)[
       - Hotpatching delivers zero-reboot in-memory live patching to guarantee 99.999% server uptime.
-      - SMB over QUIC unlocks secure, VPN-free remote file sharing over standard UDP Port 443.
+      - SMB over QUIC unlocks secure, VPN-free remote file sharing over standard UDP #hl-green[Port 443].
       - 32KB AD DB architecture and Azure Arc establish Windows Server 2025 as the premier hybrid cloud operating system.
     ]
   ]
@@ -3544,8 +3544,8 @@ Windows Server 2025 features a native, out-of-the-box #hl-yellow[Azure Arc] setu
 #chapter-header(
   chapter-num: "CHAPTER 13",
   category: "PART 13: ENTERPRISE DISASTER RECOVERY & SYSTEM BACKUP",
-  title: "Enterprise Backup, Disaster Recovery & Active Directory Recycle Bin",
-  subtitle: "3-2-1 Enterprise Backup Strategy · Windows Server Backup · Full vs System State Backup · Enabling AD Recycle Bin · 1-Click Online Restore · wbadmin Scripting"
+  title: "Enterprise Backup, Disaster Recovery & #hl-yellow[Active Directory Recycle Bin]",
+  subtitle: "3-2-1 Enterprise Backup Strategy · #hl-yellow[Windows Server Backup] · Full vs #hl-yellow[System State Backup] · Enabling AD Recycle Bin · 1-Click Online Restore · wbadmin Scripting"
 )
 
 === 13.1 Enterprise Backup Strategy: The Golden 3-2-1 Rule
@@ -3561,7 +3561,7 @@ The true measure of a seasoned systems administrator is not how smoothly things 
       #image("../02_BRAND_ASSETS/screenshots/backup_disaster_recovery_flow.png", width: 78%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 13.1: 3-2-1 Enterprise Backup Architecture & Active Directory Recycle Bin 1-Click Live Recovery]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 13.1: 3-2-1 Enterprise Backup Architecture & #hl-yellow[Active Directory Recycle Bin] 1-Click Live Recovery]
 ]
 
 #v(4pt)
@@ -3582,17 +3582,17 @@ The true measure of a seasoned systems administrator is not how smoothly things 
 
 #v(6pt)
 
-=== 13.2 Installing the Windows Server Backup Feature
+=== 13.2 Installing the #hl-yellow[Windows Server Backup] Feature
 Microsoft provides a robust, native backup solution built directly into Windows Server:
 
-1. Open Server Manager -> click #hl-green[Add Roles and Features].
+1. Open #hl-yellow[Server Manager] -> click #hl-green[Add Roles and Features].
 2. Click 'Next' through the installation wizard to reach the Features screen.
 3. Scroll through the features list and check: #mark-yellow[Windows Server Backup].
 4. Click 'Install'. This feature provisions both the graphical management console (`wbadmin.msc`) and the powerful command-line utility (`wbadmin.exe`).
 
 #v(6pt)
 
-=== 13.3 Full Server Backup vs. System State Backup
+=== 13.3 Full Server Backup vs. #hl-yellow[System State Backup]
 - #text(weight: "bold", fill: rtech-navy)[Bare Metal Recovery (BMR):] A comprehensive backup encompassing the entire server operating environment (system volume C:, boot partitions, installed applications, drivers, and local state). If physical hardware suffers catastrophic failure or fire, bare metal recovery allows complete restoration onto unformatted bare hardware.
 - #text(weight: "bold", fill: rtech-blue)[System State Backup:] The most critical backup for an Active Directory Domain Controller. It captures exclusively the vital system components necessary to reconstruct directory services:
   1. #hl-yellow[Active Directory Database (`ntds.dit`)]
@@ -3601,17 +3601,17 @@ Microsoft provides a robust, native backup solution built directly into Windows 
   4. #hl-green[Boot Files and System Startup Binaries]
   5. #hl-green[Certificate Services Database (if AD CS is installed on the host)]
 
-*Master Command to Execute an Immediate System State Backup via CLI:*
+*Master Command to Execute an Immediate #hl-yellow[System State Backup] via CLI:*
 ```cmd
 wbadmin start systemstatebackup -backupTarget:E: -quiet
 ```
 
 #v(6pt)
 
-=== 13.4 Enabling the Active Directory Recycle Bin (AD Recycle Bin)
-In legacy Windows Server editions (2003/2008), inadvertently deleting an organizational unit (OU) or user account triggered an operational nightmare. Restoring the object required rebooting the Domain Controller into #hl-orange[Directory Services Restore Mode (DSRM)], taking services offline, and performing an 'Authoritative Restore' via `ntdsutil`—incurring 2 to 3 hours of critical enterprise downtime.
+=== 13.4 Enabling the #hl-yellow[Active Directory Recycle Bin] (AD Recycle Bin)
+In legacy Windows Server editions (2003/2008), inadvertently deleting an organizational unit (OU) or user account triggered an operational nightmare. Restoring the object required rebooting the Domain Controller into #hl-orange[Directory Services Restore Mode (#hl-orange[DSRM])], taking services offline, and performing an 'Authoritative Restore' via `ntdsutil`—incurring 2 to 3 hours of critical enterprise downtime.
 
-#mark-yellow[The Active Directory Recycle Bin is a game-changing capability that restores accidentally deleted directory objects live, in 1-click, with zero server reboots and zero service downtime!]
+#mark-yellow[The #hl-yellow[Active Directory Recycle Bin] is a game-changing capability that restores accidentally deleted directory objects live, in 1-click, with zero server reboots and zero service downtime!]
 
 *Official PowerShell Cmdlet to Enable the AD Recycle Bin:*
 ```powershell
@@ -3619,7 +3619,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
   -Scope ForestOrConfigurationSet -Target "corp.rtechlab.local"
 ```
 #warning-box(title: "Irreversible Action (Permanent Activation)")[
-  Once the Active Directory Recycle Bin feature is enabled across the forest, it cannot be disabled. It represents a permanent, highly secure, one-way architectural upgrade.
+  Once the #hl-yellow[Active Directory Recycle Bin] feature is enabled across the forest, it cannot be disabled. It represents a permanent, highly secure, one-way architectural upgrade.
 ]
 
 #v(6pt)
@@ -3627,7 +3627,7 @@ Enable-ADOptionalFeature -Identity "Recycle Bin Feature" `
 === 13.5 Live 1-Click Restoration of Deleted Users & OUs
 Once the AD Recycle Bin is enabled, deleted objects are not purged immediately; instead, they transition into the #hl-yellow[`Deleted Objects`] container while retaining their full attribute state (default tombstone lifetime: #hl-green[180 days]):
 
-1. Navigate to Server Manager -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] (or launch via Run: #mark-green[`dsac.exe`]).
+1. Navigate to #hl-yellow[Server Manager] -> Tools -> #hl-green[Active Directory Administrative Center (ADAC)] (or launch via Run: #mark-green[`dsac.exe`]).
 2. In the left navigation pane, select your domain `#text(weight: "bold")[corp (local)]`.
 3. In the management view, double-click the newly visible #mark-yellow[Deleted Objects] container.
 4. Locate the deleted user account (e.g., `Rahul Patel`).
@@ -3642,7 +3642,7 @@ Once the AD Recycle Bin is enabled, deleted objects are not purged immediately; 
 In enterprise production, administrators schedule automated daily backups at 11:00 PM via Windows Task Scheduler or administrative scripts:
 
 ```cmd
-:: Daily Unattended System State Backup Script
+:: Daily Unattended #hl-yellow[System State Backup] Script
 wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemState -include:C:
 ```
 
@@ -3652,7 +3652,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 // CHAPTER 13 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  When an object is deleted in Active Directory without the Recycle Bin enabled, it is not immediately purged; rather, it transitions into a stripped 'tombstone' state. While tombstones persist by default for 180 days, almost all critical object attributes—including passwords, group memberships, and contact details—are permanently stripped away. The Active Directory Recycle Bin solves this limitation by preserving 100% of an object's attributes in live, restorable form!
+  When an object is deleted in Active Directory without the Recycle Bin enabled, it is not immediately purged; rather, it transitions into a stripped 'tombstone' state. While tombstones persist by default for 180 days, almost all critical object attributes—including passwords, group memberships, and contact details—are permanently stripped away. The #hl-yellow[Active Directory Recycle Bin] solves this limitation by preserving 100% of an object's attributes in live, restorable form!
 ]
 
 #v(6pt)
@@ -3675,13 +3675,13 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 
 #mcq-item(
   num: "2",
-  q: "Which of the following components is NOT included in an Active Directory Domain Controller's 'System State Backup'?",
+  q: "Which of the following components is NOT included in an Active Directory Domain Controller's '#hl-yellow[System State Backup]'?",
   optA: "Active Directory Database (ntds.dit)",
   optB: "SYSVOL Folder",
   optC: "System Registry",
   optD: "User personal video files stored on drive D:",
   ans: "D",
-  exp: "System State Backup captures operating system configuration and directory infrastructure files only, never arbitrary user data files."
+  exp: "#hl-yellow[System State Backup] captures operating system configuration and directory infrastructure files only, never arbitrary user data files."
 )
 
 #v(3pt)
@@ -3715,12 +3715,12 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #mcq-item(
   num: "5",
   q: "Which graphical management console provides direct access to the 'Deleted Objects' container for 1-click live recovery of deleted users?",
-  optA: "Active Directory Users and Computers (dsa.msc)",
-  optB: "Active Directory Administrative Center (dsac.exe)",
-  optC: "Group Policy Management Console (gpmc.msc)",
+  optA: "#hl-yellow[Active Directory Users and Computers] (dsa.msc)",
+  optB: "#hl-yellow[Active Directory Administrative Center] (dsac.exe)",
+  optC: "#hl-yellow[Group Policy Management Console] (gpmc.msc)",
   optD: "Disk Management (diskmgmt.msc)",
   ans: "B",
-  exp: "Active Directory Administrative Center (ADAC - dsac.exe) houses the graphical Deleted Objects container."
+  exp: "#hl-yellow[Active Directory Administrative Center] (ADAC - dsac.exe) houses the graphical Deleted Objects container."
 )
 
 #v(6pt)
@@ -3758,7 +3758,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
 #interview-item(
   num: "4",
   q: "Interviewer: 'Can you save a Windows Server System State Backup to the local C: volume where the operating system resides?'",
-  a: "Answer: No. Windows Server Backup explicitly prohibits storing a system state backup on the same volume (C:) that is being backed up. An administrator must target a dedicated physical or virtual disk (such as drive E:) or a remote SMB network share.",
+  a: "Answer: No. #hl-yellow[Windows Server Backup] explicitly prohibits storing a system state backup on the same volume (C:) that is being backed up. An administrator must target a dedicated physical or virtual disk (such as drive E:) or a remote SMB network share.",
   tip: "A crisp operational question that verifies real-world lab and implementation experience."
 )
 
@@ -3784,8 +3784,8 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
     #v(3pt)
     #text(size: 7.5pt, fill: rtech-text)[
       - #text(weight: "bold", fill: rtech-rose)[Error 1: 'The backup target volume is invalid':] Windows Server prohibits saving a backup on the active OS volume C:; always designate a dedicated secondary drive (E:) or SMB network share.
-      - #text(weight: "bold", fill: rtech-amber)[Error 2: 'VSS Writer timed out (Event ID 8229)':] Triggered by contention with third-party backup agents; verify service status using `vssadmin list writers`.
-      - #text(weight: "bold", fill: rtech-emerald)[Error 3: 'Recycle Bin Deleted Objects folder not appearing':] Close and relaunch Active Directory Administrative Center (ADAC) or press F5 to force a refresh.
+      - #text(weight: "bold", fill: rtech-amber)[Error 2: '#hl-green[VSS] Writer timed out (Event ID 8229)':] Triggered by contention with third-party backup agents; verify service status using `vssadmin list writers`.
+      - #text(weight: "bold", fill: rtech-emerald)[Error 3: 'Recycle Bin Deleted Objects folder not appearing':] Close and relaunch #hl-yellow[Active Directory Administrative Center] (ADAC) or press F5 to force a refresh.
     ]
   ]
 )
@@ -3801,7 +3801,7 @@ wbadmin enable backup -addtarget:{GUID-Storage-Drive} -schedule:23:00 -systemSta
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ Chapter 13 Verification Checklist (Disaster Recovery Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Windows Server Backup feature and PowerShell modules installed successfully.
+      - [ ] #hl-yellow[Windows Server Backup] feature and PowerShell modules installed successfully.
       - [ ] Active Directory Recycle Bin feature permanently enabled across the entire forest.
       - [ ] Validated 1-click live restoration of a deleted test user from ADAC's 'Deleted Objects' container.
     ]
@@ -3873,7 +3873,7 @@ When you step into an L1/L2 Systems Administrator or Windows Server Support Engi
       - P3 (Medium - 4 Hr SLA): Single user account locked out or GPO drive map failing on a client workstation.
       - P4 (Low - 24 Hr SLA): Routine user provisioning, mailbox assignment, or security distribution group changes.
     - #text(weight: "bold", fill: rtech-emerald)[Morning Health Check Checklist (Morning Health Run):]
-      - 9:00 AM: Review Server Manager dashboard across all nodes to confirm healthy green status flags.
+      - 9:00 AM: Review #hl-yellow[Server Manager] dashboard across all nodes to confirm healthy green status flags.
       - Inspect Event Viewer for critical errors across Directory Service, DNS Server, and System Logs (Errors 1085, 1129).
       - Verify overnight system state backup completion (`wbadmin` / Veeam) with zero error flags.
   ]
@@ -3888,10 +3888,10 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
    - *Model Answer:* "I will immediately open Event Viewer on the PDC Emulator Domain Controller and filter the Security Log for Event ID #hl-orange[4740] (A user account was locked out). In the event description, I will identify the 'Caller Computer Name'. In 90% of cases, this is not an external brute-force attack, but rather cached expired credentials on a mobile device or tablet (e.g., cached Exchange email or corporate Wi-Fi authentication) bombarding the DC with old passwords. Clearing cached credentials on the reported device resolves the lockout."
 
 2. #text(weight: "bold", fill: rtech-navy)[Scenario 2: "An employee transfers from HR to the Finance department. How do you immediately revoke HR access and grant Finance access?"]
-   - *Model Answer:* "We never modify folder ACLs directly. In ADUC, we simply remove the user account from the `GG_HR_Staff` global group and add them to `GG_Finance_Staff`. Because our directory is architected on the AGDLP role-based access control model, the user automatically inherits all Finance share permissions and loses all HR rights upon their next token refresh."
+   - *Model Answer:* "We never modify folder ACLs directly. In ADUC, we simply remove the user account from the `GG_HR_Staff` global group and add them to `GG_Finance_Staff`. Because our directory is architected on the #hl-orange[AGDLP] role-based access control model, the user automatically inherits all Finance share permissions and loses all HR rights upon their next token refresh."
 
 3. #text(weight: "bold", fill: rtech-navy)[Scenario 3: "The internal DNS server is running, and local intranet domains resolve, but external websites (e.g., google.com) fail to load for all clients."]
-   - *Model Answer:* "This indicates that the internal Forward Lookup Zone is healthy, but the DNS server's configured upstream #hl-yellow[DNS Forwarders] (such as 1.1.1.1, 8.8.8.8, or ISP resolvers) are failing, or the perimeter firewall is blocking outbound UDP/TCP Port 53 from the DNS server. In DNS Manager, I will navigate to Server Properties -> Forwarders tab and validate connectivity."
+   - *Model Answer:* "This indicates that the internal #hl-yellow[Forward Lookup Zone] is healthy, but the DNS server's configured upstream #hl-yellow[DNS Forwarders] (such as 1.1.1.1, 8.8.8.8, or ISP resolvers) are failing, or the perimeter firewall is blocking outbound UDP/#hl-green[TCP Port 53] from the DNS server. In DNS Manager, I will navigate to Server Properties -> Forwarders tab and validate connectivity."
 
 #v(1.5pt)
 
@@ -3900,7 +3900,7 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
    - Avoid generic phrases like 'Knowledge of Windows Server'. Instead, showcase concrete engineering accomplishments:
      #box(fill: rgb("#F1F5F9"), radius: 3pt, inset: 4pt)[
        #text(size: 7.8pt, font: ("Consolas", "Courier New"))[
-         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented AGDLP RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
+         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented #hl-orange[AGDLP] RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
        ]
      ]
 2. #text(weight: "bold", fill: rtech-navy)[Industry Salary Benchmark (CTC Expectations):]
@@ -4001,8 +4001,8 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
 
 #interview-item(
   num: "2",
-  q: "Interviewer: 'What is the default Kerberos Ticket Granting Ticket (TGT) lifetime, and how is it managed?'",
-  a: "Answer: By default, a Kerberos TGT is valid for 10 hours and can be renewed for up to 7 days without requiring the user to re-enter their credentials. This policy is configured centrally in the Default Domain Policy under Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Kerberos Policy.",
+  q: "Interviewer: 'What is the default #hl-orange[Kerberos] Ticket Granting Ticket (TGT) lifetime, and how is it managed?'",
+  a: "Answer: By default, a #hl-orange[Kerberos] TGT is valid for 10 hours and can be renewed for up to 7 days without requiring the user to re-enter their credentials. This policy is configured centrally in the Default Domain Policy under Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> #hl-orange[Kerberos] Policy.",
   tip: "A high-level question testing deep Active Directory authentication architecture."
 )
 
@@ -4029,7 +4029,7 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
 #interview-item(
   num: "5",
   q: "Interviewer: 'Why should we hire you as a Systems Administrator for our enterprise infrastructure?'",
-  a: "Answer: Because my skills are grounded not merely in textbook theory, but in extensive, hands-on enterprise lab implementation of Windows Server 2025. I understand the nuances of Active Directory, GPO security hardening, DNS/DHCP failover, FSRM quota management, and Azure Arc hybrid integration. I automate repetitive tasks using PowerShell and am fully committed to delivering rapid, ITIL-compliant resolutions for enterprise incidents.",
+  a: "Answer: Because my skills are grounded not merely in textbook theory, but in extensive, hands-on enterprise lab implementation of Windows Server 2025. I understand the nuances of Active Directory, GPO security hardening, DNS/DHCP failover, #hl-orange[FSRM] quota management, and #hl-green[Azure Arc] hybrid integration. I automate repetitive tasks using PowerShell and am fully committed to delivering rapid, ITIL-compliant resolutions for enterprise incidents.",
   tip: "A confident, value-focused closing pitch that sets you apart from typical entry-level candidates."
 )
 
@@ -4112,7 +4112,7 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
 #v(10pt)
 
 #info-box(title: "5 Unique Hallmarks of the RTechLab Master Handbook (Why This Book Guarantees Success)")[
-  - #text(weight: "bold")[1. 100% Authentic 2025 Screenshots:] Real-world Server Manager, Active Directory, GPO, and DNS architectural topology.
+  - #text(weight: "bold")[1. 100% Authentic 2025 Screenshots:] Real-world #hl-yellow[Server Manager], Active Directory, GPO, and DNS architectural topology.
   - #text(weight: "bold")[2. 3-Color Visual Highlighter Engine:] #hl-yellow[Yellow (Core Concepts)], #hl-orange[Orange (Security Rules & Caveats)], and #hl-green[Green (Actionable Commands & Steps)].
   - #text(weight: "bold")[3. 1-Click Interactive Navigation:] Tap any chapter in the Table of Contents to navigate directly to that page, and jump back in 1 tap from running headers.
   - #text(weight: "bold")[4. End-of-Chapter 'Did You Know' & MCQs:] Comprehensive preparation for university exams, vendor certifications, and enterprise corporate screenings.

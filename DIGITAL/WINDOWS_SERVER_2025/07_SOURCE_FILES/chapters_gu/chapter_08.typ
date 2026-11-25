@@ -50,15 +50,15 @@
 
 #v(6pt)
 
-=== 8.2 DHCP સર્વર રોલ ઇન્સ્ટોલેશન અને એક્ટિવ ડિરેક્ટરી ઓથોરાઇઝેશન
-1. Server Manager -> #hl-green[Manage -> Add Roles and Features] માં જાઓ.
+=== 8.2 DHCP સર્વર રોલ ઇન્સ્ટોલેશન અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] ઓથોરાઇઝેશન
+1. #hl-yellow[Server Manager] -> #hl-green[Manage -> Add Roles and Features] માં જાઓ.
 2. Server Roles માં #mark-yellow[DHCP Server] ચેકબોક્સ પર ટીક કરો.
 3. 'Add Features' (DHCP RSAT મેનેજમેન્ટ ટૂલ્સ) સામેલ કરીને 'Next' -> 'Next' -> 'Install' કરો.
 4. ઇન્સ્ટોલેશન પૂર્ણ થતાં જ પીળા ફ્લેગ (Notification) પર ક્લિક કરો -> #hl-yellow['Complete DHCP Configuration'].
-5. વિઝાર્ડમાં #text(weight: "bold", fill: rtech-navy)[Authorization] સ્ક્રીન આવશે. 'Commit' દબાવો જેથી આપણું ડોમેન કંટ્રોલર આ DHCP સર્વરને એક્ટિવ ડિરેક્ટરીમાં અધિકૃત (Authorize) કરે.
+5. વિઝાર્ડમાં #text(weight: "bold", fill: rtech-navy)[Authorization] સ્ક્રીન આવશે. 'Commit' દબાવો જેથી આપણું #hl-yellow[ડોમેન કંટ્રોલર] આ DHCP સર્વરને #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં અધિકૃત (Authorize) કરે.
 
 #warning-box(title: "Rogue DHCP Server Prevention (એન્ટરપ્રાઇઝ સુરક્ષા વ્યવસ્થા)")[
-  જો કોઈ અનધિકૃત કર્મચારી કે યુઝર નેટવર્કમાં પોતાનું અંગત રાઉટર કે બિનઅધિકૃત DHCP સર્વર ચાલુ કરે (Rogue DHCP Server), તો વિન્ડોઝ ડોમેન કંટ્રોલર તેને તરત ડિટેક્ટ કરી લે છે. એક્ટિવ ડિરેક્ટરીમાં અનધિકૃત વિન્ડોઝ DHCP સર્વર્સની સર્વિસ આપોઆપ બંધ (Stop) થઈ જાય છે જેથી કર્મચારીઓને ખોટો IP કે ગેટવે ન મળે.
+  જો કોઈ અનધિકૃત કર્મચારી કે યુઝર નેટવર્કમાં પોતાનું અંગત રાઉટર કે બિનઅધિકૃત DHCP સર્વર ચાલુ કરે (Rogue DHCP Server), તો વિન્ડોઝ #hl-yellow[ડોમેન કંટ્રોલર] તેને તરત ડિટેક્ટ કરી લે છે. #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં અનધિકૃત વિન્ડોઝ DHCP સર્વર્સની સર્વિસ આપોઆપ બંધ (Stop) થઈ જાય છે જેથી કર્મચારીઓને ખોટો IP કે ગેટવે ન મળે.
 ]
 
 #v(6pt)
@@ -66,7 +66,7 @@
 === 8.3 નવો IPv4 સ્કોપ બનાવવો (Configuring an IPv4 Scope)
 સ્કોપ (Scope) એ IP એડ્રેસિસની તે માન્ય શ્રેણી છે જે સર્વર સબનેટ પર રહેલા ક્લાયન્ટ્સને ફાળવે છે:
 
-1. Server Manager -> Tools -> #hl-yellow[DHCP] કન્સોલ ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dhcpmgmt.msc`]).
+1. #hl-yellow[Server Manager] -> Tools -> #hl-yellow[DHCP] કન્સોલ ખોલો (અથવા રનમાં ટાઇપ કરો: #mark-green[`dhcpmgmt.msc`]).
 2. સર્વર નોડ `SRV-2025-DC01` વિસ્તૃત કરો -> #text(weight: "bold")[IPv4] પર રાઇટ-ક્લિક કરો -> #hl-green[New Scope...] પસંદ કરો.
 3. Scope Name: #hl-yellow[`RTechLab-LAN-Scope`].
 4. #text(weight: "bold")[IP Address Range (આઇપી પૂલ):]

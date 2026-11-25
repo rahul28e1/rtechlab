@@ -32,7 +32,7 @@
 #v(4pt)
 
 *IIS 10.x ઇન્સ્ટોલેશન સ્ટેપ્સ:*
-1. Server Manager માં જાઓ -> #hl-green[Add Roles and Features] પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] માં જાઓ -> #hl-green[Add Roles and Features] પર ક્લિક કરો.
 2. Server Roles માં #mark-yellow[Web Server (IIS)] ચેકબોક્સ પર ટિક કરો.
 3. 'Role Services' માં ખાતરી કરો કે #hl-green[Default Document], #hl-green[Directory Browsing], #hl-green[HTTP Errors], #hl-green[HTTP Redirection], અને #hl-green[FTP Server] પસંદ થયેલ છે.
 4. 'Install' પર ક્લિક કરો. ઇન્સ્ટોલેશન પછી બ્રાઉઝરમાં `http://localhost/` ખોલતાં વાદળી રંગનું સત્તાવાર IIS વેલકમ પેજ પ્રદર્શિત થશે.
@@ -49,8 +49,8 @@
 
 #v(6pt)
 
-=== 11.3 SSL/TLS HTTPS સર્ટિફિકેટ બાઇન્ડિંગ (Port 443)
-પ્રોડક્શન વાતાવરણમાં કોઈપણ વેબ પોર્ટલ એન્ક્રિપ્શન વગર (HTTP Port 80) ચલાવવામાં આવતું નથી:
+=== 11.3 SSL/TLS HTTPS સર્ટિફિકેટ બાઇન્ડિંગ (#hl-green[Port 443])
+પ્રોડક્શન વાતાવરણમાં કોઈપણ વેબ પોર્ટલ એન્ક્રિપ્શન વગર (HTTP #hl-green[Port 80]) ચલાવવામાં આવતું નથી:
 - Server Certificates વિઝાર્ડમાં જઈને એન્ટરપ્રાઇઝ CA (Certificate Authority) અથવા સેલ્ફ-સાઇન્ડ સર્ટિફિકેટ જનરેટ કરો.
 - Site Bindings માં જાઓ -> #hl-green[Add...] -> Type: #mark-yellow[https], Port: #hl-green[443], SSL certificate: `RTechLab-SSL-Cert` પસંદ કરીને 'OK' કરો.
 - હવે વેબસાઇટ #hl-green[`https://portal.corp.rtechlab.local`] પર 256-બીટ TLS એન્ક્રિપ્શન સાથે સંપૂર્ણપણે સુરક્ષિત ચાલશે.
@@ -77,7 +77,7 @@
   [
     #text(size: 8.5pt, weight: "bold", fill: rtech-navy)[RDS ના 5 મુખ્ય આર્કિટેક્ચરલ રોલ્સ (MNC Interview Goldmine):]\
     - #text(weight: "bold", fill: rtech-blue)[1. RD Web Access:] વેબ બ્રાઉઝર પોર્ટલ જેના દ્વારા કર્મચારીઓ પોતાના ઘરના કોઈપણ લેપટોપથી લોગિન કરીને કોર્પોરેટ RemoteApps અને ડેસ્કટોપ એક્સેસ કરી શકે છે.
-    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] બાહ્ય ઇન્ટરનેટ પરથી આવતા RDP ટ્રાફિકને #hl-orange[HTTPS (Port 443)] ની અંદર એન્કેપ્સ્યુલેટ કરે છે, જેથી VPN વગર પણ ફાયરવોલ પાર કરી શકાય છે.
+    - #text(weight: "bold", fill: rtech-rose)[2. RD Gateway:] બાહ્ય ઇન્ટરનેટ પરથી આવતા RDP ટ્રાફિકને #hl-orange[HTTPS (#hl-green[Port 443])] ની અંદર એન્કેપ્સ્યુલેટ કરે છે, જેથી VPN વગર પણ ફાયરવોલ પાર કરી શકાય છે.
     - #text(weight: "bold", fill: rtech-amber)[3. RD Connection Broker:] જ્યારે કર્મચારીનું ઇન્ટરનેટ કપાઈને ફરીથી જોડાય છે, ત્યારે તે વપરાશકર્તાને તેના જૂના સક્રિય સત્ર (Active Session) સાથે પુનઃજોડાણ કરાવે છે અને સર્વર્સ પર લોડ બેલેન્સ કરે છે.
     - #text(weight: "bold", fill: rtech-emerald)[4. RD Session Host (RDSH):] તે મુખ્ય શક્તિશાળી સર્વર જે એક સાથે 50 થી 100 વપરાશકર્તાઓના ડેસ્કટોપ સત્રો અને એપ્લિકેશન્સ ચલાવે છે.
     - #text(weight: "bold", fill: rtech-navy)[5. RD Licensing Server:] ક્લાયન્ટ એક્સેસ લાયસન્સ (CALs - Per-User અથવા Per-Device) ટ્રેક અને માન્ય કરે છે.

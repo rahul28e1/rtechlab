@@ -8,20 +8,20 @@
   chapter-num: "CHAPTER 05",
   category: "ભાગ 5 : ડિરેક્ટરી ઓબ્જેક્ટ્સ અને એક્સેસ કંટ્રોલ (Directory Objects & RBAC)",
   title: "ADUC કન્સોલ: OUs, ડોમેન યુઝર્સ અને સિક્યુરિટી ગ્રુપ્સનું મેનેજમેન્ટ",
-  subtitle: "ADUC (dsa.msc) · એન્ટરપ્રાઇઝ OU વંશવેલો · નવા ડોમેન યુઝર એકાઉન્ટ્સ · પાસવર્ડ અને લોકઆઉટ નીતિઓ · સિક્યુરિટી vs ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ · AGDLP · PowerShell બલ્ક"
+  subtitle: "ADUC (dsa.msc) · એન્ટરપ્રાઇઝ OU વંશવેલો · નવા ડોમેન યુઝર એકાઉન્ટ્સ · પાસવર્ડ અને લોકઆઉટ નીતિઓ · સિક્યુરિટી vs ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ · #hl-orange[AGDLP] · PowerShell બલ્ક"
 )
 
-=== 5.1 Active Directory Users and Computers (`dsa.msc`) ઇન્ટરફેસ
-ડોમેન કંટ્રોલર પ્રમોટ થયા પછી, એક્ટિવ ડિરેક્ટરીના તમામ ઓબ્જેક્ટ્સ (Users, Computers, Groups, OUs) ને સંચાલિત કરવા માટેનું પ્રાથમિક ગ્રાફિકલ એડમિનિસ્ટ્રેટિવ ટૂલ #hl-yellow[Active Directory Users and Computers (ADUC)] છે.
+=== 5.1 #hl-yellow[Active Directory Users and Computers] (`dsa.msc`) ઇન્ટરફેસ
+#hl-yellow[ડોમેન કંટ્રોલર] પ્રમોટ થયા પછી, #hl-yellow[એક્ટિવ ડિરેક્ટરી]ના તમામ ઓબ્જેક્ટ્સ (Users, Computers, Groups, OUs) ને સંચાલિત કરવા માટેનું પ્રાથમિક ગ્રાફિકલ એડમિનિસ્ટ્રેટિવ ટૂલ #hl-yellow[Active Directory Users and Computers (ADUC)] છે.
 
 *ADUC કન્સોલ ખોલવાની 2 ઝડપી રીતો:*
-1. Server Manager માં -> ઉપર જમણી બાજુએ #hl-green[Tools] મેનૂ -> #hl-yellow[Active Directory Users and Computers] પર ક્લિક કરો.
+1. #hl-yellow[Server Manager] માં -> ઉપર જમણી બાજુએ #hl-green[Tools] મેનૂ -> #hl-yellow[Active Directory Users and Computers] પર ક્લિક કરો.
 2. રન ડાયલોગ (`Win + R`) માં શોર્ટકટ કમાન્ડ ટાઇપ કરો: #mark-green[`dsa.msc`] અને Enter દબાવો.
 
 કન્સોલની ડાબી બાજુએ તમારું ડોમેન `#text(weight: "bold")[corp.rtechlab.local]` દેખાશે. તેની નીચે કેટલાક ડિફોલ્ટ કન્ટેનર્સ પહેલેથી બનેલા હોય છે:
 - #text(weight: "bold", fill: rtech-navy)[Builtin:] સિસ્ટમના ડિફોલ્ટ સુરક્ષા ગ્રુપ્સ (Administrators, Account Operators, Backup Operators વગેરે).
 - #text(weight: "bold", fill: rtech-navy)[Computers:] જ્યારે કોઈ સામાન્ય ક્લાયન્ટ કમ્પ્યુટર ડોમેન જોઈન કરે છે, ત્યારે તેનું ખાતું ડિફોલ્ટ રીતે આ જ ફોલ્ડરમાં બને છે.
-- #text(weight: "bold", fill: rtech-navy)[Domain Controllers:] આ ડોમેનના તમામ અધિકૃત ડોમેન કંટ્રોલર સર્વર્સનું સમર્પિત OU.
+- #text(weight: "bold", fill: rtech-navy)[Domain Controllers:] આ ડોમેનના તમામ અધિકૃત #hl-yellow[ડોમેન કંટ્રોલર] સર્વર્સનું સમર્પિત OU.
 - #text(weight: "bold", fill: rtech-navy)[Users:] ડિફોલ્ટ ડોમેન યુઝર્સ અને ગ્રુપ્સ (દા.ત. Administrator, Guest, Domain Admins, Domain Users).
 
 #warning-box(title: "ડિફોલ્ટ કન્ટેનર vs ઓર્ગેનાઇઝેશનલ યુનિટ (Critical Architectural Difference)")[
@@ -43,7 +43,7 @@
       #image("../02_BRAND_ASSETS/screenshots/ou_hierarchy_agdlp.png", width: 92%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 5.1: એન્ટરપ્રાઇઝ OU માળખું અને AGDLP રોલ-બેઝ્ડ એક્સેસ કંટ્રોલ (RBAC) નેસ્ટિંગ ફ્રેમવર્ક]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[આકૃતિ 5.1: એન્ટરપ્રાઇઝ OU માળખું અને #hl-orange[AGDLP] રોલ-બેઝ્ડ એક્સેસ કંટ્રોલ (RBAC) નેસ્ટિંગ ફ્રેમવર્ક]
 ]
 
 #v(4pt)
@@ -76,20 +76,20 @@
 #v(6pt)
 
 === 5.4 એકાઉન્ટ લોકઆઉટ અને ફાઇન-ગ્રેઇન્ડ પાસવર્ડ પોલિસી (Account Lockout & FGPP)
-બ્રુટ-ફોર્સ પાસવર્ડ ગેસિંગ એટેક્સ અટકાવવા માટે એક્ટિવ ડિરેક્ટરીમાં ઓટોમેટેડ એકાઉન્ટ લોકઆઉટ સુરક્ષા વ્યવસ્થા હોય છે:
+બ્રુટ-ફોર્સ પાસવર્ડ ગેસિંગ એટેક્સ અટકાવવા માટે #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં ઓટોમેટેડ એકાઉન્ટ લોકઆઉટ સુરક્ષા વ્યવસ્થા હોય છે:
 - જો કોઈ કર્મચારી કે અનધિકૃત વ્યક્તિ સતત 5 વખત ખોટો પાસવર્ડ દાખલ કરે (Account lockout threshold), તો તેનું એકાઉન્ટ 30 મિનિટ માટે આપોઆપ લોક થઈ જાય છે.
 - *એકાઉન્ટ અનલોક કરવાની રીત:* ADUC માં યુઝર પર રાઇટ-ક્લિક કરો -> #hl-yellow[Properties -> Account] ટેબ પર જાઓ. નીચે આપેલા ચેકબોક્સ #hl-green['Unlock account. This account is currently locked out on this Active Directory Domain Controller'] પર ટીક લગાવો અને 'Apply' કરો.
 
 #v(6pt)
 
 === 5.5 સિક્યુરિટી ગ્રુપ્સ vs ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ (Group Types)
-એક્ટિવ ડિરેક્ટરીમાં બે અલગ પ્રકારના ગ્રુપ્સ હોય છે:
+#hl-yellow[એક્ટિવ ડિરેક્ટરી]માં બે અલગ પ્રકારના ગ્રુપ્સ હોય છે:
 1. #text(weight: "bold", fill: rtech-navy)[સિક્યુરિટી ગ્રુપ્સ (Security Groups):] આ ગ્રુપ્સનો પ્રાથમિક હેતુ નેટવર્ક રિસોર્સિસ (શેર્ડ ફોલ્ડર્સ, પ્રિન્ટર્સ, શેરપોઇન્ટ) પર પરવાનગીઓ (Permissions) આપવાનો હોય છે. તેનો ઉપયોગ ઇમેઇલ ડિલિવરી માટે પણ થઈ શકે છે.
 2. #text(weight: "bold", fill: rtech-navy)[ડિસ્ટ્રિબ્યુશન ગ્રુપ્સ (Distribution Groups):] આ ગ્રુપ્સ માત્ર ઇમેઇલ લિસ્ટ્સ (Distribution Lists - Exchange Server/Outlook) બનાવવા માટે વપરાય છે. #hl-orange[ડિસ્ટ્રિબ્યુશન ગ્રુપ્સને ક્યારેય કોઈ ફાઇલ કે ફોલ્ડરની NTFS સુરક્ષા પરવાનગી આપી શકાતી નથી!]
 
 #v(6pt)
 
-=== 5.6 ગ્રુપ સ્કોપ્સ અને AGDLP બેસ્ટ પ્રેક્ટિસ (The AGDLP Standard)
+=== 5.6 ગ્રુપ સ્કોપ્સ અને #hl-orange[AGDLP] બેસ્ટ પ્રેક્ટિસ (The #hl-orange[AGDLP] Standard)
 માઇક્રોસોફ્ટ એન્ટરપ્રાઇઝમાં રોલ્સ અને પરમિશન્સ મેનેજ કરવા માટે #hl-yellow[AGDLP મોડેલ] નો ઉપયોગ કરવાની ભલામણ કરે છે:
 
 #block(
@@ -134,7 +134,7 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 // CHAPTER 05 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  એક્ટિવ ડિરેક્ટરીમાં એક ગુપ્ત સુરક્ષા પ્રક્રિયા હોય છે જેને #hl-yellow[AdminSDHolder] અને #hl-yellow[SDProp (Security Descriptor Propagator)] કહેવામાં આવે છે. દર 60 મિનિટે PDC Emulator ડોમેનના તમામ પ્રિવિલેજ્ડ ગ્રુપ્સ (Domain Admins, Enterprise Admins, Schema Admins) ના સભ્યોની સુરક્ષા પરમિશન્સને રીસેટ કરી દે છે અને ઇનહેરિટન્સ બ્લોક કરી દે છે જેથી કોઈ જુનિયર એડમિનિસ્ટ્રેટર ભૂલથી પણ મુખ્ય એડમિન એકાઉન્ટ્સના અધિકારો બદલી ન શકે!
+  #hl-yellow[એક્ટિવ ડિરેક્ટરી]માં એક ગુપ્ત સુરક્ષા પ્રક્રિયા હોય છે જેને #hl-yellow[AdminSDHolder] અને #hl-yellow[SDProp (Security Descriptor Propagator)] કહેવામાં આવે છે. દર 60 મિનિટે PDC Emulator ડોમેનના તમામ પ્રિવિલેજ્ડ ગ્રુપ્સ (Domain Admins, Enterprise Admins, Schema Admins) ના સભ્યોની સુરક્ષા પરમિશન્સને રીસેટ કરી દે છે અને ઇનહેરિટન્સ બ્લોક કરી દે છે જેથી કોઈ જુનિયર એડમિનિસ્ટ્રેટર ભૂલથી પણ મુખ્ય એડમિન એકાઉન્ટ્સના અધિકારો બદલી ન શકે!
 ]
 
 #v(6pt)
@@ -144,7 +144,7 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "1",
-  q: "Active Directory Users and Computers ગ્રાફિકલ કન્સોલને સીધું ખોલવા માટેનો સત્તાવાર રન કમાન્ડ કયો છે?",
+  q: "#hl-yellow[Active Directory Users and Computers] ગ્રાફિકલ કન્સોલને સીધું ખોલવા માટેનો સત્તાવાર રન કમાન્ડ કયો છે?",
   optA: "gpmc.msc",
   optB: "dsa.msc",
   optC: "dnsmgmt.msc",
@@ -170,13 +170,13 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "3",
-  q: "માઇક્રોસોફ્ટના ભલામણ કરેલ AGDLP એક્સેસ કંટ્રોલ મોડેલમાં 'DL' અક્ષરનો અર્થ શું છે?",
+  q: "માઇક્રોસોફ્ટના ભલામણ કરેલ #hl-orange[AGDLP] એક્સેસ કંટ્રોલ મોડેલમાં 'DL' અક્ષરનો અર્થ શું છે?",
   optA: "Distribution List",
   optB: "Domain Local Group",
   optC: "Dynamic Link",
   optD: "Data Lock",
   ans: "B",
-  exp: "AGDLP નું સંપૂર્ણ સ્વરૂપ છે: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
+  exp: "#hl-orange[AGDLP] નું સંપૂર્ણ સ્વરૂપ છે: Accounts -> Global Groups -> Domain Local Groups -> Permissions."
 )
 
 #v(3pt)
@@ -196,13 +196,13 @@ Import-Csv -Path "C:\HR_New_Employees.csv" | ForEach-Object {
 
 #mcq-item(
   num: "5",
-  q: "PowerShell માં એક્ટિવ ડિરેક્ટરી હેઠળ નવું યુઝર એકાઉન્ટ બનાવવા માટે કયા સત્તાવાર Cmdlet નો ઉપયોગ થાય છે?",
+  q: "PowerShell માં #hl-yellow[એક્ટિવ ડિરેક્ટરી] હેઠળ નવું યુઝર એકાઉન્ટ બનાવવા માટે કયા સત્તાવાર Cmdlet નો ઉપયોગ થાય છે?",
   optA: "Add-User",
   optB: "Create-ADAccount",
   optC: "New-ADUser",
   optD: "Set-DomainUser",
   ans: "C",
-  exp: "New-ADUser એક્ટિવ ડિરેક્ટરી મોડ્યુલનો સ્ટાન્ડર્ડ સત્તાવાર Cmdlet છે."
+  exp: "New-ADUser #hl-yellow[એક્ટિવ ડિરેક્ટરી] મોડ્યુલનો સ્ટાન્ડર્ડ સત્તાવાર Cmdlet છે."
 )
 
 #v(6pt)

@@ -8,7 +8,7 @@
   chapter-num: "CHAPTER 07",
   category: "Part 7: Enterprise Security & Group Policies (Group Policy Engine)",
   title: "Group Policy Objects (GPO): Enterprise Security & Desktop Control",
-  subtitle: "GPMC (gpmc.msc) · LSDOU Processing Hierarchy · Block Inheritance & Enforced · Lab 1: Password Policy · Lab 2: USB Lockdown GPO · Lab 3: Wallpaper Deployment · gpupdate /force"
+  subtitle: "GPMC (gpmc.msc) · #hl-orange[LSDOU] Processing Hierarchy · Block Inheritance & Enforced · Lab 1: Password Policy · Lab 2: USB Lockdown GPO · Lab 3: Wallpaper Deployment · gpupdate /force"
 )
 
 === 7.1 What is Group Policy?
@@ -33,12 +33,12 @@ If an enterprise employs 2,000 workers and corporate security regulations requir
 
 #v(2pt)
 
-=== 7.2 Group Policy Management Console (`gpmc.msc`)
+=== 7.2 #hl-yellow[Group Policy Management Console] (`gpmc.msc`)
 The primary administrative tool for managing Group Policy is the #hl-yellow[Group Policy Management Console (GPMC)].
 - Launch shortcut command: #mark-green[`gpmc.msc`].
 
 Upon expanding the domain node, two built-in GPOs exist by default:
-1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] Linked at the domain root level. Its primary mandate is establishing domain-wide password complexity, minimum length, account lockout, and Kerberos ticket policies.
+1. #text(weight: "bold", fill: rtech-navy)[Default Domain Policy:] Linked at the domain root level. Its primary mandate is establishing domain-wide password complexity, minimum length, account lockout, and #hl-orange[Kerberos] ticket policies.
 2. #text(weight: "bold", fill: rtech-navy)[Default Domain Controllers Policy:] Linked exclusively to the 'Domain Controllers' OU, defining user rights assignments and security auditing for all domain controller nodes.
 
 #v(1.5pt)
@@ -56,7 +56,7 @@ When a client computer boots or a user authenticates, Windows processes Group Po
       #image("../02_BRAND_ASSETS/screenshots/gpo_inheritance_lsdou.png", width: 58%)
     ]
   )
-  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 7.1: GPO Processing LSDOU Hierarchy — Local, Site, Domain, and Organizational Unit (The Golden Rule)]
+  #text(size: 7.2pt, fill: rtech-muted, style: "italic")[Figure 7.1: GPO Processing #hl-orange[LSDOU] Hierarchy — Local, Site, Domain, and Organizational Unit (The Golden Rule)]
 ]
 
 #v(2pt)
@@ -165,11 +165,11 @@ Generates an interactive graphical HTML report inspectable in any web browser, d
   num: "1",
   q: "What is the standard Microsoft order of precedence for Group Policy processing?",
   optA: "OU -> Domain -> Site -> Local",
-  optB: "Local -> Site -> Domain -> OU (LSDOU)",
+  optB: "Local -> Site -> Domain -> OU (#hl-orange[LSDOU])",
   optC: "Site -> Domain -> Local -> OU",
   optD: "Domain -> OU -> Local -> Site",
   ans: "B",
-  exp: "The standard order of precedence is LSDOU (Local, Site, Domain, OU); policies applied last override previous configurations."
+  exp: "The standard order of precedence is #hl-orange[LSDOU] (Local, Site, Domain, OU); policies applied last override previous configurations."
 )
 
 #v(1.5pt)
@@ -283,7 +283,7 @@ Generates an interactive graphical HTML report inspectable in any web browser, d
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 Chapter 07 Key Corporate Takeaways:]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - Group Policy (GPO) serves as the centralized configuration engine for enterprise fleet security, processed strictly via the LSDOU order of precedence.
+      - Group Policy (GPO) serves as the centralized configuration engine for enterprise fleet security, processed strictly via the #hl-orange[LSDOU] order of precedence.
       - Enforced GPOs override all Block Inheritance configurations, guaranteeing mandatory security baseline compliance across the enterprise.
       - `gpupdate /force` and `gpresult /r` (or `/h`) form the core daily troubleshooting toolkit for enterprise systems engineers.
     ]

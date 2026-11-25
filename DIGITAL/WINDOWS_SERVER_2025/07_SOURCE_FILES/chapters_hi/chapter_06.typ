@@ -97,10 +97,10 @@ nslookup corp.rtechlab.local
    - *कारण:* क्लाइंट के DNS में डोमेन कंट्रोलर का IP नहीं है (क्लाइंट सार्वजनिक Google DNS 8.8.8.8 या होम वाई-फाई रूटर से IP ले रहा है)।
    - *समाधान:* `ncpa.cpl` में जाकर Preferred DNS को `192.168.1.10` पर सेट करें।
 2. #text(weight: "bold", fill: rtech-rose)[एरर 2: 'The network path was not found (0x80070035)':]
-   - *कारण:* डोमेन कंट्रोलर पर Windows Firewall द्वारा SMB (Port 445) या RPC पोर्ट्स ब्लॉक हैं।
+   - *कारण:* डोमेन कंट्रोलर पर Windows Firewall द्वारा SMB (#hl-green[Port 445]) या RPC पोर्ट्स ब्लॉक हैं।
    - *समाधान:* DC पर 'File and Printer Sharing' फ़ायरवॉल नियम सक्षम करें।
 3. #text(weight: "bold", fill: rtech-rose)[एरर 3: 'There is a time and/or date difference between the client and server':]
-   - *कारण:* क्लाइंट और DC की घड़ी में 5 मिनट से अधिक का Kerberos टाइम ड्रिफ्ट (Clock Skew) है।
+   - *कारण:* क्लाइंट और DC की घड़ी में 5 मिनट से अधिक का #hl-orange[Kerberos] टाइम ड्रिफ्ट (Clock Skew) है।
    - *समाधान:* क्लाइंट की घड़ी और टाइम ज़ोन को DC से मैच करें या `w32tm /resync` चलाएं।
 4. #text(weight: "bold", fill: rtech-rose)[एरर 4: 'Access is denied':]
    - *कारण:* जॉइन करते समय डाले गए क्रेडेंशियल्स के पास कंप्यूटर जोड़ने का अधिकार नहीं है।
@@ -235,7 +235,7 @@ nslookup corp.rtechlab.local
 #interview-item(
   num: "4",
   q: "इंटरव्यूअर: 'Domain Join के दौरान नेटवर्क पर कौन-सा प्रोटोकॉल और पोर्ट उपयोग होता है?'",
-  a: "उत्तर: Domain Join के दौरान कई प्रोटोकॉल्स कार्य करते हैं: 1. DNS (Port 53) DC के SRV रिकॉर्ड्स खोजने के लिए, 2. Kerberos (Port 88) क्रेडेंशियल ऑथेंटिकेशन के लिए, 3. LDAP (Port 389) कंप्यूटर ऑब्जेक्ट बनाने के लिए, और 4. SMB (Port 445) व RPC (Port 135) पॉलिसी और डायरेक्टरी संचार के लिए।",
+  a: "उत्तर: Domain Join के दौरान कई प्रोटोकॉल्स कार्य करते हैं: 1. DNS (Port 53) DC के SRV रिकॉर्ड्स खोजने के लिए, 2. #hl-orange[Kerberos] (#hl-green[Port 88]) क्रेडेंशियल ऑथेंटिकेशन के लिए, 3. LDAP (#hl-green[Port 389]) कंप्यूटर ऑब्जेक्ट बनाने के लिए, और 4. SMB (#hl-green[Port 445]) व RPC (Port 135) पॉलिसी और डायरेक्टरी संचार के लिए।",
   tip: "नेटवर्किंग और सर्वर के क्रॉस-डोमेन ज्ञान को परखने वाला यह क्लासिक सवाल है।"
 )
 

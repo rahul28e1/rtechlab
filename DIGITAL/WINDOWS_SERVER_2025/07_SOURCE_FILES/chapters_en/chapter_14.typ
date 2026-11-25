@@ -43,7 +43,7 @@ When you step into an L1/L2 Systems Administrator or Windows Server Support Engi
       - P3 (Medium - 4 Hr SLA): Single user account locked out or GPO drive map failing on a client workstation.
       - P4 (Low - 24 Hr SLA): Routine user provisioning, mailbox assignment, or security distribution group changes.
     - #text(weight: "bold", fill: rtech-emerald)[Morning Health Check Checklist (Morning Health Run):]
-      - 9:00 AM: Review Server Manager dashboard across all nodes to confirm healthy green status flags.
+      - 9:00 AM: Review #hl-yellow[Server Manager] dashboard across all nodes to confirm healthy green status flags.
       - Inspect Event Viewer for critical errors across Directory Service, DNS Server, and System Logs (Errors 1085, 1129).
       - Verify overnight system state backup completion (`wbadmin` / Veeam) with zero error flags.
   ]
@@ -58,10 +58,10 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
    - *Model Answer:* "I will immediately open Event Viewer on the PDC Emulator Domain Controller and filter the Security Log for Event ID #hl-orange[4740] (A user account was locked out). In the event description, I will identify the 'Caller Computer Name'. In 90% of cases, this is not an external brute-force attack, but rather cached expired credentials on a mobile device or tablet (e.g., cached Exchange email or corporate Wi-Fi authentication) bombarding the DC with old passwords. Clearing cached credentials on the reported device resolves the lockout."
 
 2. #text(weight: "bold", fill: rtech-navy)[Scenario 2: "An employee transfers from HR to the Finance department. How do you immediately revoke HR access and grant Finance access?"]
-   - *Model Answer:* "We never modify folder ACLs directly. In ADUC, we simply remove the user account from the `GG_HR_Staff` global group and add them to `GG_Finance_Staff`. Because our directory is architected on the AGDLP role-based access control model, the user automatically inherits all Finance share permissions and loses all HR rights upon their next token refresh."
+   - *Model Answer:* "We never modify folder ACLs directly. In ADUC, we simply remove the user account from the `GG_HR_Staff` global group and add them to `GG_Finance_Staff`. Because our directory is architected on the #hl-orange[AGDLP] role-based access control model, the user automatically inherits all Finance share permissions and loses all HR rights upon their next token refresh."
 
 3. #text(weight: "bold", fill: rtech-navy)[Scenario 3: "The internal DNS server is running, and local intranet domains resolve, but external websites (e.g., google.com) fail to load for all clients."]
-   - *Model Answer:* "This indicates that the internal Forward Lookup Zone is healthy, but the DNS server's configured upstream #hl-yellow[DNS Forwarders] (such as 1.1.1.1, 8.8.8.8, or ISP resolvers) are failing, or the perimeter firewall is blocking outbound UDP/TCP Port 53 from the DNS server. In DNS Manager, I will navigate to Server Properties -> Forwarders tab and validate connectivity."
+   - *Model Answer:* "This indicates that the internal #hl-yellow[Forward Lookup Zone] is healthy, but the DNS server's configured upstream #hl-yellow[DNS Forwarders] (such as 1.1.1.1, 8.8.8.8, or ISP resolvers) are failing, or the perimeter firewall is blocking outbound UDP/#hl-green[TCP Port 53] from the DNS server. In DNS Manager, I will navigate to Server Properties -> Forwarders tab and validate connectivity."
 
 #v(1.5pt)
 
@@ -70,7 +70,7 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
    - Avoid generic phrases like 'Knowledge of Windows Server'. Instead, showcase concrete engineering accomplishments:
      #box(fill: rgb("#F1F5F9"), radius: 3pt, inset: 4pt)[
        #text(size: 7.8pt, font: ("Consolas", "Courier New"))[
-         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented AGDLP RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
+         "Architected 2-Node Windows Server 2025 Lab: Deployed Forest corp.rtechlab.local, implemented #hl-orange[AGDLP] RBAC, hardened endpoints via GPO (USB Block, Password Policy), configured DHCP 80/20 failover, and executed AD Recycle Bin instant recoveries."
        ]
      ]
 2. #text(weight: "bold", fill: rtech-navy)[Industry Salary Benchmark (CTC Expectations):]
@@ -171,8 +171,8 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
 
 #interview-item(
   num: "2",
-  q: "Interviewer: 'What is the default Kerberos Ticket Granting Ticket (TGT) lifetime, and how is it managed?'",
-  a: "Answer: By default, a Kerberos TGT is valid for 10 hours and can be renewed for up to 7 days without requiring the user to re-enter their credentials. This policy is configured centrally in the Default Domain Policy under Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Kerberos Policy.",
+  q: "Interviewer: 'What is the default #hl-orange[Kerberos] Ticket Granting Ticket (TGT) lifetime, and how is it managed?'",
+  a: "Answer: By default, a #hl-orange[Kerberos] TGT is valid for 10 hours and can be renewed for up to 7 days without requiring the user to re-enter their credentials. This policy is configured centrally in the Default Domain Policy under Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> #hl-orange[Kerberos] Policy.",
   tip: "A high-level question testing deep Active Directory authentication architecture."
 )
 
@@ -199,7 +199,7 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
 #interview-item(
   num: "5",
   q: "Interviewer: 'Why should we hire you as a Systems Administrator for our enterprise infrastructure?'",
-  a: "Answer: Because my skills are grounded not merely in textbook theory, but in extensive, hands-on enterprise lab implementation of Windows Server 2025. I understand the nuances of Active Directory, GPO security hardening, DNS/DHCP failover, FSRM quota management, and Azure Arc hybrid integration. I automate repetitive tasks using PowerShell and am fully committed to delivering rapid, ITIL-compliant resolutions for enterprise incidents.",
+  a: "Answer: Because my skills are grounded not merely in textbook theory, but in extensive, hands-on enterprise lab implementation of Windows Server 2025. I understand the nuances of Active Directory, GPO security hardening, DNS/DHCP failover, #hl-orange[FSRM] quota management, and #hl-green[Azure Arc] hybrid integration. I automate repetitive tasks using PowerShell and am fully committed to delivering rapid, ITIL-compliant resolutions for enterprise incidents.",
   tip: "A confident, value-focused closing pitch that sets you apart from typical entry-level candidates."
 )
 
@@ -282,7 +282,7 @@ Enterprise interviewers rarely ask for dry definitions; they test your real-worl
 #v(10pt)
 
 #info-box(title: "5 Unique Hallmarks of the RTechLab Master Handbook (Why This Book Guarantees Success)")[
-  - #text(weight: "bold")[1. 100% Authentic 2025 Screenshots:] Real-world Server Manager, Active Directory, GPO, and DNS architectural topology.
+  - #text(weight: "bold")[1. 100% Authentic 2025 Screenshots:] Real-world #hl-yellow[Server Manager], Active Directory, GPO, and DNS architectural topology.
   - #text(weight: "bold")[2. 3-Color Visual Highlighter Engine:] #hl-yellow[Yellow (Core Concepts)], #hl-orange[Orange (Security Rules & Caveats)], and #hl-green[Green (Actionable Commands & Steps)].
   - #text(weight: "bold")[3. 1-Click Interactive Navigation:] Tap any chapter in the Table of Contents to navigate directly to that page, and jump back in 1 tap from running headers.
   - #text(weight: "bold")[4. End-of-Chapter 'Did You Know' & MCQs:] Comprehensive preparation for university exams, vendor certifications, and enterprise corporate screenings.

@@ -11,8 +11,8 @@
   subtitle: "DNS નું એન્ટરપ્રાઇઝ મહત્વ · AD-ઇન્ટિગ્રેટેડ ઝોન · ફોરવર્ડ vs રિવર્સ લુકઅપ · A, PTR, CNAME, MX અને SRV રેકોર્ડ્સ · રૂટ હિન્ટ્સ vs ફોરવર્ડર્સ · DNS સ્કેવેન્જિંગ"
 )
 
-=== 9.1 DNS નું એન્ટરપ્રાઇઝ મહત્વ અને એક્ટિવ ડિરેક્ટરી સાથે અતૂટ સંબંધ
-જો એક્ટિવ ડિરેક્ટરી (Active Directory) કોર્પોરેટ નેટવર્કનું *મગજ (Brain)* છે, તો DNS સર્વર તેનું *હૃદય (Heart)* છે. સમગ્ર વિન્ડોઝ ડોમેન એન્વાયરન્મેન્ટમાં કોઈપણ સેવા (Login, Kerberos, File Sharing, GPO) DNS વગર 1 સેકન્ડ પણ કાર્ય કરી શકતી નથી.
+=== 9.1 DNS નું એન્ટરપ્રાઇઝ મહત્વ અને #hl-yellow[એક્ટિવ ડિરેક્ટરી] સાથે અતૂટ સંબંધ
+જો #hl-yellow[એક્ટિવ ડિરેક્ટરી] (Active Directory) કોર્પોરેટ નેટવર્કનું *મગજ (Brain)* છે, તો DNS સર્વર તેનું *હૃદય (Heart)* છે. સમગ્ર વિન્ડોઝ ડોમેન એન્વાયરન્મેન્ટમાં કોઈપણ સેવા (Login, #hl-orange[Kerberos], File Sharing, GPO) DNS વગર 1 સેકન્ડ પણ કાર્ય કરી શકતી નથી.
 
 #mark-yellow[ડોમેન નેમ સિસ્ટમ (DNS) એ એક શ્રેણીબદ્ધ અને વિતરિત ડેટાબેઝ સેવા (Hierarchical Distributed Database) છે જે મનુષ્ય દ્વારા વાંચી શકાય તેવા કમ્પ્યુટર નામોને (દા.ત. `portal.corp.rtechlab.local`) નેટવર્ક સમજી શકે તેવા IP સરનામાઓમાં (`192.168.1.50`) અનુવાદિત (Resolve) કરે છે.]
 
@@ -25,8 +25,8 @@
     ]
   ],
   [
-    #warning-box(title: "SRV રેકોર્ડ્સ: એક્ટિવ ડિરેક્ટરીનો જીવન આધાર")[
-      જ્યારે કોઈ ક્લાયન્ટ ડોમેન જોઇન અથવા લોગિન કરે છે, ત્યારે તે ડોમેન કંટ્રોલરનું નામ જાણતો નથી. તે DNS પાસેથી વિશિષ્ટ #hl-orange[SRV રેકોર્ડ્સ] માંગે છે (`_ldap._tcp.dc._msdcs`). જો DNS માં આ રેકોર્ડ્સ ન હોય, તો ડોમેન પ્રમાણીકરણ સંપૂર્ણપણે ઠપ થઈ જાય છે!
+    #warning-box(title: "SRV રેકોર્ડ્સ: #hl-yellow[એક્ટિવ ડિરેક્ટરી]નો જીવન આધાર")[
+      જ્યારે કોઈ ક્લાયન્ટ ડોમેન જોઇન અથવા લોગિન કરે છે, ત્યારે તે #hl-yellow[ડોમેન કંટ્રોલર]નું નામ જાણતો નથી. તે DNS પાસેથી વિશિષ્ટ #hl-orange[SRV રેકોર્ડ્સ] માંગે છે (`_ldap._tcp.dc._msdcs`). જો DNS માં આ રેકોર્ડ્સ ન હોય, તો ડોમેન પ્રમાણીકરણ સંપૂર્ણપણે ઠપ થઈ જાય છે!
     ]
   ]
 )
@@ -51,10 +51,10 @@ DNS માં ઝોન એ એવા વહીવટી ભાગને (Databa
 
 #v(4pt)
 
-1. #text(weight: "bold", fill: rtech-blue)[Active Directory-Integrated Zone (શ્રેષ્ઠ એન્ટરપ્રાઇઝ વિકલ્પ):] આ ઝોન અલગ ફાઇલમાં સંગ્રહિત થવાને બદલે સીધો એક્ટિવ ડિરેક્ટરી ડેટાબેઝ (`ntds.dit`) માં સ્ટોર થાય છે. તેના 3 અજોડ ફાયદા છે:
+1. #text(weight: "bold", fill: rtech-blue)[Active Directory-Integrated Zone (શ્રેષ્ઠ એન્ટરપ્રાઇઝ વિકલ્પ):] આ ઝોન અલગ ફાઇલમાં સંગ્રહિત થવાને બદલે સીધો #hl-yellow[એક્ટિવ ડિરેક્ટરી] ડેટાબેઝ (`ntds.dit`) માં સ્ટોર થાય છે. તેના 3 અજોડ ફાયદા છે:
    - #hl-green[મલ્ટી-માસ્ટર રેપ્લિકેશન (Multi-Master Replication):] કોઈપણ DC પર રેકોર્ડ બદલો, તે આપમેળે તમામ DCs પર સિંક થઈ જાય છે.
    - #hl-green[સિક્યોર ડાયનામિક અપડેટ્સ (Secure Dynamic Updates):] માત્ર ડોમેનના અધિકૃત કમ્પ્યુટર્સ જ પોતાનો IP રેકોર્ડ રજીસ્ટર કરી શકે છે (હેકર્સ કે અજાણ્યા ઉપકરણો નહીં).
-   - #hl-green[એનક્રિપ્ટેડ રેપ્લિકેશન (Encrypted Replication):] સમગ્ર DNS ડેટા Kerberos દ્વારા એનક્રિપ્ટ થઈને ટ્રાન્સફર થાય છે.
+   - #hl-green[એનક્રિપ્ટેડ રેપ્લિકેશન (Encrypted Replication):] સમગ્ર DNS ડેટા #hl-orange[Kerberos] દ્વારા એનક્રિપ્ટ થઈને ટ્રાન્સફર થાય છે.
 2. #text(weight: "bold", fill: rtech-navy)[Standard Primary Zone:] આ એક પરંપરાગત ટેક્સ્ટ ફાઇલ (`zone.dns`) માં સંગ્રહિત થાય છે. તેમાં માત્ર પ્રાઇમરી સર્વર જ રેકોર્ડ્સ લખી શકે છે (Single Master).
 3. #text(weight: "bold", fill: rtech-navy)[Standard Secondary Zone:] પ્રાઇમરી ઝોનની માત્ર રીડ-ઓન્લી (Read-Only) નકલ. બેકઅપ અને લોડ ડિસ્ટ્રિબ્યુશન માટે ઉપયોગી.
 4. #text(weight: "bold", fill: rtech-muted)[Stub Zone:] તેમાં માત્ર NS (Name Server), SOA (Start of Authority) અને ગ્લૂ A રેકોર્ડ્સ હોય છે જેથી અન્ય ડોમેનના અધિકૃત સર્વર્સને ઝડપથી શોધી શકાય.
@@ -62,9 +62,9 @@ DNS માં ઝોન એ એવા વહીવટી ભાગને (Databa
 #v(6pt)
 
 === 9.3 ફોરવર્ડ લુકઅપ ઝોન વિરુદ્ધ રિવર્સ લુકઅપ ઝોન (Forward vs Reverse Lookup)
-- #text(weight: "bold", fill: rtech-navy)[ફોરવર્ડ લુકઅપ ઝોન (Forward Lookup Zone):] કમ્પ્યુટર નામને IP એડ્રેસમાં ફેરવે છે (Name -> IP). જ્યારે તમે બ્રાઉઝરમાં `srv-2025-dc01.corp.rtechlab.local` ટાઇપ કરો છો, ત્યારે ફોરવર્ડ ઝોન `192.168.1.10` પરત કરે છે.
-- #text(weight: "bold", fill: rtech-navy)[રિવર્સ લુકઅપ ઝોન (Reverse Lookup Zone):] IP એડ્રેસને કમ્પ્યુટર નામામાં ફેરવે છે (IP -> Name). તે વિશિષ્ટ ઇન-એડ્રેસ આર્પા ડોમેનનો ઉપયોગ કરે છે (દા.ત. `1.168.192.in-addr.arpa`).
-  - *રિવર્સ ઝોન શા માટે અનિવાર્ય છે?* Kerberos પ્રમાણીકરણમાં SPN માન્યતા (Validation), મેઇલ સર્વર્સમાં સ્પામ બ્લોકિંગથી બચવું, અને કમાન્ડ પ્રોમ્પ્ટમાં `nslookup 192.168.1.10` ચલાવીને હોસ્ટનું સાચું FQDN નામ જાણવા માટે.
+- #text(weight: "bold", fill: rtech-navy)[ફોરવર્ડ લુકઅપ ઝોન (#hl-yellow[Forward Lookup Zone]):] કમ્પ્યુટર નામને IP એડ્રેસમાં ફેરવે છે (Name -> IP). જ્યારે તમે બ્રાઉઝરમાં `srv-2025-dc01.corp.rtechlab.local` ટાઇપ કરો છો, ત્યારે ફોરવર્ડ ઝોન `192.168.1.10` પરત કરે છે.
+- #text(weight: "bold", fill: rtech-navy)[રિવર્સ લુકઅપ ઝોન (#hl-yellow[Reverse Lookup Zone]):] IP એડ્રેસને કમ્પ્યુટર નામામાં ફેરવે છે (IP -> Name). તે વિશિષ્ટ ઇન-એડ્રેસ આર્પા ડોમેનનો ઉપયોગ કરે છે (દા.ત. `1.168.192.in-addr.arpa`).
+  - *રિવર્સ ઝોન શા માટે અનિવાર્ય છે?* #hl-orange[Kerberos] પ્રમાણીકરણમાં SPN માન્યતા (Validation), મેઇલ સર્વર્સમાં સ્પામ બ્લોકિંગથી બચવું, અને કમાન્ડ પ્રોમ્પ્ટમાં `nslookup 192.168.1.10` ચલાવીને હોસ્ટનું સાચું FQDN નામ જાણવા માટે.
 
 #v(6pt)
 
@@ -75,7 +75,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 2. #text(weight: "bold", fill: rtech-emerald)[Pointer (PTR રેકોર્ડ):] રિવર્સ લુકઅપ ઝોનમાં IP ને Hostname સાથે મેપ કરે છે. દા.ત. `10` -> `srv-dc01.corp.rtechlab.local`.
 3. #text(weight: "bold", fill: rtech-amber)[Alias (CNAME - Canonical Name):] એક કમ્પ્યુટર માટે વૈકલ્પિક ઉપનામ (Alias) બનાવે છે. દા.ત. કર્મચારીઓ `portal.corp.rtechlab.local` ખોલે તો તે CNAME દ્વારા બેકએન્ડ સર્વર `srv-2025-web01.corp.rtechlab.local` પર રીડાયરેક્ટ થઈ જાય.
 4. #text(weight: "bold", fill: rtech-navy)[Mail Exchanger (MX રેકોર્ડ):] ડોમેનના ઇમેઇલ સર્વર્સ (Microsoft Exchange) નો IP અને તેમની પ્રાથમિકતા (Priority/Preference નંબર) દર્શાવે છે.
-5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV રેકોર્ડ):] સમગ્ર એક્ટિવ ડિરેક્ટરીની કરોડરજ્જુ. તે જણાવે છે કે LDAP, Kerberos, અને Global Catalog જેવી સેવાઓ કયા પોર્ટ અને કયા સર્વર પર ચાલી રહી છે (દા.ત. `_ldap._tcp.dc._msdcs.corp.rtechlab.local` Port 389).
+5. #text(weight: "bold", fill: rtech-rose)[Service Location (SRV રેકોર્ડ):] સમગ્ર #hl-yellow[એક્ટિવ ડિરેક્ટરી]ની કરોડરજ્જુ. તે જણાવે છે કે LDAP, #hl-orange[Kerberos], અને Global Catalog જેવી સેવાઓ કયા પોર્ટ અને કયા સર્વર પર ચાલી રહી છે (દા.ત. `_ldap._tcp.dc._msdcs.corp.rtechlab.local` #hl-green[Port 389]).
 
 #v(6pt)
 
@@ -103,7 +103,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 // CHAPTER 09 ENDING PEDAGOGY: DID YOU KNOW, MCQS & INTERVIEW VAULT
 // =============================================================================
 #did-you-know[
-  Windows Server 2025 માં DNS માં નેટિવ #hl-yellow[DoH (DNS over HTTPS)] સપોર્ટ ઉમેરવામાં આવ્યો છે. આનો અર્થ એ છે કે સર્વરથી બહાર ઇન્ટરનેટ પર જતી તમામ DNS ક્વેરીઝ હવે સાદા ટેક્સ્ટ (Cleartext UDP 53) માં જવાને બદલે #hl-green[HTTPS (Port 443)] દ્વારા સંપૂર્ણપણે એનક્રિપ્ટ થઈને જાય છે, જેથી ISP અથવા સાયબર અટેકર્સ ક્યારેય જોઈ શકતા નથી કે કંપનીની અંદરના કર્મચારીઓ કયા ડોમેન્સ એક્સેસ કરી રહ્યા છે!
+  Windows Server 2025 માં DNS માં નેટિવ #hl-yellow[DoH (DNS over HTTPS)] સપોર્ટ ઉમેરવામાં આવ્યો છે. આનો અર્થ એ છે કે સર્વરથી બહાર ઇન્ટરનેટ પર જતી તમામ DNS ક્વેરીઝ હવે સાદા ટેક્સ્ટ (Cleartext UDP 53) માં જવાને બદલે #hl-green[HTTPS (#hl-green[Port 443])] દ્વારા સંપૂર્ણપણે એનક્રિપ્ટ થઈને જાય છે, જેથી ISP અથવા સાયબર અટેકર્સ ક્યારેય જોઈ શકતા નથી કે કંપનીની અંદરના કર્મચારીઓ કયા ડોમેન્સ એક્સેસ કરી રહ્યા છે!
 ]
 
 #v(6pt)
@@ -113,7 +113,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 
 #mcq-item(
   num: "1",
-  q: "એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ DNS ઝોન (AD-Integrated Zone) નો ડેટાબેઝ કઈ ફાઇલમાં સ્ટોર થાય છે?",
+  q: "#hl-yellow[એક્ટિવ ડિરેક્ટરી]-ઇન્ટિગ્રેટેડ DNS ઝોન (AD-Integrated Zone) નો ડેટાબેઝ કઈ ફાઇલમાં સ્ટોર થાય છે?",
   optA: "system32\dns\zone.dns ફાઇલમાં",
   optB: "એક્ટિવ ડિરેક્ટરી ડેટાબેઝ ntds.dit ની અંદર",
   optC: "Windows Registry માં",
@@ -139,13 +139,13 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 
 #mcq-item(
   num: "3",
-  q: "એક્ટિવ ડિરેક્ટરી ડોમેન કંટ્રોલર, Kerberos અને LDAP સેવાઓ શોધવા માટે કયા વિશિષ્ટ DNS રેકોર્ડનો ઉપયોગ થાય છે?",
+  q: "એક્ટિવ ડિરેક્ટરી #hl-yellow[ડોમેન કંટ્રોલર], #hl-orange[Kerberos] અને LDAP સેવાઓ શોધવા માટે કયા વિશિષ્ટ DNS રેકોર્ડનો ઉપયોગ થાય છે?",
   optA: "TXT Record",
   optB: "SRV (Service Location) Record",
   optC: "SOA Record",
   optD: "NS Record",
   ans: "B",
-  exp: "SRV રેકોર્ડ્સ (_ldap._tcp.dc._msdcs) દ્વારા જ ક્લાયન્ટ્સ ડોમેન કંટ્રોલરના પોર્ટ અને IP સરનામાઓ શોધી શકે છે."
+  exp: "SRV રેકોર્ડ્સ (_ldap._tcp.dc._msdcs) દ્વારા જ ક્લાયન્ટ્સ #hl-yellow[ડોમેન કંટ્રોલર]ના પોર્ટ અને IP સરનામાઓ શોધી શકે છે."
 )
 
 #v(3pt)
@@ -167,7 +167,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
   num: "5",
   q: "DNS ડેટાબેઝમાંથી જૂના અને બિનઉપયોગી (Stale) ડાયનામિક રેકોર્ડ્સ આપમેળે દૂર કરવાની પ્રક્રિયાને શું કહેવાય છે?",
   optA: "Zone Transfer",
-  optB: "Aging and Scavenging",
+  optB: "#hl-yellow[Aging and Scavenging]",
   optC: "DNS Forwarding",
   optD: "Dynamic Registration",
   ans: "B",
@@ -182,7 +182,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 #interview-item(
   num: "1",
   q: "ઇન્ટરવ્યુઅર: 'સુરક્ષા અને રેપ્લિકેશનની દ્રષ્ટિએ એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ ઝોન અને સ્ટાન્ડર્ડ પ્રાઇમરી ઝોન વચ્ચે મુખ્ય તફાવત શું છે?'",
-  a: "જવાબ: સ્ટાન્ડર્ડ પ્રાઇમરી ઝોન સિંગલ-માસ્ટર મોડેલ પર કાર્ય કરે છે જ્યાં માત્ર પ્રાઇમરી સર્વર પર જ રેકોર્ડ્સ લખી શકાય છે અને સેકન્ડરી સર્વર્સ પર થતું ઝોન ટ્રાન્સફર અન-એનક્રિપ્ટેડ હોય છે. આનાથી વિપરીત, AD-Integrated ઝોનમાં મલ્ટી-માસ્ટર રેપ્લિકેશન હોય છે (કોઈપણ DC પર રેકોર્ડ લખી શકાય છે), ડેટા Kerberos દ્વારા એનક્રિપ્ટ થઈને AD રેપ્લિકેશન સાથે વહન પામે છે, અને તે 'Secure Dynamic Updates' ને સપોર્ટ કરે છે જેથી બિન-ડોમેન મશીનો નકલી રેકોર્ડ્સ બનાવી શકતા નથી.",
+  a: "જવાબ: સ્ટાન્ડર્ડ પ્રાઇમરી ઝોન સિંગલ-માસ્ટર મોડેલ પર કાર્ય કરે છે જ્યાં માત્ર પ્રાઇમરી સર્વર પર જ રેકોર્ડ્સ લખી શકાય છે અને સેકન્ડરી સર્વર્સ પર થતું ઝોન ટ્રાન્સફર અન-એનક્રિપ્ટેડ હોય છે. આનાથી વિપરીત, AD-Integrated ઝોનમાં મલ્ટી-માસ્ટર રેપ્લિકેશન હોય છે (કોઈપણ DC પર રેકોર્ડ લખી શકાય છે), ડેટા #hl-orange[Kerberos] દ્વારા એનક્રિપ્ટ થઈને AD રેપ્લિકેશન સાથે વહન પામે છે, અને તે 'Secure Dynamic Updates' ને સપોર્ટ કરે છે જેથી બિન-ડોમેન મશીનો નકલી રેકોર્ડ્સ બનાવી શકતા નથી.",
   tip: "Wipro, Infosys અને TCS ના L2 SysAdmin ઇન્ટરવ્યુમાં આ સૌથી મહત્વપૂર્ણ તુલનાત્મક પ્રશ્ન છે."
 )
 
@@ -200,7 +200,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 #interview-item(
   num: "3",
   q: "ઇન્ટરવ્યુઅર: 'ક્લાયન્ટ મશીન પર 'nslookup' ચલાવતી વખતે 'Default Server: Unknown' અને IP એડ્રેસ 192.168.1.10 દેખાય છે. આને કેવી રીતે ઠીક કરશો?'",
-  a: "જવાબ: 'Default Server: Unknown' આવવાનો અર્થ એ છે કે DNS સર્વર પાસે પોતાના જ IP (192.168.1.10) માટે 'Reverse Lookup Zone' માં PTR રેકોર્ડ ઉપલબ્ધ નથી. આને સુધારવા માટે DNS કન્સોલમાં 192.168.1.x સબનેટ માટે Reverse Lookup Zone બનાવીશું અને DC નો PTR રેકોર્ડ ઉમેરીશું. ત્યાર બાદ nslookup ચલાવતાં જ તે સર્વરનું સત્તાવાર FQDN નામ પ્રદર્શિત કરશે.",
+  a: "જવાબ: 'Default Server: Unknown' આવવાનો અર્થ એ છે કે DNS સર્વર પાસે પોતાના જ IP (192.168.1.10) માટે '#hl-yellow[Reverse Lookup Zone]' માં PTR રેકોર્ડ ઉપલબ્ધ નથી. આને સુધારવા માટે DNS કન્સોલમાં 192.168.1.x સબનેટ માટે #hl-yellow[Reverse Lookup Zone] બનાવીશું અને DC નો PTR રેકોર્ડ ઉમેરીશું. ત્યાર બાદ nslookup ચલાવતાં જ તે સર્વરનું સત્તાવાર FQDN નામ પ્રદર્શિત કરશે.",
   tip: "L1/L2 હેલ્પડેસ્ક અને સિસ્ટમ એડમિન ટ્રબલશૂટિંગનો આ ક્લાસિક ઇન્ટરવ્યુ પ્રશ્ન છે."
 )
 
@@ -209,7 +209,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
 #interview-item(
   num: "4",
   q: "ઇન્ટરવ્યુઅર: 'DNS Cache Poisoning શું છે અને તેનાથી કેવી રીતે બચી શકાય?'",
-  a: "જવાબ: જ્યારે કોઈ સાયબર હુમલાખોર (Attacker) નકલી DNS રિસ્પોન્સ ઇન્જેક્ટ કરીને DNS સર્વરના કેશમાં કોઈ લોકપ્રિય ડોમેનને (દા.ત. bank.com) પોતાના દૂષિત IP સાથે મેપ કરાવી દે છે, ત્યારે તેને Cache Poisoning કહેવામાં આવે છે. આ હુમલાથી બચવા માટે વિન્ડોઝ સર્વરમાં DNSSEC (DNS Security Extensions), Socket Pools અને Cache Locking સક્ષમ કરવામાં આવે છે.",
+  a: "જવાબ: જ્યારે કોઈ સાયબર હુમલાખોર (Attacker) નકલી DNS રિસ્પોન્સ ઇન્જેક્ટ કરીને DNS સર્વરના કેશમાં કોઈ લોકપ્રિય ડોમેનને (દા.ત. bank.com) પોતાના દૂષિત IP સાથે મેપ કરાવી દે છે, ત્યારે તેને Cache Poisoning કહેવામાં આવે છે. આ હુમલાથી બચવા માટે વિન્ડોઝ સર્વરમાં #hl-green[DNSSEC] (DNS Security Extensions), Socket Pools અને Cache Locking સક્ષમ કરવામાં આવે છે.",
   tip: "સાયબર સિક્યોરિટી અને ઇન્ફ્રાસ્ટ્રક્ચર ઓડિટ્સનો આ પસંદગીનો પ્રશ્ન છે."
 )
 
@@ -253,8 +253,8 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[✅ પ્રકરણ 09 ચકાસણી ચેકલિસ્ટ (DNS Architecture Checklist):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - [ ] Forward Lookup Zone `corp.rtechlab.local` એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ છે.
-      - [ ] Reverse Lookup Zone `1.168.192.in-addr.arpa` માં DC નો PTR રેકોર્ડ ઉપલબ્ધ છે.
+      - [ ] #hl-yellow[Forward Lookup Zone] `corp.rtechlab.local` એક્ટિવ ડિરેક્ટરી-ઇન્ટિગ્રેટેડ છે.
+      - [ ] #hl-yellow[Reverse Lookup Zone] `1.168.192.in-addr.arpa` માં DC નો PTR રેકોર્ડ ઉપલબ્ધ છે.
       - [ ] બાહ્ય ઇન્ટરનેટ રિઝોલ્યુશન માટે Forwarders માં `1.1.1.1` અને `8.8.8.8` કન્ફિગર થયેલ છે.
     ]
   ]
@@ -271,7 +271,7 @@ DNS કન્સોલ (`dnsmgmt.msc`) માં 5 સૌથી મહત્વ�
   [
     #text(size: 8pt, weight: "bold", fill: rtech-blue)[💡 પ્રકરણ 09 મુખ્ય કોર્પોરેટ તારણો (Corporate Takeaways):]\
     #text(size: 7.5pt, fill: rtech-text)[
-      - DNS એક્ટિવ ડિરેક્ટરીનો જીવન આધાર છે; SRV રેકોર્ડ્સ ડોમેન કંટ્રોલર અને Kerberos ની ઓળખ કરાવે છે.
+      - DNS એક્ટિવ ડિરેક્ટરીનો જીવન આધાર છે; SRV રેકોર્ડ્સ #hl-yellow[ડોમેન કંટ્રોલર] અને Kerberos ની ઓળખ કરાવે છે.
       - પ્રોડક્શનમાં હંમેશાં AD-Integrated ઝોન અને 1.1.1.1 / 8.8.8.8 પર આધારિત DNS Forwarders નો ઉપયોગ કરો.
       - જૂના (Stale) રેકોર્ડ્સ દૂર કરવા માટે ઝોન અને સર્વર બંને સ્તરે Aging & Scavenging સક્ષમ કરવું ફરજિયાત છે.
     ]
