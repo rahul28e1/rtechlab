@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { AboutSection } from '../../src/components/AboutSection';
 import { ArrowUpRight, Award, CheckCircle2, Globe2, Sparkles, Terminal, Users, GraduationCap, Video } from 'lucide-react';
 
@@ -18,30 +18,48 @@ const InstagramIcon = ({ className = "w-4 h-4" }) => (
 );
 
 export function AboutPage() {
+  const location = useLocation();
+  const isHindi = location.pathname.startsWith('/hi');
+
   return (
     <div>
       <div className="mx-auto max-w-6xl px-6 pt-12 sm:pt-16">
         <nav className="mb-6 flex items-center gap-1.5 text-[11px] text-slate-500">
-          <Link to="/" className="hover:text-white">Home</Link>
+          <Link to={isHindi ? "/hi" : "/"} className="hover:text-white">
+            {isHindi ? "होम" : "Home"}
+          </Link>
           <span>/</span>
-          <span className="text-slate-300">About</span>
+          <span className="text-slate-300">
+            {isHindi ? "हमारे बारे में" : "About"}
+          </span>
         </nav>
-        <p className="text-[13px] font-medium text-[#86868b]">About RTechLab</p>
+        <p className="text-[13px] font-medium text-[#86868b]">
+          {isHindi ? "RTechLab के बारे में" : "About RTechLab"}
+        </p>
         <h1 className="mt-3 text-[34px] font-semibold leading-[1.07] tracking-[-0.04em] text-white sm:text-[44px] md:text-[52px]">
-          Technology Made Practical.
+          {isHindi ? "प्रौद्योगिकी व्यावहारिक रूप में।" : "Technology Made Practical."}
         </h1>
         <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[#a1a1a6] sm:text-[17px]">
-          RTechLab is an open-access education platform for networking, cloud, security and IT students. We publish CCNA and
-          fundamentals lessons, free browser-based tools, interactive simulators and digital publishing suites in English and Hindi.
+          {isHindi
+            ? "RTechLab नेटवर्किंग, क्लाउड, सुरक्षा और IT छात्रों के लिए एक खुला शिक्षण मंच है। हम CCNA और बुनियादी कंप्यूटर पाठ, निःशुल्क ब्राउज़र-आधारित टूल्स, इंटरैक्टिव सिमुलेटर और डिजिटल पब्लिशिंग सुइट्स हिंदी और अंग्रेजी दोनों में उपलब्ध कराते हैं।"
+            : "RTechLab is an open-access education platform for networking, cloud, security and IT students. We publish CCNA and fundamentals lessons, free browser-based tools, interactive simulators and digital publishing suites in English and Hindi."}
         </p>
         <p className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-[13px] text-[#86868b]">
-          <Link to="/notes" className="font-semibold text-electric-400 hover:text-electric-300">Notes</Link>
+          <Link to={isHindi ? "/hi/notes" : "/notes"} className="font-semibold text-electric-400 hover:text-electric-300">
+            {isHindi ? "नोट्स" : "Notes"}
+          </Link>
           <span>·</span>
-          <Link to="/tools" className="font-semibold text-electric-400 hover:text-electric-300">Tools</Link>
+          <Link to={isHindi ? "/hi/tools" : "/tools"} className="font-semibold text-electric-400 hover:text-electric-300">
+            {isHindi ? "टूल्स" : "Tools"}
+          </Link>
           <span>·</span>
-          <Link to="/tutorials" className="font-semibold text-electric-400 hover:text-electric-300">Tutorials</Link>
+          <Link to={isHindi ? "/hi/tutorials" : "/tutorials"} className="font-semibold text-electric-400 hover:text-electric-300">
+            {isHindi ? "ट्यूटोरियल्स" : "Tutorials"}
+          </Link>
           <span>·</span>
-          <Link to="/system-design" className="font-semibold text-electric-400 hover:text-electric-300">Simulators</Link>
+          <Link to={isHindi ? "/hi/system-design" : "/system-design"} className="font-semibold text-electric-400 hover:text-electric-300">
+            {isHindi ? "सिम्युलेटर" : "Simulators"}
+          </Link>
         </p>
 
         {/* Founder & Lead Architect Spotlight Card */}
@@ -60,7 +78,7 @@ export function AboutPage() {
                   />
                 </div>
                 <div className="absolute -bottom-2 -right-2 bg-emerald-500 text-black text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow">
-                  Founder
+                  {isHindi ? "संस्थापक" : "Founder"}
                 </div>
               </div>
 
@@ -68,28 +86,32 @@ export function AboutPage() {
               <div className="space-y-1.5">
                 <div className="flex flex-wrap items-center gap-2.5">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                    Rahul Patel
+                    {isHindi ? "राहुल पटेल (Rahul Patel)" : "Rahul Patel"}
                   </h2>
                   <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-300">
-                    Founder &amp; Lead Systems Architect
+                    {isHindi ? "संस्थापक एवं मुख्य सिस्टम्स आर्किटेक्ट" : "Founder & Lead Systems Architect"}
                   </span>
                 </div>
                 <p className="text-[14px] font-semibold text-emerald-400">
-                  Director &amp; Senior Technical Expert · IANT COMPUTER EDUCATION, PALANPUR
+                  {isHindi
+                    ? "डायरेक्टर एवं सीनियर टेक्निकल एक्सपर्ट · IANT COMPUTER EDUCATION, PALANPUR"
+                    : "Director & Senior Technical Expert · IANT COMPUTER EDUCATION, PALANPUR"}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-slate-300 font-medium pt-0.5">
                   <span className="flex items-center gap-1.5 text-slate-200">
                     <Award className="w-4 h-4 text-emerald-400" />
-                    <strong>10+ Years</strong> Industry &amp; Teaching Experience
+                    <strong>{isHindi ? "10+ वर्ष" : "10+ Years"}</strong> {isHindi ? "उद्योग एवं शिक्षण अनुभव" : "Industry & Teaching Experience"}
                   </span>
                   <span className="text-slate-600">·</span>
                   <span className="flex items-center gap-1.5 text-slate-200">
                     <Users className="w-4 h-4 text-cyan-400" />
-                    <strong>3,000+ Students</strong> Trained &amp; Mentored
+                    <strong>{isHindi ? "3,000+ छात्र" : "3,000+ Students"}</strong> {isHindi ? "प्रशिक्षित एवं मेंटर्ड" : "Trained & Mentored"}
                   </span>
                 </div>
                 <p className="text-[13px] leading-relaxed text-[#a1a1a6] max-w-2xl pt-2">
-                  Director and Senior Technical Expert at IANT Computer Education, Palanpur. With over 10+ years of deep engineering experience, Rahul has trained more than 3,000+ students in Computer Networking, Cisco CCNA, Cloud Architecture, and Cyber Security. At RTechLab, he spearheads hands-on interactive simulators, packet-level tools, and open technical publishing designed to bridge classroom theory and production engineering.
+                  {isHindi
+                    ? "IANT कंप्यूटर एजुकेशन, पालनपुर के डायरेक्टर और सीनियर टेक्निकल एक्सपर्ट। 10 से अधिक वर्षों के गहन इंजीनियरिंग अनुभव के साथ, राहुल ने कंप्यूटर नेटवर्किंग, सिस्को CCNA, क्लाउड आर्किटेक्चर और साइबर सुरक्षा में 3,000 से अधिक छात्रों को प्रशिक्षित किया है। RTechLab में, वह हैंड्स-ऑन इंटरैक्टिव सिमुलेटर, पैकेट-लेवल टूल्स और ओपन टेक्निकल पब्लिशिंग का नेतृत्व करते हैं ताकि क्लासरूम थ्योरी और रियल एंटरप्राइज इंजीनियरिंग के बीच की दूरी को पाटा जा सके।"
+                    : "Director and Senior Technical Expert at IANT Computer Education, Palanpur. With over 10+ years of deep engineering experience, Rahul has trained more than 3,000+ students in Computer Networking, Cisco CCNA, Cloud Architecture, and Cyber Security. At RTechLab, he spearheads hands-on interactive simulators, packet-level tools, and open technical publishing designed to bridge classroom theory and production engineering."}
                 </p>
 
                 {/* Tech Tags */}
@@ -111,7 +133,7 @@ export function AboutPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3.5 text-[14px] font-semibold text-black transition-all duration-300 hover:from-emerald-400 hover:to-teal-400 hover:shadow-lg hover:shadow-emerald-500/25 active:scale-95"
               >
-                <span>Visit Rahul's Portfolio</span>
+                <span>{isHindi ? "राहुल का पोर्टफोलियो देखें" : "Visit Rahul's Portfolio"}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
               <span className="text-[11px] text-center lg:text-right text-[#86868b]">
@@ -124,9 +146,17 @@ export function AboutPage() {
         {/* Official Channels & Community Section */}
         <div className="mt-12">
           <div className="mb-6">
-            <p className="text-[12px] font-mono uppercase tracking-wider text-emerald-400">Join Our Community</p>
-            <h3 className="mt-1 text-2xl font-bold text-white tracking-tight">Official RTechLab Channels</h3>
-            <p className="mt-1 text-[14px] text-[#a1a1a6]">Follow our official platforms for daily video explainers, command hacks, quizzes, and live engineering labs.</p>
+            <p className="text-[12px] font-mono uppercase tracking-wider text-emerald-400">
+              {isHindi ? "हमारे समुदाय से जुड़ें" : "Join Our Community"}
+            </p>
+            <h3 className="mt-1 text-2xl font-bold text-white tracking-tight">
+              {isHindi ? "ऑफिशियल RTechLab चैनल्स" : "Official RTechLab Channels"}
+            </h3>
+            <p className="mt-1 text-[14px] text-[#a1a1a6]">
+              {isHindi
+                ? "दैनिक वीडियो व्याख्याताओं, कमांड हैक्स, क्विज़ और लाइव इंजीनियरिंग लैब्स के लिए हमारे आधिकारिक प्लेटफॉर्म्स से जुड़ें।"
+                : "Follow our official platforms for daily video explainers, command hacks, quizzes, and live engineering labs."}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -147,14 +177,16 @@ export function AboutPage() {
                   </span>
                 </div>
                 <h4 className="text-[18px] font-semibold text-white group-hover:text-red-400 transition-colors">
-                  YouTube Channel
+                  {isHindi ? "यूट्यूब चैनल (YouTube)" : "YouTube Channel"}
                 </h4>
                 <p className="text-[13px] text-[#a1a1a6] mt-2 leading-relaxed">
-                  Deep-dive networking tutorials, Cisco CCNA lab walkthroughs, packet capture breakdowns, and animated technical explainers in English &amp; Hindi.
+                  {isHindi
+                    ? "गहन नेटवर्किंग ट्यूटोरियल, Cisco CCNA लैब वॉकथ्रू, पैकेट कैप्चर ब्रेकडाउन और हिंदी व अंग्रेजी में एनिमेटेड तकनीकी व्याख्यान।"
+                    : "Deep-dive networking tutorials, Cisco CCNA lab walkthroughs, packet capture breakdowns, and animated technical explainers in English & Hindi."}
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[13px] font-semibold text-red-400 group-hover:translate-x-1 transition-transform">
-                <span>Subscribe on YouTube</span>
+                <span>{isHindi ? "YouTube पर सब्सक्राइब करें" : "Subscribe on YouTube"}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </div>
             </a>
@@ -176,14 +208,16 @@ export function AboutPage() {
                   </span>
                 </div>
                 <h4 className="text-[18px] font-semibold text-white group-hover:text-pink-400 transition-colors">
-                  Instagram Hub
+                  {isHindi ? "इंस्टाग्राम हब (Instagram)" : "Instagram Hub"}
                 </h4>
                 <p className="text-[13px] text-[#a1a1a6] mt-2 leading-relaxed">
-                  Daily 60-second tech reels, quick networking cheatsheets, Linux terminal tricks, exam flashcards, and tech community highlights.
+                  {isHindi
+                    ? "दैनिक 60-सेकंड टेक रील्स, त्वरित नेटवर्किंग चीटशीट, लिनक्स टर्मिनल ट्रिक्स, परीक्षा फ्लैशकार्ड और टेक कम्युनिटी अपडेट।"
+                    : "Daily 60-second tech reels, quick networking cheatsheets, Linux terminal tricks, exam flashcards, and tech community highlights."}
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[13px] font-semibold text-pink-400 group-hover:translate-x-1 transition-transform">
-                <span>Follow on Instagram</span>
+                <span>{isHindi ? "Instagram पर फॉलो करें" : "Follow on Instagram"}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </div>
             </a>

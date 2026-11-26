@@ -95,9 +95,15 @@ const SUBJECTS = [
     fullPdfEn: '/downloads/Office-365-English-Edition-1.pdf',
     fullPdfHi: '/downloads/Office-365-Hindi-Edition-1.pdf',
     fullPdfGu: '/downloads/Office-365-Gujarati-Edition-1.pdf',
+    hasCheatSheet: true,
+    cheatSheetPages: '8 Pages Desk Reference',
+    cheatSheetPdfEn: '/downloads/Office-365-Quick-Desk-Reference-Cheat-Sheet-English.pdf',
+    cheatSheetPdfHi: '/downloads/Office-365-Quick-Desk-Reference-Cheat-Sheet-Hindi.pdf',
+    cheatSheetPdfGu: '/downloads/Office-365-Quick-Desk-Reference-Cheat-Sheet-Gujarati.pdf',
     bundleZip: '/downloads/Office-365-Career-Accelerator-Bundle.zip',
     bundleZipSize: '16.7 MB',
     bundleItems: [
+      { name: 'Office 365 8-Page Desk Reference & Cheat Sheet (All Languages)', pages: '8 Pages', file: 'Office-365-Quick-Desk-Reference-Cheat-Sheet-English.pdf', badge: '⚡ Desk Sheet' },
       { name: 'Office 365 Enterprise Master Guide (English)', pages: '113 Pages', file: 'Office-365-English-Edition-1.pdf', badge: 'Master Guide' },
       { name: 'Office 365 Enterprise Master Guide (Hindi)', pages: '113 Pages', file: 'Office-365-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
       { name: 'Office 365 Enterprise Master Guide (ગુજરાતી)', pages: '113 Pages', file: 'Office-365-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
@@ -172,9 +178,15 @@ const SUBJECTS = [
     fullPdfEn: '/downloads/Tally-Prime-English-Edition-1.pdf',
     fullPdfHi: '/downloads/Tally-Prime-Hindi-Edition-1.pdf',
     fullPdfGu: '/downloads/Tally-Prime-Gujarati-Edition-1.pdf',
+    hasCheatSheet: true,
+    cheatSheetPages: '8 Pages Desk Reference',
+    cheatSheetPdfEn: '/downloads/Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-English.pdf',
+    cheatSheetPdfHi: '/downloads/Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-Edition-1.pdf',
+    cheatSheetPdfGu: '/downloads/Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-Gujarati.pdf',
     bundleZip: '/downloads/Tally-Prime-Career-Accelerator-Bundle.zip',
     bundleZipSize: '11.4 MB',
     bundleItems: [
+      { name: 'Tally Prime 2027 8-Page Desk Reference & Cheat Sheet (All Languages)', pages: '8 Pages', file: 'Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-Edition-1.pdf', badge: '⚡ Desk Sheet' },
       { name: 'Tally Prime with GST Core Master Guide (English)', pages: '51 Pages', file: 'Tally-Prime-English-Edition-1.pdf', badge: 'Master Guide' },
       { name: 'Tally Prime with GST Core Master Guide (Hindi)', pages: '51 Pages', file: 'Tally-Prime-Hindi-Edition-1.pdf', badge: 'Hindi Edition' },
       { name: 'Tally Prime with GST Core Master Guide (Gujarati)', pages: '51 Pages', file: 'Tally-Prime-Gujarati-Edition-1.pdf', badge: 'Gujarati Edition' },
@@ -804,6 +816,11 @@ export default function NotesPage() {
   const [flipDirection, setFlipDirection] = useState('next');
   const [targetFlipPage, setTargetFlipPage] = useState(1);
 
+  // Top-Level Dual Store View: 'all' | '22' (₹22 Desk Reference Store) | '49' (₹49 Master Store & ₹149 Suites)
+  const [activeStoreTab, setActiveStoreTab] = useState('all');
+  const [coverPreview, setCoverPreview] = useState(null);
+  const [showReelModal, setShowReelModal] = useState(false);
+
   // Modals
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -862,12 +879,28 @@ export default function NotesPage() {
       const params = new URLSearchParams(window.location.search);
       const hash = window.location.hash.replace('#', '').toLowerCase();
       const targetId = (params.get('book') || params.get('subject') || hash).toLowerCase();
+      const planParam = (params.get('plan') || '').toLowerCase();
+      const storeParam = (params.get('store') || params.get('tab') || '').toLowerCase();
+      if (storeParam === '22' || storeParam === 'cheatsheet') {
+        setActiveStoreTab('22');
+      } else if (storeParam === '49' || storeParam === 'master') {
+        setActiveStoreTab('49');
+      } else if (planParam === 'cheatsheet' || planParam === '22') {
+        setActiveStoreTab('22');
+      }
       if (targetId) {
         const found = SUBJECTS.find(
           (s) => s.id === targetId || s.category === targetId
         );
         if (found) {
           setSelectedSubject(found);
+          if (planParam === 'cheatsheet' || planParam === '22') {
+            setModalSelectedPlan('cheatsheet');
+            setIsUpsellOpen(true);
+          } else if (planParam === 'single' || planParam === '49') {
+            setModalSelectedPlan('single');
+            setIsUpsellOpen(true);
+          }
           const targetEl = document.getElementById(targetId);
           if (targetEl) {
             targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1163,20 +1196,38 @@ export default function NotesPage() {
   // Direct checkout
   const handleDirectCheckout = (sub, plan = 'bundle') => {
     setSelectedSubject(sub);
+    let title = `${sub.title} (Complete Career Accelerator Suite)`;
+    let price = 149;
+    if (plan === 'cheatsheet') {
+      title = `${sub.title} (⚡ 8-Page Desk Reference & Cheat Sheet)`;
+      price = 22;
+    } else if (plan === 'single') {
+      title = `${sub.title} (📘 Core Master Pass - 51 Pages)`;
+      price = 49;
+    }
     setCheckoutItem({
-      title: `${sub.title} (${plan === 'bundle' ? 'Complete Career Accelerator Suite' : 'Core Master Pass'})`,
-      plan: plan,
-      price: plan === 'bundle' ? 149 : 49,
+      title,
+      plan,
+      price,
     });
     setIsCheckoutOpen(true);
   };
 
   // Proceed from Package Modal to Razorpay Checkout Modal
   const proceedToCheckoutWithSelectedPlan = () => {
+    let title = `${selectedSubject.title} (Complete Career Accelerator Suite)`;
+    let price = 149;
+    if (modalSelectedPlan === 'cheatsheet') {
+      title = `${selectedSubject.title} (⚡ 8-Page Desk Reference & Cheat Sheet)`;
+      price = 22;
+    } else if (modalSelectedPlan === 'single') {
+      title = `${selectedSubject.title} (📘 Core Master Pass - Complete Guide)`;
+      price = 49;
+    }
     setCheckoutItem({
-      title: `${selectedSubject.title} (${modalSelectedPlan === 'bundle' ? 'Complete Career Accelerator Suite' : 'Core Master Pass'})`,
+      title,
       plan: modalSelectedPlan,
-      price: modalSelectedPlan === 'bundle' ? 149 : 49,
+      price,
     });
     setIsUpsellOpen(false);
     setIsCheckoutOpen(true);
@@ -1204,47 +1255,715 @@ export default function NotesPage() {
         </div>
 
         {/* ── Page Header ────────────────────────────────────────────── */}
-        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] sm:text-xs font-mono text-emerald-400 mb-4 backdrop-blur-md shadow-lg shadow-emerald-500/5 max-w-full">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] sm:text-xs font-mono text-zinc-300 mb-3 backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <span className="truncate">⚡ 2027 OFFICIAL INDUSTRIAL EDITIONS · TRANSPARENT PRICING · NO SUBSCRIPTIONS</span>
+            <span>⚡ 2027 Production-Verified Engineering &amp; Accounts Notes</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-3 sm:mb-4 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3 leading-tight">
             Industrial Master Digital Notes
           </h1>
-          <p className="text-[#86868B] text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-6">
-            Comprehensive, research-verified engineering handbooks designed for modern IT professionals, college students, and placement aspirants. Start with the core theory handbook at just <strong className="text-white">₹49</strong>, or unlock the complete <strong className="text-emerald-400">₹149 Career Accelerator Suite</strong> (+MNC Interview Vault, Practical Labs &amp; Salary Blueprint).
+          <p className="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+            Concise, research-verified technical handbooks and quick desk cheat sheets. Designed for fast workplace lookup, college exams, and placement preparation.
           </p>
+        </div>
 
-          {/* Value Badges Centered */}
-          <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs font-mono">
-            <span className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white font-semibold">
-              ✅ Core Master Pass @ ₹49 (Bilingual Theory Guide)
-            </span>
-            <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-bold">
-              🔥 Career Accelerator Suite @ ₹149 (Complete Interview Vault + Labs + Blueprint)
-            </span>
-            <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300">
-              ⚡ Instant 1-Click Offline ZIP Downloads
-            </span>
-            <span className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300">
-              📩 Rahul Sir Direct Mentorship &amp; Free Updates
-            </span>
+        {/* ── APPLE TRANSPARENT FROSTED GLASS SEGMENTED CONTROLLER (SMOOTH SLIDING PILL) ── */}
+        <div className="sticky top-16 z-30 mb-10 max-w-md mx-auto px-4">
+          <div className="relative p-1 rounded-full bg-white/[0.04] backdrop-blur-2xl border border-white/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] flex select-none">
+            
+            {/* Sliding Frosted Glass Indicator Pill */}
+            <div
+              className="absolute top-1 bottom-1 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),0_4px_16px_rgba(0,0,0,0.3)] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] pointer-events-none"
+              style={{
+                width: 'calc(33.333% - 2.66px)',
+                left: activeStoreTab === '22'
+                  ? '4px'
+                  : activeStoreTab === '49'
+                  ? 'calc(33.333% + 1.33px)'
+                  : 'calc(66.666% - 1.33px)',
+              }}
+            />
+
+            {/* Tab 1: ₹22 Quick Desk Sheets */}
+            <button
+              type="button"
+              onClick={() => setActiveStoreTab('22')}
+              className={`relative z-10 w-1/3 py-2 px-2.5 rounded-full text-xs font-semibold transition-colors duration-200 cursor-pointer flex items-center justify-center gap-1.5 ${
+                activeStoreTab === '22'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+            >
+              <span>⚡ ₹22 Sheets</span>
+            </button>
+
+            {/* Tab 2: ₹49 Master Handbooks Store (with ₹149 Suites) */}
+            <button
+              type="button"
+              onClick={() => setActiveStoreTab('49')}
+              className={`relative z-10 w-1/3 py-2 px-2.5 rounded-full text-xs font-semibold transition-colors duration-200 cursor-pointer flex items-center justify-center gap-1.5 ${
+                activeStoreTab === '49'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+            >
+              <span>📘 ₹49 Books</span>
+            </button>
+
+            {/* Tab 3: All Products */}
+            <button
+              type="button"
+              onClick={() => setActiveStoreTab('all')}
+              className={`relative z-10 w-1/3 py-2 px-2.5 rounded-full text-xs font-semibold transition-colors duration-200 cursor-pointer flex items-center justify-center gap-1.5 ${
+                activeStoreTab === 'all'
+                  ? 'text-white font-bold'
+                  : 'text-zinc-400 hover:text-white'
+              }`}
+            >
+              <span>🌐 All (7)</span>
+            </button>
+
           </div>
         </div>
 
-        {/* ── 6 MASTER SUBJECT CARDS IN EXACT USER SEQUENCE ──────────── */}
-        <div className="mb-6">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-[#86868B] mb-2.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>6 Industry Placement Tracks Available</span>
+        {/* ═══════════════════════════════════════════════════════════════════ */}
+        {/* ⚡ SECTION 1: RTECHLAB ₹22 QUICK DESK REFERENCE STORE              */}
+        {/* ═══════════════════════════════════════════════════════════════════ */}
+        {(activeStoreTab === '22' || activeStoreTab === 'all') && (
+          <div id="store-22" className="mb-12 scroll-mt-20">
+            {/* Minimal Centered Header */}
+            <div className="text-center mb-6 flex flex-wrap items-center justify-center gap-2.5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] backdrop-blur-xl border border-white/[0.1] text-xs font-mono text-zinc-300">
+                <span>⚡ 8-Page Desk Cheat Sheets</span>
+                <span className="w-1 h-1 rounded-full bg-amber-400" />
+                <span className="text-amber-300 font-bold">Instant ₹22</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowReelModal(true)}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/35 text-xs font-mono text-cyan-300 font-semibold transition-all cursor-pointer active:scale-95"
+              >
+                <span>▶ Watch 55s Reel</span>
+              </button>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
-              Select Your Subject Notes
+
+            {/* Apple-style Frosted Grid - Middle / Center Aligned */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
+
+              {/* CARD 1: Tally Prime 2027 */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-amber-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  {/* Badges Centered */}
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-Page Printable Desk Sheet · Office Ready
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/20">
+                      Tally Certified Trainer (TCT)
+                    </span>
+                  </div>
+
+                  {/* Title & 3 MVP Bullets */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Tally Prime 2027 Quick Desk Reference &amp; Cheat Sheet
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-amber-400 font-bold">✓</span><span><strong className="text-white">28 Groups, 24 Vouchers</strong> &amp; 35 Pro Hotkeys</span></li>
+                    <li className="flex items-start gap-2"><span className="text-amber-400 font-bold">✓</span><span><strong className="text-white">Modern GST (0%/5%/18%)</strong> &amp; TDS Matrix</span></li>
+                    <li className="flex items-start gap-2"><span className="text-amber-400 font-bold">✓</span><span><strong className="text-white">Cheque BRS</strong> &amp; 3 Golden Accounting Rules</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Tally Prime 2027 — Quick Desk Cheat Sheet',
+                        image: '/images/covers/tally-22-cover.jpg',
+                        subtitle: '8-Page Printable Desk Reference · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-amber-300 hover:text-amber-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Centered Price & Buy Action */}
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const tallySub = SUBJECTS.find(s => s.id === 'tally');
+                      if (tallySub) handleDirectCheckout(tallySub, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* CARD 2: Microsoft Office 365 */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-sky-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  {/* Badges Centered */}
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-Page Printable Desk Sheet · 150 Shortcuts
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-sky-400/10 text-sky-300 border border-sky-400/20">
+                      Word · Excel · PPT · + .XLSX Lab
+                    </span>
+                  </div>
+
+                  {/* Title & 3 MVP Bullets */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Microsoft Office 365 Quick Desk Reference &amp; 150 Shortcuts
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">150 Numbered Shortcuts</strong> + 6 Win Keys</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">24 Excel Formulas</strong> (XLOOKUP, LET, FILTER)</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">Power Query ETL</strong>, Resume Rules &amp; .xlsx Lab</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Microsoft Office 365 — Quick Desk Cheat Sheet',
+                        image: '/images/covers/office-22-cover.jpg',
+                        subtitle: '8-Page Printable Desk Reference · + Free .xlsx Lab',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-sky-300 hover:text-sky-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Centered Price & Buy Action */}
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const officeSub = SUBJECTS.find(s => s.id === 'office-365');
+                      if (officeSub) handleDirectCheckout(officeSub, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU + .xlsx
+                  </span>
+                </div>
+              </div>
+
+              {/* CARD 3: Linux & Shell Mastery */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-emerald-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-Page Printable Desk Sheet · Job-Ready
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/20">
+                      RHEL · Ubuntu · Fedora · Kali
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Linux &amp; Shell Mastery Quick Desk Cheat Sheet
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-emerald-400 font-bold">✓</span><span><strong className="text-white">15 Modules:</strong> FHS, chmod, Systemd &amp; LVM</span></li>
+                    <li className="flex items-start gap-2"><span className="text-emerald-400 font-bold">✓</span><span><strong className="text-white">RHEL, Ubuntu, Fedora</strong> &amp; Kali Compared</span></li>
+                    <li className="flex items-start gap-2"><span className="text-emerald-400 font-bold">✓</span><span><strong className="text-white">Bash, Docker, UFW</strong> &amp; 10 Interview Q&amp;A</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Linux & Shell Mastery — Quick Desk Cheat Sheet',
+                        image: '/images/covers/linux-22-cover.jpg',
+                        subtitle: '8-Page Printable Desk Reference · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-emerald-300 hover:text-emerald-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDirectCheckout({
+                        id: 'linux',
+                        title: 'Linux & Shell Mastery (2027 Edition)',
+                        hasCheatSheet: true,
+                        cheatSheetPages: '8 Pages Desk Reference',
+                        cheatSheetPdfEn: '/downloads/Linux-Quick-Desk-Reference-Cheat-Sheet-English.pdf',
+                        cheatSheetPdfHi: '/downloads/Linux-Quick-Desk-Reference-Cheat-Sheet-Hindi.pdf',
+                        cheatSheetPdfGu: '/downloads/Linux-Quick-Desk-Reference-Cheat-Sheet-Gujarati.pdf',
+                      }, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* CARD 4: Ethical Hacking & Cyber Security */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-rose-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-Page Printable Desk Sheet · Kali &amp; OWASP
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-300 border border-rose-500/20">
+                      Nmap · SQLi · VirusTotal · Career Path
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Ethical Hacking &amp; Cyber Security Desk Reference
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-rose-400 font-bold">✓</span><span><strong className="text-white">Kali Lab Setup, Nmap</strong> &amp; Wireshark Filters</span></li>
+                    <li className="flex items-start gap-2"><span className="text-rose-400 font-bold">✓</span><span><strong className="text-white">OWASP Top 10, SQLi</strong> &amp; Cryptography Visuals</span></li>
+                    <li className="flex items-start gap-2"><span className="text-rose-400 font-bold">✓</span><span><strong className="text-white">VirusTotal, EICAR, HTB</strong> &amp; Top GitHub Repos</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Ethical Hacking & Cyber Security — Quick Desk Sheet',
+                        image: '/images/covers/eh-22-cover.jpg',
+                        subtitle: '8-Page Printable Desk Reference · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-rose-300 hover:text-rose-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDirectCheckout({
+                        id: 'ethical-hacking',
+                        title: 'Ethical Hacking & Cyber Security (2027 Edition)',
+                        hasCheatSheet: true,
+                        cheatSheetPages: '8 Pages Desk Reference',
+                        cheatSheetPdfEn: '/downloads/Ethical-Hacking-Cyber-Security-Quick-Desk-Cheat-Sheet-English.pdf',
+                        cheatSheetPdfHi: '/downloads/Ethical-Hacking-Cyber-Security-Quick-Desk-Cheat-Sheet-Hindi.pdf',
+                        cheatSheetPdfGu: '/downloads/Ethical-Hacking-Cyber-Security-Quick-Desk-Cheat-Sheet-Gujarati.pdf',
+                      }, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* CARD 5: Cisco CCNA 200-301 & Networking */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-sky-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-Page Printable Desk Sheet · CCNA 200-301
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20">
+                      OSI · IPv4/IPv6 · Subnetting · OSPF
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Cisco CCNA 200-301 &amp; Networking Desk Reference
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">Network Types, Devices, OSI</strong> &amp; Fiber/PoE</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">IPv4 Subnetting (/16–/32)</strong>, VLSM &amp; IPv6</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">VLANs, STP, OSPF, ACL/NAT</strong> &amp; Top 10 Q&amp;A</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Cisco CCNA 200-301 & Networking — Quick Desk Sheet',
+                        image: '/images/covers/ccna-22-cover.jpg',
+                        subtitle: '10-Page Printable Desk Reference · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-sky-300 hover:text-sky-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDirectCheckout({
+                        id: 'ccna-networking-22',
+                        title: 'Cisco CCNA 200-301 & Networking (10-Page Desk Sheet)',
+                        hasCheatSheet: true,
+                        cheatSheetPages: '10 Pages Desk Reference',
+                        cheatSheetPdfEn: '/downloads/CCNA-200-301-Networking-Quick-Desk-Cheat-Sheet-English.pdf',
+                        cheatSheetPdfHi: '/downloads/CCNA-200-301-Networking-Quick-Desk-Cheat-Sheet-Hindi.pdf',
+                        cheatSheetPdfGu: '/downloads/CCNA-200-301-Networking-Quick-Desk-Cheat-Sheet-Gujarati.pdf',
+                      }, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* CARD 6: AI Prompt Engineering & Generative AI */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-violet-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-Page Printable Desk Sheet · GenAI &amp; Agents
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20">
+                      Prompts · RAG · MCP · Free Tools
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    AI Prompt Engineering &amp; Generative AI Desk Reference
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-violet-400 font-bold">✓</span><span><strong className="text-white">RTF/CO-STAR, Image Prompts</strong> &amp; Pro Vault</span></li>
+                    <li className="flex items-start gap-2"><span className="text-violet-400 font-bold">✓</span><span><strong className="text-white">RAG, Vector DBs, AI Agents</strong> &amp; MCP Protocol</span></li>
+                    <li className="flex items-start gap-2"><span className="text-violet-400 font-bold">✓</span><span><strong className="text-white">Free vs Paid Stack, GitHub</strong> Repos &amp; Top 10 Q&amp;A</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'AI Prompt Engineering & Generative AI — Quick Desk Sheet',
+                        image: '/images/covers/ai-22-cover.jpg',
+                        subtitle: '10-Page Printable Desk Reference · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-violet-300 hover:text-violet-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDirectCheckout({
+                        id: 'ai-prompt-eng-22',
+                        title: 'AI Prompt Engineering & Generative AI (10-Page Desk Sheet)',
+                        hasCheatSheet: true,
+                        cheatSheetPages: '10 Pages Desk Reference',
+                        cheatSheetPdfEn: '/downloads/AI-Prompt-Engineering-GenAI-Quick-Desk-Cheat-Sheet-English.pdf',
+                        cheatSheetPdfHi: '/downloads/AI-Prompt-Engineering-GenAI-Quick-Desk-Cheat-Sheet-Hindi.pdf',
+                        cheatSheetPdfGu: '/downloads/AI-Prompt-Engineering-GenAI-Quick-Desk-Cheat-Sheet-Gujarati.pdf',
+                      }, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* CARD 7: Python Programming & Automation */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-blue-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-Page Printable Desk Sheet · Python 3.12+
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                      Core · OOP · Automation · Python+AI
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Python Programming &amp; Automation Desk Reference
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-blue-400 font-bold">✓</span><span><strong className="text-white">Data Structures, OOP</strong> &amp; File/JSON Handling</span></li>
+                    <li className="flex items-start gap-2"><span className="text-blue-400 font-bold">✓</span><span><strong className="text-white">Automation Scripts, Pandas</strong> &amp; FastAPI</span></li>
+                    <li className="flex items-start gap-2"><span className="text-blue-400 font-bold">✓</span><span><strong className="text-white">Python + AI (RAG/Agents)</strong> &amp; Future 2030</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Python Programming & Automation — Quick Desk Sheet',
+                        image: '/images/covers/python-22-cover.jpg',
+                        subtitle: '10-Page Printable Desk Reference · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-blue-300 hover:text-blue-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDirectCheckout({
+                        id: 'python-automation-22',
+                        title: 'Python Programming & Automation (10-Page Desk Sheet)',
+                        hasCheatSheet: true,
+                        cheatSheetPages: '10 Pages Desk Reference',
+                        cheatSheetPdfEn: '/downloads/Python-Programming-Automation-Quick-Desk-Cheat-Sheet-English.pdf',
+                        cheatSheetPdfHi: '/downloads/Python-Programming-Automation-Quick-Desk-Cheat-Sheet-Hindi.pdf',
+                        cheatSheetPdfGu: '/downloads/Python-Programming-Automation-Quick-Desk-Cheat-Sheet-Gujarati.pdf',
+                      }, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* CARD 8: Git & GitHub Mastery */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-orange-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-Page Printable Desk Sheet · Git &amp; CI/CD
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      Hindi · English · Gujarati
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">
+                      Branching · PRs · Actions · Top 10 Repos
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Git &amp; GitHub Mastery Desk Reference
+                  </h3>
+
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-orange-400 font-bold">✓</span><span><strong className="text-white">4-Area Workflow, SSH</strong> &amp; Merge Conflicts</span></li>
+                    <li className="flex items-start gap-2"><span className="text-orange-400 font-bold">✓</span><span><strong className="text-white">Reset/Revert/Reflog, PRs</strong> &amp; GitHub Actions</span></li>
+                    <li className="flex items-start gap-2"><span className="text-orange-400 font-bold">✓</span><span><strong className="text-white">AI + Git, Top 10 Starred Repos</strong> &amp; Q&amp;A</span></li>
+                  </ul>
+
+                  {/* Cover Page Only Preview Button */}
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Git & GitHub Mastery — Quick Desk Sheet',
+                        image: '/images/covers/git-22-cover.jpg',
+                        subtitle: '10-Page Printable Desk Reference · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-orange-300 hover:text-orange-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ Preview Cover Page →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% OFF
+                    </span>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleDirectCheckout({
+                        id: 'git-github-22',
+                        title: 'Git & GitHub Mastery (10-Page Desk Sheet)',
+                        hasCheatSheet: true,
+                        cheatSheetPages: '10 Pages Desk Reference',
+                        cheatSheetPdfEn: '/downloads/Git-GitHub-Mastery-Quick-Desk-Cheat-Sheet-English.pdf',
+                        cheatSheetPdfHi: '/downloads/Git-GitHub-Mastery-Quick-Desk-Cheat-Sheet-Hindi.pdf',
+                        cheatSheetPdfGu: '/downloads/Git-GitHub-Mastery-Quick-Desk-Cheat-Sheet-Gujarati.pdf',
+                      }, 'cheatsheet');
+                    }}
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 cursor-pointer flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ Get ₹22 Sheet</span>
+                    <span>→</span>
+                  </button>
+
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    Instant PDF · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Minimal Upcoming Strip Centered */}
+            <div className="mt-8 pt-4 border-t border-white/[0.06] flex flex-wrap items-center justify-center gap-3 text-[11px] font-mono text-zinc-500 text-center">
+              <span>Coming Soon @ ₹22: CCNA 200-301 Hotkeys · Windows Server 2025 Commands · AI Engineering Prompts</span>
+              <span className="text-zinc-400 font-semibold">• Weekly Releases</span>
+            </div>
+          </div>
+        )}
+
+        {/* 📘 SECTION 2: RTECHLAB COMPREHENSIVE MASTER HANDBOOKS (@ ₹49)       */}
+        {/*              & EXECUTIVE CAREER ACCELERATOR SUITES (@ ₹149)        */}
+        {/* ═══════════════════════════════════════════════════════════════════ */}
+        {(activeStoreTab === '49' || activeStoreTab === 'all') && (
+          <div id="store-49" className="mb-6 scroll-mt-20 animate-fadeIn">
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <h2 className="text-xl sm:text-3xl font-black text-white tracking-tight mb-1.5">
+              📘 51-Page Master Handbooks (@ ₹49) &amp; Career Suites (@ ₹149)
             </h2>
-            <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mx-auto max-w-xl">
-              Inspect syllabus topics, read real 5-page interactive previews, and choose between the ₹49 Core Pass or the ₹149 Executive Career Suite.
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mx-auto max-w-lg">
+              Comprehensive theory &amp; architectures. Tap any track below to preview real sample pages.
             </p>
 
             {/* Quick-Jump Navigation & Interactive Subject Switcher */}
@@ -1323,7 +2042,7 @@ export default function NotesPage() {
           <div
             ref={carouselRef}
             onScroll={handleCarouselScroll}
-            className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-4 md:pb-0 px-2 sm:px-0 -mx-3 sm:mx-0 touch-pan-x"
+            className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-4 md:pb-0 px-2 sm:px-0 -mx-3 sm:mx-0 touch-auto"
             style={{ WebkitOverflowScrolling: 'touch' }}
           >
             {SUBJECTS.map((sub, index) => (
@@ -1332,9 +2051,9 @@ export default function NotesPage() {
                 id={sub.id}
                 className="relative p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#0D0D10] border border-white/[0.08] hover:border-emerald-500/40 transition-all flex flex-col justify-between group shadow-xl hover:shadow-2xl hover:shadow-emerald-500/5 scroll-mt-24 shrink-0 w-[86vw] sm:w-[360px] md:w-auto snap-center md:snap-align-none"
               >
-                <div>
-                  {/* Header Track Tag & Status Badges */}
-                  <div className="flex items-center justify-between mb-3.5">
+                <div className="text-center">
+                  {/* Header Track Tag & Status Badges Centered */}
+                  <div className="flex items-center justify-center gap-2 mb-3">
                     <span className="text-[10px] font-mono text-white/50 font-bold px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">
                       TRACK #{index + 1}
                     </span>
@@ -1355,80 +2074,55 @@ export default function NotesPage() {
                     </span>
                   </div>
 
-                  {/* Title & Description Middle Centered */}
-                  <div className="text-center mb-3">
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors leading-snug">
+                  {/* Title & Description Clean & Center-Aligned */}
+                  <div className="mb-3 text-center">
+                    <h3 className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-emerald-400 transition-colors leading-snug text-center">
                       {sub.title}
                     </h3>
-                    <div className="text-[11px] font-mono text-emerald-400 mb-1 font-semibold">
+                    <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed mb-3 text-center mx-auto max-w-xs">
                       {sub.subtitle}
-                    </div>
-                    <div className="text-[10px] font-mono text-[#86868B] mb-2.5">
-                      {sub.badgeSub}
-                    </div>
-                    <p className="text-xs text-[#86868B] leading-relaxed line-clamp-3">
-                      {sub.desc}
                     </p>
-                  </div>
 
-                  {/* ── Verified Exact Pages Tag ── */}
-                  <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-3 text-[10px] font-mono space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[#86868B]">Core Theory Guide:</span>
-                      <strong className="text-white">{sub.pages}</strong>
+                    {/* Quick Specs Pill Centered */}
+                    <div className="flex items-center justify-center gap-3 text-[11px] font-mono p-2 rounded-lg bg-zinc-950 border border-zinc-800/80 text-zinc-400 mb-2.5 text-center">
+                      <span>📄 {sub.pages.includes('Pages') ? sub.pages.split('Pages')[0] + 'Pages' : sub.pages}</span>
+                      <span>•</span>
+                      <span>🌐 Hindi · Eng · ગુજ</span>
                     </div>
-                    <div className="flex items-center justify-between border-t border-white/[0.04] pt-1">
-                      <span className="text-emerald-400 font-semibold">Executive Suite:</span>
-                      <strong className="text-emerald-300 font-bold">{sub.bundlePages}</strong>
-                    </div>
-                  </div>
 
-                  {/* ── TOPIC-WISE MODULES BOXES ── */}
-                  <div className="space-y-1.5 mb-5 p-3 rounded-xl bg-black/60 border border-white/[0.06]">
-                    <div className="text-[9px] font-mono text-white/50 uppercase tracking-widest font-semibold flex items-center justify-between">
-                      <span>Key Curriculum</span>
-                      <span className="text-emerald-400 font-bold">2027 Ready</span>
-                    </div>
-                    <div className="space-y-1">
-                      {sub.topics.slice(0, 3).map((topic, i) => (
-                        <div key={i} className="flex items-center gap-1.5 text-[10px] font-mono text-[#D2D2D7] truncate">
-                          <span className="text-emerald-400 font-bold shrink-0">›</span>
-                          <span className="truncate">{topic}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="text-[10px] font-mono text-emerald-400/90 pt-1 font-semibold flex items-center justify-between">
-                      <span>+ {sub.topics.length - 3} more modules</span>
-                      <button
-                        type="button"
-                        onClick={() => handleOpenPreviewModal(sub)}
-                        className="hover:underline text-emerald-400 font-bold"
-                      >
-                        Preview 5p →
-                      </button>
-                    </div>
+                    {/* Progressive Disclosure: Tap to View Full Syllabus & Sample Centered */}
+                    <button
+                      type="button"
+                      onClick={() => handleOpenPreviewModal(sub)}
+                      className="w-full py-2 px-3 rounded-lg bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-800 text-xs font-medium transition-colors flex items-center justify-center gap-1.5 group/btn cursor-pointer text-center"
+                    >
+                      <span>📖</span>
+                      <span className="font-semibold">View 10 Chapters &amp; 5p Sample</span>
+                      <span className="text-zinc-500 group-hover/btn:text-white font-mono text-[11px]">→</span>
+                    </button>
                   </div>
                 </div>
 
                 <div className="space-y-2.5 pt-3 border-t border-white/[0.06]">
-                  {/* Price Tag with Highlighted Crosses & Rich Slogans */}
-                  <div className="flex items-baseline justify-between p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                    <div>
+                  {/* Uniform Price Tag Centered: ₹49 Core Master Pass vs ₹149 Career Suite */}
+                  <div className="flex items-center justify-around p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05] text-center">
+                    <div className="text-center">
                       <div className="text-[9px] font-mono text-[#86868B] uppercase tracking-wider font-semibold">
                         Core Master Pass
                       </div>
-                      <div className="flex items-baseline gap-1.5 mt-0.5">
+                      <div className="flex items-baseline justify-center gap-1.5 mt-0.5">
                         <span className="text-xl sm:text-2xl font-black text-white">₹49</span>
                         <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
                           ₹199
                         </span>
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="w-[1px] h-8 bg-white/10" />
+                    <div className="text-center">
                       <div className="text-[9px] font-mono text-emerald-400 uppercase tracking-wider font-bold">
                         👑 Executive Suite
                       </div>
-                      <div className="flex items-baseline justify-end gap-1.5 mt-0.5">
+                      <div className="flex items-baseline justify-center gap-1.5 mt-0.5">
                         <span className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
                           ₹1,099
                         </span>
@@ -1437,22 +2131,38 @@ export default function NotesPage() {
                     </div>
                   </div>
 
-                  {/* Two Action Buttons: Preview 5 Pages vs Buy */}
+                  {/* Direct Purchase Actions for All Subjects */}
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       type="button"
-                      onClick={() => handleOpenPreviewModal(sub)}
-                      className="py-2.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.16] hover:text-white text-xs font-bold text-white transition-all text-center border border-white/10 active:scale-95 flex items-center justify-center gap-1 shadow-sm"
+                      onClick={() => handleDirectCheckout(sub, 'single')}
+                      className="py-2.5 px-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white text-[11px] sm:text-xs font-semibold transition-colors text-center border border-zinc-700 active:scale-95 truncate flex items-center justify-center gap-1 cursor-pointer"
                     >
-                      <span>Preview 5p</span>
-                      <span>→</span>
+                      <span>📘 ₹49 Pass</span>
                     </button>
                     <button
                       type="button"
                       onClick={() => handleOpenPurchaseModal(sub, 'bundle')}
-                      className="py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black text-xs font-black transition-all text-center shadow-lg shadow-emerald-500/20 active:scale-95"
+                      className="py-2.5 px-2 rounded-lg bg-white hover:bg-zinc-200 text-black text-[11px] sm:text-xs font-bold transition-colors text-center shadow-sm active:scale-95 truncate flex items-center justify-center gap-1 cursor-pointer"
                     >
-                      Get Notes
+                      <span>👑 ₹149 Suite</span>
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-between text-[10px] font-mono pt-0.5 px-0.5">
+                    <button
+                      type="button"
+                      onClick={() => handleOpenPreviewModal(sub)}
+                      className="text-zinc-500 hover:text-white transition-colors cursor-pointer"
+                    >
+                      📖 Free 5p Preview →
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleOpenPurchaseModal(sub, 'bundle')}
+                      className="text-zinc-400 hover:text-white hover:underline transition-colors cursor-pointer"
+                    >
+                      Compare Editions →
                     </button>
                   </div>
 
@@ -1515,6 +2225,7 @@ export default function NotesPage() {
             </p>
           </div>
         </div>
+        )}
 
         {/* ── THE DEFINITIVE 49 VS 149 CAREER COMPARISON & PSYCHOLOGY FRAMEWORK ──── */}
         <div className="mb-16 p-6 sm:p-10 rounded-3xl bg-gradient-to-b from-[#111116] to-[#0A0A0D] border border-white/[0.12] shadow-2xl relative overflow-hidden">
@@ -1642,6 +2353,10 @@ export default function NotesPage() {
                   <div className="space-y-2 mb-6">
                     <div className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider mb-2">
                       Everything in ₹49 PLUS for just +₹100 extra:
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-amber-200 bg-amber-500/10 border border-amber-400/30 px-2.5 py-1.5 rounded-lg">
+                      <span className="text-amber-400 font-bold shrink-0">🎁</span>
+                      <span><strong>FREE BONUS: ₹22 8-Page Quick Desk Cheat Sheet</strong> (EN/HI/GU + 150 Shortcuts Wall Included!)</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-white">
                       <span className="text-emerald-400 font-bold shrink-0">✓</span>
@@ -1960,7 +2675,8 @@ export default function NotesPage() {
                   <button
                     type="button"
                     onClick={() => setIsReaderModalOpen(false)}
-                    className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all"
+                    aria-label="Close interactive preview"
+                    className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all cursor-pointer"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -2109,8 +2825,10 @@ export default function NotesPage() {
               
               {/* Close Button */}
               <button
+                type="button"
                 onClick={() => setIsUpsellOpen(false)}
-                className="absolute top-4 right-4 text-[#86868B] hover:text-white p-1.5 rounded-full bg-white/[0.06]"
+                aria-label="Close modal"
+                className="absolute top-4 right-4 text-[#86868B] hover:text-white p-1.5 rounded-full bg-white/[0.06] cursor-pointer"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -2126,95 +2844,254 @@ export default function NotesPage() {
                   Select Package for {selectedSubject.title}
                 </h3>
                 <p className="text-xs text-[#86868B] max-w-lg mx-auto leading-relaxed">
-                  Choose between the standalone theory handbook at ₹49 or upgrade to the complete Career Accelerator Suite (+Interview Vault, Labs &amp; Salary Blueprint) for just +₹100 extra:
+                  {selectedSubject.hasCheatSheet
+                    ? `Choose between the 8-Page Desk Cheat Sheet at ₹22, the ${selectedSubject.pages} at ₹49, or the complete Career Accelerator Suite at ₹149:`
+                    : 'Choose between the standalone theory handbook at ₹49 or upgrade to the complete Career Accelerator Suite (+Interview Vault, Labs & Salary Blueprint) for just +₹100 extra:'}
                 </p>
               </div>
 
-              {/* Two Selectable Options */}
-              <div className="space-y-3 mb-5">
-                
-                {/* Plan 1: ₹149 Career Accelerator Suite (PRE-SELECTED / BEST VALUE) */}
-                <div
-                  onClick={() => setModalSelectedPlan('bundle')}
-                  className={`p-4 sm:p-5 rounded-2xl cursor-pointer border-2 transition-all flex items-start justify-between gap-3 relative ${
-                    modalSelectedPlan === 'bundle'
-                      ? 'bg-[#0E161B] border-emerald-500 text-white shadow-xl shadow-emerald-500/15 ring-1 ring-emerald-500/40'
-                      : 'bg-black/40 border-white/[0.1] text-[#86868B] hover:border-emerald-500/40'
-                  }`}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
-                      modalSelectedPlan === 'bundle' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
-                    }`}>
-                      {modalSelectedPlan === 'bundle' && <div className="w-2 h-2 rounded-full bg-black" />}
+              {/* Selectable Options (With Custom 3-Tier Clarity for CheatSheet-Enabled Subjects) */}
+              {selectedSubject.hasCheatSheet ? (
+                <div className="space-y-3 mb-5">
+                  {/* Transparent Guidance Box: No Confusion for Students */}
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs space-y-2">
+                    <div className="text-[11px] font-mono text-amber-400 font-bold flex items-center gap-1.5">
+                      <span>💡</span>
+                      <span>कौन सा एडिशन आपके लिए सही है? (Which one is right for you?):</span>
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-1 flex-wrap">
-                        <span className="font-bold text-white text-sm sm:text-base">
-                          Executive Career Accelerator Suite™ (Elite Edition)
-                        </span>
-                        <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-extrabold border border-emerald-500/30">
-                          👑 RECOMMENDED BY 89% STUDENTS · BEST VALUE
-                        </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] text-[#A1A1A6]">
+                      <div className="p-2 rounded-xl bg-black/50 border border-white/5">
+                        <strong className="text-amber-300 block mb-0.5">⚡ ₹22 चीट शीट लें:</strong>
+                        {selectedSubject.id === 'tally'
+                          ? 'अगर आप ऑफिस में टेबल पर रखने के लिए तुरंत 28 ग्रुप्स, 24 वाउचर्स व शॉर्टकट्स का 1-नज़र रेफरेंस चाहते हैं।'
+                          : 'अगर आप ऑफिस/इंटरव्यू हेतु डायनामिक फॉर्मूले (XLOOKUP, LET), पावर क्वेरी व शॉर्टकट्स का 1-नज़र रेफरेंस चाहते हैं।'}
                       </div>
-                      <div className="text-[11px] font-mono text-emerald-400 font-semibold mb-1">
-                        👑 The 6-Figure Placement Arsenal · Real-World Enterprise Advantage
+                      <div className="p-2 rounded-xl bg-black/50 border border-white/5">
+                        <strong className="text-white block mb-0.5">📘 ₹49 मास्टर गाइड लें:</strong>
+                        {selectedSubject.id === 'tally'
+                          ? 'अगर आप पूरा टैली बेसिक से एडवांस तक 10 चैप्टर्स और 50+ इनवॉइस के साथ डीप में स्टेप-बाय-स्टेप सीखना चाहते हैं।'
+                          : 'अगर आप वर्ड, एक्सेल, पावरपॉइंट, एक्सेस व आउटलुक पूरे 113 पेजों और 13 चैप्टर्स में डीप में सीखना चाहते हैं।'}
                       </div>
-                      <p className="text-xs text-emerald-200/90 leading-relaxed mb-2">
-                        Includes <strong>all {selectedSubject.bundleItems.length} specialized engineering guides</strong> ({selectedSubject.bundlePages}): English, Hindi &amp; Gujarati Core Guides + Top MNC Interview Vault + Practical Labs/Templates + Career Salary Blueprint + 1-Click ZIP Download.
-                      </p>
-                      <div className="text-[11px] font-mono text-[#86868B]">
-                        ✓ Personal Mentorship Email from Rahul Sir · 100% Lifetime Free Yearly Updates
+                      <div className="p-2 rounded-xl bg-black/50 border border-white/5">
+                        <strong className="text-emerald-300 block mb-0.5">👑 ₹149 कम्प्लीट सुइट:</strong>
+                        {selectedSubject.id === 'tally'
+                          ? 'अगर आपको दोनों बुक्स + 50 इंटरव्यू Q&A + 50 इनवॉइस वर्कबुक + राहुल सर मेंटरशिप सब एक साथ चाहिए।'
+                          : 'अगर आपको दोनों बुक्स + 100 शॉर्टकट्स व 50 MIS Q&A + 6 रियल लैब फाइल्स (.xlsx) + राहुल सर मेंटरशिप सब एक साथ चाहिए।'}
                       </div>
                     </div>
                   </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹1,099</div>
-                    <div className="text-lg sm:text-2xl font-black text-emerald-400">₹149</div>
-                    <div className="text-[9px] font-mono text-emerald-300 font-bold">SAVE ₹950 · 86% OFF</div>
+
+                  {/* Option 1: ₹22 Quick Desk Reference (8 Pages) */}
+                  <div
+                    onClick={() => setModalSelectedPlan('cheatsheet')}
+                    className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border-2 transition-all flex items-start justify-between gap-3 relative ${
+                      modalSelectedPlan === 'cheatsheet'
+                        ? 'bg-[#18150a] border-amber-400 text-white shadow-xl shadow-amber-500/15 ring-1 ring-amber-400/40'
+                        : 'bg-black/40 border-white/[0.08] text-[#86868B] hover:border-amber-400/40'
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
+                        modalSelectedPlan === 'cheatsheet' ? 'border-amber-400 bg-amber-400' : 'border-white/30'
+                      }`}>
+                        {modalSelectedPlan === 'cheatsheet' && <div className="w-2 h-2 rounded-full bg-black" />}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <span className="font-bold text-white text-sm sm:text-base">
+                            ⚡ 8-Page Desk Reference &amp; Cheat Sheet
+                          </span>
+                          <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-extrabold border border-amber-500/40">
+                            🔥 DAILY DESK COMPANION · ₹22 ONLY
+                          </span>
+                        </div>
+                        <div className="text-[11px] font-mono text-amber-300 font-semibold mb-1">
+                          {selectedSubject.id === 'tally'
+                            ? '⚡ Quick Memory Recall · All 28 Groups · 24 Vouchers · Top 35 Shortcuts'
+                            : '⚡ Quick Memory Recall · Dynamic Formulas · Word & PPT Rules · 60+ Hotkeys'}
+                        </div>
+                        <p className="text-xs text-[#D2D2D7] leading-relaxed">
+                          {selectedSubject.id === 'tally'
+                            ? 'Ultra-dense 8-page desk companion with Bestseller Cover, 15 Primary + 13 Secondary Groups, 24 Vouchers, Rule 46 GST invoice structure, CTS-2010 cheque BRS & Form 26Q calendar. (Available in Hindi, English, Gujarati).'
+                            : 'Ultra-dense 8-page desk companion with Bestseller Cover, XLOOKUP, Dynamic Arrays (#), LET, TEXTSPLIT, Power Query ETL, Word Legal Styles, Morph Transitions & Outlook 4D Inbox Zero. (Available in Hindi, English, Gujarati).'}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹99</div>
+                      <div className="text-lg sm:text-2xl font-black text-amber-400">₹22</div>
+                      <div className="text-[9px] font-mono text-amber-300 font-bold">SAVE 78%</div>
+                    </div>
+                  </div>
+
+                  {/* Option 2: ₹49 Complete Master Study Guide */}
+                  <div
+                    onClick={() => setModalSelectedPlan('single')}
+                    className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border-2 transition-all flex items-start justify-between gap-3 relative ${
+                      modalSelectedPlan === 'single'
+                        ? 'bg-black border-white text-white shadow-lg ring-1 ring-white/30'
+                        : 'bg-black/40 border-white/[0.08] text-[#86868B] hover:border-white/20'
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
+                        modalSelectedPlan === 'single' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
+                      }`}>
+                        {modalSelectedPlan === 'single' && <div className="w-2 h-2 rounded-full bg-black" />}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <span className="font-bold text-white text-sm sm:text-base">
+                            📘 Complete Master Study Guide &amp; Vocational Textbook
+                          </span>
+                          <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/10 text-white font-bold border border-white/20">
+                            {selectedSubject.pages.toUpperCase()}
+                          </span>
+                        </div>
+                        <div className="text-[11px] font-mono text-zinc-300 font-semibold mb-1">
+                          {selectedSubject.id === 'tally'
+                            ? '📘 Step-by-Step Concepts · 10 In-Depth Chapters · 50+ Invoices'
+                            : '📘 Step-by-Step Concepts · 13 In-Depth Chapters · Practical Labs'}
+                        </div>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                          {selectedSubject.id === 'tally'
+                            ? 'Full textbook from accounting basics to advanced company creation, multi-currency, APMC mandi trading entries, interstate IGST, and year-end trial balance audit.'
+                            : 'Full comprehensive enterprise textbook covering Word legal architecture, advanced Excel calculations, executive PowerPoint decks, Access relational databases, and corporate MIS workflows.'}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹199</div>
+                      <div className="text-lg sm:text-2xl font-black text-white">₹49</div>
+                      <div className="text-[9px] font-mono text-zinc-400">SAVE 75%</div>
+                    </div>
+                  </div>
+
+                  {/* Option 3: ₹149 Complete Career Accelerator Suite */}
+                  <div
+                    onClick={() => setModalSelectedPlan('bundle')}
+                    className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border-2 transition-all flex items-start justify-between gap-3 relative ${
+                      modalSelectedPlan === 'bundle'
+                        ? 'bg-[#0E161B] border-emerald-500 text-white shadow-xl shadow-emerald-500/15 ring-1 ring-emerald-500/40'
+                        : 'bg-black/40 border-white/[0.08] text-[#86868B] hover:border-emerald-500/40'
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
+                        modalSelectedPlan === 'bundle' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
+                      }`}>
+                        {modalSelectedPlan === 'bundle' && <div className="w-2 h-2 rounded-full bg-black" />}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <span className="font-bold text-white text-sm sm:text-base">
+                            👑 Executive Career Accelerator Suite (All-In-One ZIP)
+                          </span>
+                          <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-extrabold border border-emerald-500/30">
+                            ALL DELIVERABLES · BEST VALUE
+                          </span>
+                        </div>
+                        <div className="text-[11px] font-mono text-emerald-400 font-semibold mb-1">
+                          👑 Everything Included: Both ₹22 &amp; ₹49 Books + Interview Vault + Labs
+                        </div>
+                        <p className="text-xs text-emerald-200/90 leading-relaxed">
+                          {selectedSubject.id === 'tally'
+                            ? 'Includes 8-Page Desk Sheet + 51-Page Master Guide (All 3 Languages) + Top 50 Accountant Interview Vault + 50 Real Invoices Workbook + TDS Practice Set + Direct Rahul Sir Mentorship!'
+                            : 'Includes 8-Page Desk Sheet + 113-Page Master Guide (All 3 Languages) + Top 100 Shortcuts & 50 MIS Placement Vault + 6 Real Lab Files (.xlsx & .docx) + Direct Rahul Sir Mentorship!'}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹1,099</div>
+                      <div className="text-lg sm:text-2xl font-black text-emerald-400">₹149</div>
+                      <div className="text-[9px] font-mono text-emerald-300 font-bold">SAVE 86%</div>
+                    </div>
                   </div>
                 </div>
-
-                {/* Plan 2: ₹49 Single Core Notes */}
-                <div
-                  onClick={() => setModalSelectedPlan('single')}
-                  className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border transition-all flex items-start justify-between gap-3 ${
-                    modalSelectedPlan === 'single'
-                      ? 'bg-black border-white text-white shadow-lg ring-1 ring-white/20'
-                      : 'bg-black/40 border-white/[0.08] text-[#86868B] hover:border-white/20'
-                  }`}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
-                      modalSelectedPlan === 'single' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
-                    }`}>
-                      {modalSelectedPlan === 'single' && <div className="w-2 h-2 rounded-full bg-black" />}
+              ) : (
+                <div className="space-y-3 mb-5">
+                  {/* Plan 1: ₹149 Career Accelerator Suite (PRE-SELECTED / BEST VALUE) */}
+                  <div
+                    onClick={() => setModalSelectedPlan('bundle')}
+                    className={`p-4 sm:p-5 rounded-2xl cursor-pointer border-2 transition-all flex items-start justify-between gap-3 relative ${
+                      modalSelectedPlan === 'bundle'
+                        ? 'bg-[#0E161B] border-emerald-500 text-white shadow-xl shadow-emerald-500/15 ring-1 ring-emerald-500/40'
+                        : 'bg-black/40 border-white/[0.1] text-[#86868B] hover:border-emerald-500/40'
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
+                        modalSelectedPlan === 'bundle' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
+                      }`}>
+                        {modalSelectedPlan === 'bundle' && <div className="w-2 h-2 rounded-full bg-black" />}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <span className="font-bold text-white text-sm sm:text-base">
+                            Executive Career Accelerator Suite™ (Elite Edition)
+                          </span>
+                          <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-extrabold border border-emerald-500/30">
+                            👑 RECOMMENDED BY 89% STUDENTS · BEST VALUE
+                          </span>
+                        </div>
+                        <div className="text-[11px] font-mono text-emerald-400 font-semibold mb-1">
+                          👑 The 6-Figure Placement Arsenal · Real-World Enterprise Advantage
+                        </div>
+                        <p className="text-xs text-emerald-200/90 leading-relaxed mb-2">
+                          Includes <strong>all {selectedSubject.bundleItems.length} specialized engineering guides</strong> ({selectedSubject.bundlePages}): English, Hindi &amp; Gujarati Core Guides + {selectedSubject.hasCheatSheet ? <strong className="text-amber-300">FREE ₹22 8-Page Desk Cheat Sheet + </strong> : ''}Top MNC Interview Vault + Practical Labs/Templates + Career Salary Blueprint + 1-Click ZIP Download.
+                        </p>
+                        <div className="text-[11px] font-mono text-[#86868B]">
+                          ✓ Personal Mentorship Email from Rahul Sir · 100% Lifetime Free Yearly Updates
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="font-bold text-white text-sm sm:text-base">
-                          Foundational Engineering Master Pass™
-                        </span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.06] text-[#86868B]">
-                          {selectedSubject.pages}
-                        </span>
-                      </div>
-                      <div className="text-[11px] font-mono text-zinc-400 font-semibold mb-1">
-                        📘 The Essential Technical Blueprint · 100% Concept Mastery &amp; Academic Excellence
-                      </div>
-                      <p className="text-xs text-[#86868B] leading-relaxed">
-                        Complete {selectedSubject.pages} Theory Handbook PDF in your chosen language with verified silicon concepts, vector schematics, and practice MCQs. (Does NOT include the MNC Interview Vault, Practical Labs, or Salary Blueprint).
-                      </p>
+                    <div className="text-right shrink-0">
+                      <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹1,099</div>
+                      <div className="text-lg sm:text-2xl font-black text-emerald-400">₹149</div>
+                      <div className="text-[9px] font-mono text-emerald-300 font-bold">SAVE ₹950 · 86% OFF</div>
                     </div>
                   </div>
-                  <div className="text-right shrink-0">
-                    <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹199</div>
-                    <div className="text-lg sm:text-xl font-black text-white">₹49</div>
-                    <div className="text-[9px] font-mono text-zinc-400">SAVE 75%</div>
+
+                  {/* Plan 2: ₹49 Single Core Notes */}
+                  <div
+                    onClick={() => setModalSelectedPlan('single')}
+                    className={`p-3.5 sm:p-4 rounded-2xl cursor-pointer border transition-all flex items-start justify-between gap-3 ${
+                      modalSelectedPlan === 'single'
+                        ? 'bg-black border-white text-white shadow-lg ring-1 ring-white/20'
+                        : 'bg-black/40 border-white/[0.08] text-[#86868B] hover:border-white/20'
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`w-5 h-5 rounded-full border shrink-0 mt-0.5 flex items-center justify-center ${
+                        modalSelectedPlan === 'single' ? 'border-emerald-400 bg-emerald-400' : 'border-white/30'
+                      }`}>
+                        {modalSelectedPlan === 'single' && <div className="w-2 h-2 rounded-full bg-black" />}
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <span className="font-bold text-white text-sm sm:text-base">
+                            Foundational Engineering Master Pass™
+                          </span>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.06] text-[#86868B]">
+                            {selectedSubject.pages}
+                          </span>
+                        </div>
+                        <div className="text-[11px] font-mono text-zinc-400 font-semibold mb-1">
+                          📘 The Essential Technical Blueprint · 100% Concept Mastery &amp; Academic Excellence
+                        </div>
+                        <p className="text-xs text-[#86868B] leading-relaxed">
+                          Complete {selectedSubject.pages} Theory Handbook PDF in your chosen language with verified silicon concepts, vector schematics, and practice MCQs. (Does NOT include the MNC Interview Vault, Practical Labs, or Salary Blueprint).
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div className="text-xs font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">₹199</div>
+                      <div className="text-lg sm:text-xl font-black text-white">₹49</div>
+                      <div className="text-[9px] font-mono text-zinc-400">SAVE 75%</div>
+                    </div>
                   </div>
                 </div>
-
-              </div>
+              )}
 
               {/* Sneak Peek Tabs */}
               <div className="mb-5">
@@ -2313,13 +3190,20 @@ export default function NotesPage() {
               <div className="space-y-2.5">
                 <button
                   onClick={proceedToCheckoutWithSelectedPlan}
-                  className={`w-full py-3.5 sm:py-4 rounded-xl sm:rounded-full font-black text-sm sm:text-base transition-all shadow-xl flex items-center justify-center gap-2 active:scale-98 ${
-                    modalSelectedPlan === 'bundle'
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black shadow-emerald-500/30'
-                      : 'bg-white hover:bg-zinc-200 text-black shadow-white/20'
+                  className={`w-full py-3.5 sm:py-4 rounded-xl sm:rounded-full font-black text-sm sm:text-base transition-all shadow-xl flex items-center justify-center gap-2 active:scale-98 cursor-pointer ${
+                    modalSelectedPlan === 'cheatsheet'
+                      ? 'bg-amber-400 hover:bg-amber-300 text-black shadow-sm font-bold'
+                      : modalSelectedPlan === 'bundle'
+                      ? 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-sm font-bold'
+                      : 'bg-white hover:bg-zinc-200 text-black shadow-sm font-bold'
                   }`}
                 >
-                  {modalSelectedPlan === 'bundle' ? (
+                  {modalSelectedPlan === 'cheatsheet' ? (
+                    <>
+                      <span>Proceed with ₹22 Quick Desk Reference (8-Page PDF)</span>
+                      <span>→</span>
+                    </>
+                  ) : modalSelectedPlan === 'bundle' ? (
                     <>
                       <span>Proceed with ₹149 Career Accelerator Suite (All Files + ZIP)</span>
                       <span>→</span>
@@ -2348,8 +3232,10 @@ export default function NotesPage() {
               style={{ backgroundColor: '#0e0e13' }}
             >
               <button
+                type="button"
                 onClick={() => setIsCheckoutOpen(false)}
-                className="absolute top-4 right-4 text-[#86868B] hover:text-white p-1.5 rounded-full bg-white/[0.06]"
+                aria-label="Close checkout modal"
+                className="absolute top-4 right-4 text-[#86868B] hover:text-white p-1.5 rounded-full bg-white/[0.06] cursor-pointer"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -2383,19 +3269,25 @@ export default function NotesPage() {
                     </div>
 
                     <a
-                      href={checkoutItem.plan === 'bundle' && selectedSubject.bundleZip ? selectedSubject.bundleZip : (selectedLanguage === 'gu' && selectedSubject.fullPdfGu ? selectedSubject.fullPdfGu : (selectedLanguage === 'hi' ? selectedSubject.fullPdfHi : selectedSubject.fullPdfEn))}
+                      href={
+                        checkoutItem.plan === 'cheatsheet'
+                          ? (selectedLanguage === 'gu' ? (selectedSubject.cheatSheetPdfGu || selectedSubject.cheatSheetPdfHi) : (selectedLanguage === 'hi' ? selectedSubject.cheatSheetPdfHi : (selectedSubject.cheatSheetPdfEn || selectedSubject.cheatSheetPdfHi)))
+                          : (checkoutItem.plan === 'bundle' && selectedSubject.bundleZip ? selectedSubject.bundleZip : (selectedLanguage === 'gu' && selectedSubject.fullPdfGu ? selectedSubject.fullPdfGu : (selectedLanguage === 'hi' ? selectedSubject.fullPdfHi : selectedSubject.fullPdfEn)))
+                      }
                       download
                       className="w-full py-4 sm:py-5 px-6 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-400 hover:brightness-110 text-black text-base sm:text-xl font-black tracking-tight text-center shadow-2xl shadow-emerald-500/50 transform hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-3 border-2 border-white/60 cursor-pointer block"
                     >
                       <span className="text-2xl sm:text-3xl">📥</span>
-                      <span className="uppercase">DOWNLOAD NOTES NOW</span>
+                      <span className="uppercase">{checkoutItem.plan === 'cheatsheet' ? 'DOWNLOAD CHEAT SHEET' : 'DOWNLOAD NOTES NOW'}</span>
                       <span className="text-[11px] font-mono bg-black text-emerald-400 px-2.5 py-0.5 rounded-full font-bold">
-                        {checkoutItem.plan === 'bundle' ? 'ZIP BUNDLE' : 'MASTER PDF'}
+                        {checkoutItem.plan === 'cheatsheet' ? '8-PAGE PDF' : (checkoutItem.plan === 'bundle' ? 'ZIP BUNDLE' : 'MASTER PDF')}
                       </span>
                     </a>
 
                     <p className="text-[11px] text-emerald-200/90 font-mono">
-                      {checkoutItem.plan === 'bundle'
+                      {checkoutItem.plan === 'cheatsheet'
+                        ? `⚡ ${selectedSubject.title} Quick Desk Reference (${selectedLanguage === 'gu' ? 'ગુજરાતી' : (selectedLanguage === 'hi' ? 'Hindi' : 'English')} Edition · 8 Pages Desk Companion)`
+                        : checkoutItem.plan === 'bundle'
                         ? `📦 Complete Master Bundle (.ZIP · ${selectedSubject.bundleZipSize}) — All Theory Guides + Interview Vaults + Labs`
                         : `⚡ Core Master Guide (${selectedLanguage === 'gu' ? 'ગુજરાતી' : (selectedLanguage === 'hi' ? 'Hindi' : 'English')} Edition · ${selectedSubject.pages})`}
                     </p>
@@ -2409,15 +3301,15 @@ export default function NotesPage() {
                     </div>
 
                     <div className={checkoutItem.plan === 'bundle' ? "grid grid-cols-1 sm:grid-cols-3 gap-2" : "grid grid-cols-1 gap-2"}>
-                      {(checkoutItem.plan === 'bundle' || selectedLanguage === 'gu') && selectedSubject.fullPdfGu && (
+                      {(checkoutItem.plan === 'bundle' || selectedLanguage === 'gu') && (
                         <a
-                          href={selectedSubject.fullPdfGu}
+                          href={checkoutItem.plan === 'cheatsheet' ? (selectedSubject.cheatSheetPdfGu || selectedSubject.cheatSheetPdfHi) : selectedSubject.fullPdfGu}
                           download
                           className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
                         >
                           <span className="flex items-center gap-1.5 truncate">
                             <span>🦁</span>
-                            <span className="truncate">ગુજરાતી આવૃત્તિ ({selectedSubject.pages})</span>
+                            <span className="truncate">ગુજરાતી આવૃત્તિ ({checkoutItem.plan === 'cheatsheet' ? '8 Pages Desk Sheet' : selectedSubject.pages})</span>
                           </span>
                           <span className="text-amber-400 font-mono text-[10px] shrink-0 font-bold">Direct Download ↓</span>
                         </a>
@@ -2425,13 +3317,13 @@ export default function NotesPage() {
 
                       {(checkoutItem.plan === 'bundle' || selectedLanguage === 'hi') && (
                         <a
-                          href={selectedSubject.fullPdfHi}
+                          href={checkoutItem.plan === 'cheatsheet' ? selectedSubject.cheatSheetPdfHi : selectedSubject.fullPdfHi}
                           download
                           className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
                         >
                           <span className="flex items-center gap-1.5 truncate">
                             <span>🇮🇳</span>
-                            <span className="truncate">Hindi Master PDF ({selectedSubject.pages})</span>
+                            <span className="truncate">Hindi Edition ({checkoutItem.plan === 'cheatsheet' ? '8 Pages Desk Sheet' : selectedSubject.pages})</span>
                           </span>
                           <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Direct Download ↓</span>
                         </a>
@@ -2439,13 +3331,13 @@ export default function NotesPage() {
 
                       {(checkoutItem.plan === 'bundle' || selectedLanguage === 'en') && (
                         <a
-                          href={selectedSubject.fullPdfEn}
+                          href={checkoutItem.plan === 'cheatsheet' ? (selectedSubject.cheatSheetPdfEn || selectedSubject.cheatSheetPdfHi) : selectedSubject.fullPdfEn}
                           download
                           className="p-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-white flex items-center justify-between text-xs font-semibold group transition-all"
                         >
                           <span className="flex items-center gap-1.5 truncate">
                             <span>🇬🇧</span>
-                            <span className="truncate">English Master PDF ({selectedSubject.pages})</span>
+                            <span className="truncate">English Edition ({checkoutItem.plan === 'cheatsheet' ? '8 Pages Desk Sheet' : selectedSubject.pages})</span>
                           </span>
                           <span className="text-emerald-400 font-mono text-[10px] shrink-0 font-bold">Direct Download ↓</span>
                         </a>
@@ -2512,7 +3404,7 @@ export default function NotesPage() {
                     </h3>
                     <div className="text-2xl sm:text-3xl font-black text-white mt-1 flex items-baseline justify-center gap-2">
                       <span className="text-base font-mono font-extrabold text-red-400 line-through decoration-red-500 decoration-2">
-                        {checkoutItem.price === 149 ? '₹1,099' : '₹199'}
+                        {checkoutItem.price === 149 ? '₹1,099' : (checkoutItem.price === 22 ? '₹99' : '₹199')}
                       </span>
                       <span>₹{checkoutItem.price}</span>
                       <span className="text-xs font-normal text-[#86868B] font-mono">one-time access</span>
@@ -2644,7 +3536,7 @@ export default function NotesPage() {
                     <button
                       type="submit"
                       disabled={isPaymentProcessing}
-                      className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:opacity-95 text-black font-black text-xs sm:text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+                      className="w-full py-3 rounded-xl bg-white hover:bg-zinc-200 text-black font-bold text-xs sm:text-sm transition-colors flex items-center justify-center gap-2 active:scale-95 cursor-pointer shadow-sm"
                     >
                       {isPaymentProcessing ? (
                         <>
@@ -2685,6 +3577,86 @@ export default function NotesPage() {
                   </div>
                 </>
               )}
+            </div>
+          </div>
+        )}
+
+        {/* 22rs Promo Reel Video Modal */}
+        {showReelModal && (
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn"
+            onClick={() => setShowReelModal(false)}
+          >
+            <div
+              className="relative max-w-sm w-full rounded-3xl bg-[#111216] border border-white/15 p-4 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <h4 className="text-sm font-bold text-white">Why ₹22 Desk Cheat Sheets?</h4>
+                  <p className="text-[11px] font-mono text-cyan-400">All 8 Subjects · EN / HI / GU · 55s Reel</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowReelModal(false)}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
+                <video
+                  src="/videos/rtechlab-22rs-promo-reel.mp4"
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full aspect-[9/16] max-h-[70vh] object-contain mx-auto"
+                />
+              </div>
+              <div className="mt-3 flex items-center justify-between gap-2">
+                <span className="text-[11px] font-mono text-zinc-400">1080×1920 Vertical Reel</span>
+                <a
+                  href="/videos/rtechlab-22rs-promo-reel.mp4"
+                  download
+                  className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all"
+                >
+                  ⬇ Download MP4
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Cover Page Preview Lightbox Modal */}
+        {coverPreview && (
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn"
+            onClick={() => setCoverPreview(null)}
+          >
+            <div
+              className="relative max-w-md w-full rounded-3xl bg-[#111216] border border-white/15 p-4 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <h4 className="text-sm font-bold text-white">{coverPreview.title}</h4>
+                  <p className="text-[11px] font-mono text-zinc-400">{coverPreview.subtitle}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCoverPreview(null)}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
+                <img
+                  src={coverPreview.image}
+                  alt={coverPreview.title}
+                  className="w-full h-auto max-h-[75vh] object-contain mx-auto"
+                />
+              </div>
             </div>
           </div>
         )}

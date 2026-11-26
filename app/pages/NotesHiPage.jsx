@@ -92,8 +92,9 @@ const SUBJECTS_HI = [
     fullPdfHi: '/downloads/Office-365-Hindi-Edition-1.pdf',
     fullPdfGu: '/downloads/Office-365-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/Office-365-Career-Accelerator-Bundle.zip',
-    bundleZipSize: '16.7 MB',
+    bundleZipSize: '68.3 MB',
     bundleItems: [
+      { name: '🎁 फ्री बोनस: ऑफिस 365 क्विक डेस्क चीट शीट (EN/HI/GU + 150 शॉर्टकट्स)', pages: '8 पेजेस × 3 भाषाएँ', file: 'Office-365-Quick-Desk-Reference-Cheat-Sheet-Hindi.pdf', badge: '₹22 FREE BONUS' },
       { name: 'ऑफिस 365 एंटरप्राइज मास्टर गाइड (हिंदी)', pages: '113 पेजेस', file: 'Office-365-Hindi-Edition-1.pdf', badge: 'मुख्य हिंदी गाइड' },
       { name: 'ऑफिस 365 एंटरप्राइज मास्टर गाइड (अंग्रेज़ी)', pages: '113 पेजेस', file: 'Office-365-English-Edition-1.pdf', badge: 'English Edition' },
       { name: 'ऑफिस 365 एंटरप्राइज मास्टर गाइड (ગુજરાતી)', pages: '113 पेजेस', file: 'Office-365-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
@@ -166,8 +167,9 @@ const SUBJECTS_HI = [
     fullPdfHi: '/downloads/Tally-Prime-Hindi-Edition-1.pdf',
     fullPdfGu: '/downloads/Tally-Prime-Gujarati-Edition-1.pdf',
     bundleZip: '/downloads/Tally-Prime-Career-Accelerator-Bundle.zip',
-    bundleZipSize: '11.4 MB',
+    bundleZipSize: '58.4 MB',
     bundleItems: [
+      { name: '🎁 फ्री बोनस: टैली प्राइम 2027 क्विक डेस्क चीट शीट (EN/HI/GU)', pages: '8 पेजेस × 3 भाषाएँ', file: 'Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-Edition-1.pdf', badge: '₹22 FREE BONUS' },
       { name: 'टैली प्राइम विद जीएसटी कोर मास्टर गाइड (हिंदी)', pages: '51 पेजेस', file: 'Tally-Prime-Hindi-Edition-1.pdf', badge: 'मुख्य हिंदी गाइड' },
       { name: 'टैली प्राइम विद जीएसटी कोर मास्टर गाइड (English)', pages: '51 पेजेस', file: 'Tally-Prime-English-Edition-1.pdf', badge: 'English Edition' },
       { name: 'टैली प्राइम विद जीएसटी कोर मास्टर गाइड (ગુજરાતી)', pages: '51 पेजेस', file: 'Tally-Prime-Gujarati-Edition-1.pdf', badge: 'ગુજરાતી આવૃત્તિ' },
@@ -175,7 +177,7 @@ const SUBJECTS_HI = [
       { name: 'एडवांस्ड टीडीएस व फॉर्म 26Q लाइव प्रैक्टिस सेट', pages: '4 पेजेस', file: 'Tally-TDS-and-Form-26Q-Practice-Workbook.pdf', badge: 'टीडीएस वर्कबुक' },
       { name: 'शीर्ष 50 कॉर्पोरेट अकाउंटेंट व जीएसटी इंटरव्यू वॉल्ट (English)', pages: '6 पेजेस', file: 'Tally-Top-50-Accountant-Interview-Vault.pdf', badge: 'इंटरव्यू वॉल्ट' },
       { name: 'कॉर्पोरेट अकाउंटेंट करियर रोडमैप व सैलरी ब्लूप्रिंट', pages: '2 पेजेस', file: 'Tally-Accountant-Career-Salary-Blueprint-Edition-1.pdf', badge: 'सैलरी ब्लूप्रिंट' },
-      { name: '1-क्लिक मास्टर ZIP ऑफलाइन बंडल', pages: 'सभी 7 PDFs', file: 'Tally-Prime-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
+      { name: '1-क्लिक मास्टर ZIP ऑफलाइन बंडल', pages: 'सभी 10 PDFs', file: 'Tally-Prime-Career-Accelerator-Bundle.zip', badge: '1-Click ZIP' },
     ],
     topics: [
       'अध्याय 01-03: टैली इतिहास (भरत गोयनका), सिस्टम आर्किटेक्चर, 3 सुनहरे नियम व मिस्टर वर्मा 50-एंट्री वर्कफ़्लो',
@@ -225,6 +227,9 @@ const SUBJECTS_HI = [
 export function NotesHiPage() {
   const [selectedSubject, setSelectedSubject] = useState(SUBJECTS_HI[0]);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [activeStoreTab, setActiveStoreTab] = useState('22'); // '22' | '49' | 'all'
+  const [coverPreview, setCoverPreview] = useState(null);
+  const [showReelModal, setShowReelModal] = useState(false);
   const carouselRef = useRef(null);
   const [isUpsellOpen, setIsUpsellOpen] = useState(false);
   const [modalSelectedPlan, setModalSelectedPlan] = useState('bundle');
@@ -273,28 +278,572 @@ export function NotesHiPage() {
             आधिकारिक मास्टर डिजिटल नोट्स
           </h1>
           <p className="text-[#86868B] text-xs sm:text-base max-w-2xl mx-auto leading-relaxed mb-5">
-            अनुसंधान-सत्यापित, उच्च-गुणवत्ता वाले इंजीनियरिंग हैंडबुक्स। कोर थ्योरी गाइड केवल <strong className="text-white">₹49</strong> में, या सम्पूर्ण <strong className="text-emerald-400">₹149 करियर एक्सेलेरेटर सूट</strong> (+MNC इंटरव्यू वॉल्ट, लैब्स व सैलरी ब्लूप्रिंट)।
+            अनुसंधान-सत्यापित व्यावहारिक नोट्स। तेज़ डेस्क उपयोग के लिए <strong className="text-amber-300">₹22 चीट शीट</strong> या सम्पूर्ण <strong className="text-white">₹49 मास्टर बुक</strong> / <strong className="text-emerald-400">₹149 करियर सूट</strong> चुनें।
           </p>
 
-          {/* Quick-Jump Navigation & Interactive Subject Switcher */}
-          <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
-            <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">ट्रैक चुनें:</span>
-            {SUBJECTS_HI.map((s, idx) => (
+          {/* Apple-Style Frosted Glass Sliding Switcher (₹22 Sheets vs ₹49 Books vs All) */}
+          <div className="flex justify-center mt-5 mb-2">
+            <div className="relative inline-flex items-center p-1 rounded-full bg-white/[0.04] backdrop-blur-2xl border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.45),inset_0_1px_1px_rgba(255,255,255,0.12)] w-full max-w-[380px]">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute top-1 bottom-1 w-[calc(33.333%-4px)] rounded-full bg-white/[0.16] backdrop-blur-xl border border-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.35),0_2px_10px_rgba(0,0,0,0.3)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                style={{
+                  left:
+                    activeStoreTab === '22'
+                      ? '4px'
+                      : activeStoreTab === '49'
+                      ? 'calc(33.333% + 1.33px)'
+                      : 'calc(66.666% - 1.33px)',
+                }}
+              />
               <button
-                key={s.id}
                 type="button"
-                onClick={() => scrollToSlide(idx)}
-                className={`px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all active:scale-95 flex items-center gap-1.5 cursor-pointer ${
-                  activeSlideIndex === idx
-                    ? 'bg-emerald-500 text-black font-bold shadow-lg shadow-emerald-500/20'
-                    : 'bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-white/80 hover:text-white'
+                onClick={() => setActiveStoreTab('22')}
+                className={`relative z-10 w-1/3 py-2 px-2 rounded-full text-xs font-semibold transition-colors cursor-pointer flex items-center justify-center gap-1 ${
+                  activeStoreTab === '22' ? 'text-white font-bold' : 'text-zinc-400 hover:text-white'
                 }`}
               >
-                <span>{s.id === 'server2025' ? '⚡ सर्वर 2025' : s.id === 'ai' ? '🤖 AI मास्टर' : s.id === 'office-365' ? '📊 ऑफिस 365' : s.id === 'fundamentals' ? '💻 फंडामेंटल्स' : s.id === 'tally' ? '📈 टैली प्राइम' : '🌐 CCNA'}</span>
+                <span>⚡ ₹22 शीट्स</span>
               </button>
-            ))}
+              <button
+                type="button"
+                onClick={() => setActiveStoreTab('49')}
+                className={`relative z-10 w-1/3 py-2 px-2 rounded-full text-xs font-semibold transition-colors cursor-pointer flex items-center justify-center gap-1 ${
+                  activeStoreTab === '49' ? 'text-white font-bold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                <span>📘 ₹49 बुक्स</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveStoreTab('all')}
+                className={`relative z-10 w-1/3 py-2 px-2 rounded-full text-xs font-semibold transition-colors cursor-pointer flex items-center justify-center gap-1 ${
+                  activeStoreTab === 'all' ? 'text-white font-bold' : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                <span>🌐 सभी ({SUBJECTS_HI.length})</span>
+              </button>
+            </div>
           </div>
+
+          {/* Quick-Jump Navigation & Interactive Subject Switcher (for ₹49 section) */}
+          {(activeStoreTab === '49' || activeStoreTab === 'all') && (
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 flex-wrap">
+              <span className="text-[11px] font-mono text-[#86868B] mr-1 hidden sm:inline">ट्रैक चुनें:</span>
+              {SUBJECTS_HI.map((s, idx) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => scrollToSlide(idx)}
+                  className={`px-3 py-1.5 rounded-full text-[11px] font-semibold transition-all active:scale-95 flex items-center gap-1.5 cursor-pointer ${
+                    activeSlideIndex === idx
+                      ? 'bg-emerald-500 text-black font-bold shadow-lg shadow-emerald-500/20'
+                      : 'bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.08] text-white/80 hover:text-white'
+                  }`}
+                >
+                  <span>{s.id === 'server2025' ? '⚡ सर्वर 2025' : s.id === 'ai' ? '🤖 AI मास्टर' : s.id === 'office-365' ? '📊 ऑफिस 365' : s.id === 'fundamentals' ? '💻 फंडामेंटल्स' : s.id === 'tally' ? '📈 टैली प्राइम' : '🌐 CCNA'}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
+
+        {/* ⚡ SECTION 1 (HINDI): RTECHLAB ₹22 QUICK DESK REFERENCE STORE */}
+        {(activeStoreTab === '22' || activeStoreTab === 'all') && (
+          <div id="store-22" className="mb-12 scroll-mt-20">
+            <div className="text-center mb-6 flex flex-wrap items-center justify-center gap-2.5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] backdrop-blur-xl border border-white/[0.1] text-xs font-mono text-zinc-300">
+                <span>⚡ 8-पेज डेस्क चीट शीट्स</span>
+                <span className="w-1 h-1 rounded-full bg-amber-400" />
+                <span className="text-amber-300 font-bold">केवल ₹22</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowReelModal(true)}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-400/35 text-xs font-mono text-cyan-300 font-semibold transition-all cursor-pointer active:scale-95"
+              >
+                <span>▶ 55s रील देखें</span>
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
+              {/* HINDI CARD 1: Tally Prime 2027 */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-white/[0.22] transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-पेज प्रिंटेबल डेस्क शीट · ऑफिस व GST रेडी
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/20">
+                      बेस्टसेलर #1
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Tally Prime 2027 क्विक डेस्क रेफरेंस
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-amber-400 font-bold">✓</span><span><strong className="text-white">सभी 28 ग्रुप्स, 24 वाउचर्स</strong> व 35 हॉटकीज़</span></li>
+                    <li className="flex items-start gap-2"><span className="text-amber-400 font-bold">✓</span><span><strong className="text-white">आधुनिक GST (0%/5%/18%)</strong> व TDS मैट्रिक्स</span></li>
+                    <li className="flex items-start gap-2"><span className="text-amber-400 font-bold">✓</span><span><strong className="text-white">Cheque BRS</strong> व 3 गोल्डन रूल्स</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Tally Prime 2027 — क्विक डेस्क चीट शीट',
+                        image: '/images/covers/tally-22-cover.jpg',
+                        subtitle: '8-पेज प्रिंटेबल डेस्क शीट · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-amber-300 hover:text-amber-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-Edition-1.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* HINDI CARD 2: Microsoft Office 365 */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-sky-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-पेज प्रिंटेबल डेस्क शीट · 150 शॉर्टकट्स
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-sky-400/10 text-sky-300 border border-sky-400/20">
+                      Word · Excel · PPT · + .XLSX लैब
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Microsoft Office 365 क्विक डेस्क व 150 शॉर्टकट
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">150 नंबर वाले शॉर्टकट्स</strong> + 6 Win कीज़</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">24 Excel फॉर्मूले</strong> (XLOOKUP, LET, FILTER)</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">Power Query ETL</strong> व मुफ़्त .xlsx लैब</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Microsoft Office 365 — क्विक डेस्क चीट शीट',
+                        image: '/images/covers/office-22-cover.jpg',
+                        subtitle: '8-पेज प्रिंटेबल डेस्क शीट · + मुफ़्त .xlsx लैब',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-sky-300 hover:text-sky-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/Office-365-Quick-Desk-Reference-Cheat-Sheet-Hindi.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU + .xlsx
+                  </span>
+                </div>
+              </div>
+
+              {/* HINDI CARD 3: Linux & Shell Mastery */}
+              <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-emerald-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-पेज प्रिंटेबल डेस्क शीट · जॉब व एग्जाम रेडी
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/20">
+                      RHEL · Ubuntu · Fedora · Kali
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Linux &amp; Shell Mastery क्विक डेस्क चीट शीट
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-emerald-400 font-bold">✓</span><span><strong className="text-white">15 प्रैक्टिकल मॉड्यूल्स:</strong> FHS, chmod, Systemd व LVM</span></li>
+                    <li className="flex items-start gap-2"><span className="text-emerald-400 font-bold">✓</span><span><strong className="text-white">RHEL, Ubuntu, Fedora</strong> व Kali तुलना</span></li>
+                    <li className="flex items-start gap-2"><span className="text-emerald-400 font-bold">✓</span><span><strong className="text-white">Bash, Docker, UFW</strong> व 10 इंटरव्यू Q&amp;A</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Linux & Shell Mastery — क्विक डेस्क चीट शीट',
+                        image: '/images/covers/linux-22-cover.jpg',
+                        subtitle: '8-पेज प्रिंटेबल डेस्क शीट · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-emerald-300 hover:text-emerald-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/Linux-Quick-Desk-Reference-Cheat-Sheet-Hindi.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* HINDI CARD 4: Ethical Hacking & Cyber Security */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-rose-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      8-पेज प्रिंटेबल डेस्क शीट · Kali व OWASP
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-300 border border-rose-500/20">
+                      Nmap · SQLi · VirusTotal · करियर पथ
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Ethical Hacking &amp; Cyber Security डेस्क शीट
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-rose-400 font-bold">✓</span><span><strong className="text-white">Kali लैब, Nmap</strong> व Wireshark फ़िल्टर्स</span></li>
+                    <li className="flex items-start gap-2"><span className="text-rose-400 font-bold">✓</span><span><strong className="text-white">OWASP Top 10, SQLi</strong> व क्रिप्टोग्राफ़ी डायग्राम</span></li>
+                    <li className="flex items-start gap-2"><span className="text-rose-400 font-bold">✓</span><span><strong className="text-white">VirusTotal, EICAR, HTB</strong> व टॉप GitHub Repos</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Ethical Hacking & Cyber Security — क्विक डेस्क शीट',
+                        image: '/images/covers/eh-22-cover.jpg',
+                        subtitle: '8-पेज प्रिंटेबल डेस्क शीट · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-rose-300 hover:text-rose-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/Ethical-Hacking-Cyber-Security-Quick-Desk-Cheat-Sheet-Hindi.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* HINDI CARD 5: Cisco CCNA 200-301 & Networking */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-sky-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-पेज प्रिंटेबल डेस्क शीट · CCNA 200-301
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20">
+                      OSI · IPv4/IPv6 · Subnetting · OSPF
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Cisco CCNA 200-301 &amp; Networking डेस्क शीट
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">नेटवर्क प्रकार, डिवाइस, OSI</strong> व फाइबर/PoE</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">IPv4 सबनेटिंग (/16–/32)</strong>, VLSM व IPv6</span></li>
+                    <li className="flex items-start gap-2"><span className="text-sky-400 font-bold">✓</span><span><strong className="text-white">VLANs, STP, OSPF, ACL/NAT</strong> व टॉप 10 Q&amp;A</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Cisco CCNA 200-301 & Networking — क्विक डेस्क शीट',
+                        image: '/images/covers/ccna-22-cover.jpg',
+                        subtitle: '10-पेज प्रिंटेबल डेस्क शीट · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-sky-300 hover:text-sky-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/CCNA-200-301-Networking-Quick-Desk-Cheat-Sheet-Hindi.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* HINDI CARD 6: AI Prompt Engineering & Generative AI */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-violet-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-पेज प्रिंटेबल डेस्क शीट · GenAI व Agents
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20">
+                      Prompts · RAG · MCP · फ्री टूल्स
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    AI Prompt Engineering &amp; Generative AI डेस्क शीट
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-violet-400 font-bold">✓</span><span><strong className="text-white">RTF/CO-STAR, इमेज प्रॉम्प्ट</strong> व प्रो वॉल्ट</span></li>
+                    <li className="flex items-start gap-2"><span className="text-violet-400 font-bold">✓</span><span><strong className="text-white">RAG, Vector DB, AI Agents</strong> व MCP</span></li>
+                    <li className="flex items-start gap-2"><span className="text-violet-400 font-bold">✓</span><span><strong className="text-white">Free vs Paid टूल्स, GitHub</strong> व टॉप 10 Q&amp;A</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'AI Prompt Engineering & Generative AI — क्विक डेस्क शीट',
+                        image: '/images/covers/ai-22-cover.jpg',
+                        subtitle: '10-पेज प्रिंटेबल डेस्क शीट · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-violet-300 hover:text-violet-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/AI-Prompt-Engineering-GenAI-Quick-Desk-Cheat-Sheet-Hindi.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* HINDI CARD 7: Python Programming & Automation */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-blue-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-पेज प्रिंटेबल डेस्क शीट · Python 3.12+
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                      Core · OOP · Automation · Python+AI
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Python Programming &amp; Automation डेस्क शीट
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-blue-400 font-bold">✓</span><span><strong className="text-white">डेटा स्ट्रक्चर्स, OOP</strong> व फाइल/JSON हैंडलिंग</span></li>
+                    <li className="flex items-start gap-2"><span className="text-blue-400 font-bold">✓</span><span><strong className="text-white">ऑटोमेशन स्क्रिप्ट्स, Pandas</strong> व FastAPI</span></li>
+                    <li className="flex items-start gap-2"><span className="text-blue-400 font-bold">✓</span><span><strong className="text-white">Python + AI (RAG/Agents)</strong> व Future 2030</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Python Programming & Automation — क्विक डेस्क शीट',
+                        image: '/images/covers/python-22-cover.jpg',
+                        subtitle: '10-पेज प्रिंटेबल डेस्क शीट · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-blue-300 hover:text-blue-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/Python-Programming-Automation-Quick-Desk-Cheat-Sheet-Hindi.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+
+              {/* HINDI CARD 8: Git & GitHub Mastery */}
+              <div className="p-6 sm:p-7 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/[0.1] hover:border-orange-400/30 transition-all shadow-2xl text-center flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-center gap-2 flex-wrap mb-3">
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.06] text-zinc-200 font-semibold border border-white/10">
+                      10-पेज प्रिंटेबल डेस्क शीट · Git व CI/CD
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-white/[0.04] text-zinc-400 border border-white/5">
+                      हिंदी · English · ગુજરાતી
+                    </span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">
+                      Branching · PRs · Actions · Top 10 Repos
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 text-center">
+                    Git &amp; GitHub Mastery डेस्क शीट
+                  </h3>
+                  <ul className="text-left text-xs sm:text-sm text-zinc-300 max-w-xs mx-auto space-y-1.5 mb-4">
+                    <li className="flex items-start gap-2"><span className="text-orange-400 font-bold">✓</span><span><strong className="text-white">4-एरिया वर्कफ़्लो, SSH</strong> व Merge कॉन्फ्लिक्ट्स</span></li>
+                    <li className="flex items-start gap-2"><span className="text-orange-400 font-bold">✓</span><span><strong className="text-white">Reset/Reflog, Open-Source PR</strong> व Actions</span></li>
+                    <li className="flex items-start gap-2"><span className="text-orange-400 font-bold">✓</span><span><strong className="text-white">AI + Git, Top 10 Starred Repos</strong> व Q&amp;A</span></li>
+                  </ul>
+                  <div className="mb-5 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setCoverPreview({
+                        title: 'Git & GitHub Mastery — क्विक डेस्क शीट',
+                        image: '/images/covers/git-22-cover.jpg',
+                        subtitle: '10-पेज प्रिंटेबल डेस्क शीट · EN / HI / GU',
+                      })}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] hover:bg-white/[0.12] border border-white/15 text-xs font-semibold text-orange-300 hover:text-orange-200 transition-all cursor-pointer"
+                    >
+                      <span>👁️ कवर पेज प्रिव्यू देखें →</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center max-w-xs mx-auto text-center w-full">
+                  <div className="flex items-baseline justify-center gap-2 mb-2.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white">₹22</span>
+                    <span className="text-sm font-mono text-zinc-500 line-through">₹99</span>
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      78% छूट
+                    </span>
+                  </div>
+                  <a
+                    href="/downloads/Git-GitHub-Mastery-Quick-Desk-Cheat-Sheet-Hindi.pdf"
+                    download
+                    className="btn-shine-2s w-full py-3 px-6 rounded-full bg-white hover:bg-zinc-200 text-black text-sm font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>⚡ ₹22 शीट डाउनलोड करें (हिंदी)</span>
+                    <span>→</span>
+                  </a>
+                  <span className="text-[11px] font-mono text-zinc-400 text-center mt-2.5">
+                    तुरंत PDF डाउनलोड · EN / HI / GU
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {(activeStoreTab === '49' || activeStoreTab === 'all') && (
+        <>
 
         {/* Mobile Swipe Navigation & Track Counter (Visible on mobile only: md:hidden) */}
         <div className="flex items-center justify-between px-1 mb-3.5 md:hidden">
@@ -347,7 +896,7 @@ export function NotesHiPage() {
         <div
           ref={carouselRef}
           onScroll={handleCarouselScroll}
-          className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-4 md:pb-0 px-2 sm:px-0 -mx-3 sm:mx-0 touch-pan-x"
+          className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-10 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-none pb-4 md:pb-0 px-2 sm:px-0 -mx-3 sm:mx-0 touch-auto"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {SUBJECTS_HI.map((sub, index) => (
@@ -432,6 +981,8 @@ export function NotesHiPage() {
             कार्ड्स को उंगली से बाएँ-दाएँ स्वाइप करें या ऊपर विषय चुनें
           </p>
         </div>
+        </>
+        )}
 
         {/* Official WhatsApp Community Card */}
         <div className="mt-12 mb-12">
@@ -447,9 +998,13 @@ export function NotesHiPage() {
             <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
               89% छात्र ₹149 करियर एक्सेलेरेटर सूट क्यों चुनते हैं?
             </h2>
-            <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#86868B] leading-relaxed mb-4">
               अगर आप केवल थ्योरी पढ़ना चाहते हैं तो ₹49 ठीक है। लेकिन यदि आप कैंपस प्लेसमेंट, टॉप MNC इंटरव्यू और <strong>₹5L से ₹15L+ CTC</strong> पैकेज क्रैक करना चाहते हैं, तो केवल ₹100 अतिरिक्त में सम्पूर्ण हथियार मिलते हैं।
             </p>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs font-bold">
+              <span>🎁</span>
+              <span>मुफ़्त बोनस: ₹149 सूट चुनने पर ₹22 की 8-पेज डेस्क चीट शीट (EN/HI/GU) बिल्कुल FREE मिलेगी!</span>
+            </div>
           </div>
 
           <div className="text-center">
@@ -462,6 +1017,86 @@ export function NotesHiPage() {
             </Link>
           </div>
         </div>
+
+        {/* 22rs Promo Reel Video Modal */}
+        {showReelModal && (
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn"
+            onClick={() => setShowReelModal(false)}
+          >
+            <div
+              className="relative max-w-sm w-full rounded-3xl bg-[#111216] border border-white/15 p-4 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <h4 className="text-sm font-bold text-white">₹22 डेस्क चीट शीट्स क्यों?</h4>
+                  <p className="text-[11px] font-mono text-cyan-400">सभी 8 विषय · EN / HI / GU · 55s रील</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowReelModal(false)}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
+                <video
+                  src="/videos/rtechlab-22rs-promo-reel.mp4"
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full aspect-[9/16] max-h-[70vh] object-contain mx-auto"
+                />
+              </div>
+              <div className="mt-3 flex items-center justify-between gap-2">
+                <span className="text-[11px] font-mono text-zinc-400">1080×1920 वर्टिकल रील</span>
+                <a
+                  href="/videos/rtechlab-22rs-promo-reel.mp4"
+                  download
+                  className="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-all"
+                >
+                  ⬇ MP4 डाउनलोड
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Cover Page Preview Lightbox Modal */}
+        {coverPreview && (
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-fadeIn"
+            onClick={() => setCoverPreview(null)}
+          >
+            <div
+              className="relative max-w-md w-full rounded-3xl bg-[#111216] border border-white/15 p-4 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <h4 className="text-sm font-bold text-white">{coverPreview.title}</h4>
+                  <p className="text-[11px] font-mono text-zinc-400">{coverPreview.subtitle}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCoverPreview(null)}
+                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold cursor-pointer"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
+                <img
+                  src={coverPreview.image}
+                  alt={coverPreview.title}
+                  className="w-full h-auto max-h-[75vh] object-contain mx-auto"
+                />
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </div>

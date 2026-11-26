@@ -18,13 +18,14 @@ const FEATURED_BOOKS = [
     id: 'tally',
     title: 'Tally Prime with GST & Corporate Accounting',
     subtitle: 'Golden Rules, 28 Groups, 24 Vouchers, Modern GST (0%/5%/18%) & TDS',
-    pages: '51 Pages',
+    pages: '⚡ 8p Sheet & 51p Book',
     tag: 'Commerce & Accounting',
-    badge: '📊 Gujarat #1 Vocational Track',
+    badge: '📊 2 Editions: ₹22 & ₹49',
     previewUrl: '/downloads/Tally-Prime-Hindi-Edition-1-5Page-Preview.pdf',
-    price: 49,
+    price: 22,
+    secondPrice: 49,
     accent: 'amber',
-    highlights: ['28 Groups & 24 Vouchers', 'Modern GST 0%, 5%, 18% Slabs', 'TDS & 50+ Real Business Invoices'],
+    highlights: ['28 Groups & 24 Vouchers (8p Desk Reference)', 'Modern GST 0%, 5%, 18% Slabs & TDS', '50+ Real Commercial Invoices (51p Guide)'],
   },
   {
     id: 'ccna',
@@ -143,7 +144,7 @@ export function FeaturedNotesShelf() {
               <div className="flex items-baseline justify-between mb-1">
                 <div className="flex items-baseline gap-1.5">
                   <span className="text-lg font-black text-white">₹{book.price}</span>
-                  <span className="text-[10px] text-[#86868B] line-through">₹299</span>
+                  <span className="text-[10px] text-[#86868B] line-through">₹199</span>
                 </div>
                 <span className="text-[10px] font-mono text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded">
                   Hindi / Eng / ગુજ
@@ -161,7 +162,7 @@ export function FeaturedNotesShelf() {
                 </a>
                 <Link
                   to={`/notes?book=${book.id}`}
-                  className="py-2 px-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-black text-xs font-extrabold text-center transition-all shadow-md shadow-emerald-500/20 active:scale-95 truncate"
+                  className="py-2 px-2.5 rounded-xl bg-white hover:bg-zinc-200 text-black text-xs font-bold text-center transition-all shadow-md active:scale-95 truncate"
                 >
                   ⚡ Get ₹{book.price}
                 </Link>

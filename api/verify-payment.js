@@ -17,8 +17,10 @@ async function processVerifyLogic(data) {
   } = data;
 
   // ── SERVER-SIDE ENFORCED PRICING & PLAN SECURITY ───────────────────────
-  const enforcedPlan = plan === 'bundle' ? 'bundle' : 'single';
-  const price = enforcedPlan === 'bundle' ? 149 : 49;
+  const enforcedPlan = (plan === 'cheatsheet' || String(data.amount) === '22' || String(data.amount) === '2200')
+    ? 'cheatsheet'
+    : (plan === 'bundle' ? 'bundle' : 'single');
+  const price = enforcedPlan === 'cheatsheet' ? 22 : (enforcedPlan === 'bundle' ? 149 : 49);
 
   if (!order_id || !payment_id || !signature) {
     return {
@@ -70,9 +72,13 @@ async function processVerifyLogic(data) {
       coreEn: `${baseUrl}/downloads/Tally-Prime-English-Edition-1.pdf`,
       coreHi: `${baseUrl}/downloads/Tally-Prime-Hindi-Edition-1.pdf`,
       coreGu: `${baseUrl}/downloads/Tally-Prime-Gujarati-Edition-1.pdf`,
+      cheatSheetEn: `${baseUrl}/downloads/Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-English.pdf`,
+      cheatSheetHi: `${baseUrl}/downloads/Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-Edition-1.pdf`,
+      cheatSheetGu: `${baseUrl}/downloads/Tally-Prime-Quick-Desk-Reference-Cheat-Sheet-Gujarati.pdf`,
       bundleZip: `${baseUrl}/downloads/Tally-Prime-Career-Accelerator-Bundle.zip`,
       bundleZipSize: '15.2 MB',
-      pages: '120 Pages',
+      pages: '51 Pages',
+      cheatSheetPages: '8 Pages',
     },
     ai: {
       title: 'Artificial Intelligence Mastery',
@@ -131,9 +137,14 @@ async function processVerifyLogic(data) {
   };
 
   const subjectInfo = SUBJECT_CATALOG[subject] || SUBJECT_CATALOG.fundamentals;
-  const coreDownloadUrl = language === 'gu'
-    ? (subjectInfo.coreGu || subjectInfo.coreHi)
-    : (language === 'hi' ? subjectInfo.coreHi : subjectInfo.coreEn);
+  const isCheatSheetPlan = enforcedPlan === 'cheatsheet';
+  const coreDownloadUrl = isCheatSheetPlan
+    ? (language === 'gu'
+        ? (subjectInfo.cheatSheetGu || subjectInfo.cheatSheetHi)
+        : (language === 'hi' ? subjectInfo.cheatSheetHi : (subjectInfo.cheatSheetEn || subjectInfo.cheatSheetHi)))
+    : (language === 'gu'
+        ? (subjectInfo.coreGu || subjectInfo.coreHi)
+        : (language === 'hi' ? subjectInfo.coreHi : subjectInfo.coreEn));
   const alternateDownloadUrl = language === 'hi' ? subjectInfo.coreEn : subjectInfo.coreHi;
   const bundleZipUrl = subjectInfo.bundleZip;
   const resolvedSubjectTitle = subjectTitle || subjectInfo.title;

@@ -31,10 +31,18 @@ async function processOrderLogic(data) {
   // ── SECURITY ENFORCEMENT: STRICT SERVER-SIDE PRICING CATALOG ─────────
   // Prevents parameter tampering (attacker cannot send amount: 1 to get a cheap order)
   const OFFICIAL_PRICES = {
-    single: 4900,  // ₹49.00 in paise
-    bundle: 14900, // ₹149.00 in paise
+    cheatsheet: 2200, // ₹22.00 in paise (Tally 8-Page Desk Cheat Sheet)
+    single: 4900,     // ₹49.00 in paise (Core Master Guide)
+    bundle: 14900,    // ₹149.00 in paise (Complete Career Suite)
   };
-  const enforcedPlan = (plan === 'bundle' || String(amount) === '149' || String(amount) === '14900') ? 'bundle' : 'single';
+  let enforcedPlan = 'single';
+  if (plan === 'cheatsheet' || String(amount) === '22' || String(amount) === '2200') {
+    enforcedPlan = 'cheatsheet';
+  } else if (plan === 'bundle' || String(amount) === '149' || String(amount) === '14900') {
+    enforcedPlan = 'bundle';
+  } else {
+    enforcedPlan = 'single';
+  }
   const amountInPaise = OFFICIAL_PRICES[enforcedPlan];
 
   const receiptId = receipt || `rcpt_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;

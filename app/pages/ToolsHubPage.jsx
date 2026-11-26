@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { Link, useLocation, useSearchParams } from 'react-router';
 import { CATEGORIES, TOOL_COUNT, TOOLS, toolsByCategory } from '../../src/data/toolCatalog';
 import { ToolCard } from '../../src/components/tools/ToolShell';
 import { getTriedTools } from '../../src/utils/toolProgress';
@@ -40,6 +40,9 @@ export function ToolsHubPage() {
   const percent = Math.round((tried.length / TOOL_COUNT) * 100);
   const nextUp = ordered.filter((tool) => !triedSet.has(tool.slug)).slice(0, 4);
 
+  const location = useLocation();
+  const isHindi = location.pathname.startsWith('/hi');
+
   const selectCategory = (id) => {
     if (!id) setParams({});
     else setParams({ category: id });
@@ -48,14 +51,15 @@ export function ToolsHubPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-electric-400">
-        Free engineering toolkit
+        {isHindi ? 'निःशुल्क इंजीनियरिंग टूलकिट' : 'Free engineering toolkit'}
       </p>
       <h1 className="max-w-3xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-        {TOOL_COUNT} tools for every track you study.
+        {isHindi ? `आपके अध्ययन के प्रत्येक ट्रैक के लिए ${TOOL_COUNT} टूल्स।` : `${TOOL_COUNT} tools for every track you study.`}
       </h1>
       <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 sm:text-base">
-        Networking, hardware, cyber security, ethical hacking, cloud, AI, design, computer fundamentals and
-        Office 365. Everything runs in your browser — nothing to install, nothing to sign up for.
+        {isHindi
+          ? 'नेटवर्किंग, हार्डवेयर, साइबर सुरक्षा, एथिकल हैकिंग, क्लाउड, AI, डिज़ाइन, कंप्यूटर फंडामेंटल्स और Office 365. सब कुछ सीधे आपके ब्राउज़र में चलता है — बिना किसी इंस्टॉलेशन या साइन-अप के।'
+          : 'Networking, hardware, cyber security, ethical hacking, cloud, AI, design, computer fundamentals and Office 365. Everything runs in your browser — nothing to install, nothing to sign up for.'}
       </p>
 
       {/* Progress strip: turns a catalogue into something to work through. */}

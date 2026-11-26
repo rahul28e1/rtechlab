@@ -15,6 +15,12 @@ export default [
   route("quiz/:module", "pages/QuizPage.jsx", { id: "quiz-module" }),
   route("quiz/:module/:chapter", "pages/QuizPage.jsx", { id: "quiz-module-chapter" }),
   route("q/:code", "pages/QrRedirect.jsx"),
+  // Hindi Routes
+  route("hi", "pages/HomePage.jsx", { id: "hi-home" }),
+  route("hi/about", "pages/AboutPage.jsx", { id: "hi-about" }),
+  route("hi/contact", "pages/ContactPage.jsx", { id: "hi-contact" }),
+  route("hi/tools", "pages/ToolsHubPage.jsx", { id: "hi-tools" }),
+  route("hi/tools/:slug", "pages/ToolDetailPage.jsx", { id: "hi-tool-detail" }),
   route("hi/notes", "pages/NotesHiPage.jsx"),
   route("hi/notes/sample", "pages/SampleHiPage.jsx"),
   route("hi/quiz/:module", "pages/QuizHiPage.jsx"),
